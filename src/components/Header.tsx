@@ -42,14 +42,23 @@ export const Header: React.FC = () => {
             </button>
           )}
 
-          {/* Dynamic Greeting Logo */}
+          {/* Logo with Multiple Text and Arabic Subtext */}
           <button
             onClick={() => setActiveTab('list')}
-            className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white tracking-tight hover:opacity-80 transition-opacity flex items-center gap-1.5"
-            title="UAE Companies Directory"
+            className="flex items-center gap-2.5 text-left hover:opacity-90 transition-opacity"
+            title="University of Dubai"
           >
-            <span>Hey {username.trim() ? username.trim() : 'there'}</span>
-            <span className="text-sm sm:text-base select-none">👋</span>
+            <div className="w-8 h-8 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-950 flex items-center justify-center font-bold text-xs shrink-0 shadow-xs">
+              UD
+            </div>
+            <div className="flex flex-col leading-tight">
+              <span className="text-xs sm:text-sm font-bold tracking-tight text-slate-900 dark:text-white uppercase">
+                UNIVERSITY <span className="font-normal text-slate-500 dark:text-slate-400">of</span> DUBAI
+              </span>
+              <span className="text-[10px] text-slate-400 dark:text-slate-500 font-normal" dir="rtl">
+                جامعة دبي
+              </span>
+            </div>
           </button>
         </div>
 

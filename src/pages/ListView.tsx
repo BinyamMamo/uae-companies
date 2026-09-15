@@ -4,7 +4,8 @@ import { FilterSidebar } from '../components/FilterSidebar';
 import { CompanyCard } from '../components/CompanyCard';
 import { CompanyDrawer } from '../components/CompanyDrawer';
 import { CompanyBottomSheet } from '../components/CompanyBottomSheet';
-import { SearchX, Search, X } from 'lucide-react';
+import { Dropdown } from '../components/Dropdown';
+import { SearchX, Search, X, Scale } from 'lucide-react';
 
 export const ListView: React.FC = () => {
   const {
@@ -14,12 +15,17 @@ export const ListView: React.FC = () => {
     filters,
     setFilters,
     clearFilters,
-    isMobileFilterOpen
+    isMobileFilterOpen,
+    compareCompanyIds,
+    setIsCompareModalOpen
   } = useApp();
 
-  const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFilters(prev => ({ ...prev, sortBy: e.target.value as any }));
-  };
+  const sortOptions = [
+    { value: 'nearest', label: 'Nearest' },
+    { value: 'relevance', label: 'Most relevant' },
+    { value: 'name', label: 'Company name' },
+    { value: 'saved', label: 'Saved first' },
+  ];
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
@@ -70,21 +76,35 @@ export const ListView: React.FC = () => {
               )}
             </div>
 
-            <div className="flex items-center gap-2">
-              <label htmlFor="list-sort-select" className="hidden sm:inline text-slate-500 dark:text-slate-400">
-                Sort by:
-              </label>
-              <select
-                id="list-sort-select"
-                value={filters.sortBy}
-                onChange={handleSortChange}
-                className="bg-transparent font-medium text-slate-800 dark:text-slate-200 cursor-pointer focus:outline-none hover:text-brand-600 dark:hover:text-brand-400 transition"
+            <div className="flex items-center gap-2.5">
+              {/* Compare Button */}
+              <button
+                type="button"
+                onClick={() => setIsCompareModalOpen(true)}
+                className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 dark:border-[#27272a] bg-white dark:bg-[#18181b] text-slate-700 dark:text-slate-200 hover:border-brand-500/70 hover:text-brand-600 dark:hover:text-brand-400 transition shadow-2xs"
+                title="Compare companies side-by-side"
               >
-                <option value="nearest" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">Nearest</option>
-                <option value="relevance" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">Most relevant</option>
-                <option value="name" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">Company name</option>
-                <option value="saved" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">Saved first</option>
-              </select>
+                <Scale className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400" />
+                <span>Compare</span>
+                {compareCompanyIds.length > 0 && (
+                  <span className="w-4 h-4 rounded-full bg-brand-600 text-white text-[10px] font-bold flex items-center justify-center">
+                    {compareCompanyIds.length}
+                  </span>
+                )}
+              </button>
+
+              {/* Sort by Custom Dropdown */}
+              <div className="flex items-center gap-1.5">
+                <span className="hidden sm:inline text-xs text-slate-500 dark:text-slate-400 font-medium">
+                  Sort:
+                </span>
+                <Dropdown
+                  value={filters.sortBy}
+                  onChange={(val) => setFilters(prev => ({ ...prev, sortBy: val as any }))}
+                  options={sortOptions}
+                  size="sm"
+                />
+              </div>
             </div>
           </div>
 

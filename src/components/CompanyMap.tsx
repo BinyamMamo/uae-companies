@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import type { Company } from '../types/company';
 import { useApp } from '../context/AppContext';
 import { formatBusCommute, formatDistance } from '../utils/distance';
-import { Home, Locate, Layers, ExternalLink, MapPin, Navigation, RotateCcw } from 'lucide-react';
+import { Home, Locate, Layers, ExternalLink, MapPin, Navigation, RotateCcw, X } from 'lucide-react';
 
 interface CompanyMapProps {
   companies: Company[];
@@ -46,19 +46,24 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
   const markersLayerRef = useRef<L.LayerGroup | null>(null);
   const districtsLayerRef = useRef<L.LayerGroup | null>(null);
   const userMarkerRef = useRef<L.Marker | null>(null);
+  const onSelectCompanyRef = useRef(onSelectCompany);
+
+  useEffect(() => {
+    onSelectCompanyRef.current = onSelectCompany;
+  }, [onSelectCompany]);
   
   const [activePopupCompany, setActivePopupCompany] = useState<Company | null>(null);
-  const [mapStyle, setMapStyle] = useState<'dark' | 'osm' | 'esriDark'>('dark');
+  const [mapStyle, setMapStyle] = useState<'dark' | 'osm' | 'satellite'>('dark');
   const [isClickToSetMode, setIsClickToSetMode] = useState<boolean>(false);
   const [locationToast, setLocationToast] = useState<string | null>(null);
 
-  // Tile Providers (100% Free, NO API keys needed)
+  // Tile Providers (100% Free, NO API keys needed, NO watermarks)
   const TILE_CONFIGS = {
     dark: {
-      url: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-      maxZoom: 19,
-      subdomains: 'abcd',
-      name: 'Dark Minimal (Carto)'
+      url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+      maxZoom: 16,
+      subdomains: 'abc',
+      name: 'Dark Gray (Esri)'
     },
     osm: {
       url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -66,11 +71,11 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
       subdomains: 'abc',
       name: 'OpenStreetMap'
     },
-    esriDark: {
-      url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
-      maxZoom: 16,
+    satellite: {
+      url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+      maxZoom: 18,
       subdomains: 'abc',
-      name: 'Esri Dark Gray'
+      name: 'Satellite (Esri)'
     }
   };
 
@@ -84,10 +89,14 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
     if (!mapContainerRef.current) return;
 
     if (!mapInstanceRef.current) {
-      // Initialize map centered around Dubai or user location
+      // Initialize map centered around Dubai tech corridor for crisp initial framing
       const map = L.map(mapContainerRef.current, {
-        center: [userLocation.latitude, userLocation.longitude],
-        zoom: 11,
+        center: [25.135, 55.285],
+        zoom: 11.5,
+        zoomSnap: 0.5,
+        zoomDelta: 0.5,
+        minZoom: 9,
+        maxZoom: 18,
         zoomControl: false,
         attributionControl: false,
       });
@@ -226,7 +235,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
   }, [isClickToSetMode, setUserLocation]);
 
   // Handle Tile Style Switcher
-  const handleSwitchTile = (newStyle: 'dark' | 'osm' | 'esriDark') => {
+  const handleSwitchTile = (newStyle: 'dark' | 'osm' | 'satellite') => {
     setMapStyle(newStyle);
     const map = mapInstanceRef.current;
     if (!map) return;
@@ -242,7 +251,10 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
     }).addTo(map);
   };
 
-  // Update Company Markers
+  const prevCategoryCountRef = useRef<number>(companies.length);
+  const isFirstRenderRef = useRef<boolean>(true);
+
+  // Update Company Markers (preserves zoom when pins are clicked)
   useEffect(() => {
     const map = mapInstanceRef.current;
     const markersLayer = markersLayerRef.current;
@@ -250,14 +262,9 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
 
     markersLayer.clearLayers();
 
-    const latLngs: L.LatLngExpression[] = [
-      [userLocation.latitude, userLocation.longitude]
-    ];
-
     companies.forEach(company => {
       const lat = company.location.latitude;
       const lon = company.location.longitude;
-      latLngs.push([lat, lon]);
 
       const primaryCat = company.categories[0] || 'Other';
       const colorScheme = CATEGORY_COLORS[primaryCat] || CATEGORY_COLORS['Other'];
@@ -281,7 +288,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
 
       marker.on('click', () => {
         setActivePopupCompany(company);
-        onSelectCompany(company);
+        onSelectCompanyRef.current(company);
       });
 
       marker.on('mouseover', () => {
@@ -291,11 +298,18 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
       markersLayer.addLayer(marker);
     });
 
-    if (latLngs.length > 1) {
-      const bounds = L.latLngBounds(latLngs);
-      map.fitBounds(bounds, { padding: [50, 50], maxZoom: 13 });
+    // Only adjust bounds when the user actively filters categories, never on initial mount or pin click
+    if (isFirstRenderRef.current) {
+      isFirstRenderRef.current = false;
+      prevCategoryCountRef.current = companies.length;
+    } else if (companies.length !== prevCategoryCountRef.current) {
+      prevCategoryCountRef.current = companies.length;
+      if (companies.length > 0 && companies.length <= 40) {
+        const bounds = L.latLngBounds(companies.map(c => [c.location.latitude, c.location.longitude]));
+        map.fitBounds(bounds, { padding: [60, 60], maxZoom: 13 });
+      }
     }
-  }, [companies, onSelectCompany, userLocation]);
+  }, [companies]);
 
   const handleCenterOnUser = () => {
     if (mapInstanceRef.current) {
@@ -342,7 +356,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
   };
 
   return (
-    <div className={`relative w-full h-full min-h-[580px] rounded-lg overflow-hidden border border-[#27272a] bg-[#121214] ${isClickToSetMode ? 'cursor-crosshair' : ''}`}>
+    <div className={`relative w-full h-full min-h-[580px] rounded-lg overflow-hidden border border-slate-200 dark:border-[#27272a] bg-slate-100 dark:bg-[#121214] ${isClickToSetMode ? 'cursor-crosshair' : ''}`}>
       
       {/* Map Leaflet Canvas */}
       <div ref={mapContainerRef} className="w-full h-full min-h-[580px]" />
@@ -359,13 +373,13 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
       <div className="absolute top-4 right-4 z-[1000] flex flex-col items-end gap-2">
         
         {/* Set Location Action Toolbar */}
-        <div className="flex items-center gap-1.5 bg-[#18181b]/95 backdrop-blur-md p-1.5 rounded-lg border border-[#27272a] shadow-lg">
+        <div className="flex items-center gap-1.5 bg-white/95 dark:bg-[#18181b]/95 backdrop-blur-md p-1.5 rounded-lg border border-slate-200 dark:border-[#27272a] shadow-lg transition-colors">
           <button
             onClick={() => setIsClickToSetMode(prev => !prev)}
             className={`px-2.5 py-1 text-xs font-medium rounded flex items-center gap-1.5 transition ${
               isClickToSetMode
                 ? 'bg-brand-600 text-white shadow-xs'
-                : 'text-slate-300 hover:text-white hover:bg-[#222226]'
+                : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226]'
             }`}
             title="Click to enable placing your location pin anywhere on the map"
           >
@@ -375,7 +389,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
 
           <button
             onClick={handleUseGps}
-            className="p-1.5 rounded text-slate-300 hover:text-white hover:bg-[#222226] transition"
+            className="p-1.5 rounded text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226] transition"
             title="Use My GPS Location"
             aria-label="Use My GPS Location"
           >
@@ -385,7 +399,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
           {userLocation.isCustom && (
             <button
               onClick={handleResetLocation}
-              className="p-1.5 rounded text-slate-300 hover:text-white hover:bg-[#222226] transition"
+              className="p-1.5 rounded text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226] transition"
               title="Reset location to Academic City"
               aria-label="Reset location to Academic City"
             >
@@ -395,57 +409,57 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
         </div>
 
         {/* Map Tile Provider Selector */}
-        <div className="flex items-center gap-1 bg-[#18181b]/95 backdrop-blur-md p-1 rounded-lg border border-[#27272a] shadow-lg">
+        <div className="flex items-center gap-1 bg-white/95 dark:bg-[#18181b]/95 backdrop-blur-md p-1 rounded-lg border border-slate-200 dark:border-[#27272a] shadow-lg transition-colors">
           <Layers className="w-3.5 h-3.5 text-slate-400 ml-1.5 mr-1" />
           <button
             onClick={() => handleSwitchTile('dark')}
             className={`px-2 py-0.5 text-[11px] font-medium rounded transition ${
-              mapStyle === 'dark' ? 'bg-brand-600 text-white' : 'text-slate-300 hover:text-white'
+              mapStyle === 'dark' ? 'bg-brand-600 text-white shadow-xs' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226]'
             }`}
-            title="Carto Dark Minimal"
+            title="Esri Dark Gray Minimal (No watermark)"
           >
             Dark
           </button>
           <button
             onClick={() => handleSwitchTile('osm')}
             className={`px-2 py-0.5 text-[11px] font-medium rounded transition ${
-              mapStyle === 'osm' ? 'bg-brand-600 text-white' : 'text-slate-300 hover:text-white'
+              mapStyle === 'osm' ? 'bg-brand-600 text-white shadow-xs' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226]'
             }`}
-            title="OpenStreetMap"
+            title="OpenStreetMap Street View"
           >
             Street
           </button>
           <button
-            onClick={() => handleSwitchTile('esriDark')}
+            onClick={() => handleSwitchTile('satellite')}
             className={`px-2 py-0.5 text-[11px] font-medium rounded transition ${
-              mapStyle === 'esriDark' ? 'bg-brand-600 text-white' : 'text-slate-300 hover:text-white'
+              mapStyle === 'satellite' ? 'bg-brand-600 text-white shadow-xs' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226]'
             }`}
-            title="Esri Dark Gray"
+            title="Esri Satellite Imagery"
           >
-            Esri
+            Satellite
           </button>
         </div>
       </div>
 
       {/* Floating Bottom Left: User Location Commute Reference Badge */}
-      <div className="absolute bottom-6 left-6 z-[1000] bg-[#18181b]/95 backdrop-blur-md border border-[#27272a] rounded-lg p-3 text-white shadow-xl flex items-center gap-3">
-        <div className="w-8 h-8 rounded-full bg-brand-500/20 border border-brand-500/50 flex items-center justify-center text-brand-400 shrink-0">
+      <div className="absolute bottom-6 left-6 z-[1000] bg-white/95 dark:bg-[#18181b]/95 backdrop-blur-md border border-slate-200 dark:border-[#27272a] rounded-lg p-3 text-slate-800 dark:text-white shadow-xl flex items-center gap-3 transition-colors">
+        <div className="w-8 h-8 rounded-full bg-brand-500/20 border border-brand-500/50 flex items-center justify-center text-brand-500 shrink-0">
           <Home className="w-4 h-4" />
         </div>
         <div className="min-w-0">
-          <div className="text-[10px] uppercase font-semibold text-slate-400 tracking-wider">
+          <div className="text-[10px] uppercase font-semibold text-slate-500 dark:text-slate-400 tracking-wider">
             {userLocation.isCustom ? 'Your Custom Location' : 'Default Reference Location'}
           </div>
-          <div className="text-xs font-semibold text-white truncate max-w-[200px]">
+          <div className="text-xs font-semibold text-slate-900 dark:text-white truncate max-w-[200px]">
             {userLocation.name}
           </div>
-          <div className="text-[11px] text-slate-400">
+          <div className="text-[11px] text-slate-500 dark:text-slate-400">
             {userLocation.latitude.toFixed(3)}° N, {userLocation.longitude.toFixed(3)}° E · (drag pin to move)
           </div>
         </div>
         <button
           onClick={handleCenterOnUser}
-          className="ml-1 p-1.5 rounded hover:bg-[#222226] text-slate-400 hover:text-white transition"
+          className="ml-1 p-1.5 rounded hover:bg-slate-100 dark:hover:bg-[#222226] text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
           title="Center map on your location"
           aria-label="Center map on your location"
         >
@@ -456,39 +470,55 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
       {/* Floating Selected Company Popup Card */}
       {activePopupCompany && (
         <div
-          onClick={() => onSelectCompany(activePopupCompany)}
-          className="absolute top-28 right-4 z-[1000] bg-white dark:bg-[#18181b] rounded-lg p-4 shadow-popup border border-slate-200 dark:border-[#27272a] max-w-xs cursor-pointer transition-all hover:scale-[1.02] text-slate-900 dark:text-slate-100"
+          className="absolute top-28 right-4 z-[1000] bg-white dark:bg-[#18181b] rounded-lg p-3.5 shadow-popup border border-slate-200 dark:border-[#27272a] max-w-xs transition-all text-slate-900 dark:text-slate-100"
         >
-          <div className="flex items-start gap-3">
-            <div className="w-10 h-10 rounded border border-slate-200 dark:border-[#27272a] bg-slate-50 dark:bg-[#222226] flex items-center justify-center p-1 shrink-0">
-              <img
-                src={activePopupCompany.logo}
-                alt={activePopupCompany.name}
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="flex-1 min-w-0">
-              <h4 className="text-sm font-bold text-slate-900 dark:text-white truncate">
-                {activePopupCompany.name}
-              </h4>
-              <div className="text-xs text-slate-500 dark:text-slate-400">
-                {activePopupCompany.categories.slice(0, 2).join(' · ')}
+          <div className="flex items-start justify-between gap-2">
+            <div
+              className="flex items-start gap-3 cursor-pointer flex-1 min-w-0"
+              onClick={() => onSelectCompanyRef.current(activePopupCompany)}
+            >
+              <div className="w-10 h-10 rounded border border-slate-200 dark:border-[#27272a] bg-slate-50 dark:bg-[#222226] flex items-center justify-center p-1 shrink-0">
+                <img
+                  src={activePopupCompany.logo}
+                  alt={activePopupCompany.name}
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300 mt-2">
-                <span className="font-semibold text-slate-800 dark:text-slate-200">
-                  {formatDistance(activePopupCompany.commute.distanceKm)}
-                </span>
-                <span className="text-slate-300 dark:text-slate-600">·</span>
-                <span className="text-brand-600 dark:text-brand-400 font-medium">
-                  {formatBusCommute(activePopupCompany.commute.busMinutes)}
-                </span>
+              <div className="flex-1 min-w-0">
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white truncate">
+                  {activePopupCompany.name}
+                </h4>
+                <div className="text-xs text-slate-500 dark:text-slate-400">
+                  {activePopupCompany.categories.slice(0, 2).join(' · ')}
+                </div>
+                <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300 mt-2">
+                  <span className="font-semibold text-slate-800 dark:text-slate-200">
+                    {formatDistance(activePopupCompany.commute.distanceKm)}
+                  </span>
+                  <span className="text-slate-300 dark:text-slate-600">·</span>
+                  <span className="text-brand-600 dark:text-brand-400 font-medium">
+                    {formatBusCommute(activePopupCompany.commute.busMinutes)}
+                  </span>
+                </div>
               </div>
             </div>
+            <button
+              onClick={() => setActivePopupCompany(null)}
+              className="p-1 rounded text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-[#222226] transition"
+              title="Close popup"
+              aria-label="Close popup"
+            >
+              <X className="w-4 h-4" />
+            </button>
           </div>
-          <div className="mt-2.5 pt-2 border-t border-slate-100 dark:border-[#27272a] flex items-center justify-between text-[11px] text-brand-600 dark:text-brand-400 font-semibold">
+          <button
+            type="button"
+            onClick={() => onSelectCompanyRef.current(activePopupCompany)}
+            className="w-full mt-2.5 pt-2 border-t border-slate-100 dark:border-[#27272a] flex items-center justify-between text-[11px] text-brand-600 dark:text-brand-400 font-semibold hover:underline"
+          >
             <span>Click to open detail drawer</span>
             <ExternalLink className="w-3 h-3" />
-          </div>
+          </button>
         </div>
       )}
 

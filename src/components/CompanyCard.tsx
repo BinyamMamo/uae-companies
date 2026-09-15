@@ -39,7 +39,7 @@ export const CompanyCard: React.FC<CompanyCardProps> = ({ company, isSelected = 
       className={`relative bg-white dark:bg-[#18181b] border rounded-lg p-4 sm:p-5 transition-all cursor-pointer group ${
         isSelected
           ? 'border-brand-600 ring-1 ring-brand-600 shadow-sm'
-          : 'border-slate-200 dark:border-[var(--accent-card-border)] hover:border-slate-300 dark:hover:border-[var(--accent-card-border-hover)] hover:shadow-subtle'
+          : 'border-slate-200 dark:border-[#27272a] hover:border-slate-300 dark:hover:border-[#3f3f46] hover:shadow-subtle'
       }`}
     >
       <div className="flex items-start justify-between gap-3">
@@ -108,10 +108,10 @@ export const CompanyCard: React.FC<CompanyCardProps> = ({ company, isSelected = 
                 return (
                   <span
                     key={role}
-                    className={`inline-flex items-center px-2 py-0.5 text-[11px] rounded transition-colors border ${
+                    className={`inline-flex items-center px-2 py-0.5 text-[11px] rounded transition-colors border bg-transparent ${
                       relevant
-                        ? 'bg-brand-50/90 dark:bg-[var(--accent-tag-bg)] text-brand-800 dark:text-[var(--accent-tag-text)] font-medium border-brand-200/80 dark:border-[var(--accent-tag-border)] shadow-2xs'
-                        : 'bg-slate-50 dark:bg-[#222226] text-slate-600 dark:text-slate-300 font-normal border-slate-200 dark:border-[#27272a]'
+                        ? 'text-brand-600 dark:text-brand-400 font-medium border-brand-500/80 dark:border-brand-400 shadow-2xs'
+                        : 'text-slate-600 dark:text-slate-400 font-normal border-slate-200 dark:border-[#27272a]'
                     }`}
                   >
                     {role}

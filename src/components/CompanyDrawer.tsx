@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { Company } from '../types/company';
 import { useApp } from '../context/AppContext';
 import { formatBusCommute, formatDistance } from '../utils/distance';
@@ -29,6 +29,15 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
 
   const isSaved = isCompanySaved(company.id);
 
+  // Close on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
   // Find similar companies
   const similarCompanies = companies
     .filter(c => c.id !== company.id && (
@@ -46,11 +55,20 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
   ];
 
   return (
-    <aside
-      className="fixed inset-y-0 right-0 z-40 w-full max-w-lg bg-white dark:bg-[#18181b] border-l border-slate-200 dark:border-[#27272a] shadow-drawer flex flex-col transition-all duration-200 ease-out"
-      role="dialog"
-      aria-label={`${company.name} Details`}
-    >
+    <>
+      {/* Backdrop overlay so drawer stands out above map/pages and clicks outside close it */}
+      <div
+        className="fixed inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-xs z-[9998] transition-opacity animate-fadeIn"
+        onClick={onClose}
+        aria-hidden="true"
+      />
+
+      <aside
+        className="fixed inset-y-0 right-0 z-[9999] w-full max-w-lg bg-white dark:bg-[#18181b] border-l border-slate-200 dark:border-[#27272a] shadow-[-16px_0_48px_rgba(0,0,0,0.35)] dark:shadow-[-20px_0_56px_rgba(0,0,0,0.75)] flex flex-col transition-all duration-200 ease-out"
+        role="dialog"
+        aria-modal="true"
+        aria-label={`${company.name} Details`}
+      >
       {/* Drawer Header */}
       <div className="p-5 border-b border-slate-200 dark:border-[#27272a]">
         
@@ -547,5 +565,6 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
 
       </div>
     </aside>
+    </>
   );
 };

@@ -35,14 +35,18 @@ export const MapView: React.FC = () => {
     });
   }, [companies, activeCategory, isFreeZoneOnly]);
 
+  const handleSelectCompany = React.useCallback((company: any) => {
+    setSelectedCompany(company);
+  }, [setSelectedCompany]);
+
   return (
-    <div className="relative w-full h-[calc(100vh-3.5rem)] flex flex-col bg-[#121214]">
+    <div className="relative w-full h-[calc(100vh-3.5rem)] flex flex-col bg-slate-100 dark:bg-[#121214] transition-colors">
       
-      {/* Top Map Filter Controls (matching screenshot bottom-left) */}
+      {/* Top Map Filter Controls */}
       <div className="absolute top-4 left-4 right-4 z-[900] flex flex-wrap items-center justify-between gap-2 pointer-events-none">
         
         {/* Category Pills */}
-        <div className="flex items-center gap-1.5 bg-[#18181b]/95 backdrop-blur-md p-1.5 rounded-lg border border-[#27272a] shadow-lg pointer-events-auto overflow-x-auto max-w-full">
+        <div className="flex items-center gap-1.5 bg-white/95 dark:bg-[#18181b]/95 backdrop-blur-md p-1.5 rounded-lg border border-slate-200 dark:border-[#27272a] shadow-lg pointer-events-auto overflow-x-auto max-w-full transition-colors">
           {categories.map(cat => {
             const isActive = activeCategory === cat;
             return (
@@ -52,7 +56,7 @@ export const MapView: React.FC = () => {
                 className={`px-3 py-1 text-xs font-medium rounded transition whitespace-nowrap ${
                   isActive
                     ? 'bg-brand-600 text-white shadow-xs'
-                    : 'text-slate-300 hover:text-white hover:bg-[#222226]'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226]'
                 }`}
               >
                 {cat}
@@ -67,11 +71,11 @@ export const MapView: React.FC = () => {
             onClick={() => setIsFreeZoneOnly(prev => !prev)}
             className={`flex items-center gap-2 px-3 py-2 text-xs font-medium rounded-lg border backdrop-blur-md shadow-lg transition ${
               isFreeZoneOnly
-                ? 'bg-brand-600 text-white border-brand-500'
-                : 'bg-[#18181b]/95 text-slate-300 border-[#27272a] hover:text-white hover:bg-[#222226]'
+                ? 'bg-brand-600 text-white border-brand-500 shadow-xs'
+                : 'bg-white/95 dark:bg-[#18181b]/95 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-[#27272a] hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226]'
             }`}
           >
-            <span className={`w-2 h-2 rounded-full ${isFreeZoneOnly ? 'bg-white' : 'bg-slate-400'}`} />
+            <span className={`w-2 h-2 rounded-full ${isFreeZoneOnly ? 'bg-white' : 'bg-slate-400 dark:bg-slate-500'}`} />
             <span>Free Zone Only</span>
           </button>
         </div>
@@ -82,7 +86,7 @@ export const MapView: React.FC = () => {
       <div className="flex-1 w-full h-full">
         <CompanyMap
           companies={filteredForMap}
-          onSelectCompany={(company) => setSelectedCompany(company)}
+          onSelectCompany={handleSelectCompany}
         />
       </div>
 

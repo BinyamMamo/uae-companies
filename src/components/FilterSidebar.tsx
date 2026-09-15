@@ -1,5 +1,6 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
+import { Dropdown } from './Dropdown';
 import { X, RotateCcw } from 'lucide-react';
 
 interface FilterSidebarProps {
@@ -57,6 +58,19 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({ isMobileDrawer = f
     { id: 'saved', label: 'Saved first' },
   ];
 
+  const locationDropdownOptions = locationOptions.map(loc => ({ value: loc, label: loc }));
+  const areaDropdownOptions = areaOptions.map(area => ({ value: area, label: area }));
+  const distanceDropdownOptions = distanceOptions.map(dist => ({
+    value: dist.maxKm === null ? 'null' : String(dist.maxKm),
+    label: dist.label
+  }));
+  const freeZoneDropdownOptions = [
+    { value: 'any', label: 'Any Status' },
+    { value: 'freezone', label: 'Free Zone Only (e.g. DIC, DSO, DIFC)' },
+    { value: 'non-freezone', label: 'Mainland / Non-Free Zone' },
+  ];
+  const sortDropdownOptions = sortOptions.map(s => ({ value: s.id, label: s.label }));
+
   const toggleCompanyType = (type: string) => {
     setFilters(prev => {
       const exists = prev.companyTypes.includes(type);
@@ -67,23 +81,6 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({ isMobileDrawer = f
           : [...prev.companyTypes, type]
       };
     });
-  };
-
-  const handleLocationChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFilters(prev => ({ ...prev, location: e.target.value }));
-  };
-
-  const handleAreaChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFilters(prev => ({ ...prev, area: e.target.value }));
-  };
-
-  const handleDistanceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const val = e.target.value === 'null' ? null : Number(e.target.value);
-    setFilters(prev => ({ ...prev, distanceMax: val }));
-  };
-
-  const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFilters(prev => ({ ...prev, sortBy: e.target.value as any }));
   };
 
   const content = (
@@ -131,95 +128,80 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({ isMobileDrawer = f
 
       {/* Location Section */}
       <div>
-        <label htmlFor="filter-location-select" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
           Location
         </label>
-        <select
-          id="filter-location-select"
+        <Dropdown
           value={filters.location}
-          onChange={handleLocationChange}
-          className="w-full text-xs text-slate-800 dark:text-slate-200 bg-white dark:bg-[#18181b] border border-slate-200 dark:border-[#27272a] rounded px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-brand-600 transition"
-        >
-          {locationOptions.map(loc => (
-            <option key={loc} value={loc} className="bg-white dark:bg-[#18181b] text-slate-900 dark:text-slate-100">{loc}</option>
-          ))}
-        </select>
+          onChange={(val) => setFilters(prev => ({ ...prev, location: val }))}
+          options={locationDropdownOptions}
+          className="w-full"
+          buttonClassName="w-full"
+        />
       </div>
 
       {/* Area Section */}
       <div>
-        <label htmlFor="filter-area-select" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
           Area / District
         </label>
-        <select
-          id="filter-area-select"
+        <Dropdown
           value={filters.area}
-          onChange={handleAreaChange}
-          className="w-full text-xs text-slate-800 dark:text-slate-200 bg-white dark:bg-[#18181b] border border-slate-200 dark:border-[#27272a] rounded px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-brand-600 transition"
-        >
-          {areaOptions.map(area => (
-            <option key={area} value={area} className="bg-white dark:bg-[#18181b] text-slate-900 dark:text-slate-100">{area}</option>
-          ))}
-        </select>
+          onChange={(val) => setFilters(prev => ({ ...prev, area: val }))}
+          options={areaDropdownOptions}
+          className="w-full"
+          buttonClassName="w-full"
+        />
       </div>
 
       {/* Distance Filter */}
       <div>
-        <label htmlFor="filter-distance-select" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
           Distance from {userLocation?.name?.split(',')[0] || 'Academic City'}
         </label>
-        <select
-          id="filter-distance-select"
+        <Dropdown
           value={filters.distanceMax === null ? 'null' : String(filters.distanceMax)}
-          onChange={handleDistanceChange}
-          className="w-full text-xs text-slate-800 dark:text-slate-200 bg-white dark:bg-[#18181b] border border-slate-200 dark:border-[#27272a] rounded px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-brand-600 transition"
-        >
-          {distanceOptions.map(dist => (
-            <option key={dist.label} value={dist.maxKm === null ? 'null' : String(dist.maxKm)} className="bg-white dark:bg-[#18181b] text-slate-900 dark:text-slate-100">
-              {dist.label}
-            </option>
-          ))}
-        </select>
+          onChange={(val) => {
+            const num = val === 'null' ? null : Number(val);
+            setFilters(prev => ({ ...prev, distanceMax: num }));
+          }}
+          options={distanceDropdownOptions}
+          className="w-full"
+          buttonClassName="w-full"
+        />
       </div>
 
       {/* Free Zone Filter */}
       <div>
-        <label htmlFor="filter-freezone-select" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
           Free Zone Status
         </label>
-        <select
-          id="filter-freezone-select"
+        <Dropdown
           value={filters.isFreeZoneOnly === null ? 'any' : filters.isFreeZoneOnly ? 'freezone' : 'non-freezone'}
-          onChange={(e) => {
-            const v = e.target.value;
+          onChange={(val) => {
             setFilters(prev => ({
               ...prev,
-              isFreeZoneOnly: v === 'any' ? null : v === 'freezone'
+              isFreeZoneOnly: val === 'any' ? null : val === 'freezone'
             }));
           }}
-          className="w-full text-xs text-slate-800 dark:text-slate-200 bg-white dark:bg-[#18181b] border border-slate-200 dark:border-[#27272a] rounded px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-brand-600 transition"
-        >
-          <option value="any" className="bg-white dark:bg-[#18181b] text-slate-900 dark:text-slate-100">Any Status</option>
-          <option value="freezone" className="bg-white dark:bg-[#18181b] text-slate-900 dark:text-slate-100">Free Zone Only (e.g. DIC, DSO, DIFC)</option>
-          <option value="non-freezone" className="bg-white dark:bg-[#18181b] text-slate-900 dark:text-slate-100">Mainland / Non-Free Zone</option>
-        </select>
+          options={freeZoneDropdownOptions}
+          className="w-full"
+          buttonClassName="w-full"
+        />
       </div>
 
       {/* Sort by */}
       <div>
-        <label htmlFor="filter-sort-select" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
           Sort by
         </label>
-        <select
-          id="filter-sort-select"
+        <Dropdown
           value={filters.sortBy}
-          onChange={handleSortChange}
-          className="w-full text-xs text-slate-800 dark:text-slate-200 bg-white dark:bg-[#18181b] border border-slate-200 dark:border-[#27272a] rounded px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-brand-600 transition"
-        >
-          {sortOptions.map(s => (
-            <option key={s.id} value={s.id} className="bg-white dark:bg-[#18181b] text-slate-900 dark:text-slate-100">{s.label}</option>
-          ))}
-        </select>
+          onChange={(val) => setFilters(prev => ({ ...prev, sortBy: val as any }))}
+          options={sortDropdownOptions}
+          className="w-full"
+          buttonClassName="w-full"
+        />
       </div>
 
     </div>

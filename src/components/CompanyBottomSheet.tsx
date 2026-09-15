@@ -33,7 +33,7 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
 
   return (
     <div
-      className="fixed inset-0 z-50 flex flex-col justify-end bg-slate-900/50 backdrop-blur-xs md:hidden"
+      className="fixed inset-0 z-[9999] flex flex-col justify-end bg-slate-900/50 backdrop-blur-xs md:hidden"
       onClick={onClose}
     >
       <div
