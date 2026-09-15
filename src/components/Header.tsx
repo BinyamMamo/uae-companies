@@ -11,7 +11,6 @@ export const Header: React.FC = () => {
     setIsCompareModalOpen,
     setIsMobileFilterOpen,
     setIsSettingsModalOpen,
-    username,
     theme,
     toggleTheme
   } = useApp();
