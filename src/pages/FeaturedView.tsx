@@ -1,0 +1,203 @@
+import React, { useMemo } from 'react';
+import { useApp } from '../context/AppContext';
+import { EXPLORABLE_INTERESTS, calculateStudentFitScore } from '../utils/relevance';
+import { formatBusCommute, formatDistance } from '../utils/distance';
+import { CompanyDrawer } from '../components/CompanyDrawer';
+import { CompanyBottomSheet } from '../components/CompanyBottomSheet';
+import { MapPin, Bookmark } from 'lucide-react';
+
+export const FeaturedView: React.FC = () => {
+  const {
+    companies,
+    selectedCompany,
+    setSelectedCompany,
+    userInterests,
+    setUserInterests,
+    toggleSaveCompany,
+    isCompanySaved
+  } = useApp();
+
+  const toggleInterest = (interest: string) => {
+    setUserInterests(prev =>
+      prev.includes(interest)
+        ? prev.filter(i => i !== interest)
+        : [...prev, interest]
+    );
+  };
+
+  // Rank companies dynamically based on active user interests in real time
+  const rankedCompanies = useMemo(() => {
+    return companies
+      .map(company => {
+        const fitScore = calculateStudentFitScore(
+          company.categories,
+          company.technicalAreas,
+          company.commonCareers,
+          userInterests
+        );
+        return { company, fitScore };
+      })
+      .filter(item => item.fitScore > 0)
+      .sort((a, b) => b.fitScore - a.fitScore || a.company.commute.distanceKm - b.company.commute.distanceKm)
+      .slice(0, 12)
+      .map(item => item.company);
+  }, [companies, userInterests]);
+
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+      
+      {/* Personalization Section (clean, restrained, no pill cards, no button) */}
+      <section className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-6 sm:p-7 shadow-subtle mb-8">
+        <div className="max-w-2xl">
+          <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+            Tell us what you&rsquo;re interested in
+          </h1>
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1.5 leading-relaxed">
+            Choose the technical areas you want to explore and companies will re-rank instantly to match your skills.
+          </p>
+        </div>
+
+        {/* Interests Selector - Modest rectangular buttons with subtle rounding */}
+        <div className="mt-5 flex flex-wrap gap-2">
+          {EXPLORABLE_INTERESTS.map(interest => {
+            const isSelected = userInterests.includes(interest);
+            return (
+              <button
+                key={interest}
+                onClick={() => toggleInterest(interest)}
+                className={`px-3 py-1.5 text-xs rounded border font-medium transition-colors ${
+                  isSelected
+                    ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-slate-900 dark:border-white shadow-xs'
+                    : 'bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 hover:border-slate-300'
+                }`}
+              >
+                {interest}
+              </button>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Grid of matched companies */}
+      <section>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          {rankedCompanies.map(company => {
+            const isSaved = isCompanySaved(company.id);
+
+            return (
+              <div
+                key={company.id}
+                onClick={() => setSelectedCompany(company)}
+                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 rounded-lg p-4 shadow-subtle hover:shadow-sm transition-all cursor-pointer flex flex-col justify-between group"
+              >
+                <div>
+                  {/* Card Header: Logo, Name, Bookmark */}
+                  <div className="flex items-start justify-between gap-2.5">
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 rounded border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 flex items-center justify-center p-1 shrink-0">
+                        <img
+                          src={company.logo}
+                          alt={company.name}
+                          className="w-full h-full object-contain"
+                          onError={(e) => {
+                            const target = e.target as HTMLElement;
+                            target.style.display = 'none';
+                            if (target.parentElement) {
+                              target.parentElement.innerHTML = `<span class="text-xs font-bold text-slate-700 dark:text-slate-300">${company.name.slice(0, 2).toUpperCase()}</span>`;
+                            }
+                          }}
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                          {company.name}
+                        </h3>
+                        <div className="text-xs text-slate-500 dark:text-slate-400 font-normal">
+                          {company.categories.slice(0, 2).join(' · ')}
+                        </div>
+                      </div>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleSaveCompany(company.id);
+                      }}
+                      className={`p-1.5 rounded transition ${
+                        isSaved ? 'text-brand-600 dark:text-brand-400 bg-blue-50 dark:bg-blue-900/30' : 'text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
+                      }`}
+                      aria-label={isSaved ? `Unsave ${company.name}` : `Save ${company.name}`}
+                    >
+                      <Bookmark className={`w-4 h-4 ${isSaved ? 'fill-brand-600 dark:fill-brand-400' : ''}`} />
+                    </button>
+                  </div>
+
+                  {/* Location & Commute */}
+                  <div className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 mt-2.5">
+                    <MapPin className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 shrink-0" />
+                    <span>{company.location.area}</span>
+                    <span className="text-slate-300 dark:text-slate-600">·</span>
+                    <span>{formatDistance(company.commute.distanceKm)}</span>
+                    <span className="text-slate-300 dark:text-slate-600">·</span>
+                    <span className="font-medium text-slate-700 dark:text-slate-300">{formatBusCommute(company.commute.busMinutes)}</span>
+                  </div>
+
+                  {/* Image banner preview if available */}
+                  {company.bannerImage && (
+                    <div className="w-full h-24 rounded mt-3 overflow-hidden bg-slate-100 dark:bg-slate-800 relative">
+                      <img
+                        src={company.bannerImage}
+                        alt={`${company.name} facility`}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  )}
+
+                  {/* Student Match Reason */}
+                  {company.studentMatchReason && (
+                    <p className="text-xs text-slate-600 dark:text-slate-400 mt-3 leading-relaxed line-clamp-2">
+                      {company.studentMatchReason}
+                    </p>
+                  )}
+                </div>
+
+                {/* Career Tags */}
+                <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center gap-1.5">
+                  {company.commonCareers.slice(0, 3).map(role => (
+                    <span
+                      key={role}
+                      className="px-2 py-0.5 text-[11px] rounded bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700"
+                    >
+                      {role}
+                    </span>
+                  ))}
+                </div>
+
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Detail Drawer (Desktop) */}
+      {selectedCompany && (
+        <div className="hidden md:block">
+          <CompanyDrawer
+            company={selectedCompany}
+            onClose={() => setSelectedCompany(null)}
+          />
+        </div>
+      )}
+
+      {/* Bottom Sheet (Mobile) */}
+      {selectedCompany && (
+        <CompanyBottomSheet
+          company={selectedCompany}
+          onClose={() => setSelectedCompany(null)}
+        />
+      )}
+
+    </div>
+  );
+};

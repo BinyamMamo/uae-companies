@@ -1,0 +1,111 @@
+@import 'leaflet/dist/leaflet.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================================
+   GLOBAL CSS THEME VARIABLES - Edit these values to customize the entire theme
+   ========================================================================= */
+:root {
+  --bg-app: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-surface-hover: #f4f4f5;
+  --bg-muted: #f4f4f5;
+  --border-subtle: #e4e4e7;
+  --border-hover: #d4d4d8;
+  --text-primary: #09090b;
+  --text-secondary: #52525b;
+  --text-muted: #71717a;
+  --accent-primary: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-50: #eff6ff;
+  --accent-100: #dbeafe;
+  --accent-200: #bfdbfe;
+  --accent-500: #3b82f6;
+  --accent-800: #1e40af;
+  --accent-900: #1e3a8a;
+  --accent-soft: #eff6ff;
+  --accent-soft-border: #bfdbfe;
+  --accent-soft-text: #1d4ed8;
+}
+
+html.dark,
+body.dark,
+.dark {
+  --bg-app: #121214;
+  --bg-surface: #18181b;
+  --bg-surface-hover: #222226;
+  --bg-muted: #222226;
+  --border-subtle: #27272a;
+  --border-hover: #3f3f46;
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --accent-soft: rgba(var(--accent-rgb, 37, 99, 235), 0.16);
+  --accent-soft-border: rgba(var(--accent-rgb, 37, 99, 235), 0.35);
+  --accent-soft-text: var(--accent-300, #93c5fd);
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+    @apply antialiased transition-colors duration-150;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+/* Leaflet Dark Map Customization */
+.leaflet-container {
+  background-color: #121214 !important;
+  font-family: inherit;
+}
+
+.leaflet-popup-content-wrapper {
+  padding: 0 !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid #27272a !important;
+  background: #18181b !important;
+  color: #f4f4f5 !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: inherit !important;
+}
+
+.leaflet-popup-tip {
+  background: #18181b !important;
+}
+
+.custom-map-pin {
+  transition: transform 0.15s ease-out;
+}
+.custom-map-pin:hover {
+  transform: scale(1.25);
+  z-index: 999 !important;
+}
