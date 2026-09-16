@@ -77,9 +77,8 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
       attributionControl: false,
     });
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-      maxZoom: 19,
-      subdomains: 'abcd',
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 18,
     }).addTo(map);
 
     // 1. Home Pin (Origin)

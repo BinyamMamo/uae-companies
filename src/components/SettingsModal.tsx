@@ -5,7 +5,7 @@ import { useApp } from '../context/AppContext';
 import {
   X,
   Sun,
-  Moon,
+  MoonStar,
   Plus,
   RotateCcw,
   Download,
@@ -184,9 +184,8 @@ export const SettingsModal: React.FC = () => {
       attributionControl: false,
     });
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-      maxZoom: 19,
-      subdomains: 'abcd',
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 18,
     }).addTo(map);
 
     const userHtml = `
@@ -353,42 +352,34 @@ export const SettingsModal: React.FC = () => {
         {/* Body */}
         <div className="flex-1 p-5 sm:p-6 overflow-y-auto space-y-5">
           
-          {/* 1. Appearance - Single line, no icon on left, no subtext */}
+          {/* 1. Dark Mode - One line custom switch with sparkly moon (no bright colors) */}
           <div className="flex items-center justify-between py-1">
             <span className="text-xs font-semibold text-slate-900 dark:text-white">
-              Appearance
+              Dark Mode
             </span>
 
-            <div className="inline-flex items-center bg-slate-100 dark:bg-[#222226] p-1 rounded-lg border border-slate-200/60 dark:border-[#27272a]">
-              <button
-                type="button"
-                onClick={() => {
-                  if (theme !== 'light') toggleTheme();
-                }}
-                className={`px-3 py-1.5 rounded-md text-xs font-semibold transition flex items-center gap-1.5 ${
-                  theme === 'light'
-                    ? 'bg-white dark:bg-[#18181b] text-slate-900 dark:text-white shadow-2xs'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+            <button
+              type="button"
+              role="switch"
+              aria-checked={theme === 'dark'}
+              onClick={toggleTheme}
+              className={`relative inline-flex h-7 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-1 focus:ring-brand-500 ${
+                theme === 'dark' ? 'bg-slate-700 dark:bg-slate-800' : 'bg-slate-200'
+              }`}
+            >
+              <span className="sr-only">Toggle Dark Mode</span>
+              <span
+                className={`pointer-events-none flex h-6 w-6 items-center justify-center rounded-full bg-white dark:bg-slate-950 shadow-sm ring-0 transition duration-200 ease-in-out ${
+                  theme === 'dark' ? 'translate-x-5' : 'translate-x-0'
                 }`}
               >
-                <Sun className="w-3.5 h-3.5 text-amber-500" />
-                <span>Light</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  if (theme !== 'dark') toggleTheme();
-                }}
-                className={`px-3 py-1.5 rounded-md text-xs font-semibold transition flex items-center gap-1.5 ${
-                  theme === 'dark'
-                    ? 'bg-white dark:bg-[#18181b] text-white shadow-2xs'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-                }`}
-              >
-                <Moon className="w-3.5 h-3.5 text-blue-400" />
-                <span>Dark</span>
-              </button>
-            </div>
+                {theme === 'dark' ? (
+                  <MoonStar className="h-3.5 w-3.5 text-slate-200" />
+                ) : (
+                  <Sun className="h-3.5 w-3.5 text-slate-600" />
+                )}
+              </span>
+            </button>
           </div>
 
           {/* Redesigned Divider */}
@@ -401,28 +392,15 @@ export const SettingsModal: React.FC = () => {
                 <MapPinHouse className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400" />
                 <span>Home Address</span>
               </label>
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={handleUseGps}
-                  className="px-2.5 py-1 text-[11px] font-semibold rounded-md bg-brand-50 dark:bg-brand-950/40 text-brand-600 dark:text-brand-400 border border-brand-200 dark:border-brand-800/60 hover:bg-brand-100 dark:hover:bg-brand-900/50 transition flex items-center gap-1.5 shadow-2xs"
-                  title="Detect device GPS location"
-                >
-                  <Navigation className="w-3 h-3" />
-                  <span>Use GPS</span>
-                </button>
-                {userLocation.isCustom && (
-                  <button
-                    type="button"
-                    onClick={resetUserLocation}
-                    className="px-2.5 py-1 text-[11px] font-semibold rounded-md bg-slate-100 dark:bg-[#222226] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-[#27272a] transition flex items-center gap-1"
-                    title="Reset to default"
-                  >
-                    <RotateCcw className="w-3 h-3 text-slate-400" />
-                    <span>Reset</span>
-                  </button>
-                )}
-              </div>
+              <button
+                type="button"
+                onClick={handleUseGps}
+                className="px-2.5 py-1 text-[11px] font-semibold rounded-md bg-brand-50 dark:bg-brand-950/40 text-brand-600 dark:text-brand-400 border border-brand-200 dark:border-brand-800/60 hover:bg-brand-100 dark:hover:bg-brand-900/50 transition flex items-center gap-1.5 shadow-2xs"
+                title="Detect device GPS location"
+              >
+                <Navigation className="w-3 h-3" />
+                <span>Use GPS</span>
+              </button>
             </div>
 
             {/* Location Search Bar with Instant Autocomplete Dropdown */}
@@ -482,17 +460,29 @@ export const SettingsModal: React.FC = () => {
               )}
             </div>
 
-            {/* Current Selected Address Clean Text (No custom pill card!) */}
-            <div className="flex items-center gap-2 py-0.5 text-xs">
-              <MapPinHouse className="w-4 h-4 text-brand-600 dark:text-brand-400 shrink-0" />
-              <div className="truncate min-w-0">
-                <span className="font-semibold text-slate-900 dark:text-white block truncate">
-                  {userLocation.name}
-                </span>
-                <span className="text-[11px] text-slate-500 dark:text-slate-400 block">
-                  {userLocation.latitude.toFixed(4)}° N, {userLocation.longitude.toFixed(4)}° E
-                </span>
+            {/* Current Selected Address with Reset button on the same level */}
+            <div className="flex items-center justify-between gap-2 py-0.5 text-xs">
+              <div className="flex items-center gap-2 truncate min-w-0">
+                <MapPinHouse className="w-4 h-4 text-brand-600 dark:text-brand-400 shrink-0" />
+                <div className="truncate min-w-0">
+                  <span className="font-semibold text-slate-900 dark:text-white block truncate">
+                    {userLocation.name}
+                  </span>
+                  <span className="text-[11px] text-slate-500 dark:text-slate-400 block">
+                    {userLocation.latitude.toFixed(4)}° N, {userLocation.longitude.toFixed(4)}° E
+                  </span>
+                </div>
               </div>
+
+              <button
+                type="button"
+                onClick={resetUserLocation}
+                className="px-2.5 py-1 text-[11px] font-semibold rounded-md bg-slate-100 dark:bg-[#222226] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-[#27272a] hover:bg-slate-200 dark:hover:bg-[#2a2a30] transition flex items-center gap-1 shrink-0"
+                title="Reset to default (University of Dubai)"
+              >
+                <RotateCcw className="w-3 h-3 text-slate-400" />
+                <span>Reset</span>
+              </button>
             </div>
 
             {/* Embedded Interactive Mini-Map */}
