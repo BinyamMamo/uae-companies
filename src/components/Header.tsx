@@ -41,21 +41,28 @@ export const Header: React.FC = () => {
             </button>
           )}
 
-          {/* Logo with Multiple Text and Arabic Subtext */}
+          {/* Logo with Backgroundless Monogram and UD Company List Text */}
           <button
             onClick={() => setActiveTab('list')}
             className="flex items-center gap-2.5 text-left hover:opacity-90 transition-opacity"
-            title="University of Dubai"
+            title="UD Company List"
           >
-            <div className="w-8 h-8 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-950 flex items-center justify-center font-bold text-xs shrink-0 shadow-xs">
-              UD
-            </div>
+            <img
+              src="/logo.png"
+              alt="UD Logo"
+              className="w-8 h-8 object-contain dark:hidden shrink-0"
+            />
+            <img
+              src="/logo-white.png"
+              alt="UD Logo"
+              className="w-8 h-8 object-contain hidden dark:block shrink-0"
+            />
             <div className="flex flex-col leading-tight">
-              <span className="text-xs sm:text-sm font-bold tracking-tight text-slate-900 dark:text-white uppercase">
-                UNIVERSITY <span className="font-normal text-slate-500 dark:text-slate-400">of</span> DUBAI
+              <span className="text-xs sm:text-sm font-bold tracking-tight text-slate-900 dark:text-white">
+                UD <span className="text-brand-600 dark:text-brand-400">Company List</span>
               </span>
-              <span className="text-[10px] text-slate-400 dark:text-slate-500 font-normal" dir="rtl">
-                جامعة دبي
+              <span className="text-[10px] text-slate-500 dark:text-slate-400 font-normal">
+                University of Dubai · Discovery Hub
               </span>
             </div>
           </button>

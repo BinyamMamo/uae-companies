@@ -56,15 +56,15 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
 
   return (
     <>
-      {/* Backdrop overlay so drawer stands out above map/pages and clicks outside close it */}
+      {/* Backdrop overlay */}
       <div
-        className="fixed inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-xs z-[9998] transition-opacity animate-fadeIn"
+        className="fixed inset-0 bg-slate-900/20 dark:bg-black/60 backdrop-blur-[2px] z-[9998] transition-opacity animate-fadeIn"
         onClick={onClose}
         aria-hidden="true"
       />
 
       <aside
-        className="fixed inset-y-0 right-0 z-[9999] w-full max-w-lg bg-white dark:bg-[#18181b] border-l border-slate-200 dark:border-[#27272a] shadow-[-16px_0_48px_rgba(0,0,0,0.35)] dark:shadow-[-20px_0_56px_rgba(0,0,0,0.75)] flex flex-col transition-all duration-200 ease-out"
+        className="fixed inset-y-0 right-0 z-[9999] w-full max-w-lg bg-white dark:bg-[#18181b] border-l border-slate-200 dark:border-[#27272a] shadow-[-4px_0_24px_rgba(0,0,0,0.06)] ring-1 ring-slate-900/5 dark:ring-0 dark:shadow-[-20px_0_56px_rgba(0,0,0,0.75)] flex flex-col transition-all duration-200 ease-out"
         role="dialog"
         aria-modal="true"
         aria-label={`${company.name} Details`}

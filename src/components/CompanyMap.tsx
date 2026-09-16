@@ -4,7 +4,16 @@ import 'leaflet/dist/leaflet.css';
 import type { Company } from '../types/company';
 import { useApp } from '../context/AppContext';
 import { formatBusCommute, formatDistance } from '../utils/distance';
-import { Home, Locate, Layers, ExternalLink, MapPin, Navigation, RotateCcw, X } from 'lucide-react';
+import {
+  MapPinHouse,
+  Locate,
+  Layers,
+  ExternalLink,
+  MapPin,
+  Navigation,
+  RotateCcw,
+  X
+} from 'lucide-react';
 
 interface CompanyMapProps {
   companies: Company[];
@@ -23,18 +32,124 @@ const CATEGORY_COLORS: Record<string, { bg: string; border: string }> = {
   'Other': { bg: '#334155', border: '#64748b' }
 };
 
-// Major Dubai Districts for clean reference labels
-const MAJOR_DISTRICTS = [
-  { name: 'Academic City', lat: 25.129, lon: 55.412, isHome: true },
-  { name: 'Silicon Oasis', lat: 25.124, lon: 55.378 },
-  { name: 'Downtown Dubai', lat: 25.197, lon: 55.274 },
-  { name: 'Business Bay', lat: 25.184, lon: 55.267 },
-  { name: 'Dubai Internet City', lat: 25.097, lon: 55.168 },
-  { name: 'Dubai Media City', lat: 25.092, lon: 55.158 },
-  { name: 'DIFC', lat: 25.210, lon: 55.280 },
-  { name: 'Dubai Marina', lat: 25.080, lon: 55.140 },
-  { name: 'Jumeirah', lat: 25.170, lon: 55.220 },
-  { name: 'Dubai Intl Airport', lat: 25.253, lon: 55.365 },
+// Major Dubai Tech Districts with geographic boundary polygons & English labels
+interface TechDistrict {
+  id: string;
+  name: string;
+  badgeName: string;
+  center: [number, number];
+  bounds: [number, number][];
+  color: string;
+  borderColor: string;
+  info: string;
+}
+
+const DUBAI_TECH_DISTRICTS: TechDistrict[] = [
+  {
+    id: 'academic-city',
+    name: 'Dubai Academic City (DIAC)',
+    badgeName: 'Academic City (UD Hub)',
+    center: [25.129, 55.418],
+    bounds: [
+      [25.115, 55.405],
+      [25.143, 55.405],
+      [25.143, 55.438],
+      [25.115, 55.438],
+    ],
+    color: '#8b5cf6',
+    borderColor: '#a78bfa',
+    info: 'University of Dubai & Higher Education Cluster'
+  },
+  {
+    id: 'silicon-oasis',
+    name: 'Dubai Silicon Oasis (DSO)',
+    badgeName: 'Dubai Silicon Oasis',
+    center: [25.124, 55.378],
+    bounds: [
+      [25.110, 55.362],
+      [25.142, 55.362],
+      [25.142, 55.398],
+      [25.110, 55.398],
+    ],
+    color: '#0ea5e9',
+    borderColor: '#38bdf8',
+    info: 'Tech, Hardware, & Innovation Free Zone'
+  },
+  {
+    id: 'internet-city',
+    name: 'Dubai Internet City & Media City',
+    badgeName: 'Internet & Media City',
+    center: [25.095, 55.160],
+    bounds: [
+      [25.080, 55.146],
+      [25.112, 55.146],
+      [25.112, 55.178],
+      [25.080, 55.178],
+    ],
+    color: '#2563eb',
+    borderColor: '#60a5fa',
+    info: 'Global Tech Giants & Digital Media Hub'
+  },
+  {
+    id: 'difc-downtown',
+    name: 'DIFC & Downtown Dubai',
+    badgeName: 'DIFC / Downtown',
+    center: [25.204, 55.275],
+    bounds: [
+      [25.188, 55.258],
+      [25.220, 55.258],
+      [25.220, 55.292],
+      [25.188, 55.292],
+    ],
+    color: '#10b981',
+    borderColor: '#34d399',
+    info: 'FinTech, Enterprise HQ & Financial Centre'
+  },
+  {
+    id: 'business-bay',
+    name: 'Business Bay',
+    badgeName: 'Business Bay',
+    center: [25.182, 55.264],
+    bounds: [
+      [25.168, 55.248],
+      [25.195, 55.248],
+      [25.195, 55.276],
+      [25.168, 55.276],
+    ],
+    color: '#0d9488',
+    borderColor: '#2dd4bf',
+    info: 'Commerce, Tech Consulting & Startups'
+  },
+  {
+    id: 'jlt-marina',
+    name: 'JLT & Dubai Marina',
+    badgeName: 'JLT / Marina',
+    center: [25.074, 55.142],
+    bounds: [
+      [25.060, 55.128],
+      [25.088, 55.128],
+      [25.088, 55.158],
+      [25.060, 55.158],
+    ],
+    color: '#f59e0b',
+    borderColor: '#fbbf24',
+    info: 'DMCC Freezone, Crypto & Software Hub'
+  },
+  {
+    id: 'airport-dafza',
+    name: 'DAFZA / Dubai Airport Area',
+    badgeName: 'DAFZA (Airport)',
+    center: [25.260, 55.372],
+    bounds: [
+      [25.245, 55.355],
+      [25.275, 55.355],
+      [25.275, 55.395],
+      [25.245, 55.395],
+    ],
+    color: '#6366f1',
+    borderColor: '#818cf8',
+    info: 'Aviation, Logistics & International Trade'
+  },
 ];
 
 export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompany }) => {
@@ -53,23 +168,31 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
   }, [onSelectCompany]);
   
   const [activePopupCompany, setActivePopupCompany] = useState<Company | null>(null);
-  const [mapStyle, setMapStyle] = useState<'dark' | 'osm' | 'satellite'>('dark');
+  // Default to street mode with English labels
+  const [mapStyle, setMapStyle] = useState<'street' | 'clean' | 'dark' | 'satellite'>('street');
+  const [showDistricts, setShowDistricts] = useState<boolean>(true);
   const [isClickToSetMode, setIsClickToSetMode] = useState<boolean>(false);
   const [locationToast, setLocationToast] = useState<string | null>(null);
 
-  // Tile Providers (100% Free, NO API keys needed, NO watermarks)
+  // Tile Providers (100% Free, NO API keys, NO watermarks, English labels)
   const TILE_CONFIGS = {
+    street: {
+      url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+      maxZoom: 18,
+      subdomains: 'abc',
+      name: 'Street (English)'
+    },
+    clean: {
+      url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+      maxZoom: 16,
+      subdomains: 'abc',
+      name: 'Clean Canvas (Hide Streets)'
+    },
     dark: {
       url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
       maxZoom: 16,
       subdomains: 'abc',
       name: 'Dark Gray (Esri)'
-    },
-    osm: {
-      url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-      maxZoom: 19,
-      subdomains: 'abc',
-      name: 'OpenStreetMap'
     },
     satellite: {
       url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
@@ -84,15 +207,15 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
     setTimeout(() => setLocationToast(null), 3500);
   };
 
-  // Initialize Map
+  // Initialize Map with ideal default zoom & center
   useEffect(() => {
     if (!mapContainerRef.current) return;
 
     if (!mapInstanceRef.current) {
-      // Initialize map centered around Dubai tech corridor for crisp initial framing
+      // Centered on central Dubai corridor at zoom 12 for clean visibility of all tech clusters
       const map = L.map(mapContainerRef.current, {
-        center: [25.135, 55.285],
-        zoom: 11.5,
+        center: [25.14, 55.26],
+        zoom: 12,
         zoomSnap: 0.5,
         zoomDelta: 0.5,
         minZoom: 9,
@@ -111,14 +234,17 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
       // Add Zoom control bottom-right
       L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-      // Create User Location Marker
+      // Create Distinct Home Location Marker with MapPinHouse & Pulsing Outline
       const userHtml = `
-        <div class="relative flex items-center justify-center cursor-move" title="Drag to change your location">
-          <div class="absolute -inset-2.5 bg-brand-500/25 rounded-full animate-ping"></div>
-          <div class="w-8 h-8 rounded-full bg-brand-600 border-2 border-white flex items-center justify-center shadow-lg text-white font-bold">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-              <circle cx="12" cy="10" r="3"/>
+        <div class="relative flex items-center justify-center cursor-move" title="Drag to move reference location">
+          <div class="absolute -inset-4 bg-amber-500/35 rounded-full animate-ping"></div>
+          <div class="absolute -inset-2 bg-orange-500/40 rounded-full animate-pulse"></div>
+          <div class="relative w-9 h-9 rounded-full bg-gradient-to-tr from-amber-500 via-orange-500 to-rose-500 border-2 border-white flex items-center justify-center shadow-2xl text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 22a1 1 0 0 1-1-1v-4a1 1 0 0 1 .445-.832l3-2a1 1 0 0 1 1.11 0l3 2A1 1 0 0 1 22 17v4a1 1 0 0 1-1 1z"/>
+              <path d="M18 10a8 8 0 0 0-16 0c0 4.993 5.539 10.193 7.399 11.799a1 1 0 0 0 .601.2"/>
+              <path d="M18 22v-3"/>
+              <circle cx="10" cy="10" r="3"/>
             </svg>
           </div>
         </div>
@@ -127,8 +253,8 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
       const userIcon = L.divIcon({
         html: userHtml,
         className: 'custom-user-pin',
-        iconSize: [32, 32],
-        iconAnchor: [16, 16],
+        iconSize: [36, 36],
+        iconAnchor: [18, 18],
       });
 
       const userMarker = L.marker(
@@ -160,30 +286,12 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
 
       userMarkerRef.current = userMarker;
 
-      // Layers for districts and company markers
+      // Layers for district boundaries and company markers
       districtsLayerRef.current = L.layerGroup().addTo(map);
       markersLayerRef.current = L.layerGroup().addTo(map);
 
-      // Render district labels
-      MAJOR_DISTRICTS.forEach(d => {
-        if (d.isHome) return;
-        const districtHtml = `
-          <div class="text-[10px] font-semibold text-slate-400/80 uppercase tracking-wider select-none pointer-events-none whitespace-nowrap drop-shadow-sm">
-            ${d.name}
-          </div>
-        `;
-        const districtIcon = L.divIcon({
-          html: districtHtml,
-          className: 'district-label',
-          iconSize: [100, 14],
-          iconAnchor: [50, 7],
-        });
-        L.marker([d.lat, d.lon], { icon: districtIcon, interactive: false }).addTo(districtsLayerRef.current!);
-      });
-
       mapInstanceRef.current = map;
 
-      // Invalidate size to ensure container is fully painted
       setTimeout(() => map.invalidateSize(), 100);
       setTimeout(() => map.invalidateSize(), 500);
     }
@@ -195,6 +303,66 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
       }
     };
   }, []);
+
+  // Update District Boundaries & Highlighting
+  useEffect(() => {
+    const districtsLayer = districtsLayerRef.current;
+    if (!districtsLayer) return;
+
+    districtsLayer.clearLayers();
+
+    if (!showDistricts) return;
+
+    DUBAI_TECH_DISTRICTS.forEach(d => {
+      // 1. Boundary polygon
+      const polygon = L.polygon(d.bounds, {
+        color: d.borderColor,
+        weight: 1.8,
+        dashArray: '5, 5',
+        fillColor: d.color,
+        fillOpacity: 0.10,
+      });
+
+      polygon.bindTooltip(
+        `<div style="font-family: Inter, sans-serif; font-size: 11px; padding: 2px 4px;">
+           <strong style="color:${d.borderColor}; font-size: 12px;">${d.name}</strong><br/>
+           <span style="color:#a1a1aa;">${d.info}</span>
+         </div>`,
+        { sticky: true, className: 'dark-tooltip' }
+      );
+
+      districtsLayer.addLayer(polygon);
+
+      // 2. High-contrast English floating badge marker
+      const badgeHtml = `
+        <div class="group relative cursor-pointer select-none">
+          <div class="px-2.5 py-1 rounded-full text-[11px] font-bold shadow-lg border backdrop-blur-md flex items-center gap-1.5 transition-all group-hover:scale-105"
+               style="background: rgba(18, 18, 20, 0.92); color: #f8fafc; border-color: ${d.borderColor};">
+            <span class="w-2 h-2 rounded-full" style="background-color: ${d.borderColor}; box-shadow: 0 0 6px ${d.borderColor};"></span>
+            <span class="tracking-tight whitespace-nowrap">${d.badgeName}</span>
+          </div>
+        </div>
+      `;
+
+      const badgeIcon = L.divIcon({
+        html: badgeHtml,
+        className: 'district-badge',
+        iconSize: [140, 24],
+        iconAnchor: [70, 12],
+      });
+
+      const badgeMarker = L.marker(d.center, { icon: badgeIcon });
+      badgeMarker.bindTooltip(
+        `<div style="font-family: Inter, sans-serif; font-size: 11px; padding: 2px 4px;">
+           <strong style="color:${d.borderColor}; font-size: 12px;">${d.name}</strong><br/>
+           <span style="color:#a1a1aa;">${d.info}</span>
+         </div>`,
+        { direction: 'top', className: 'dark-tooltip' }
+      );
+
+      districtsLayer.addLayer(badgeMarker);
+    });
+  }, [showDistricts]);
 
   // Update User Marker position whenever userLocation changes in Context
   useEffect(() => {
@@ -235,7 +403,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
   }, [isClickToSetMode, setUserLocation]);
 
   // Handle Tile Style Switcher
-  const handleSwitchTile = (newStyle: 'dark' | 'osm' | 'satellite') => {
+  const handleSwitchTile = (newStyle: 'street' | 'clean' | 'dark' | 'satellite') => {
     setMapStyle(newStyle);
     const map = mapInstanceRef.current;
     if (!map) return;
@@ -298,7 +466,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
       markersLayer.addLayer(marker);
     });
 
-    // Only adjust bounds when the user actively filters categories, never on initial mount or pin click
+    // Only adjust bounds when the user actively filters categories
     if (isFirstRenderRef.current) {
       isFirstRenderRef.current = false;
       prevCategoryCountRef.current = companies.length;
@@ -369,10 +537,10 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
         </div>
       )}
 
-      {/* Top Right Controls: Set Location + Tile Selector */}
+      {/* Top Right Controls: Set Location, Districts Toggle, Tile Selector */}
       <div className="absolute top-4 right-4 z-[1000] flex flex-col items-end gap-2">
         
-        {/* Set Location Action Toolbar */}
+        {/* Set Location Action Toolbar + Districts Overlay Toggle */}
         <div className="flex items-center gap-1.5 bg-white/95 dark:bg-[#18181b]/95 backdrop-blur-md p-1.5 rounded-lg border border-slate-200 dark:border-[#27272a] shadow-lg transition-colors">
           <button
             onClick={() => setIsClickToSetMode(prev => !prev)}
@@ -406,28 +574,52 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
               <RotateCcw className="w-3.5 h-3.5" />
             </button>
           )}
+
+          {/* Region / District Boundaries Toggle */}
+          <div className="h-4 w-px bg-slate-200 dark:bg-slate-700 mx-0.5" />
+          <button
+            onClick={() => setShowDistricts(prev => !prev)}
+            className={`px-2.5 py-1 text-xs font-medium rounded flex items-center gap-1.5 transition ${
+              showDistricts
+                ? 'bg-violet-600 text-white shadow-xs'
+                : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226]'
+            }`}
+            title="Toggle Dubai tech district boundary polygons and English labels"
+          >
+            <Layers className="w-3.5 h-3.5" />
+            <span>{showDistricts ? 'Districts: On' : 'Districts: Off'}</span>
+          </button>
         </div>
 
-        {/* Map Tile Provider Selector */}
+        {/* Map Tile Provider Selector: Street (Default), Clean (Hide streets), Dark, Satellite */}
         <div className="flex items-center gap-1 bg-white/95 dark:bg-[#18181b]/95 backdrop-blur-md p-1 rounded-lg border border-slate-200 dark:border-[#27272a] shadow-lg transition-colors">
           <Layers className="w-3.5 h-3.5 text-slate-400 ml-1.5 mr-1" />
+          <button
+            onClick={() => handleSwitchTile('street')}
+            className={`px-2 py-0.5 text-[11px] font-medium rounded transition ${
+              mapStyle === 'street' ? 'bg-brand-600 text-white shadow-xs' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226]'
+            }`}
+            title="Street Map with English labels"
+          >
+            Street
+          </button>
+          <button
+            onClick={() => handleSwitchTile('clean')}
+            className={`px-2 py-0.5 text-[11px] font-medium rounded transition ${
+              mapStyle === 'clean' ? 'bg-brand-600 text-white shadow-xs' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226]'
+            }`}
+            title="Hide streets and keep clean regional canvas"
+          >
+            Clean
+          </button>
           <button
             onClick={() => handleSwitchTile('dark')}
             className={`px-2 py-0.5 text-[11px] font-medium rounded transition ${
               mapStyle === 'dark' ? 'bg-brand-600 text-white shadow-xs' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226]'
             }`}
-            title="Esri Dark Gray Minimal (No watermark)"
+            title="Dark Gray Minimal"
           >
             Dark
-          </button>
-          <button
-            onClick={() => handleSwitchTile('osm')}
-            className={`px-2 py-0.5 text-[11px] font-medium rounded transition ${
-              mapStyle === 'osm' ? 'bg-brand-600 text-white shadow-xs' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226]'
-            }`}
-            title="OpenStreetMap Street View"
-          >
-            Street
           </button>
           <button
             onClick={() => handleSwitchTile('satellite')}
@@ -441,10 +633,10 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
         </div>
       </div>
 
-      {/* Floating Bottom Left: User Location Commute Reference Badge */}
+      {/* Floating Bottom Left: User Location Commute Reference Badge with MapPinHouse */}
       <div className="absolute bottom-6 left-6 z-[1000] bg-white/95 dark:bg-[#18181b]/95 backdrop-blur-md border border-slate-200 dark:border-[#27272a] rounded-lg p-3 text-slate-800 dark:text-white shadow-xl flex items-center gap-3 transition-colors">
-        <div className="w-8 h-8 rounded-full bg-brand-500/20 border border-brand-500/50 flex items-center justify-center text-brand-500 shrink-0">
-          <Home className="w-4 h-4" />
+        <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-amber-500/20 to-orange-500/20 border border-amber-500/40 flex items-center justify-center text-amber-500 shrink-0 shadow-xs">
+          <MapPinHouse className="w-4.5 h-4.5" />
         </div>
         <div className="min-w-0">
           <div className="text-[10px] uppercase font-semibold text-slate-500 dark:text-slate-400 tracking-wider">

@@ -50,9 +50,30 @@ body.dark,
   body {
     background-color: var(--bg-app);
     color: var(--text-primary);
-    @apply antialiased transition-colors duration-150;
+    @apply antialiased;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
+}
+
+/* Smooth global transition for theme switching without flashing borders and bgs */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 240ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Exclude leaflet tiles, maps, and dragging markers from transition delays */
+.leaflet-tile,
+.leaflet-tile-container,
+.leaflet-pane,
+.leaflet-marker-pane,
+.leaflet-zoom-animated,
+.custom-map-pin,
+.custom-user-pin,
+img,
+video,
+canvas {
+  transition-property: none !important;
 }
 
 /* Hide all scrollbars globally */
