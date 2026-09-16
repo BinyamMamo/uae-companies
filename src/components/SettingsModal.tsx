@@ -8,11 +8,12 @@ import {
   Moon,
   Plus,
   RotateCcw,
-  Check,
   Download,
   Trash2,
   Navigation,
-  MapPinHouse
+  MapPinHouse,
+  Search,
+  MapPin
 } from 'lucide-react';
 
 const SUGGESTED_DOMAINS = [
@@ -35,6 +36,42 @@ const SUGGESTED_DOMAINS = [
   'Aerospace & Avionics'
 ];
 
+interface DubaiLocationPreset {
+  name: string;
+  category: string;
+  latitude: number;
+  longitude: number;
+}
+
+const DUBAI_LOCATIONS: DubaiLocationPreset[] = [
+  { name: 'KSK Students Residence', category: 'Student Housing', latitude: 25.1292, longitude: 55.4268 },
+  { name: 'University of Dubai', category: 'Campus', latitude: 25.1304, longitude: 55.4273 },
+  { name: 'The Myriad Dubai', category: 'Student Housing', latitude: 25.1235, longitude: 55.4180 },
+  { name: 'Uninest Student Residences', category: 'Student Housing', latitude: 25.1180, longitude: 55.3990 },
+  { name: 'Academic City (DIAC Central)', category: 'Academic Hub', latitude: 25.1265, longitude: 55.4215 },
+  { name: 'Zayed University Dubai', category: 'Campus', latitude: 25.1130, longitude: 55.3900 },
+  { name: 'Amity University Dubai', category: 'Campus', latitude: 25.1245, longitude: 55.4220 },
+  { name: 'Heriot-Watt University Dubai', category: 'Campus', latitude: 25.1110, longitude: 55.3880 },
+  { name: 'BITS Pilani Dubai', category: 'Campus', latitude: 25.1280, longitude: 55.4200 },
+  { name: 'University of Birmingham Dubai', category: 'Campus', latitude: 25.1250, longitude: 55.4170 },
+  { name: 'Dubai Silicon Oasis (HQ)', category: 'District', latitude: 25.1238, longitude: 55.3821 },
+  { name: 'DSO Cedre Community', category: 'Residential', latitude: 25.1320, longitude: 55.3875 },
+  { name: 'DSO Silicon Gates', category: 'Residential', latitude: 25.1285, longitude: 55.3780 },
+  { name: 'Business Bay', category: 'Business Hub', latitude: 25.1850, longitude: 55.2750 },
+  { name: 'Downtown Dubai (Burj Khalifa)', category: 'District', latitude: 25.1972, longitude: 55.2744 },
+  { name: 'DIFC (Financial Centre)', category: 'Financial Hub', latitude: 25.2135, longitude: 55.2810 },
+  { name: 'Dubai Internet City', category: 'Tech Hub', latitude: 25.0975, longitude: 55.1624 },
+  { name: 'Dubai Media City', category: 'Media Hub', latitude: 25.0950, longitude: 55.1550 },
+  { name: 'Dubai Marina', category: 'District', latitude: 25.0805, longitude: 55.1403 },
+  { name: 'Jumeirah Lake Towers (JLT)', category: 'District', latitude: 25.0740, longitude: 55.1420 },
+  { name: 'DAFZA (Airport Freezone)', category: 'Free Zone', latitude: 25.2605, longitude: 55.3725 },
+  { name: 'Mirdif City Centre', category: 'Shopping / Residential', latitude: 25.2185, longitude: 55.4180 },
+  { name: 'Al Barsha 1', category: 'Residential', latitude: 25.1120, longitude: 55.2000 },
+  { name: 'Deira (City Centre)', category: 'District', latitude: 25.2530, longitude: 55.3330 },
+  { name: 'Bur Dubai', category: 'District', latitude: 25.2570, longitude: 55.3000 },
+  { name: 'Sharjah University City', category: 'Academic Hub', latitude: 25.2950, longitude: 55.4650 },
+];
+
 export const SettingsModal: React.FC = () => {
   const {
     isSettingsModalOpen,
@@ -44,8 +81,6 @@ export const SettingsModal: React.FC = () => {
     removeInterest,
     resetInterests,
     setUserInterests,
-    username,
-    setUsername,
     theme,
     toggleTheme,
     userLocation,
@@ -56,12 +91,82 @@ export const SettingsModal: React.FC = () => {
   } = useApp();
 
   const [customInterestInput, setCustomInterestInput] = useState('');
-  const [nameInput, setNameInput] = useState(username);
-  const [nameSaved, setNameSaved] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isSearching, setIsSearching] = useState(false);
+  const [searchResults, setSearchResults] = useState<DubaiLocationPreset[]>([]);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const miniMapContainerRef = useRef<HTMLDivElement>(null);
   const miniMapInstanceRef = useRef<L.Map | null>(null);
   const miniMarkerRef = useRef<L.Marker | null>(null);
+
+  // Search filter logic
+  useEffect(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) {
+      setSearchResults([]);
+      setIsSearchOpen(false);
+      return;
+    }
+
+    const matched = DUBAI_LOCATIONS.filter(loc =>
+      loc.name.toLowerCase().includes(q) || loc.category.toLowerCase().includes(q)
+    );
+
+    setSearchResults(matched);
+    setIsSearchOpen(true);
+  }, [searchQuery]);
+
+  // Select location helper
+  const selectLocation = (loc: { name: string; latitude: number; longitude: number }) => {
+    setUserLocation({
+      name: loc.name,
+      latitude: Math.round(loc.latitude * 100000) / 100000,
+      longitude: Math.round(loc.longitude * 100000) / 100000,
+      isCustom: true,
+    });
+    setSearchQuery('');
+    setIsSearchOpen(false);
+    if (miniMarkerRef.current && miniMapInstanceRef.current) {
+      miniMarkerRef.current.setLatLng([loc.latitude, loc.longitude]);
+      miniMapInstanceRef.current.setView([loc.latitude, loc.longitude], 13, { animate: true });
+    }
+  };
+
+  // Search submit handler (with OpenStreetMap Nominatim fallback)
+  const handleSearchSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const q = searchQuery.trim();
+    if (!q) return;
+
+    if (searchResults.length > 0) {
+      selectLocation(searchResults[0]);
+      return;
+    }
+
+    setIsSearching(true);
+    try {
+      const res = await fetch(
+        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(q + ' Dubai')}&countrycodes=ae&limit=4`
+      );
+      const data = await res.json();
+      if (data && data.length > 0) {
+        const first = data[0];
+        const displayName = first.name || first.display_name.split(',')[0];
+        selectLocation({
+          name: displayName,
+          latitude: parseFloat(first.lat),
+          longitude: parseFloat(first.lon),
+        });
+      } else {
+        alert(`No results found for "${q}". Try selecting on the map or typing a nearby landmark.`);
+      }
+    } catch (err) {
+      console.error('Location search failed:', err);
+    } finally {
+      setIsSearching(false);
+    }
+  };
 
   // Initialize and maintain embedded Leaflet mini-map for Home Address selection
   useEffect(() => {
@@ -105,11 +210,21 @@ export const SettingsModal: React.FC = () => {
       draggable: true,
     }).addTo(map);
 
-    const updateLocation = (lat: number, lng: number) => {
+    const updateLocationFromCoords = (lat: number, lng: number) => {
       const roundedLat = Math.round(lat * 100000) / 100000;
       const roundedLng = Math.round(lng * 100000) / 100000;
+
+      // Check if near any landmark
+      const near = DUBAI_LOCATIONS.find(loc => {
+        const dLat = Math.abs(loc.latitude - roundedLat);
+        const dLng = Math.abs(loc.longitude - roundedLng);
+        return dLat < 0.003 && dLng < 0.003;
+      });
+
+      const chosenName = near ? near.name : `Selected Location (${roundedLat.toFixed(3)}°, ${roundedLng.toFixed(3)}°)`;
+
       setUserLocation({
-        name: `Home (${roundedLat.toFixed(3)}°, ${roundedLng.toFixed(3)}°)`,
+        name: chosenName,
         latitude: roundedLat,
         longitude: roundedLng,
         isCustom: true,
@@ -118,12 +233,12 @@ export const SettingsModal: React.FC = () => {
 
     marker.on('dragend', (e) => {
       const latlng = (e.target as L.Marker).getLatLng();
-      updateLocation(latlng.lat, latlng.lng);
+      updateLocationFromCoords(latlng.lat, latlng.lng);
     });
 
     map.on('click', (e) => {
       marker.setLatLng(e.latlng);
-      updateLocation(e.latlng.lat, e.latlng.lng);
+      updateLocationFromCoords(e.latlng.lat, e.latlng.lng);
     });
 
     miniMarkerRef.current = marker;
@@ -159,13 +274,6 @@ export const SettingsModal: React.FC = () => {
     setCustomInterestInput('');
   };
 
-  const handleSaveName = (e: React.FormEvent) => {
-    e.preventDefault();
-    setUsername(nameInput.trim());
-    setNameSaved(true);
-    setTimeout(() => setNameSaved(false), 2000);
-  };
-
   const handleUseGps = () => {
     if (!navigator.geolocation) {
       alert('Geolocation is not supported by your browser');
@@ -175,12 +283,26 @@ export const SettingsModal: React.FC = () => {
       pos => {
         const lat = Math.round(pos.coords.latitude * 100000) / 100000;
         const lng = Math.round(pos.coords.longitude * 100000) / 100000;
+
+        const near = DUBAI_LOCATIONS.find(loc => {
+          const dLat = Math.abs(loc.latitude - lat);
+          const dLng = Math.abs(loc.longitude - lng);
+          return dLat < 0.003 && dLng < 0.003;
+        });
+
+        const chosenName = near ? near.name : `Current Location (${lat.toFixed(3)}°, ${lng.toFixed(3)}°)`;
+
         setUserLocation({
-          name: `Current Location (${lat.toFixed(3)}°, ${lng.toFixed(3)}°)`,
+          name: chosenName,
           latitude: lat,
           longitude: lng,
           isCustom: true,
         });
+
+        if (miniMarkerRef.current && miniMapInstanceRef.current) {
+          miniMarkerRef.current.setLatLng([lat, lng]);
+          miniMapInstanceRef.current.setView([lat, lng], 13, { animate: true });
+        }
       },
       err => {
         alert('Could not retrieve your location: ' + err.message);
@@ -192,7 +314,6 @@ export const SettingsModal: React.FC = () => {
   const handleExportData = () => {
     const exportPayload = {
       exportDate: new Date().toISOString(),
-      userGreeting: username || 'there',
       userLocation,
       userInterests,
       savedCompanyIds,
@@ -215,7 +336,7 @@ export const SettingsModal: React.FC = () => {
         aria-modal="true"
         aria-labelledby="settings-title"
       >
-        {/* Header - Clean, minimal */}
+        {/* Header */}
         <div className="px-5 py-3.5 border-b border-slate-200 dark:border-[#27272a] flex items-center justify-between shrink-0 bg-slate-50/50 dark:bg-[#18181b]">
           <h2 id="settings-title" className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
             Settings
@@ -229,75 +350,64 @@ export const SettingsModal: React.FC = () => {
           </button>
         </div>
 
-        {/* Body - Single clean unified view */}
-        <div className="flex-1 p-5 sm:p-6 overflow-y-auto space-y-6">
+        {/* Body */}
+        <div className="flex-1 p-5 sm:p-6 overflow-y-auto space-y-5">
           
-          {/* 1. Display Name */}
-          <div className="space-y-2">
-            <label htmlFor="settings-name-input" className="block text-xs font-semibold text-slate-800 dark:text-slate-200">
-              Display Name
-            </label>
-            <form onSubmit={handleSaveName} className="flex gap-2">
-              <input
-                id="settings-name-input"
-                type="text"
-                value={nameInput}
-                onChange={e => setNameInput(e.target.value)}
-                placeholder="e.g. Binyam (leave empty for 'there')"
-                className="flex-1 text-xs px-3 py-2 bg-slate-50 dark:bg-[#222226] border border-slate-200 dark:border-[#27272a] rounded-lg focus:outline-none focus:ring-1 focus:ring-brand-500 text-slate-900 dark:text-white placeholder:text-slate-400"
-              />
-              <button
-                type="submit"
-                className="px-3 py-2 bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold rounded-lg transition flex items-center gap-1 shrink-0 shadow-2xs"
-              >
-                {nameSaved && <Check className="w-3.5 h-3.5" />}
-                <span>{nameSaved ? 'Saved' : 'Save'}</span>
-              </button>
-            </form>
-          </div>
+          {/* 1. Appearance: Theme - Single Line with Icons */}
+          <div className="flex items-center justify-between py-1">
+            <div className="flex items-center gap-2">
+              {theme === 'dark' ? (
+                <Moon className="w-4 h-4 text-blue-400" />
+              ) : (
+                <Sun className="w-4 h-4 text-amber-500" />
+              )}
+              <div>
+                <span className="text-xs font-semibold text-slate-900 dark:text-white block">
+                  Theme
+                </span>
+                <span className="text-[11px] text-slate-500 dark:text-slate-400">
+                  {theme === 'dark' ? 'Dark mode' : 'Light mode'}
+                </span>
+              </div>
+            </div>
 
-          {/* 2. Appearance: Theme */}
-          <div className="border-t border-slate-100 dark:border-[#27272a] pt-5 space-y-3">
-            <label className="block text-xs font-semibold text-slate-800 dark:text-slate-200">
-              Theme
-            </label>
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="inline-flex items-center bg-slate-100 dark:bg-[#222226] p-1 rounded-lg border border-slate-200/60 dark:border-[#27272a]">
               <button
                 type="button"
                 onClick={() => {
                   if (theme !== 'light') toggleTheme();
                 }}
-                className={`p-2.5 rounded-lg border text-left transition flex items-center gap-2.5 ${
+                className={`px-3 py-1.5 rounded-md text-xs font-semibold transition flex items-center gap-1.5 ${
                   theme === 'light'
-                    ? 'border-brand-600 bg-brand-50/50 ring-1 ring-brand-600'
-                    : 'border-slate-200 dark:border-[#27272a] bg-slate-50 dark:bg-[#222226] hover:border-slate-300 dark:hover:border-slate-700'
+                    ? 'bg-white dark:bg-[#18181b] text-slate-900 dark:text-white shadow-2xs'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
-                <Sun className="w-4 h-4 text-slate-800 dark:text-slate-200 shrink-0" />
-                <span className="text-xs font-semibold text-slate-900 dark:text-white">Light</span>
-                {theme === 'light' && <Check className="w-3.5 h-3.5 text-brand-600 ml-auto" />}
+                <Sun className="w-3.5 h-3.5 text-amber-500" />
+                <span>Light</span>
               </button>
-
               <button
                 type="button"
                 onClick={() => {
                   if (theme !== 'dark') toggleTheme();
                 }}
-                className={`p-2.5 rounded-lg border text-left transition flex items-center gap-2.5 ${
+                className={`px-3 py-1.5 rounded-md text-xs font-semibold transition flex items-center gap-1.5 ${
                   theme === 'dark'
-                    ? 'border-brand-500 bg-[#222226] ring-1 ring-brand-500'
-                    : 'border-slate-200 dark:border-[#27272a] bg-slate-50 dark:bg-[#222226] hover:border-slate-300 dark:hover:border-slate-700'
+                    ? 'bg-white dark:bg-[#18181b] text-white shadow-2xs'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
-                <Moon className="w-4 h-4 text-white shrink-0" />
-                <span className="text-xs font-semibold text-slate-900 dark:text-white">Dark</span>
-                {theme === 'dark' && <Check className="w-3.5 h-3.5 text-brand-400 ml-auto" />}
+                <Moon className="w-3.5 h-3.5 text-blue-400" />
+                <span>Dark</span>
               </button>
             </div>
           </div>
 
-          {/* 3. Home Address with Interactive Mini-Map */}
-          <div className="border-t border-slate-100 dark:border-[#27272a] pt-5 space-y-3">
+          {/* Redesigned Divider */}
+          <div className="border-t border-slate-200/80 dark:border-[#27272a]" />
+
+          {/* 2. Home Address with Search & Interactive Map */}
+          <div className="space-y-3">
             <div className="flex items-center justify-between text-xs">
               <label className="font-semibold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
                 <MapPinHouse className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400" />
@@ -307,8 +417,8 @@ export const SettingsModal: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleUseGps}
-                  className="text-brand-600 dark:text-brand-400 hover:underline text-[11px] flex items-center gap-1"
-                  title="Use device GPS"
+                  className="px-2.5 py-1 text-[11px] font-semibold rounded-md bg-brand-50 dark:bg-brand-950/40 text-brand-600 dark:text-brand-400 border border-brand-200 dark:border-brand-800/60 hover:bg-brand-100 dark:hover:bg-brand-900/50 transition flex items-center gap-1.5 shadow-2xs"
+                  title="Detect device GPS location"
                 >
                   <Navigation className="w-3 h-3" />
                   <span>Use GPS</span>
@@ -317,28 +427,84 @@ export const SettingsModal: React.FC = () => {
                   <button
                     type="button"
                     onClick={resetUserLocation}
-                    className="text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 text-[11px] flex items-center gap-1"
+                    className="px-2.5 py-1 text-[11px] font-semibold rounded-md bg-slate-100 dark:bg-[#222226] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-[#27272a] transition flex items-center gap-1"
+                    title="Reset to default"
                   >
-                    <RotateCcw className="w-3 h-3" />
+                    <RotateCcw className="w-3 h-3 text-slate-400" />
                     <span>Reset</span>
                   </button>
                 )}
               </div>
             </div>
 
-            {/* Location Pill / Information */}
-            <div className="px-3 py-2 rounded-lg border border-slate-200 dark:border-[#27272a] bg-slate-50 dark:bg-[#222226] flex items-center justify-between text-xs">
-              <div className="truncate min-w-0 pr-2">
-                <span className="font-medium text-slate-900 dark:text-white block truncate">
+            {/* Location Search Bar with Instant Autocomplete Dropdown */}
+            <div className="relative">
+              <form onSubmit={handleSearchSubmit} className="relative flex items-center">
+                <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 pointer-events-none" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={e => setSearchQuery(e.target.value)}
+                  placeholder="Search address (e.g. KSK Students Residence, DSO Cedre, Downtown)..."
+                  className="w-full text-xs pl-8 pr-16 py-2 bg-slate-50 dark:bg-[#222226] border border-slate-200 dark:border-[#27272a] rounded-lg focus:outline-none focus:ring-1 focus:ring-brand-500 text-slate-900 dark:text-white placeholder:text-slate-400"
+                />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSearchQuery('');
+                      setIsSearchOpen(false);
+                    }}
+                    className="absolute right-12 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-xs p-1"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                )}
+                <button
+                  type="submit"
+                  disabled={!searchQuery.trim() || isSearching}
+                  className="absolute right-1.5 px-2.5 py-1 bg-brand-600 hover:bg-brand-700 disabled:opacity-40 text-white text-[11px] font-semibold rounded-md transition shrink-0"
+                >
+                  {isSearching ? 'Finding...' : 'Find'}
+                </button>
+              </form>
+
+              {/* Autocomplete Dropdown */}
+              {isSearchOpen && searchResults.length > 0 && (
+                <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-[#1f1f23] border border-slate-200 dark:border-[#2e2e33] rounded-lg shadow-lg z-50 overflow-hidden max-h-48 overflow-y-auto">
+                  {searchResults.map((item, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => selectLocation(item)}
+                      className="w-full px-3 py-2 text-left hover:bg-slate-50 dark:hover:bg-[#27272b] flex items-center justify-between border-b border-slate-100 dark:border-[#27272b] last:border-0 transition"
+                    >
+                      <div className="flex items-center gap-2 truncate">
+                        <MapPin className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400 shrink-0" />
+                        <span className="text-xs font-semibold text-slate-900 dark:text-white truncate">
+                          {item.name}
+                        </span>
+                      </div>
+                      <span className="text-[10px] text-slate-400 dark:text-slate-500 shrink-0 ml-2 font-medium">
+                        {item.category}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Current Selected Address Clean Text (No custom pill card!) */}
+            <div className="flex items-center gap-2 py-0.5 text-xs">
+              <MapPinHouse className="w-4 h-4 text-brand-600 dark:text-brand-400 shrink-0" />
+              <div className="truncate min-w-0">
+                <span className="font-semibold text-slate-900 dark:text-white block truncate">
                   {userLocation.name}
                 </span>
-                <span className="text-[11px] text-slate-500 dark:text-slate-400">
+                <span className="text-[11px] text-slate-500 dark:text-slate-400 block">
                   {userLocation.latitude.toFixed(4)}° N, {userLocation.longitude.toFixed(4)}° E
                 </span>
               </div>
-              <span className="text-[10px] uppercase font-semibold px-2 py-0.5 rounded bg-brand-50 dark:bg-brand-500/15 text-brand-700 dark:text-brand-300 border border-brand-200/60 dark:border-brand-500/30 shrink-0">
-                {userLocation.isCustom ? 'Custom' : 'Default'}
-              </span>
             </div>
 
             {/* Embedded Interactive Mini-Map */}
@@ -349,13 +515,16 @@ export const SettingsModal: React.FC = () => {
                 style={{ background: '#f8fafc' }}
               />
               <div className="absolute bottom-2 left-2 z-400 bg-white/90 dark:bg-[#18181b]/90 backdrop-blur-xs px-2 py-1 rounded text-[10px] text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-white/10 shadow-xs pointer-events-none">
-                Click map or drag pin to set home address
+                Click map or drag pin to fine-tune
               </div>
             </div>
           </div>
 
-          {/* 4. Interests (Single unified list, add button inside input) */}
-          <div className="border-t border-slate-100 dark:border-[#27272a] pt-5 space-y-3">
+          {/* Redesigned Divider */}
+          <div className="border-t border-slate-200/80 dark:border-[#27272a]" />
+
+          {/* 3. Interests (Single unified list) */}
+          <div className="space-y-3">
             <div className="flex items-center justify-between text-xs">
               <label className="font-semibold text-slate-800 dark:text-slate-200">
                 Career Interests ({userInterests.length} active)
@@ -364,7 +533,7 @@ export const SettingsModal: React.FC = () => {
                 <button
                   type="button"
                   onClick={resetInterests}
-                  className="text-brand-600 dark:text-brand-400 hover:underline text-[11px] flex items-center gap-1"
+                  className="text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 text-[11px] font-medium flex items-center gap-1 transition"
                 >
                   <RotateCcw className="w-3 h-3" />
                   <span>Reset</span>
@@ -372,14 +541,14 @@ export const SettingsModal: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setUserInterests([])}
-                  className="text-slate-400 hover:text-red-600 text-[11px]"
+                  className="text-slate-400 hover:text-red-600 text-[11px] transition"
                 >
                   Clear
                 </button>
               </div>
             </div>
 
-            {/* Add Custom Form with button inside input */}
+            {/* Add Custom Form */}
             <form onSubmit={handleAddCustomInterest} className="relative flex items-center">
               <input
                 type="text"
@@ -436,9 +605,12 @@ export const SettingsModal: React.FC = () => {
             </div>
           </div>
 
-          {/* 5. Data Management */}
-          <div className="border-t border-slate-100 dark:border-[#27272a] pt-5 flex items-center justify-between">
-            <div className="text-[11px] text-slate-500 dark:text-slate-400">
+          {/* Redesigned Divider */}
+          <div className="border-t border-slate-200/80 dark:border-[#27272a]" />
+
+          {/* 4. Data Management */}
+          <div className="pt-1 flex items-center justify-between">
+            <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
               {savedCompanyIds.length} saved · {savedLists.length} lists
             </div>
             <div className="flex gap-2">
@@ -461,7 +633,7 @@ export const SettingsModal: React.FC = () => {
                     window.location.reload();
                   }
                 }}
-                className="px-3 py-1.5 bg-red-50 dark:bg-red-950/40 hover:bg-red-100 dark:hover:bg-red-900/50 text-red-600 dark:text-red-300 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 border border-red-200 dark:border-red-900/40"
+                className="px-3 py-1.5 bg-slate-100 dark:bg-[#222226] hover:bg-slate-200 dark:hover:bg-[#2a2a30] text-slate-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 border border-slate-200 dark:border-[#27272a]"
               >
                 <Trash2 className="w-3.5 h-3.5" />
                 <span>Reset</span>

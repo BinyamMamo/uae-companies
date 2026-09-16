@@ -621,19 +621,17 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
             {/* Commute from Home Address Header & Mode Switcher */}
             <div className="pt-2 space-y-3">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-                <div>
-                  <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                <div className="flex items-center gap-1.5 truncate min-w-0">
+                  <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider shrink-0">
                     Commute from Home Address
                   </h4>
-                  <span className="text-[11px] text-slate-500 dark:text-slate-400 block truncate mt-0.5 font-medium">
-                    {userLocation.name.includes('°')
-                      ? userLocation.name
-                      : `${userLocation.name} (${userLocation.latitude.toFixed(3)}°, ${userLocation.longitude.toFixed(3)}°)`}
+                  <span className="text-[11px] text-slate-500 dark:text-slate-400 truncate font-medium">
+                    · {userLocation.name}
                   </span>
                 </div>
 
                 {/* Mode Selector: Public Bus vs Driving */}
-                <div className="inline-flex items-center bg-slate-100 dark:bg-slate-800 p-1 rounded-lg text-xs self-start sm:self-auto border border-slate-200/60 dark:border-slate-700/60">
+                <div className="inline-flex items-center bg-slate-100 dark:bg-slate-800 p-1 rounded-lg text-xs self-start sm:self-auto border border-slate-200/60 dark:border-slate-700/60 shrink-0">
                   <button
                     type="button"
                     onClick={() => setCommuteMode('transit')}
@@ -671,39 +669,18 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
               </div>
 
               {/* Route Summary Bar */}
-              <div className="p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/80 flex items-center justify-between">
-                <div>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-base font-bold text-slate-900 dark:text-white">
-                      {commuteMode === 'transit' ? `~${transitPlan.totalMinutes} min` : `~${transitPlan.drivingMinutes} min`}
-                    </span>
-                    <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                      ({transitPlan.totalDistanceKm.toFixed(1)} km)
-                    </span>
-                  </div>
-                  <span className="text-xs text-slate-600 dark:text-slate-300 block mt-0.5">
-                    {commuteMode === 'transit' ? transitPlan.transitSummary : 'Via Dubai Arterial Highway Network'}
+              <div className="p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/80">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-base font-bold text-slate-900 dark:text-white">
+                    {commuteMode === 'transit' ? `~${transitPlan.totalMinutes} min` : `~${transitPlan.drivingMinutes} min`}
+                  </span>
+                  <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                    ({transitPlan.totalDistanceKm.toFixed(1)} km)
                   </span>
                 </div>
-                <div className="text-right">
-                  <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold ${
-                    commuteMode === 'transit'
-                      ? 'bg-brand-50 dark:bg-brand-950/40 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800'
-                      : 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800'
-                  }`}>
-                    {commuteMode === 'transit' ? (
-                      <>
-                        <Bus className="w-3.5 h-3.5" />
-                        <span>{transitPlan.primaryBusLine}</span>
-                      </>
-                    ) : (
-                      <>
-                        <Car className="w-3.5 h-3.5" />
-                        <span>Direct Drive</span>
-                      </>
-                    )}
-                  </span>
-                </div>
+                <span className="text-xs text-slate-600 dark:text-slate-300 block mt-0.5">
+                  {commuteMode === 'transit' ? transitPlan.transitSummary : 'Via Dubai Arterial Highway Network'}
+                </span>
               </div>
 
               {/* Downward Route Sequence (Google Maps Style) */}
