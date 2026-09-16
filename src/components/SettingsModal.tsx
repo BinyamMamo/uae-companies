@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 import { useApp } from '../context/AppContext';
-import { ACCENT_THEMES } from '../utils/accentThemes';
 import {
   X,
   Sun,
@@ -10,7 +11,8 @@ import {
   Check,
   Download,
   Trash2,
-  MapPin
+  Navigation,
+  MapPinHouse
 } from 'lucide-react';
 
 const SUGGESTED_DOMAINS = [
@@ -46,9 +48,8 @@ export const SettingsModal: React.FC = () => {
     setUsername,
     theme,
     toggleTheme,
-    accentColor,
-    setAccentColor,
     userLocation,
+    setUserLocation,
     resetUserLocation,
     savedCompanyIds,
     savedLists
@@ -57,6 +58,97 @@ export const SettingsModal: React.FC = () => {
   const [customInterestInput, setCustomInterestInput] = useState('');
   const [nameInput, setNameInput] = useState(username);
   const [nameSaved, setNameSaved] = useState(false);
+
+  const miniMapContainerRef = useRef<HTMLDivElement>(null);
+  const miniMapInstanceRef = useRef<L.Map | null>(null);
+  const miniMarkerRef = useRef<L.Marker | null>(null);
+
+  // Initialize and maintain embedded Leaflet mini-map for Home Address selection
+  useEffect(() => {
+    if (!isSettingsModalOpen || !miniMapContainerRef.current) return;
+
+    if (miniMapInstanceRef.current) {
+      miniMapInstanceRef.current.remove();
+      miniMapInstanceRef.current = null;
+    }
+
+    const map = L.map(miniMapContainerRef.current, {
+      center: [userLocation.latitude, userLocation.longitude],
+      zoom: 12,
+      zoomControl: true,
+      attributionControl: false,
+    });
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+      maxZoom: 19,
+      subdomains: 'abcd',
+    }).addTo(map);
+
+    const userHtml = `
+      <div style="position: relative; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
+        <div style="position: absolute; inset: -4px; border-radius: 9999px; border: 2px solid #2563eb; opacity: 0.75; animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;"></div>
+        <div style="width: 30px; height: 30px; border-radius: 9999px; background: #2563eb; color: #fff; box-shadow: 0 4px 14px rgba(37,99,235,0.5); display: flex; align-items: center; justify-content: center; border: 2px solid #ffffff;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 220-4 0v-4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v4"/><path d="M18 10a6 6 0 0 0-12 0c0 7 6 13 6 13s6-6 6-13Z"/><circle cx="12" cy="10" r="1.5"/></svg>
+        </div>
+      </div>
+    `;
+
+    const userIcon = L.divIcon({
+      html: userHtml,
+      className: 'custom-home-pin',
+      iconSize: [34, 34],
+      iconAnchor: [17, 17],
+    });
+
+    const marker = L.marker([userLocation.latitude, userLocation.longitude], {
+      icon: userIcon,
+      draggable: true,
+    }).addTo(map);
+
+    const updateLocation = (lat: number, lng: number) => {
+      const roundedLat = Math.round(lat * 100000) / 100000;
+      const roundedLng = Math.round(lng * 100000) / 100000;
+      setUserLocation({
+        name: `Home (${roundedLat.toFixed(3)}°, ${roundedLng.toFixed(3)}°)`,
+        latitude: roundedLat,
+        longitude: roundedLng,
+        isCustom: true,
+      });
+    };
+
+    marker.on('dragend', (e) => {
+      const latlng = (e.target as L.Marker).getLatLng();
+      updateLocation(latlng.lat, latlng.lng);
+    });
+
+    map.on('click', (e) => {
+      marker.setLatLng(e.latlng);
+      updateLocation(e.latlng.lat, e.latlng.lng);
+    });
+
+    miniMarkerRef.current = marker;
+    miniMapInstanceRef.current = map;
+
+    const timer1 = setTimeout(() => map.invalidateSize(), 150);
+    const timer2 = setTimeout(() => map.invalidateSize(), 450);
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      if (miniMapInstanceRef.current) {
+        miniMapInstanceRef.current.remove();
+        miniMapInstanceRef.current = null;
+      }
+    };
+  }, [isSettingsModalOpen]);
+
+  // Sync marker position when userLocation changes externally
+  useEffect(() => {
+    if (miniMarkerRef.current && miniMapInstanceRef.current) {
+      miniMarkerRef.current.setLatLng([userLocation.latitude, userLocation.longitude]);
+      miniMapInstanceRef.current.panTo([userLocation.latitude, userLocation.longitude]);
+    }
+  }, [userLocation.latitude, userLocation.longitude]);
 
   if (!isSettingsModalOpen) return null;
 
@@ -72,6 +164,29 @@ export const SettingsModal: React.FC = () => {
     setUsername(nameInput.trim());
     setNameSaved(true);
     setTimeout(() => setNameSaved(false), 2000);
+  };
+
+  const handleUseGps = () => {
+    if (!navigator.geolocation) {
+      alert('Geolocation is not supported by your browser');
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(
+      pos => {
+        const lat = Math.round(pos.coords.latitude * 100000) / 100000;
+        const lng = Math.round(pos.coords.longitude * 100000) / 100000;
+        setUserLocation({
+          name: `Current Location (${lat.toFixed(3)}°, ${lng.toFixed(3)}°)`,
+          latitude: lat,
+          longitude: lng,
+          isCustom: true,
+        });
+      },
+      err => {
+        alert('Could not retrieve your location: ' + err.message);
+      },
+      { enableHighAccuracy: true, timeout: 8000 }
+    );
   };
 
   const handleExportData = () => {
@@ -95,7 +210,7 @@ export const SettingsModal: React.FC = () => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-xs">
       <div
-        className="bg-white dark:bg-[#18181b] rounded-xl max-w-lg w-full max-h-[88vh] flex flex-col shadow-popup border border-slate-200 dark:border-[#27272a] overflow-hidden text-slate-900 dark:text-slate-100 transition-colors"
+        className="bg-white dark:bg-[#18181b] rounded-xl max-w-lg w-full max-h-[90vh] flex flex-col shadow-popup border border-slate-200 dark:border-[#27272a] overflow-hidden text-slate-900 dark:text-slate-100 transition-colors"
         role="dialog"
         aria-modal="true"
         aria-labelledby="settings-title"
@@ -114,7 +229,7 @@ export const SettingsModal: React.FC = () => {
           </button>
         </div>
 
-        {/* Body - Single clean unified view without sidebar tabs */}
+        {/* Body - Single clean unified view */}
         <div className="flex-1 p-5 sm:p-6 overflow-y-auto space-y-6">
           
           {/* 1. Display Name */}
@@ -139,81 +254,107 @@ export const SettingsModal: React.FC = () => {
                 <span>{nameSaved ? 'Saved' : 'Save'}</span>
               </button>
             </form>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400">
-              Header logo: <span className="font-semibold text-slate-800 dark:text-slate-200">Hey {nameInput.trim() ? nameInput.trim() : 'there'} 👋</span>
-            </p>
           </div>
 
-          {/* 2. Appearance: Theme + Accent Color */}
-          <div className="border-t border-slate-100 dark:border-[#27272a] pt-5 space-y-4">
-            <div>
-              <label className="block text-xs font-semibold text-slate-800 dark:text-slate-200 mb-2">
-                Theme
-              </label>
-              <div className="grid grid-cols-2 gap-2.5">
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (theme !== 'light') toggleTheme();
-                  }}
-                  className={`p-2.5 rounded-lg border text-left transition flex items-center gap-2.5 ${
-                    theme === 'light'
-                      ? 'border-brand-600 bg-brand-50/50 ring-1 ring-brand-600'
-                      : 'border-slate-200 dark:border-[#27272a] bg-slate-50 dark:bg-[#222226] hover:border-slate-300 dark:hover:border-slate-700'
-                  }`}
-                >
-                  <Sun className="w-4 h-4 text-slate-800 dark:text-slate-200 shrink-0" />
-                  <span className="text-xs font-semibold text-slate-900 dark:text-white">Light</span>
-                  {theme === 'light' && <Check className="w-3.5 h-3.5 text-brand-600 ml-auto" />}
-                </button>
+          {/* 2. Appearance: Theme */}
+          <div className="border-t border-slate-100 dark:border-[#27272a] pt-5 space-y-3">
+            <label className="block text-xs font-semibold text-slate-800 dark:text-slate-200">
+              Theme
+            </label>
+            <div className="grid grid-cols-2 gap-2.5">
+              <button
+                type="button"
+                onClick={() => {
+                  if (theme !== 'light') toggleTheme();
+                }}
+                className={`p-2.5 rounded-lg border text-left transition flex items-center gap-2.5 ${
+                  theme === 'light'
+                    ? 'border-brand-600 bg-brand-50/50 ring-1 ring-brand-600'
+                    : 'border-slate-200 dark:border-[#27272a] bg-slate-50 dark:bg-[#222226] hover:border-slate-300 dark:hover:border-slate-700'
+                }`}
+              >
+                <Sun className="w-4 h-4 text-slate-800 dark:text-slate-200 shrink-0" />
+                <span className="text-xs font-semibold text-slate-900 dark:text-white">Light</span>
+                {theme === 'light' && <Check className="w-3.5 h-3.5 text-brand-600 ml-auto" />}
+              </button>
 
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (theme !== 'dark') toggleTheme();
-                  }}
-                  className={`p-2.5 rounded-lg border text-left transition flex items-center gap-2.5 ${
-                    theme === 'dark'
-                      ? 'border-brand-500 bg-[#222226] ring-1 ring-brand-500'
-                      : 'border-slate-200 dark:border-[#27272a] bg-slate-50 dark:bg-[#222226] hover:border-slate-300 dark:hover:border-slate-700'
-                  }`}
-                >
-                  <Moon className="w-4 h-4 text-white shrink-0" />
-                  <span className="text-xs font-semibold text-slate-900 dark:text-white">Dark</span>
-                  {theme === 'dark' && <Check className="w-3.5 h-3.5 text-brand-400 ml-auto" />}
-                </button>
-              </div>
-            </div>
-
-            {/* Accent Color Swatches */}
-            <div>
-              <label className="block text-xs font-semibold text-slate-800 dark:text-slate-200 mb-2">
-                Accent Color
-              </label>
-              <div className="flex items-center gap-2.5 flex-wrap">
-                {ACCENT_THEMES.map(preset => {
-                  const isActive = accentColor === preset.id;
-                  return (
-                    <button
-                      key={preset.id}
-                      type="button"
-                      onClick={() => setAccentColor(preset.id)}
-                      className={`w-7 h-7 rounded-full flex items-center justify-center transition-transform hover:scale-110 relative ${
-                        isActive ? 'ring-2 ring-offset-2 ring-offset-white dark:ring-offset-[#18181b] ring-brand-500' : 'opacity-85 hover:opacity-100'
-                      }`}
-                      style={{ backgroundColor: preset.colorHex }}
-                      title={preset.name}
-                      aria-label={`Select ${preset.name} accent`}
-                    >
-                      {isActive && <Check className="w-3.5 h-3.5 text-white stroke-[3]" />}
-                    </button>
-                  );
-                })}
-              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  if (theme !== 'dark') toggleTheme();
+                }}
+                className={`p-2.5 rounded-lg border text-left transition flex items-center gap-2.5 ${
+                  theme === 'dark'
+                    ? 'border-brand-500 bg-[#222226] ring-1 ring-brand-500'
+                    : 'border-slate-200 dark:border-[#27272a] bg-slate-50 dark:bg-[#222226] hover:border-slate-300 dark:hover:border-slate-700'
+                }`}
+              >
+                <Moon className="w-4 h-4 text-white shrink-0" />
+                <span className="text-xs font-semibold text-slate-900 dark:text-white">Dark</span>
+                {theme === 'dark' && <Check className="w-3.5 h-3.5 text-brand-400 ml-auto" />}
+              </button>
             </div>
           </div>
 
-          {/* 3. Interests (Single unified list, add button inside input) */}
+          {/* 3. Home Address with Interactive Mini-Map */}
+          <div className="border-t border-slate-100 dark:border-[#27272a] pt-5 space-y-3">
+            <div className="flex items-center justify-between text-xs">
+              <label className="font-semibold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+                <MapPinHouse className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400" />
+                <span>Home Address</span>
+              </label>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handleUseGps}
+                  className="text-brand-600 dark:text-brand-400 hover:underline text-[11px] flex items-center gap-1"
+                  title="Use device GPS"
+                >
+                  <Navigation className="w-3 h-3" />
+                  <span>Use GPS</span>
+                </button>
+                {userLocation.isCustom && (
+                  <button
+                    type="button"
+                    onClick={resetUserLocation}
+                    className="text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 text-[11px] flex items-center gap-1"
+                  >
+                    <RotateCcw className="w-3 h-3" />
+                    <span>Reset</span>
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Location Pill / Information */}
+            <div className="px-3 py-2 rounded-lg border border-slate-200 dark:border-[#27272a] bg-slate-50 dark:bg-[#222226] flex items-center justify-between text-xs">
+              <div className="truncate min-w-0 pr-2">
+                <span className="font-medium text-slate-900 dark:text-white block truncate">
+                  {userLocation.name}
+                </span>
+                <span className="text-[11px] text-slate-500 dark:text-slate-400">
+                  {userLocation.latitude.toFixed(4)}° N, {userLocation.longitude.toFixed(4)}° E
+                </span>
+              </div>
+              <span className="text-[10px] uppercase font-semibold px-2 py-0.5 rounded bg-brand-50 dark:bg-brand-500/15 text-brand-700 dark:text-brand-300 border border-brand-200/60 dark:border-brand-500/30 shrink-0">
+                {userLocation.isCustom ? 'Custom' : 'Default'}
+              </span>
+            </div>
+
+            {/* Embedded Interactive Mini-Map */}
+            <div className="relative rounded-lg overflow-hidden border border-slate-200 dark:border-[#27272a] shadow-inner">
+              <div
+                ref={miniMapContainerRef}
+                className="w-full h-44 z-0"
+                style={{ background: '#f8fafc' }}
+              />
+              <div className="absolute bottom-2 left-2 z-400 bg-white/90 dark:bg-[#18181b]/90 backdrop-blur-xs px-2 py-1 rounded text-[10px] text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-white/10 shadow-xs pointer-events-none">
+                Click map or drag pin to set home address
+              </div>
+            </div>
+          </div>
+
+          {/* 4. Interests (Single unified list, add button inside input) */}
           <div className="border-t border-slate-100 dark:border-[#27272a] pt-5 space-y-3">
             <div className="flex items-center justify-between text-xs">
               <label className="font-semibold text-slate-800 dark:text-slate-200">
@@ -292,41 +433,6 @@ export const SettingsModal: React.FC = () => {
                   </button>
                 );
               })}
-            </div>
-          </div>
-
-          {/* 4. Commute Location Reference */}
-          <div className="border-t border-slate-100 dark:border-[#27272a] pt-5 space-y-2">
-            <div className="flex items-center justify-between text-xs">
-              <label className="font-semibold text-slate-800 dark:text-slate-200">
-                Commute Location
-              </label>
-              {userLocation.isCustom && (
-                <button
-                  type="button"
-                  onClick={resetUserLocation}
-                  className="text-brand-600 dark:text-brand-400 hover:underline text-[11px] flex items-center gap-1"
-                >
-                  <RotateCcw className="w-3 h-3" />
-                  <span>Reset to DIAC</span>
-                </button>
-              )}
-            </div>
-            
-            <div className="p-3 rounded-lg border border-slate-200 dark:border-[#27272a] bg-slate-50 dark:bg-[#222226] flex items-start gap-2.5">
-              <MapPin className="w-4 h-4 text-brand-600 dark:text-brand-400 shrink-0 mt-0.5" />
-              <div className="text-xs space-y-0.5 min-w-0">
-                <span className="font-semibold text-slate-900 dark:text-white block truncate">
-                  {userLocation.name}
-                </span>
-                <p className="text-slate-500 dark:text-slate-400 text-[11px]">
-                  {userLocation.latitude.toFixed(4)}° N, {userLocation.longitude.toFixed(4)}° E
-                  {userLocation.isCustom ? ' (Custom Location)' : ' (Reference)'}
-                </p>
-                <p className="text-[11px] text-slate-400 dark:text-slate-500 pt-1">
-                  Tip: Open the <strong className="text-slate-700 dark:text-slate-300">Map tab</strong> to set your custom location anywhere in the UAE.
-                </p>
-              </div>
             </div>
           </div>
 

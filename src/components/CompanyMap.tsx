@@ -32,125 +32,7 @@ const CATEGORY_COLORS: Record<string, { bg: string; border: string }> = {
   'Other': { bg: '#334155', border: '#64748b' }
 };
 
-// Major Dubai Tech Districts with geographic boundary polygons & English labels
-interface TechDistrict {
-  id: string;
-  name: string;
-  badgeName: string;
-  center: [number, number];
-  bounds: [number, number][];
-  color: string;
-  borderColor: string;
-  info: string;
-}
-
-const DUBAI_TECH_DISTRICTS: TechDistrict[] = [
-  {
-    id: 'academic-city',
-    name: 'Dubai Academic City (DIAC)',
-    badgeName: 'Academic City (UD Hub)',
-    center: [25.129, 55.418],
-    bounds: [
-      [25.115, 55.405],
-      [25.143, 55.405],
-      [25.143, 55.438],
-      [25.115, 55.438],
-    ],
-    color: '#8b5cf6',
-    borderColor: '#a78bfa',
-    info: 'University of Dubai & Higher Education Cluster'
-  },
-  {
-    id: 'silicon-oasis',
-    name: 'Dubai Silicon Oasis (DSO)',
-    badgeName: 'Dubai Silicon Oasis',
-    center: [25.124, 55.378],
-    bounds: [
-      [25.110, 55.362],
-      [25.142, 55.362],
-      [25.142, 55.398],
-      [25.110, 55.398],
-    ],
-    color: '#0ea5e9',
-    borderColor: '#38bdf8',
-    info: 'Tech, Hardware, & Innovation Free Zone'
-  },
-  {
-    id: 'internet-city',
-    name: 'Dubai Internet City & Media City',
-    badgeName: 'Internet & Media City',
-    center: [25.095, 55.160],
-    bounds: [
-      [25.080, 55.146],
-      [25.112, 55.146],
-      [25.112, 55.178],
-      [25.080, 55.178],
-    ],
-    color: '#2563eb',
-    borderColor: '#60a5fa',
-    info: 'Global Tech Giants & Digital Media Hub'
-  },
-  {
-    id: 'difc-downtown',
-    name: 'DIFC & Downtown Dubai',
-    badgeName: 'DIFC / Downtown',
-    center: [25.204, 55.275],
-    bounds: [
-      [25.188, 55.258],
-      [25.220, 55.258],
-      [25.220, 55.292],
-      [25.188, 55.292],
-    ],
-    color: '#10b981',
-    borderColor: '#34d399',
-    info: 'FinTech, Enterprise HQ & Financial Centre'
-  },
-  {
-    id: 'business-bay',
-    name: 'Business Bay',
-    badgeName: 'Business Bay',
-    center: [25.182, 55.264],
-    bounds: [
-      [25.168, 55.248],
-      [25.195, 55.248],
-      [25.195, 55.276],
-      [25.168, 55.276],
-    ],
-    color: '#0d9488',
-    borderColor: '#2dd4bf',
-    info: 'Commerce, Tech Consulting & Startups'
-  },
-  {
-    id: 'jlt-marina',
-    name: 'JLT & Dubai Marina',
-    badgeName: 'JLT / Marina',
-    center: [25.074, 55.142],
-    bounds: [
-      [25.060, 55.128],
-      [25.088, 55.128],
-      [25.088, 55.158],
-      [25.060, 55.158],
-    ],
-    color: '#f59e0b',
-    borderColor: '#fbbf24',
-    info: 'DMCC Freezone, Crypto & Software Hub'
-  },
-  {
-    id: 'airport-dafza',
-    name: 'DAFZA / Dubai Airport Area',
-    badgeName: 'DAFZA (Airport)',
-    center: [25.260, 55.372],
-    bounds: [
-      [25.245, 55.355],
-      [25.275, 55.355],
-      [25.275, 55.395],
-      [25.245, 55.395],
-    ],
-    color: '#6366f1',
-    borderColor: '#818cf8',
-    info: 'Aviation, Logistics & International Trade'
-  },
-];
+import { DUBAI_DISTRICTS_GEO } from '../data/dubaiDistrictsGeo';
 
 export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompany }) => {
   const { userLocation, setUserLocation, resetUserLocation } = useApp();
@@ -313,19 +195,35 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
 
     if (!showDistricts) return;
 
-    DUBAI_TECH_DISTRICTS.forEach(d => {
-      // 1. Boundary polygon
-      const polygon = L.polygon(d.bounds, {
+    DUBAI_DISTRICTS_GEO.forEach(d => {
+      // 1. Real geographic boundary polygon
+      const polygon = L.polygon(d.polygon, {
         color: d.borderColor,
-        weight: 1.8,
-        dashArray: '5, 5',
+        weight: 1.5,
+        dashArray: '4, 4',
         fillColor: d.color,
-        fillOpacity: 0.10,
+        fillOpacity: 0.08,
       });
 
+      // Hover interaction to smoothly highlight boundary
+      polygon.on('mouseover', () => {
+        polygon.setStyle({
+          fillOpacity: 0.18,
+          weight: 2.2,
+        });
+      });
+
+      polygon.on('mouseout', () => {
+        polygon.setStyle({
+          fillOpacity: 0.08,
+          weight: 1.5,
+        });
+      });
+
+      // Detailed tooltip on hover anywhere along the district boundary
       polygon.bindTooltip(
         `<div style="font-family: Inter, sans-serif; font-size: 11px; padding: 2px 4px;">
-           <strong style="color:${d.borderColor}; font-size: 12px;">${d.name}</strong><br/>
+           <strong style="color:${d.borderColor}; font-size: 12px; display: block; margin-bottom: 2px;">${d.name}</strong>
            <span style="color:#a1a1aa;">${d.info}</span>
          </div>`,
         { sticky: true, className: 'dark-tooltip' }
@@ -333,34 +231,28 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
 
       districtsLayer.addLayer(polygon);
 
-      // 2. High-contrast English floating badge marker
-      const badgeHtml = `
-        <div class="group relative cursor-pointer select-none">
-          <div class="px-2.5 py-1 rounded-full text-[11px] font-bold shadow-lg border backdrop-blur-md flex items-center gap-1.5 transition-all group-hover:scale-105"
-               style="background: rgba(18, 18, 20, 0.92); color: #f8fafc; border-color: ${d.borderColor};">
-            <span class="w-2 h-2 rounded-full" style="background-color: ${d.borderColor}; box-shadow: 0 0 6px ${d.borderColor};"></span>
-            <span class="tracking-tight whitespace-nowrap">${d.badgeName}</span>
-          </div>
-        </div>
-      `;
-
-      const badgeIcon = L.divIcon({
-        html: badgeHtml,
-        className: 'district-badge',
-        iconSize: [140, 24],
-        iconAnchor: [70, 12],
+      // 2. Sleek border label at the top tip of the boundary (never covering pins in cluster centers!)
+      const tipMarker = L.circleMarker(d.northTip, {
+        radius: 0,
+        opacity: 0,
+        fillOpacity: 0,
+        interactive: false,
       });
 
-      const badgeMarker = L.marker(d.center, { icon: badgeIcon });
-      badgeMarker.bindTooltip(
-        `<div style="font-family: Inter, sans-serif; font-size: 11px; padding: 2px 4px;">
-           <strong style="color:${d.borderColor}; font-size: 12px;">${d.name}</strong><br/>
-           <span style="color:#a1a1aa;">${d.info}</span>
+      tipMarker.bindTooltip(
+        `<div class="district-tip-badge" style="border-left: 2.5px solid ${d.borderColor};">
+           <span>${d.badgeName}</span>
          </div>`,
-        { direction: 'top', className: 'dark-tooltip' }
+        {
+          permanent: true,
+          direction: 'top',
+          offset: [0, -2],
+          className: 'district-tip-tooltip',
+          interactive: false,
+        }
       );
 
-      districtsLayer.addLayer(badgeMarker);
+      districtsLayer.addLayer(tipMarker);
     });
   }, [showDistricts]);
 
@@ -581,7 +473,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
             onClick={() => setShowDistricts(prev => !prev)}
             className={`px-2.5 py-1 text-xs font-medium rounded flex items-center gap-1.5 transition ${
               showDistricts
-                ? 'bg-violet-600 text-white shadow-xs'
+                ? 'bg-brand-600 text-white shadow-xs'
                 : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226]'
             }`}
             title="Toggle Dubai tech district boundary polygons and English labels"

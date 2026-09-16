@@ -55,25 +55,66 @@ body.dark,
   }
 }
 
-/* Smooth global transition for theme switching without flashing borders and bgs */
-*, *::before, *::after {
-  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
-  transition-duration: 240ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+/* Native View Transitions for theme changes: clean cross-fade without border flashing */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 220ms;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Exclude leaflet tiles, maps, and dragging markers from transition delays */
-.leaflet-tile,
-.leaflet-tile-container,
-.leaflet-pane,
-.leaflet-marker-pane,
-.leaflet-zoom-animated,
-.custom-map-pin,
-.custom-user-pin,
-img,
-video,
-canvas {
-  transition-property: none !important;
+/* Custom District Tip Tooltip placed at Boundary Tip */
+.district-tip-tooltip {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  pointer-events: none !important;
+}
+
+.district-tip-tooltip::before {
+  display: none !important;
+}
+
+.district-tip-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: rgba(18, 18, 20, 0.88);
+  color: #f4f4f5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+  user-select: none;
+}
+
+html:not(.dark) .district-tip-badge {
+  background: rgba(255, 255, 255, 0.92);
+  color: #18181b;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Clean Dark Tooltip for Leaflet */
+.dark-tooltip {
+  background: #18181b !important;
+  color: #f4f4f5 !important;
+  border: 1px solid #27272a !important;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+  padding: 4px 8px !important;
+}
+.dark-tooltip::before {
+  border-top-color: #18181b !important;
+  border-bottom-color: #18181b !important;
 }
 
 /* Hide all scrollbars globally */
