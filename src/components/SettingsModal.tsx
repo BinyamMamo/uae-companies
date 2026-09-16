@@ -329,7 +329,7 @@ export const SettingsModal: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-xs">
+    <div className="fixed inset-0 z-[10000] flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-xs">
       <div
         className="bg-white dark:bg-[#18181b] rounded-xl max-w-lg w-full max-h-[90vh] flex flex-col shadow-popup border border-slate-200 dark:border-[#27272a] overflow-hidden text-slate-900 dark:text-slate-100 transition-colors"
         role="dialog"
@@ -353,23 +353,11 @@ export const SettingsModal: React.FC = () => {
         {/* Body */}
         <div className="flex-1 p-5 sm:p-6 overflow-y-auto space-y-5">
           
-          {/* 1. Appearance: Theme - Single Line with Icons */}
+          {/* 1. Appearance - Single line, no icon on left, no subtext */}
           <div className="flex items-center justify-between py-1">
-            <div className="flex items-center gap-2">
-              {theme === 'dark' ? (
-                <Moon className="w-4 h-4 text-blue-400" />
-              ) : (
-                <Sun className="w-4 h-4 text-amber-500" />
-              )}
-              <div>
-                <span className="text-xs font-semibold text-slate-900 dark:text-white block">
-                  Theme
-                </span>
-                <span className="text-[11px] text-slate-500 dark:text-slate-400">
-                  {theme === 'dark' ? 'Dark mode' : 'Light mode'}
-                </span>
-              </div>
-            </div>
+            <span className="text-xs font-semibold text-slate-900 dark:text-white">
+              Appearance
+            </span>
 
             <div className="inline-flex items-center bg-slate-100 dark:bg-[#222226] p-1 rounded-lg border border-slate-200/60 dark:border-[#27272a]">
               <button

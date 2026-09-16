@@ -13,7 +13,6 @@ import {
   MapPin,
   Car,
   CheckCircle2,
-  Building2,
   ShieldCheck,
   Users,
   ArrowRight,
@@ -192,53 +191,59 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
         aria-label={`${company.name} Details`}
       >
       {/* Drawer Header */}
-      <div className="p-5 border-b border-slate-200 dark:border-[#27272a]">
+      <div className="p-5 border-b border-slate-200 dark:border-[#27272a] relative">
         
-        {/* Top bar with Close button */}
-        <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-            <Building2 className="w-3.5 h-3.5 text-slate-400" />
-            <span>Company Intelligence</span>
+        {/* Close button at top right */}
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-[#222226] transition-colors"
+          aria-label="Close drawer"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        {/* Company Title & Logo */}
+        <div className="flex items-start gap-3.5 pr-12">
+          <div className="w-12 h-12 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 flex items-center justify-center shrink-0 p-1.5 shadow-2xs">
+            <img
+              src={company.logo}
+              alt={`${company.name} logo`}
+              className="w-full h-full object-contain"
+              onError={(e) => {
+                const target = e.target as HTMLElement;
+                target.style.display = 'none';
+                if (target.parentElement) {
+                  target.parentElement.innerHTML = `<span class="text-xs font-bold text-slate-700 dark:text-slate-300">${company.name.slice(0, 2).toUpperCase()}</span>`;
+                }
+              }}
+            />
           </div>
-          <button
-            onClick={onClose}
-            className="p-1 rounded text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-[#222226] transition-colors"
-            aria-label="Close drawer"
-          >
-            <X className="w-5 h-5" />
-          </button>
+          <div className="min-w-0 flex-1">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white leading-snug truncate">
+              {company.name}
+            </h2>
+            <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate">
+              {company.categories.join(' · ')}
+            </div>
+          </div>
         </div>
 
-        {/* Company Title, Logo, and Save Button */}
-        <div className="flex items-start justify-between gap-3">
-          <div className="flex items-start gap-3">
-            <div className="w-12 h-12 rounded border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 flex items-center justify-center shrink-0 p-1.5 shadow-2xs">
-              <img
-                src={company.logo}
-                alt={`${company.name} logo`}
-                className="w-full h-full object-contain"
-                onError={(e) => {
-                  const target = e.target as HTMLElement;
-                  target.style.display = 'none';
-                  if (target.parentElement) {
-                    target.parentElement.innerHTML = `<span class="text-xs font-bold text-slate-700 dark:text-slate-300">${company.name.slice(0, 2).toUpperCase()}</span>`;
-                  }
-                }}
-              />
-            </div>
-            <div>
-              <h2 className="text-lg font-bold text-slate-900 dark:text-white leading-snug">
-                {company.name}
-              </h2>
-              <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                {company.categories.join(' · ')}
-              </div>
-            </div>
+        {/* Location Subheader & Save Button placed down with ample space */}
+        <div className="flex items-center justify-between gap-3 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+          <div className="flex items-center flex-wrap gap-x-2 text-xs text-slate-600 dark:text-slate-300 min-w-0">
+            <span className="flex items-center gap-1 font-medium text-slate-700 dark:text-slate-200">
+              <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+              <span>{company.location.area}, {company.location.emirate}</span>
+            </span>
+            <span className="text-slate-300 dark:text-slate-700">·</span>
+            <span>{formatDistance(company.commute.distanceKm)}</span>
+            <span className="text-slate-300 dark:text-slate-700">·</span>
+            <span className="font-medium text-slate-700 dark:text-slate-200">{formatBusCommute(company.commute.busMinutes)}</span>
           </div>
 
           <button
             onClick={() => toggleSaveCompany(company.id)}
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded border transition-colors shrink-0 ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border transition-colors shrink-0 ${
               isSaved
                 ? 'bg-brand-600 text-white border-brand-600 shadow-2xs'
                 : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-750'
@@ -247,18 +252,6 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
             <Bookmark className={`w-3.5 h-3.5 ${isSaved ? 'fill-white' : ''}`} />
             <span>{isSaved ? 'Saved' : 'Save'}</span>
           </button>
-        </div>
-
-        {/* Location & Commute Subheader */}
-        <div className="flex items-center flex-wrap gap-x-2 text-xs text-slate-600 dark:text-slate-300 mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-800">
-          <span className="flex items-center gap-1 font-medium text-slate-700 dark:text-slate-200">
-            <MapPin className="w-3.5 h-3.5 text-slate-400" />
-            <span>{company.location.area}, {company.location.emirate}</span>
-          </span>
-          <span className="text-slate-300 dark:text-slate-700">·</span>
-          <span>{formatDistance(company.commute.distanceKm)}</span>
-          <span className="text-slate-300 dark:text-slate-700">·</span>
-          <span className="font-medium text-slate-700 dark:text-slate-200">{formatBusCommute(company.commute.busMinutes)}</span>
         </div>
 
       </div>
@@ -618,45 +611,33 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
               </div>
             </div>
 
-            {/* Commute from Home Address Header & Mode Switcher */}
+            {/* Mode Selector: Full-Width Bottom-Bordered Tabs (No Background) */}
             <div className="pt-2 space-y-3">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-                <div className="flex items-center gap-1.5 truncate min-w-0">
-                  <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider shrink-0">
-                    Commute from Home Address
-                  </h4>
-                  <span className="text-[11px] text-slate-500 dark:text-slate-400 truncate font-medium">
-                    · {userLocation.name}
-                  </span>
-                </div>
-
-                {/* Mode Selector: Public Bus vs Driving */}
-                <div className="inline-flex items-center bg-slate-100 dark:bg-slate-800 p-1 rounded-lg text-xs self-start sm:self-auto border border-slate-200/60 dark:border-slate-700/60 shrink-0">
-                  <button
-                    type="button"
-                    onClick={() => setCommuteMode('transit')}
-                    className={`px-3 py-1.5 rounded-md font-semibold transition flex items-center gap-1.5 ${
-                      commuteMode === 'transit'
-                        ? 'bg-white dark:bg-slate-900 text-brand-600 dark:text-brand-400 shadow-2xs'
-                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-                    }`}
-                  >
-                    <Bus className="w-3.5 h-3.5" />
-                    <span>Public Bus</span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setCommuteMode('driving')}
-                    className={`px-3 py-1.5 rounded-md font-semibold transition flex items-center gap-1.5 ${
-                      commuteMode === 'driving'
-                        ? 'bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-2xs'
-                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-                    }`}
-                  >
-                    <Car className="w-3.5 h-3.5" />
-                    <span>Driving</span>
-                  </button>
-                </div>
+              <div className="grid grid-cols-2 border-b border-slate-200 dark:border-[#27272a]">
+                <button
+                  type="button"
+                  onClick={() => setCommuteMode('transit')}
+                  className={`pb-2.5 text-xs font-semibold flex items-center justify-center gap-2 border-b-2 transition-colors ${
+                    commuteMode === 'transit'
+                      ? 'border-brand-600 text-brand-600 dark:text-brand-400'
+                      : 'border-transparent text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
+                  }`}
+                >
+                  <Bus className="w-4 h-4" />
+                  <span>Public Bus</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCommuteMode('driving')}
+                  className={`pb-2.5 text-xs font-semibold flex items-center justify-center gap-2 border-b-2 transition-colors ${
+                    commuteMode === 'driving'
+                      ? 'border-emerald-600 text-emerald-600 dark:text-emerald-400'
+                      : 'border-transparent text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
+                  }`}
+                >
+                  <Car className="w-4 h-4" />
+                  <span>Driving</span>
+                </button>
               </div>
 
               {/* Clean Map Embed - no borders, no cards */}

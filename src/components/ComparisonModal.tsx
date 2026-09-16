@@ -23,7 +23,7 @@ export const ComparisonModal: React.FC = () => {
     .filter(Boolean) as typeof companies;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
+    <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
       <div className="bg-white dark:bg-[#18181b] rounded-xl max-w-5xl w-full max-h-[90vh] flex flex-col shadow-popup border border-slate-200 dark:border-[#27272a] overflow-hidden text-slate-800 dark:text-slate-200">
         
         {/* Header */}
