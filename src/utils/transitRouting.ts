@@ -26,8 +26,7 @@ export interface TransitRoutePlan {
   drivingMinutes: number;
   primaryBusLine: string;   // e.g. "Bus 320", "Bus X25", "Bus 50"
   transitSummary: string;   // e.g. "Direct Bus 320 via Sheikh Zayed Bin Hamdan St"
-  feasibilityNote: string;
-  reliabilityScore: 'High' | 'Very High' | 'Moderate';
+  advisoryNote: string;     // Factual commute advisory
   legs: TransitLeg[];
   fullPolyline: [number, number][];
   drivingPolyline: [number, number][];
@@ -66,7 +65,6 @@ function createCorridorPath(
     const a = points[i];
     const b = points[i + 1];
     smoothed.push(a);
-    // Add 3 intermediate interpolated points for realistic curved highway trajectory
     for (let t = 1; t <= 3; t++) {
       const frac = t / 4;
       const lat = a[0] + (b[0] - a[0]) * frac;
@@ -106,23 +104,20 @@ export function calculateTransitRoute(
   const legs: TransitLeg[] = [];
   let primaryBusLine = 'Bus 320';
   let transitSummary = 'Direct RTA Bus Corridor';
-  let feasibilityNote = 'Regular daily service with standard peak hours.';
-  let reliabilityScore: 'High' | 'Very High' | 'Moderate' = 'High';
+  let advisoryNote = 'Regular daily transit operation with standard peak hours.';
 
-  // 1. CORRIDOR: Academic City <-> Silicon Oasis (The Classic 320 Bus Corridor)
+  // 1. CORRIDOR: Academic City -> Silicon Oasis (Bus 320 Corridor)
   if (
     (origName.includes('academic') || calculateDistanceKm(origCoords[0], origCoords[1], TRANSIT_HUBS.academicCity.coords[0], TRANSIT_HUBS.academicCity.coords[1]) < 3.5) &&
     (destArea.includes('silicon oasis') || destArea.includes('dso') || calculateDistanceKm(destCoords[0], destCoords[1], TRANSIT_HUBS.siliconOasisHq.coords[0], TRANSIT_HUBS.siliconOasisHq.coords[1]) < 3.5)
   ) {
     primaryBusLine = 'Bus 320';
     transitSummary = 'Direct Bus 320 via Sheikh Zayed Bin Hamdan Al Nahyan St';
-    feasibilityNote = 'High frequency (every 11 minutes). Dedicated arterial corridor with minimal traffic delay. Expect high student ridership during peak morning hours (7:30–9:00 AM).';
-    reliabilityScore = 'Very High';
+    advisoryNote = 'High frequency service (every 11 min). Dedicated bus priority lane along Sheikh Zayed Bin Hamdan St minimizes delays during peak hours.';
 
     const boardStop = TRANSIT_HUBS.kskResidence.coords;
     const alightStop = TRANSIT_HUBS.siliconOasisHq.coords;
 
-    // Leg 1: Walk to boarding stop
     legs.push({
       id: 'leg-walk-1',
       type: 'walk',
@@ -132,14 +127,8 @@ export function calculateTransitRoute(
       distanceKm: 0.4,
       color: '#94a3b8',
       coordinates: [origCoords, boardStop],
-      notes: 'Well-paved campus walkway to bus shelter'
+      notes: 'Paved pedestrian path to sheltered bus station'
     });
-
-    // Leg 2: Transit via Bus 320
-    const busCorridor = createCorridorPath(boardStop, alightStop, [
-      [25.1280, 55.4120], // Sheikh Zayed Bin Hamdan St corridor
-      [25.1260, 55.3950],
-    ]);
 
     legs.push({
       id: 'leg-bus-320',
@@ -151,13 +140,15 @@ export function calculateTransitRoute(
       durationMin: 22,
       distanceKm: 5.8,
       frequencyMin: 11,
-      color: '#0284c7', // Brand cyan/sky
+      color: '#0284c7',
       corridor: 'Sheikh Zayed Bin Hamdan Al Nahyan St',
-      coordinates: busCorridor,
-      notes: 'Direct express arterial transit, air-conditioned RTA double-decker / standard bus'
+      coordinates: createCorridorPath(boardStop, alightStop, [
+        [25.1280, 55.4120],
+        [25.1260, 55.3950],
+      ]),
+      notes: 'Direct arterial transit service, high morning capacity'
     });
 
-    // Leg 3: Walk to office
     legs.push({
       id: 'leg-walk-2',
       type: 'walk',
@@ -167,19 +158,18 @@ export function calculateTransitRoute(
       distanceKm: 0.3,
       color: '#94a3b8',
       coordinates: [alightStop, destCoords],
-      notes: 'Short pedestrian crossing into office complex'
+      notes: 'Direct pedestrian entrance into office building'
     });
   }
 
-  // 2. CORRIDOR: Silicon Oasis -> Academic City (Reverse 320 Bus Corridor)
+  // 2. CORRIDOR: Silicon Oasis -> Academic City (Reverse 320 Corridor)
   else if (
     (origName.includes('silicon') || calculateDistanceKm(origCoords[0], origCoords[1], TRANSIT_HUBS.siliconOasisHq.coords[0], TRANSIT_HUBS.siliconOasisHq.coords[1]) < 3.5) &&
     (destArea.includes('academic') || destArea.includes('diac'))
   ) {
     primaryBusLine = 'Bus 320';
     transitSummary = 'Direct Bus 320 via Sheikh Zayed Bin Hamdan Al Nahyan St';
-    feasibilityNote = 'High frequency (every 11 minutes). Smooth commute with dedicated bus lane privileges approaching university campuses.';
-    reliabilityScore = 'Very High';
+    advisoryNote = 'Direct arterial bus line (every 11 min). Seamless connection from DSO residential and corporate clusters to academic campuses.';
 
     const boardStop = TRANSIT_HUBS.siliconOasisHq.coords;
     const alightStop = TRANSIT_HUBS.academicCity.coords;
@@ -193,7 +183,7 @@ export function calculateTransitRoute(
       distanceKm: 0.5,
       color: '#94a3b8',
       coordinates: [origCoords, boardStop],
-      notes: 'Pedestrian boulevard walk'
+      notes: 'Boulevard sidewalk'
     });
 
     legs.push({
@@ -212,7 +202,7 @@ export function calculateTransitRoute(
         [25.1260, 55.3950],
         [25.1280, 55.4120],
       ]),
-      notes: 'Frequent student & corporate shuttle route'
+      notes: 'Direct express arterial transit'
     });
 
     legs.push({
@@ -224,7 +214,7 @@ export function calculateTransitRoute(
       distanceKm: 0.3,
       color: '#94a3b8',
       coordinates: [alightStop, destCoords],
-      notes: 'Direct campus entrance path'
+      notes: 'Campus entrance path'
     });
   }
 
@@ -239,9 +229,8 @@ export function calculateTransitRoute(
     primaryBusLine = isBusinessBay ? 'Bus 50' : 'Bus X25';
     transitSummary = isBusinessBay
       ? 'Express Bus 50 direct to Business Bay'
-      : 'Bus X25 + Red Line Metro to Burj Khalifa / DIFC';
-    feasibilityNote = 'Direct express lines operate during peak hours every 15-20 min. Afternoon rush hour (5:30–7:00 PM) on Al Ain Road can add 8-12 min buffer.';
-    reliabilityScore = 'High';
+      : 'Express Bus X25 to Downtown & Financial Centre';
+    advisoryNote = 'Express transit lines operate every 15 to 20 min. Afternoon rush hour (5:30 to 7:00 PM) on Al Ain Rd can add 8 to 12 min buffer.';
 
     const boardStop = origName.includes('silicon') ? TRANSIT_HUBS.siliconOasisHq.coords : TRANSIT_HUBS.academicCity.coords;
     const destHub = isBusinessBay ? TRANSIT_HUBS.businessBayCanal.coords : isDifc ? TRANSIT_HUBS.difcGate.coords : TRANSIT_HUBS.dubaiMallMetro.coords;
@@ -250,11 +239,12 @@ export function calculateTransitRoute(
       id: 'leg-walk-1',
       type: 'walk',
       from: origin.name,
-      to: 'Main Hub Transit Stop',
+      to: 'Main Transit Hub',
       durationMin: 6,
       distanceKm: 0.5,
       color: '#94a3b8',
       coordinates: [origCoords, boardStop],
+      notes: 'Short walk to sheltered bus stop'
     });
 
     legs.push({
@@ -267,14 +257,14 @@ export function calculateTransitRoute(
       durationMin: 38,
       distanceKm: totalDistanceKm * 0.85,
       frequencyMin: 18,
-      color: '#0d9488', // Teal
+      color: '#0d9488',
       corridor: 'Dubai-Al Ain Rd (E66) & Ras Al Khor (E44)',
       coordinates: createCorridorPath(boardStop, destHub, [
         [25.1480, 55.3600],
         [25.1720, 55.3120],
         [25.1840, 55.2850],
       ]),
-      notes: 'Comfortable cross-city express line with free WiFi on board'
+      notes: 'Cross-city express transit connection'
     });
 
     legs.push({
@@ -286,21 +276,20 @@ export function calculateTransitRoute(
       distanceKm: 0.4,
       color: '#94a3b8',
       coordinates: [destHub, destCoords],
-      notes: 'Shaded commercial district footpath'
+      notes: 'Commercial district pedestrian walkway'
     });
   }
 
-  // 4. CORRIDOR: To Internet City / Media City / JLT / Marina (Bus + Red Line Metro)
+  // 4. CORRIDOR: To Internet City / Media City / JLT / Marina (Bus 365 + Metro Red Line)
   else if (
     destArea.includes('internet city') ||
     destArea.includes('media city') ||
     destArea.includes('jlt') ||
     destArea.includes('marina')
   ) {
-    primaryBusLine = 'Bus 365 + Metro Red Line';
-    transitSummary = 'Feeder Bus to Centrepoint + Red Line Direct to South Hubs';
-    feasibilityNote = 'Highly predictable schedule via Metro Red Line. Trains run every 3 minutes. Zero traffic congestion on the metro segment along Sheikh Zayed Road.';
-    reliabilityScore = 'Very High';
+    primaryBusLine = 'Bus 365 + Red Line';
+    transitSummary = 'Feeder Bus 365 to Centrepoint + Red Line Direct';
+    advisoryNote = 'Red Line Metro departs every 3.5 minutes. Avoids all Sheikh Zayed Road traffic with air-conditioned station walkways.';
 
     const boardStop = origCoords;
     const transferMetro = TRANSIT_HUBS.centrepointMetro.coords;
@@ -324,27 +313,27 @@ export function calculateTransitRoute(
         [25.1650, 55.4050],
         [25.2050, 55.3980],
       ]),
-      notes: 'Feeder bus connecting suburban hubs directly to Metro Red Line terminus'
+      notes: 'Feeder bus connection directly to Metro Red Line terminus'
     });
 
     legs.push({
       id: 'leg-metro-red',
       type: 'metro',
       line: 'MRed',
-      lineBadge: 'Metro Red Line',
+      lineBadge: 'Red Line',
       from: 'Centrepoint Metro Station',
       to: destArea.includes('jlt') ? 'DMCC Metro Station' : 'Dubai Internet City Station',
       durationMin: 38,
       distanceKm: 28.5,
       frequencyMin: 3.5,
-      color: '#ef4444', // RTA Red Line official color
+      color: '#ef4444',
       corridor: 'Sheikh Zayed Road Elevated Metro Viaduct',
       coordinates: createCorridorPath(transferMetro, destMetro, [
         [25.2250, 55.3350],
         [25.2050, 55.2750],
         [25.1450, 55.2050],
       ]),
-      notes: 'World-class automated driverless metro, gold & silver class coaches'
+      notes: 'High-speed automated driverless metro'
     });
 
     legs.push({
@@ -356,16 +345,15 @@ export function calculateTransitRoute(
       distanceKm: 0.45,
       color: '#94a3b8',
       coordinates: [destMetro, destCoords],
-      notes: 'Climate-controlled station pedestrian footbridge & boulevard walk'
+      notes: 'Climate-controlled station pedestrian footbridge and boulevard'
     });
   }
 
-  // 5. CORRIDOR: DAFZA / Airport Area (Bus 365 / 366 Direct)
+  // 5. CORRIDOR: DAFZA / Airport Area (Bus 366 Direct)
   else if (destArea.includes('dafza') || destArea.includes('airport') || destArea.includes('al twar')) {
     primaryBusLine = 'Bus 366';
     transitSummary = 'Direct Bus 366 to DAFZA / Airport Freezone';
-    feasibilityNote = 'Dedicated airport logistics corridor with regular 15-minute headway. Seamless connection to DAFZA Free Zone gate.';
-    reliabilityScore = 'High';
+    advisoryNote = 'Direct connection to DAFZA Free Zone gate and Terminal 2 logistics area (frequency every 15 min).';
 
     const boardStop = origCoords;
     const destHub = TRANSIT_HUBS.dafzaMetro.coords;
@@ -386,7 +374,7 @@ export function calculateTransitRoute(
         [25.1750, 55.4100],
         [25.2350, 55.3850],
       ]),
-      notes: 'Express airport free zone shuttle'
+      notes: 'Airport free zone express service'
     });
 
     legs.push({
@@ -398,16 +386,15 @@ export function calculateTransitRoute(
       distanceKm: 0.3,
       color: '#94a3b8',
       coordinates: [destHub, destCoords],
-      notes: 'Security gate access walkway'
+      notes: 'Security gate walkway'
     });
   }
 
   // 6. DEFAULT / GENERAL UAE ROUTE: Multi-Modal RTA Network
   else {
-    primaryBusLine = totalDistanceKm > 20 ? 'RTA Bus + Metro' : 'RTA Bus Corridor';
-    transitSummary = `Multi-Modal RTA Commute to ${destination.area}`;
-    feasibilityNote = 'Connected via standard Dubai RTA bus transit network and arterial road corridors.';
-    reliabilityScore = 'High';
+    primaryBusLine = totalDistanceKm > 20 ? 'Bus + Metro' : 'RTA Bus';
+    transitSummary = `Transit Commute to ${destination.area}`;
+    advisoryNote = 'Connected via standard Dubai RTA bus transit network and arterial highway corridors.';
 
     const midPoint: [number, number] = [
       (origCoords[0] + destCoords[0]) / 2,
@@ -423,7 +410,7 @@ export function calculateTransitRoute(
       distanceKm: 0.45,
       color: '#94a3b8',
       coordinates: [origCoords, [origCoords[0] + 0.002, origCoords[1] + 0.002]],
-      notes: 'Pedestrian path'
+      notes: 'Pedestrian walkway'
     });
 
     legs.push({
@@ -457,13 +444,11 @@ export function calculateTransitRoute(
 
   const totalMinutes = legs.reduce((sum, leg) => sum + leg.durationMin, 0);
 
-  // Assemble full polyline
   const fullPolyline: [number, number][] = [];
   legs.forEach(l => {
     fullPolyline.push(...l.coordinates);
   });
 
-  // Direct driving path following roads
   const drivingPolyline = createCorridorPath(origCoords, destCoords, [
     [(origCoords[0] + destCoords[0]) / 2 + 0.004, (origCoords[1] + destCoords[1]) / 2 - 0.004]
   ]);
@@ -474,8 +459,7 @@ export function calculateTransitRoute(
     drivingMinutes,
     primaryBusLine,
     transitSummary,
-    feasibilityNote,
-    reliabilityScore,
+    advisoryNote,
     legs,
     fullPolyline,
     drivingPolyline,

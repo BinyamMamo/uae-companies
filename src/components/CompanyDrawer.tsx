@@ -11,13 +11,11 @@ import {
   Bookmark,
   ExternalLink,
   MapPin,
-  Clock,
   Car,
   CheckCircle2,
   Building2,
   ShieldCheck,
   Users,
-  Compass,
   ArrowRight,
   Bus,
   MapPinHouse,
@@ -620,27 +618,26 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
               </div>
             </div>
 
-            {/* Commute from Home Address with Mode Toggle */}
-            <div className="border border-slate-200 dark:border-slate-700 rounded-lg p-4 bg-slate-50 dark:bg-slate-800/50 space-y-3">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            {/* Commute from Home Address Header & Mode Switcher */}
+            <div className="pt-2 space-y-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
                 <div>
-                  <div className="flex items-center gap-1.5">
-                    <MapPinHouse className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400" />
-                    <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
-                      Commute from Home Address
-                    </h4>
-                  </div>
-                  <span className="text-[11px] text-slate-500 dark:text-slate-400 block truncate mt-0.5">
-                    {userLocation.name}
+                  <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                    Commute from Home Address
+                  </h4>
+                  <span className="text-[11px] text-slate-500 dark:text-slate-400 block truncate mt-0.5 font-medium">
+                    {userLocation.name.includes('°')
+                      ? userLocation.name
+                      : `${userLocation.name} (${userLocation.latitude.toFixed(3)}°, ${userLocation.longitude.toFixed(3)}°)`}
                   </span>
                 </div>
 
                 {/* Mode Selector: Public Bus vs Driving */}
-                <div className="flex items-center bg-slate-200/80 dark:bg-slate-700/80 p-0.5 rounded-lg text-xs self-start sm:self-auto">
+                <div className="inline-flex items-center bg-slate-100 dark:bg-slate-800 p-1 rounded-lg text-xs self-start sm:self-auto border border-slate-200/60 dark:border-slate-700/60">
                   <button
                     type="button"
                     onClick={() => setCommuteMode('transit')}
-                    className={`px-2.5 py-1 rounded-md font-semibold transition flex items-center gap-1.5 ${
+                    className={`px-3 py-1.5 rounded-md font-semibold transition flex items-center gap-1.5 ${
                       commuteMode === 'transit'
                         ? 'bg-white dark:bg-slate-900 text-brand-600 dark:text-brand-400 shadow-2xs'
                         : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
@@ -652,7 +649,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
                   <button
                     type="button"
                     onClick={() => setCommuteMode('driving')}
-                    className={`px-2.5 py-1 rounded-md font-semibold transition flex items-center gap-1.5 ${
+                    className={`px-3 py-1.5 rounded-md font-semibold transition flex items-center gap-1.5 ${
                       commuteMode === 'driving'
                         ? 'bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-2xs'
                         : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
@@ -664,130 +661,294 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
                 </div>
               </div>
 
-              {/* Embedded Route Map */}
-              <div className="relative rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 shadow-inner">
+              {/* Clean Map Embed - no borders, no cards */}
+              <div className="rounded-lg overflow-hidden">
                 <div
                   ref={routeMapContainerRef}
-                  className="w-full h-52 z-0"
+                  className="w-full h-44 z-0"
                   style={{ background: '#f8fafc' }}
                 />
-                <div className="absolute top-2 left-2 z-400 bg-white/95 dark:bg-[#18181b]/95 backdrop-blur-xs px-2.5 py-1 rounded-md text-[11px] font-semibold text-slate-800 dark:text-slate-200 border border-slate-200/80 dark:border-white/10 shadow-xs flex items-center gap-1.5 pointer-events-none">
-                  {commuteMode === 'transit' ? (
-                    <>
-                      <Bus className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400" />
-                      <span>{transitPlan.primaryBusLine} · ~{transitPlan.totalMinutes} min</span>
-                    </>
-                  ) : (
-                    <>
-                      <Car className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-                      <span>Drive · ~{transitPlan.drivingMinutes} min</span>
-                    </>
-                  )}
-                </div>
               </div>
 
-              {/* Commute Metric Summary Cards */}
-              <div className="grid grid-cols-3 gap-2 text-center">
-                <div className="bg-white dark:bg-slate-800 p-2 rounded border border-slate-200 dark:border-slate-700">
-                  <Compass className="w-4 h-4 text-slate-400 mx-auto mb-1" />
-                  <span className="text-[10px] text-slate-500 dark:text-slate-400 block">Distance</span>
-                  <span className="text-xs font-bold text-slate-800 dark:text-slate-200">
-                    {transitPlan.totalDistanceKm.toFixed(1)} km
-                  </span>
-                </div>
-
-                <div className={`p-2 rounded border transition ${
-                  commuteMode === 'transit'
-                    ? 'bg-brand-50/60 dark:bg-brand-950/30 border-brand-300 dark:border-brand-700/60 ring-1 ring-brand-500/20'
-                    : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700'
-                }`}>
-                  <Clock className="w-4 h-4 text-brand-600 dark:text-brand-400 mx-auto mb-1" />
-                  <span className="text-[10px] text-slate-500 dark:text-slate-400 block">Public Bus</span>
-                  <span className="text-xs font-bold text-brand-700 dark:text-brand-300">
-                    ~{transitPlan.totalMinutes} min
-                  </span>
-                </div>
-
-                <div className={`p-2 rounded border transition ${
-                  commuteMode === 'driving'
-                    ? 'bg-emerald-50/60 dark:bg-emerald-950/30 border-emerald-300 dark:border-emerald-700/60 ring-1 ring-emerald-500/20'
-                    : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700'
-                }`}>
-                  <Car className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mx-auto mb-1" />
-                  <span className="text-[10px] text-slate-500 dark:text-slate-400 block">Driving</span>
-                  <span className="text-xs font-bold text-emerald-700 dark:text-emerald-300">
-                    ~{transitPlan.drivingMinutes} min
-                  </span>
-                </div>
-              </div>
-
-              {/* Step-by-Step Transit Route Timeline */}
-              {commuteMode === 'transit' && (
-                <div className="pt-2 border-t border-slate-200 dark:border-slate-700 space-y-2.5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-semibold text-slate-700 dark:text-slate-300">
-                      RTA Transit Route Details
+              {/* Route Summary Bar */}
+              <div className="p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/80 flex items-center justify-between">
+                <div>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-base font-bold text-slate-900 dark:text-white">
+                      {commuteMode === 'transit' ? `~${transitPlan.totalMinutes} min` : `~${transitPlan.drivingMinutes} min`}
                     </span>
-                    <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
-                      {transitPlan.reliabilityScore} Reliability
+                    <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                      ({transitPlan.totalDistanceKm.toFixed(1)} km)
+                    </span>
+                  </div>
+                  <span className="text-xs text-slate-600 dark:text-slate-300 block mt-0.5">
+                    {commuteMode === 'transit' ? transitPlan.transitSummary : 'Via Dubai Arterial Highway Network'}
+                  </span>
+                </div>
+                <div className="text-right">
+                  <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold ${
+                    commuteMode === 'transit'
+                      ? 'bg-brand-50 dark:bg-brand-950/40 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800'
+                      : 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800'
+                  }`}>
+                    {commuteMode === 'transit' ? (
+                      <>
+                        <Bus className="w-3.5 h-3.5" />
+                        <span>{transitPlan.primaryBusLine}</span>
+                      </>
+                    ) : (
+                      <>
+                        <Car className="w-3.5 h-3.5" />
+                        <span>Direct Drive</span>
+                      </>
+                    )}
+                  </span>
+                </div>
+              </div>
+
+              {/* Downward Route Sequence (Google Maps Style) */}
+              {commuteMode === 'transit' && (
+                <div className="pt-2 space-y-3">
+                  <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
+                    <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                      Transit Route Itinerary
+                    </span>
+                    <span className="text-xs font-semibold text-brand-600 dark:text-brand-400">
+                      {transitPlan.primaryBusLine}
                     </span>
                   </div>
 
-                  <div className="space-y-2 pl-1">
-                    {transitPlan.legs.map((leg, idx) => (
-                      <div key={leg.id || idx} className="flex items-start gap-2.5 text-xs">
-                        <div className="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center shrink-0 border"
-                             style={{
-                               backgroundColor: leg.type === 'walk' ? '#f1f5f9' : leg.color,
-                               borderColor: leg.type === 'walk' ? '#cbd5e1' : leg.color,
-                               color: leg.type === 'walk' ? '#64748b' : '#ffffff'
-                             }}>
-                          {leg.type === 'walk' && <Footprints className="w-3 h-3" />}
-                          {leg.type === 'bus' && <Bus className="w-3 h-3" />}
-                          {leg.type === 'metro' && <Train className="w-3 h-3" />}
+                  {/* Vertical Timeline Track */}
+                  <div className="space-y-0 pt-1">
+                    
+                    {/* Origin: Home Address */}
+                    <div className="flex gap-3">
+                      <div className="flex flex-col items-center">
+                        <div className="w-5 h-5 rounded-full bg-brand-50 dark:bg-brand-950/50 border-2 border-brand-600 dark:border-brand-400 flex items-center justify-center shrink-0 z-10">
+                          <MapPinHouse className="w-3 h-3 text-brand-600 dark:text-brand-400" />
                         </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-1.5 flex-wrap">
-                            {leg.lineBadge && (
-                              <span className="px-1.5 py-0.5 rounded text-[10px] font-bold text-white shadow-2xs"
-                                    style={{ backgroundColor: leg.color }}>
-                                {leg.lineBadge}
-                              </span>
-                            )}
-                            <span className="font-semibold text-slate-800 dark:text-slate-200">
-                              {leg.type === 'walk' ? 'Walk' : leg.from}
-                            </span>
-                            {leg.type !== 'walk' && (
-                              <span className="text-slate-400">→ {leg.to}</span>
-                            )}
-                            <span className="text-[11px] text-slate-500 dark:text-slate-400 ml-auto">
-                              ~{leg.durationMin} min
-                            </span>
+                        <div className="w-0.5 flex-1 min-h-[28px] border-l-2 border-dashed border-slate-300 dark:border-slate-600 ml-[1px]" />
+                      </div>
+                      <div className="pb-3 flex-1">
+                        <span className="text-xs font-bold text-slate-900 dark:text-white block">
+                          Home Address
+                        </span>
+                        <span className="text-[11px] text-slate-500 dark:text-slate-400 block mt-0.5">
+                          {userLocation.name}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Sequential Legs */}
+                    {transitPlan.legs.map((leg) => {
+                      if (leg.type === 'walk') {
+                        return (
+                          <div key={leg.id} className="flex gap-3">
+                            <div className="flex flex-col items-center">
+                              <div className="w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-600 flex items-center justify-center shrink-0 z-10">
+                                <Footprints className="w-3 h-3 text-slate-500 dark:text-slate-400" />
+                              </div>
+                              <div className="w-0.5 flex-1 min-h-[28px] border-l-2 border-dashed border-slate-300 dark:border-slate-600 ml-[1px]" />
+                            </div>
+                            <div className="pb-3 flex-1">
+                              <div className="flex items-baseline justify-between gap-2">
+                                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">
+                                  Walk to {leg.to}
+                                </span>
+                                <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400 shrink-0">
+                                  ~{leg.durationMin} min ({Math.round(leg.distanceKm * 1000)} m)
+                                </span>
+                              </div>
+                              {leg.notes && (
+                                <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5">
+                                  {leg.notes}
+                                </p>
+                              )}
+                            </div>
                           </div>
-                          {leg.notes && (
-                            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
-                              {leg.notes}
-                            </p>
-                          )}
+                        );
+                      }
+
+                      // Bus or Metro Leg
+                      return (
+                        <div key={leg.id} className="flex gap-3">
+                          <div className="flex flex-col items-center">
+                            <div
+                              className="w-5 h-5 rounded-full flex items-center justify-center text-white shrink-0 shadow-2xs z-10"
+                              style={{ backgroundColor: leg.color }}
+                            >
+                              {leg.type === 'metro' ? (
+                                <Train className="w-3 h-3 text-white" />
+                              ) : (
+                                <Bus className="w-3 h-3 text-white" />
+                              )}
+                            </div>
+                            <div
+                              className="w-1 flex-1 min-h-[52px] rounded-full my-0.5"
+                              style={{ backgroundColor: leg.color }}
+                            />
+                            <div
+                              className="w-3 h-3 rounded-full border-2 border-white dark:border-slate-900 shrink-0 z-10"
+                              style={{ backgroundColor: leg.color }}
+                            />
+                            <div className="w-0.5 flex-1 min-h-[24px] border-l-2 border-dashed border-slate-300 dark:border-slate-600 ml-[1px]" />
+                          </div>
+                          <div className="pb-4 flex-1 space-y-2">
+                            {/* Boarding Info Card */}
+                            <div className="p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 space-y-1.5 shadow-2xs">
+                              <div className="flex items-center justify-between gap-2">
+                                <div className="flex items-center gap-1.5 flex-wrap">
+                                  <span
+                                    className="px-2 py-0.5 rounded text-[11px] font-bold text-white tracking-wide"
+                                    style={{ backgroundColor: leg.color }}
+                                  >
+                                    {leg.lineBadge}
+                                  </span>
+                                  <span className="text-xs font-semibold text-slate-900 dark:text-white">
+                                    Board at {leg.from}
+                                  </span>
+                                </div>
+                                <span className="text-xs font-bold text-slate-800 dark:text-slate-200 shrink-0">
+                                  ~{leg.durationMin} min
+                                </span>
+                              </div>
+
+                              {leg.corridor && (
+                                <div className="text-[11px] text-slate-500 dark:text-slate-400">
+                                  via {leg.corridor}
+                                </div>
+                              )}
+
+                              <div className="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 pt-1.5 border-t border-slate-100 dark:border-slate-700/60">
+                                <span>Ride to: <strong className="text-slate-800 dark:text-slate-200 font-semibold">{leg.to}</strong></span>
+                                {leg.frequencyMin && (
+                                  <span className="font-medium text-slate-600 dark:text-slate-300">Every {leg.frequencyMin} min</span>
+                                )}
+                              </div>
+                            </div>
+
+                            {/* Alighting Callout */}
+                            <div className="text-xs font-medium text-slate-700 dark:text-slate-300 pl-0.5">
+                              Alight at <span className="font-bold text-slate-900 dark:text-white">{leg.to}</span>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+
+                    {/* Final Destination Arrival */}
+                    <div className="flex gap-3">
+                      <div className="flex flex-col items-center">
+                        <div className="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-2xs z-10 ring-2 ring-emerald-400/30">
+                          <MapPin className="w-3 h-3 text-white" />
                         </div>
                       </div>
-                    ))}
+                      <div className="pt-0.5 flex-1">
+                        <span className="text-xs font-bold text-slate-900 dark:text-white block">
+                          Arrive at {company.name}
+                        </span>
+                        <span className="text-[11px] text-slate-500 dark:text-slate-400 block mt-0.5">
+                          {company.location.address}
+                        </span>
+                      </div>
+                    </div>
+
                   </div>
 
-                  {/* Feasibility Note Callout */}
-                  <div className="p-2.5 rounded bg-blue-50/70 dark:bg-blue-950/30 border border-blue-200/80 dark:border-blue-900/40 text-[11px] text-blue-900 dark:text-blue-200 flex items-start gap-2">
-                    <span className="font-bold shrink-0">💡 Feasibility Note:</span>
-                    <span>{transitPlan.feasibilityNote}</span>
+                  {/* Transit Advisory Note */}
+                  <div className="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 text-xs space-y-1">
+                    <span className="font-semibold text-slate-800 dark:text-slate-200 block">
+                      Transit Advisory
+                    </span>
+                    <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">
+                      {transitPlan.advisoryNote}
+                    </p>
                   </div>
                 </div>
               )}
 
-              {/* Driving Note if in driving mode */}
+              {/* Driving Downward Sequence */}
               {commuteMode === 'driving' && (
-                <div className="pt-2 border-t border-slate-200 dark:border-slate-700 space-y-2 text-xs">
-                  <div className="p-2.5 rounded bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-900/40 text-[11px] text-emerald-900 dark:text-emerald-200 flex items-start gap-2">
-                    <span className="font-bold shrink-0">🚗 Road Transit:</span>
-                    <span>Direct driving route via Dubai highway corridors (~{transitPlan.drivingMinutes} min off-peak, expect +10–15 min during peak evening hours).</span>
+                <div className="pt-2 space-y-3">
+                  <div className="pb-2 border-b border-slate-100 dark:border-slate-800">
+                    <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                      Driving Route Itinerary
+                    </span>
+                  </div>
+
+                  {/* Vertical Timeline Track */}
+                  <div className="space-y-0 pt-1">
+                    
+                    {/* Origin: Home Address */}
+                    <div className="flex gap-3">
+                      <div className="flex flex-col items-center">
+                        <div className="w-5 h-5 rounded-full bg-brand-50 dark:bg-brand-950/50 border-2 border-brand-600 dark:border-brand-400 flex items-center justify-center shrink-0 z-10">
+                          <MapPinHouse className="w-3 h-3 text-brand-600 dark:text-brand-400" />
+                        </div>
+                        <div className="w-1 flex-1 min-h-[32px] bg-emerald-500 rounded-full my-0.5" />
+                      </div>
+                      <div className="pb-3 flex-1">
+                        <span className="text-xs font-bold text-slate-900 dark:text-white block">
+                          Home Address
+                        </span>
+                        <span className="text-[11px] text-slate-500 dark:text-slate-400 block mt-0.5">
+                          {userLocation.name}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Highway Corridor Leg */}
+                    <div className="flex gap-3">
+                      <div className="flex flex-col items-center">
+                        <div className="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-2xs z-10">
+                          <Car className="w-3 h-3 text-white" />
+                        </div>
+                        <div className="w-1 flex-1 min-h-[48px] bg-emerald-500 rounded-full my-0.5" />
+                      </div>
+                      <div className="pb-4 flex-1">
+                        <div className="p-3 rounded-lg bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200/70 dark:border-emerald-900/40 text-xs space-y-1.5">
+                          <div className="flex items-center justify-between">
+                            <span className="font-bold text-emerald-900 dark:text-emerald-200">
+                              Dubai Arterial Highway Network
+                            </span>
+                            <span className="text-xs font-bold text-emerald-700 dark:text-emerald-300">
+                              ~{transitPlan.drivingMinutes} min
+                            </span>
+                          </div>
+                          <p className="text-emerald-800/80 dark:text-emerald-300/80 text-[11px] leading-relaxed">
+                            Direct expressway travel ({transitPlan.totalDistanceKm.toFixed(1)} km). Off-peak driving time is approximately {transitPlan.drivingMinutes} min. Please allow an additional 10 to 15 min during peak evening hours (5:30 to 7:00 PM).
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Final Destination Arrival */}
+                    <div className="flex gap-3">
+                      <div className="flex flex-col items-center">
+                        <div className="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-2xs z-10 ring-2 ring-emerald-400/30">
+                          <MapPin className="w-3 h-3 text-white" />
+                        </div>
+                      </div>
+                      <div className="pt-0.5 flex-1">
+                        <span className="text-xs font-bold text-slate-900 dark:text-white block">
+                          Arrive at {company.name}
+                        </span>
+                        <span className="text-[11px] text-slate-500 dark:text-slate-400 block mt-0.5">
+                          {company.location.address}
+                        </span>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  {/* Driving Commute Advisory */}
+                  <div className="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 text-xs space-y-1">
+                    <span className="font-semibold text-slate-800 dark:text-slate-200 block">
+                      Traffic Advisory
+                    </span>
+                    <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">
+                      Major arterial expressways (E66 Dubai-Al Ain Rd, E311 Sheikh Mohammed Bin Zayed Rd, and E11 Sheikh Zayed Rd) experience peak traffic between 5:30 PM and 7:00 PM on weekdays.
+                    </p>
                   </div>
                 </div>
               )}
