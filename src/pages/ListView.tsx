@@ -10,6 +10,7 @@ import { SearchX, Search, X, Scale } from 'lucide-react';
 import { track } from '../lib/analytics';
 import { CompanyCardSkeleton } from '../components/ui/CompanyCardSkeleton';
 import { DataError } from '../components/ui/DataError';
+import { useToast } from '../components/ui/Toast';
 import type { FilterState } from '../types/company';
 
 export const ListView: React.FC = () => {
@@ -27,6 +28,7 @@ export const ListView: React.FC = () => {
     reloadCompanies
   } = useApp();
   const isDesktop = useIsDesktop();
+  const { toast } = useToast();
 
   const sortOptions = [
     { value: 'nearest', label: 'Nearest' },
@@ -92,8 +94,15 @@ export const ListView: React.FC = () => {
               {/* Compare Button */}
               <button
                 type="button"
-                onClick={() => setIsCompareModalOpen(true)}
-                className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-line bg-surface text-slate-700 dark:text-slate-200 hover:border-brand-500/70 hover:text-brand-600 dark:hover:text-brand-400 transition shadow-2xs"
+                onClick={() => {
+                  if (compareCompanyIds.length === 0) {
+                    toast('Add companies to compare using the scales icon on a card.');
+                    return;
+                  }
+                  track('compare_opened', { company_count: compareCompanyIds.length });
+                  setIsCompareModalOpen(true);
+                }}
+                className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-line bg-surface text-ink-2 hover:border-brand-500/70 hover:text-brand-600 dark:hover:text-brand-400 transition-colors shadow-2xs"
                 title="Compare companies side-by-side"
               >
                 <Scale className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400" />

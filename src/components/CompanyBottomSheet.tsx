@@ -31,7 +31,9 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
   const tabs: Array<{ id: 'overview' | 'careers' | 'employees' | 'location'; label: string }> = [
     { id: 'overview', label: 'Overview' },
     { id: 'careers', label: 'Careers' },
-    { id: 'employees', label: 'Employees' },
+    ...(company.employees.length > 0
+      ? [{ id: 'employees' as const, label: 'Employees' }]
+      : []),
     { id: 'location', label: 'Location' },
   ];
 
@@ -109,13 +111,17 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
             <div className="space-y-4">
               <div>
                 <h4 className="font-bold text-ink uppercase tracking-wider mb-1">About</h4>
-                <p className="text-ink-2 leading-relaxed">{company.shortDescription}</p>
+                <p className="text-ink-2 leading-relaxed">
+                  {company.shortDescription ?? 'No verified description yet.'}
+                </p>
               </div>
 
-              <div>
-                <h4 className="font-bold text-ink uppercase tracking-wider mb-1">What They Do</h4>
-                <p className="text-ink-2 leading-relaxed">{company.whatTheyDo}</p>
-              </div>
+              {company.whatTheyDo && (
+                <div>
+                  <h4 className="font-bold text-ink uppercase tracking-wider mb-1">What They Do</h4>
+                  <p className="text-ink-2 leading-relaxed">{company.whatTheyDo}</p>
+                </div>
+              )}
 
               <div>
                 <h4 className="font-bold text-ink uppercase tracking-wider mb-1.5">Common Careers</h4>
@@ -125,7 +131,7 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
                     return (
                       <span
                         key={role}
-                        className={`px-2 py-0.5 rounded ${ relevant ? 'bg-blue-50 dark:bg-blue-900/30 text-brand-800 dark:text-blue-300 font-medium border border-blue-200 dark:border-blue-800' : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300' }`}
+                        className={`px-2 py-0.5 rounded ${ relevant ? 'bg-accent-soft text-accent-soft-text font-medium border border-accent-soft-border' : 'bg-surface-2 text-ink-2 border border-line' }`}
                       >
                         {role}
                       </span>
@@ -135,7 +141,7 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
               </div>
 
               {company.studentMatchReason && (
-                <div className="bg-slate-50 dark:bg-slate-800/60 border border-line rounded-sm p-3">
+                <div className="bg-surface-2 border border-line rounded-md p-3">
                   <h4 className="text-xs font-semibold text-ink mb-0.5">
                     Student Relevance
                   </h4>
@@ -168,7 +174,7 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
                 <div className="border border-line p-2.5 rounded-sm bg-white dark:bg-slate-800">
                   <span className="text-[10px] text-ink-3 uppercase font-semibold">Internships</span>
                   <div className="font-semibold text-ink mt-0.5">
-                    {company.internshipsKnown ? 'Available' : 'Seasonal'}
+                    {company.internshipsKnown === true ? 'Confirmed' : company.internshipsKnown === false ? 'None listed' : 'Not confirmed'}
                   </div>
                 </div>
                 <div className="border border-line p-2.5 rounded-sm bg-white dark:bg-slate-800">

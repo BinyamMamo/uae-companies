@@ -1,11 +1,12 @@
 import React, { useMemo } from 'react';
 import { useApp } from '../context/AppContext';
+import { EmptyState } from '../components/ui/EmptyState';
 import { useIsDesktop } from '../hooks/useMediaQuery';
 import { EXPLORABLE_INTERESTS, calculateStudentFitScore } from '../utils/relevance';
 import { formatBusCommute, formatDistance } from '../utils/distance';
 import { CompanyDrawer } from '../components/CompanyDrawer';
 import { CompanyBottomSheet } from '../components/CompanyBottomSheet';
-import { MapPin, Bookmark } from 'lucide-react';
+import { MapPin, Bookmark, Sparkles } from 'lucide-react';
 import { CompanyLogo } from '../components/ui/CompanyLogo';
 
 export const FeaturedView: React.FC = () => {
@@ -16,7 +17,8 @@ export const FeaturedView: React.FC = () => {
     userInterests,
     setUserInterests,
     toggleSaveCompany,
-    isCompanySaved
+    isCompanySaved,
+    resetInterests
   } = useApp();
   const isDesktop = useIsDesktop();
 
@@ -79,6 +81,22 @@ export const FeaturedView: React.FC = () => {
 
       {/* Grid of matched companies */}
       <section>
+        {rankedCompanies.length === 0 && (
+          <EmptyState
+            icon={Sparkles}
+            title={userInterests.length === 0 ? 'Pick an interest to start' : 'No matches for these interests'}
+            description={
+              userInterests.length === 0
+                ? 'Choose one or more areas above and we will rank companies by how well they fit.'
+                : 'None of the companies we have match these interests yet. Try adding a broader one.'
+            }
+            action={
+              userInterests.length > 0
+                ? { label: 'Reset interests', onClick: resetInterests }
+                : undefined
+            }
+          />
+        )}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {rankedCompanies.map(company => {
             const isSaved = isCompanySaved(company.id);

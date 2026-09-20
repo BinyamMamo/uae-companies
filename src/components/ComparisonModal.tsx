@@ -13,7 +13,8 @@ export const ComparisonModal: React.FC = () => {
     clearCompare,
     isCompareModalOpen,
     setIsCompareModalOpen,
-    setSelectedCompany
+    setSelectedCompany,
+    userLocation
   } = useApp();
 
   const comparedCompanies = compareCompanyIds
@@ -119,7 +120,7 @@ export const ComparisonModal: React.FC = () => {
               {/* Location & Commute */}
               <tr>
                 <td className="p-3 font-semibold text-ink-2 bg-slate-50/50 dark:bg-slate-800/50">
-                  Distance from DIAC
+                  Distance from {userLocation.name}
                 </td>
                 {comparedCompanies.map(c => (
                   <td key={c.id} className="p-3 text-ink">
@@ -157,23 +158,27 @@ export const ComparisonModal: React.FC = () => {
                   <td key={c.id} className="p-3">
                     <div className="space-y-1">
                       <div className="flex items-center gap-1.5">
-                        {c.internshipsKnown ? (
+                        {c.internshipsKnown === true ? (
                           <>
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
                             <span className="font-semibold text-ink">Internships</span>
                           </>
                         ) : (
-                          <span className="text-ink-3">Internships: Unconfirmed</span>
+                          <span className="text-ink-3">
+                            Internships: {c.internshipsKnown === false ? 'none listed' : 'not confirmed'}
+                          </span>
                         )}
                       </div>
                       <div className="flex items-center gap-1.5">
-                        {c.graduateRolesKnown ? (
+                        {c.graduateRolesKnown === true ? (
                           <>
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
                             <span className="font-semibold text-ink">Graduate Entry</span>
                           </>
                         ) : (
-                          <span className="text-ink-3">Grad Roles: Discretionary</span>
+                          <span className="text-ink-3">
+                            Graduate roles: {c.graduateRolesKnown === false ? 'none listed' : 'not confirmed'}
+                          </span>
                         )}
                       </div>
                     </div>

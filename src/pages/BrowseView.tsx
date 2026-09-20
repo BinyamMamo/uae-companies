@@ -193,6 +193,9 @@ export const BrowseView: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
+                  {sectorCompanies.length === 0 && (
+                    <p className="text-xs text-ink-3 py-2">No companies in this sector yet.</p>
+                  )}
                   {sectorCompanies.map(comp => (
                     <div
                       key={comp.id}

@@ -421,34 +421,38 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
 
             {/* Program Status Badges */}
             <div className="grid grid-cols-2 gap-3">
-              <div className="border border-line rounded-lg p-3 bg-white dark:bg-slate-800">
+              <div className="border border-line rounded-lg p-3 bg-surface">
                 <span className="text-[10px] text-ink-3 font-semibold uppercase tracking-wider block">
                   Student Internships
                 </span>
                 <div className="flex items-center gap-1.5 mt-1">
-                  {company.internshipsKnown ? (
+                  {company.internshipsKnown === true ? (
                     <>
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                      <span className="text-xs font-semibold text-ink">Verified Program</span>
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
+                      <span className="text-xs font-semibold text-ink">Confirmed</span>
                     </>
+                  ) : company.internshipsKnown === false ? (
+                    <span className="text-xs text-ink-2">None listed</span>
                   ) : (
-                    <span className="text-xs text-ink-2">Subject to openings</span>
+                    <span className="text-xs text-ink-3">Not confirmed</span>
                   )}
                 </div>
               </div>
 
-              <div className="border border-line rounded-lg p-3 bg-white dark:bg-slate-800">
+              <div className="border border-line rounded-lg p-3 bg-surface">
                 <span className="text-[10px] text-ink-3 font-semibold uppercase tracking-wider block">
                   Graduate Roles
                 </span>
                 <div className="flex items-center gap-1.5 mt-1">
-                  {company.graduateRolesKnown ? (
+                  {company.graduateRolesKnown === true ? (
                     <>
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                      <span className="text-xs font-semibold text-ink">Direct Entry Available</span>
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
+                      <span className="text-xs font-semibold text-ink">Confirmed</span>
                     </>
+                  ) : company.graduateRolesKnown === false ? (
+                    <span className="text-xs text-ink-2">None listed</span>
                   ) : (
-                    <span className="text-xs text-ink-2">Seasonal entry</span>
+                    <span className="text-xs text-ink-3">Not confirmed</span>
                   )}
                 </div>
               </div>
@@ -465,7 +469,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
                   return (
                     <div
                       key={role}
-                      className={`p-3 rounded-lg border flex items-center justify-between transition-colors ${ relevant ? 'bg-blue-50/50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800/60' : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700' }`}
+                      className={`p-3 rounded-lg border flex items-center justify-between transition-colors ${ relevant ? 'bg-accent-soft border-accent-soft-border' : 'bg-surface border-line' }`}
                     >
                       <div>
                         <span className="text-xs font-semibold text-ink block">
@@ -475,16 +479,19 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
                           {relevant ? 'High alignment with your degree' : 'Standard engineering path'}
                         </span>
                       </div>
-                      <a
-                        href={`${company.careersUrl}?q=${encodeURIComponent(role)}`}
-                        onClick={() => track('careers_link_clicked', { company_id: company.id, role })}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 font-medium flex items-center gap-1"
-                      >
-                        <span>Search</span>
-                        <ArrowRight className="w-3 h-3" />
-                      </a>
+                      {company.careersUrl && (
+                        <a
+                          href={`${company.careersUrl}?q=${encodeURIComponent(role)}`}
+                          onClick={() => track('careers_link_clicked', { company_id: company.id, role })}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 font-medium flex items-center gap-1 shrink-0"
+                          aria-label={`Search ${role} roles at ${company.name}`}
+                        >
+                          <span>Search</span>
+                          <ArrowRight className="w-3 h-3" aria-hidden="true" />
+                        </a>
+                      )}
                     </div>
                   );
                 })}
