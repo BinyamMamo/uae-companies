@@ -4,6 +4,7 @@ import { TILE_CONFIGS, previewStyleForTheme } from '../utils/mapTiles';
 import 'leaflet/dist/leaflet.css';
 import type { Company } from '../types/company';
 import { useApp } from '../context/AppContext';
+import { Modal } from './ui/Modal';
 import { formatBusCommute, formatDistance } from '../utils/distance';
 import { isCareerRelevant } from '../utils/relevance';
 import { calculateTransitRoute } from '../utils/transitRouting';
@@ -34,15 +35,6 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
   const [commuteMode, setCommuteMode] = useState<'transit' | 'driving'>('transit');
 
   const isSaved = isCompanySaved(company.id);
-
-  // Close on Escape key
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onClose]);
 
   // Find similar companies
   const similarCompanies = companies
@@ -179,20 +171,14 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
   ];
 
   return (
-    <>
-      {/* Backdrop overlay */}
-      <div
-        className="fixed inset-0 bg-slate-900/20 dark:bg-black/60 backdrop-blur-[2px] z-9998 transition-opacity animate-fade-in"
-        onClick={onClose}
-        aria-hidden="true"
-      />
-
-      <aside
-        className="fixed inset-y-0 right-0 z-9999 w-full max-w-lg bg-surface border-l border-line shadow-[-4px_0_24px_rgba(0,0,0,0.06)] ring-1 ring-slate-900/5 dark:ring-0 dark:shadow-[-20px_0_56px_rgba(0,0,0,0.75)] flex flex-col transition-colors duration-200 ease-out"
-        role="dialog"
-        aria-modal="true"
-        aria-label={`${company.name} Details`}
-      >
+    <Modal
+      open
+      onClose={onClose}
+      label={`${company.name} details`}
+      className="fixed inset-y-0 right-0 z-9999 w-full max-w-lg flex flex-col animate-slide-in-right"
+      backdropClassName="fixed inset-0 z-9998 bg-slate-900/20 dark:bg-black/60 backdrop-blur-xs animate-fade-in"
+    >
+      <aside className="h-full w-full bg-surface border-l border-line shadow-[-4px_0_24px_rgba(0,0,0,0.06)] ring-1 ring-slate-900/5 dark:ring-0 dark:shadow-[-20px_0_56px_rgba(0,0,0,0.75)] flex flex-col transition-colors duration-200 ease-out">
       {/* Drawer Header */}
       <div className="p-5 border-b border-line relative">
         
@@ -929,7 +915,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
         )}
 
       </div>
-    </aside>
-    </>
+      </aside>
+    </Modal>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { Company } from '../types/company';
 import { X, Copy, Check, Share2, Link } from 'lucide-react';
+import { Modal } from './ui/Modal';
 
 interface ShareListModalProps {
   listName: string;
@@ -37,7 +38,13 @@ export const ShareListModal: React.FC<ShareListModalProps> = ({ listName, compan
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
+    <Modal
+      open
+      onClose={onClose}
+      label="Share list"
+      className="fixed inset-0 z-10000 flex items-center justify-center p-4"
+      backdropClassName="fixed inset-0 z-9999 bg-slate-900/50 dark:bg-black/60 backdrop-blur-xs animate-fade-in"
+    >
       <div className="bg-surface rounded-xl max-w-md w-full p-6 shadow-popup border border-line">
         
         {/* Header */}
@@ -114,6 +121,6 @@ export const ShareListModal: React.FC<ShareListModalProps> = ({ listName, compan
         </div>
 
       </div>
-    </div>
+    </Modal>
   );
 };

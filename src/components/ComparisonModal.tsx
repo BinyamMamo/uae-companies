@@ -2,6 +2,7 @@ import React from 'react';
 import { useApp } from '../context/AppContext';
 import { formatBusCommute, formatDistance } from '../utils/distance';
 import { X, Scale, Trash2, CheckCircle2 } from 'lucide-react';
+import { Modal } from './ui/Modal';
 
 export const ComparisonModal: React.FC = () => {
   const {
@@ -14,16 +15,18 @@ export const ComparisonModal: React.FC = () => {
     setSelectedCompany
   } = useApp();
 
-  if (!isCompareModalOpen || compareCompanyIds.length === 0) {
-    return null;
-  }
-
   const comparedCompanies = compareCompanyIds
     .map(id => companies.find(c => c.id === id))
-    .filter(Boolean) as typeof companies;
+    .filter((c): c is (typeof companies)[number] => Boolean(c));
 
   return (
-    <div className="fixed inset-0 z-10000 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
+    <Modal
+      open={isCompareModalOpen && compareCompanyIds.length > 0}
+      onClose={() => setIsCompareModalOpen(false)}
+      label="Compare companies"
+      className="fixed inset-0 z-10000 flex items-center justify-center p-4"
+      backdropClassName="fixed inset-0 z-9999 bg-black/60 backdrop-blur-xs animate-fade-in"
+    >
       <div className="bg-surface rounded-xl max-w-5xl w-full max-h-[90vh] flex flex-col shadow-popup border border-line overflow-hidden text-ink">
         
         {/* Header */}
@@ -238,6 +241,6 @@ export const ComparisonModal: React.FC = () => {
         </div>
 
       </div>
-    </div>
+    </Modal>
   );
 };

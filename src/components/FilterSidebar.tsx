@@ -1,5 +1,6 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
+import { Modal } from './ui/Modal';
 import { Dropdown } from './Dropdown';
 import { X, RotateCcw } from 'lucide-react';
 
@@ -209,8 +210,14 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({ isMobileDrawer = f
 
   if (isMobileDrawer) {
     return (
-      <div className="fixed inset-0 z-50 flex flex-col justify-end bg-slate-900/50 backdrop-blur-xs md:hidden">
-        <div className="bg-surface rounded-t-xl p-5 max-h-[85vh] overflow-y-auto shadow-popup border-t border-line">
+      <Modal
+        open
+        onClose={() => setIsMobileFilterOpen(false)}
+        label="Filter companies"
+        className="fixed inset-0 z-50 flex flex-col justify-end md:hidden pointer-events-none"
+        backdropClassName="fixed inset-0 z-40 bg-slate-900/50 dark:bg-black/60 backdrop-blur-xs md:hidden animate-fade-in"
+      >
+        <div className="bg-surface rounded-t-xl p-5 max-h-[85dvh] overflow-y-auto shadow-popup border-t border-line pointer-events-auto animate-slide-up">
           <div className="flex items-center justify-between pb-3 mb-2 border-b border-line">
             <span className="text-sm font-semibold text-ink">Filter Companies</span>
             <button
@@ -230,7 +237,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({ isMobileDrawer = f
             </button>
           </div>
         </div>
-      </div>
+      </Modal>
     );
   }
 

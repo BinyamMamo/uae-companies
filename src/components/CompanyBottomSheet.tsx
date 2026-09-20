@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { Company } from '../types/company';
 import { useApp } from '../context/AppContext';
+import { Modal } from './ui/Modal';
 import { formatBusCommute, formatDistance } from '../utils/distance';
 import { isCareerRelevant } from '../utils/relevance';
 import {
@@ -32,14 +33,14 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
   ];
 
   return (
-    <div
-      className="fixed inset-0 z-9999 flex flex-col justify-end bg-slate-900/50 backdrop-blur-xs md:hidden"
-      onClick={onClose}
+    <Modal
+      open
+      onClose={onClose}
+      label={`${company.name} details`}
+      className="fixed inset-0 z-9999 flex flex-col justify-end md:hidden pointer-events-none"
+      backdropClassName="fixed inset-0 z-9998 bg-slate-900/50 dark:bg-black/60 backdrop-blur-xs md:hidden animate-fade-in"
     >
-      <div
-        className="bg-surface rounded-t-2xl max-h-[88vh] flex flex-col shadow-drawer border-t border-line overflow-hidden"
-        onClick={(e) => e.stopPropagation()}
-      >
+      <div className="bg-surface rounded-t-2xl max-h-[88dvh] flex flex-col shadow-drawer border-t border-line overflow-hidden pointer-events-auto animate-slide-up">
         {/* Drag handle */}
         <div className="pt-2.5 pb-1 flex justify-center shrink-0">
           <div className="w-10 h-1 bg-slate-300 dark:bg-slate-700 rounded-full" />
@@ -230,6 +231,6 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
           )}
         </div>
       </div>
-    </div>
+    </Modal>
   );
 };
