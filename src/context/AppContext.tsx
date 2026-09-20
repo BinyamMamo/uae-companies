@@ -5,6 +5,25 @@ import { AUTHORITATIVE_COMPANIES } from '../data/authoritativeCompanies';
 import { DEFAULT_STUDENT_INTERESTS } from '../utils/relevance';
 import { ACADEMIC_CITY_COORDS, calculateDistanceKm, estimateBusMinutes, estimateDrivingMinutes } from '../utils/distance';
 import { applyAccentTheme } from '../utils/accentThemes';
+import { readJSON, writeJSON, readString, writeString, isStringArray } from '../utils/storage';
+
+const isSavedListArray = (v: unknown): v is SavedList[] =>
+  Array.isArray(v) &&
+  v.every(
+    item =>
+      typeof item === 'object' &&
+      item !== null &&
+      typeof (item as SavedList).id === 'string' &&
+      typeof (item as SavedList).name === 'string' &&
+      isStringArray((item as SavedList).companyIds)
+  );
+
+const isUserLocation = (v: unknown): v is UserLocation =>
+  typeof v === 'object' &&
+  v !== null &&
+  typeof (v as UserLocation).name === 'string' &&
+  Number.isFinite((v as UserLocation).latitude) &&
+  Number.isFinite((v as UserLocation).longitude);
 
 export interface UserLocation {
   name: string;
@@ -78,21 +97,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
   const [filters, setFilters] = useState<FilterState>(initialFilters);
   const [userInterests, setUserInterests] = useState<string[]>(() => {
-    try {
-      const stored = localStorage.getItem('uae_user_interests');
-      if (stored) return JSON.parse(stored);
-    } catch {
-      // ignore
-    }
-    return DEFAULT_STUDENT_INTERESTS;
+    return readJSON('uae_user_interests', isStringArray) ?? DEFAULT_STUDENT_INTERESTS;
   });
 
   useEffect(() => {
-    try {
-      localStorage.setItem('uae_user_interests', JSON.stringify(userInterests));
-    } catch {
-      // ignore
-    }
+    writeJSON('uae_user_interests', userInterests);
   }, [userInterests]);
 
   const addInterest = useCallback((interest: string) => {
@@ -114,7 +123,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const [username, setUsernameState] = useState<string>(() => {
     try {
-      return localStorage.getItem('uae_username') || '';
+      return readString('uae_username') ?? '';
     } catch {
       return '';
     }
@@ -123,7 +132,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const setUsername = useCallback((name: string) => {
     setUsernameState(name);
     try {
-      localStorage.setItem('uae_username', name);
+      writeString('uae_username', name);
     } catch {
       // ignore
     }
@@ -150,7 +159,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   useEffect(() => {
     try {
-      localStorage.setItem('uae_theme', theme);
+      writeString('uae_theme', theme);
       if (theme === 'dark') {
         document.documentElement.classList.add('dark');
       } else {
@@ -207,7 +216,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   // Accent color state with CSS variable application and localStorage persistence
   const [accentColor, setAccentColorState] = useState<string>(() => {
     try {
-      return localStorage.getItem('uae_accent_color') || 'blue';
+      return readString('uae_accent_color') ?? 'blue';
     } catch {
       return 'blue';
     }
@@ -220,7 +229,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const setAccentColor = useCallback((accentId: string) => {
     setAccentColorState(accentId);
     try {
-      localStorage.setItem('uae_accent_color', accentId);
+      writeString('uae_accent_color', accentId);
     } catch {
       // ignore
     }
@@ -229,12 +238,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   // User location for commute / distance calculations with localStorage persistence
   const [userLocation, setUserLocationState] = useState<UserLocation>(() => {
-    try {
-      const stored = localStorage.getItem('uae_user_location');
-      if (stored) return JSON.parse(stored);
-    } catch {
-      // ignore
-    }
+    const stored = readJSON('uae_user_location', isUserLocation);
+    if (stored) return stored;
     return {
       name: ACADEMIC_CITY_COORDS.name,
       latitude: ACADEMIC_CITY_COORDS.latitude,
@@ -246,7 +251,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const setUserLocation = useCallback((loc: UserLocation) => {
     setUserLocationState(loc);
     try {
-      localStorage.setItem('uae_user_location', JSON.stringify(loc));
+      writeJSON('uae_user_location', loc);
     } catch {
       // ignore
     }
@@ -296,46 +301,26 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     });
   }, [userLocation]);
 
-  // Saved companies state persisted to localStorage
-  const [savedCompanyIds, setSavedCompanyIds] = useState<string[]>(() => {
-    try {
-      const stored = localStorage.getItem('uae_saved_companies');
-      if (stored) return JSON.parse(stored);
-    } catch {
-      // ignore
-    }
-    // Default seed saved companies matching screenshot
-    return ['microsoft', 'bayut', 'kitopi', 'sap', 'ericsson', 'motorola-solutions', 'amazon-web-services', 'help-ag'];
-  });
+  /*
+    New users start empty. This previously seeded 8 pre-saved companies and 3
+    pre-made lists "matching screenshot", so a first-time visitor was shown
+    bookmarks they had never made.
+  */
+  const [savedCompanyIds, setSavedCompanyIds] = useState<string[]>(
+    () => readJSON('uae_saved_companies', isStringArray) ?? []
+  );
 
-  const [savedLists, setSavedLists] = useState<SavedList[]>(() => {
-    try {
-      const stored = localStorage.getItem('uae_saved_lists');
-      if (stored) return JSON.parse(stored);
-    } catch {
-      // ignore
-    }
-    return [
-      {
-        id: 'default',
-        name: 'All Saved',
-        companyIds: ['microsoft', 'bayut', 'kitopi', 'sap', 'ericsson', 'motorola-solutions', 'amazon-web-services', 'help-ag'],
-        createdAt: new Date().toISOString()
-      },
-      {
-        id: 'ai-shortlist',
-        name: 'AI & Data Shortlist',
-        companyIds: ['microsoft', 'bayut', 'kitopi'],
-        createdAt: new Date().toISOString()
-      },
-      {
-        id: 'near-academic-city',
-        name: 'Near Academic City',
-        companyIds: ['kitopi', 'gatex-innovations', 'ezelink'],
-        createdAt: new Date().toISOString()
-      }
-    ];
-  });
+  const [savedLists, setSavedLists] = useState<SavedList[]>(
+    () =>
+      readJSON('uae_saved_lists', isSavedListArray) ?? [
+        {
+          id: 'default',
+          name: 'All Saved',
+          companyIds: [],
+          createdAt: new Date().toISOString(),
+        },
+      ]
+  );
 
   const [activeListId, setActiveListId] = useState<string>('default');
 
@@ -367,7 +352,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   useEffect(() => {
     try {
-      localStorage.setItem('uae_saved_companies', JSON.stringify(savedCompanyIds));
+      writeJSON('uae_saved_companies', savedCompanyIds);
     } catch {
       // ignore
     }
@@ -375,7 +360,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   useEffect(() => {
     try {
-      localStorage.setItem('uae_saved_lists', JSON.stringify(savedLists));
+      writeJSON('uae_saved_lists', savedLists);
     } catch {
       // ignore
     }

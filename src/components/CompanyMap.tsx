@@ -3,6 +3,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import type { Company } from '../types/company';
 import { useApp } from '../context/AppContext';
+import { useToast } from './ui/Toast';
 import { formatBusCommute, formatDistance } from '../utils/distance';
 import { TILE_CONFIGS, defaultStyleForTheme, type MapStyleId } from '../utils/mapTiles';
 import {
@@ -56,12 +57,11 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
   const userPickedStyleRef = useRef(false);
   const [showDistricts, setShowDistricts] = useState<boolean>(true);
   const [isClickToSetMode, setIsClickToSetMode] = useState<boolean>(false);
-  const [locationToast, setLocationToast] = useState<string | null>(null);
-
-  const showNotification = (msg: string) => {
-    setLocationToast(msg);
-    setTimeout(() => setLocationToast(null), 3500);
-  };
+  const { toast } = useToast();
+  const showNotification = useCallback(
+    (msg: string) => toast(msg, 'success'),
+    [toast]
+  );
 
   // Initialize Map with ideal default zoom & center
   useEffect(() => {
@@ -370,7 +370,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
 
   const handleUseGps = () => {
     if (!navigator.geolocation) {
-      alert('Geolocation is not supported by your browser');
+      toast('Your browser does not support location access.', 'error');
       return;
     }
     navigator.geolocation.getCurrentPosition(
@@ -389,7 +389,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
         showNotification('Set origin to your GPS location');
       },
       (err) => {
-        alert('Could not retrieve your location: ' + err.message);
+        toast(`Could not get your location: ${err.message}`, 'error');
       }
     );
   };
@@ -407,14 +407,6 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
       
       {/* Map Leaflet Canvas */}
       <div ref={mapContainerRef} className="w-full h-full min-h-[360px] md:min-h-[580px]" />
-
-      {/* Floating Notification Toast */}
-      {locationToast && (
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-1100 bg-brand-600 text-white text-xs font-semibold px-4 py-2 rounded-lg shadow-lg border border-brand-400 flex items-center gap-2 animate-fade-in">
-          <MapPin className="w-3.5 h-3.5 shrink-0" />
-          <span>{locationToast}</span>
-        </div>
-      )}
 
       {/* Top Right Controls: Set Location, Districts Toggle, Tile Selector */}
       <div className="absolute top-4 right-4 z-1000 flex flex-col items-end gap-2">

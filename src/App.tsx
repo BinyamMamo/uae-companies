@@ -8,6 +8,9 @@ import { MapView } from './pages/MapView';
 import { SavedView } from './pages/SavedView';
 import { ComparisonModal } from './components/ComparisonModal';
 import { SettingsModal } from './components/SettingsModal';
+import { ErrorBoundary } from './components/ui/ErrorBoundary';
+import { ToastProvider } from './components/ui/Toast';
+import { AUTHORITATIVE_COMPANIES } from './data/authoritativeCompanies';
 
 const AppContent: React.FC = () => {
   const { activeTab } = useApp();
@@ -40,7 +43,7 @@ const AppContent: React.FC = () => {
             <div className="flex items-center gap-2">
               <span className="font-semibold text-ink">UAE Student Discovery Platform</span>
               <span>·</span>
-              <span>225 Authoritative Companies</span>
+              <span>{AUTHORITATIVE_COMPANIES.length} companies</span>
               <span>·</span>
               <span>Ref: DIAC / KSK Homes</span>
             </div>
@@ -57,9 +60,13 @@ const AppContent: React.FC = () => {
 
 export function App() {
   return (
-    <AppProvider>
-      <AppContent />
-    </AppProvider>
+    <ErrorBoundary>
+      <ToastProvider>
+        <AppProvider>
+          <AppContent />
+        </AppProvider>
+      </ToastProvider>
+    </ErrorBoundary>
   );
 }
 

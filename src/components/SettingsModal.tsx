@@ -17,6 +17,9 @@ import {
   MapPin
 } from 'lucide-react';
 import { Modal } from './ui/Modal';
+import { useToast } from './ui/Toast';
+import { ConfirmDialog } from './ui/ConfirmDialog';
+import { geocode, GeocodeError } from '../utils/geocode';
 
 const SUGGESTED_DOMAINS = [
   'AI / Machine Learning',
@@ -97,6 +100,9 @@ export const SettingsModal: React.FC = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [searchResults, setSearchResults] = useState<DubaiLocationPreset[]>([]);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchError, setSearchError] = useState<string | null>(null);
+  const [isResetConfirmOpen, setIsResetConfirmOpen] = useState(false);
+  const { toast } = useToast();
 
   const miniMapContainerRef = useRef<HTMLDivElement>(null);
   const miniMapInstanceRef = useRef<L.Map | null>(null);
@@ -104,6 +110,7 @@ export const SettingsModal: React.FC = () => {
 
   // Search filter logic
   useEffect(() => {
+    setSearchError(null);
     const q = searchQuery.trim().toLowerCase();
     if (!q) {
       setSearchResults([]);
@@ -147,24 +154,23 @@ export const SettingsModal: React.FC = () => {
     }
 
     setIsSearching(true);
+    setSearchError(null);
     try {
-      const res = await fetch(
-        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(q + ' Dubai')}&countrycodes=ae&limit=4`
-      );
-      const data = await res.json();
-      if (data && data.length > 0) {
-        const first = data[0];
-        const displayName = first.name || first.display_name.split(',')[0];
-        selectLocation({
-          name: displayName,
-          latitude: parseFloat(first.lat),
-          longitude: parseFloat(first.lon),
-        });
+      const results = await geocode(q);
+      if (results.length > 0) {
+        selectLocation(results[0]);
       } else {
-        alert(`No results found for "${q}". Try selecting on the map or typing a nearby landmark.`);
+        setSearchError(
+          `No results for "${q}". Try a nearby landmark, or drop a pin on the map.`
+        );
       }
     } catch (err) {
-      console.error('Location search failed:', err);
+      const message =
+        err instanceof GeocodeError
+          ? err.message
+          : 'Address lookup is unavailable right now. You can still drop a pin on the map.';
+      setSearchError(message);
+      toast(message, 'error');
     } finally {
       setIsSearching(false);
     }
@@ -280,7 +286,7 @@ export const SettingsModal: React.FC = () => {
 
   const handleUseGps = () => {
     if (!navigator.geolocation) {
-      alert('Geolocation is not supported by your browser');
+      toast('Your browser does not support location access.', 'error');
       return;
     }
     navigator.geolocation.getCurrentPosition(
@@ -309,7 +315,7 @@ export const SettingsModal: React.FC = () => {
         }
       },
       err => {
-        alert('Could not retrieve your location: ' + err.message);
+        toast(`Could not get your location: ${err.message}`, 'error');
       },
       { enableHighAccuracy: true, timeout: 8000 }
     );
@@ -460,6 +466,15 @@ export const SettingsModal: React.FC = () => {
                   ))}
                 </div>
               )}
+
+              {searchError && (
+                <p
+                  className="mt-1.5 text-[11px] text-red-600 dark:text-red-400 leading-relaxed"
+                  role="alert"
+                >
+                  {searchError}
+                </p>
+              )}
             </div>
 
             {/* Current Selected Address with Reset button on the same level */}
@@ -605,13 +620,7 @@ export const SettingsModal: React.FC = () => {
               <button
                 type="button"
                 onClick={() => {
-                  if (window.confirm('Reset all saved companies and preferences?')) {
-                    localStorage.removeItem('uae_saved_companies');
-                    localStorage.removeItem('uae_saved_lists');
-                    localStorage.removeItem('uae_user_interests');
-                    localStorage.removeItem('uae_user_location');
-                    window.location.reload();
-                  }
+                  setIsResetConfirmOpen(true);
                 }}
                 className="px-3 py-1.5 bg-surface-2 hover:bg-slate-200 dark:hover:bg-surface-2 text-ink-2 hover:text-red-600 dark:hover:text-red-400 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 border border-line"
               >
@@ -624,6 +633,27 @@ export const SettingsModal: React.FC = () => {
         </div>
 
       </div>
+
+      <ConfirmDialog
+        open={isResetConfirmOpen}
+        destructive
+        title="Reset everything?"
+        description="This clears your saved companies, lists, interests and home address on this device. It cannot be undone."
+        confirmLabel="Reset everything"
+        onCancel={() => setIsResetConfirmOpen(false)}
+        onConfirm={() => {
+          ['uae_saved_companies', 'uae_saved_lists', 'uae_user_interests', 'uae_user_location'].forEach(
+            key => {
+              try {
+                localStorage.removeItem(key);
+              } catch {
+                // ignore
+              }
+            }
+          );
+          window.location.reload();
+        }}
+      />
     </Modal>
   );
 };
