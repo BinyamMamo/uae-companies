@@ -1,4 +1,4 @@
-import React, { useId, useRef } from 'react';
+import React, { useRef } from 'react';
 
 export interface TabItem<T extends string> {
   id: T;
@@ -9,8 +9,14 @@ interface TabBarProps<T extends string> {
   tabs: TabItem<T>[];
   active: T;
   onChange: (id: T) => void;
+  /** Shared with the panel via `tabPanelId`, so aria-controls resolves. */
+  baseId: string;
   className?: string;
 }
+
+/** The id a tab's panel must carry for `aria-controls` to be valid. */
+export const tabPanelId = (baseId: string, tabId: string): string =>
+  `${baseId}-panel-${tabId}`;
 
 /**
  * Tablist with roving focus and arrow-key navigation.
@@ -23,9 +29,9 @@ export function TabBar<T extends string>({
   tabs,
   active,
   onChange,
+  baseId,
   className = '',
 }: TabBarProps<T>) {
-  const groupId = useId();
   const refs = useRef<Record<string, HTMLButtonElement | null>>({});
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -58,11 +64,11 @@ export function TabBar<T extends string>({
             ref={el => {
               refs.current[tab.id] = el;
             }}
-            id={`${groupId}-tab-${tab.id}`}
+            id={`${baseId}-tab-${tab.id}`}
             role="tab"
             type="button"
             aria-selected={selected}
-            aria-controls={`${groupId}-panel-${tab.id}`}
+            aria-controls={tabPanelId(baseId, tab.id)}
             tabIndex={selected ? 0 : -1}
             onClick={() => onChange(tab.id)}
             className={`py-3 text-xs font-medium border-b-2 whitespace-nowrap transition-colors shrink-0 ${

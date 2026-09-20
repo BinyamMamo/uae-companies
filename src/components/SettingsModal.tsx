@@ -219,6 +219,8 @@ export const SettingsModal: React.FC = () => {
     const marker = L.marker([userLocation.latitude, userLocation.longitude], {
       icon: userIcon,
       draggable: true,
+      alt: 'Your home location — drag to move',
+      title: 'Drag to move your home location',
     }).addTo(map);
 
     const updateLocationFromCoords = (lat: number, lng: number) => {

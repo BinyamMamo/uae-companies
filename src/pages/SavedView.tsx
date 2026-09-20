@@ -75,9 +75,9 @@ export const SavedView: React.FC = () => {
           {!isCreatingList ? (
             <button
               onClick={() => setIsCreatingList(true)}
-              className="px-2.5 py-1.5 text-xs font-medium text-brand-600 hover:text-brand-800 hover:bg-blue-50/50 rounded-lg border border-dashed border-blue-300 transition flex items-center gap-1 shrink-0"
+              className="px-2.5 py-1.5 text-xs font-medium text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 hover:bg-accent-soft rounded-lg border border-dashed border-accent-soft-border transition-colors flex items-center gap-1 shrink-0"
             >
-              <Plus className="w-3.5 h-3.5" />
+              <Plus className="w-3.5 h-3.5" aria-hidden="true" />
               <span>New list</span>
             </button>
           ) : (

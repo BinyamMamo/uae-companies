@@ -120,7 +120,15 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
 
       const userMarker = L.marker(
         [userLocation.latitude, userLocation.longitude],
-        { icon: userIcon, zIndexOffset: 1500, draggable: true }
+        {
+          icon: userIcon,
+          zIndexOffset: 1500,
+          draggable: true,
+          // Leaflet marks interactive markers role="button"; without this they
+          // have no accessible name at all.
+          alt: 'Your home location — drag to move',
+          title: 'Drag to move your home location',
+        }
       ).addTo(map);
 
       userMarker.on('dragend', (e) => {
@@ -334,7 +342,11 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
         iconAnchor: [10, 10],
       });
 
-      const marker = L.marker([lat, lon], { icon });
+      const marker = L.marker([lat, lon], {
+        icon,
+        alt: `${company.name}, ${company.location.area}`,
+        title: company.name,
+      });
 
       marker.on('click', () => {
         setActivePopupCompany(company);

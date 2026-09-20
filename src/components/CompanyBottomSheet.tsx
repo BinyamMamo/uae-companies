@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useId } from 'react';
 import type { Company } from '../types/company';
 import { useApp } from '../context/AppContext';
 import { track } from '../lib/analytics';
-import { TabBar } from './ui/TabBar';
+import { TabBar, tabPanelId } from './ui/TabBar';
 import { Modal } from './ui/Modal';
 import { formatBusCommute, formatDistance } from '../utils/distance';
 import { isCareerRelevant } from '../utils/relevance';
@@ -24,6 +24,7 @@ interface CompanyBottomSheetProps {
 
 export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company, onClose }) => {
   const { toggleSaveCompany, isCompanySaved, userInterests, userLocation } = useApp();
+  const tabsId = useId();
   const [activeTab, setActiveTab] = useState<'overview' | 'careers' | 'employees' | 'location'>('overview');
 
   const isSaved = isCompanySaved(company.id);
@@ -96,6 +97,7 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
 
         {/* Tabs */}
         <TabBar
+          baseId={tabsId}
           tabs={tabs}
           active={activeTab}
           onChange={id => {
@@ -106,7 +108,12 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
         />
 
         {/* Tab Body */}
-        <div className="flex-1 min-h-0 p-4 overflow-y-auto space-y-4 text-ink text-xs">
+        <div className="flex-1 min-h-0 p-4 overflow-y-auto space-y-4 text-ink text-xs"
+        role="tabpanel"
+        id={tabPanelId(tabsId, activeTab)}
+        aria-labelledby={`${tabsId}-tab-${activeTab}`}
+        tabIndex={0}
+      >
           {activeTab === 'overview' && (
             <div className="space-y-4">
               <div>

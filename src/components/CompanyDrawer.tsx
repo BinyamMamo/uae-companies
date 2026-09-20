@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useId } from 'react';
 import L from 'leaflet';
 import { TILE_CONFIGS, previewStyleForTheme } from '../utils/mapTiles';
 import 'leaflet/dist/leaflet.css';
@@ -6,7 +6,7 @@ import type { Company } from '../types/company';
 import { useApp } from '../context/AppContext';
 import { useTheme } from '../context/ThemeContext';
 import { track } from '../lib/analytics';
-import { TabBar } from './ui/TabBar';
+import { TabBar, tabPanelId } from './ui/TabBar';
 import { Modal } from './ui/Modal';
 import { formatBusCommute, formatDistance } from '../utils/distance';
 import { isCareerRelevant } from '../utils/relevance';
@@ -37,6 +37,7 @@ interface CompanyDrawerProps {
 export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }) => {
   const { toggleSaveCompany, isCompanySaved, companies, setSelectedCompany, userInterests, userLocation } = useApp();
   const { theme } = useTheme();
+  const tabsId = useId();
   const [activeTab, setActiveTab] = useState<'overview' | 'careers' | 'employees' | 'location' | 'similar'>('overview');
   const [commuteMode, setCommuteMode] = useState<'transit' | 'driving'>('transit');
 
@@ -98,7 +99,11 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
       iconSize: [32, 32],
       iconAnchor: [16, 16],
     });
-    const homeMarker = L.marker(originCoords, { icon: homeIcon }).addTo(map);
+    const homeMarker = L.marker(originCoords, {
+      icon: homeIcon,
+      alt: `Start: ${userLocation.name}`,
+      title: userLocation.name,
+    }).addTo(map);
     homeMarker.bindTooltip(`<strong>Home Address</strong><br/>${userLocation.name}`, {
       direction: 'top',
       className: 'map-tooltip',
@@ -118,7 +123,11 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
       iconSize: [32, 32],
       iconAnchor: [16, 16],
     });
-    const destMarker = L.marker(destCoords, { icon: destIcon }).addTo(map);
+    const destMarker = L.marker(destCoords, {
+      icon: destIcon,
+      alt: `Destination: ${company.name}`,
+      title: company.name,
+    }).addTo(map);
     destMarker.bindTooltip(`<strong>${company.name}</strong><br/>${company.location.area}`, {
       direction: 'top',
       className: 'map-tooltip',
@@ -256,6 +265,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
 
       {/* Navigation Tabs Bar */}
       <TabBar
+          baseId={tabsId}
         tabs={tabs}
         active={activeTab}
         onChange={id => {
@@ -266,7 +276,12 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
       />
 
       {/* Scrollable Tab Content Body */}
-      <div className="flex-1 overflow-y-auto p-5 space-y-6 text-ink">
+      <div className="flex-1 overflow-y-auto p-5 space-y-6 text-ink"
+        role="tabpanel"
+        id={tabPanelId(tabsId, activeTab)}
+        aria-labelledby={`${tabsId}-tab-${activeTab}`}
+        tabIndex={0}
+      >
         
         {/* TAB 1: OVERVIEW */}
         {activeTab === 'overview' && (
