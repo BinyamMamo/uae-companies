@@ -2,6 +2,7 @@ import React from 'react';
 import { useApp } from '../context/AppContext';
 import { useTheme } from '../context/ThemeContext';
 import { ProfileMenu } from './ProfileMenu';
+import { Logo } from './ui/Logo';
 import { SlidersHorizontal, Scale, Sun, Moon, Settings } from 'lucide-react';
 
 type TabId = 'list' | 'browse' | 'featured' | 'map' | 'saved';
@@ -84,20 +85,7 @@ export const Header: React.FC = () => {
             className="flex items-center gap-2.5 text-left hover:opacity-90 transition-opacity min-w-0"
             aria-label="UAE Companies — go to list"
           >
-            <img
-              src="/logo.png"
-              alt=""
-              width={32}
-              height={32}
-              className="w-8 h-8 object-contain dark:hidden shrink-0"
-            />
-            <img
-              src="/logo-white.png"
-              alt=""
-              width={32}
-              height={32}
-              className="w-8 h-8 object-contain hidden dark:block shrink-0"
-            />
+            <Logo className="w-7 h-7 sm:w-8 sm:h-8 shrink-0 text-brand-600 dark:text-brand-400" />
             <span className="hidden sm:flex flex-col leading-tight min-w-0">
               <span className="text-sm font-bold tracking-tight text-ink truncate">
                 UAE <span className="text-brand-600 dark:text-brand-400">Companies</span>

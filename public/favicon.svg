@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    /* Matches --accent-primary / --accent-400 so the tab icon sits with the UI. */
+    path { fill: #2563eb; }
+    @media (prefers-color-scheme: dark) { path { fill: #60a5fa; } }
+  </style>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M16 2C9.92 2 5 6.92 5 13c0 8.25 11 17 11 17s11-8.75 11-17C27 6.92 22.08 2 16 2Zm-2.4 7.2h4.8v1.6h2.8v7.6H10.8v-7.6h2.8V9.2Zm1.6 1.6h1.6v-.4h-1.6v.4Z"/>
+</svg>
