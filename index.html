@@ -10,13 +10,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
-      (function() {
+      // Runs before first paint so there is no flash of the wrong theme or
+      // the wrong accent.
+      (function () {
+        var root = document.documentElement;
         try {
           var t = localStorage.getItem('uae_theme');
-          if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-          } else {
-            document.documentElement.classList.remove('dark');
+          var dark = t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          root.classList.toggle('dark', dark);
+        } catch (e) {}
+
+        try {
+          // Values cached by applyAccentTheme(); see src/utils/accentThemes.ts.
+          var vars = JSON.parse(localStorage.getItem('uae_accent_vars') || 'null');
+          if (vars) {
+            for (var k in vars) root.style.setProperty(k, vars[k]);
           }
         } catch (e) {}
       })();
