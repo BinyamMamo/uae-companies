@@ -4,19 +4,7 @@ import { useIsDesktop } from '../hooks/useMediaQuery';
 import { formatDistance } from '../utils/distance';
 import { CompanyDrawer } from '../components/CompanyDrawer';
 import { CompanyBottomSheet } from '../components/CompanyBottomSheet';
-import {
-  Cpu,
-  Shield,
-  Cloud,
-  Code2,
-  Plane,
-  Coins,
-  Truck,
-  HeartPulse,
-  ShoppingBag,
-  MapPin,
-  ArrowRight
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export const BrowseView: React.FC = () => {
   const {
@@ -60,18 +48,18 @@ export const BrowseView: React.FC = () => {
   };
 
   const techDomains = [
-    { name: 'AI / Machine Learning', filter: 'AI / Data', icon: Cpu, desc: 'Computer vision, deep learning, NLP' },
-    { name: 'Software & Cloud', filter: 'Tech / Software', icon: Cloud, desc: 'Enterprise SaaS, cloud computing, distributed systems' },
-    { name: 'Cybersecurity', filter: 'Cybersecurity', icon: Shield, desc: 'SOC, threat intelligence, penetration testing' },
-    { name: 'Embedded & Hardware', filter: 'Hardware / Embedded', icon: Code2, desc: 'IoT, microcontrollers, robotics, automation' },
+    { name: 'AI / Machine Learning', filter: 'AI / Data', desc: 'Computer vision, deep learning, NLP' },
+    { name: 'Software & Cloud', filter: 'Tech / Software', desc: 'Enterprise SaaS, cloud computing, distributed systems' },
+    { name: 'Cybersecurity', filter: 'Cybersecurity', desc: 'SOC, threat intelligence, penetration testing' },
+    { name: 'Embedded & Hardware', filter: 'Hardware / Embedded', desc: 'IoT, microcontrollers, robotics, automation' },
   ];
 
   const industrySectors = [
-    { name: 'Aviation & Aerospace', query: 'Aviation', icon: Plane },
-    { name: 'Banking & Fintech', query: 'Bank', icon: Coins },
-    { name: 'Logistics & Supply Chain', query: 'Logistics', icon: Truck },
-    { name: 'Healthcare & Life Sciences', query: 'Health', icon: HeartPulse },
-    { name: 'Retail & E-Commerce', query: 'Retail', icon: ShoppingBag },
+    { name: 'Aviation & Aerospace', query: 'Aviation' },
+    { name: 'Banking & Fintech', query: 'Bank' },
+    { name: 'Logistics & Supply Chain', query: 'Logistics' },
+    { name: 'Healthcare & Life Sciences', query: 'Health' },
+    { name: 'Retail & E-Commerce', query: 'Retail' },
   ];
 
   const keyDistricts = [
@@ -95,7 +83,6 @@ export const BrowseView: React.FC = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {techDomains.map(domain => {
-            const Icon = domain.icon;
             const count = companies.filter(c => 
               domain.filter === 'Tech / Software' ? c.categories.includes('Tech / Software') :
               domain.filter === 'AI / Data' ? (c.categories.includes('AI/ML') || c.categories.includes('Data')) :
@@ -109,9 +96,6 @@ export const BrowseView: React.FC = () => {
                 className="bg-surface border border-line hover:border-brand-500 dark:hover:border-brand-500 rounded-lg p-5 shadow-subtle hover:shadow-xs transition cursor-pointer group flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-brand-600 dark:text-brand-400 border border-blue-100 dark:border-blue-800/60 flex items-center justify-center mb-3">
-                    <Icon className="w-5 h-5" />
-                  </div>
                   <h3 className="text-sm font-bold text-ink group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                     {domain.name}
                   </h3>
@@ -146,9 +130,8 @@ export const BrowseView: React.FC = () => {
               onClick={() => handleFilterToArea(dist.area)}
               className="bg-surface border border-line hover:border-slate-400 dark:hover:border-slate-600 rounded-lg p-4 transition cursor-pointer shadow-subtle group"
             >
-              <div className="flex items-center gap-1.5 text-xs font-semibold text-ink group-hover:text-brand-600 dark:group-hover:text-brand-400">
-                <MapPin className="w-3.5 h-3.5 text-ink-3" />
-                <span>{dist.name}</span>
+              <div className="text-xs font-semibold text-ink group-hover:text-brand-600 dark:group-hover:text-brand-400">
+                {dist.name}
               </div>
               <p className="text-[11px] text-ink-2 mt-1 leading-snug">
                 {dist.desc}
@@ -168,7 +151,6 @@ export const BrowseView: React.FC = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {industrySectors.map(sec => {
-            const Icon = sec.icon;
             const sectorCompanies = companies.filter(c =>
               (c.industry ?? '').toLowerCase().includes(sec.query.toLowerCase()) ||
               c.name.toLowerCase().includes(sec.query.toLowerCase())
@@ -180,10 +162,7 @@ export const BrowseView: React.FC = () => {
                 className="bg-surface border border-line rounded-lg p-5 shadow-subtle"
               >
                 <div className="flex items-center justify-between mb-3 pb-2 border-b border-line">
-                  <div className="flex items-center gap-2">
-                    <Icon className="w-4 h-4 text-ink-2" />
-                    <h3 className="text-xs font-bold text-ink">{sec.name}</h3>
-                  </div>
+                  <h3 className="text-xs font-bold text-ink">{sec.name}</h3>
                   <button
                     onClick={() => handleFilterToIndustry(sec.query)}
                     className="text-xs text-brand-600 dark:text-brand-400 hover:underline font-medium"

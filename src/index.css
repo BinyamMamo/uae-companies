@@ -332,18 +332,37 @@ html.dark .leaflet-popup-content-wrapper {
   white-space: nowrap;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  background: rgba(255, 255, 255, 0.92);
-  color: #18181b;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   pointer-events: none;
   user-select: none;
+
+  /*
+    The badge takes its district's colour on every side, over a light tint of
+    the same hue, so it reads as belonging to the region it labels. The tint
+    stays weak and sits on a near-opaque base so the label keeps its contrast
+    against whatever map tile is underneath.
+    `--district` is set per badge in CompanyMap.
+  */
+  --district: #94a3b8;
+  background:
+    linear-gradient(
+      color-mix(in srgb, var(--district) 14%, transparent),
+      color-mix(in srgb, var(--district) 14%, transparent)
+    ),
+    rgba(255, 255, 255, 0.94);
+  color: #18181b;
+  border: 1.5px solid color-mix(in srgb, var(--district) 70%, transparent);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 html.dark .district-tip-badge {
-  background: rgba(18, 18, 20, 0.88);
+  background:
+    linear-gradient(
+      color-mix(in srgb, var(--district) 20%, transparent),
+      color-mix(in srgb, var(--district) 20%, transparent)
+    ),
+    rgba(18, 18, 20, 0.9);
   color: #f4f4f5;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1.5px solid color-mix(in srgb, var(--district) 60%, transparent);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 

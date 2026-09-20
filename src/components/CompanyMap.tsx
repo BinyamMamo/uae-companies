@@ -227,7 +227,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
       });
 
       tipMarker.bindTooltip(
-        `<div class="district-tip-badge" style="border-left: 2.5px solid ${d.borderColor};">
+        `<div class="district-tip-badge" style="--district: ${d.borderColor};">
            <span>${d.badgeName}</span>
          </div>`,
         {
