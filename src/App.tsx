@@ -11,6 +11,7 @@ import { SettingsModal } from './components/SettingsModal';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
 import { ToastProvider } from './components/ui/Toast';
 import { AuthProvider } from './context/AuthContext';
+import { ThemeProvider } from './context/ThemeContext';
 import { GoogleOneTap } from './components/GoogleOneTap';
 
 const AppContent: React.FC = () => {
@@ -66,11 +67,13 @@ export function App() {
   return (
     <ErrorBoundary>
       <ToastProvider>
-        <AuthProvider>
-          <AppProvider>
-            <AppContent />
-          </AppProvider>
-        </AuthProvider>
+        <ThemeProvider>
+          <AuthProvider>
+            <AppProvider>
+              <AppContent />
+            </AppProvider>
+          </AuthProvider>
+        </ThemeProvider>
       </ToastProvider>
     </ErrorBoundary>
   );

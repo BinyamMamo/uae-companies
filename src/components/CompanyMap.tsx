@@ -3,6 +3,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import type { Company } from '../types/company';
 import { useApp } from '../context/AppContext';
+import { useTheme } from '../context/ThemeContext';
 import { useToast } from './ui/Toast';
 import { formatBusCommute, formatDistance } from '../utils/distance';
 import { TILE_CONFIGS, defaultStyleForTheme, type MapStyleId } from '../utils/mapTiles';
@@ -38,7 +39,8 @@ import { DUBAI_DISTRICTS_GEO } from '../data/dubaiDistrictsGeo';
 import { CompanyLogo } from './ui/CompanyLogo';
 
 export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompany }) => {
-  const { userLocation, setUserLocation, resetUserLocation, theme } = useApp();
+  const { userLocation, setUserLocation, resetUserLocation } = useApp();
+  const { theme } = useTheme();
   
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);

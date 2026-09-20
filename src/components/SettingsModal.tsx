@@ -3,6 +3,7 @@ import L from 'leaflet';
 import { TILE_CONFIGS, previewStyleForTheme } from '../utils/mapTiles';
 import 'leaflet/dist/leaflet.css';
 import { useApp } from '../context/AppContext';
+import { useTheme } from '../context/ThemeContext';
 import {
   X,
   Sun,
@@ -87,16 +88,13 @@ export const SettingsModal: React.FC = () => {
     removeInterest,
     resetInterests,
     setUserInterests,
-    theme,
-    toggleTheme,
     userLocation,
     setUserLocation,
     resetUserLocation,
     savedCompanyIds,
-    savedLists,
-    accentColor,
-    setAccentColor
+    savedLists
   } = useApp();
+  const { theme, toggleTheme, accentColor, setAccentColor } = useTheme();
 
   const [customInterestInput, setCustomInterestInput] = useState('');
   const [searchQuery, setSearchQuery] = useState('');

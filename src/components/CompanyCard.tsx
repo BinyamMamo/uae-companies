@@ -38,7 +38,7 @@ const CompanyCardComponent: React.FC<CompanyCardProps> = ({ company, isSelected 
       was unreachable by keyboard.
     */
     <article
-      className={`group relative isolate bg-surface border rounded-xl p-4 sm:p-5 transition-colors transition-shadow ${
+      className={`company-row group relative isolate bg-surface border rounded-xl p-4 sm:p-5 transition-colors transition-shadow ${
         isSelected
           ? 'border-brand-600 ring-1 ring-brand-600 shadow-xs'
           : 'border-line hover:border-line-strong hover:shadow-subtle'

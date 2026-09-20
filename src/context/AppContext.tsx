@@ -1,12 +1,11 @@
 import React, { createContext, useContext, useState, useEffect, useMemo, useCallback } from 'react';
-import { flushSync } from 'react-dom';
 import type { Company, FilterState, SavedList } from '../types/company';
 import { loadCompanies } from '../data/loadCompanies';
 import { DEFAULT_STUDENT_INTERESTS } from '../utils/relevance';
 import { ACADEMIC_CITY_COORDS, calculateDistanceKm, estimateBusMinutes, estimateDrivingMinutes } from '../utils/distance';
-import { applyAccentTheme } from '../utils/accentThemes';
 import { readJSON, writeJSON, readString, writeString, isStringArray } from '../utils/storage';
 import { track, trackView } from '../lib/analytics';
+import { useTheme } from './ThemeContext';
 import { useProfileSync } from '../hooks/useProfileSync';
 import type { SyncedProfile } from '../lib/sync';
 
@@ -76,10 +75,6 @@ interface AppContextType {
   isMobileFilterOpen: boolean;
   setIsMobileFilterOpen: (open: boolean) => void;
   filteredCompanies: Company[];
-  theme: 'light' | 'dark';
-  toggleTheme: () => void;
-  accentColor: string;
-  setAccentColor: (color: string) => void;
   userLocation: UserLocation;
   setUserLocation: (loc: UserLocation) => void;
   resetUserLocation: () => void;
@@ -99,6 +94,8 @@ const initialFilters: FilterState = {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  // Read-only here: the profile sync mirrors these, it does not own them.
+  const { theme, accentColor } = useTheme();
   const [activeTab, setActiveTabState] = useState<'list' | 'browse' | 'featured' | 'map' | 'saved'>('list');
 
   const setActiveTab = useCallback((tab: 'list' | 'browse' | 'featured' | 'map' | 'saved') => {
@@ -163,101 +160,6 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [isCompareModalOpen, setIsCompareModalOpen] = useState(false);
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
-
-  // Dark mode state with localStorage persistence
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    try {
-      const stored = localStorage.getItem('uae_theme');
-      if (stored === 'dark' || stored === 'light') return stored;
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return 'dark';
-      }
-    } catch {
-      // ignore
-    }
-    return 'light';
-  });
-
-  useEffect(() => {
-    try {
-      writeString('uae_theme', theme);
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    } catch {
-      // ignore
-    }
-  }, [theme]);
-
-  const toggleTheme = useCallback(() => {
-    const nextTheme = theme === 'light' ? 'dark' : 'light';
-    track('theme_toggled', { theme: nextTheme });
-
-    if (typeof document === 'undefined') {
-      setTheme(nextTheme);
-      return;
-    }
-
-    const root = document.documentElement;
-    const prefersReducedMotion =
-      window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
-
-    // The View Transition cross-fades a snapshot of the page. Suppressing the
-    // live DOM's own transitions for the duration stops the two animating at
-    // once, which is what made the switch smear.
-    const withTransitionsSuppressed = (apply: () => void) => {
-      root.setAttribute('data-theme-switching', '');
-      apply();
-      window.setTimeout(() => root.removeAttribute('data-theme-switching'), 260);
-    };
-
-    const canViewTransition =
-      'startViewTransition' in document && !prefersReducedMotion;
-
-    if (!canViewTransition) {
-      withTransitionsSuppressed(() => setTheme(nextTheme));
-      return;
-    }
-
-    root.setAttribute('data-theme-switching', '');
-    const transition = (
-      document as unknown as {
-        startViewTransition: (cb: () => void) => { finished: Promise<void> };
-      }
-    ).startViewTransition(() => {
-      flushSync(() => setTheme(nextTheme));
-    });
-
-    transition.finished
-      .catch(() => undefined)
-      .finally(() => root.removeAttribute('data-theme-switching'));
-  }, [theme]);
-
-  // Accent color state with CSS variable application and localStorage persistence
-  const [accentColor, setAccentColorState] = useState<string>(() => {
-    try {
-      return readString('uae_accent_color') ?? 'blue';
-    } catch {
-      return 'blue';
-    }
-  });
-
-  useEffect(() => {
-    applyAccentTheme(accentColor);
-  }, [accentColor]);
-
-  const setAccentColor = useCallback((accentId: string) => {
-    setAccentColorState(accentId);
-    track('accent_changed', { accent: accentId });
-    try {
-      writeString('uae_accent_color', accentId);
-    } catch {
-      // ignore
-    }
-    applyAccentTheme(accentId);
-  }, []);
 
   // User location for commute / distance calculations with localStorage persistence
   const [userLocation, setUserLocationState] = useState<UserLocation>(() => {
@@ -674,17 +576,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       isMobileFilterOpen,
       setIsMobileFilterOpen,
       filteredCompanies,
-      theme,
-      toggleTheme,
-      accentColor,
-      setAccentColor,
       userLocation,
       setUserLocation,
       resetUserLocation,
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [
-      accentColor,
       activeListId,
       activeTab,
       addCompanyToList,
@@ -712,7 +609,6 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       savedCompanyIds,
       savedLists,
       selectedCompany,
-      setAccentColor,
       setActiveListId,
       setActiveTab,
       setFilters,
@@ -723,10 +619,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       setUserInterests,
       setUserLocation,
       setUsername,
-      theme,
       toggleCompareCompany,
       toggleSaveCompany,
-      toggleTheme,
       userInterests,
       userLocation,
       username,

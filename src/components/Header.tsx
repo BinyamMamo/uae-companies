@@ -1,5 +1,6 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
+import { useTheme } from '../context/ThemeContext';
 import { ProfileMenu } from './ProfileMenu';
 import { SlidersHorizontal, Scale, Sun, Moon, Settings } from 'lucide-react';
 
@@ -22,9 +23,8 @@ export const Header: React.FC = () => {
     setIsCompareModalOpen,
     setIsMobileFilterOpen,
     setIsSettingsModalOpen,
-    theme,
-    toggleTheme,
   } = useApp();
+  const { theme, toggleTheme } = useTheme();
 
   const renderTab = (item: { id: TabId; label: string }) => {
     const isActive = activeTab === item.id;

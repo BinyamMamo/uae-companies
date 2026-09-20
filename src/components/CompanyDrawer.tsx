@@ -4,6 +4,7 @@ import { TILE_CONFIGS, previewStyleForTheme } from '../utils/mapTiles';
 import 'leaflet/dist/leaflet.css';
 import type { Company } from '../types/company';
 import { useApp } from '../context/AppContext';
+import { useTheme } from '../context/ThemeContext';
 import { track } from '../lib/analytics';
 import { TabBar } from './ui/TabBar';
 import { Modal } from './ui/Modal';
@@ -34,7 +35,8 @@ interface CompanyDrawerProps {
 }
 
 export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }) => {
-  const { toggleSaveCompany, isCompanySaved, companies, setSelectedCompany, userInterests, userLocation, theme } = useApp();
+  const { toggleSaveCompany, isCompanySaved, companies, setSelectedCompany, userInterests, userLocation } = useApp();
+  const { theme } = useTheme();
   const [activeTab, setActiveTab] = useState<'overview' | 'careers' | 'employees' | 'location' | 'similar'>('overview');
   const [commuteMode, setCommuteMode] = useState<'transit' | 'driving'>('transit');
 

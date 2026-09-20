@@ -208,6 +208,17 @@ html[data-theme-switching] *::after {
   }
 }
 
+/*
+  The list renders every matching company at once (225 at the default filter).
+  content-visibility lets the browser skip layout and paint for rows that are
+  off screen, which is what made theme switching and scrolling expensive. The
+  intrinsic size keeps the scrollbar honest so nothing jumps.
+*/
+.company-row {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 188px;
+}
+
 /* =========================================================================
    SCROLLBARS
    Thin and unobtrusive, but present — content that scrolls must say so.
