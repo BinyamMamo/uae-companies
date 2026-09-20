@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useMemo, useCallback } from 'react';
 import { flushSync } from 'react-dom';
 import type { Company, FilterState, SavedList } from '../types/company';
-import { AUTHORITATIVE_COMPANIES } from '../data/authoritativeCompanies';
+import { loadCompanies } from '../data/loadCompanies';
 import { DEFAULT_STUDENT_INTERESTS } from '../utils/relevance';
 import { ACADEMIC_CITY_COORDS, calculateDistanceKm, estimateBusMinutes, estimateDrivingMinutes } from '../utils/distance';
 import { applyAccentTheme } from '../utils/accentThemes';
@@ -37,6 +37,9 @@ export interface UserLocation {
 
 interface AppContextType {
   companies: Company[];
+  /** 'loading' until the fetched dataset arrives; views show skeletons meanwhile. */
+  companiesStatus: 'loading' | 'ready' | 'error';
+  reloadCompanies: () => void;
   selectedCompany: Company | null;
   setSelectedCompany: (company: Company | null) => void;
   activeTab: 'list' | 'browse' | 'featured' | 'map' | 'saved';
@@ -293,16 +296,47 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   }, []);
 
-  // Dynamically compute companies commute data based on userLocation
+  // Company data is fetched rather than bundled; see data/loadCompanies.ts.
+  const [allCompanies, setAllCompanies] = useState<Company[]>([]);
+  const [companiesStatus, setCompaniesStatus] = useState<'loading' | 'ready' | 'error'>('loading');
+
+  useEffect(() => {
+    let cancelled = false;
+    setCompaniesStatus('loading');
+    loadCompanies()
+      .then(data => {
+        if (cancelled) return;
+        setAllCompanies(data);
+        setCompaniesStatus('ready');
+      })
+      .catch(() => {
+        if (!cancelled) setCompaniesStatus('error');
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const reloadCompanies = useCallback(() => {
+    setCompaniesStatus('loading');
+    loadCompanies()
+      .then(data => {
+        setAllCompanies(data);
+        setCompaniesStatus('ready');
+      })
+      .catch(() => setCompaniesStatus('error'));
+  }, []);
+
+  // Recompute commute figures whenever the user's home location moves.
   const companies = useMemo(() => {
     if (
       !userLocation.isCustom &&
       userLocation.latitude === ACADEMIC_CITY_COORDS.latitude &&
       userLocation.longitude === ACADEMIC_CITY_COORDS.longitude
     ) {
-      return AUTHORITATIVE_COMPANIES;
+      return allCompanies;
     }
-    return AUTHORITATIVE_COMPANIES.map(company => {
+    return allCompanies.map(company => {
       const distanceKm = calculateDistanceKm(
         company.location.latitude,
         company.location.longitude,
@@ -320,7 +354,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         },
       };
     });
-  }, [userLocation]);
+  }, [allCompanies, userLocation]);
 
   /*
     New users start empty. This previously seeded 8 pre-saved companies and 3
@@ -490,7 +524,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         const matchesName = company.name.toLowerCase().includes(query);
         const matchesCat = company.categories.some(c => c.toLowerCase().includes(query));
         const matchesLoc = company.location.area.toLowerCase().includes(query) || company.location.emirate.toLowerCase().includes(query);
-        const matchesDesc = company.shortDescription.toLowerCase().includes(query);
+        const matchesDesc = (company.shortDescription ?? '').toLowerCase().includes(query);
         const matchesCareer = company.commonCareers.some(r => r.toLowerCase().includes(query));
         const matchesTech = company.technicalAreas.some(t => t.toLowerCase().includes(query));
         if (!matchesName && !matchesCat && !matchesLoc && !matchesDesc && !matchesCareer && !matchesTech) {
@@ -502,7 +536,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       if (filters.companyTypes.length > 0) {
         const hasMatchingType = filters.companyTypes.some(type => {
           if (type === 'Tech / Software') {
-            return company.categories.includes('Tech / Software') || company.categories.includes('Software') || company.industry.includes('Technology');
+            return company.categories.includes('Tech / Software') || company.categories.includes('Software') || (company.industry ?? '').includes('Technology');
           }
           if (type === 'AI / Data') {
             return company.categories.includes('AI/ML') || company.categories.includes('AI / ML') || company.categories.includes('Data');
@@ -517,7 +551,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
             return company.categories.includes('Telecom / Networks') || company.categories.includes('Telecom');
           }
           if (type === 'Aviation') {
-            return company.categories.includes('Aviation') || company.industry.includes('Aviation');
+            return company.categories.includes('Aviation') || (company.industry ?? '').includes('Aviation');
           }
           if (type === 'Other') {
             return !['Tech / Software', 'AI/ML', 'Cybersecurity', 'Hardware / Embedded', 'Telecom / Networks', 'Aviation'].some(t => company.categories.includes(t));
@@ -602,6 +636,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const value = useMemo<AppContextType>(
     () => ({
       companies,
+      companiesStatus,
+      reloadCompanies,
       selectedCompany,
       setSelectedCompany,
       activeTab,
@@ -656,6 +692,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       clearCompare,
       clearFilters,
       companies,
+      companiesStatus,
       compareCompanyIds,
       createSavedList,
       deleteSavedList,
@@ -667,6 +704,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       isMobileFilterOpen,
       isSettingsModalOpen,
       removeCompanyFromList,
+      reloadCompanies,
       removeInterest,
       renameSavedList,
       resetInterests,

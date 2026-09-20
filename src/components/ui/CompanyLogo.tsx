@@ -11,7 +11,7 @@ const SIZES: Record<Size, { box: string; text: string; pad: string; px: number }
 
 interface CompanyLogoProps {
   name: string;
-  src?: string;
+  src?: string | null;
   size?: Size;
   className?: string;
 }

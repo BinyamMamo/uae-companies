@@ -1,0 +1,72 @@
+[
+  {
+    "id": "pirelli",
+    "name": "Pirelli",
+    "officialName": "Pirelli",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "porsche-middle-east-africa-fze",
+    "name": "Porsche Middle East & Africa FZE",
+    "officialName": "Porsche Middle East & Africa FZE",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "pricewaterhousecoopers-pwc",
+    "name": "PricewaterhouseCoopers (PwC)",
+    "officialName": "PricewaterhouseCoopers (PwC)",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "publicis",
+    "name": "Publicis",
+    "officialName": "Publicis",
+    "emirate": "Dubai",
+    "area": "Dubai Media City"
+  },
+  {
+    "id": "puig",
+    "name": "Puig",
+    "officialName": "Puig",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "quantom-edge",
+    "name": "Quantom Edge",
+    "officialName": "Quantom Edge",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "rak-bank",
+    "name": "RAK Bank",
+    "officialName": "RAK Bank",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "recruit-me",
+    "name": "Recruit ME",
+    "officialName": "Recruit ME",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "samsung",
+    "name": "Samsung Electronics",
+    "officialName": "Samsung",
+    "emirate": "Dubai",
+    "area": "Dubai Media City"
+  },
+  {
+    "id": "sap",
+    "name": "SAP",
+    "officialName": "SAP",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  }
+]

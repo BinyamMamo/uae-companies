@@ -1,5 +1,6 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
+import { useIsDesktop } from '../hooks/useMediaQuery';
 import { FilterSidebar } from '../components/FilterSidebar';
 import { CompanyCard } from '../components/CompanyCard';
 import { CompanyDrawer } from '../components/CompanyDrawer';
@@ -7,6 +8,8 @@ import { CompanyBottomSheet } from '../components/CompanyBottomSheet';
 import { Dropdown } from '../components/Dropdown';
 import { SearchX, Search, X, Scale } from 'lucide-react';
 import { track } from '../lib/analytics';
+import { CompanyCardSkeleton } from '../components/ui/CompanyCardSkeleton';
+import { DataError } from '../components/ui/DataError';
 import type { FilterState } from '../types/company';
 
 export const ListView: React.FC = () => {
@@ -19,8 +22,11 @@ export const ListView: React.FC = () => {
     clearFilters,
     isMobileFilterOpen,
     compareCompanyIds,
-    setIsCompareModalOpen
+    setIsCompareModalOpen,
+    companiesStatus,
+    reloadCompanies
   } = useApp();
+  const isDesktop = useIsDesktop();
 
   const sortOptions = [
     { value: 'nearest', label: 'Nearest' },
@@ -118,7 +124,11 @@ export const ListView: React.FC = () => {
           </div>
 
           {/* Company Cards List */}
-          {filteredCompanies.length > 0 ? (
+          {companiesStatus === 'loading' ? (
+            <CompanyCardSkeleton />
+          ) : companiesStatus === 'error' ? (
+            <DataError onRetry={reloadCompanies} />
+          ) : filteredCompanies.length > 0 ? (
             <div className="space-y-3">
               {filteredCompanies.map(company => (
                 <CompanyCard
@@ -151,17 +161,15 @@ export const ListView: React.FC = () => {
         </main>
 
         {/* Right: Company Detail Drawer (Desktop) */}
-        {selectedCompany && (
-          <div className="hidden md:block">
-            <CompanyDrawer
-              company={selectedCompany}
-              onClose={() => setSelectedCompany(null)}
-            />
-          </div>
+        {selectedCompany && isDesktop && (
+          <CompanyDrawer
+            company={selectedCompany}
+            onClose={() => setSelectedCompany(null)}
+          />
         )}
 
         {/* Mobile Bottom Sheet */}
-        {selectedCompany && (
+        {selectedCompany && !isDesktop && (
           <CompanyBottomSheet
             company={selectedCompany}
             onClose={() => setSelectedCompany(null)}

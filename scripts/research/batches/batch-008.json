@@ -1,0 +1,72 @@
+[
+  {
+    "id": "bpg-group",
+    "name": "BPG Group",
+    "officialName": "BPG Group",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "canopy-by-hilton",
+    "name": "Canopy by Hilton",
+    "officialName": "Canopy by Hilton",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "capgemini",
+    "name": "Capgemini",
+    "officialName": "Capgemini",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "caterpillar-sarl",
+    "name": "Caterpillar SARL",
+    "officialName": "Caterpillar SARL",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "century-financial",
+    "name": "Century Financial",
+    "officialName": "Century Financial",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "ceva-logistics",
+    "name": "CEVA Logistics",
+    "officialName": "CEVA Logistics",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "chep",
+    "name": "CHEP",
+    "officialName": "CHEP",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "choueiri-group",
+    "name": "Choueiri Group",
+    "officialName": "Choueiri Group",
+    "emirate": "Dubai",
+    "area": "Dubai Media City"
+  },
+  {
+    "id": "clarins-middle-east",
+    "name": "Clarins Middle East",
+    "officialName": "Clarins Middle East",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "commerzbank-ag",
+    "name": "Commerzbank AG",
+    "officialName": "Commerzbank AG",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  }
+]

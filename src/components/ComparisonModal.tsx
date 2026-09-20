@@ -3,6 +3,7 @@ import { useApp } from '../context/AppContext';
 import { formatBusCommute, formatDistance } from '../utils/distance';
 import { X, Scale, Trash2, CheckCircle2 } from 'lucide-react';
 import { Modal } from './ui/Modal';
+import { CompanyLogo } from './ui/CompanyLogo';
 
 export const ComparisonModal: React.FC = () => {
   const {
@@ -71,7 +72,7 @@ export const ComparisonModal: React.FC = () => {
                   <th key={c.id} className="p-3 min-w-[200px] align-top bg-surface">
                     <div className="flex items-start justify-between gap-2">
                       <div className="flex items-center gap-2">
-                        <img src={c.logo} alt={c.name} className="w-7 h-7 object-contain rounded-sm border border-line p-0.5" />
+                        <CompanyLogo name={c.name} src={c.logo} size="xs" />
                         <span className="font-bold text-ink text-sm">{c.name}</span>
                       </div>
                       <button

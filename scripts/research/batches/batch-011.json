@@ -1,0 +1,72 @@
+[
+  {
+    "id": "ellucian",
+    "name": "Ellucian",
+    "officialName": "Ellucian",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "emirates-glass",
+    "name": "Emirates Glass",
+    "officialName": "Emirates Glass",
+    "emirate": "Dubai",
+    "area": "Al Quoz"
+  },
+  {
+    "id": "emirates-global-aluminium-ega",
+    "name": "Emirates Global Aluminium (EGA)",
+    "officialName": "Emirates Global Aluminium (EGA)",
+    "emirate": "Dubai",
+    "area": "Jebel Ali"
+  },
+  {
+    "id": "enoc",
+    "name": "ENOC",
+    "officialName": "ENOC",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "erada-center",
+    "name": "Erada Center",
+    "officialName": "Erada Center",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "ericsson",
+    "name": "Ericsson",
+    "officialName": "Ericsson",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "ernst-young-ey",
+    "name": "Ernst & Young (EY)",
+    "officialName": "Ernst & Young (EY)",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "expeditors",
+    "name": "Expeditors",
+    "officialName": "Expeditors",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "ezelink",
+    "name": "EZELINK",
+    "officialName": "EZELINK",
+    "emirate": "Dubai",
+    "area": "Dubai Silicon Oasis"
+  },
+  {
+    "id": "fedex-express",
+    "name": "FedEx Express",
+    "officialName": "FedEx Express",
+    "emirate": "Dubai",
+    "area": "Airport areas"
+  }
+]

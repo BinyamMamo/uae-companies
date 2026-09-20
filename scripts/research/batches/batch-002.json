@@ -1,0 +1,72 @@
+[
+  {
+    "id": "aecom",
+    "name": "AECOM",
+    "officialName": "AECOM",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "ag-melco-elevator-co-llc",
+    "name": "AG MELCO Elevator Co. L.L.C.",
+    "officialName": "AG MELCO Elevator Co. L.L.C.",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "agmc-bmw-mini-rollsroyce",
+    "name": "AGMC – BMW, MINI & Rolls-Royce",
+    "officialName": "AGMC – BMW, MINI & Rolls-Royce",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "aki-group",
+    "name": "AKI Group",
+    "officialName": "AKI Group",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "akzonobel",
+    "name": "AkzoNobel",
+    "officialName": "AkzoNobel",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "al-ahli-bank-of-kuwait",
+    "name": "Al Ahli Bank of Kuwait",
+    "officialName": "Al Ahli Bank of Kuwait",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "al-buhaira-national-insurance-co",
+    "name": "Al Buhaira National Insurance Co.",
+    "officialName": "Al Buhaira National Insurance Co.",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "al-bustan-rotana-hotel",
+    "name": "Al Bustan Rotana Hotel",
+    "officialName": "Al Bustan Rotana Hotel",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "al-futtaim",
+    "name": "Al Futtaim",
+    "officialName": "Al Futtaim",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "al-ghurair",
+    "name": "Al Ghurair",
+    "officialName": "Al Ghurair",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  }
+]

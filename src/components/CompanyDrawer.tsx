@@ -10,6 +10,8 @@ import { Modal } from './ui/Modal';
 import { formatBusCommute, formatDistance } from '../utils/distance';
 import { isCareerRelevant } from '../utils/relevance';
 import { calculateTransitRoute } from '../utils/transitRouting';
+import { CompanyLogo } from './ui/CompanyLogo';
+import { ProvenanceBadge } from './ui/ProvenanceBadge';
 import {
   X,
   Bookmark,
@@ -167,7 +169,11 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
   const tabs: Array<{ id: 'overview' | 'careers' | 'employees' | 'location' | 'similar'; label: string }> = [
     { id: 'overview', label: 'Overview' },
     { id: 'careers', label: 'Careers' },
-    { id: 'employees', label: 'Employees' },
+    // Only offered when we actually have profiles; the seeded ones were
+    // invented people with real-looking LinkedIn URLs and have been removed.
+    ...(company.employees.length > 0
+      ? [{ id: 'employees' as const, label: 'Employees' }]
+      : []),
     { id: 'location', label: 'Location' },
     { id: 'similar', label: 'Similar' },
   ];
@@ -195,20 +201,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
 
         {/* Company Title & Logo */}
         <div className="flex items-start gap-3.5 pr-12">
-          <div className="w-12 h-12 rounded-lg border border-line bg-white dark:bg-slate-800 flex items-center justify-center shrink-0 p-1.5 shadow-2xs">
-            <img
-              src={company.logo}
-              alt={`${company.name} logo`}
-              className="w-full h-full object-contain"
-              onError={(e) => {
-                const target = e.target as HTMLElement;
-                target.style.display = 'none';
-                if (target.parentElement) {
-                  target.parentElement.innerHTML = `<span class="text-xs font-bold text-ink-2">${company.name.slice(0, 2).toUpperCase()}</span>`;
-                }
-              }}
-            />
-          </div>
+          <CompanyLogo name={company.name} src={company.logo} size="lg" />
           <div className="min-w-0 flex-1">
             <h2 className="text-lg font-bold text-ink leading-snug truncate">
               {company.name}
@@ -351,27 +344,44 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
               </div>
             )}
 
-            {/* Data Citations & Sources */}
+            {/*
+              Only rendered when independent sources actually exist. Previously
+              this always showed "Verified Sources" listing the company's own
+              homepage, which presented a claim as a citation.
+            */}
             <div className="pt-3 border-t border-line">
-              <h4 className="text-[11px] font-semibold text-ink-3 uppercase tracking-wider mb-1.5">
-                Verified Sources
-              </h4>
-              <ul className="space-y-1 text-xs text-ink-2">
-                {company.sources.map((src, i) => (
-                  <li key={i} className="flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-slate-400" />
-                    <a
-                      href={src.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-brand-600 dark:hover:text-brand-400 underline underline-offset-2 flex items-center gap-1"
-                    >
-                      <span>{src.title}</span>
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              <div className="flex items-center justify-between mb-1.5">
+                <h4 className="text-[11px] font-semibold text-ink-3 uppercase tracking-wider">
+                  Sources
+                </h4>
+                <ProvenanceBadge company={company} />
+              </div>
+
+              {company.sources.length > 0 ? (
+                <ul className="space-y-1 text-xs text-ink-2">
+                  {company.sources.map((src, i) => (
+                    <li key={i} className="flex items-center gap-1.5">
+                      <ShieldCheck className="w-3.5 h-3.5 text-ink-3 shrink-0" aria-hidden="true" />
+                      <a
+                        href={src.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-brand-600 dark:hover:text-brand-400 underline underline-offset-2 flex items-center gap-1"
+                      >
+                        <span>{src.title}</span>
+                        <ExternalLink className="w-3 h-3" aria-hidden="true" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-xs text-ink-3 leading-relaxed">
+                  No independent sources recorded for this company yet. The
+                  details above come from the original listing and have not been
+                  checked.
+                  {company.lastUpdated && ` Last reviewed ${company.lastUpdated}.`}
+                </p>
+              )}
             </div>
 
           </div>
@@ -388,19 +398,23 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
                   Official Careers Portal
                 </h4>
                 <p className="text-xs text-ink-2 mt-0.5">
-                  Browse live verified openings and graduate vacancies.
+                  {company.careersUrl
+                    ? 'Open roles are listed on the company’s own careers page.'
+                    : 'We have not confirmed a careers page for this company.'}
                 </p>
               </div>
-              <a
-                href={company.careersUrl}
-                onClick={() => track('careers_link_clicked', { company_id: company.id })}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold rounded-sm shadow-2xs transition"
-              >
-                <span>Careers</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
+              {company.careersUrl && (
+                <a
+                  href={company.careersUrl}
+                  onClick={() => track('careers_link_clicked', { company_id: company.id })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold rounded-md shadow-2xs transition-colors shrink-0"
+                >
+                  <span>Careers</span>
+                  <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+                </a>
+              )}
             </div>
 
             {/* Program Status Badges */}
@@ -486,15 +500,17 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
               <h3 className="text-xs font-bold text-ink uppercase tracking-wider">
                 Employees in UAE
               </h3>
-              <a
-                href={company.linkedinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-brand-600 dark:text-brand-400 hover:text-brand-800 font-medium flex items-center gap-1"
-              >
-                <span>View on LinkedIn</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
+              {company.linkedinUrl && (
+                <a
+                  href={company.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-brand-600 dark:text-brand-400 hover:text-brand-800 font-medium flex items-center gap-1"
+                >
+                  <span>View on LinkedIn</span>
+                  <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+                </a>
+              )}
             </div>
 
             {company.employees && company.employees.length > 0 ? (
@@ -536,15 +552,17 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
                 <p className="text-[11px] text-slate-400 mt-1">
                   You can explore full staff directories directly on LinkedIn.
                 </p>
-                <a
-                  href={company.linkedinUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 inline-flex items-center gap-1 text-xs text-brand-600 dark:text-brand-400 font-semibold hover:underline"
-                >
-                  <span>Search {company.name} on LinkedIn</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
+                {company.linkedinUrl && (
+                  <a
+                    href={company.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-flex items-center gap-1 text-xs text-brand-600 dark:text-brand-400 font-semibold hover:underline"
+                  >
+                    <span>Search {company.name} on LinkedIn</span>
+                    <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                  </a>
+                )}
               </div>
             )}
 
@@ -896,13 +914,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
                 className="p-3.5 border border-line rounded-lg bg-white dark:bg-slate-800 hover:border-brand-500 hover:shadow-subtle cursor-pointer transition flex items-center justify-between"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-sm border border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-700 flex items-center justify-center p-1 shrink-0">
-                    <img
-                      src={sim.logo}
-                      alt={sim.name}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
+                  <CompanyLogo name={sim.name} src={sim.logo} size="sm" />
                   <div>
                     <h4 className="text-xs font-semibold text-ink">{sim.name}</h4>
                     <span className="text-[11px] text-ink-2">{sim.categories.slice(0, 2).join(' · ')}</span>

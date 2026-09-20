@@ -1,0 +1,72 @@
+[
+  {
+    "id": "apco-worldwide",
+    "name": "APCO Worldwide",
+    "officialName": "APCO Worldwide",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "apparel-group",
+    "name": "Apparel Group",
+    "officialName": "Apparel Group",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "apple",
+    "name": "Apple Middle East",
+    "officialName": "Apple",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "arab-loss-adjusters-llc",
+    "name": "Arab Loss Adjusters LLC",
+    "officialName": "Arab Loss Adjusters LLC",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "aramex",
+    "name": "Aramex",
+    "officialName": "Aramex",
+    "emirate": "Dubai",
+    "area": "Airport areas"
+  },
+  {
+    "id": "arcelormittal",
+    "name": "ArcelorMittal",
+    "officialName": "ArcelorMittal",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "arj-holding-llc",
+    "name": "ARJ Holding L.L.C",
+    "officialName": "ARJ Holding L.L.C",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "asus-middle-east-fzco",
+    "name": "ASUS Middle East FZCO",
+    "officialName": "ASUS Middle East FZCO",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "audi-volkswagen-middle-east-fze",
+    "name": "Audi Volkswagen Middle East FZE",
+    "officialName": "Audi Volkswagen Middle East FZE",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "augustus-media",
+    "name": "Augustus Media",
+    "officialName": "Augustus Media",
+    "emirate": "Dubai",
+    "area": "Dubai Media City"
+  }
+]

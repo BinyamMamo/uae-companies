@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
+import { useIsDesktop } from '../hooks/useMediaQuery';
 import { CompanyDrawer } from '../components/CompanyDrawer';
 import { CompanyBottomSheet } from '../components/CompanyBottomSheet';
 import { ShareListModal } from '../components/ShareListModal';
 import { formatBusCommute, formatDistance } from '../utils/distance';
+import { CompanyLogo } from '../components/ui/CompanyLogo';
 import {
   Trash2,
   Share2,
@@ -25,6 +27,7 @@ export const SavedView: React.FC = () => {
     removeCompanyFromList,
     toggleSaveCompany
   } = useApp();
+  const isDesktop = useIsDesktop();
 
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [newListName, setNewListName] = useState('');
@@ -141,13 +144,7 @@ export const SavedView: React.FC = () => {
               <div className="flex items-center gap-3.5 min-w-0">
                 
                 {/* Logo */}
-                <div className="w-10 h-10 rounded-sm border border-line bg-slate-50 dark:bg-slate-800 flex items-center justify-center shrink-0 p-1">
-                  <img
-                    src={company.logo}
-                    alt={company.name}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
+                <CompanyLogo name={company.name} src={company.logo} size="sm" />
 
                 {/* Info */}
                 <div className="min-w-0">
@@ -211,18 +208,16 @@ export const SavedView: React.FC = () => {
       )}
 
       {/* Desktop Drawer */}
-      {selectedCompany && (
-        <div className="hidden md:block">
+      {selectedCompany && isDesktop && (
           <CompanyDrawer
             company={selectedCompany}
             onClose={() => setSelectedCompany(null)}
           />
-        </div>
-      )}
+        )}
 
       {/* Mobile Bottom Sheet */}
-      {selectedCompany && (
-        <CompanyBottomSheet
+      {selectedCompany && !isDesktop && (
+          <CompanyBottomSheet
           company={selectedCompany}
           onClose={() => setSelectedCompany(null)}
         />

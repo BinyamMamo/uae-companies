@@ -1,13 +1,36 @@
 export type Emirate = 'Dubai' | 'Abu Dhabi' | 'Sharjah' | 'Other UAE';
 
+/**
+ * How much we actually know about a field.
+ *
+ *  verified   - checked against a named third-party source, and links resolve
+ *  reported   - stated by the company itself (their own site / LinkedIn)
+ *  estimated  - derived by us (e.g. commute times computed from coordinates)
+ *  unverified - carried over from the original seed data, not yet checked
+ *
+ * The UI must not present `unverified` values as facts.
+ */
+export type Confidence = 'verified' | 'reported' | 'estimated' | 'unverified';
+
+export interface Provenance {
+  /** Where the value came from. Null when nothing backs it up. */
+  sourceUrl: string | null;
+  /** ISO date the value was last confirmed. */
+  retrievedAt: string | null;
+  confidence: Confidence;
+}
+
 export interface CompanyLocation {
   emirate: Emirate;
   area: string;
-  address: string;
+  /** Null when no real street address is known — never a generated placeholder. */
+  address: string | null;
   latitude: number;
   longitude: number;
   isFreeZone: boolean;
   freeZoneName?: string | null;
+  /** 'building' when the point is the actual office; 'area' when it is a district centroid. */
+  precision: 'building' | 'area';
 }
 
 export interface EmployeeProfile {
@@ -25,30 +48,51 @@ export interface CompanyCommute {
   drivingMinutes: number;
 }
 
+export interface CompanySource {
+  title: string;
+  url: string;
+  /** False for the company's own site — that is a claim, not a citation. */
+  thirdParty: boolean;
+}
+
 export interface Company {
   id: string;
   name: string;
   officialName?: string;
-  shortDescription: string;
-  whatTheyDo: string;
-  industry: string;
+  /** Null when we have no researched description rather than a templated one. */
+  shortDescription: string | null;
+  whatTheyDo: string | null;
+  industry: string | null;
   categories: string[];
   location: CompanyLocation;
-  website: string;
-  careersUrl: string;
-  logo: string;
-  bannerImage?: string;
+  /** Null when no working website is known. */
+  website: string | null;
+  /** Null unless a real careers page was found — never website + "/careers". */
+  careersUrl: string | null;
+  /** Null falls back to a monogram tile rather than a generated avatar. */
+  logo: string | null;
+  bannerImage?: string | null;
   technicalAreas: string[];
   commonCareers: string[];
-  internshipsKnown: boolean;
-  graduateRolesKnown: boolean;
+  /** Null means "we don't know", which is different from false. */
+  internshipsKnown: boolean | null;
+  graduateRolesKnown: boolean | null;
   employees: EmployeeProfile[];
-  linkedinUrl: string;
+  linkedinUrl: string | null;
   commute: CompanyCommute;
   relevanceScore: number;
-  studentMatchReason?: string;
-  sources: { title: string; url: string }[];
-  lastUpdated: string;
+  studentMatchReason?: string | null;
+  sources: CompanySource[];
+  /** ISO date this record was last checked, per record — not a global stamp. */
+  lastUpdated: string | null;
+  /** Per-field provenance for the claims a user might act on. */
+  provenance: {
+    website: Provenance;
+    careersUrl: Provenance;
+    location: Provenance;
+    description: Provenance;
+    programmes: Provenance;
+  };
 }
 
 export interface FilterState {
@@ -68,3 +112,8 @@ export interface SavedList {
   companyIds: string[];
   createdAt: string;
 }
+
+/** True when enough of a record is backed by a source to show it without a caveat. */
+export const isWellSourced = (c: Company): boolean =>
+  c.provenance.website.confidence !== 'unverified' &&
+  c.provenance.description.confidence !== 'unverified';

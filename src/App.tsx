@@ -12,10 +12,9 @@ import { ErrorBoundary } from './components/ui/ErrorBoundary';
 import { ToastProvider } from './components/ui/Toast';
 import { AuthProvider } from './context/AuthContext';
 import { GoogleOneTap } from './components/GoogleOneTap';
-import { AUTHORITATIVE_COMPANIES } from './data/authoritativeCompanies';
 
 const AppContent: React.FC = () => {
-  const { activeTab } = useApp();
+  const { activeTab, companies } = useApp();
 
   return (
     <div className="min-h-screen flex flex-col bg-app text-ink font-sans selection:bg-brand-100 selection:text-brand-900 transition-colors duration-150">
@@ -48,7 +47,7 @@ const AppContent: React.FC = () => {
             <div className="flex items-center gap-2">
               <span className="font-semibold text-ink">UAE Student Discovery Platform</span>
               <span>·</span>
-              <span>{AUTHORITATIVE_COMPANIES.length} companies</span>
+              <span>{companies.length} companies</span>
               <span>·</span>
               <span>Ref: DIAC / KSK Homes</span>
             </div>

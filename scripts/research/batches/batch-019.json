@@ -1,0 +1,72 @@
+[
+  {
+    "id": "national-bank-of-fujairah-nbf",
+    "name": "National Bank of Fujairah (NBF)",
+    "officialName": "National Bank of Fujairah (NBF)",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "nestl-middle-east-fze",
+    "name": "Nestlé - Middle East FZE",
+    "officialName": "Nestlé - Middle East FZE",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "nike",
+    "name": "Nike",
+    "officialName": "Nike",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "nimr-alsahra-trading-company",
+    "name": "Nimr Alsahra Trading Company",
+    "officialName": "Nimr Alsahra Trading Company",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "oliv",
+    "name": "Oliv",
+    "officialName": "Oliv",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "oliver-wyman",
+    "name": "Oliver Wyman",
+    "officialName": "Oliver Wyman",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "omnicom",
+    "name": "Omnicom",
+    "officialName": "Omnicom",
+    "emirate": "Dubai",
+    "area": "Dubai Media City"
+  },
+  {
+    "id": "pareto-people",
+    "name": "Pareto People",
+    "officialName": "Pareto People",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "pepsico",
+    "name": "PepsiCo",
+    "officialName": "PepsiCo",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "petrofac",
+    "name": "Petrofac",
+    "officialName": "Petrofac",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  }
+]

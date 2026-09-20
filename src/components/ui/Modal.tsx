@@ -82,7 +82,12 @@ export const Modal: React.FC<ModalProps> = ({
       const panel = panelRef.current;
       if (!panel) return;
       const items = Array.from(panel.querySelectorAll<HTMLElement>(FOCUSABLE)).filter(
-        el => el.offsetParent !== null || el === document.activeElement
+        el =>
+          // The selector matches `button`, which also catches roving-tabindex
+          // items (e.g. unselected tabs) that the browser skips. Including
+          // them made `last` wrong, so Tab escaped the dialog.
+          el.tabIndex >= 0 &&
+          (el.offsetParent !== null || el === document.activeElement)
       );
       if (items.length === 0) {
         e.preventDefault();

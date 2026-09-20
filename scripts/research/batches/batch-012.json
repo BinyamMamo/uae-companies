@@ -1,0 +1,72 @@
+[
+  {
+    "id": "firex",
+    "name": "FIREX",
+    "officialName": "FIREX",
+    "emirate": "Dubai",
+    "area": "Al Quoz"
+  },
+  {
+    "id": "first-abu-dhabi-bank-fab",
+    "name": "First Abu Dhabi Bank (FAB)",
+    "officialName": "First Abu Dhabi Bank (FAB)",
+    "emirate": "Abu Dhabi",
+    "area": "Abu Dhabi areas"
+  },
+  {
+    "id": "first-security-group",
+    "name": "First Security Group",
+    "officialName": "First Security Group",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "five-hotels-and-resorts",
+    "name": "FIVE Hotels and Resorts",
+    "officialName": "FIVE Hotels and Resorts",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "flc-marketing-group",
+    "name": "FLC Marketing Group",
+    "officialName": "FLC Marketing Group",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "flydubai",
+    "name": "flydubai",
+    "officialName": "flydubai",
+    "emirate": "Dubai",
+    "area": "Airport areas"
+  },
+  {
+    "id": "food-quest",
+    "name": "Food Quest",
+    "officialName": "Food Quest",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "ford-middle-east",
+    "name": "Ford Middle East",
+    "officialName": "Ford Middle East",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "g4s-international-logistics",
+    "name": "G4S International Logistics",
+    "officialName": "G4S International Logistics",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "galadari-brothers-group",
+    "name": "Galadari Brothers Group",
+    "officialName": "Galadari Brothers Group",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  }
+]

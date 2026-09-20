@@ -6,6 +6,7 @@ import { TabBar } from './ui/TabBar';
 import { Modal } from './ui/Modal';
 import { formatBusCommute, formatDistance } from '../utils/distance';
 import { isCareerRelevant } from '../utils/relevance';
+import { CompanyLogo } from './ui/CompanyLogo';
 import {
   X,
   Bookmark,
@@ -52,13 +53,7 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
         <div className="p-4 border-b border-line">
           <div className="flex items-start justify-between gap-3">
             <div className="flex items-start gap-3">
-              <div className="w-11 h-11 rounded-sm border border-line bg-white dark:bg-surface-2 flex items-center justify-center shrink-0 p-1">
-                <img
-                  src={company.logo}
-                  alt={company.name}
-                  className="w-full h-full object-contain"
-                />
-              </div>
+              <CompanyLogo name={company.name} src={company.logo} size="md" />
               <div>
                 <h3 className="text-base font-bold text-ink leading-tight">
                   {company.name}
@@ -152,16 +147,22 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
 
           {activeTab === 'careers' && (
             <div className="space-y-3">
-              <a
-                href={company.careersUrl}
-                onClick={() => track('careers_link_clicked', { company_id: company.id })}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-2.5 bg-brand-600 text-white font-semibold rounded-sm flex items-center justify-center gap-1.5"
-              >
-                <span>Visit Official Careers Portal</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
+              {company.careersUrl ? (
+                <a
+                  href={company.careersUrl}
+                  onClick={() => track('careers_link_clicked', { company_id: company.id })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-md flex items-center justify-center gap-1.5 transition-colors"
+                >
+                  <span>Open careers page</span>
+                  <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+                </a>
+              ) : (
+                <p className="text-xs text-ink-3 border border-line rounded-md p-3 leading-relaxed">
+                  No careers page confirmed for this company yet.
+                </p>
+              )}
 
               <div className="grid grid-cols-2 gap-2 mt-2">
                 <div className="border border-line p-2.5 rounded-sm bg-white dark:bg-slate-800">

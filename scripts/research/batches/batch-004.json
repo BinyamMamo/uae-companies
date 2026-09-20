@@ -1,0 +1,72 @@
+[
+  {
+    "id": "allergan",
+    "name": "Allergan",
+    "officialName": "Allergan",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "allianz-trade",
+    "name": "Allianz Trade",
+    "officialName": "Allianz Trade",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "almulla-group",
+    "name": "Almulla Group",
+    "officialName": "Almulla Group",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "alpha-data",
+    "name": "Alpha Data",
+    "officialName": "Alpha Data",
+    "emirate": "Abu Dhabi",
+    "area": "Abu Dhabi / Dubai Healthcare City"
+  },
+  {
+    "id": "alrais-enterprise-group",
+    "name": "Alrais Enterprise Group",
+    "officialName": "Alrais Enterprise Group",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "amazon-web-services-aws",
+    "name": "Amazon Web Services (AWS)",
+    "officialName": "Amazon Web Services (AWS)",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "amlak-finance",
+    "name": "Amlak Finance",
+    "officialName": "Amlak Finance",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "amplify-dubai",
+    "name": "Amplify Dubai",
+    "officialName": "Amplify Dubai",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "ams-osram",
+    "name": "AMS Osram",
+    "officialName": "AMS Osram",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "aneeq-llc-fz",
+    "name": "Aneeq LLC FZ",
+    "officialName": "Aneeq LLC FZ",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  }
+]

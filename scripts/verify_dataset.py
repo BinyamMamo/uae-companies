@@ -1,52 +1,155 @@
 #!/usr/bin/env python3
+"""
+Dataset CI gate.
+
+Fails the build on the specific failure modes that produced the original
+fabricated data, so they cannot come back:
+
+  - a URL claimed by more than one company
+  - a careersUrl built by appending /careers to a homepage
+  - templated description text
+  - synthetic "<Name> Regional Office" addresses
+  - coordinates shared between companies, or outside the UAE
+  - a company's own site listed as an independent "source"
+  - placeholder avatar logos
+  - missing provenance
+
+Usage:  python3 scripts/verify_dataset.py
+"""
 import json
+import re
+import sys
+from collections import Counter
+from pathlib import Path
 
-with open("data/companies.json", "r", encoding="utf-8") as f:
-    companies = json.load(f)
+ROOT = Path(__file__).resolve().parents[1]
+DATA = ROOT / "public/data/companies.json"
 
-print(f"Total companies in database: {len(companies)}")
-assert len(companies) == 225, f"Expected 225 companies, found {len(companies)}"
+UAE_BOUNDS = (22.5, 26.5, 51.0, 56.5)
+VALID_CONFIDENCE = {"verified", "reported", "estimated", "unverified"}
 
-errors = []
-ids = set()
+TEMPLATE_PATTERNS = [
+    re.compile(r"Established UAE corporate presence operating in", re.I),
+    re.compile(r"provides specialized services, products, and solutions within the UAE", re.I),
+    re.compile(r"suitable for engineering and technology graduates", re.I),
+]
+SYNTHETIC_ADDRESS = re.compile(r" Regional Office, ")
+PLACEHOLDER_LOGO = re.compile(r"avatar\.vercel\.sh")
 
-for i, c in enumerate(companies):
-    if not c.get("id"):
-        errors.append(f"Company #{i} missing id")
-    if c["id"] in ids:
-        errors.append(f"Duplicate id: {c['id']}")
-    ids.add(c["id"])
 
-    if not c.get("name"):
-        errors.append(f"Company #{i} missing name")
+def host(url):
+    return re.sub(r"^https?://(www\.)?([^/]+).*", r"\2", url or "").lower()
 
-    loc = c.get("location", {})
-    lat = loc.get("latitude", 0)
-    lon = loc.get("longitude", 0)
-    if not (24.0 <= lat <= 26.5 and 54.0 <= lon <= 56.5):
-        errors.append(f"Company {c['name']} coordinates out of UAE range: lat={lat}, lon={lon}")
 
-    commute = c.get("commute", {})
-    if commute.get("distanceKm", 0) <= 0:
-        errors.append(f"Company {c['name']} distanceKm invalid: {commute.get('distanceKm')}")
-    if commute.get("busMinutes", 0) <= 0:
-        errors.append(f"Company {c['name']} busMinutes invalid: {commute.get('busMinutes')}")
+def main():
+    if not DATA.exists():
+        print(f"FAIL: {DATA.relative_to(ROOT)} does not exist.")
+        print("      Run: python3 scripts/research/build_dataset.py")
+        return 1
 
-    if not c.get("categories"):
-        errors.append(f"Company {c['name']} missing categories")
-    if not c.get("commonCareers"):
-        errors.append(f"Company {c['name']} missing commonCareers")
-    if not c.get("website"):
-        errors.append(f"Company {c['name']} missing website")
-    if not c.get("careersUrl"):
-        errors.append(f"Company {c['name']} missing careersUrl")
+    companies = json.loads(DATA.read_text(encoding="utf-8"))
+    errors, warnings = [], []
 
-if errors:
-    print(f"Validation FAILED with {len(errors)} issues:")
-    for err in errors[:10]:
-        print(f" - {err}")
-else:
-    print("ALL 225 COMPANIES VALIDATED SUCCESSFULLY!")
-    print(f"- 100% have valid UAE coordinates")
-    print(f"- 100% have distance and RTA commute times calculated from Academic City")
-    print(f"- 100% have technical categories, career roles, and official URLs")
+    ids = Counter(c.get("id") for c in companies)
+    for cid, n in ids.items():
+        if n > 1:
+            errors.append(f"duplicate id: {cid} ({n}x)")
+        if not cid:
+            errors.append("record with no id")
+
+    sites = Counter(c["website"] for c in companies if c.get("website"))
+    for url, n in sites.items():
+        if n > 1:
+            owners = [c["name"] for c in companies if c.get("website") == url]
+            errors.append(f"website claimed by {n} companies: {url} -> {', '.join(owners[:4])}")
+
+    coords = Counter(
+        (c["location"]["latitude"], c["location"]["longitude"])
+        for c in companies
+        if c["location"].get("precision") == "building"
+    )
+    for point, n in coords.items():
+        if n > 1:
+            errors.append(f"building-precision coordinates shared by {n} companies: {point}")
+
+    for c in companies:
+        cid = c.get("id", "?")
+        loc = c.get("location", {})
+
+        lat, lon = loc.get("latitude"), loc.get("longitude")
+        lo_lat, hi_lat, lo_lon, hi_lon = UAE_BOUNDS
+        if lat is None or lon is None or not (lo_lat <= lat <= hi_lat and lo_lon <= lon <= hi_lon):
+            errors.append(f"{cid}: coordinates outside the UAE: {lat}, {lon}")
+
+        if loc.get("precision") not in ("building", "area"):
+            errors.append(f"{cid}: location.precision must be 'building' or 'area'")
+
+        addr = loc.get("address")
+        if addr and SYNTHETIC_ADDRESS.search(addr):
+            errors.append(f"{cid}: synthetic address: {addr}")
+
+        website = c.get("website")
+        careers = c.get("careersUrl")
+        if careers and website and careers.rstrip("/") == website.rstrip("/") + "/careers":
+            errors.append(f"{cid}: careersUrl was built by appending /careers")
+
+        for key in ("shortDescription", "whatTheyDo", "studentMatchReason"):
+            text = c.get(key) or ""
+            if any(p.search(text) for p in TEMPLATE_PATTERNS):
+                errors.append(f"{cid}: {key} is templated text")
+
+        logo = c.get("logo")
+        if logo and PLACEHOLDER_LOGO.search(logo):
+            errors.append(f"{cid}: logo is a generated placeholder")
+
+        for s in c.get("sources", []):
+            if not s.get("thirdParty"):
+                errors.append(f"{cid}: source not marked thirdParty: {s.get('url')}")
+            if website and host(s.get("url")) == host(website):
+                errors.append(f"{cid}: own website listed as a source: {s.get('url')}")
+
+        prov = c.get("provenance")
+        if not isinstance(prov, dict):
+            errors.append(f"{cid}: missing provenance")
+            continue
+        for field in ("website", "careersUrl", "location", "description", "programmes"):
+            p = prov.get(field)
+            if not isinstance(p, dict) or p.get("confidence") not in VALID_CONFIDENCE:
+                errors.append(f"{cid}: provenance.{field} invalid")
+            elif p.get("confidence") in ("verified", "reported") and not p.get("sourceUrl"):
+                errors.append(f"{cid}: provenance.{field} is '{p['confidence']}' but has no sourceUrl")
+
+        if c.get("employees"):
+            for e in c["employees"]:
+                if not e.get("linkedinUrl"):
+                    warnings.append(f"{cid}: employee without a LinkedIn URL: {e.get('name')}")
+
+    n = len(companies)
+    verified = sum(1 for c in companies if c["provenance"]["website"]["confidence"] == "verified")
+    unverified = sum(1 for c in companies if c["provenance"]["description"]["confidence"] == "unverified")
+
+    print(f"{n} companies")
+    print(f"  verified by research   {verified:>3} ({verified * 100 // n}%)")
+    print(f"  description unverified {unverified:>3} ({unverified * 100 // n}%)")
+    print(f"  with a working website {sum(1 for c in companies if c.get('website')):>3}")
+    print(f"  with a careers page    {sum(1 for c in companies if c.get('careersUrl')):>3}")
+
+    if warnings:
+        print(f"\n{len(warnings)} warning(s):")
+        for w in warnings[:10]:
+            print(f"  ! {w}")
+
+    if errors:
+        print(f"\nFAILED with {len(errors)} error(s):")
+        for e in errors[:25]:
+            print(f"  x {e}")
+        if len(errors) > 25:
+            print(f"  … and {len(errors) - 25} more")
+        return 1
+
+    print("\nPASS: no fabricated or contradictory data found.")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

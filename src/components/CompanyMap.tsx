@@ -35,6 +35,7 @@ const CATEGORY_COLORS: Record<string, { bg: string; border: string }> = {
 };
 
 import { DUBAI_DISTRICTS_GEO } from '../data/dubaiDistrictsGeo';
+import { CompanyLogo } from './ui/CompanyLogo';
 
 export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompany }) => {
   const { userLocation, setUserLocation, resetUserLocation, theme } = useApp();
@@ -524,13 +525,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
               className="flex items-start gap-3 cursor-pointer flex-1 min-w-0"
               onClick={() => onSelectCompanyRef.current(activePopupCompany)}
             >
-              <div className="w-10 h-10 rounded-sm border border-line bg-surface-2 flex items-center justify-center p-1 shrink-0">
-                <img
-                  src={activePopupCompany.logo}
-                  alt={activePopupCompany.name}
-                  className="w-full h-full object-contain"
-                />
-              </div>
+              <CompanyLogo name={activePopupCompany.name} src={activePopupCompany.logo} size="sm" />
               <div className="flex-1 min-w-0">
                 <h4 className="text-sm font-bold text-ink truncate">
                   {activePopupCompany.name}

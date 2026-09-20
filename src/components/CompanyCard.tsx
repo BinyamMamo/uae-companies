@@ -5,6 +5,7 @@ import { isCareerRelevant, countMatchingRoles, getStudentMatchLabel } from '../u
 import { Bookmark, Scale } from 'lucide-react';
 import { CompanyLogo } from './ui/CompanyLogo';
 import { CommuteMeta } from './ui/CommuteMeta';
+import { ProvenanceBadge } from './ui/ProvenanceBadge';
 
 interface CompanyCardProps {
   company: Company;
@@ -114,9 +115,15 @@ const CompanyCardComponent: React.FC<CompanyCardProps> = ({ company, isSelected 
 
           <CommuteMeta company={company} className="mt-2" />
 
-          <p className="text-xs sm:text-[13px] text-ink-2 mt-2 line-clamp-2 leading-relaxed">
-            {company.shortDescription}
-          </p>
+          {company.shortDescription ? (
+            <p className="text-xs sm:text-[13px] text-ink-2 mt-2 line-clamp-2 leading-relaxed">
+              {company.shortDescription}
+            </p>
+          ) : (
+            <p className="text-xs sm:text-[13px] text-ink-3 mt-2 italic">
+              No verified description yet.
+            </p>
+          )}
 
           <div className="mt-3 flex flex-wrap items-center gap-1.5">
             {company.commonCareers.slice(0, MAX_VISIBLE_ROLES).map(role => {
@@ -144,6 +151,10 @@ const CompanyCardComponent: React.FC<CompanyCardProps> = ({ company, isSelected 
                 {matchLabel}
               </span>
             )}
+          </div>
+
+          <div className="mt-2.5 flex items-center gap-3">
+            <ProvenanceBadge company={company} />
           </div>
         </div>
       </div>

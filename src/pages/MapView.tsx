@@ -1,11 +1,13 @@
 import React, { useState, useMemo } from 'react';
 import { useApp } from '../context/AppContext';
+import { useIsDesktop } from '../hooks/useMediaQuery';
 import { CompanyMap } from '../components/CompanyMap';
 import { CompanyDrawer } from '../components/CompanyDrawer';
 import { CompanyBottomSheet } from '../components/CompanyBottomSheet';
 
 export const MapView: React.FC = () => {
   const { companies, selectedCompany, setSelectedCompany } = useApp();
+  const isDesktop = useIsDesktop();
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [isFreeZoneOnly, setIsFreeZoneOnly] = useState<boolean>(false);
 
@@ -29,7 +31,7 @@ export const MapView: React.FC = () => {
         return c.categories.includes('Hardware / Embedded') || c.categories.includes('Hardware');
       }
       if (activeCategory === 'Aviation') {
-        return c.categories.includes('Aviation') || c.industry.includes('Aviation');
+        return c.categories.includes('Aviation') || (c.industry ?? '').includes('Aviation');
       }
       return true;
     });
@@ -83,18 +85,16 @@ export const MapView: React.FC = () => {
       </div>
 
       {/* Desktop Drawer */}
-      {selectedCompany && (
-        <div className="hidden md:block">
+      {selectedCompany && isDesktop && (
           <CompanyDrawer
             company={selectedCompany}
             onClose={() => setSelectedCompany(null)}
           />
-        </div>
-      )}
+        )}
 
       {/* Mobile Bottom Sheet */}
-      {selectedCompany && (
-        <CompanyBottomSheet
+      {selectedCompany && !isDesktop && (
+          <CompanyBottomSheet
           company={selectedCompany}
           onClose={() => setSelectedCompany(null)}
         />

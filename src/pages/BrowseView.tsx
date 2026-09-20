@@ -1,5 +1,6 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
+import { useIsDesktop } from '../hooks/useMediaQuery';
 import { formatDistance } from '../utils/distance';
 import { CompanyDrawer } from '../components/CompanyDrawer';
 import { CompanyBottomSheet } from '../components/CompanyBottomSheet';
@@ -25,6 +26,7 @@ export const BrowseView: React.FC = () => {
     setActiveTab,
     setFilters
   } = useApp();
+  const isDesktop = useIsDesktop();
 
   const handleFilterToCategory = (cat: string) => {
     setFilters(prev => ({
@@ -168,7 +170,7 @@ export const BrowseView: React.FC = () => {
           {industrySectors.map(sec => {
             const Icon = sec.icon;
             const sectorCompanies = companies.filter(c =>
-              c.industry.toLowerCase().includes(sec.query.toLowerCase()) ||
+              (c.industry ?? '').toLowerCase().includes(sec.query.toLowerCase()) ||
               c.name.toLowerCase().includes(sec.query.toLowerCase())
             ).slice(0, 3);
 
@@ -211,18 +213,16 @@ export const BrowseView: React.FC = () => {
       </section>
 
       {/* Desktop Drawer */}
-      {selectedCompany && (
-        <div className="hidden md:block">
+      {selectedCompany && isDesktop && (
           <CompanyDrawer
             company={selectedCompany}
             onClose={() => setSelectedCompany(null)}
           />
-        </div>
-      )}
+        )}
 
       {/* Mobile Bottom Sheet */}
-      {selectedCompany && (
-        <CompanyBottomSheet
+      {selectedCompany && !isDesktop && (
+          <CompanyBottomSheet
           company={selectedCompany}
           onClose={() => setSelectedCompany(null)}
         />

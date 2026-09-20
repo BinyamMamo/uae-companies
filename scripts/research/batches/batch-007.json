@@ -1,0 +1,72 @@
+[
+  {
+    "id": "bausch-lomb",
+    "name": "Bausch + Lomb",
+    "officialName": "Bausch + Lomb",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "bayer",
+    "name": "Bayer",
+    "officialName": "Bayer",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "bayut",
+    "name": "Bayut",
+    "officialName": "Bayut",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "bdp-global-project-logistic-llc",
+    "name": "BDP Global Project Logistic LLC",
+    "officialName": "BDP Global Project Logistic LLC",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "beiersdorf",
+    "name": "Beiersdorf",
+    "officialName": "Beiersdorf",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "belhasa-international-co-llc",
+    "name": "Belhasa International CO LLC",
+    "officialName": "Belhasa International CO LLC",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "binghatti-holding",
+    "name": "Binghatti Holding",
+    "officialName": "Binghatti Holding",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "bnc-network",
+    "name": "BNC Network",
+    "officialName": "BNC Network",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "bon-education",
+    "name": "Bon Education",
+    "officialName": "Bon Education",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "booz-allen",
+    "name": "Booz Allen",
+    "officialName": "Booz Allen",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  }
+]

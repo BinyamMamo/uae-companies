@@ -1,10 +1,12 @@
 import React, { useMemo } from 'react';
 import { useApp } from '../context/AppContext';
+import { useIsDesktop } from '../hooks/useMediaQuery';
 import { EXPLORABLE_INTERESTS, calculateStudentFitScore } from '../utils/relevance';
 import { formatBusCommute, formatDistance } from '../utils/distance';
 import { CompanyDrawer } from '../components/CompanyDrawer';
 import { CompanyBottomSheet } from '../components/CompanyBottomSheet';
 import { MapPin, Bookmark } from 'lucide-react';
+import { CompanyLogo } from '../components/ui/CompanyLogo';
 
 export const FeaturedView: React.FC = () => {
   const {
@@ -16,6 +18,7 @@ export const FeaturedView: React.FC = () => {
     toggleSaveCompany,
     isCompanySaved
   } = useApp();
+  const isDesktop = useIsDesktop();
 
   const toggleInterest = (interest: string) => {
     setUserInterests(prev =>
@@ -90,20 +93,7 @@ export const FeaturedView: React.FC = () => {
                   {/* Card Header: Logo, Name, Bookmark */}
                   <div className="flex items-start justify-between gap-2.5">
                     <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 rounded-sm border border-line bg-slate-50 dark:bg-slate-800 flex items-center justify-center p-1 shrink-0">
-                        <img
-                          src={company.logo}
-                          alt={company.name}
-                          className="w-full h-full object-contain"
-                          onError={(e) => {
-                            const target = e.target as HTMLElement;
-                            target.style.display = 'none';
-                            if (target.parentElement) {
-                              target.parentElement.innerHTML = `<span class="text-xs font-bold text-ink-2">${company.name.slice(0, 2).toUpperCase()}</span>`;
-                            }
-                          }}
-                        />
-                      </div>
+                      <CompanyLogo name={company.name} src={company.logo} size="sm" />
                       <div>
                         <h3 className="text-sm font-semibold text-ink group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                           {company.name}
@@ -175,18 +165,16 @@ export const FeaturedView: React.FC = () => {
       </section>
 
       {/* Detail Drawer (Desktop) */}
-      {selectedCompany && (
-        <div className="hidden md:block">
+      {selectedCompany && isDesktop && (
           <CompanyDrawer
             company={selectedCompany}
             onClose={() => setSelectedCompany(null)}
           />
-        </div>
-      )}
+        )}
 
       {/* Bottom Sheet (Mobile) */}
-      {selectedCompany && (
-        <CompanyBottomSheet
+      {selectedCompany && !isDesktop && (
+          <CompanyBottomSheet
           company={selectedCompany}
           onClose={() => setSelectedCompany(null)}
         />

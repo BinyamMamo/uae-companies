@@ -1,0 +1,72 @@
+[
+  {
+    "id": "goodwill-world",
+    "name": "Goodwill World",
+    "officialName": "Goodwill World",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "goodyear",
+    "name": "Goodyear",
+    "officialName": "Goodyear",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "grant-thornton",
+    "name": "Grant Thornton",
+    "officialName": "Grant Thornton",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "gucci",
+    "name": "Gucci",
+    "officialName": "Gucci",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "gulf-business-machines",
+    "name": "Gulf Business Machines",
+    "officialName": "Gulf Business Machines",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "gulf-drug",
+    "name": "Gulf Drug",
+    "officialName": "Gulf Drug",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "gulf-petrochemicals-and-chemicals-association-gpca",
+    "name": "Gulf Petrochemicals and Chemicals Association (GPCA)",
+    "officialName": "Gulf Petrochemicals and Chemicals Association (GPCA)",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "gwr-consulting",
+    "name": "GWR Consulting",
+    "officialName": "GWR Consulting",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "habib-bank",
+    "name": "Habib Bank",
+    "officialName": "Habib Bank",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "haleon",
+    "name": "Haleon",
+    "officialName": "Haleon",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  }
+]
