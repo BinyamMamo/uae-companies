@@ -31,7 +31,16 @@ npm run preview  # serve the production build locally
 ## Configuration
 
 Copy `.env.example` to `.env.local` and fill in the values. The app runs without any of
-them — analytics and sign-in simply stay switched off.
+them — analytics and sign-in simply stay switched off, and everything stays local to
+the browser.
+
+| Variable | What it enables |
+|---|---|
+| `VITE_PUBLIC_POSTHOG_KEY` | Product analytics (visitor counts, DAU, feature usage) |
+| `VITE_FIREBASE_*` | Google sign-in and cross-device sync of saved lists |
+| `VITE_GOOGLE_CLIENT_ID` | The Google One Tap prompt (optional; sign-in works without it) |
+
+Set the same values on Vercel with `vercel env add`.
 
 ## Stack
 
@@ -41,13 +50,32 @@ Map tiles come from ArcGIS; address search uses OpenStreetMap Nominatim.
 
 ## Data
 
-Company records live in `src/data/`. Each field carries a source URL, a retrieval date,
-and a confidence level — see `scripts/research/` for the verification pipeline that
-produces them. Anything that cannot be verified against a public source is left out
-rather than estimated.
+`public/data/companies.json` is fetched at runtime rather than bundled. Every claim a
+user might act on carries provenance — a source URL, a retrieval date and a confidence
+level — and the UI shows an "unverified" badge instead of presenting a guess as a fact.
 
-Validate the dataset with:
+**A field is either backed by a source or it is `null`.** Nothing is invented to fill a
+gap: no constructed careers URLs, no district centroids passed off as street addresses,
+no placeholder logos, and no employee profiles that cannot be confirmed.
+
+The dataset is produced by the pipeline in [`scripts/research/`](scripts/research/),
+which uses the Antigravity CLI's Google Search grounding to research companies and then
+re-fetches every URL it returns before accepting it. See
+[`scripts/research/README.md`](scripts/research/README.md) for how to run it.
+
+Validate the dataset — this is the CI gate, and it fails on duplicate URLs, shared
+coordinates, templated text and missing provenance:
 
 ```bash
+python3 scripts/verify_dataset.py
+```
+
+## Testing
+
+There is no unit-test suite; the checks that matter here are run against a real browser:
+
+```bash
+npm run build     # tsc --strict + production build
+npm run lint      # oxlint
 python3 scripts/verify_dataset.py
 ```
