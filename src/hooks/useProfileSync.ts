@@ -14,8 +14,12 @@ interface Args {
 export function useProfileSync({ profile, onMerged }: Args): void {
   const { user } = useAuth();
   const hydratedFor = useRef<string | null>(null);
+  // Written in an effect, not during render: mutating a ref while rendering
+  // is unsafe once React can render concurrently.
   const latest = useRef(profile);
-  latest.current = profile;
+  useEffect(() => {
+    latest.current = profile;
+  }, [profile]);
 
   // Pull + merge, once per signed-in user.
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useId } from 'react';
+import React, { useState, useEffect, useRef, useId, useMemo } from 'react';
 import L from 'leaflet';
 import { TILE_CONFIGS, previewStyleForTheme } from '../utils/mapTiles';
 import 'leaflet/dist/leaflet.css';
@@ -43,20 +43,38 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
 
   const isSaved = isCompanySaved(company.id);
 
-  // Find similar companies
-  const similarCompanies = companies
-    .filter(c => c.id !== company.id && (
-      c.categories.some(cat => company.categories.includes(cat)) ||
-      c.location.area === company.location.area
-    ))
-    .slice(0, 3);
+  // Both of these used to run on every render: a filter over the whole company
+  // list, and a several-hundred-line route solver — the latter even when the
+  // Location tab was closed.
+  const similarCompanies = useMemo(
+    () =>
+      companies
+        .filter(
+          c =>
+            c.id !== company.id &&
+            (c.categories.some(cat => company.categories.includes(cat)) ||
+              c.location.area === company.location.area)
+        )
+        .slice(0, 3),
+    [companies, company.id, company.categories, company.location.area]
+  );
 
-  const transitPlan = calculateTransitRoute(userLocation, {
-    latitude: company.location.latitude,
-    longitude: company.location.longitude,
-    name: company.name,
-    area: company.location.area,
-  });
+  const transitPlan = useMemo(
+    () =>
+      calculateTransitRoute(userLocation, {
+        latitude: company.location.latitude,
+        longitude: company.location.longitude,
+        name: company.name,
+        area: company.location.area,
+      }),
+    [
+      userLocation,
+      company.location.latitude,
+      company.location.longitude,
+      company.name,
+      company.location.area,
+    ]
+  );
 
   const routeMapContainerRef = useRef<HTMLDivElement>(null);
   const routeMapInstanceRef = useRef<L.Map | null>(null);
