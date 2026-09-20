@@ -403,10 +403,10 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
   };
 
   return (
-    <div className={`relative w-full h-full min-h-[580px] rounded-lg overflow-hidden border border-line bg-slate-100 dark:bg-slate-950 ${isClickToSetMode ? 'cursor-crosshair' : ''}`}>
+    <div className={`relative w-full h-full min-h-[360px] md:min-h-[580px] rounded-lg overflow-hidden border border-line bg-surface-3 ${isClickToSetMode ? 'cursor-crosshair' : ''}`}>
       
       {/* Map Leaflet Canvas */}
-      <div ref={mapContainerRef} className="w-full h-full min-h-[580px]" />
+      <div ref={mapContainerRef} className="w-full h-full min-h-[360px] md:min-h-[580px]" />
 
       {/* Floating Notification Toast */}
       {locationToast && (

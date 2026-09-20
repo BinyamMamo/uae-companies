@@ -40,7 +40,7 @@ export const MapView: React.FC = () => {
   }, [setSelectedCompany]);
 
   return (
-    <div className="relative w-full h-[calc(100vh-3.5rem)] flex flex-col bg-slate-100 dark:bg-slate-950 transition-colors">
+    <div className="relative w-full h-[calc(100dvh-var(--header-h))] flex flex-col bg-surface-3 transition-colors">
       
       {/* Top Map Filter Controls */}
       <div className="absolute top-4 left-4 right-4 z-900 flex flex-wrap items-center justify-between gap-2 pointer-events-none">

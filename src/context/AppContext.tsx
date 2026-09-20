@@ -95,22 +95,22 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   }, [userInterests]);
 
-  const addInterest = (interest: string) => {
+  const addInterest = useCallback((interest: string) => {
     const trimmed = interest.trim();
     if (!trimmed) return;
     setUserInterests(prev => {
       if (prev.some(i => i.toLowerCase() === trimmed.toLowerCase())) return prev;
       return [...prev, trimmed];
     });
-  };
+  }, []);
 
-  const removeInterest = (interest: string) => {
+  const removeInterest = useCallback((interest: string) => {
     setUserInterests(prev => prev.filter(i => i.toLowerCase() !== interest.toLowerCase()));
-  };
+  }, []);
 
-  const resetInterests = () => {
+  const resetInterests = useCallback(() => {
     setUserInterests(DEFAULT_STUDENT_INTERESTS);
-  };
+  }, []);
 
   const [username, setUsernameState] = useState<string>(() => {
     try {
@@ -120,14 +120,14 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   });
 
-  const setUsername = (name: string) => {
+  const setUsername = useCallback((name: string) => {
     setUsernameState(name);
     try {
       localStorage.setItem('uae_username', name);
     } catch {
       // ignore
     }
-  };
+  }, []);
 
   const [compareCompanyIds, setCompareCompanyIds] = useState<string[]>([]);
   const [isCompareModalOpen, setIsCompareModalOpen] = useState(false);
@@ -217,7 +217,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     applyAccentTheme(accentColor);
   }, [accentColor]);
 
-  const setAccentColor = (accentId: string) => {
+  const setAccentColor = useCallback((accentId: string) => {
     setAccentColorState(accentId);
     try {
       localStorage.setItem('uae_accent_color', accentId);
@@ -225,7 +225,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       // ignore
     }
     applyAccentTheme(accentId);
-  };
+  }, []);
 
   // User location for commute / distance calculations with localStorage persistence
   const [userLocation, setUserLocationState] = useState<UserLocation>(() => {
@@ -243,16 +243,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     };
   });
 
-  const setUserLocation = (loc: UserLocation) => {
+  const setUserLocation = useCallback((loc: UserLocation) => {
     setUserLocationState(loc);
     try {
       localStorage.setItem('uae_user_location', JSON.stringify(loc));
     } catch {
       // ignore
     }
-  };
+  }, []);
 
-  const resetUserLocation = () => {
+  const resetUserLocation = useCallback(() => {
     const defLoc: UserLocation = {
       name: ACADEMIC_CITY_COORDS.name,
       latitude: ACADEMIC_CITY_COORDS.latitude,
@@ -265,7 +265,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     } catch {
       // ignore
     }
-  };
+  }, []);
 
   // Dynamically compute companies commute data based on userLocation
   const companies = useMemo(() => {
@@ -381,7 +381,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   }, [savedLists]);
 
-  const toggleSaveCompany = (id: string) => {
+  const toggleSaveCompany = useCallback((id: string) => {
     setSavedCompanyIds(prev => {
       const isSaved = prev.includes(id);
       const updated = isSaved ? prev.filter(cId => cId !== id) : [...prev, id];
@@ -399,11 +399,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
       return updated;
     });
-  };
+  }, []);
 
-  const isCompanySaved = (id: string) => savedCompanyIds.includes(id);
+  const isCompanySaved = useCallback((id: string) => savedCompanyIds.includes(id), [savedCompanyIds]);
 
-  const createSavedList = (name: string) => {
+  const createSavedList = useCallback((name: string) => {
     const trimmed = name.trim();
     if (!trimmed) return;
     const newList: SavedList = {
@@ -414,23 +414,23 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     };
     setSavedLists(prev => [...prev, newList]);
     setActiveListId(newList.id);
-  };
+  }, []);
 
-  const deleteSavedList = (id: string) => {
+  const deleteSavedList = useCallback((id: string) => {
     if (id === 'default') return; // Cannot delete default
     setSavedLists(prev => prev.filter(l => l.id !== id));
     if (activeListId === id) {
       setActiveListId('default');
     }
-  };
+  }, []);
 
-  const renameSavedList = (id: string, newName: string) => {
+  const renameSavedList = useCallback((id: string, newName: string) => {
     const trimmed = newName.trim();
     if (!trimmed) return;
     setSavedLists(prev => prev.map(l => l.id === id ? { ...l, name: trimmed } : l));
-  };
+  }, []);
 
-  const addCompanyToList = (listId: string, companyId: string) => {
+  const addCompanyToList = useCallback((listId: string, companyId: string) => {
     setSavedLists(prev => prev.map(l => {
       if (l.id === listId && !l.companyIds.includes(companyId)) {
         return { ...l, companyIds: [...l.companyIds, companyId] };
@@ -440,18 +440,18 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     if (!savedCompanyIds.includes(companyId)) {
       setSavedCompanyIds(prev => [...prev, companyId]);
     }
-  };
+  }, []);
 
-  const removeCompanyFromList = (listId: string, companyId: string) => {
+  const removeCompanyFromList = useCallback((listId: string, companyId: string) => {
     setSavedLists(prev => prev.map(l => {
       if (l.id === listId) {
         return { ...l, companyIds: l.companyIds.filter(id => id !== companyId) };
       }
       return l;
     }));
-  };
+  }, []);
 
-  const toggleCompareCompany = (id: string) => {
+  const toggleCompareCompany = useCallback((id: string) => {
     setCompareCompanyIds(prev => {
       if (prev.includes(id)) {
         return prev.filter(cId => cId !== id);
@@ -461,15 +461,15 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       }
       return [...prev, id];
     });
-  };
+  }, []);
 
-  const isCompanyInCompare = (id: string) => compareCompanyIds.includes(id);
+  const isCompanyInCompare = useCallback((id: string) => compareCompanyIds.includes(id), [compareCompanyIds]);
 
-  const clearCompare = () => setCompareCompanyIds([]);
+  const clearCompare = useCallback(() => setCompareCompanyIds([]), []);
 
-  const clearFilters = () => {
+  const clearFilters = useCallback(() => {
     setFilters(initialFilters);
-  };
+  }, []);
 
   // Filtered and sorted companies
   const filteredCompanies = useMemo(() => {
@@ -564,58 +564,103 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     });
   }, [companies, filters, savedCompanyIds]);
 
-  return (
-    <AppContext.Provider
-      value={{
-        companies,
-        selectedCompany,
-        setSelectedCompany,
-        activeTab,
-        setActiveTab,
-        filters,
-        setFilters,
-        clearFilters,
-        savedCompanyIds,
-        toggleSaveCompany,
-        isCompanySaved,
-        savedLists,
-        createSavedList,
-        deleteSavedList,
-        renameSavedList,
-        addCompanyToList,
-        removeCompanyFromList,
-        activeListId,
-        setActiveListId,
-        userInterests,
-        setUserInterests,
-        addInterest,
-        removeInterest,
-        resetInterests,
-        username,
-        setUsername,
-        isSettingsModalOpen,
-        setIsSettingsModalOpen,
-        compareCompanyIds,
-        toggleCompareCompany,
-        isCompanyInCompare,
-        clearCompare,
-        isCompareModalOpen,
-        setIsCompareModalOpen,
-        isMobileFilterOpen,
-        setIsMobileFilterOpen,
-        filteredCompanies,
-        theme,
-        toggleTheme,
-        accentColor,
-        setAccentColor,
-        userLocation,
-        setUserLocation,
-        resetUserLocation,
-      }}
-    >
-      {children}
-    </AppContext.Provider>
+  const value = useMemo<AppContextType>(
+    () => ({
+      companies,
+      selectedCompany,
+      setSelectedCompany,
+      activeTab,
+      setActiveTab,
+      filters,
+      setFilters,
+      clearFilters,
+      savedCompanyIds,
+      toggleSaveCompany,
+      isCompanySaved,
+      savedLists,
+      createSavedList,
+      deleteSavedList,
+      renameSavedList,
+      addCompanyToList,
+      removeCompanyFromList,
+      activeListId,
+      setActiveListId,
+      userInterests,
+      setUserInterests,
+      addInterest,
+      removeInterest,
+      resetInterests,
+      username,
+      setUsername,
+      isSettingsModalOpen,
+      setIsSettingsModalOpen,
+      compareCompanyIds,
+      toggleCompareCompany,
+      isCompanyInCompare,
+      clearCompare,
+      isCompareModalOpen,
+      setIsCompareModalOpen,
+      isMobileFilterOpen,
+      setIsMobileFilterOpen,
+      filteredCompanies,
+      theme,
+      toggleTheme,
+      accentColor,
+      setAccentColor,
+      userLocation,
+      setUserLocation,
+      resetUserLocation,
+    }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [
+      accentColor,
+      activeListId,
+      activeTab,
+      addCompanyToList,
+      addInterest,
+      clearCompare,
+      clearFilters,
+      companies,
+      compareCompanyIds,
+      createSavedList,
+      deleteSavedList,
+      filteredCompanies,
+      filters,
+      isCompanyInCompare,
+      isCompanySaved,
+      isCompareModalOpen,
+      isMobileFilterOpen,
+      isSettingsModalOpen,
+      removeCompanyFromList,
+      removeInterest,
+      renameSavedList,
+      resetInterests,
+      resetUserLocation,
+      savedCompanyIds,
+      savedLists,
+      selectedCompany,
+      setAccentColor,
+      setActiveListId,
+      setActiveTab,
+      setFilters,
+      setIsCompareModalOpen,
+      setIsMobileFilterOpen,
+      setIsSettingsModalOpen,
+      setSelectedCompany,
+      setUserInterests,
+      setUserLocation,
+      setUsername,
+      theme,
+      toggleCompareCompany,
+      toggleSaveCompany,
+      toggleTheme,
+      userInterests,
+      userLocation,
+      username,
+    ]
   );
+
+  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
 
 export const useApp = () => {

@@ -235,7 +235,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({ isMobileDrawer = f
   }
 
   return (
-    <aside className="w-56 lg:w-60 shrink-0 hidden md:block sticky top-20 self-start max-h-[calc(100vh-6rem)] overflow-y-auto pr-0.5">
+    <aside className="w-56 lg:w-60 shrink-0 hidden md:block sticky top-[calc(var(--header-h)+1.5rem)] self-start max-h-[calc(100dvh-var(--header-h)-3rem)] overflow-y-auto pr-0.5">
       <div className="bg-surface border border-line rounded-lg p-4 shadow-subtle transition-colors duration-150">
         {content}
       </div>
