@@ -6,6 +6,7 @@ import { DEFAULT_STUDENT_INTERESTS } from '../utils/relevance';
 import { ACADEMIC_CITY_COORDS, calculateDistanceKm, estimateBusMinutes, estimateDrivingMinutes } from '../utils/distance';
 import { applyAccentTheme } from '../utils/accentThemes';
 import { readJSON, writeJSON, readString, writeString, isStringArray } from '../utils/storage';
+import { track, trackView } from '../lib/analytics';
 
 const isSavedListArray = (v: unknown): v is SavedList[] =>
   Array.isArray(v) &&
@@ -93,8 +94,23 @@ const initialFilters: FilterState = {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [activeTab, setActiveTab] = useState<'list' | 'browse' | 'featured' | 'map' | 'saved'>('list');
-  const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
+  const [activeTab, setActiveTabState] = useState<'list' | 'browse' | 'featured' | 'map' | 'saved'>('list');
+
+  const setActiveTab = useCallback((tab: 'list' | 'browse' | 'featured' | 'map' | 'saved') => {
+    setActiveTabState(prev => {
+      if (prev !== tab) {
+        trackView(tab);
+        track('view_changed', { view: tab });
+      }
+      return tab;
+    });
+  }, []);
+  const [selectedCompany, setSelectedCompanyState] = useState<Company | null>(null);
+
+  const setSelectedCompany = useCallback((company: Company | null) => {
+    if (company) track('company_opened', { company_id: company.id, surface: 'card' });
+    setSelectedCompanyState(company);
+  }, []);
   const [filters, setFilters] = useState<FilterState>(initialFilters);
   const [userInterests, setUserInterests] = useState<string[]>(() => {
     return readJSON('uae_user_interests', isStringArray) ?? DEFAULT_STUDENT_INTERESTS;
@@ -172,6 +188,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const toggleTheme = useCallback(() => {
     const nextTheme = theme === 'light' ? 'dark' : 'light';
+    track('theme_toggled', { theme: nextTheme });
 
     if (typeof document === 'undefined') {
       setTheme(nextTheme);
@@ -228,6 +245,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const setAccentColor = useCallback((accentId: string) => {
     setAccentColorState(accentId);
+    track('accent_changed', { accent: accentId });
     try {
       writeString('uae_accent_color', accentId);
     } catch {
@@ -252,6 +270,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setUserLocationState(loc);
     try {
       writeJSON('uae_user_location', loc);
+      track('home_location_changed', { method: loc.isCustom ? 'map' : 'reset' });
     } catch {
       // ignore
     }
@@ -370,6 +389,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setSavedCompanyIds(prev => {
       const isSaved = prev.includes(id);
       const updated = isSaved ? prev.filter(cId => cId !== id) : [...prev, id];
+      track('company_saved', { company_id: id, saved: !isSaved });
       
       // Update default list
       setSavedLists(lists => lists.map(list => {
@@ -399,14 +419,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     };
     setSavedLists(prev => [...prev, newList]);
     setActiveListId(newList.id);
+    track('list_created');
   }, []);
 
   const deleteSavedList = useCallback((id: string) => {
     if (id === 'default') return; // Cannot delete default
     setSavedLists(prev => prev.filter(l => l.id !== id));
-    if (activeListId === id) {
-      setActiveListId('default');
-    }
+    // Functional form, so this reads the current id rather than one captured
+    // when the callback was created.
+    setActiveListId(current => (current === id ? 'default' : current));
+    track('list_deleted');
   }, []);
 
   const renameSavedList = useCallback((id: string, newName: string) => {
@@ -422,9 +444,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       }
       return l;
     }));
-    if (!savedCompanyIds.includes(companyId)) {
-      setSavedCompanyIds(prev => [...prev, companyId]);
-    }
+    setSavedCompanyIds(prev => (prev.includes(companyId) ? prev : [...prev, companyId]));
   }, []);
 
   const removeCompanyFromList = useCallback((listId: string, companyId: string) => {
@@ -439,8 +459,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const toggleCompareCompany = useCallback((id: string) => {
     setCompareCompanyIds(prev => {
       if (prev.includes(id)) {
+        track('compare_toggled', { company_id: id, added: false });
         return prev.filter(cId => cId !== id);
       }
+      track('compare_toggled', { company_id: id, added: true });
       if (prev.length >= 4) {
         return [...prev.slice(1), id]; // Max 4 companies
       }
@@ -453,6 +475,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const clearCompare = useCallback(() => setCompareCompanyIds([]), []);
 
   const clearFilters = useCallback(() => {
+    track('filters_cleared');
     setFilters(initialFilters);
   }, []);
 

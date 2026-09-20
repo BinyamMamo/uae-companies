@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import type { Company } from '../types/company';
 import { useApp } from '../context/AppContext';
+import { track } from '../lib/analytics';
+import { TabBar } from './ui/TabBar';
 import { Modal } from './ui/Modal';
 import { formatBusCommute, formatDistance } from '../utils/distance';
 import { isCareerRelevant } from '../utils/relevance';
@@ -20,7 +22,7 @@ interface CompanyBottomSheetProps {
 }
 
 export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company, onClose }) => {
-  const { toggleSaveCompany, isCompanySaved, userInterests } = useApp();
+  const { toggleSaveCompany, isCompanySaved, userInterests, userLocation } = useApp();
   const [activeTab, setActiveTab] = useState<'overview' | 'careers' | 'employees' | 'location'>('overview');
 
   const isSaved = isCompanySaved(company.id);
@@ -96,20 +98,18 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
         </div>
 
         {/* Tabs */}
-        <div className="flex items-center border-b border-line px-4 shrink-0 overflow-x-auto">
-          {tabs.map(tab => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`py-2.5 px-3 text-xs font-medium border-b-2 whitespace-nowrap transition-colors ${ activeTab === tab.id ? 'border-brand-600 text-brand-600 dark:text-brand-400 font-semibold' : 'border-transparent text-slate-600 dark:text-slate-400' }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
+        <TabBar
+          tabs={tabs}
+          active={activeTab}
+          onChange={id => {
+            setActiveTab(id);
+            track('company_tab_viewed', { company_id: company.id, tab: id });
+          }}
+          className="border-b border-line px-4 shrink-0 gap-3"
+        />
 
         {/* Tab Body */}
-        <div className="p-4 overflow-y-auto space-y-4 text-ink text-xs">
+        <div className="flex-1 min-h-0 p-4 overflow-y-auto space-y-4 text-ink text-xs">
           {activeTab === 'overview' && (
             <div className="space-y-4">
               <div>
@@ -154,6 +154,7 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
             <div className="space-y-3">
               <a
                 href={company.careersUrl}
+                onClick={() => track('careers_link_clicked', { company_id: company.id })}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-2.5 bg-brand-600 text-white font-semibold rounded-sm flex items-center justify-center gap-1.5"
@@ -215,7 +216,7 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
               </div>
 
               <div className="border border-line p-3 rounded-sm bg-slate-50 dark:bg-slate-800 space-y-2">
-                <div className="text-slate-700 dark:text-slate-200 font-semibold">Transit from Academic City</div>
+                <div className="text-slate-700 dark:text-slate-200 font-semibold">Transit from {userLocation.name}</div>
                 <div className="grid grid-cols-2 gap-2 text-center">
                   <div className="bg-surface p-2 rounded-sm border border-line">
                     <Clock className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400 mx-auto" />

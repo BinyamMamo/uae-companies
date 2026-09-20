@@ -1,5 +1,7 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
+import { track } from '../lib/analytics';
+import type { FilterState } from '../types/company';
 import { Modal } from './ui/Modal';
 import { Dropdown } from './Dropdown';
 import { X, RotateCcw } from 'lucide-react';
@@ -198,7 +200,10 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({ isMobileDrawer = f
         </label>
         <Dropdown
           value={filters.sortBy}
-          onChange={(val) => setFilters(prev => ({ ...prev, sortBy: val as any }))}
+          onChange={val => {
+            track('sort_changed', { sort_by: val });
+            setFilters(prev => ({ ...prev, sortBy: val as FilterState['sortBy'] }));
+          }}
           options={sortDropdownOptions}
           className="w-full"
           buttonClassName="w-full"

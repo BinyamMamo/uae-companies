@@ -4,6 +4,8 @@ import { TILE_CONFIGS, previewStyleForTheme } from '../utils/mapTiles';
 import 'leaflet/dist/leaflet.css';
 import type { Company } from '../types/company';
 import { useApp } from '../context/AppContext';
+import { track } from '../lib/analytics';
+import { TabBar } from './ui/TabBar';
 import { Modal } from './ui/Modal';
 import { formatBusCommute, formatDistance } from '../utils/distance';
 import { isCareerRelevant } from '../utils/relevance';
@@ -258,17 +260,15 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
       )}
 
       {/* Navigation Tabs Bar */}
-      <div className="border-b border-line px-5 bg-surface shrink-0 flex items-center gap-6 overflow-x-auto">
-        {tabs.map(tab => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
-            className={`py-3 text-xs font-medium border-b-2 whitespace-nowrap transition-colors ${ activeTab === tab.id ? 'border-brand-600 text-brand-600 dark:text-brand-400 font-semibold' : 'border-transparent text-ink-2 hover:text-slate-900 dark:hover:text-white' }`}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
+      <TabBar
+        tabs={tabs}
+        active={activeTab}
+        onChange={id => {
+          setActiveTab(id);
+          track('company_tab_viewed', { company_id: company.id, tab: id });
+        }}
+        className="border-b border-line px-5 bg-surface shrink-0"
+      />
 
       {/* Scrollable Tab Content Body */}
       <div className="flex-1 overflow-y-auto p-5 space-y-6 text-ink">
@@ -393,6 +393,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
               </div>
               <a
                 href={company.careersUrl}
+                onClick={() => track('careers_link_clicked', { company_id: company.id })}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold rounded-sm shadow-2xs transition"
@@ -460,6 +461,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
                       </div>
                       <a
                         href={`${company.careersUrl}?q=${encodeURIComponent(role)}`}
+                        onClick={() => track('careers_link_clicked', { company_id: company.id, role })}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-xs text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 font-medium flex items-center gap-1"

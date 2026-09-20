@@ -6,6 +6,8 @@ import { CompanyDrawer } from '../components/CompanyDrawer';
 import { CompanyBottomSheet } from '../components/CompanyBottomSheet';
 import { Dropdown } from '../components/Dropdown';
 import { SearchX, Search, X, Scale } from 'lucide-react';
+import { track } from '../lib/analytics';
+import type { FilterState } from '../types/company';
 
 export const ListView: React.FC = () => {
   const {
@@ -45,18 +47,22 @@ export const ListView: React.FC = () => {
           
           {/* In-Page Search Bar - Bottom border only, no shadow */}
           <div className="relative mb-4">
-            <Search className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+            <Search className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 text-ink-3 pointer-events-none" aria-hidden="true" />
+            <label htmlFor="company-search" className="sr-only">
+              Search companies
+            </label>
             <input
-              type="text"
+              id="company-search"
+              type="search"
               value={filters.search}
               onChange={e => setFilters(prev => ({ ...prev, search: e.target.value }))}
-              placeholder="Search companies by name, domain, industry, role, or tech stack..."
-              className="w-full pl-6 pr-7 py-2 bg-transparent border-0 border-b border-line rounded-none text-xs sm:text-sm text-ink placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-hidden focus:border-brand-500 focus:ring-0 transition-colors"
+              placeholder="Search by name, industry, role, or tech stack"
+              className="w-full pl-6 pr-7 py-2 bg-transparent border-0 border-b border-line rounded-none text-sm text-ink placeholder:text-ink-3 focus:outline-hidden focus:border-brand-500 focus:ring-0 transition-colors"
             />
             {filters.search && (
               <button
                 onClick={() => setFilters(prev => ({ ...prev, search: '' }))}
-                className="absolute right-1 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-0.5"
+                className="absolute right-1 top-1/2 -translate-y-1/2 text-ink-3 hover:text-ink p-0.5"
                 aria-label="Clear search"
               >
                 <X className="w-3.5 h-3.5" />
@@ -100,7 +106,10 @@ export const ListView: React.FC = () => {
                 </span>
                 <Dropdown
                   value={filters.sortBy}
-                  onChange={(val) => setFilters(prev => ({ ...prev, sortBy: val as any }))}
+                  onChange={val => {
+                    track('sort_changed', { sort_by: val });
+                    setFilters(prev => ({ ...prev, sortBy: val as FilterState['sortBy'] }));
+                  }}
                   options={sortOptions}
                   size="sm"
                 />
