@@ -84,11 +84,11 @@ export const BrowseView: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-8">
       {/* 1. Technology Domains */}
       <section>
-        <div className="flex items-center justify-between mb-4 pb-2 border-b border-slate-200 dark:border-slate-800">
-          <h2 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+        <div className="flex items-center justify-between mb-4 pb-2 border-b border-line">
+          <h2 className="text-sm font-bold text-ink uppercase tracking-wider">
             Key Technology Domains
           </h2>
-          <span className="text-xs text-slate-500 dark:text-slate-400">For Computer &amp; Technical Majors</span>
+          <span className="text-xs text-ink-2">For Computer &amp; Technical Majors</span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -104,21 +104,21 @@ export const BrowseView: React.FC = () => {
               <div
                 key={domain.name}
                 onClick={() => handleFilterToCategory(domain.filter)}
-                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 rounded-lg p-5 shadow-subtle hover:shadow-xs transition cursor-pointer group flex flex-col justify-between"
+                className="bg-surface border border-line hover:border-brand-500 dark:hover:border-brand-500 rounded-lg p-5 shadow-subtle hover:shadow-xs transition cursor-pointer group flex flex-col justify-between"
               >
                 <div>
                   <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-brand-600 dark:text-brand-400 border border-blue-100 dark:border-blue-800/60 flex items-center justify-center mb-3">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                  <h3 className="text-sm font-bold text-ink group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                     {domain.name}
                   </h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                  <p className="text-xs text-ink-2 mt-1">
                     {domain.desc}
                   </p>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-brand-600 dark:text-brand-400 font-semibold">
+                <div className="mt-4 pt-3 border-t border-line flex items-center justify-between text-xs text-brand-600 dark:text-brand-400 font-semibold">
                   <span>{count} companies</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -130,11 +130,11 @@ export const BrowseView: React.FC = () => {
 
       {/* 2. Geographic Clusters */}
       <section>
-        <div className="flex items-center justify-between mb-4 pb-2 border-b border-slate-200 dark:border-slate-800">
-          <h2 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+        <div className="flex items-center justify-between mb-4 pb-2 border-b border-line">
+          <h2 className="text-sm font-bold text-ink uppercase tracking-wider">
             Major UAE Employment Hubs
           </h2>
-          <span className="text-xs text-slate-500 dark:text-slate-400">Ordered by transit proximity to Academic City</span>
+          <span className="text-xs text-ink-2">Ordered by transit proximity to Academic City</span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-3">
@@ -142,13 +142,13 @@ export const BrowseView: React.FC = () => {
             <div
               key={dist.name}
               onClick={() => handleFilterToArea(dist.area)}
-              className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600 rounded-lg p-4 transition cursor-pointer shadow-subtle group"
+              className="bg-surface border border-line hover:border-slate-400 dark:hover:border-slate-600 rounded-lg p-4 transition cursor-pointer shadow-subtle group"
             >
-              <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400">
-                <MapPin className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-ink group-hover:text-brand-600 dark:group-hover:text-brand-400">
+                <MapPin className="w-3.5 h-3.5 text-ink-3" />
                 <span>{dist.name}</span>
               </div>
-              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-snug">
+              <p className="text-[11px] text-ink-2 mt-1 leading-snug">
                 {dist.desc}
               </p>
             </div>
@@ -158,8 +158,8 @@ export const BrowseView: React.FC = () => {
 
       {/* 3. Industry Sectors */}
       <section>
-        <div className="flex items-center justify-between mb-4 pb-2 border-b border-slate-200 dark:border-slate-800">
-          <h2 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+        <div className="flex items-center justify-between mb-4 pb-2 border-b border-line">
+          <h2 className="text-sm font-bold text-ink uppercase tracking-wider">
             Explore by Industry Sector
           </h2>
         </div>
@@ -175,12 +175,12 @@ export const BrowseView: React.FC = () => {
             return (
               <div
                 key={sec.name}
-                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5 shadow-subtle"
+                className="bg-surface border border-line rounded-lg p-5 shadow-subtle"
               >
-                <div className="flex items-center justify-between mb-3 pb-2 border-b border-slate-100 dark:border-slate-800">
+                <div className="flex items-center justify-between mb-3 pb-2 border-b border-line">
                   <div className="flex items-center gap-2">
-                    <Icon className="w-4 h-4 text-slate-600 dark:text-slate-400" />
-                    <h3 className="text-xs font-bold text-slate-900 dark:text-white">{sec.name}</h3>
+                    <Icon className="w-4 h-4 text-ink-2" />
+                    <h3 className="text-xs font-bold text-ink">{sec.name}</h3>
                   </div>
                   <button
                     onClick={() => handleFilterToIndustry(sec.query)}
@@ -195,10 +195,10 @@ export const BrowseView: React.FC = () => {
                     <div
                       key={comp.id}
                       onClick={() => setSelectedCompany(comp)}
-                      className="flex items-center justify-between p-2 rounded-sm hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer text-xs transition"
+                      className="flex items-center justify-between p-2 rounded-sm hover:bg-surface-2 cursor-pointer text-xs transition"
                     >
-                      <span className="font-medium text-slate-800 dark:text-slate-200 truncate">{comp.name}</span>
-                      <span className="text-slate-400 dark:text-slate-500 text-[11px] shrink-0 ml-2">
+                      <span className="font-medium text-ink truncate">{comp.name}</span>
+                      <span className="text-ink-3 text-[11px] shrink-0 ml-2">
                         {formatDistance(comp.commute.distanceKm)}
                       </span>
                     </div>

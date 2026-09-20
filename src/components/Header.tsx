@@ -24,7 +24,7 @@ export const Header: React.FC = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-30 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 transition-colors duration-150">
+    <header className="sticky top-0 z-30 bg-app border-b border-line transition-colors duration-150">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
         
         {/* Left: Dynamic Greeting Logo & mobile filter */}
@@ -33,7 +33,7 @@ export const Header: React.FC = () => {
           {activeTab === 'list' && (
             <button
               onClick={() => setIsMobileFilterOpen(true)}
-              className="md:hidden flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-sm border border-slate-200 dark:border-slate-700 transition-colors"
+              className="md:hidden flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-ink-2 bg-surface-2 hover:bg-surface-3 rounded-sm border border-line transition-colors"
               aria-label="Open filters"
             >
               <SlidersHorizontal className="w-3.5 h-3.5" />
@@ -58,10 +58,10 @@ export const Header: React.FC = () => {
               className="w-8 h-8 object-contain hidden dark:block shrink-0"
             />
             <div className="flex flex-col leading-tight">
-              <span className="text-xs sm:text-sm font-bold tracking-tight text-slate-900 dark:text-white">
+              <span className="text-xs sm:text-sm font-bold tracking-tight text-ink">
                 UAE <span className="text-brand-600 dark:text-brand-400">Companies</span>
               </span>
-              <span className="text-[10px] text-slate-500 dark:text-slate-400 font-normal">
+              <span className="text-[10px] text-ink-2 font-normal">
                 Tech & Jobs Discovery
               </span>
             </div>
@@ -76,19 +76,11 @@ export const Header: React.FC = () => {
               <button
                 key={item.id}
                 onClick={() => setActiveTab(item.id)}
-                className={`relative py-4 px-2 text-xs sm:text-sm font-medium transition-colors flex items-center gap-1.5 ${
-                  isActive
-                    ? 'text-brand-600 dark:text-brand-400 font-semibold'
-                    : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
-                }`}
+                className={`relative py-4 px-2 text-xs sm:text-sm font-medium transition-colors flex items-center gap-1.5 ${ isActive ? 'text-brand-600 dark:text-brand-400 font-semibold' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white' }`}
               >
                 <span>{item.label}</span>
                 {item.id === 'saved' && savedCompanyIds.length > 0 && (
-                  <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full transition-colors ${
-                    isActive
-                      ? 'bg-brand-600 dark:bg-brand-500 text-white'
-                      : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200'
-                  }`}>
+                  <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full transition-colors ${ isActive ? 'bg-brand-600 dark:bg-brand-500 text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200' }`}>
                     {savedCompanyIds.length}
                   </span>
                 )}
@@ -107,10 +99,10 @@ export const Header: React.FC = () => {
           {compareCompanyIds.length > 0 && (
             <button
               onClick={() => setIsCompareModalOpen(true)}
-              className="flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-sm border border-slate-200 dark:border-slate-700 transition-colors"
+              className="flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-ink-2 bg-surface-2 hover:bg-surface-3 rounded-sm border border-line transition-colors"
               title="Compare selected companies"
             >
-              <Scale className="w-3.5 h-3.5 text-slate-600 dark:text-slate-300" />
+              <Scale className="w-3.5 h-3.5 text-ink-2" />
               <span className="hidden sm:inline">Compare</span>
               <span className="bg-brand-600 text-white rounded-full px-1.5 py-0.5 text-[10px] font-bold">
                 {compareCompanyIds.length}
@@ -121,21 +113,21 @@ export const Header: React.FC = () => {
           {/* Dark Mode Theme Toggle - White Sun Icon */}
           <button
             onClick={toggleTheme}
-            className="p-1.5 rounded-sm text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="p-1.5 rounded-sm text-ink-2 hover:text-ink hover:bg-surface-2 transition-colors"
             title={theme === 'dark' ? 'Switch to Light mode' : 'Switch to Dark mode'}
             aria-label="Toggle theme"
           >
             {theme === 'dark' ? (
               <Sun className="w-4 h-4 text-white" />
             ) : (
-              <Moon className="w-4 h-4 text-slate-600 dark:text-slate-300" />
+              <Moon className="w-4 h-4 text-ink-2" />
             )}
           </button>
 
           {/* Settings Modal Button */}
           <button
             onClick={() => setIsSettingsModalOpen(true)}
-            className="p-1.5 rounded-sm text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="p-1.5 rounded-sm text-ink-2 hover:text-ink hover:bg-surface-2 transition-colors"
             title="Settings"
             aria-label="Platform Settings"
           >

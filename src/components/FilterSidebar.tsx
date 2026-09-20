@@ -84,11 +84,11 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({ isMobileDrawer = f
   };
 
   const content = (
-    <div className="space-y-5 text-slate-800 dark:text-slate-200">
+    <div className="space-y-5 text-ink">
       
       {/* Header with Title and Clear All */}
-      <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
-        <h2 className="text-xs font-semibold text-slate-900 dark:text-slate-100 uppercase tracking-wider">
+      <div className="flex items-center justify-between pb-3 border-b border-line">
+        <h2 className="text-xs font-semibold text-ink uppercase tracking-wider">
           Filters
         </h2>
         <button
@@ -102,7 +102,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({ isMobileDrawer = f
 
       {/* Company Type Section */}
       <div>
-        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-2.5">
+        <label className="block text-xs font-semibold text-ink-2 mb-2.5">
           Company Type
         </label>
         <div className="space-y-2">
@@ -111,13 +111,13 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({ isMobileDrawer = f
             return (
               <label
                 key={opt.id}
-                className="flex items-center text-xs text-slate-700 dark:text-slate-300 cursor-pointer select-none group hover:text-slate-900 dark:hover:text-white"
+                className="flex items-center text-xs text-ink-2 cursor-pointer select-none group hover:text-ink"
               >
                 <input
                   type="checkbox"
                   checked={checked}
                   onChange={() => toggleCompanyType(opt.id)}
-                  className="w-3.5 h-3.5 rounded-sm border-slate-300 dark:border-slate-800 bg-white dark:bg-[#222226] text-brand-600 focus:ring-brand-500 focus:ring-1 transition cursor-pointer"
+                  className="w-3.5 h-3.5 rounded-sm border-slate-300 dark:border-slate-800 bg-white dark:bg-surface-2 text-brand-600 focus:ring-brand-500 focus:ring-1 transition cursor-pointer"
                 />
                 <span className="ml-2.5 font-normal group-hover:text-slate-900 dark:group-hover:text-white">{opt.label}</span>
               </label>
@@ -128,7 +128,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({ isMobileDrawer = f
 
       {/* Location Section */}
       <div>
-        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+        <label className="block text-xs font-semibold text-ink-2 mb-1.5">
           Location
         </label>
         <Dropdown
@@ -142,7 +142,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({ isMobileDrawer = f
 
       {/* Area Section */}
       <div>
-        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+        <label className="block text-xs font-semibold text-ink-2 mb-1.5">
           Area / District
         </label>
         <Dropdown
@@ -156,7 +156,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({ isMobileDrawer = f
 
       {/* Distance Filter */}
       <div>
-        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+        <label className="block text-xs font-semibold text-ink-2 mb-1.5">
           Distance from {userLocation?.name?.split(',')[0] || 'Academic City'}
         </label>
         <Dropdown
@@ -173,7 +173,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({ isMobileDrawer = f
 
       {/* Free Zone Filter */}
       <div>
-        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+        <label className="block text-xs font-semibold text-ink-2 mb-1.5">
           Free Zone Status
         </label>
         <Dropdown
@@ -192,7 +192,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({ isMobileDrawer = f
 
       {/* Sort by */}
       <div>
-        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+        <label className="block text-xs font-semibold text-ink-2 mb-1.5">
           Sort by
         </label>
         <Dropdown
@@ -210,18 +210,18 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({ isMobileDrawer = f
   if (isMobileDrawer) {
     return (
       <div className="fixed inset-0 z-50 flex flex-col justify-end bg-slate-900/50 backdrop-blur-xs md:hidden">
-        <div className="bg-white dark:bg-slate-900 rounded-t-xl p-5 max-h-[85vh] overflow-y-auto shadow-popup border-t border-slate-200 dark:border-slate-800">
-          <div className="flex items-center justify-between pb-3 mb-2 border-b border-slate-100 dark:border-slate-800">
-            <span className="text-sm font-semibold text-slate-900 dark:text-white">Filter Companies</span>
+        <div className="bg-surface rounded-t-xl p-5 max-h-[85vh] overflow-y-auto shadow-popup border-t border-line">
+          <div className="flex items-center justify-between pb-3 mb-2 border-b border-line">
+            <span className="text-sm font-semibold text-ink">Filter Companies</span>
             <button
               onClick={() => setIsMobileFilterOpen(false)}
-              className="p-1 rounded-sm text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white"
+              className="p-1 rounded-sm text-ink-2 hover:text-slate-800 dark:hover:text-white"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
           {content}
-          <div className="mt-5 pt-3 border-t border-slate-200 dark:border-slate-800">
+          <div className="mt-5 pt-3 border-t border-line">
             <button
               onClick={() => setIsMobileFilterOpen(false)}
               className="w-full py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold rounded-sm shadow-xs transition"
@@ -236,7 +236,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({ isMobileDrawer = f
 
   return (
     <aside className="w-56 lg:w-60 shrink-0 hidden md:block sticky top-20 self-start max-h-[calc(100vh-6rem)] overflow-y-auto pr-0.5">
-      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-4 shadow-subtle transition-colors duration-150">
+      <div className="bg-surface border border-line rounded-lg p-4 shadow-subtle transition-colors duration-150">
         {content}
       </div>
     </aside>

@@ -58,18 +58,10 @@ export const SavedView: React.FC = () => {
               <button
                 key={list.id}
                 onClick={() => setActiveListId(list.id)}
-                className={`px-3 py-1.5 text-xs font-medium rounded-lg border transition whitespace-nowrap flex items-center gap-2 ${
-                  isActive
-                    ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-slate-900 dark:border-white shadow-2xs'
-                    : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800'
-                }`}
+                className={`px-3 py-1.5 text-xs font-medium rounded-lg border transition whitespace-nowrap flex items-center gap-2 ${ isActive ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-slate-900 dark:border-white shadow-2xs' : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 border-line hover:bg-slate-50 dark:hover:bg-slate-800' }`}
               >
                 <span>{list.name}</span>
-                <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
-                  isActive
-                    ? 'bg-slate-800 dark:bg-slate-200 text-slate-300 dark:text-slate-800'
-                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
-                }`}>
+                <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${ isActive ? 'bg-slate-800 dark:bg-slate-200 text-slate-300 dark:text-slate-800' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400' }`}>
                   {list.companyIds.length}
                 </span>
               </button>
@@ -117,9 +109,9 @@ export const SavedView: React.FC = () => {
           {savedCompanies.length > 0 && (
             <button
               onClick={() => setIsShareModalOpen(true)}
-              className="px-3.5 py-1.5 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-semibold rounded-sm border border-slate-200 dark:border-slate-800 shadow-2xs transition flex items-center gap-1.5"
+              className="px-3.5 py-1.5 bg-surface hover:bg-surface-2 text-slate-700 dark:text-slate-200 text-xs font-semibold rounded-sm border border-line shadow-2xs transition flex items-center gap-1.5"
             >
-              <Share2 className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
+              <Share2 className="w-3.5 h-3.5 text-ink-2" />
               <span>Share list</span>
             </button>
           )}
@@ -144,12 +136,12 @@ export const SavedView: React.FC = () => {
             <div
               key={company.id}
               onClick={() => setSelectedCompany(company)}
-              className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 rounded-lg p-4 shadow-subtle flex items-center justify-between gap-4 transition-colors transition-shadow cursor-pointer group"
+              className="bg-surface border border-line hover:border-line-strong rounded-lg p-4 shadow-subtle flex items-center justify-between gap-4 transition-colors transition-shadow cursor-pointer group"
             >
               <div className="flex items-center gap-3.5 min-w-0">
                 
                 {/* Logo */}
-                <div className="w-10 h-10 rounded-sm border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 flex items-center justify-center shrink-0 p-1">
+                <div className="w-10 h-10 rounded-sm border border-line bg-slate-50 dark:bg-slate-800 flex items-center justify-center shrink-0 p-1">
                   <img
                     src={company.logo}
                     alt={company.name}
@@ -159,19 +151,19 @@ export const SavedView: React.FC = () => {
 
                 {/* Info */}
                 <div className="min-w-0">
-                  <h3 className="text-sm font-semibold text-slate-900 dark:text-white truncate group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                  <h3 className="text-sm font-semibold text-ink truncate group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                     {company.name}
                   </h3>
-                  <div className="text-xs text-slate-500 dark:text-slate-400 truncate">
+                  <div className="text-xs text-ink-2 truncate">
                     {company.categories.slice(0, 3).join(' · ')}
                   </div>
-                  <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    <MapPin className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 shrink-0" />
+                  <div className="flex items-center gap-1.5 text-xs text-ink-2 mt-1">
+                    <MapPin className="w-3.5 h-3.5 text-ink-3 shrink-0" />
                     <span>{company.location.emirate}, UAE</span>
                     <span className="text-slate-300 dark:text-slate-600">·</span>
                     <span>{formatDistance(company.commute.distanceKm)}</span>
                     <span className="text-slate-300 dark:text-slate-600">·</span>
-                    <span className="text-slate-600 dark:text-slate-300 font-medium">{formatBusCommute(company.commute.busMinutes)}</span>
+                    <span className="text-ink-2 font-medium">{formatBusCommute(company.commute.busMinutes)}</span>
                   </div>
                 </div>
               </div>
@@ -198,12 +190,12 @@ export const SavedView: React.FC = () => {
           ))}
         </div>
       ) : (
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-12 text-center mt-6">
+        <div className="bg-surface border border-line rounded-lg p-12 text-center mt-6">
           <BookmarkCheck className="w-10 h-10 text-slate-300 dark:text-slate-700 mx-auto mb-2" />
-          <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
+          <h3 className="text-sm font-semibold text-ink">
             No saved companies in this list
           </h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-sm mx-auto">
+          <p className="text-xs text-ink-2 mt-1 max-w-sm mx-auto">
             Save companies while browsing the directory or exploring the map and they will appear here.
           </p>
         </div>

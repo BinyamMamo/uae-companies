@@ -403,7 +403,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
   };
 
   return (
-    <div className={`relative w-full h-full min-h-[580px] rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950 ${isClickToSetMode ? 'cursor-crosshair' : ''}`}>
+    <div className={`relative w-full h-full min-h-[580px] rounded-lg overflow-hidden border border-line bg-slate-100 dark:bg-slate-950 ${isClickToSetMode ? 'cursor-crosshair' : ''}`}>
       
       {/* Map Leaflet Canvas */}
       <div ref={mapContainerRef} className="w-full h-full min-h-[580px]" />
@@ -420,14 +420,10 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
       <div className="absolute top-4 right-4 z-1000 flex flex-col items-end gap-2">
         
         {/* Set Location Action Toolbar + Districts Overlay Toggle */}
-        <div className="flex items-center gap-1.5 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-1.5 rounded-lg border border-slate-200 dark:border-slate-800 shadow-lg transition-colors">
+        <div className="flex items-center gap-1.5 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-1.5 rounded-lg border border-line shadow-lg transition-colors">
           <button
             onClick={() => setIsClickToSetMode(prev => !prev)}
-            className={`px-2.5 py-1 text-xs font-medium rounded flex items-center gap-1.5 transition ${
-              isClickToSetMode
-                ? 'bg-brand-600 text-white shadow-2xs'
-                : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226]'
-            }`}
+            className={`px-2.5 py-1 text-xs font-medium rounded flex items-center gap-1.5 transition ${ isClickToSetMode ? 'bg-brand-600 text-white shadow-2xs' : 'text-slate-700 dark:text-slate-300 hover:text-ink hover:bg-slate-100 dark:hover:bg-surface-2' }`}
             title="Click to enable placing your location pin anywhere on the map"
           >
             <MapPin className="w-3.5 h-3.5" />
@@ -436,7 +432,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
 
           <button
             onClick={handleUseGps}
-            className="p-1.5 rounded-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226] transition"
+            className="p-1.5 rounded-sm text-ink-2 hover:text-ink hover:bg-surface-2 transition"
             title="Use My GPS Location"
             aria-label="Use My GPS Location"
           >
@@ -446,7 +442,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
           {userLocation.isCustom && (
             <button
               onClick={handleResetLocation}
-              className="p-1.5 rounded-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226] transition"
+              className="p-1.5 rounded-sm text-ink-2 hover:text-ink hover:bg-surface-2 transition"
               title="Reset location to Academic City"
               aria-label="Reset location to Academic City"
             >
@@ -458,11 +454,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
           <div className="h-4 w-px bg-slate-200 dark:bg-slate-700 mx-0.5" />
           <button
             onClick={() => setShowDistricts(prev => !prev)}
-            className={`px-2.5 py-1 text-xs font-medium rounded flex items-center gap-1.5 transition ${
-              showDistricts
-                ? 'bg-brand-600 text-white shadow-2xs'
-                : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226]'
-            }`}
+            className={`px-2.5 py-1 text-xs font-medium rounded flex items-center gap-1.5 transition ${ showDistricts ? 'bg-brand-600 text-white shadow-2xs' : 'text-slate-700 dark:text-slate-300 hover:text-ink hover:bg-slate-100 dark:hover:bg-surface-2' }`}
             title="Toggle Dubai tech district boundary polygons and English labels"
           >
             <Layers className="w-3.5 h-3.5" />
@@ -471,40 +463,32 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
         </div>
 
         {/* Map Tile Provider Selector: Street (Default), Clean (Hide streets), Dark, Satellite */}
-        <div className="flex items-center gap-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-1 rounded-lg border border-slate-200 dark:border-slate-800 shadow-lg transition-colors">
+        <div className="flex items-center gap-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-1 rounded-lg border border-line shadow-lg transition-colors">
           <Layers className="w-3.5 h-3.5 text-slate-400 ml-1.5 mr-1" />
           <button
             onClick={() => handleSwitchTile('street')}
-            className={`px-2 py-0.5 text-[11px] font-medium rounded transition ${
-              mapStyle === 'street' ? 'bg-brand-600 text-white shadow-2xs' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226]'
-            }`}
+            className={`px-2 py-0.5 text-[11px] font-medium rounded transition ${ mapStyle === 'street' ? 'bg-brand-600 text-white shadow-2xs' : 'text-slate-600 dark:text-slate-300 hover:text-ink hover:bg-slate-100 dark:hover:bg-surface-2' }`}
             title="Street Map with English labels"
           >
             Street
           </button>
           <button
             onClick={() => handleSwitchTile('clean')}
-            className={`px-2 py-0.5 text-[11px] font-medium rounded transition ${
-              mapStyle === 'clean' ? 'bg-brand-600 text-white shadow-2xs' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226]'
-            }`}
+            className={`px-2 py-0.5 text-[11px] font-medium rounded transition ${ mapStyle === 'clean' ? 'bg-brand-600 text-white shadow-2xs' : 'text-slate-600 dark:text-slate-300 hover:text-ink hover:bg-slate-100 dark:hover:bg-surface-2' }`}
             title="Hide streets and keep clean regional canvas"
           >
             Clean
           </button>
           <button
             onClick={() => handleSwitchTile('dark')}
-            className={`px-2 py-0.5 text-[11px] font-medium rounded transition ${
-              mapStyle === 'dark' ? 'bg-brand-600 text-white shadow-2xs' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226]'
-            }`}
+            className={`px-2 py-0.5 text-[11px] font-medium rounded transition ${ mapStyle === 'dark' ? 'bg-brand-600 text-white shadow-2xs' : 'text-slate-600 dark:text-slate-300 hover:text-ink hover:bg-slate-100 dark:hover:bg-surface-2' }`}
             title="Dark Gray Minimal"
           >
             Dark
           </button>
           <button
             onClick={() => handleSwitchTile('satellite')}
-            className={`px-2 py-0.5 text-[11px] font-medium rounded transition ${
-              mapStyle === 'satellite' ? 'bg-brand-600 text-white shadow-2xs' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#222226]'
-            }`}
+            className={`px-2 py-0.5 text-[11px] font-medium rounded transition ${ mapStyle === 'satellite' ? 'bg-brand-600 text-white shadow-2xs' : 'text-slate-600 dark:text-slate-300 hover:text-ink hover:bg-slate-100 dark:hover:bg-surface-2' }`}
             title="Esri Satellite Imagery"
           >
             Satellite
@@ -513,24 +497,24 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
       </div>
 
       {/* Floating Bottom Left: User Location Commute Reference Badge with MapPinHouse */}
-      <div className="absolute bottom-6 left-6 z-1000 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-lg p-3 text-slate-800 dark:text-white shadow-xl flex items-center gap-3 transition-colors">
+      <div className="absolute bottom-6 left-6 z-1000 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-line rounded-lg p-3 text-ink shadow-xl flex items-center gap-3 transition-colors">
         <div className="w-9 h-9 rounded-full bg-linear-to-tr from-amber-500/20 to-orange-500/20 border border-amber-500/40 flex items-center justify-center text-amber-500 shrink-0 shadow-2xs">
           <MapPinHouse className="w-4.5 h-4.5" />
         </div>
         <div className="min-w-0">
-          <div className="text-[10px] uppercase font-semibold text-slate-500 dark:text-slate-400 tracking-wider">
+          <div className="text-[10px] uppercase font-semibold text-ink-2 tracking-wider">
             {userLocation.isCustom ? 'Your Custom Location' : 'Default Reference Location'}
           </div>
-          <div className="text-xs font-semibold text-slate-900 dark:text-white truncate max-w-[200px]">
+          <div className="text-xs font-semibold text-ink truncate max-w-[200px]">
             {userLocation.name}
           </div>
-          <div className="text-[11px] text-slate-500 dark:text-slate-400">
+          <div className="text-[11px] text-ink-2">
             {userLocation.latitude.toFixed(3)}° N, {userLocation.longitude.toFixed(3)}° E · (drag pin to move)
           </div>
         </div>
         <button
           onClick={handleCenterOnUser}
-          className="ml-1 p-1.5 rounded-sm hover:bg-slate-100 dark:hover:bg-[#222226] text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
+          className="ml-1 p-1.5 rounded-sm hover:bg-surface-2 text-slate-400 hover:text-ink transition"
           title="Center map on your location"
           aria-label="Center map on your location"
         >
@@ -541,14 +525,14 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
       {/* Floating Selected Company Popup Card */}
       {activePopupCompany && (
         <div
-          className="absolute top-28 right-4 z-1000 bg-white dark:bg-slate-900 rounded-lg p-3.5 shadow-popup border border-slate-200 dark:border-slate-800 max-w-xs transition-colors text-slate-900 dark:text-slate-100"
+          className="absolute top-28 right-4 z-1000 bg-surface rounded-lg p-3.5 shadow-popup border border-line max-w-xs transition-colors text-ink"
         >
           <div className="flex items-start justify-between gap-2">
             <div
               className="flex items-start gap-3 cursor-pointer flex-1 min-w-0"
               onClick={() => onSelectCompanyRef.current(activePopupCompany)}
             >
-              <div className="w-10 h-10 rounded-sm border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#222226] flex items-center justify-center p-1 shrink-0">
+              <div className="w-10 h-10 rounded-sm border border-line bg-surface-2 flex items-center justify-center p-1 shrink-0">
                 <img
                   src={activePopupCompany.logo}
                   alt={activePopupCompany.name}
@@ -556,14 +540,14 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
                 />
               </div>
               <div className="flex-1 min-w-0">
-                <h4 className="text-sm font-bold text-slate-900 dark:text-white truncate">
+                <h4 className="text-sm font-bold text-ink truncate">
                   {activePopupCompany.name}
                 </h4>
-                <div className="text-xs text-slate-500 dark:text-slate-400">
+                <div className="text-xs text-ink-2">
                   {activePopupCompany.categories.slice(0, 2).join(' · ')}
                 </div>
-                <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300 mt-2">
-                  <span className="font-semibold text-slate-800 dark:text-slate-200">
+                <div className="flex items-center gap-2 text-xs text-ink-2 mt-2">
+                  <span className="font-semibold text-ink">
                     {formatDistance(activePopupCompany.commute.distanceKm)}
                   </span>
                   <span className="text-slate-300 dark:text-slate-600">·</span>
@@ -575,7 +559,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
             </div>
             <button
               onClick={() => setActivePopupCompany(null)}
-              className="p-1 rounded-sm text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-[#222226] transition"
+              className="p-1 rounded-sm text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-surface-2 transition"
               title="Close popup"
               aria-label="Close popup"
             >
@@ -585,7 +569,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
           <button
             type="button"
             onClick={() => onSelectCompanyRef.current(activePopupCompany)}
-            className="w-full mt-2.5 pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-brand-600 dark:text-brand-400 font-semibold hover:underline"
+            className="w-full mt-2.5 pt-2 border-t border-line flex items-center justify-between text-[11px] text-brand-600 dark:text-brand-400 font-semibold hover:underline"
           >
             <span>Click to open detail drawer</span>
             <ExternalLink className="w-3 h-3" />

@@ -38,13 +38,13 @@ export const ShareListModal: React.FC<ShareListModalProps> = ({ listName, compan
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
-      <div className="bg-white dark:bg-slate-900 rounded-xl max-w-md w-full p-6 shadow-popup border border-slate-200 dark:border-slate-800">
+      <div className="bg-surface rounded-xl max-w-md w-full p-6 shadow-popup border border-line">
         
         {/* Header */}
-        <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+        <div className="flex items-center justify-between pb-3 border-b border-line">
           <div className="flex items-center gap-2">
             <Share2 className="w-4 h-4 text-brand-600 dark:text-brand-400" />
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white">
+            <h3 className="text-sm font-bold text-ink">
               Share List: &ldquo;{listName}&rdquo;
             </h3>
           </div>
@@ -59,7 +59,7 @@ export const ShareListModal: React.FC<ShareListModalProps> = ({ listName, compan
         {/* Content */}
         <div className="mt-4 space-y-4">
           <div>
-            <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+            <label className="block text-xs font-semibold text-ink-2 mb-1.5">
               Shareable Direct Link
             </label>
             <div className="flex items-center gap-2">
@@ -67,7 +67,7 @@ export const ShareListModal: React.FC<ShareListModalProps> = ({ listName, compan
                 type="text"
                 readOnly
                 value={shareableUrl}
-                className="w-full text-xs bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-sm px-2.5 py-2 text-slate-600 dark:text-slate-300 truncate focus:outline-hidden"
+                className="w-full text-xs bg-slate-50 dark:bg-slate-800 border border-line rounded-sm px-2.5 py-2 text-ink-2 truncate focus:outline-hidden"
               />
               <button
                 onClick={handleCopyLink}
@@ -81,7 +81,7 @@ export const ShareListModal: React.FC<ShareListModalProps> = ({ listName, compan
 
           <div>
             <div className="flex items-center justify-between mb-1.5">
-              <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">
+              <label className="text-xs font-semibold text-ink-2">
                 Company Names ({companies.length})
               </label>
               <button
@@ -93,7 +93,7 @@ export const ShareListModal: React.FC<ShareListModalProps> = ({ listName, compan
               </button>
             </div>
 
-            <div className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-sm p-3 text-xs text-slate-700 dark:text-slate-300 max-h-36 overflow-y-auto space-y-1 font-mono">
+            <div className="bg-slate-50 dark:bg-slate-800 border border-line rounded-sm p-3 text-xs text-ink-2 max-h-36 overflow-y-auto space-y-1 font-mono">
               {companies.map((c, i) => (
                 <div key={c.id} className="truncate">
                   {i + 1}. {c.name}
@@ -104,10 +104,10 @@ export const ShareListModal: React.FC<ShareListModalProps> = ({ listName, compan
         </div>
 
         {/* Footer */}
-        <div className="mt-6 pt-3 border-t border-slate-100 dark:border-slate-800 flex justify-end">
+        <div className="mt-6 pt-3 border-t border-line flex justify-end">
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-semibold rounded-sm transition"
+            className="px-4 py-2 bg-surface-2 hover:bg-slate-200 dark:hover:bg-slate-700 text-ink text-xs font-semibold rounded-sm transition"
           >
             Done
           </button>

@@ -70,28 +70,20 @@ export function Dropdown<T extends string | number = string>({
       <button
         type="button"
         onClick={() => setIsOpen(prev => !prev)}
-        className={`flex items-center justify-between gap-2 rounded-lg border text-left font-medium transition-colors ${
-          isSmall ? 'text-xs px-2.5 py-1.5' : 'text-sm px-3 py-2'
-        } ${
-          isOpen
-            ? 'border-brand-500 ring-1 ring-brand-500 bg-white dark:bg-slate-900 text-slate-900 dark:text-white'
-            : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:border-slate-300 dark:hover:border-slate-700'
-        } ${buttonClassName}`}
+        className={`flex items-center justify-between gap-2 rounded-lg border text-left font-medium transition-colors ${ isSmall ? 'text-xs px-2.5 py-1.5' : 'text-sm px-3 py-2' } ${ isOpen ? 'border-brand-500 ring-1 ring-brand-500 bg-surface text-slate-900 dark:text-white' : 'border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:border-slate-300 dark:hover:border-slate-700' } ${buttonClassName}`}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
       >
         <span className="truncate">{selectedOption ? selectedOption.label : placeholder}</span>
         <ChevronDown
-          className={`w-3.5 h-3.5 text-slate-400 shrink-0 transition-transform duration-150 ${
-            isOpen ? 'rotate-180 text-brand-500' : ''
-          }`}
+          className={`w-3.5 h-3.5 text-slate-400 shrink-0 transition-transform duration-150 ${ isOpen ? 'rotate-180 text-brand-500' : '' }`}
         />
       </button>
 
       {/* Menu Popover */}
       {isOpen && (
         <div
-          className={`absolute left-0 mt-1 min-w-full w-full max-h-60 overflow-y-auto rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-popup py-1 z-50 text-slate-800 dark:text-slate-200 animate-fade-in ${menuClassName}`}
+          className={`absolute left-0 mt-1 min-w-full w-full max-h-60 overflow-y-auto rounded-lg border border-line bg-surface shadow-popup py-1 z-50 text-ink animate-fade-in ${menuClassName}`}
           role="listbox"
         >
           {options.map(opt => {
@@ -101,11 +93,7 @@ export function Dropdown<T extends string | number = string>({
                 key={String(opt.value)}
                 type="button"
                 onClick={() => handleSelect(opt.value)}
-                className={`w-full flex items-center justify-between gap-3 px-3 py-1.5 text-xs text-left transition-colors cursor-pointer ${
-                  isSelected
-                    ? 'font-semibold text-brand-600 dark:text-brand-400 bg-brand-50/60 dark:bg-brand-500/10'
-                    : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-[#222226] hover:text-slate-900 dark:hover:text-white'
-                }`}
+                className={`w-full flex items-center justify-between gap-3 px-3 py-1.5 text-xs text-left transition-colors cursor-pointer ${ isSelected ? 'font-semibold text-brand-600 dark:text-brand-400 bg-brand-50/60 dark:bg-brand-500/10' : 'text-slate-700 dark:text-slate-300 hover:bg-surface-2 hover:text-slate-900 dark:hover:text-white' }`}
                 role="option"
                 aria-selected={isSelected}
               >

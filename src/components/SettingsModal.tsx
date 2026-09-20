@@ -334,19 +334,19 @@ export const SettingsModal: React.FC = () => {
   return (
     <div className="fixed inset-0 z-10000 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-xs">
       <div
-        className="bg-white dark:bg-slate-900 rounded-xl max-w-lg w-full max-h-[90vh] flex flex-col shadow-popup border border-slate-200 dark:border-slate-800 overflow-hidden text-slate-900 dark:text-slate-100 transition-colors"
+        className="bg-surface rounded-xl max-w-lg w-full max-h-[90vh] flex flex-col shadow-popup border border-line overflow-hidden text-ink transition-colors"
         role="dialog"
         aria-modal="true"
         aria-labelledby="settings-title"
       >
         {/* Header */}
-        <div className="px-5 py-3.5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between shrink-0 bg-slate-50/50 dark:bg-slate-900">
-          <h2 id="settings-title" className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
+        <div className="px-5 py-3.5 border-b border-line flex items-center justify-between shrink-0 bg-slate-50/50 dark:bg-slate-900">
+          <h2 id="settings-title" className="text-sm sm:text-base font-bold text-ink">
             Settings
           </h2>
           <button
             onClick={() => setIsSettingsModalOpen(false)}
-            className="p-1 rounded-md text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-[#222226] transition"
+            className="p-1 rounded-md text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-surface-2 transition"
             aria-label="Close settings"
           >
             <X className="w-4 h-4" />
@@ -358,7 +358,7 @@ export const SettingsModal: React.FC = () => {
           
           {/* 1. Dark Mode - One line custom switch with sparkly moon (no bright colors) */}
           <div className="flex items-center justify-between py-1">
-            <span className="text-xs font-semibold text-slate-900 dark:text-white">
+            <span className="text-xs font-semibold text-ink">
               Dark Mode
             </span>
 
@@ -367,15 +367,11 @@ export const SettingsModal: React.FC = () => {
               role="switch"
               aria-checked={theme === 'dark'}
               onClick={toggleTheme}
-              className={`relative inline-flex h-7 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-hidden focus:ring-1 focus:ring-brand-500 ${
-                theme === 'dark' ? 'bg-slate-700 dark:bg-slate-800' : 'bg-slate-200'
-              }`}
+              className={`relative inline-flex h-7 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-hidden focus:ring-1 focus:ring-brand-500 ${ theme === 'dark' ? 'bg-slate-700 dark:bg-slate-800' : 'bg-slate-200' }`}
             >
               <span className="sr-only">Toggle Dark Mode</span>
               <span
-                className={`pointer-events-none flex h-6 w-6 items-center justify-center rounded-full bg-white dark:bg-slate-950 shadow-xs ring-0 transition duration-200 ease-in-out ${
-                  theme === 'dark' ? 'translate-x-5' : 'translate-x-0'
-                }`}
+                className={`pointer-events-none flex h-6 w-6 items-center justify-center rounded-full bg-app shadow-xs ring-0 transition duration-200 ease-in-out ${ theme === 'dark' ? 'translate-x-5' : 'translate-x-0' }`}
               >
                 {theme === 'dark' ? (
                   <MoonStar className="h-3.5 w-3.5 text-slate-200" />
@@ -392,7 +388,7 @@ export const SettingsModal: React.FC = () => {
           {/* 2. Home Address with Search & Interactive Map */}
           <div className="space-y-3">
             <div className="flex items-center justify-between text-xs">
-              <label className="font-semibold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+              <label className="font-semibold text-ink flex items-center gap-1.5">
                 <MapPinHouse className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400" />
                 <span>Home Address</span>
               </label>
@@ -416,7 +412,7 @@ export const SettingsModal: React.FC = () => {
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
                   placeholder="Search address (e.g. KSK Students Residence, DSO Cedre, Downtown)..."
-                  className="w-full text-xs pl-8 pr-16 py-2 bg-slate-50 dark:bg-[#222226] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-brand-500 text-slate-900 dark:text-white placeholder:text-slate-400"
+                  className="w-full text-xs pl-8 pr-16 py-2 bg-surface-2 border border-line rounded-lg focus:outline-hidden focus:ring-1 focus:ring-brand-500 text-ink placeholder:text-slate-400"
                 />
                 {searchQuery && (
                   <button
@@ -441,21 +437,21 @@ export const SettingsModal: React.FC = () => {
 
               {/* Autocomplete Dropdown */}
               {isSearchOpen && searchResults.length > 0 && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-[#1f1f23] border border-slate-200 dark:border-[#2e2e33] rounded-lg shadow-lg z-50 overflow-hidden max-h-48 overflow-y-auto">
+                <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-surface-2 border border-slate-200 dark:border-line rounded-lg shadow-lg z-50 overflow-hidden max-h-48 overflow-y-auto">
                   {searchResults.map((item, idx) => (
                     <button
                       key={idx}
                       type="button"
                       onClick={() => selectLocation(item)}
-                      className="w-full px-3 py-2 text-left hover:bg-slate-50 dark:hover:bg-[#27272b] flex items-center justify-between border-b border-slate-100 dark:border-[#27272b] last:border-0 transition"
+                      className="w-full px-3 py-2 text-left hover:bg-surface-2 flex items-center justify-between border-b border-slate-100 dark:border-line last:border-0 transition"
                     >
                       <div className="flex items-center gap-2 truncate">
                         <MapPin className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400 shrink-0" />
-                        <span className="text-xs font-semibold text-slate-900 dark:text-white truncate">
+                        <span className="text-xs font-semibold text-ink truncate">
                           {item.name}
                         </span>
                       </div>
-                      <span className="text-[10px] text-slate-400 dark:text-slate-500 shrink-0 ml-2 font-medium">
+                      <span className="text-[10px] text-ink-3 shrink-0 ml-2 font-medium">
                         {item.category}
                       </span>
                     </button>
@@ -469,10 +465,10 @@ export const SettingsModal: React.FC = () => {
               <div className="flex items-center gap-2 truncate min-w-0">
                 <MapPinHouse className="w-4 h-4 text-brand-600 dark:text-brand-400 shrink-0" />
                 <div className="truncate min-w-0">
-                  <span className="font-semibold text-slate-900 dark:text-white block truncate">
+                  <span className="font-semibold text-ink block truncate">
                     {userLocation.name}
                   </span>
-                  <span className="text-[11px] text-slate-500 dark:text-slate-400 block">
+                  <span className="text-[11px] text-ink-2 block">
                     {userLocation.latitude.toFixed(4)}° N, {userLocation.longitude.toFixed(4)}° E
                   </span>
                 </div>
@@ -481,7 +477,7 @@ export const SettingsModal: React.FC = () => {
               <button
                 type="button"
                 onClick={resetUserLocation}
-                className="px-2.5 py-1 text-[11px] font-semibold rounded-md bg-slate-100 dark:bg-[#222226] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-800 hover:bg-slate-200 dark:hover:bg-[#2a2a30] transition flex items-center gap-1 shrink-0"
+                className="px-2.5 py-1 text-[11px] font-semibold rounded-md bg-surface-2 text-ink-2 hover:text-ink border border-line hover:bg-slate-200 dark:hover:bg-surface-2 transition flex items-center gap-1 shrink-0"
                 title="Reset to default (University of Dubai)"
               >
                 <RotateCcw className="w-3 h-3 text-slate-400" />
@@ -490,13 +486,13 @@ export const SettingsModal: React.FC = () => {
             </div>
 
             {/* Embedded Interactive Mini-Map */}
-            <div className="relative rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 shadow-inner">
+            <div className="relative rounded-lg overflow-hidden border border-line shadow-inner">
               <div
                 ref={miniMapContainerRef}
                 className="w-full h-44 z-0"
                 style={{ background: 'var(--bg-muted)' }}
               />
-              <div className="absolute bottom-2 left-2 z-400 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xs px-2 py-1 rounded-sm text-[10px] text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-white/10 shadow-2xs pointer-events-none">
+              <div className="absolute bottom-2 left-2 z-400 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xs px-2 py-1 rounded-sm text-[10px] text-ink-2 border border-slate-200/80 dark:border-white/10 shadow-2xs pointer-events-none">
                 Click map or drag pin to fine-tune
               </div>
             </div>
@@ -508,14 +504,14 @@ export const SettingsModal: React.FC = () => {
           {/* 3. Interests (Single unified list) */}
           <div className="space-y-3">
             <div className="flex items-center justify-between text-xs">
-              <label className="font-semibold text-slate-800 dark:text-slate-200">
+              <label className="font-semibold text-ink">
                 Career Interests ({userInterests.length} active)
               </label>
               <div className="flex items-center gap-2.5">
                 <button
                   type="button"
                   onClick={resetInterests}
-                  className="text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 text-[11px] font-medium flex items-center gap-1 transition"
+                  className="text-ink-2 hover:text-brand-600 dark:hover:text-brand-400 text-[11px] font-medium flex items-center gap-1 transition"
                 >
                   <RotateCcw className="w-3 h-3" />
                   <span>Reset</span>
@@ -537,7 +533,7 @@ export const SettingsModal: React.FC = () => {
                 value={customInterestInput}
                 onChange={e => setCustomInterestInput(e.target.value)}
                 placeholder="Add an interest (e.g. Computer Vision, ROS)..."
-                className="w-full text-xs pl-3.5 pr-20 py-2 bg-slate-50 dark:bg-[#222226] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-brand-500 text-slate-900 dark:text-white placeholder:text-slate-400"
+                className="w-full text-xs pl-3.5 pr-20 py-2 bg-surface-2 border border-line rounded-lg focus:outline-hidden focus:ring-1 focus:ring-brand-500 text-ink placeholder:text-slate-400"
               />
               <button
                 type="submit"
@@ -576,7 +572,7 @@ export const SettingsModal: React.FC = () => {
                     key={item}
                     type="button"
                     onClick={() => addInterest(item)}
-                    className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md font-medium bg-slate-50 dark:bg-[#222226] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 transition cursor-pointer"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md font-medium bg-surface-2 text-ink-2 border border-line hover:border-slate-300 dark:hover:border-slate-600 transition cursor-pointer"
                     title="Click to add"
                   >
                     <Plus className="w-3 h-3 text-slate-400 shrink-0" />
@@ -592,14 +588,14 @@ export const SettingsModal: React.FC = () => {
 
           {/* 4. Data Management */}
           <div className="pt-1 flex items-center justify-between">
-            <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+            <div className="text-[11px] text-ink-2 font-medium">
               {savedCompanyIds.length} saved · {savedLists.length} lists
             </div>
             <div className="flex gap-2">
               <button
                 type="button"
                 onClick={handleExportData}
-                className="px-3 py-1.5 bg-slate-100 dark:bg-[#222226] hover:bg-slate-200 dark:hover:bg-[#27272e] text-slate-700 dark:text-slate-200 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 border border-slate-200 dark:border-slate-800"
+                className="px-3 py-1.5 bg-surface-2 hover:bg-slate-200 dark:hover:bg-surface-2 text-slate-700 dark:text-slate-200 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 border border-line"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>Export</span>
@@ -615,7 +611,7 @@ export const SettingsModal: React.FC = () => {
                     window.location.reload();
                   }
                 }}
-                className="px-3 py-1.5 bg-slate-100 dark:bg-[#222226] hover:bg-slate-200 dark:hover:bg-[#2a2a30] text-slate-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 border border-slate-200 dark:border-slate-800"
+                className="px-3 py-1.5 bg-surface-2 hover:bg-slate-200 dark:hover:bg-surface-2 text-ink-2 hover:text-red-600 dark:hover:text-red-400 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 border border-line"
               >
                 <Trash2 className="w-3.5 h-3.5" />
                 <span>Reset</span>

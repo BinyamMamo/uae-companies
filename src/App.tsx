@@ -13,7 +13,7 @@ const AppContent: React.FC = () => {
   const { activeTab } = useApp();
 
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans selection:bg-brand-100 selection:text-brand-900 transition-colors duration-150">
+    <div className="min-h-screen flex flex-col bg-app text-ink font-sans selection:bg-brand-100 selection:text-brand-900 transition-colors duration-150">
       
       {/* Centered Minimal Header */}
       <Header />
@@ -35,16 +35,16 @@ const AppContent: React.FC = () => {
 
       {/* Subtle Minimal Footer (omitted on Map view for maximum canvas height) */}
       {activeTab !== 'map' && (
-        <footer className="mt-auto border-t border-slate-200/80 dark:border-slate-800/80 bg-white dark:bg-slate-950 py-6 text-slate-500 dark:text-slate-400 transition-colors duration-150">
+        <footer className="mt-auto border-t border-line bg-app py-6 text-ink-2 transition-colors duration-150">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
             <div className="flex items-center gap-2">
-              <span className="font-semibold text-slate-800 dark:text-slate-200">UAE Student Discovery Platform</span>
+              <span className="font-semibold text-ink">UAE Student Discovery Platform</span>
               <span>·</span>
               <span>225 Authoritative Companies</span>
               <span>·</span>
               <span>Ref: DIAC / KSK Homes</span>
             </div>
-            <div className="text-slate-400 dark:text-slate-500">
+            <div className="text-ink-3">
               Designed for UAE Computer Engineering & Technical University Students
             </div>
           </div>

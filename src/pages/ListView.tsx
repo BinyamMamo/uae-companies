@@ -51,7 +51,7 @@ export const ListView: React.FC = () => {
               value={filters.search}
               onChange={e => setFilters(prev => ({ ...prev, search: e.target.value }))}
               placeholder="Search companies by name, domain, industry, role, or tech stack..."
-              className="w-full pl-6 pr-7 py-2 bg-transparent border-0 border-b border-slate-200 dark:border-slate-800 rounded-none text-xs sm:text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-hidden focus:border-brand-500 focus:ring-0 transition-colors"
+              className="w-full pl-6 pr-7 py-2 bg-transparent border-0 border-b border-line rounded-none text-xs sm:text-sm text-ink placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-hidden focus:border-brand-500 focus:ring-0 transition-colors"
             />
             {filters.search && (
               <button
@@ -65,12 +65,12 @@ export const ListView: React.FC = () => {
           </div>
           
           {/* List Toolbar / Count & Sort - No bottom border */}
-          <div className="flex items-center justify-between mb-3 text-xs text-slate-600 dark:text-slate-400">
-            <div className="font-medium text-slate-900 dark:text-white">
-              <span className="font-bold text-slate-900 dark:text-white">{filteredCompanies.length}</span>{' '}
+          <div className="flex items-center justify-between mb-3 text-xs text-ink-2">
+            <div className="font-medium text-ink">
+              <span className="font-bold text-ink">{filteredCompanies.length}</span>{' '}
               {filteredCompanies.length === 1 ? 'company' : 'companies'}
               {filters.search && (
-                <span className="text-slate-500 dark:text-slate-400 ml-1">
+                <span className="text-ink-2 ml-1">
                   matching &ldquo;{filters.search}&rdquo;
                 </span>
               )}
@@ -81,7 +81,7 @@ export const ListView: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setIsCompareModalOpen(true)}
-                className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:border-brand-500/70 hover:text-brand-600 dark:hover:text-brand-400 transition shadow-2xs"
+                className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-line bg-surface text-slate-700 dark:text-slate-200 hover:border-brand-500/70 hover:text-brand-600 dark:hover:text-brand-400 transition shadow-2xs"
                 title="Compare companies side-by-side"
               >
                 <Scale className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400" />
@@ -95,7 +95,7 @@ export const ListView: React.FC = () => {
 
               {/* Sort by Custom Dropdown */}
               <div className="flex items-center gap-1.5">
-                <span className="hidden sm:inline text-xs text-slate-500 dark:text-slate-400 font-medium">
+                <span className="hidden sm:inline text-xs text-ink-2 font-medium">
                   Sort:
                 </span>
                 <Dropdown
@@ -120,14 +120,14 @@ export const ListView: React.FC = () => {
               ))}
             </div>
           ) : (
-            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-12 text-center">
-              <div className="w-12 h-12 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center mx-auto mb-3 text-slate-400 dark:text-slate-500">
+            <div className="bg-surface border border-line rounded-lg p-12 text-center">
+              <div className="w-12 h-12 rounded-full bg-slate-50 dark:bg-slate-800 border border-line flex items-center justify-center mx-auto mb-3 text-ink-3">
                 <SearchX className="w-6 h-6" />
               </div>
-              <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
+              <h3 className="text-sm font-semibold text-ink">
                 No companies found
               </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-sm mx-auto">
+              <p className="text-xs text-ink-2 mt-1 max-w-sm mx-auto">
                 Try changing your filters, clearing the search keyword, or selecting a broader distance radius.
               </p>
               <button
