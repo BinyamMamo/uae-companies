@@ -33,11 +33,11 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex flex-col justify-end bg-slate-900/50 backdrop-blur-xs md:hidden"
+      className="fixed inset-0 z-9999 flex flex-col justify-end bg-slate-900/50 backdrop-blur-xs md:hidden"
       onClick={onClose}
     >
       <div
-        className="bg-white dark:bg-[#18181b] rounded-t-2xl max-h-[88vh] flex flex-col shadow-drawer border-t border-slate-200 dark:border-[#27272a] overflow-hidden"
+        className="bg-white dark:bg-slate-900 rounded-t-2xl max-h-[88vh] flex flex-col shadow-drawer border-t border-slate-200 dark:border-slate-800 overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Drag handle */}
@@ -46,10 +46,10 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
         </div>
 
         {/* Mobile Header */}
-        <div className="p-4 border-b border-slate-200 dark:border-[#27272a]">
+        <div className="p-4 border-b border-slate-200 dark:border-slate-800">
           <div className="flex items-start justify-between gap-3">
             <div className="flex items-start gap-3">
-              <div className="w-11 h-11 rounded border border-slate-200 dark:border-[#27272a] bg-white dark:bg-[#222226] flex items-center justify-center shrink-0 p-1">
+              <div className="w-11 h-11 rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#222226] flex items-center justify-center shrink-0 p-1">
                 <img
                   src={company.logo}
                   alt={company.name}
@@ -79,7 +79,7 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
               </button>
               <button
                 onClick={onClose}
-                className="p-2 rounded text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
+                className="p-2 rounded-sm text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -151,7 +151,7 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
               </div>
 
               {company.studentMatchReason && (
-                <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded p-3">
+                <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-sm p-3">
                   <h4 className="text-xs font-semibold text-slate-900 dark:text-white mb-0.5">
                     Student Relevance
                   </h4>
@@ -167,20 +167,20 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
                 href={company.careersUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-2.5 bg-brand-600 text-white font-semibold rounded flex items-center justify-center gap-1.5"
+                className="w-full py-2.5 bg-brand-600 text-white font-semibold rounded-sm flex items-center justify-center gap-1.5"
               >
                 <span>Visit Official Careers Portal</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
 
               <div className="grid grid-cols-2 gap-2 mt-2">
-                <div className="border border-slate-200 dark:border-slate-700 p-2.5 rounded bg-white dark:bg-slate-800">
+                <div className="border border-slate-200 dark:border-slate-700 p-2.5 rounded-sm bg-white dark:bg-slate-800">
                   <span className="text-[10px] text-slate-400 dark:text-slate-500 uppercase font-semibold">Internships</span>
                   <div className="font-semibold text-slate-800 dark:text-slate-200 mt-0.5">
                     {company.internshipsKnown ? 'Available' : 'Seasonal'}
                   </div>
                 </div>
-                <div className="border border-slate-200 dark:border-slate-700 p-2.5 rounded bg-white dark:bg-slate-800">
+                <div className="border border-slate-200 dark:border-slate-700 p-2.5 rounded-sm bg-white dark:bg-slate-800">
                   <span className="text-[10px] text-slate-400 dark:text-slate-500 uppercase font-semibold">Graduates</span>
                   <div className="font-semibold text-slate-800 dark:text-slate-200 mt-0.5">
                     {company.graduateRolesKnown ? 'Direct Entry' : 'Openings Vary'}
@@ -194,7 +194,7 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
             <div className="space-y-3">
               {company.employees && company.employees.length > 0 ? (
                 company.employees.map((emp, idx) => (
-                  <div key={idx} className="p-2.5 border border-slate-200 dark:border-slate-700 rounded bg-white dark:bg-slate-800 flex items-center justify-between">
+                  <div key={idx} className="p-2.5 border border-slate-200 dark:border-slate-700 rounded-sm bg-white dark:bg-slate-800 flex items-center justify-between">
                     <div>
                       <div className="font-semibold text-slate-900 dark:text-white">{emp.name}</div>
                       <div className="text-slate-500 dark:text-slate-400">{emp.title}</div>
@@ -220,19 +220,19 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
 
           {activeTab === 'location' && (
             <div className="space-y-3">
-              <div className="border border-slate-200 dark:border-slate-700 p-3 rounded bg-white dark:bg-slate-800">
+              <div className="border border-slate-200 dark:border-slate-700 p-3 rounded-sm bg-white dark:bg-slate-800">
                 <div className="text-slate-500 dark:text-slate-400 text-[10px] uppercase font-semibold">Address</div>
                 <div className="font-medium text-slate-900 dark:text-white mt-0.5">{company.location.address}</div>
               </div>
 
-              <div className="border border-slate-200 dark:border-slate-700 p-3 rounded bg-slate-50 dark:bg-slate-800 space-y-2">
+              <div className="border border-slate-200 dark:border-slate-700 p-3 rounded-sm bg-slate-50 dark:bg-slate-800 space-y-2">
                 <div className="text-slate-700 dark:text-slate-200 font-semibold">Transit from Academic City</div>
                 <div className="grid grid-cols-2 gap-2 text-center">
-                  <div className="bg-white dark:bg-slate-900 p-2 rounded border border-slate-200 dark:border-slate-700">
+                  <div className="bg-white dark:bg-slate-900 p-2 rounded-sm border border-slate-200 dark:border-slate-700">
                     <Clock className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400 mx-auto" />
                     <div className="font-bold text-slate-800 dark:text-slate-200 mt-0.5">{formatBusCommute(company.commute.busMinutes)}</div>
                   </div>
-                  <div className="bg-white dark:bg-slate-900 p-2 rounded border border-slate-200 dark:border-slate-700">
+                  <div className="bg-white dark:bg-slate-900 p-2 rounded-sm border border-slate-200 dark:border-slate-700">
                     <Car className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 mx-auto" />
                     <div className="font-bold text-slate-800 dark:text-slate-200 mt-0.5">~{company.commute.drivingMinutes} min drive</div>
                   </div>

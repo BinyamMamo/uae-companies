@@ -36,10 +36,10 @@ export const CompanyCard: React.FC<CompanyCardProps> = ({ company, isSelected = 
   return (
     <div
       onClick={handleCardClick}
-      className={`relative bg-white dark:bg-[#18181b] border rounded-lg p-4 sm:p-5 transition-all cursor-pointer group ${
+      className={`relative bg-white dark:bg-slate-900 border rounded-lg p-4 sm:p-5 transition-colors transition-shadow cursor-pointer group ${
         isSelected
-          ? 'border-brand-600 ring-1 ring-brand-600 shadow-sm'
-          : 'border-slate-200 dark:border-[#27272a] hover:border-slate-300 dark:hover:border-[#3f3f46] hover:shadow-subtle'
+          ? 'border-brand-600 ring-1 ring-brand-600 shadow-xs'
+          : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-subtle'
       }`}
     >
       <div className="flex items-start justify-between gap-3">
@@ -48,7 +48,7 @@ export const CompanyCard: React.FC<CompanyCardProps> = ({ company, isSelected = 
         <div className="flex items-start gap-3.5 sm:gap-4 flex-1 min-w-0">
           
           {/* Company Logo / Avatar */}
-          <div className="w-11 h-11 sm:w-12 sm:h-12 rounded border border-slate-100 dark:border-[#27272a] bg-slate-50 dark:bg-[#222226] flex items-center justify-center shrink-0 overflow-hidden p-1.5">
+          <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-sm border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-[#222226] flex items-center justify-center shrink-0 overflow-hidden p-1.5">
             <img
               src={company.logo}
               alt={`${company.name} logo`}
@@ -71,7 +71,7 @@ export const CompanyCard: React.FC<CompanyCardProps> = ({ company, isSelected = 
                 {company.name}
               </h3>
               {company.location.isFreeZone && (
-                <span className="hidden sm:inline-block text-[10px] uppercase font-medium tracking-wider px-1.5 py-0.5 rounded bg-slate-100 dark:bg-[#222226] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-[#27272a]">
+                <span className="hidden sm:inline-block text-[10px] uppercase font-medium tracking-wider px-1.5 py-0.5 rounded-sm bg-slate-100 dark:bg-[#222226] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800">
                   Free Zone
                 </span>
               )}
@@ -111,7 +111,7 @@ export const CompanyCard: React.FC<CompanyCardProps> = ({ company, isSelected = 
                     className={`inline-flex items-center px-2 py-0.5 text-[11px] rounded transition-colors border bg-transparent ${
                       relevant
                         ? 'text-brand-600 dark:text-brand-400 font-medium border-brand-500/80 dark:border-brand-400 shadow-2xs'
-                        : 'text-slate-600 dark:text-slate-400 font-normal border-slate-200 dark:border-[#27272a]'
+                        : 'text-slate-600 dark:text-slate-400 font-normal border-slate-200 dark:border-slate-800'
                     }`}
                   >
                     {role}
@@ -165,7 +165,7 @@ export const CompanyCard: React.FC<CompanyCardProps> = ({ company, isSelected = 
             className={`p-1 text-[10px] flex items-center gap-1 rounded border transition-colors ${
               isCompared
                 ? 'bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-900 border-slate-800 dark:border-slate-200'
-                : 'bg-white dark:bg-[#222226] text-slate-500 dark:text-slate-400 border-slate-200 dark:border-[#27272a] hover:text-slate-800 dark:hover:text-slate-200'
+                : 'bg-white dark:bg-[#222226] text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:text-slate-800 dark:hover:text-slate-200'
             }`}
             title="Compare company"
             aria-label={`Compare ${company.name}`}

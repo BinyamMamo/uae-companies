@@ -70,12 +70,12 @@ export function Dropdown<T extends string | number = string>({
       <button
         type="button"
         onClick={() => setIsOpen(prev => !prev)}
-        className={`flex items-center justify-between gap-2 rounded-lg border text-left font-medium transition-all ${
+        className={`flex items-center justify-between gap-2 rounded-lg border text-left font-medium transition-colors ${
           isSmall ? 'text-xs px-2.5 py-1.5' : 'text-sm px-3 py-2'
         } ${
           isOpen
-            ? 'border-brand-500 ring-1 ring-brand-500 bg-white dark:bg-[#18181b] text-slate-900 dark:text-white'
-            : 'border-slate-200 dark:border-[#27272a] bg-white dark:bg-[#18181b] text-slate-700 dark:text-slate-200 hover:border-slate-300 dark:hover:border-[#3f3f46]'
+            ? 'border-brand-500 ring-1 ring-brand-500 bg-white dark:bg-slate-900 text-slate-900 dark:text-white'
+            : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:border-slate-300 dark:hover:border-slate-700'
         } ${buttonClassName}`}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
@@ -91,7 +91,7 @@ export function Dropdown<T extends string | number = string>({
       {/* Menu Popover */}
       {isOpen && (
         <div
-          className={`absolute left-0 mt-1 min-w-full w-full max-h-60 overflow-y-auto rounded-lg border border-slate-200 dark:border-[#27272a] bg-white dark:bg-[#18181b] shadow-popup py-1 z-50 text-slate-800 dark:text-slate-200 animate-fadeIn ${menuClassName}`}
+          className={`absolute left-0 mt-1 min-w-full w-full max-h-60 overflow-y-auto rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-popup py-1 z-50 text-slate-800 dark:text-slate-200 animate-fade-in ${menuClassName}`}
           role="listbox"
         >
           {options.map(opt => {

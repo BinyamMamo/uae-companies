@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import L from 'leaflet';
+import { TILE_CONFIGS, previewStyleForTheme } from '../utils/mapTiles';
 import 'leaflet/dist/leaflet.css';
 import { useApp } from '../context/AppContext';
 import {
@@ -181,18 +182,21 @@ export const SettingsModal: React.FC = () => {
       center: [userLocation.latitude, userLocation.longitude],
       zoom: 12,
       zoomControl: true,
-      attributionControl: false,
+      attributionControl: true,
     });
+    map.attributionControl.setPrefix('');
 
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
-      maxZoom: 18,
+    const tiles = TILE_CONFIGS[previewStyleForTheme(theme)];
+    L.tileLayer(tiles.url, {
+      maxZoom: tiles.maxZoom,
+      attribution: tiles.attribution,
     }).addTo(map);
 
     const userHtml = `
       <div style="position: relative; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
         <div style="position: absolute; inset: -4px; border-radius: 9999px; border: 2px solid #2563eb; opacity: 0.75; animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;"></div>
         <div style="width: 30px; height: 30px; border-radius: 9999px; background: #2563eb; color: #fff; box-shadow: 0 4px 14px rgba(37,99,235,0.5); display: flex; align-items: center; justify-content: center; border: 2px solid #ffffff;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 220-4 0v-4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v4"/><path d="M18 10a6 6 0 0 0-12 0c0 7 6 13 6 13s6-6 6-13Z"/><circle cx="12" cy="10" r="1.5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
         </div>
       </div>
     `;
@@ -254,7 +258,7 @@ export const SettingsModal: React.FC = () => {
         miniMapInstanceRef.current = null;
       }
     };
-  }, [isSettingsModalOpen]);
+  }, [isSettingsModalOpen, theme]);
 
   // Sync marker position when userLocation changes externally
   useEffect(() => {
@@ -328,15 +332,15 @@ export const SettingsModal: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-[10000] flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-xs">
+    <div className="fixed inset-0 z-10000 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-xs">
       <div
-        className="bg-white dark:bg-[#18181b] rounded-xl max-w-lg w-full max-h-[90vh] flex flex-col shadow-popup border border-slate-200 dark:border-[#27272a] overflow-hidden text-slate-900 dark:text-slate-100 transition-colors"
+        className="bg-white dark:bg-slate-900 rounded-xl max-w-lg w-full max-h-[90vh] flex flex-col shadow-popup border border-slate-200 dark:border-slate-800 overflow-hidden text-slate-900 dark:text-slate-100 transition-colors"
         role="dialog"
         aria-modal="true"
         aria-labelledby="settings-title"
       >
         {/* Header */}
-        <div className="px-5 py-3.5 border-b border-slate-200 dark:border-[#27272a] flex items-center justify-between shrink-0 bg-slate-50/50 dark:bg-[#18181b]">
+        <div className="px-5 py-3.5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between shrink-0 bg-slate-50/50 dark:bg-slate-900">
           <h2 id="settings-title" className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
             Settings
           </h2>
@@ -363,13 +367,13 @@ export const SettingsModal: React.FC = () => {
               role="switch"
               aria-checked={theme === 'dark'}
               onClick={toggleTheme}
-              className={`relative inline-flex h-7 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-1 focus:ring-brand-500 ${
+              className={`relative inline-flex h-7 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-hidden focus:ring-1 focus:ring-brand-500 ${
                 theme === 'dark' ? 'bg-slate-700 dark:bg-slate-800' : 'bg-slate-200'
               }`}
             >
               <span className="sr-only">Toggle Dark Mode</span>
               <span
-                className={`pointer-events-none flex h-6 w-6 items-center justify-center rounded-full bg-white dark:bg-slate-950 shadow-sm ring-0 transition duration-200 ease-in-out ${
+                className={`pointer-events-none flex h-6 w-6 items-center justify-center rounded-full bg-white dark:bg-slate-950 shadow-xs ring-0 transition duration-200 ease-in-out ${
                   theme === 'dark' ? 'translate-x-5' : 'translate-x-0'
                 }`}
               >
@@ -383,7 +387,7 @@ export const SettingsModal: React.FC = () => {
           </div>
 
           {/* Redesigned Divider */}
-          <div className="border-t border-slate-200/80 dark:border-[#27272a]" />
+          <div className="border-t border-slate-200/80 dark:border-slate-800" />
 
           {/* 2. Home Address with Search & Interactive Map */}
           <div className="space-y-3">
@@ -412,7 +416,7 @@ export const SettingsModal: React.FC = () => {
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
                   placeholder="Search address (e.g. KSK Students Residence, DSO Cedre, Downtown)..."
-                  className="w-full text-xs pl-8 pr-16 py-2 bg-slate-50 dark:bg-[#222226] border border-slate-200 dark:border-[#27272a] rounded-lg focus:outline-none focus:ring-1 focus:ring-brand-500 text-slate-900 dark:text-white placeholder:text-slate-400"
+                  className="w-full text-xs pl-8 pr-16 py-2 bg-slate-50 dark:bg-[#222226] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-brand-500 text-slate-900 dark:text-white placeholder:text-slate-400"
                 />
                 {searchQuery && (
                   <button
@@ -477,7 +481,7 @@ export const SettingsModal: React.FC = () => {
               <button
                 type="button"
                 onClick={resetUserLocation}
-                className="px-2.5 py-1 text-[11px] font-semibold rounded-md bg-slate-100 dark:bg-[#222226] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-[#27272a] hover:bg-slate-200 dark:hover:bg-[#2a2a30] transition flex items-center gap-1 shrink-0"
+                className="px-2.5 py-1 text-[11px] font-semibold rounded-md bg-slate-100 dark:bg-[#222226] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-800 hover:bg-slate-200 dark:hover:bg-[#2a2a30] transition flex items-center gap-1 shrink-0"
                 title="Reset to default (University of Dubai)"
               >
                 <RotateCcw className="w-3 h-3 text-slate-400" />
@@ -486,20 +490,20 @@ export const SettingsModal: React.FC = () => {
             </div>
 
             {/* Embedded Interactive Mini-Map */}
-            <div className="relative rounded-lg overflow-hidden border border-slate-200 dark:border-[#27272a] shadow-inner">
+            <div className="relative rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 shadow-inner">
               <div
                 ref={miniMapContainerRef}
                 className="w-full h-44 z-0"
-                style={{ background: '#f8fafc' }}
+                style={{ background: 'var(--bg-muted)' }}
               />
-              <div className="absolute bottom-2 left-2 z-400 bg-white/90 dark:bg-[#18181b]/90 backdrop-blur-xs px-2 py-1 rounded text-[10px] text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-white/10 shadow-xs pointer-events-none">
+              <div className="absolute bottom-2 left-2 z-400 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xs px-2 py-1 rounded-sm text-[10px] text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-white/10 shadow-2xs pointer-events-none">
                 Click map or drag pin to fine-tune
               </div>
             </div>
           </div>
 
           {/* Redesigned Divider */}
-          <div className="border-t border-slate-200/80 dark:border-[#27272a]" />
+          <div className="border-t border-slate-200/80 dark:border-slate-800" />
 
           {/* 3. Interests (Single unified list) */}
           <div className="space-y-3">
@@ -533,7 +537,7 @@ export const SettingsModal: React.FC = () => {
                 value={customInterestInput}
                 onChange={e => setCustomInterestInput(e.target.value)}
                 placeholder="Add an interest (e.g. Computer Vision, ROS)..."
-                className="w-full text-xs pl-3.5 pr-20 py-2 bg-slate-50 dark:bg-[#222226] border border-slate-200 dark:border-[#27272a] rounded-lg focus:outline-none focus:ring-1 focus:ring-brand-500 text-slate-900 dark:text-white placeholder:text-slate-400"
+                className="w-full text-xs pl-3.5 pr-20 py-2 bg-slate-50 dark:bg-[#222226] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-brand-500 text-slate-900 dark:text-white placeholder:text-slate-400"
               />
               <button
                 type="submit"
@@ -572,7 +576,7 @@ export const SettingsModal: React.FC = () => {
                     key={item}
                     type="button"
                     onClick={() => addInterest(item)}
-                    className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md font-medium bg-slate-50 dark:bg-[#222226] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-[#27272a] hover:border-slate-300 dark:hover:border-slate-600 transition cursor-pointer"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md font-medium bg-slate-50 dark:bg-[#222226] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 transition cursor-pointer"
                     title="Click to add"
                   >
                     <Plus className="w-3 h-3 text-slate-400 shrink-0" />
@@ -584,7 +588,7 @@ export const SettingsModal: React.FC = () => {
           </div>
 
           {/* Redesigned Divider */}
-          <div className="border-t border-slate-200/80 dark:border-[#27272a]" />
+          <div className="border-t border-slate-200/80 dark:border-slate-800" />
 
           {/* 4. Data Management */}
           <div className="pt-1 flex items-center justify-between">
@@ -595,7 +599,7 @@ export const SettingsModal: React.FC = () => {
               <button
                 type="button"
                 onClick={handleExportData}
-                className="px-3 py-1.5 bg-slate-100 dark:bg-[#222226] hover:bg-slate-200 dark:hover:bg-[#27272e] text-slate-700 dark:text-slate-200 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 border border-slate-200 dark:border-[#27272a]"
+                className="px-3 py-1.5 bg-slate-100 dark:bg-[#222226] hover:bg-slate-200 dark:hover:bg-[#27272e] text-slate-700 dark:text-slate-200 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 border border-slate-200 dark:border-slate-800"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>Export</span>
@@ -611,7 +615,7 @@ export const SettingsModal: React.FC = () => {
                     window.location.reload();
                   }
                 }}
-                className="px-3 py-1.5 bg-slate-100 dark:bg-[#222226] hover:bg-slate-200 dark:hover:bg-[#2a2a30] text-slate-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 border border-slate-200 dark:border-[#27272a]"
+                className="px-3 py-1.5 bg-slate-100 dark:bg-[#222226] hover:bg-slate-200 dark:hover:bg-[#2a2a30] text-slate-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 border border-slate-200 dark:border-slate-800"
               >
                 <Trash2 className="w-3.5 h-3.5" />
                 <span>Reset</span>

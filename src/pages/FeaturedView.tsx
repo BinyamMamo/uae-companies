@@ -67,7 +67,7 @@ export const FeaturedView: React.FC = () => {
                 onClick={() => toggleInterest(interest)}
                 className={`px-3 py-1.5 text-xs rounded border font-medium transition-colors ${
                   isSelected
-                    ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-slate-900 dark:border-white shadow-xs'
+                    ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-slate-900 dark:border-white shadow-2xs'
                     : 'bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 hover:border-slate-300'
                 }`}
               >
@@ -88,13 +88,13 @@ export const FeaturedView: React.FC = () => {
               <div
                 key={company.id}
                 onClick={() => setSelectedCompany(company)}
-                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 rounded-lg p-4 shadow-subtle hover:shadow-sm transition-all cursor-pointer flex flex-col justify-between group"
+                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 rounded-lg p-4 shadow-subtle hover:shadow-xs transition-colors transition-shadow cursor-pointer flex flex-col justify-between group"
               >
                 <div>
                   {/* Card Header: Logo, Name, Bookmark */}
                   <div className="flex items-start justify-between gap-2.5">
                     <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 rounded border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 flex items-center justify-center p-1 shrink-0">
+                      <div className="w-10 h-10 rounded-sm border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 flex items-center justify-center p-1 shrink-0">
                         <img
                           src={company.logo}
                           alt={company.name}
@@ -145,7 +145,7 @@ export const FeaturedView: React.FC = () => {
 
                   {/* Image banner preview if available */}
                   {company.bannerImage && (
-                    <div className="w-full h-24 rounded mt-3 overflow-hidden bg-slate-100 dark:bg-slate-800 relative">
+                    <div className="w-full h-24 rounded-sm mt-3 overflow-hidden bg-slate-100 dark:bg-slate-800 relative">
                       <img
                         src={company.bannerImage}
                         alt={`${company.name} facility`}
@@ -167,7 +167,7 @@ export const FeaturedView: React.FC = () => {
                   {company.commonCareers.slice(0, 3).map(role => (
                     <span
                       key={role}
-                      className="px-2 py-0.5 text-[11px] rounded bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700"
+                      className="px-2 py-0.5 text-[11px] rounded-sm bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700"
                     >
                       {role}
                     </span>

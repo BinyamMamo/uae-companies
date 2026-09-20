@@ -104,7 +104,7 @@ export const BrowseView: React.FC = () => {
               <div
                 key={domain.name}
                 onClick={() => handleFilterToCategory(domain.filter)}
-                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 rounded-lg p-5 shadow-subtle hover:shadow-sm transition cursor-pointer group flex flex-col justify-between"
+                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 rounded-lg p-5 shadow-subtle hover:shadow-xs transition cursor-pointer group flex flex-col justify-between"
               >
                 <div>
                   <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-brand-600 dark:text-brand-400 border border-blue-100 dark:border-blue-800/60 flex items-center justify-center mb-3">
@@ -195,7 +195,7 @@ export const BrowseView: React.FC = () => {
                     <div
                       key={comp.id}
                       onClick={() => setSelectedCompany(comp)}
-                      className="flex items-center justify-between p-2 rounded hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer text-xs transition"
+                      className="flex items-center justify-between p-2 rounded-sm hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer text-xs transition"
                     >
                       <span className="font-medium text-slate-800 dark:text-slate-200 truncate">{comp.name}</span>
                       <span className="text-slate-400 dark:text-slate-500 text-[11px] shrink-0 ml-2">

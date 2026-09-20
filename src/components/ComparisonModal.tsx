@@ -23,11 +23,11 @@ export const ComparisonModal: React.FC = () => {
     .filter(Boolean) as typeof companies;
 
   return (
-    <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-      <div className="bg-white dark:bg-[#18181b] rounded-xl max-w-5xl w-full max-h-[90vh] flex flex-col shadow-popup border border-slate-200 dark:border-[#27272a] overflow-hidden text-slate-800 dark:text-slate-200">
+    <div className="fixed inset-0 z-10000 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
+      <div className="bg-white dark:bg-slate-900 rounded-xl max-w-5xl w-full max-h-[90vh] flex flex-col shadow-popup border border-slate-200 dark:border-slate-800 overflow-hidden text-slate-800 dark:text-slate-200">
         
         {/* Header */}
-        <div className="p-5 border-b border-slate-200 dark:border-[#27272a] flex items-center justify-between">
+        <div className="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Scale className="w-5 h-5 text-brand-600 dark:text-brand-400" />
             <div>
@@ -49,7 +49,7 @@ export const ComparisonModal: React.FC = () => {
             </button>
             <button
               onClick={() => setIsCompareModalOpen(false)}
-              className="p-1 rounded text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
+              className="p-1 rounded-sm text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
             >
               <X className="w-5 h-5" />
             </button>
@@ -60,15 +60,15 @@ export const ComparisonModal: React.FC = () => {
         <div className="flex-1 overflow-x-auto p-5">
           <table className="w-full text-xs text-left border-collapse">
             <thead>
-              <tr className="border-b border-slate-200 dark:border-[#27272a]">
+              <tr className="border-b border-slate-200 dark:border-slate-800">
                 <th className="p-3 w-40 font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider bg-slate-50/50 dark:bg-[#222226]">
                   Feature
                 </th>
                 {comparedCompanies.map(c => (
-                  <th key={c.id} className="p-3 min-w-[200px] align-top bg-white dark:bg-[#18181b]">
+                  <th key={c.id} className="p-3 min-w-[200px] align-top bg-white dark:bg-slate-900">
                     <div className="flex items-start justify-between gap-2">
                       <div className="flex items-center gap-2">
-                        <img src={c.logo} alt={c.name} className="w-7 h-7 object-contain rounded border border-slate-100 dark:border-[#27272a] p-0.5" />
+                        <img src={c.logo} alt={c.name} className="w-7 h-7 object-contain rounded-sm border border-slate-100 dark:border-slate-800 p-0.5" />
                         <span className="font-bold text-slate-900 dark:text-white text-sm">{c.name}</span>
                       </div>
                       <button
@@ -83,7 +83,7 @@ export const ComparisonModal: React.FC = () => {
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 dark:divide-[#27272a]">
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
               
               {/* Technical Fit */}
               <tr>
@@ -92,7 +92,7 @@ export const ComparisonModal: React.FC = () => {
                 </td>
                 {comparedCompanies.map(c => (
                   <td key={c.id} className="p-3">
-                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-blue-50 dark:bg-blue-900/30 text-brand-700 dark:text-blue-300 font-bold border border-blue-200 dark:border-blue-800">
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm bg-blue-50 dark:bg-blue-900/30 text-brand-700 dark:text-blue-300 font-bold border border-blue-200 dark:border-blue-800">
                       <span>{c.relevanceScore}/100</span>
                     </div>
                   </td>
@@ -134,7 +134,7 @@ export const ComparisonModal: React.FC = () => {
                 {comparedCompanies.map(c => (
                   <td key={c.id} className="p-3">
                     {c.location.isFreeZone ? (
-                      <span className="inline-block px-2 py-0.5 rounded text-[11px] font-medium bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+                      <span className="inline-block px-2 py-0.5 rounded-sm text-[11px] font-medium bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
                         {c.location.freeZoneName || 'Free Zone'}
                       </span>
                     ) : (
@@ -186,7 +186,7 @@ export const ComparisonModal: React.FC = () => {
                   <td key={c.id} className="p-3">
                     <div className="flex flex-wrap gap-1">
                       {c.technicalAreas.map(t => (
-                        <span key={t} className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-[10px] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                        <span key={t} className="px-1.5 py-0.5 rounded-sm bg-slate-100 dark:bg-slate-800 text-[10px] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
                           {t}
                         </span>
                       ))}
@@ -204,7 +204,7 @@ export const ComparisonModal: React.FC = () => {
                   <td key={c.id} className="p-3">
                     <div className="flex flex-wrap gap-1">
                       {c.commonCareers.map(r => (
-                        <span key={r} className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-blue-900/30 text-[10px] text-brand-800 dark:text-blue-300 border border-blue-100 dark:border-blue-800">
+                        <span key={r} className="px-1.5 py-0.5 rounded-sm bg-blue-50 dark:bg-blue-900/30 text-[10px] text-brand-800 dark:text-blue-300 border border-blue-100 dark:border-blue-800">
                           {r}
                         </span>
                       ))}
@@ -225,7 +225,7 @@ export const ComparisonModal: React.FC = () => {
                         setSelectedCompany(c);
                         setIsCompareModalOpen(false);
                       }}
-                      className="px-3 py-1.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded text-xs transition"
+                      className="px-3 py-1.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-sm text-xs transition"
                     >
                       View Full Details
                     </button>

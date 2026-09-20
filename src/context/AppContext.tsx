@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo, useCallback } from 'react';
+import { flushSync } from 'react-dom';
 import type { Company, FilterState, SavedList } from '../types/company';
 import { AUTHORITATIVE_COMPANIES } from '../data/authoritativeCompanies';
 import { DEFAULT_STUDENT_INTERESTS } from '../utils/relevance';
@@ -160,16 +161,48 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   }, [theme]);
 
-  const toggleTheme = () => {
+  const toggleTheme = useCallback(() => {
     const nextTheme = theme === 'light' ? 'dark' : 'light';
-    if (typeof document !== 'undefined' && 'startViewTransition' in document) {
-      (document as unknown as { startViewTransition: (cb: () => void) => void }).startViewTransition(() => {
-        setTheme(nextTheme);
-      });
-    } else {
+
+    if (typeof document === 'undefined') {
       setTheme(nextTheme);
+      return;
     }
-  };
+
+    const root = document.documentElement;
+    const prefersReducedMotion =
+      window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+
+    // The View Transition cross-fades a snapshot of the page. Suppressing the
+    // live DOM's own transitions for the duration stops the two animating at
+    // once, which is what made the switch smear.
+    const withTransitionsSuppressed = (apply: () => void) => {
+      root.setAttribute('data-theme-switching', '');
+      apply();
+      window.setTimeout(() => root.removeAttribute('data-theme-switching'), 260);
+    };
+
+    const canViewTransition =
+      'startViewTransition' in document && !prefersReducedMotion;
+
+    if (!canViewTransition) {
+      withTransitionsSuppressed(() => setTheme(nextTheme));
+      return;
+    }
+
+    root.setAttribute('data-theme-switching', '');
+    const transition = (
+      document as unknown as {
+        startViewTransition: (cb: () => void) => { finished: Promise<void> };
+      }
+    ).startViewTransition(() => {
+      flushSync(() => setTheme(nextTheme));
+    });
+
+    transition.finished
+      .catch(() => undefined)
+      .finally(() => root.removeAttribute('data-theme-switching'));
+  }, [theme]);
 
   // Accent color state with CSS variable application and localStorage persistence
   const [accentColor, setAccentColorState] = useState<string>(() => {

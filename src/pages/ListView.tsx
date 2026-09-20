@@ -51,7 +51,7 @@ export const ListView: React.FC = () => {
               value={filters.search}
               onChange={e => setFilters(prev => ({ ...prev, search: e.target.value }))}
               placeholder="Search companies by name, domain, industry, role, or tech stack..."
-              className="w-full pl-6 pr-7 py-2 bg-transparent border-0 border-b border-slate-200 dark:border-slate-800 rounded-none text-xs sm:text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-brand-500 focus:ring-0 transition-colors"
+              className="w-full pl-6 pr-7 py-2 bg-transparent border-0 border-b border-slate-200 dark:border-slate-800 rounded-none text-xs sm:text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-hidden focus:border-brand-500 focus:ring-0 transition-colors"
             />
             {filters.search && (
               <button
@@ -81,7 +81,7 @@ export const ListView: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setIsCompareModalOpen(true)}
-                className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 dark:border-[#27272a] bg-white dark:bg-[#18181b] text-slate-700 dark:text-slate-200 hover:border-brand-500/70 hover:text-brand-600 dark:hover:text-brand-400 transition shadow-2xs"
+                className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:border-brand-500/70 hover:text-brand-600 dark:hover:text-brand-400 transition shadow-2xs"
                 title="Compare companies side-by-side"
               >
                 <Scale className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400" />
@@ -132,7 +132,7 @@ export const ListView: React.FC = () => {
               </p>
               <button
                 onClick={clearFilters}
-                className="mt-4 px-3.5 py-1.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold rounded shadow-2xs transition"
+                className="mt-4 px-3.5 py-1.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold rounded-sm shadow-2xs transition"
               >
                 Reset all filters
               </button>

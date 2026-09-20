@@ -87,7 +87,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({ isMobileDrawer = f
     <div className="space-y-5 text-slate-800 dark:text-slate-200">
       
       {/* Header with Title and Clear All */}
-      <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-[#27272a]">
+      <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
         <h2 className="text-xs font-semibold text-slate-900 dark:text-slate-100 uppercase tracking-wider">
           Filters
         </h2>
@@ -117,7 +117,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({ isMobileDrawer = f
                   type="checkbox"
                   checked={checked}
                   onChange={() => toggleCompanyType(opt.id)}
-                  className="w-3.5 h-3.5 rounded border-slate-300 dark:border-[#27272a] bg-white dark:bg-[#222226] text-brand-600 focus:ring-brand-500 focus:ring-1 transition cursor-pointer"
+                  className="w-3.5 h-3.5 rounded-sm border-slate-300 dark:border-slate-800 bg-white dark:bg-[#222226] text-brand-600 focus:ring-brand-500 focus:ring-1 transition cursor-pointer"
                 />
                 <span className="ml-2.5 font-normal group-hover:text-slate-900 dark:group-hover:text-white">{opt.label}</span>
               </label>
@@ -210,21 +210,21 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({ isMobileDrawer = f
   if (isMobileDrawer) {
     return (
       <div className="fixed inset-0 z-50 flex flex-col justify-end bg-slate-900/50 backdrop-blur-xs md:hidden">
-        <div className="bg-white dark:bg-[#18181b] rounded-t-xl p-5 max-h-[85vh] overflow-y-auto shadow-popup border-t border-slate-200 dark:border-[#27272a]">
-          <div className="flex items-center justify-between pb-3 mb-2 border-b border-slate-100 dark:border-[#27272a]">
+        <div className="bg-white dark:bg-slate-900 rounded-t-xl p-5 max-h-[85vh] overflow-y-auto shadow-popup border-t border-slate-200 dark:border-slate-800">
+          <div className="flex items-center justify-between pb-3 mb-2 border-b border-slate-100 dark:border-slate-800">
             <span className="text-sm font-semibold text-slate-900 dark:text-white">Filter Companies</span>
             <button
               onClick={() => setIsMobileFilterOpen(false)}
-              className="p-1 rounded text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white"
+              className="p-1 rounded-sm text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
           {content}
-          <div className="mt-5 pt-3 border-t border-slate-200 dark:border-[#27272a]">
+          <div className="mt-5 pt-3 border-t border-slate-200 dark:border-slate-800">
             <button
               onClick={() => setIsMobileFilterOpen(false)}
-              className="w-full py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold rounded shadow-sm transition"
+              className="w-full py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold rounded-sm shadow-xs transition"
             >
               Apply Filters
             </button>
@@ -236,7 +236,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({ isMobileDrawer = f
 
   return (
     <aside className="w-56 lg:w-60 shrink-0 hidden md:block sticky top-20 self-start max-h-[calc(100vh-6rem)] overflow-y-auto pr-0.5">
-      <div className="bg-white dark:bg-[#18181b] border border-slate-200 dark:border-[#27272a] rounded-lg p-4 shadow-subtle transition-colors duration-150">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-4 shadow-subtle transition-colors duration-150">
         {content}
       </div>
     </aside>
