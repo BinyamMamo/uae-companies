@@ -1,5 +1,6 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
+import { ProfileMenu } from './ProfileMenu';
 import { SlidersHorizontal, Scale, Sun, Moon, Settings } from 'lucide-react';
 
 type TabId = 'list' | 'browse' | 'featured' | 'map' | 'saved';
@@ -151,6 +152,8 @@ export const Header: React.FC = () => {
           >
             <Settings className="w-4 h-4" aria-hidden="true" />
           </button>
+
+          <ProfileMenu />
         </div>
       </div>
 

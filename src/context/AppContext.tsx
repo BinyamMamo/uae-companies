@@ -7,6 +7,8 @@ import { ACADEMIC_CITY_COORDS, calculateDistanceKm, estimateBusMinutes, estimate
 import { applyAccentTheme } from '../utils/accentThemes';
 import { readJSON, writeJSON, readString, writeString, isStringArray } from '../utils/storage';
 import { track, trackView } from '../lib/analytics';
+import { useProfileSync } from '../hooks/useProfileSync';
+import type { SyncedProfile } from '../lib/sync';
 
 const isSavedListArray = (v: unknown): v is SavedList[] =>
   Array.isArray(v) &&
@@ -571,6 +573,31 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       return 0;
     });
   }, [companies, filters, savedCompanyIds]);
+
+  /*
+    Cross-device sync for signed-in users. Local state stays authoritative;
+    this mirrors it to Firestore and merges anything found there on sign-in.
+    With Firebase unconfigured, useProfileSync is a no-op.
+  */
+  const syncProfile = useMemo<SyncedProfile>(
+    () => ({
+      savedCompanyIds,
+      savedLists,
+      userInterests,
+      userLocation,
+      accentColor,
+      theme,
+    }),
+    [savedCompanyIds, savedLists, userInterests, userLocation, accentColor, theme]
+  );
+
+  const handleMergedProfile = useCallback((merged: SyncedProfile) => {
+    setSavedCompanyIds(merged.savedCompanyIds);
+    setSavedLists(merged.savedLists);
+    if (merged.userInterests.length) setUserInterests(merged.userInterests);
+  }, []);
+
+  useProfileSync({ profile: syncProfile, onMerged: handleMergedProfile });
 
   const value = useMemo<AppContextType>(
     () => ({

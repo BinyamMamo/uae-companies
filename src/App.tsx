@@ -10,6 +10,8 @@ import { ComparisonModal } from './components/ComparisonModal';
 import { SettingsModal } from './components/SettingsModal';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
 import { ToastProvider } from './components/ui/Toast';
+import { AuthProvider } from './context/AuthContext';
+import { GoogleOneTap } from './components/GoogleOneTap';
 import { AUTHORITATIVE_COMPANIES } from './data/authoritativeCompanies';
 
 const AppContent: React.FC = () => {
@@ -35,6 +37,9 @@ const AppContent: React.FC = () => {
 
       {/* Settings Modal */}
       <SettingsModal />
+
+      {/* Google One Tap prompt (signed-out users only, after first interaction) */}
+      <GoogleOneTap />
 
       {/* Subtle Minimal Footer (omitted on Map view for maximum canvas height) */}
       {activeTab !== 'map' && (
@@ -62,9 +67,11 @@ export function App() {
   return (
     <ErrorBoundary>
       <ToastProvider>
-        <AppProvider>
-          <AppContent />
-        </AppProvider>
+        <AuthProvider>
+          <AppProvider>
+            <AppContent />
+          </AppProvider>
+        </AuthProvider>
       </ToastProvider>
     </ErrorBoundary>
   );

@@ -1,5 +1,3 @@
-import posthog from 'posthog-js';
-
 /**
  * Product analytics.
  *
@@ -15,24 +13,41 @@ const KEY = import.meta.env.VITE_PUBLIC_POSTHOG_KEY as string | undefined;
 const HOST = (import.meta.env.VITE_PUBLIC_POSTHOG_HOST as string | undefined)
   ?? 'https://eu.i.posthog.com';
 
-let enabled = false;
+type PostHog = typeof import('posthog-js').default;
 
+let client: PostHog | null = null;
+/** Events fired before the SDK finishes loading, replayed once it does. */
+const queue: Array<[string, Record<string, unknown> | undefined]> = [];
+
+/**
+ * Loads posthog-js on demand. Analytics must never delay first paint, so the
+ * SDK is dynamically imported and events raised in the meantime are queued.
+ */
 export function initAnalytics(): void {
-  if (enabled || !KEY) return;
+  if (client || !KEY) return;
 
-  posthog.init(KEY, {
-    api_host: HOST,
-    // Anonymous events for signed-out visitors; a person profile is only
-    // created once someone signs in. Still counts unique visitors and DAU.
-    person_profiles: 'identified_only',
-    capture_pageview: false, // no router — we fire these manually on tab change
-    capture_pageleave: true,
-    autocapture: false, // explicit events only, so the data stays legible
-    disable_session_recording: true,
-    persistence: 'localStorage+cookie',
+  void import('posthog-js').then(({ default: posthog }) => {
+    posthog.init(KEY, {
+      api_host: HOST,
+      // Anonymous events for signed-out visitors; a person profile is only
+      // created once someone signs in. Still counts unique visitors and DAU.
+      person_profiles: 'identified_only',
+      capture_pageview: false, // no router — we fire these manually on tab change
+      capture_pageleave: true,
+      autocapture: false, // explicit events only, so the data stays legible
+      disable_session_recording: true,
+      persistence: 'localStorage+cookie',
+    });
+
+    client = posthog;
+    for (const [name, props] of queue.splice(0)) {
+      try {
+        posthog.capture(name, props);
+      } catch {
+        // ignore
+      }
+    }
   });
-
-  enabled = true;
 }
 
 /** Every tracked interaction in the app, with its properties. */
@@ -73,10 +88,15 @@ type PropsFor<N extends EventName> = Extract<AnalyticsEvent, { name: N }> extend
 export function track<N extends EventName>(
   ...args: PropsFor<N> extends never | undefined ? [name: N] : [name: N, props: PropsFor<N>]
 ): void {
-  if (!enabled) return;
+  if (!KEY) return;
   const [name, props] = args;
+  const payload = props as Record<string, unknown> | undefined;
+  if (!client) {
+    if (queue.length < 50) queue.push([name, payload]);
+    return;
+  }
   try {
-    posthog.capture(name, props as Record<string, unknown> | undefined);
+    client.capture(name, payload);
   } catch {
     // Analytics must never break the app.
   }
@@ -84,9 +104,14 @@ export function track<N extends EventName>(
 
 /** Manual pageview, since the app switches views without changing the URL. */
 export function trackView(view: string): void {
-  if (!enabled) return;
+  if (!KEY) return;
+  const payload = { view, $current_url: `${window.location.origin}/#${view}` };
+  if (!client) {
+    if (queue.length < 50) queue.push(['$pageview', payload]);
+    return;
+  }
   try {
-    posthog.capture('$pageview', { view, $current_url: `${window.location.origin}/#${view}` });
+    client.capture('$pageview', payload);
   } catch {
     // ignore
   }
@@ -94,21 +119,19 @@ export function trackView(view: string): void {
 
 /** Link anonymous history to a signed-in user. */
 export function identifyUser(id: string, traits?: Record<string, unknown>): void {
-  if (!enabled) return;
   try {
-    posthog.identify(id, traits);
+    client?.identify(id, traits);
   } catch {
     // ignore
   }
 }
 
 export function resetUser(): void {
-  if (!enabled) return;
   try {
-    posthog.reset();
+    client?.reset();
   } catch {
     // ignore
   }
 }
 
-export const isAnalyticsEnabled = (): boolean => enabled;
+export const isAnalyticsEnabled = (): boolean => Boolean(KEY);
