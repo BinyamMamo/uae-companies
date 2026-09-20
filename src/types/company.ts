@@ -101,8 +101,14 @@ export interface FilterState {
   location: string;
   area: string;
   distanceMax: number | null;
+  /** Max one-way bus commute in minutes. Browse's commute bands set this. */
+  busMinutesMax: number | null;
   isFreeZoneOnly: boolean | null;
   careerFilter: string | null;
+  /** Only companies whose careers page we actually found. */
+  hasCareersUrl: boolean;
+  /** Only companies whose details are backed by a source. */
+  verifiedOnly: boolean;
   sortBy: 'nearest' | 'relevance' | 'name' | 'saved';
 }
 

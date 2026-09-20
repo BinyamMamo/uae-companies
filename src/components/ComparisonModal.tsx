@@ -1,9 +1,42 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { useApp } from '../context/AppContext';
 import { formatBusCommute, formatDistance } from '../utils/distance';
-import { X, Scale, Trash2, CheckCircle2 } from 'lucide-react';
+import { X, Plus, Search } from 'lucide-react';
 import { Modal } from './ui/Modal';
 import { CompanyLogo } from './ui/CompanyLogo';
+
+/**
+ * Side-by-side comparison.
+ *
+ * Deliberately plain: the job of this view is to let you read across a row and
+ * spot a difference. Earlier it wrapped almost every value in a coloured pill,
+ * which made everything look equally important and nothing scannable. Values
+ * are now text, hierarchy comes from weight and spacing, and colour is kept for
+ * the one thing it should mark — a match against your interests.
+ */
+
+const Row: React.FC<{ label: string; children: React.ReactNode }> = ({ label, children }) => (
+  <tr className="align-top">
+    <th
+      scope="row"
+      className="py-4 pr-4 text-left text-[11px] font-medium text-ink-3 uppercase tracking-wider whitespace-nowrap w-36 align-top"
+    >
+      {label}
+    </th>
+    {children}
+  </tr>
+);
+
+const Cell: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <td className="py-4 pr-6 text-xs text-ink-2 min-w-[190px] align-top">{children}</td>
+);
+
+const List: React.FC<{ items: string[]; empty?: string }> = ({ items, empty = '—' }) =>
+  items.length === 0 ? (
+    <span className="text-ink-3">{empty}</span>
+  ) : (
+    <span className="text-ink-2 leading-relaxed">{items.join(' · ')}</span>
+  );
 
 export const ComparisonModal: React.FC = () => {
   const {
@@ -14,238 +47,233 @@ export const ComparisonModal: React.FC = () => {
     isCompareModalOpen,
     setIsCompareModalOpen,
     setSelectedCompany,
-    userLocation
+    userLocation,
   } = useApp();
 
-  const comparedCompanies = compareCompanyIds
+  const compared = compareCompanyIds
     .map(id => companies.find(c => c.id === id))
     .filter((c): c is (typeof companies)[number] => Boolean(c));
 
+  const [query, setQuery] = useState('');
+
+  const MAX = 4;
+  const canAdd = compared.length < MAX;
+
+  const suggestions = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return [];
+    return companies
+      .filter(c => !compareCompanyIds.includes(c.id) && c.name.toLowerCase().includes(q))
+      .slice(0, 6);
+  }, [companies, compareCompanyIds, query]);
+
+  const programme = (known: boolean | null) =>
+    known === true ? 'Confirmed' : known === false ? 'None listed' : 'Not confirmed';
+
   return (
     <Modal
-      open={isCompareModalOpen && compareCompanyIds.length > 0}
+      open={isCompareModalOpen}
       onClose={() => setIsCompareModalOpen(false)}
       label="Compare companies"
       className="fixed inset-0 z-10000 flex items-center justify-center p-4"
-      backdropClassName="fixed inset-0 z-9999 bg-black/60 backdrop-blur-xs animate-fade-in"
+      backdropClassName="fixed inset-0 z-9999 bg-slate-900/40 dark:bg-black/60 backdrop-blur-xs animate-fade-in"
     >
-      <div className="bg-surface rounded-xl max-w-5xl w-full max-h-[90vh] flex flex-col shadow-popup border border-line overflow-hidden text-ink">
-        
-        {/* Header */}
-        <div className="p-5 border-b border-line flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Scale className="w-5 h-5 text-brand-600 dark:text-brand-400" />
-            <div>
-              <h2 className="text-base font-bold text-ink">
-                Company Comparison
-              </h2>
-              <p className="text-xs text-ink-2">
-                Evaluating {comparedCompanies.length} selected organizations side-by-side
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
+      <div className="bg-surface rounded-xl max-w-5xl w-full max-h-[90dvh] flex flex-col shadow-popup border border-line overflow-hidden text-ink">
+        <header className="flex items-center justify-between gap-4 px-6 py-4 border-b border-line shrink-0">
+          <h2 className="text-sm font-semibold text-ink">
+            Compare
+            <span className="text-ink-3 font-normal"> · {compared.length} selected</span>
+          </h2>
+          <div className="flex items-center gap-1">
             <button
               onClick={clearCompare}
-              className="text-xs text-red-600 hover:text-red-700 font-medium"
+              className="px-2 py-1 text-xs font-medium text-ink-3 hover:text-ink transition-colors"
             >
-              Clear all
+              Clear
             </button>
             <button
               onClick={() => setIsCompareModalOpen(false)}
-              className="p-1 rounded-sm text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
+              className="p-1.5 rounded-md text-ink-3 hover:text-ink hover:bg-surface-2 transition-colors"
+              aria-label="Close comparison"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" aria-hidden="true" />
             </button>
           </div>
-        </div>
+        </header>
 
-        {/* Comparison Table */}
-        <div className="flex-1 overflow-x-auto p-5">
-          <table className="w-full text-xs text-left border-collapse">
-            <thead>
-              <tr className="border-b border-line">
-                <th className="p-3 w-40 font-bold text-ink-3 uppercase tracking-wider bg-slate-50/50 dark:bg-surface-2">
-                  Feature
-                </th>
-                {comparedCompanies.map(c => (
-                  <th key={c.id} className="p-3 min-w-[200px] align-top bg-surface">
-                    <div className="flex items-start justify-between gap-2">
-                      <div className="flex items-center gap-2">
-                        <CompanyLogo name={c.name} src={c.logo} size="xs" />
-                        <span className="font-bold text-ink text-sm">{c.name}</span>
-                      </div>
+        {canAdd && (
+          <div className="px-6 pt-4 pb-1 shrink-0">
+            <div className="relative">
+              <Search
+                className="absolute left-0 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-ink-3 pointer-events-none"
+                aria-hidden="true"
+              />
+              <label htmlFor="compare-add" className="sr-only">
+                Add a company to the comparison
+              </label>
+              <input
+                id="compare-add"
+                type="search"
+                value={query}
+                onChange={e => setQuery(e.target.value)}
+                placeholder={
+                  compared.length === 0
+                    ? 'Search for a company to compare'
+                    : `Add another (up to ${MAX})`
+                }
+                className="w-full pl-6 pr-2 py-2 bg-transparent border-0 border-b border-line rounded-none text-xs text-ink placeholder:text-ink-3 focus:outline-hidden focus:border-brand-500 transition-colors"
+              />
+              {suggestions.length > 0 && (
+                <ul className="absolute left-0 right-0 top-full mt-1 z-10 bg-surface border border-line rounded-lg shadow-popup overflow-hidden max-h-56 overflow-y-auto">
+                  {suggestions.map(c => (
+                    <li key={c.id}>
                       <button
-                        onClick={() => toggleCompareCompany(c.id)}
-                        className="text-slate-400 hover:text-red-600"
-                        title="Remove"
+                        type="button"
+                        onClick={() => {
+                          toggleCompareCompany(c.id);
+                          setQuery('');
+                        }}
+                        className="w-full flex items-center gap-2 px-3 py-2 text-left hover:bg-surface-2 transition-colors"
                       >
-                        <Trash2 className="w-3.5 h-3.5" />
+                        <Plus className="w-3.5 h-3.5 text-ink-3 shrink-0" aria-hidden="true" />
+                        <span className="text-xs text-ink truncate">{c.name}</span>
+                        <span className="ml-auto text-[11px] text-ink-3 shrink-0">
+                          {c.location.area}
+                        </span>
                       </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        )}
+
+        {compared.length === 0 ? (
+          <div className="px-6 py-14 text-center">
+            <p className="text-sm font-medium text-ink">Nothing to compare yet</p>
+            <p className="text-xs text-ink-2 mt-1.5 max-w-xs mx-auto leading-relaxed">
+              Search above, or use the scales icon on any company card to add it here.
+            </p>
+          </div>
+        ) : (
+        <div className="overflow-auto px-6">
+          <table className="w-full border-collapse">
+            <caption className="sr-only">
+              Selected companies compared across commute, programmes and roles
+            </caption>
+
+            <thead>
+              <tr>
+                <td className="w-36" />
+                {compared.map(c => (
+                  <th key={c.id} scope="col" className="py-5 pr-6 text-left min-w-[190px] align-top">
+                    <div className="flex items-start gap-2.5">
+                      <CompanyLogo name={c.name} src={c.logo} size="xs" />
+                      <div className="min-w-0 flex-1">
+                        <div className="text-sm font-semibold text-ink leading-snug">{c.name}</div>
+                        <button
+                          onClick={() => toggleCompareCompany(c.id)}
+                          className="mt-0.5 text-[11px] text-ink-3 hover:text-ink transition-colors"
+                          aria-label={`Remove ${c.name} from comparison`}
+                        >
+                          Remove
+                        </button>
+                      </div>
                     </div>
                   </th>
                 ))}
               </tr>
             </thead>
+
             <tbody className="divide-y divide-line">
-              
-              {/* Technical Fit */}
-              <tr>
-                <td className="p-3 font-semibold text-ink-2 bg-slate-50/50 dark:bg-surface-2">
-                  Relevance Fit
-                </td>
-                {comparedCompanies.map(c => (
-                  <td key={c.id} className="p-3">
-                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm bg-blue-50 dark:bg-blue-900/30 text-brand-700 dark:text-blue-300 font-bold border border-blue-200 dark:border-blue-800">
-                      <span>{c.relevanceScore}/100</span>
+              <Row label="Match">
+                {compared.map(c => (
+                  <Cell key={c.id}>
+                    <span className="text-sm font-semibold text-ink tabular-nums">
+                      {c.relevanceScore}
+                    </span>
+                    <span className="text-ink-3">/100</span>
+                  </Cell>
+                ))}
+              </Row>
+
+              <Row label="Focus">
+                {compared.map(c => (
+                  <Cell key={c.id}>
+                    <List items={c.categories} />
+                  </Cell>
+                ))}
+              </Row>
+
+              <Row label={`From ${userLocation.name}`}>
+                {compared.map(c => (
+                  <Cell key={c.id}>
+                    <div className="text-sm font-semibold text-ink">
+                      {formatBusCommute(c.commute.busMinutes)}
                     </div>
-                  </td>
+                    <div className="mt-0.5 text-ink-3">
+                      {formatDistance(c.commute.distanceKm)} · {c.location.area}
+                    </div>
+                  </Cell>
                 ))}
-              </tr>
+              </Row>
 
-              {/* Industry */}
-              <tr>
-                <td className="p-3 font-semibold text-ink-2 bg-slate-50/50 dark:bg-slate-800/50">
-                  Industry &amp; Category
-                </td>
-                {comparedCompanies.map(c => (
-                  <td key={c.id} className="p-3 text-ink-2">
-                    <div className="font-semibold text-ink">{c.industry}</div>
-                    <div className="text-[11px] text-ink-3 mt-0.5">{c.categories.join(' · ')}</div>
-                  </td>
-                ))}
-              </tr>
-
-              {/* Location & Commute */}
-              <tr>
-                <td className="p-3 font-semibold text-ink-2 bg-slate-50/50 dark:bg-slate-800/50">
-                  Distance from {userLocation.name}
-                </td>
-                {comparedCompanies.map(c => (
-                  <td key={c.id} className="p-3 text-ink">
-                    <div className="font-bold">{formatDistance(c.commute.distanceKm)}</div>
-                    <div className="text-ink-2">{formatBusCommute(c.commute.busMinutes)}</div>
-                    <div className="text-[11px] text-ink-3 mt-0.5">{c.location.area}</div>
-                  </td>
-                ))}
-              </tr>
-
-              {/* Jurisdiction */}
-              <tr>
-                <td className="p-3 font-semibold text-ink-2 bg-slate-50/50 dark:bg-slate-800/50">
-                  Free Zone Status
-                </td>
-                {comparedCompanies.map(c => (
-                  <td key={c.id} className="p-3">
+              <Row label="Free zone">
+                {compared.map(c => (
+                  <Cell key={c.id}>
                     {c.location.isFreeZone ? (
-                      <span className="inline-block px-2 py-0.5 rounded-sm text-[11px] font-medium bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
-                        {c.location.freeZoneName || 'Free Zone'}
-                      </span>
+                      <span className="text-ink-2">{c.location.freeZoneName ?? 'Yes'}</span>
                     ) : (
-                      <span className="text-ink-2">Mainland</span>
+                      <span className="text-ink-3">Mainland</span>
                     )}
-                  </td>
+                  </Cell>
                 ))}
-              </tr>
+              </Row>
 
-              {/* Student Internships */}
-              <tr>
-                <td className="p-3 font-semibold text-ink-2 bg-slate-50/50 dark:bg-slate-800/50">
-                  Student Programs
-                </td>
-                {comparedCompanies.map(c => (
-                  <td key={c.id} className="p-3">
-                    <div className="space-y-1">
-                      <div className="flex items-center gap-1.5">
-                        {c.internshipsKnown === true ? (
-                          <>
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
-                            <span className="font-semibold text-ink">Internships</span>
-                          </>
-                        ) : (
-                          <span className="text-ink-3">
-                            Internships: {c.internshipsKnown === false ? 'none listed' : 'not confirmed'}
-                          </span>
-                        )}
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        {c.graduateRolesKnown === true ? (
-                          <>
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
-                            <span className="font-semibold text-ink">Graduate Entry</span>
-                          </>
-                        ) : (
-                          <span className="text-ink-3">
-                            Graduate roles: {c.graduateRolesKnown === false ? 'none listed' : 'not confirmed'}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  </td>
+              <Row label="Programmes">
+                {compared.map(c => (
+                  <Cell key={c.id}>
+                    <div>Internships: {programme(c.internshipsKnown)}</div>
+                    <div className="mt-0.5">Graduate: {programme(c.graduateRolesKnown)}</div>
+                  </Cell>
                 ))}
-              </tr>
+              </Row>
 
-              {/* Technical Domains */}
-              <tr>
-                <td className="p-3 font-semibold text-ink-2 bg-slate-50/50 dark:bg-slate-800/50">
-                  Technical Domains
-                </td>
-                {comparedCompanies.map(c => (
-                  <td key={c.id} className="p-3">
-                    <div className="flex flex-wrap gap-1">
-                      {c.technicalAreas.map(t => (
-                        <span key={t} className="px-1.5 py-0.5 rounded-sm bg-surface-2 text-[10px] text-ink-2 border border-line">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </td>
+              <Row label="Tech">
+                {compared.map(c => (
+                  <Cell key={c.id}>
+                    <List items={c.technicalAreas} />
+                  </Cell>
                 ))}
-              </tr>
+              </Row>
 
-              {/* Careers */}
-              <tr>
-                <td className="p-3 font-semibold text-ink-2 bg-slate-50/50 dark:bg-slate-800/50">
-                  Common Roles
-                </td>
-                {comparedCompanies.map(c => (
-                  <td key={c.id} className="p-3">
-                    <div className="flex flex-wrap gap-1">
-                      {c.commonCareers.map(r => (
-                        <span key={r} className="px-1.5 py-0.5 rounded-sm bg-blue-50 dark:bg-blue-900/30 text-[10px] text-brand-800 dark:text-blue-300 border border-blue-100 dark:border-blue-800">
-                          {r}
-                        </span>
-                      ))}
-                    </div>
-                  </td>
+              <Row label="Roles">
+                {compared.map(c => (
+                  <Cell key={c.id}>
+                    <List items={c.commonCareers} />
+                  </Cell>
                 ))}
-              </tr>
+              </Row>
 
-              {/* Action */}
-              <tr>
-                <td className="p-3 font-semibold text-ink-2 bg-slate-50/50 dark:bg-slate-800/50">
-                  Action
-                </td>
-                {comparedCompanies.map(c => (
-                  <td key={c.id} className="p-3">
+              <Row label="">
+                {compared.map(c => (
+                  <Cell key={c.id}>
                     <button
-                      onClick={() => {
-                        setSelectedCompany(c);
-                        setIsCompareModalOpen(false);
-                      }}
-                      className="px-3 py-1.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-sm text-xs transition"
+                      // Leaves the comparison open behind the drawer, so you
+                      // can read one company and come straight back.
+                      onClick={() => setSelectedCompany(c)}
+                      className="text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline underline-offset-2"
                     >
-                      View Full Details
+                      View details →
                     </button>
-                  </td>
+                  </Cell>
                 ))}
-              </tr>
-
+              </Row>
             </tbody>
           </table>
         </div>
-
+        )}
       </div>
     </Modal>
   );

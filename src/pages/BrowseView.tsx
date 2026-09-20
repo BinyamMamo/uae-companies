@@ -1,215 +1,283 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { useApp } from '../context/AppContext';
 import { useIsDesktop } from '../hooks/useMediaQuery';
-import { formatDistance } from '../utils/distance';
 import { CompanyDrawer } from '../components/CompanyDrawer';
 import { CompanyBottomSheet } from '../components/CompanyBottomSheet';
+import { CompanyCardSkeleton } from '../components/ui/CompanyCardSkeleton';
+import { DataError } from '../components/ui/DataError';
+import { BrowseSection, FacetChip, FacetRow } from '../components/ui/Facet';
+import { track } from '../lib/analytics';
+import type { FilterState } from '../types/company';
 import { ArrowRight } from 'lucide-react';
+
+/**
+ * Browse is for when you don't yet know what you're looking for.
+ *
+ * Every slice below is computed from the loaded dataset, so the counts are
+ * always true and an empty bucket is never shown. The previous version listed
+ * hardcoded domains, districts and industries with stale descriptions — one
+ * industry card rendered permanently empty, and the district blurbs made
+ * commute claims that stopped being true as soon as you moved your home pin.
+ */
+
+const COMMUTE_BANDS = [
+  { label: 'Under 30 min', max: 30 },
+  { label: 'Under 45 min', max: 45 },
+  { label: 'Under 1 hour', max: 60 },
+  { label: 'Under 1½ hours', max: 90 },
+];
+
+const TOP_N = 6;
 
 export const BrowseView: React.FC = () => {
   const {
     companies,
+    companiesStatus,
+    reloadCompanies,
     selectedCompany,
     setSelectedCompany,
     setActiveTab,
-    setFilters
+    setFilters,
+    clearFilters,
+    userLocation,
+    setIsSettingsModalOpen,
   } = useApp();
   const isDesktop = useIsDesktop();
+  const [showAllAreas, setShowAllAreas] = useState(false);
+  const [showAllFields, setShowAllFields] = useState(false);
 
-  const handleFilterToCategory = (cat: string) => {
-    setFilters(prev => ({
-      ...prev,
-      companyTypes: [cat],
-      location: 'All locations',
-      area: 'All areas'
-    }));
+  /** Apply a slice and drop the user into the list with it already narrowed. */
+  const applyFilter = (patch: Partial<FilterState>, facet: string, value: string) => {
+    track('filter_applied', { filter: facet, value });
+    clearFilters();
+    setFilters(prev => ({ ...prev, ...patch }));
     setActiveTab('list');
   };
 
-  const handleFilterToArea = (area: string) => {
-    setFilters(prev => ({
-      ...prev,
-      companyTypes: [],
-      location: 'All locations',
-      area: area
-    }));
-    setActiveTab('list');
-  };
+  const facets = useMemo(() => {
+    const tally = (pick: (c: (typeof companies)[number]) => string[]) => {
+      const counts = new Map<string, number>();
+      for (const c of companies) {
+        for (const key of pick(c)) {
+          if (key) counts.set(key, (counts.get(key) ?? 0) + 1);
+        }
+      }
+      return [...counts.entries()]
+        .map(([label, count]) => ({ label, count }))
+        .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+    };
 
-  const handleFilterToIndustry = (industryKeyword: string) => {
-    setFilters(prev => ({
-      ...prev,
-      search: industryKeyword,
-      companyTypes: [],
-      location: 'All locations',
-      area: 'All areas'
-    }));
-    setActiveTab('list');
-  };
+    const areas = tally(c => [c.location.area]).map(a => {
+      const inArea = companies.filter(c => c.location.area === a.label);
+      const median = inArea
+        .map(c => c.commute.busMinutes)
+        .sort((x, y) => x - y)[Math.floor(inArea.length / 2)];
+      return { ...a, meta: median ? `~${median} min` : undefined };
+    });
 
-  const techDomains = [
-    { name: 'AI / Machine Learning', filter: 'AI / Data', desc: 'Computer vision, deep learning, NLP' },
-    { name: 'Software & Cloud', filter: 'Tech / Software', desc: 'Enterprise SaaS, cloud computing, distributed systems' },
-    { name: 'Cybersecurity', filter: 'Cybersecurity', desc: 'SOC, threat intelligence, penetration testing' },
-    { name: 'Embedded & Hardware', filter: 'Hardware / Embedded', desc: 'IoT, microcontrollers, robotics, automation' },
-  ];
+    return {
+      areas,
+      fields: tally(c => c.categories),
+      roles: tally(c => c.commonCareers).slice(0, 10),
+      bands: COMMUTE_BANDS.map(b => ({
+        ...b,
+        count: companies.filter(c => c.commute.busMinutes < b.max).length,
+      })),
+      freeZone: companies.filter(c => c.location.isFreeZone).length,
+      withCareers: companies.filter(c => c.careersUrl).length,
+      verified: companies.filter(c => c.shortDescription).length,
+    };
+  }, [companies]);
 
-  const industrySectors = [
-    { name: 'Aviation & Aerospace', query: 'Aviation' },
-    { name: 'Banking & Fintech', query: 'Bank' },
-    { name: 'Logistics & Supply Chain', query: 'Logistics' },
-    { name: 'Healthcare & Life Sciences', query: 'Health' },
-    { name: 'Retail & E-Commerce', query: 'Retail' },
-  ];
+  if (companiesStatus === 'loading') {
+    return (
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
+        <CompanyCardSkeleton count={4} />
+      </div>
+    );
+  }
 
-  const keyDistricts = [
-    { name: 'Dubai Silicon Oasis', area: 'Silicon Oasis', desc: 'Direct neighbor to Academic City (~15 min bus)' },
-    { name: 'Dubai Internet City', area: 'Dubai Internet City', desc: 'Regional HQ for Microsoft, AWS, Cisco, SAP' },
-    { name: 'Academic City (DIAC)', area: 'Academic City', desc: 'University hub & KSK Student Residence area' },
-    { name: 'DIFC & Downtown', area: 'DIFC', desc: 'Financial capital and top tier tech consulting' },
-    { name: 'Abu Dhabi Capital', area: 'Abu Dhabi areas', desc: 'National energy, banking, and defense research' },
-  ];
+  if (companiesStatus === 'error') {
+    return (
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
+        <DataError onRetry={reloadCompanies} />
+      </div>
+    );
+  }
+
+  const visibleAreas = showAllAreas ? facets.areas : facets.areas.slice(0, TOP_N);
+  const visibleFields = showAllFields ? facets.fields : facets.fields.slice(0, TOP_N);
+  const maxArea = facets.areas[0]?.count ?? 0;
+  const maxField = facets.fields[0]?.count ?? 0;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-8">
-      {/* 1. Technology Domains */}
-      <section>
-        <div className="flex items-center justify-between mb-4 pb-2 border-b border-line">
-          <h2 className="text-sm font-bold text-ink uppercase tracking-wider">
-            Key Technology Domains
-          </h2>
-          <span className="text-xs text-ink-2">For Computer &amp; Technical Majors</span>
-        </div>
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-8">
+      {/* Orientation: what you're browsing, and what the commutes are measured from */}
+      <header className="flex items-baseline justify-between gap-4 flex-wrap">
+        <h1 className="text-lg font-semibold text-ink tracking-tight">
+          Browse
+          <span className="text-ink-3 font-normal"> · {companies.length} companies</span>
+        </h1>
+        <button
+          type="button"
+          onClick={() => setIsSettingsModalOpen(true)}
+          className="text-[11px] text-ink-3 hover:text-ink transition-colors"
+        >
+          from {userLocation.name}
+        </button>
+      </header>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {techDomains.map(domain => {
-            const count = companies.filter(c => 
-              domain.filter === 'Tech / Software' ? c.categories.includes('Tech / Software') :
-              domain.filter === 'AI / Data' ? (c.categories.includes('AI/ML') || c.categories.includes('Data')) :
-              c.categories.includes(domain.filter)
-            ).length;
-
-            return (
-              <div
-                key={domain.name}
-                onClick={() => handleFilterToCategory(domain.filter)}
-                className="bg-surface border border-line hover:border-brand-500 dark:hover:border-brand-500 rounded-lg p-5 shadow-subtle hover:shadow-xs transition cursor-pointer group flex flex-col justify-between"
-              >
-                <div>
-                  <h3 className="text-sm font-bold text-ink group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
-                    {domain.name}
-                  </h3>
-                  <p className="text-xs text-ink-2 mt-1">
-                    {domain.desc}
-                  </p>
-                </div>
-
-                <div className="mt-4 pt-3 border-t border-line flex items-center justify-between text-xs text-brand-600 dark:text-brand-400 font-semibold">
-                  <span>{count} companies</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* 2. Geographic Clusters */}
-      <section>
-        <div className="flex items-center justify-between mb-4 pb-2 border-b border-line">
-          <h2 className="text-sm font-bold text-ink uppercase tracking-wider">
-            Major UAE Employment Hubs
-          </h2>
-          <span className="text-xs text-ink-2">Ordered by transit proximity to Academic City</span>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-          {keyDistricts.map(dist => (
-            <div
-              key={dist.name}
-              onClick={() => handleFilterToArea(dist.area)}
-              className="bg-surface border border-line hover:border-slate-400 dark:hover:border-slate-600 rounded-lg p-4 transition cursor-pointer shadow-subtle group"
+      {/* Commute is the thing this app knows that a job board doesn't — lead with it */}
+      <BrowseSection
+        title="By commute"
+        note="One-way, by bus"
+      >
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          {facets.bands.map(band => (
+            <button
+              key={band.label}
+              type="button"
+              onClick={() =>
+                applyFilter({ busMinutesMax: band.max, sortBy: 'nearest' }, 'commute', band.label)
+              }
+              disabled={band.count === 0}
+              className="group text-left bg-surface border border-line rounded-xl p-4 hover:border-brand-500 transition-colors disabled:opacity-50 disabled:pointer-events-none"
             >
-              <div className="text-xs font-semibold text-ink group-hover:text-brand-600 dark:group-hover:text-brand-400">
-                {dist.name}
+              <div className="text-2xl font-bold text-ink tabular-nums">{band.count}</div>
+              <div className="text-xs text-ink-2 mt-0.5">{band.label}</div>
+              <div
+                className="mt-3 h-1.5 w-full rounded-full bg-surface-2 overflow-hidden"
+                aria-hidden="true"
+              >
+                <div
+                  className="h-full rounded-full bg-brand-600/70 dark:bg-brand-400/60"
+                  style={{
+                    width: `${companies.length ? Math.max(2, (band.count / companies.length) * 100) : 0}%`,
+                  }}
+                />
               </div>
-              <p className="text-[11px] text-ink-2 mt-1 leading-snug">
-                {dist.desc}
-              </p>
-            </div>
+            </button>
           ))}
         </div>
-      </section>
+      </BrowseSection>
 
-      {/* 3. Industry Sectors */}
-      <section>
-        <div className="flex items-center justify-between mb-4 pb-2 border-b border-line">
-          <h2 className="text-sm font-bold text-ink uppercase tracking-wider">
-            Explore by Industry Sector
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {industrySectors.map(sec => {
-            const sectorCompanies = companies.filter(c =>
-              (c.industry ?? '').toLowerCase().includes(sec.query.toLowerCase()) ||
-              c.name.toLowerCase().includes(sec.query.toLowerCase())
-            ).slice(0, 3);
-
-            return (
-              <div
-                key={sec.name}
-                className="bg-surface border border-line rounded-lg p-5 shadow-subtle"
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Where they are */}
+        <BrowseSection title="By district" note={`${facets.areas.length} districts`}>
+          <div className="bg-surface border border-line rounded-xl p-1.5">
+            {visibleAreas.map(area => (
+              <FacetRow
+                key={area.label}
+                label={area.label}
+                count={area.count}
+                max={maxArea}
+                meta={area.meta}
+                onClick={() => applyFilter({ area: area.label }, 'area', area.label)}
+              />
+            ))}
+            {facets.areas.length > TOP_N && (
+              <button
+                type="button"
+                onClick={() => setShowAllAreas(v => !v)}
+                className="w-full px-3 py-2 text-[11px] font-medium text-ink-2 hover:text-ink transition-colors text-left"
               >
-                <div className="flex items-center justify-between mb-3 pb-2 border-b border-line">
-                  <h3 className="text-xs font-bold text-ink">{sec.name}</h3>
-                  <button
-                    onClick={() => handleFilterToIndustry(sec.query)}
-                    className="text-xs text-brand-600 dark:text-brand-400 hover:underline font-medium"
-                  >
-                    View all &rarr;
-                  </button>
-                </div>
+                {showAllAreas
+                  ? 'Show fewer'
+                  : `Show all ${facets.areas.length} districts`}
+              </button>
+            )}
+          </div>
+        </BrowseSection>
 
-                <div className="space-y-2">
-                  {sectorCompanies.length === 0 && (
-                    <p className="text-xs text-ink-3 py-2">No companies in this sector yet.</p>
-                  )}
-                  {sectorCompanies.map(comp => (
-                    <div
-                      key={comp.id}
-                      onClick={() => setSelectedCompany(comp)}
-                      className="flex items-center justify-between p-2 rounded-sm hover:bg-surface-2 cursor-pointer text-xs transition"
-                    >
-                      <span className="font-medium text-ink truncate">{comp.name}</span>
-                      <span className="text-ink-3 text-[11px] shrink-0 ml-2">
-                        {formatDistance(comp.commute.distanceKm)}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
+        {/* What they work on */}
+        <BrowseSection title="By field" note={`${facets.fields.length} fields`}>
+          <div className="bg-surface border border-line rounded-xl p-1.5">
+            {visibleFields.map(field => (
+              <FacetRow
+                key={field.label}
+                label={field.label}
+                count={field.count}
+                max={maxField}
+                onClick={() => applyFilter({ companyTypes: [field.label] }, 'field', field.label)}
+              />
+            ))}
+            {facets.fields.length > TOP_N && (
+              <button
+                type="button"
+                onClick={() => setShowAllFields(v => !v)}
+                className="w-full px-3 py-2 text-[11px] font-medium text-ink-2 hover:text-ink transition-colors text-left"
+              >
+                {showAllFields ? 'Show fewer' : `Show all ${facets.fields.length} fields`}
+              </button>
+            )}
+          </div>
+        </BrowseSection>
+      </div>
 
-      {/* Desktop Drawer */}
-      {selectedCompany && isDesktop && (
-          <CompanyDrawer
-            company={selectedCompany}
-            onClose={() => setSelectedCompany(null)}
-          />
-        )}
-
-      {/* Mobile Bottom Sheet */}
-      {selectedCompany && !isDesktop && (
-          <CompanyBottomSheet
-          company={selectedCompany}
-          onClose={() => setSelectedCompany(null)}
-        />
+      {/* Roles — this is what a student is actually shopping for */}
+      {facets.roles.length > 0 && (
+        <BrowseSection title="By role" note="Roles these companies list">
+          <div className="flex flex-wrap gap-2">
+            {facets.roles.map(role => (
+              <FacetChip
+                key={role.label}
+                label={role.label}
+                count={role.count}
+                onClick={() => applyFilter({ careerFilter: role.label }, 'role', role.label)}
+              />
+            ))}
+          </div>
+        </BrowseSection>
       )}
 
+      {/* Narrowing that doesn't fit the other axes */}
+      <BrowseSection title="Narrow it down">
+        <div className="flex flex-wrap gap-2">
+          <FacetChip
+            label="In a free zone"
+            count={facets.freeZone}
+            onClick={() => applyFilter({ isFreeZoneOnly: true }, 'freezone', 'true')}
+          />
+          {facets.withCareers > 0 && (
+            <FacetChip
+              label="Has a careers page"
+              count={facets.withCareers}
+              onClick={() => applyFilter({ hasCareersUrl: true }, 'has_careers', 'true')}
+            />
+          )}
+          <FacetChip
+            label="Details verified"
+            count={facets.verified}
+            onClick={() => applyFilter({ verifiedOnly: true }, 'verified', 'true')}
+          />
+        </div>
+        <p className="text-[11px] text-ink-3 mt-2.5 leading-relaxed max-w-xl">
+          {facets.verified} of {companies.length} companies have details confirmed against a
+          source so far. The rest carry their original listing and are marked unverified.
+        </p>
+      </BrowseSection>
+
+      {/* Straight to the full list */}
+      <div>
+        <button
+          type="button"
+          onClick={() => {
+            clearFilters();
+            setActiveTab('list');
+          }}
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline underline-offset-2"
+        >
+          <span>See all {companies.length} companies</span>
+          <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+        </button>
+      </div>
+
+      {selectedCompany && isDesktop && (
+        <CompanyDrawer company={selectedCompany} onClose={() => setSelectedCompany(null)} />
+      )}
+      {selectedCompany && !isDesktop && (
+        <CompanyBottomSheet company={selectedCompany} onClose={() => setSelectedCompany(null)} />
+      )}
     </div>
   );
 };

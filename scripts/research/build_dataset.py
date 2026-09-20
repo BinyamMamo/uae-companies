@@ -69,6 +69,13 @@ CATEGORY_ALIASES = {
     "real estate": "Real Estate",
     "education": "Education",
     "iot": "IoT",
+    "web": "Web / Digital",
+    "embedded": "Hardware / Embedded",
+    "devops": "Cloud",
+    "ai/ml": "AI / ML",
+    "machine learning": "AI / ML",
+    "security": "Cybersecurity",
+    "finance": "Banking / Fintech",
 }
 
 

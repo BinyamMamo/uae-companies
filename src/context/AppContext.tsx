@@ -86,8 +86,11 @@ const initialFilters: FilterState = {
   location: 'All locations',
   area: 'All areas',
   distanceMax: null,
+  busMinutesMax: null,
   isFreeZoneOnly: null,
   careerFilter: null,
+  hasCareersUrl: false,
+  verifiedOnly: false,
   sortBy: 'nearest',
 };
 
@@ -482,6 +485,17 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       if (filters.isFreeZoneOnly !== null) {
         if (company.location.isFreeZone !== filters.isFreeZoneOnly) return false;
       }
+
+      // Max bus commute, in minutes
+      if (filters.busMinutesMax !== null) {
+        if (company.commute.busMinutes >= filters.busMinutesMax) return false;
+      }
+
+      // Only companies with a careers page we actually found
+      if (filters.hasCareersUrl && !company.careersUrl) return false;
+
+      // Only companies whose details are backed by a source
+      if (filters.verifiedOnly && !company.shortDescription) return false;
 
       // Specific career role filter
       if (filters.careerFilter) {

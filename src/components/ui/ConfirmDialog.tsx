@@ -33,8 +33,8 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
       onClose={onCancel}
       label={title}
       initialFocusRef={cancelRef}
-      className="fixed inset-0 z-10001 flex items-center justify-center p-4"
-      backdropClassName="fixed inset-0 z-10000 bg-slate-900/40 dark:bg-black/70 backdrop-blur-xs animate-fade-in"
+      className="fixed inset-0 z-10021 flex items-center justify-center p-4"
+      backdropClassName="fixed inset-0 z-10020 bg-slate-900/40 dark:bg-black/70 backdrop-blur-xs animate-fade-in"
     >
       <div className="bg-surface border border-line rounded-xl shadow-popup max-w-sm w-full p-5 animate-slide-up">
         <div className="flex items-start gap-3">

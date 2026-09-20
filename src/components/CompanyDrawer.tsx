@@ -212,8 +212,8 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
       open
       onClose={onClose}
       label={`${company.name} details`}
-      className="fixed inset-y-0 right-0 z-9999 w-full max-w-lg flex flex-col animate-slide-in-right"
-      backdropClassName="fixed inset-0 z-9998 bg-slate-900/20 dark:bg-black/60 backdrop-blur-xs animate-fade-in"
+      className="fixed inset-y-0 right-0 z-10011 w-full max-w-lg flex flex-col animate-slide-in-right"
+      backdropClassName="fixed inset-0 z-10010 bg-slate-900/20 dark:bg-black/60 backdrop-blur-xs animate-fade-in"
     >
       <aside className="h-full w-full bg-surface border-l border-line shadow-[-4px_0_24px_rgba(0,0,0,0.06)] ring-1 ring-slate-900/5 dark:ring-0 dark:shadow-[-20px_0_56px_rgba(0,0,0,0.75)] flex flex-col transition-colors duration-200 ease-out">
       {/* Drawer Header */}

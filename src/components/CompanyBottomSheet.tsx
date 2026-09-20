@@ -43,8 +43,8 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
       open
       onClose={onClose}
       label={`${company.name} details`}
-      className="fixed inset-0 z-9999 flex flex-col justify-end md:hidden pointer-events-none"
-      backdropClassName="fixed inset-0 z-9998 bg-slate-900/50 dark:bg-black/60 backdrop-blur-xs md:hidden animate-fade-in"
+      className="fixed inset-0 z-10011 flex flex-col justify-end md:hidden pointer-events-none"
+      backdropClassName="fixed inset-0 z-10010 bg-slate-900/50 dark:bg-black/60 backdrop-blur-xs md:hidden animate-fade-in"
     >
       <div className="bg-surface rounded-t-2xl max-h-[88dvh] flex flex-col shadow-drawer border-t border-line overflow-hidden pointer-events-auto animate-slide-up">
         {/* Drag handle */}

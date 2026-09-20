@@ -10,7 +10,6 @@ import { SearchX, Search, X, Scale } from 'lucide-react';
 import { track } from '../lib/analytics';
 import { CompanyCardSkeleton } from '../components/ui/CompanyCardSkeleton';
 import { DataError } from '../components/ui/DataError';
-import { useToast } from '../components/ui/Toast';
 import type { FilterState } from '../types/company';
 
 export const ListView: React.FC = () => {
@@ -28,7 +27,6 @@ export const ListView: React.FC = () => {
     reloadCompanies
   } = useApp();
   const isDesktop = useIsDesktop();
-  const { toast } = useToast();
 
   const sortOptions = [
     { value: 'nearest', label: 'Nearest' },
@@ -95,10 +93,6 @@ export const ListView: React.FC = () => {
               <button
                 type="button"
                 onClick={() => {
-                  if (compareCompanyIds.length === 0) {
-                    toast('Add companies to compare using the scales icon on a card.');
-                    return;
-                  }
                   track('compare_opened', { company_count: compareCompanyIds.length });
                   setIsCompareModalOpen(true);
                 }}

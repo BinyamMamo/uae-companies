@@ -61,8 +61,8 @@ export const Modal: React.FC<ModalProps> = ({
   label,
   labelledBy,
   children,
-  className = 'fixed inset-0 z-9999 flex items-center justify-center p-4',
-  backdropClassName = 'fixed inset-0 z-9998 bg-slate-900/30 dark:bg-black/60 backdrop-blur-xs animate-fade-in',
+  className = 'fixed inset-0 z-10000 flex items-center justify-center p-4',
+  backdropClassName = 'fixed inset-0 z-9999 bg-slate-900/30 dark:bg-black/60 backdrop-blur-xs animate-fade-in',
   closeOnBackdrop = true,
   initialFocusRef,
 }) => {

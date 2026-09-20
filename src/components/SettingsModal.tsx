@@ -20,7 +20,6 @@ import {
 import { Modal } from './ui/Modal';
 import { useToast } from './ui/Toast';
 import { ConfirmDialog } from './ui/ConfirmDialog';
-import { ACCENT_THEMES } from '../utils/accentThemes';
 import { geocode, GeocodeError } from '../utils/geocode';
 
 const SUGGESTED_DOMAINS = [
@@ -94,7 +93,7 @@ export const SettingsModal: React.FC = () => {
     savedCompanyIds,
     savedLists
   } = useApp();
-  const { theme, toggleTheme, accentColor, setAccentColor } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
   const [customInterestInput, setCustomInterestInput] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
@@ -395,41 +394,7 @@ export const SettingsModal: React.FC = () => {
 
           <div className="border-t border-line" />
 
-          {/* 2. Accent colour — 15 palettes lived in accentThemes.ts with no UI
-              to reach them; the accent could only be changed by hand-editing
-              localStorage. */}
-          <div className="py-1">
-            <div className="flex items-center justify-between mb-2.5">
-              <span className="text-xs font-semibold text-ink">Accent Colour</span>
-              <span className="text-[11px] text-ink-3">
-                {ACCENT_THEMES.find(t => t.id === accentColor)?.name ?? 'Blue'}
-              </span>
-            </div>
-            <div role="radiogroup" aria-label="Accent colour" className="flex flex-wrap gap-2">
-              {ACCENT_THEMES.map(t => {
-                const selected = t.id === accentColor;
-                return (
-                  <button
-                    key={t.id}
-                    type="button"
-                    role="radio"
-                    aria-checked={selected}
-                    aria-label={t.name}
-                    title={t.name}
-                    onClick={() => setAccentColor(t.id)}
-                    className={`w-7 h-7 rounded-full border-2 transition-transform hover:scale-110 ${
-                      selected
-                        ? 'border-ink scale-110'
-                        : 'border-transparent ring-1 ring-line'
-                    }`}
-                    style={{ backgroundColor: t.colorHex }}
-                  />
-                );
-              })}
-            </div>
-          </div>
 
-          <div className="border-t border-line" />
 
           {/* 2. Home Address with Search & Interactive Map */}
           <div className="space-y-3">

@@ -3,7 +3,7 @@ import { useApp } from '../context/AppContext';
 import { useTheme } from '../context/ThemeContext';
 import { ProfileMenu } from './ProfileMenu';
 import { Logo } from './ui/Logo';
-import { SlidersHorizontal, Scale, Sun, Moon, Settings } from 'lucide-react';
+import { SlidersHorizontal, Sun, Moon, Settings } from 'lucide-react';
 
 type TabId = 'list' | 'browse' | 'featured' | 'map' | 'saved';
 
@@ -20,8 +20,6 @@ export const Header: React.FC = () => {
     activeTab,
     setActiveTab,
     savedCompanyIds,
-    compareCompanyIds,
-    setIsCompareModalOpen,
     setIsMobileFilterOpen,
     setIsSettingsModalOpen,
   } = useApp();
@@ -107,20 +105,6 @@ export const Header: React.FC = () => {
 
         {/* Right: actions */}
         <div className="flex items-center justify-end gap-1 sm:gap-1.5">
-          {compareCompanyIds.length > 0 && (
-            <button
-              onClick={() => setIsCompareModalOpen(true)}
-              className="flex items-center gap-1 px-2 py-1.5 text-xs font-medium text-ink-2 bg-surface-2 hover:bg-surface-3 rounded-md border border-line transition-colors"
-              aria-label={`Compare ${compareCompanyIds.length} selected companies`}
-            >
-              <Scale className="w-3.5 h-3.5" aria-hidden="true" />
-              <span className="hidden sm:inline">Compare</span>
-              <span className="bg-brand-600 text-white rounded-full px-1.5 py-0.5 text-[11px] font-bold">
-                {compareCompanyIds.length}
-              </span>
-            </button>
-          )}
-
           <button
             onClick={toggleTheme}
             className="p-2 rounded-md text-ink-2 hover:text-ink hover:bg-surface-2 transition-colors"

@@ -57,7 +57,7 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         old toast was a plain div and was never announced at all.
       */}
       <div
-        className="fixed bottom-4 left-1/2 -translate-x-1/2 z-10001 flex flex-col items-center gap-2 px-4 w-full max-w-sm pointer-events-none"
+        className="fixed bottom-4 left-1/2 -translate-x-1/2 z-10030 flex flex-col items-center gap-2 px-4 w-full max-w-sm pointer-events-none"
         role="status"
         aria-live="polite"
         aria-atomic="false"
