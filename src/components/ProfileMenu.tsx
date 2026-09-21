@@ -3,8 +3,7 @@ import {
   User as UserIcon,
   LogOut,
   Settings as SettingsIcon,
-  Bookmark,
-  Sparkles,
+  Compass,
   Loader2,
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
@@ -13,13 +12,12 @@ import { useConfirm } from '../hooks/useConfirm';
 import { GoogleMark } from './ui/GoogleMark';
 
 interface ProfileMenuProps {
-  onOpenSaved: () => void;
   onOpenInterests: () => void;
 }
 
-export const ProfileMenu: React.FC<ProfileMenuProps> = ({ onOpenSaved, onOpenInterests }) => {
+export const ProfileMenu: React.FC<ProfileMenuProps> = ({ onOpenInterests }) => {
   const { configured, user, loading, error, signIn, signOut } = useAuth();
-  const { setIsSettingsModalOpen, savedCompanyIds, userInterests } = useApp();
+  const { setIsSettingsModalOpen, userInterests } = useApp();
   const confirm = useConfirm();
   const [open, setOpen] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -150,16 +148,8 @@ export const ProfileMenu: React.FC<ProfileMenuProps> = ({ onOpenSaved, onOpenInt
           )}
 
           <div className="py-1">
-            <button role="menuitem" className={item} onClick={run(onOpenSaved)}>
-              <Bookmark className="w-4 h-4 shrink-0" aria-hidden="true" />
-              <span className="flex-1">Saved</span>
-              <span className="text-[11px] text-ink-3 tabular-nums">
-                {savedCompanyIds.length}
-              </span>
-            </button>
-
             <button role="menuitem" className={item} onClick={run(onOpenInterests)}>
-              <Sparkles className="w-4 h-4 shrink-0" aria-hidden="true" />
+              <Compass className="w-4 h-4 shrink-0" aria-hidden="true" />
               <span className="flex-1">Interests</span>
               <span className="text-[11px] text-ink-3 tabular-nums">{userInterests.length}</span>
             </button>

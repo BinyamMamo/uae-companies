@@ -3,15 +3,14 @@ import { useApp } from '../context/AppContext';
 import { useTheme } from '../context/ThemeContext';
 import { ProfileMenu } from './ProfileMenu';
 import { Logo } from './ui/Logo';
-import { SlidersHorizontal, Sun, Moon, Settings } from 'lucide-react';
+import { SlidersHorizontal, Sun, Moon, Settings, Bookmark } from 'lucide-react';
 
-type TabId = 'list' | 'featured' | 'map' | 'saved';
+type TabId = 'list' | 'featured' | 'map';
 
 const NAV_ITEMS: Array<{ id: TabId; label: string }> = [
   { id: 'list', label: 'List' },
   { id: 'featured', label: 'Featured' },
   { id: 'map', label: 'Map' },
-  { id: 'saved', label: 'Saved' },
 ];
 
 interface HeaderProps {
@@ -43,17 +42,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSaved, onOpenInterests }) 
         }`}
       >
         <span>{item.label}</span>
-        {item.id === 'saved' && savedCompanyIds.length > 0 && (
-          <span
-            className={`text-[11px] font-bold px-1.5 py-0.5 rounded-full transition-colors ${
-              isActive
-                ? 'bg-brand-600 dark:bg-brand-500 text-white'
-                : 'bg-surface-2 text-ink-2'
-            }`}
-          >
-            {savedCompanyIds.length}
-          </span>
-        )}
         {isActive && (
           <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-600 dark:bg-brand-500 rounded-t-sm" />
         )}
@@ -124,7 +112,25 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSaved, onOpenInterests }) 
             <Settings className="w-4 h-4" aria-hidden="true" />
           </button>
 
-          <ProfileMenu onOpenSaved={onOpenSaved} onOpenInterests={onOpenInterests} />
+          {/* Saved replaces the old nav tab; the badge carries the count. */}
+          <button
+            onClick={onOpenSaved}
+            className="relative p-2 rounded-md text-ink-2 hover:text-ink hover:bg-surface-2 transition-colors"
+            aria-label={
+              savedCompanyIds.length > 0
+                ? `Saved companies (${savedCompanyIds.length})`
+                : 'Saved companies'
+            }
+          >
+            <Bookmark className="w-4 h-4" aria-hidden="true" />
+            {savedCompanyIds.length > 0 && (
+              <span className="absolute -top-0.5 -right-0.5 min-w-[1.05rem] h-[1.05rem] px-1 rounded-full bg-brand-600 text-white text-[10px] font-bold leading-[1.05rem] text-center tabular-nums">
+                {savedCompanyIds.length > 99 ? '99+' : savedCompanyIds.length}
+              </span>
+            )}
+          </button>
+
+          <ProfileMenu onOpenInterests={onOpenInterests} />
         </div>
       </div>
 

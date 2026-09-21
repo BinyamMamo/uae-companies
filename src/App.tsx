@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AppProvider, useApp } from './context/AppContext';
 import { Header } from './components/Header';
 import { ListView } from './pages/ListView';
 import { FeaturedView } from './pages/FeaturedView';
 import { MapView } from './pages/MapView';
-import { SavedView } from './pages/SavedView';
 import { ComparisonModal } from './components/ComparisonModal';
 import { SettingsModal } from './components/SettingsModal';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
@@ -17,9 +16,16 @@ import { SavedModal } from './components/SavedModal';
 import { InterestsModal } from './components/InterestsModal';
 
 const AppContent: React.FC = () => {
-  const { activeTab, companies } = useApp();
+  const { activeTab, companies, sharedListArrived, setSharedListArrived } = useApp();
   const [isSavedModalOpen, setIsSavedModalOpen] = useState(false);
   const [isInterestsOpen, setIsInterestsOpen] = useState(false);
+
+  // A ?share_ids= link adds a list; reveal it rather than leaving it hidden.
+  useEffect(() => {
+    if (!sharedListArrived) return;
+    setIsSavedModalOpen(true);
+    setSharedListArrived(false);
+  }, [sharedListArrived, setSharedListArrived]);
 
   return (
     <div className="min-h-screen flex flex-col bg-app text-ink font-sans selection:bg-brand-100 selection:text-brand-900 transition-colors duration-150">
@@ -35,7 +41,6 @@ const AppContent: React.FC = () => {
         {activeTab === 'list' && <ListView />}
         {activeTab === 'featured' && <FeaturedView />}
         {activeTab === 'map' && <MapView />}
-        {activeTab === 'saved' && <SavedView />}
       </div>
 
       {/* Comparison Modal */}

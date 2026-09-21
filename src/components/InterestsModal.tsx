@@ -88,7 +88,7 @@ export const InterestsModal: React.FC<InterestsModalProps> = ({ open, onClose })
               <button
                 type="button"
                 onClick={() => setUserInterests([])}
-                className="text-slate-400 hover:text-red-600 text-[11px] transition"
+                className="text-ink-2 hover:text-red-600 dark:hover:text-red-400 text-[11px] font-medium transition"
               >
                 Clear
               </button>

@@ -21,9 +21,11 @@ import { Bookmark, Check, Pencil, Plus, Search, Share2, Trash2, X } from 'lucide
 interface SavedListsPanelProps {
   /** Modal variant sizes to its container instead of the page. */
   variant?: 'page' | 'modal';
+  /** When given, the panel header shows a close button — the modal has no title bar of its own. */
+  onClose?: () => void;
 }
 
-export const SavedListsPanel: React.FC<SavedListsPanelProps> = ({ variant = 'page' }) => {
+export const SavedListsPanel: React.FC<SavedListsPanelProps> = ({ variant = 'page', onClose }) => {
   const {
     companies,
     savedLists,
@@ -323,6 +325,17 @@ export const SavedListsPanel: React.FC<SavedListsPanelProps> = ({ variant = 'pag
                 >
                   <Share2 className="w-3.5 h-3.5" aria-hidden="true" />
                   <span className="hidden sm:inline">Share</span>
+                </button>
+              )}
+
+              {onClose && (
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="p-1.5 rounded-md text-ink-3 hover:text-ink hover:bg-surface-2 transition-colors"
+                  aria-label="Close saved companies"
+                >
+                  <X className="w-4 h-4" aria-hidden="true" />
                 </button>
               )}
             </div>
