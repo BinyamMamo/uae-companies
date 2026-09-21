@@ -202,7 +202,7 @@ export const ComparisonModal: React.FC = () => {
                 {compared.map(c => (
                   <th key={c.id} scope="col" className="py-5 pr-6 text-left min-w-[190px] align-top">
                     <div className="flex items-start gap-2.5">
-                      <CompanyLogo name={c.name} src={c.logo} size="xs" />
+                      <CompanyLogo name={c.name} src={c.logo} background={c.logoBackground} size="xs" />
                       <div className="min-w-0 flex-1">
                         <div className="text-sm font-semibold text-ink leading-snug">{c.name}</div>
                         <button

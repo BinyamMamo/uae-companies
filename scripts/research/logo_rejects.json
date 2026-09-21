@@ -1,0 +1,15 @@
+{
+  "_note": [
+    "Logos a company's own site served that are not that company's mark.",
+    "Checked by eye on a rendered contact sheet. Keyed by company id so a",
+    "re-scrape cannot quietly reintroduce them.",
+    "Most are a partner's or a customer's logo sitting on the page, which no",
+    "automated rule reliably tells apart from the site's own."
+  ],
+  "chep": "serves Coca-Cola's logo, a customer",
+  "ellucian": "serves Olivet Nazarene University's logo, a customer",
+  "gargash-group": "serves the Mercedes-Benz star, a brand they retail",
+  "loreal-middle-east": "serves a campaign photograph, not a mark",
+  "al-ghurair": "serves the Jenan product brand rather than the group's mark",
+  "meraas": "serves a generic icon that is not identifiable as theirs"
+}

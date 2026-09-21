@@ -170,6 +170,18 @@ LINKEDIN_LIVE = {
     if verdict == "exists"
 }
 
+# Logos drawn in white for a dark header: real marks that need a dark tile.
+BG_PATH = ROOT / "scripts/research/logo_backgrounds.json"
+LOGO_BACKGROUNDS = (
+    {
+        k: v
+        for k, v in json.loads(BG_PATH.read_text(encoding="utf-8")).items()
+        if not k.startswith("_")
+    }
+    if BG_PATH.exists()
+    else {}
+)
+
 CORRECTIONS = json.loads(
     (ROOT / "scripts/research/corrections.json").read_text(encoding="utf-8")
 )
@@ -439,6 +451,8 @@ def build(seed, audit, verified):
             "website": website,
             "careersUrl": careers,
             "logo": logo,
+            # "dark" when the mark only reads on a dark tile; null otherwise.
+            "logoBackground": LOGO_BACKGROUNDS.get(c["id"]) if logo else None,
             # 22 stock photos recycled across 225 companies signalled nothing.
             "bannerImage": v.get("bannerImage"),
             "technicalAreas": tech_list,

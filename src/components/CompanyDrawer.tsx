@@ -112,7 +112,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
 
         {/* Company Title & Logo */}
         <div className="flex items-start gap-3.5 pr-12">
-          <CompanyLogo name={company.name} src={company.logo} size="lg" />
+          <CompanyLogo name={company.name} src={company.logo} background={company.logoBackground} size="lg" />
           <div className="min-w-0 flex-1">
             <h2 className="text-lg font-bold text-ink leading-snug truncate">
               {company.name}
@@ -519,7 +519,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
                 className="p-3.5 border border-line rounded-lg bg-white dark:bg-slate-800 hover:border-brand-500 hover:shadow-subtle cursor-pointer transition flex items-center justify-between"
               >
                 <div className="flex items-center gap-3">
-                  <CompanyLogo name={sim.name} src={sim.logo} size="sm" />
+                  <CompanyLogo name={sim.name} src={sim.logo} background={sim.logoBackground} size="sm" />
                   <div>
                     <h4 className="text-xs font-semibold text-ink">{sim.name}</h4>
                     <span className="text-[11px] text-ink-2">{sim.categories.slice(0, 2).join(' · ')}</span>

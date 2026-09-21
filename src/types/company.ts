@@ -71,6 +71,8 @@ export interface Company {
   careersUrl: string | null;
   /** Null falls back to a monogram tile rather than a generated avatar. */
   logo: string | null;
+  /** 'dark' when the mark is white and needs a dark tile to be visible. */
+  logoBackground?: 'dark' | null;
   bannerImage?: string | null;
   technicalAreas: string[];
   commonCareers: string[];

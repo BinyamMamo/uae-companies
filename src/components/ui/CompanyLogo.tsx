@@ -14,6 +14,12 @@ interface CompanyLogoProps {
   src?: string | null;
   size?: Size;
   className?: string;
+  /**
+   * 'dark' for a mark drawn in white for a dark header. Those are the company's
+   * real logo and were previously discarded for being invisible; the tile goes
+   * dark for them instead, in both themes, since the mark itself does not adapt.
+   */
+  background?: 'dark' | null;
 }
 
 /**
@@ -28,6 +34,7 @@ export const CompanyLogo: React.FC<CompanyLogoProps> = ({
   src,
   size = 'md',
   className = '',
+  background = null,
 }) => {
   const [failed, setFailed] = useState(false);
   const s = SIZES[size];
@@ -35,7 +42,11 @@ export const CompanyLogo: React.FC<CompanyLogoProps> = ({
 
   return (
     <div
-      className={`${s.box} ${s.pad} rounded-md border border-line bg-surface-2 flex items-center justify-center shrink-0 overflow-hidden ${className}`}
+      className={`${s.box} ${s.pad} rounded-md border flex items-center justify-center shrink-0 overflow-hidden ${
+        background === 'dark' && src && !failed
+          ? 'bg-zinc-900 border-zinc-800'
+          : 'bg-surface-2 border-line'
+      } ${className}`}
     >
       {src && !failed ? (
         <img

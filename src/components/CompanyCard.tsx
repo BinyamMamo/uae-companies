@@ -47,7 +47,7 @@ const CompanyCardComponent: React.FC<CompanyCardProps> = ({ company, isSelected 
       }`}
     >
       <div className="flex items-start gap-3 sm:gap-4">
-        <CompanyLogo name={company.name} src={company.logo} size="md" className="sm:w-12 sm:h-12" />
+        <CompanyLogo name={company.name} src={company.logo} background={company.logoBackground} size="md" className="sm:w-12 sm:h-12" />
 
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-3">

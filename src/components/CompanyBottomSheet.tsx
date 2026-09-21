@@ -88,7 +88,7 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
         <div className="p-4 border-b border-line">
           <div className="flex items-start justify-between gap-3">
             <div className="flex items-start gap-3">
-              <CompanyLogo name={company.name} src={company.logo} size="md" />
+              <CompanyLogo name={company.name} src={company.logo} background={company.logoBackground} size="md" />
               <div>
                 <h3 className="text-base font-bold text-ink leading-tight">
                   {company.name}
@@ -246,7 +246,7 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
                   }}
                   className="w-full p-3 border border-line rounded-lg bg-surface text-left flex items-center gap-3 active:bg-surface-2 transition-colors"
                 >
-                  <CompanyLogo name={sim.name} src={sim.logo} size="sm" />
+                  <CompanyLogo name={sim.name} src={sim.logo} background={sim.logoBackground} size="sm" />
                   <span className="min-w-0 flex-1">
                     <span className="block font-semibold text-ink truncate">{sim.name}</span>
                     <span className="block text-ink-2 truncate">

@@ -6,8 +6,9 @@ import { EXPLORABLE_INTERESTS, calculateStudentFitScore, DEFAULT_STUDENT_INTERES
 import { formatDistance } from '../utils/distance';
 import { CompanyDrawer } from '../components/CompanyDrawer';
 import { CompanyBottomSheet } from '../components/CompanyBottomSheet';
-import { MapPin, Bookmark, Sparkles } from 'lucide-react';
+import { MapPin, Sparkles } from 'lucide-react';
 import { CompanyLogo } from '../components/ui/CompanyLogo';
+import { SaveToListButton } from '../components/SaveToListButton';
 
 export const FeaturedView: React.FC = () => {
   const {
@@ -16,8 +17,6 @@ export const FeaturedView: React.FC = () => {
     setSelectedCompany,
     userInterests,
     setUserInterests,
-    toggleSaveCompany,
-    isCompanySaved,
     resetInterests
   } = useApp();
   const isDesktop = useIsDesktop();
@@ -103,7 +102,6 @@ export const FeaturedView: React.FC = () => {
         )}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {rankedCompanies.map(company => {
-            const isSaved = isCompanySaved(company.id);
 
             return (
               <div
@@ -115,7 +113,7 @@ export const FeaturedView: React.FC = () => {
                   {/* Card Header: Logo, Name, Bookmark */}
                   <div className="flex items-start justify-between gap-2.5">
                     <div className="flex items-start gap-3">
-                      <CompanyLogo name={company.name} src={company.logo} size="sm" />
+                      <CompanyLogo name={company.name} src={company.logo} background={company.logoBackground} size="sm" />
                       <div>
                         <h3 className="text-sm font-semibold text-ink group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                           {company.name}
@@ -126,17 +124,7 @@ export const FeaturedView: React.FC = () => {
                       </div>
                     </div>
 
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        toggleSaveCompany(company.id);
-                      }}
-                      className={`p-1.5 rounded transition ${ isSaved ? 'text-brand-600 dark:text-brand-400 bg-blue-50 dark:bg-blue-900/30' : 'text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800' }`}
-                      aria-label={isSaved ? `Unsave ${company.name}` : `Save ${company.name}`}
-                    >
-                      <Bookmark className={`w-4 h-4 ${isSaved ? 'fill-brand-600 dark:fill-brand-400' : ''}`} />
-                    </button>
+                    <SaveToListButton companyId={company.id} companyName={company.name} />
                   </div>
 
                   {/* Location & Commute */}

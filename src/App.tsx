@@ -3,7 +3,7 @@ import { AppProvider, useApp } from './context/AppContext';
 import { Header, MobileNavBar } from './components/Header';
 import { CompareBar } from './components/CompareBar';
 import { LocationPrompt } from './components/LocationPrompt';
-import { SocialLinks } from './components/ui/SocialLinks';
+import { SocialLinks, PROJECT_REPO } from './components/ui/SocialLinks';
 import { ListView } from './pages/ListView';
 
 const MapView = lazy(() => import('./pages/MapView').then(m => ({ default: m.MapView })));
@@ -34,7 +34,6 @@ import { GoogleOneTap } from './components/GoogleOneTap';
 const AppContent: React.FC = () => {
   const {
     activeTab,
-    companies,
     sharedListArrived,
     setSharedListArrived,
     isCompareModalOpen,
@@ -92,16 +91,26 @@ const AppContent: React.FC = () => {
       {/* Subtle Minimal Footer (omitted on Map view for maximum canvas height) */}
       {activeTab !== 'map' && (
         <footer className="mt-auto border-t border-line bg-app py-6 text-ink-2 transition-colors duration-150">
-          {/*
-            On phones this stacks and drops the dot separators, inline they
-            wrapped mid-phrase ("225 / companies") with dots stranded on their
-            own line.
-          */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 text-xs">
-            <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-2">
-              <span className="font-semibold text-ink">Where to work in the UAE</span>
-              <span className="hidden sm:inline" aria-hidden="true">·</span>
-              <span>{companies.length} companies</span>
+          {/* Stacks on phones: inline, these wrapped mid-phrase with the dot
+              separators stranded on their own line. */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs">
+            <div className="flex flex-col gap-1">
+              <span className="font-semibold text-ink">Find your place in the UAE</span>
+              <span className="flex flex-wrap items-center gap-x-2 gap-y-1 text-ink-3">
+                <span>© {new Date().getFullYear()} Binyam Mamo</span>
+                <span aria-hidden="true">·</span>
+                <a
+                  href={PROJECT_REPO}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-ink transition-colors"
+                >
+                  Open source
+                </a>
+                <span aria-hidden="true">·</span>
+                {/* The claim the whole project rests on, so it is stated here. */}
+                <span>Company details are sourced, not generated</span>
+              </span>
             </div>
             <div className="flex items-center sm:justify-end">
               <SocialLinks className="-mr-2" />

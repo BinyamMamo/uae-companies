@@ -367,7 +367,7 @@ export const SavedListsPanel: React.FC<SavedListsPanelProps> = ({ variant = 'pag
                   key={company.id}
                   className="group flex items-center gap-3 px-4 sm:px-5 py-3 hover:bg-surface-2 transition-colors"
                 >
-                  <CompanyLogo name={company.name} src={company.logo} size="sm" />
+                  <CompanyLogo name={company.name} src={company.logo} background={company.logoBackground} size="sm" />
 
                   <button
                     type="button"

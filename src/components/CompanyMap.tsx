@@ -525,7 +525,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
               className="flex items-start gap-3 cursor-pointer flex-1 min-w-0"
               onClick={() => onSelectCompanyRef.current(activePopupCompany)}
             >
-              <CompanyLogo name={activePopupCompany.name} src={activePopupCompany.logo} size="sm" />
+              <CompanyLogo name={activePopupCompany.name} src={activePopupCompany.logo} background={activePopupCompany.logoBackground} size="sm" />
               <div className="flex-1 min-w-0">
                 <h4 className="text-sm font-bold text-ink truncate">
                   {activePopupCompany.name}
