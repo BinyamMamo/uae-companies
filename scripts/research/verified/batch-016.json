@@ -1,0 +1,378 @@
+[
+  {
+    "id": "inditech-middle-east",
+    "website": "https://www.inditechme.com",
+    "websiteSource": "https://www.yellowpages.ae",
+    "careersUrl": "https://www.inditechme.com/career/",
+    "careersSource": "https://www.inditechme.com/career/",
+    "shortDescription": "Inditech Middle East is a retail IT and electronic security solutions provider based in Dubai.",
+    "whatTheyDo": "The company provides Point of Sale (POS) software, retail analytics, shopping mall footfall tracking, and SIRA-approved CCTV security systems. It serves retail chains, shopping centres, and commercial enterprises across the UAE and GCC.",
+    "descriptionSource": "https://www.kompass.com",
+    "industry": "Information Technology",
+    "commonCareers": [],
+    "technicalAreas": [
+      "Point of Sale (POS) Systems",
+      "Retail Analytics",
+      "CCTV & Electronic Security",
+      "IT Infrastructure"
+    ],
+    "address": "Suite 107, 109 & 208, Al Khaleej Building, Near Karama Park, Karama, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.yellowpages.ae",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Yellow Pages UAE - Inditech Middle East",
+        "url": "https://www.yellowpages.ae"
+      },
+      {
+        "title": "Kompass - Inditech Middle East Profile",
+        "url": "https://www.kompass.com"
+      }
+    ],
+    "notes": "Input specified Al Quoz, but business registries and the company address locate Inditech Middle East in Al Karama, Dubai."
+  },
+  {
+    "id": "instinctif-partners",
+    "website": "https://instinctif.com",
+    "websiteSource": "https://www.consultancy-me.com",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "Instinctif Partners (operating regionally as IP Excellera) is an international strategic communications and public relations consultancy with an office in Dubai.",
+    "whatTheyDo": "The firm advises corporate, government, and financial sector clients on strategic communications, capital markets, investor relations, and reputation management. Its Middle East operations cover the UAE and Saudi Arabia.",
+    "descriptionSource": "https://www.consultancy-me.com",
+    "industry": "Strategic Communications & Public Relations",
+    "commonCareers": [
+      "Associate",
+      "Consultant",
+      "Account Executive"
+    ],
+    "careersEvidence": "https://www.consultancy-me.com",
+    "technicalAreas": [
+      "Strategic Communications",
+      "Investor Relations",
+      "Capital Markets Communications",
+      "Reputation Management"
+    ],
+    "address": "Office 3105, Indigo Icon Tower, Cluster F, Jumeirah Lakes Towers (JLT), Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.waze.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Consultancy Middle East - Instinctif Partners MENA",
+        "url": "https://www.consultancy-me.com"
+      },
+      {
+        "title": "Legal Community MENA - Excellera acquires Instinctif Partners MENA",
+        "url": "https://www.legalcommunitymena.com"
+      }
+    ],
+    "notes": "Input specified Dubai Internet City, but Instinctif Partners' Dubai office is located in Indigo Icon Tower, Cluster F, JLT. The Internet City association in public documents stems from client PR announcements regarding properties in Dubai Internet City. Instinctif Partners MENA was acquired by Excellera and operates regionally as IP Excellera."
+  },
+  {
+    "id": "inter-regional-for-strategic-and-analysis-mir",
+    "website": "https://interregional.com",
+    "websiteSource": "https://www.twofour54.com",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "InterRegional for Strategic Analysis (MIR) is a UAE-based consulting firm and think tank focused on geopolitical, security, and economic analysis.",
+    "whatTheyDo": "The firm conducts policy research, geopolitical monitoring, strategic analysis, and project consulting for public and private institutions across the Middle East. It publishes periodicals and convenes discussions on security, defense, and international affairs.",
+    "descriptionSource": "https://www.twofour54.com",
+    "industry": "Think Tanks & Strategic Consulting",
+    "commonCareers": [],
+    "technicalAreas": [
+      "Geopolitical Analysis",
+      "Strategic Consulting",
+      "Policy Research",
+      "Defense & Security Studies"
+    ],
+    "address": "TwoFour54, Yas Creative Hub, Building 2, Abu Dhabi, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.twofour54.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "TwoFour54 Abu Dhabi Partner Directory - InterRegional for Strategic Analysis",
+        "url": "https://www.twofour54.com"
+      }
+    ],
+    "notes": "Input specified Dubai, Downtown, but Inter Regional for Strategic and Analysis (MIR) is headquartered and located at TwoFour54, Yas Creative Hub, Abu Dhabi, with no confirmed office in Downtown Dubai."
+  },
+  {
+    "id": "isharq-hospitality",
+    "website": "http://www.ishraqhospitality.com",
+    "websiteSource": "https://pitchbook.com",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "Ishraq Hospitality is the hospitality asset management and development division of Mohamed & Obaid Al Mulla Group in Dubai.",
+    "whatTheyDo": "The company manages and operates a portfolio of franchised hotels in the UAE in partnership with IHG Hotels & Resorts, including Crowne Plaza and Holiday Inn Express properties. It oversees hotel operations, asset management, and hospitality expansion across the MENA region.",
+    "descriptionSource": "https://pitchbook.com",
+    "industry": "Hospitality & Hotel Management",
+    "commonCareers": [],
+    "technicalAreas": [
+      "Hotel Operations",
+      "Hospitality Asset Management"
+    ],
+    "address": "Holiday Inn Express Safa Park, 5th Floor, Sheikh Zayed Road, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://pitchbook.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "PitchBook - Ishraq Hospitality Profile",
+        "url": "https://pitchbook.com"
+      },
+      {
+        "title": "Hotelier Middle East - Ishraq Hospitality",
+        "url": "https://www.hoteliermiddleeast.com"
+      }
+    ],
+    "notes": "Name given in input was 'Isharq Hospitality' (transposed 'ar'); verified legal and brand name is 'Ishraq Hospitality'. Input specified Business Bay, but corporate headquarters are located at Holiday Inn Express Safa Park, Sheikh Zayed Road, Dubai."
+  },
+  {
+    "id": "iss-global-forwarding",
+    "website": "https://iss-globalforwarding.com",
+    "websiteSource": "https://www.nafl.ae",
+    "careersUrl": "https://iss-globalforwarding.com/careers",
+    "careersSource": "https://iss-globalforwarding.com/careers",
+    "shortDescription": "ISS Global Forwarding is a global freight forwarding and logistics company headquartered in Dubai and wholly owned by Investment Corporation of Dubai (ICD).",
+    "whatTheyDo": "The company provides end-to-end global supply chain and freight forwarding services, including air freight, ocean freight, land transportation, customs clearance, and contract logistics. It serves clients across aerospace, industrial, retail, and pharmaceutical sectors.",
+    "descriptionSource": "https://craft.co",
+    "industry": "Logistics & Supply Chain",
+    "commonCareers": [
+      "Business Development Manager",
+      "Sales Executive",
+      "Pricing Specialist"
+    ],
+    "careersEvidence": "https://iss-globalforwarding.com/careers",
+    "technicalAreas": [
+      "Freight Forwarding",
+      "Supply Chain Logistics",
+      "Customs Brokerage",
+      "Contract Logistics"
+    ],
+    "address": "Plot MO-0318, Street No 411, Jafza North, Jebel Ali Free Zone (JAFZA), Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.nafl.ae",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "National Association of Freight and Logistics (NAFL) - ISS Global Forwarding",
+        "url": "https://www.nafl.ae"
+      },
+      {
+        "title": "Craft.co - ISS Global Forwarding Profile",
+        "url": "https://craft.co"
+      }
+    ],
+    "notes": "Input specified JLT, but ISS Global Forwarding is headquartered in JAFZA North (Jebel Ali Free Zone), Dubai, with additional facilities at Dubai Cargo Village and DAFZA."
+  },
+  {
+    "id": "iss-shipping",
+    "website": "https://www.iss-shipping.com",
+    "websiteSource": "https://www.atninfo.com",
+    "careersUrl": "https://www.iss-shipping.com/careers",
+    "careersSource": "https://www.iss-shipping.com/careers",
+    "shortDescription": "Inchcape Shipping Services (ISS) is a global maritime services and port agency provider with operations centered at Mina Rashid in Dubai.",
+    "whatTheyDo": "The company provides port agency, marine husbandry, cargo handling, bunkering, crew logistics, and maritime survey services. It serves commercial shipowners, charterers, and operators docking at ports across the UAE and globally.",
+    "descriptionSource": "https://www.atninfo.com",
+    "industry": "Maritime & Port Services",
+    "commonCareers": [
+      "Operations Executive"
+    ],
+    "careersEvidence": "https://www.iss-shipping.com/careers",
+    "technicalAreas": [
+      "Port Agency Services",
+      "Maritime Logistics",
+      "Marine Survey & Inspection",
+      "Bunkering & Husbandry"
+    ],
+    "address": "Marina View Building, C6 & C7, Mina Rashid, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.atninfo.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "ATN Info - Inchcape Shipping Services",
+        "url": "https://www.atninfo.com"
+      },
+      {
+        "title": "Steamship Mutual - Inchcape Shipping Services Dubai",
+        "url": "https://www.steamshipmutual.com"
+      }
+    ],
+    "notes": "Input specified Dubai Internet City, but Inchcape Shipping Services (ISS Shipping) is located at Mina Rashid (Port Rashid), Dubai. ISS Shipping is distinct from ISS Global Forwarding."
+  },
+  {
+    "id": "jotun",
+    "website": "https://www.jotun.com/me",
+    "websiteSource": "https://2gis.ae",
+    "careersUrl": "https://www.jotun.com/jobs",
+    "careersSource": "https://www.jotun.com/jobs",
+    "shortDescription": "Jotun is a multinational paints and coatings manufacturer operating regional production facilities and offices in Al Quoz, Dubai.",
+    "whatTheyDo": "The company manufactures and supplies decorative paints, protective coatings, marine coatings, and powder coatings. Its UAE operations in Al Quoz include manufacturing plants, regional technical labs, and distribution networks serving the Middle East.",
+    "descriptionSource": "https://2gis.ae",
+    "industry": "Chemicals & Coatings Manufacturing",
+    "commonCareers": [
+      "Regional Communications Executive",
+      "Logistics Executive",
+      "Demand and Supply Planner",
+      "Sales Executive (MEIA Graduate Program)"
+    ],
+    "careersEvidence": "https://www.bayt.com/en/uae/jobs/q/jotun/",
+    "technicalAreas": [
+      "Paints & Chemical Formulation",
+      "Powder Coatings",
+      "Supply Chain Planning",
+      "Industrial Manufacturing"
+    ],
+    "address": "Street 17A, Al Quoz Industrial Area 2, Dubai, UAE",
+    "latitude": 25.13725,
+    "longitude": 55.24257,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.jotun.com",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "2GIS - Jotun UAE Limited Al Quoz",
+        "url": "https://2gis.ae"
+      },
+      {
+        "title": "Bayt.com - Jotun Jobs in UAE",
+        "url": "https://www.bayt.com/en/uae/jobs/q/jotun/"
+      }
+    ],
+    "notes": "Jotun operates multiple facilities in Al Quoz, including Jotun U.A.E. Ltd. in Al Quoz 2 and Jotun Powder Coatings in Al Quoz 3. The company runs a formal MEIA Graduate Programme."
+  },
+  {
+    "id": "juma-al-majid-holding-group-llc",
+    "website": "https://www.al-majid.com",
+    "websiteSource": "https://www.swfinstitute.org",
+    "careersUrl": "https://careers.al-majid.com",
+    "careersSource": "https://careers.al-majid.com",
+    "shortDescription": "Juma Al Majid Holding Group L.L.C is a major Emirati conglomerate headquartered in Deira, Dubai.",
+    "whatTheyDo": "The group operates diversified business units across automotive, contracting, real estate, engineering, FMCG, and travel. It holds major regional distributorships and delivers MEP contracting, heavy equipment, and property leasing across the UAE.",
+    "descriptionSource": "https://www.swfinstitute.org",
+    "industry": "Conglomerate & Diversified Holdings",
+    "commonCareers": [
+      "Mechanical Supervisor"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com",
+    "technicalAreas": [
+      "Automotive Engineering",
+      "MEP Contracting",
+      "HVAC & Facilities Engineering",
+      "Real Estate Development"
+    ],
+    "address": "Salahuddin Street, Hor Al Anz, Deira, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.atninfo.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "SWF Institute - Juma Al Majid Group",
+        "url": "https://www.swfinstitute.org"
+      },
+      {
+        "title": "ATN Info - Juma Al Majid Group",
+        "url": "https://www.atninfo.com"
+      }
+    ],
+    "notes": "Input specified Business Bay, but Juma Al Majid Holding Group's corporate headquarters is located on Salahuddin Street in Hor Al Anz (Deira), Dubai."
+  },
+  {
+    "id": "kc-international-finance-management-services",
+    "website": "http://www.kci-fms.com",
+    "websiteSource": "https://www.atninfo.com",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "KC International Finance & Management Services is a Dubai-based consultancy providing accounting, financial controller, and business management services.",
+    "whatTheyDo": "The firm offers outsourced CFO and controller services, internal auditing, business valuation, ISO certification consultancy, and corporate formation services. It supports small and medium-sized enterprises across the UAE and the broader region.",
+    "descriptionSource": "https://www.kompass.com",
+    "industry": "Accounting & Management Consulting",
+    "commonCareers": [],
+    "technicalAreas": [
+      "Financial Accounting",
+      "Internal Audit",
+      "Management Consulting",
+      "ISO Certification Consulting"
+    ],
+    "address": "Office #4, Mezzanine Floor, Al Wadi Building, Sheikh Zayed Road, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.yellowpages.ae",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Yellow Pages UAE - KC International Business, Finance & Management Services",
+        "url": "https://www.yellowpages.ae"
+      },
+      {
+        "title": "ATN Info - KC International",
+        "url": "https://www.atninfo.com"
+      }
+    ],
+    "notes": "Input listed JLT, but KC International Finance & Management Services is located at Al Wadi Building on Sheikh Zayed Road, Dubai."
+  },
+  {
+    "id": "kingston-stanley",
+    "website": "https://kingstonstanley.com",
+    "websiteSource": "https://2gis.ae",
+    "careersUrl": "https://kingstonstanley.com/jobs",
+    "careersSource": "https://kingstonstanley.com/jobs",
+    "shortDescription": "Kingston Stanley is a specialized recruitment consultancy based in Dubai focusing on digital, marketing, technology, and corporate services.",
+    "whatTheyDo": "The agency provides permanent and contract talent acquisition, executive search, and staffing solutions. It connects regional employers with professionals in digital marketing, software development, data and AI, corporate communications, and finance.",
+    "descriptionSource": "https://2gis.ae",
+    "industry": "Staffing & Recruitment",
+    "commonCareers": [
+      "Recruitment Consultant",
+      "Senior Corporate Services Recruiter"
+    ],
+    "careersEvidence": "https://kingstonstanley.com/jobs",
+    "technicalAreas": [
+      "Digital Recruitment",
+      "Executive Search",
+      "Talent Acquisition"
+    ],
+    "address": "Block 2A, Office 143, 1st Floor, 55 Al Bourooj Street, Al Sufouh 2, Dubai Knowledge Park, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "2GIS - Kingston Stanley Dubai",
+        "url": "https://2gis.ae"
+      }
+    ],
+    "notes": "Input specified Dubai Internet City; office is located in Dubai Knowledge Park (Al Sufouh 2), which is part of the adjacent TECOM business district cluster."
+  }
+]

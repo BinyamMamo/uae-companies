@@ -176,21 +176,30 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
                   No careers page confirmed for this company yet.
                 </p>
               )}
-
-              <div className="grid grid-cols-2 gap-2 mt-2">
-                <div className="border border-line p-2.5 rounded-sm bg-white dark:bg-slate-800">
-                  <span className="text-[10px] text-ink-3 uppercase font-semibold">Internships</span>
-                  <div className="font-semibold text-ink mt-0.5">
-                    {company.internshipsKnown === true ? 'Confirmed' : company.internshipsKnown === false ? 'None listed' : 'Not confirmed'}
-                  </div>
+              {(company.internshipsKnown !== null || company.graduateRolesKnown !== null) && (
+                <div className="grid grid-cols-2 gap-2 mt-2">
+                  {company.internshipsKnown !== null && (
+                    <div className="border border-line p-2.5 rounded-md bg-surface">
+                      <span className="text-[10px] text-ink-3 uppercase font-semibold">
+                        Internships
+                      </span>
+                      <div className="font-semibold text-ink mt-0.5">
+                        {company.internshipsKnown ? 'Confirmed' : 'None listed'}
+                      </div>
+                    </div>
+                  )}
+                  {company.graduateRolesKnown !== null && (
+                    <div className="border border-line p-2.5 rounded-md bg-surface">
+                      <span className="text-[10px] text-ink-3 uppercase font-semibold">
+                        Graduates
+                      </span>
+                      <div className="font-semibold text-ink mt-0.5">
+                        {company.graduateRolesKnown ? 'Confirmed' : 'None listed'}
+                      </div>
+                    </div>
+                  )}
                 </div>
-                <div className="border border-line p-2.5 rounded-sm bg-white dark:bg-slate-800">
-                  <span className="text-[10px] text-ink-3 uppercase font-semibold">Graduates</span>
-                  <div className="font-semibold text-ink mt-0.5">
-                    {company.graduateRolesKnown ? 'Direct Entry' : 'Openings Vary'}
-                  </div>
-                </div>
-              </div>
+              )}
             </div>
           )}
 

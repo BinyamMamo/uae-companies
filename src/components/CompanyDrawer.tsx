@@ -505,44 +505,56 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
               )}
             </div>
 
-            {/* Program Status Badges */}
-            <div className="grid grid-cols-2 gap-3">
-              <div className="border border-line rounded-lg p-3 bg-surface">
-                <span className="text-[10px] text-ink-3 font-semibold uppercase tracking-wider block">
-                  Student Internships
-                </span>
-                <div className="flex items-center gap-1.5 mt-1">
-                  {company.internshipsKnown === true ? (
-                    <>
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
-                      <span className="text-xs font-semibold text-ink">Confirmed</span>
-                    </>
-                  ) : company.internshipsKnown === false ? (
-                    <span className="text-xs text-ink-2">None listed</span>
-                  ) : (
-                    <span className="text-xs text-ink-3">Not confirmed</span>
-                  )}
-                </div>
-              </div>
+            {/*
+              Only shown once a programme is actually confirmed. With a careers
+              page found for 13 of 225 companies, these read "Not confirmed" on
+              nearly every record and said nothing.
+            */}
+            {(company.internshipsKnown !== null || company.graduateRolesKnown !== null) && (
+              <div className="grid grid-cols-2 gap-3">
+                {company.internshipsKnown !== null && (
+                  <div className="border border-line rounded-lg p-3 bg-surface">
+                    <span className="text-[10px] text-ink-3 font-semibold uppercase tracking-wider block">
+                      Student Internships
+                    </span>
+                    <div className="flex items-center gap-1.5 mt-1">
+                      {company.internshipsKnown ? (
+                        <>
+                          <CheckCircle2
+                            className="w-4 h-4 text-emerald-600 dark:text-emerald-400"
+                            aria-hidden="true"
+                          />
+                          <span className="text-xs font-semibold text-ink">Confirmed</span>
+                        </>
+                      ) : (
+                        <span className="text-xs text-ink-2">None listed</span>
+                      )}
+                    </div>
+                  </div>
+                )}
 
-              <div className="border border-line rounded-lg p-3 bg-surface">
-                <span className="text-[10px] text-ink-3 font-semibold uppercase tracking-wider block">
-                  Graduate Roles
-                </span>
-                <div className="flex items-center gap-1.5 mt-1">
-                  {company.graduateRolesKnown === true ? (
-                    <>
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
-                      <span className="text-xs font-semibold text-ink">Confirmed</span>
-                    </>
-                  ) : company.graduateRolesKnown === false ? (
-                    <span className="text-xs text-ink-2">None listed</span>
-                  ) : (
-                    <span className="text-xs text-ink-3">Not confirmed</span>
-                  )}
-                </div>
+                {company.graduateRolesKnown !== null && (
+                  <div className="border border-line rounded-lg p-3 bg-surface">
+                    <span className="text-[10px] text-ink-3 font-semibold uppercase tracking-wider block">
+                      Graduate Roles
+                    </span>
+                    <div className="flex items-center gap-1.5 mt-1">
+                      {company.graduateRolesKnown ? (
+                        <>
+                          <CheckCircle2
+                            className="w-4 h-4 text-emerald-600 dark:text-emerald-400"
+                            aria-hidden="true"
+                          />
+                          <span className="text-xs font-semibold text-ink">Confirmed</span>
+                        </>
+                      ) : (
+                        <span className="text-xs text-ink-2">None listed</span>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
+            )}
 
             {/* Technical Career Roles List */}
             <div>
