@@ -18,6 +18,7 @@ import { ResponsiveSheet } from './ui/ResponsiveSheet';
 import { useToast } from './ui/Toast';
 import { useConfirm } from '../hooks/useConfirm';
 import { DUBAI_LOCATIONS, type DubaiLocationPreset } from '../utils/dubaiLocations';
+import { homeMarkerHtml, HOME_MARKER_SIZE } from '../utils/homeMarker';
 
 
 
@@ -27,6 +28,7 @@ export const SettingsModal: React.FC = () => {
     isSettingsModalOpen,
     setIsSettingsModalOpen,
     userLocation,
+    isLocationSet,
     setUserLocation,
     resetUserLocation,
     savedCompanyIds,
@@ -90,6 +92,18 @@ export const SettingsModal: React.FC = () => {
       miniMapInstanceRef.current = null;
     }
 
+    /*
+      Building the map is the slowest thing this dialog does, and it used to
+      happen before the dialog had painted, so opening Settings visibly stalled.
+      Deferring it by a frame lets the dialog appear first and the map fill in
+      behind it. `cancelled` covers closing again inside that frame.
+    */
+    let cancelled = false;
+    let frame = 0;
+    const timers: number[] = [];
+    const build = () => {
+    if (cancelled || !miniMapContainerRef.current) return;
+
     const map = L.map(miniMapContainerRef.current, {
       center: [userLocation.latitude, userLocation.longitude],
       zoom: 12,
@@ -104,20 +118,13 @@ export const SettingsModal: React.FC = () => {
       attribution: tiles.attribution,
     }).addTo(map);
 
-    const userHtml = `
-      <div style="position: relative; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
-        <div style="position: absolute; inset: -4px; border-radius: 9999px; border: 2px solid #2563eb; opacity: 0.75; animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;"></div>
-        <div style="width: 30px; height: 30px; border-radius: 9999px; background: #2563eb; color: #fff; box-shadow: 0 4px 14px rgba(37,99,235,0.5); display: flex; align-items: center; justify-content: center; border: 2px solid #ffffff;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-        </div>
-      </div>
-    `;
+    const userHtml = homeMarkerHtml();
 
     const userIcon = L.divIcon({
       html: userHtml,
       className: 'custom-home-pin',
-      iconSize: [34, 34],
-      iconAnchor: [17, 17],
+      iconSize: [HOME_MARKER_SIZE, HOME_MARKER_SIZE],
+      iconAnchor: [HOME_MARKER_SIZE / 2, HOME_MARKER_SIZE / 2],
     });
 
     const marker = L.marker([userLocation.latitude, userLocation.longitude], {
@@ -161,12 +168,18 @@ export const SettingsModal: React.FC = () => {
     miniMarkerRef.current = marker;
     miniMapInstanceRef.current = map;
 
-    const timer1 = setTimeout(() => map.invalidateSize(), 150);
-    const timer2 = setTimeout(() => map.invalidateSize(), 450);
+      timers.push(
+        window.setTimeout(() => map.invalidateSize(), 150),
+        window.setTimeout(() => map.invalidateSize(), 450)
+      );
+    };
+
+    frame = requestAnimationFrame(build);
 
     return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
+      cancelled = true;
+      cancelAnimationFrame(frame);
+      timers.forEach(clearTimeout);
       if (miniMapInstanceRef.current) {
         miniMapInstanceRef.current.remove();
         miniMapInstanceRef.current = null;
@@ -358,10 +371,23 @@ export const SettingsModal: React.FC = () => {
 
               <div className="absolute bottom-2 left-2 right-2 z-400 flex items-center gap-2 bg-white/92 dark:bg-slate-900/92 backdrop-blur-xs px-2.5 py-1.5 rounded-md border border-line shadow-2xs">
                 <div className="min-w-0 flex-1">
-                  <div className="text-[11px] font-semibold text-ink truncate">
-                    {userLocation.name}
+                  <div className="flex items-center gap-1.5 min-w-0">
+                    <span className="text-[11px] font-semibold text-ink truncate">
+                      {userLocation.name}
+                    </span>
+                    {/* Distances are being measured from a guess until they
+                        pick; the map alone does not say which it is. */}
+                    {!isLocationSet && (
+                      <span className="shrink-0 text-[9px] uppercase tracking-wider font-semibold text-amber-700 dark:text-amber-400 border border-amber-500/40 rounded px-1 py-px">
+                        Not set
+                      </span>
+                    )}
                   </div>
-                  <div className="text-[10px] text-ink-3">Drag the pin to fine-tune</div>
+                  <div className="text-[10px] text-ink-3">
+                    {isLocationSet
+                      ? 'Drag the pin to fine-tune'
+                      : 'Assumed — pick a place or drag the pin'}
+                  </div>
                 </div>
                 {userLocation.isCustom && (
                   <button

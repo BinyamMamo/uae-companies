@@ -4,6 +4,7 @@ import React, {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from 'react';
 import { loadFirebase, isAuthConfigured, type User } from '../lib/firebase';
@@ -65,6 +66,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [user, setUser] = useState<AuthUser | null>(null);
   const [loading, setLoading] = useState(isAuthConfigured);
   const [error, setError] = useState<string | null>(null);
+  /*
+    Set once the auth listener is live. The deferred bootstrap below only
+    attaches it for someone who has signed in here before, so a first sign-in
+    has to attach it itself — otherwise nothing tells the header a user now
+    exists and the avatar stays generic until the page is reloaded.
+  */
+  const watching = useRef(false);
+  const watchAuth = useRef<() => Promise<void>>(async () => {});
 
   useEffect(() => {
     if (!isAuthConfigured) {
@@ -75,37 +84,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     let unsubscribe: (() => void) | undefined;
     let cancelled = false;
 
-    /*
-      Firebase auth + firestore + analytics is ~700KB, and it was being fetched
-      during first paint on every visit, including the great majority that never
-      sign in. So:
-
-        - someone who has signed in on this device before gets it restored, but
-          only once the browser is idle, so it never competes with first paint;
-        - everyone else pays nothing. loadFirebase() still runs on demand the
-          moment they press Sign in.
-
-      HAD_SESSION is only a hint about which of those two paths to take. Firebase
-      remains the source of truth for whether the session is actually valid.
-    */
-    if (!hadSessionBefore()) {
-      setLoading(false);
-      return;
-    }
-
-    let idle: number | undefined;
-    const start = () => {
-      if (cancelled) return;
-      const pending = loadFirebase();
-      if (!pending) {
-        setLoading(false);
-        return;
-      }
-      attach(pending);
-    };
-
     const attach = (pending: NonNullable<ReturnType<typeof loadFirebase>>) => {
-      void pending
+      if (watching.current) return Promise.resolve();
+      watching.current = true;
+      return pending
       .then(fb => {
         if (cancelled) return;
         unsubscribe = fb.onAuthStateChanged(fb.auth, next => {
@@ -120,8 +102,49 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         });
       })
       .catch(() => {
+        watching.current = false;
         if (!cancelled) setLoading(false);
       });
+    };
+
+    /*
+      Exposed so signIn can start watching on a device that has never had a
+      session. It is assigned before the early return below, because that is
+      exactly the case that needs it: without this, a first sign-in had nothing
+      listening and the header kept showing a signed-out avatar until reload.
+    */
+    watchAuth.current = async () => {
+      const pending = loadFirebase();
+      if (pending) await attach(pending);
+    };
+
+    /*
+      Firebase auth + firestore + analytics is ~700KB, and it was being fetched
+      during first paint on every visit, including the great majority that never
+      sign in. So someone who has signed in on this device before gets their
+      session restored once the browser is idle; everyone else pays nothing
+      until they press Sign in.
+
+      HAD_SESSION is only a hint about which path to take. Firebase remains the
+      source of truth for whether a session is actually valid.
+    */
+    if (!hadSessionBefore()) {
+      setLoading(false);
+      return () => {
+        cancelled = true;
+        unsubscribe?.();
+      };
+    }
+
+    let idle: number | undefined;
+    const start = () => {
+      if (cancelled) return;
+      const pending = loadFirebase();
+      if (!pending) {
+        setLoading(false);
+        return;
+      }
+      void attach(pending);
     };
 
     const ric = window.requestIdleCallback;
@@ -144,6 +167,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const signIn = useCallback(async () => {
     const fb = await loadFirebase();
     if (!fb) return;
+    // Attach first: the listener is what pushes the new user into the UI.
+    await watchAuth.current();
     setError(null);
     try {
       await fb.signInWithPopup(fb.auth, fb.googleProvider);
@@ -166,9 +191,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const signInWithGoogleCredential = useCallback(async (idToken: string) => {
     const fb = await loadFirebase();
     if (!fb) return;
+    await watchAuth.current();
     setError(null);
     try {
       await fb.signInWithCredential(fb.auth, fb.GoogleAuthProvider.credential(idToken));
+      rememberSession(true);
       track('signed_in', { method: 'google_one_tap' });
     } catch {
       setError('Sign-in failed. Please try again.');

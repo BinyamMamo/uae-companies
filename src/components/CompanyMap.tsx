@@ -47,6 +47,7 @@ const CATEGORY_COLORS: Record<string, { bg: string; border: string }> = {
 import { DUBAI_DISTRICTS_GEO } from '../data/dubaiDistrictsGeo';
 import { pointInPolygon } from '../utils/geometry';
 import { CompanyLogo } from './ui/CompanyLogo';
+import { homeMarkerHtml, HOME_MARKER_SIZE } from '../utils/homeMarker';
 
 export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompany }) => {
   const { userLocation, setUserLocation } = useApp();
@@ -127,26 +128,13 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
       L.control.zoom({ position: 'bottomright' }).addTo(map);
 
       // Home location marker: pulsing halo, no ring
-      const userHtml = `
-        <div class="relative flex items-center justify-center cursor-move" title="Drag to move reference location">
-          <div class="absolute -inset-4 bg-amber-500/35 rounded-full animate-ping"></div>
-          <div class="absolute -inset-2 bg-orange-500/40 rounded-full animate-pulse"></div>
-          <div class="relative w-9 h-9 rounded-full bg-linear-to-tr from-amber-500 via-orange-500 to-rose-500 flex items-center justify-center shadow-2xl text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 22a1 1 0 0 1-1-1v-4a1 1 0 0 1 .445-.832l3-2a1 1 0 0 1 1.11 0l3 2A1 1 0 0 1 22 17v4a1 1 0 0 1-1 1z"/>
-              <path d="M18 10a8 8 0 0 0-16 0c0 4.993 5.539 10.193 7.399 11.799a1 1 0 0 0 .601.2"/>
-              <path d="M18 22v-3"/>
-              <circle cx="10" cy="10" r="3"/>
-            </svg>
-          </div>
-        </div>
-      `;
+      const userHtml = homeMarkerHtml();
 
       const userIcon = L.divIcon({
         html: userHtml,
         className: 'custom-user-pin',
-        iconSize: [36, 36],
-        iconAnchor: [18, 18],
+        iconSize: [HOME_MARKER_SIZE, HOME_MARKER_SIZE],
+        iconAnchor: [HOME_MARKER_SIZE / 2, HOME_MARKER_SIZE / 2],
       });
 
       const userMarker = L.marker(

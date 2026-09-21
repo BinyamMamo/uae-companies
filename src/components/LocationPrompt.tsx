@@ -1,37 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MapPinHouse, X } from 'lucide-react';
 import { useApp } from '../context/AppContext';
-
-const DISMISSED_KEY = 'uae_location_prompt_dismissed';
 
 /**
  * Says once that distances are measured from an assumed address.
  *
  * Every distance in the app needs an origin, and one is assumed so the list is
  * useful immediately. This is the single place that admits the assumption, so
- * no other screen has to caveat its numbers. Dismissing it is remembered for
- * the session only: it is a standing fact until they act on it, not a nag.
+ * no other screen has to caveat its numbers. Dismissing it only clears it from
+ * this page view: the assumption is still in force on the next load, and saying
+ * so once per visit is what keeps the numbers honest. Setting a location is
+ * what actually ends it.
  */
 export const LocationPrompt: React.FC = () => {
   const { isLocationSet, userLocation, setIsSettingsModalOpen } = useApp();
-  const [dismissed, setDismissed] = useState(() => {
-    try {
-      return sessionStorage.getItem(DISMISSED_KEY) === '1';
-    } catch {
-      return false;
-    }
-  });
+  const [dismissed, setDismissed] = useState(false);
+
+  // Settings is a lazily loaded chunk, so pressing this used to sit there while
+  // it downloaded. Fetching it as soon as the prompt is on screen means the
+  // dialog is already in memory by the time anyone reaches for it.
+  useEffect(() => {
+    if (isLocationSet) return;
+    void import('./SettingsModal');
+  }, [isLocationSet]);
 
   if (isLocationSet || dismissed) return null;
 
-  const close = () => {
-    setDismissed(true);
-    try {
-      sessionStorage.setItem(DISMISSED_KEY, '1');
-    } catch {
-      /* nothing depends on this persisting */
-    }
-  };
+  const close = () => setDismissed(true);
 
   return (
     <div className="fixed z-1100 left-3 right-3 bottom-[calc(3.5rem+env(safe-area-inset-bottom)+0.5rem)] md:left-auto md:right-6 md:bottom-6 md:w-sm">
