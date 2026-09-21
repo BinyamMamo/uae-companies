@@ -8,7 +8,6 @@ import { useToast } from './ui/Toast';
 import { formatBusCommute, formatDistance } from '../utils/distance';
 import { TILE_CONFIGS, defaultStyleForTheme, type MapStyleId } from '../utils/mapTiles';
 import {
-  MapPinHouse,
   Locate,
   Layers,
   ExternalLink,
@@ -58,7 +57,6 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
   // Tile style follows the UI theme unless the user picks one explicitly.
   const [mapStyle, setMapStyle] = useState<MapStyleId>(() => defaultStyleForTheme(theme));
   const userPickedStyleRef = useRef(false);
-  const [showDistricts, setShowDistricts] = useState<boolean>(true);
   const [isClickToSetMode, setIsClickToSetMode] = useState<boolean>(false);
   const { toast } = useToast();
   const showNotification = useCallback(
@@ -95,12 +93,12 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
       // Add Zoom control bottom-right
       L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-      // Create Distinct Home Location Marker with MapPinHouse & Pulsing Outline
+      // Home location marker: pulsing halo, no ring
       const userHtml = `
         <div class="relative flex items-center justify-center cursor-move" title="Drag to move reference location">
           <div class="absolute -inset-4 bg-amber-500/35 rounded-full animate-ping"></div>
           <div class="absolute -inset-2 bg-orange-500/40 rounded-full animate-pulse"></div>
-          <div class="relative w-9 h-9 rounded-full bg-linear-to-tr from-amber-500 via-orange-500 to-rose-500 border-2 border-white flex items-center justify-center shadow-2xl text-white">
+          <div class="relative w-9 h-9 rounded-full bg-linear-to-tr from-amber-500 via-orange-500 to-rose-500 flex items-center justify-center shadow-2xl text-white">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M15 22a1 1 0 0 1-1-1v-4a1 1 0 0 1 .445-.832l3-2a1 1 0 0 1 1.11 0l3 2A1 1 0 0 1 22 17v4a1 1 0 0 1-1 1z"/>
               <path d="M18 10a8 8 0 0 0-16 0c0 4.993 5.539 10.193 7.399 11.799a1 1 0 0 0 .601.2"/>
@@ -180,7 +178,6 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
 
     districtsLayer.clearLayers();
 
-    if (!showDistricts) return;
 
     DUBAI_DISTRICTS_GEO.forEach(d => {
       // 1. Real geographic boundary polygon
@@ -241,7 +238,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
 
       districtsLayer.addLayer(tipMarker);
     });
-  }, [showDistricts]);
+  }, []);
 
   // Update User Marker position whenever userLocation changes in Context
   useEffect(() => {
@@ -423,52 +420,8 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
       {/* Map Leaflet Canvas */}
       <div ref={mapContainerRef} className="w-full h-full min-h-[360px] md:min-h-[580px]" />
 
-      {/* Top Right Controls: Set Location, Districts Toggle, Tile Selector */}
+      {/* Top right: tile style */}
       <div className="absolute top-4 right-4 z-1000 flex flex-col items-end gap-2">
-        
-        {/* Set Location Action Toolbar + Districts Overlay Toggle */}
-        <div className="flex items-center gap-1.5 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-1.5 rounded-lg border border-line shadow-lg transition-colors">
-          <button
-            onClick={() => setIsClickToSetMode(prev => !prev)}
-            className={`px-2.5 py-1 text-xs font-medium rounded flex items-center gap-1.5 transition ${ isClickToSetMode ? 'bg-brand-600 text-white shadow-2xs' : 'text-slate-700 dark:text-slate-300 hover:text-ink hover:bg-slate-100 dark:hover:bg-surface-2' }`}
-            title="Click to enable placing your location pin anywhere on the map"
-          >
-            <MapPin className="w-3.5 h-3.5" />
-            <span>{isClickToSetMode ? 'Click Map to Place' : 'Set Location'}</span>
-          </button>
-
-          <button
-            onClick={handleUseGps}
-            className="p-1.5 rounded-sm text-ink-2 hover:text-ink hover:bg-surface-2 transition"
-            title="Use My GPS Location"
-            aria-label="Use My GPS Location"
-          >
-            <Navigation className="w-3.5 h-3.5" />
-          </button>
-
-          {userLocation.isCustom && (
-            <button
-              onClick={handleResetLocation}
-              className="p-1.5 rounded-sm text-ink-2 hover:text-ink hover:bg-surface-2 transition"
-              title="Reset location to Academic City"
-              aria-label="Reset location to Academic City"
-            >
-              <RotateCcw className="w-3.5 h-3.5" />
-            </button>
-          )}
-
-          {/* Region / District Boundaries Toggle */}
-          <div className="h-4 w-px bg-slate-200 dark:bg-slate-700 mx-0.5" />
-          <button
-            onClick={() => setShowDistricts(prev => !prev)}
-            className={`px-2.5 py-1 text-xs font-medium rounded flex items-center gap-1.5 transition ${ showDistricts ? 'bg-brand-600 text-white shadow-2xs' : 'text-slate-700 dark:text-slate-300 hover:text-ink hover:bg-slate-100 dark:hover:bg-surface-2' }`}
-            title="Toggle Dubai tech district boundary polygons and English labels"
-          >
-            <Layers className="w-3.5 h-3.5" />
-            <span>{showDistricts ? 'Districts: On' : 'Districts: Off'}</span>
-          </button>
-        </div>
-
         {/* Map Tile Provider Selector: Street (Default), Clean (Hide streets), Dark, Satellite */}
         <div className="flex items-center gap-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-1 rounded-lg border border-line shadow-lg transition-colors">
           <Layers className="w-3.5 h-3.5 text-slate-400 ml-1.5 mr-1" />
@@ -503,11 +456,8 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
         </div>
       </div>
 
-      {/* Floating Bottom Left: User Location Commute Reference Badge with MapPinHouse */}
+      {/* Bottom left: which location the commute figures are measured from */}
       <div className="absolute bottom-6 left-6 z-1000 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-line rounded-lg p-3 text-ink shadow-xl flex items-center gap-3 transition-colors">
-        <div className="w-9 h-9 rounded-full bg-linear-to-tr from-amber-500/20 to-orange-500/20 border border-amber-500/40 flex items-center justify-center text-amber-500 shrink-0 shadow-2xs">
-          <MapPinHouse className="w-4.5 h-4.5" />
-        </div>
         <div className="min-w-0">
           <div className="text-[10px] uppercase font-semibold text-ink-2 tracking-wider">
             {userLocation.isCustom ? 'Your Custom Location' : 'Default Reference Location'}
@@ -527,6 +477,46 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
         >
           <Locate className="w-4 h-4" />
         </button>
+      </div>
+
+      {/*
+        Sits to the left of Leaflet's zoom control, which renders at
+        bottom-right. right-16 clears the ~40px zoom buttons plus their margin.
+      */}
+      <div className="absolute bottom-6 right-16 z-1000 flex items-center gap-1.5 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-1.5 rounded-lg border border-line shadow-lg transition-colors">
+        <button
+          onClick={() => setIsClickToSetMode(prev => !prev)}
+          aria-pressed={isClickToSetMode}
+          className={`px-2.5 py-1 text-xs font-medium rounded-md flex items-center gap-1.5 transition-colors ${
+            isClickToSetMode
+              ? 'bg-brand-600 text-white shadow-2xs'
+              : 'text-ink-2 hover:text-ink hover:bg-surface-2'
+          }`}
+          title="Place your location pin anywhere on the map"
+        >
+          <MapPin className="w-3.5 h-3.5" aria-hidden="true" />
+          <span>{isClickToSetMode ? 'Click map to place' : 'Set location'}</span>
+        </button>
+
+        <button
+          onClick={handleUseGps}
+          className="p-1.5 rounded-md text-ink-2 hover:text-ink hover:bg-surface-2 transition-colors"
+          title="Use my GPS location"
+          aria-label="Use my GPS location"
+        >
+          <Navigation className="w-3.5 h-3.5" aria-hidden="true" />
+        </button>
+
+        {userLocation.isCustom && (
+          <button
+            onClick={handleResetLocation}
+            className="p-1.5 rounded-md text-ink-2 hover:text-ink hover:bg-surface-2 transition-colors"
+            title="Reset location to Academic City"
+            aria-label="Reset location to Academic City"
+          >
+            <RotateCcw className="w-3.5 h-3.5" aria-hidden="true" />
+          </button>
+        )}
       </div>
 
       {/* Floating Selected Company Popup Card */}
