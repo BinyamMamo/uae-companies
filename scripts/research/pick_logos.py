@@ -7,6 +7,13 @@ belong to that company, so nothing new has to be trusted. The ranking matters
 more than it looks: a page's <img> tags labelled "logo" include cookie-consent
 banners and partner badges, so a same-origin apple-touch-icon beats them.
 
+A logo that loads is still not necessarily a logo you can see: several sites
+serve a white mark drawn for a dark header, which renders as an empty box on the
+card's light tile. scratchpad/logoshot.mjs + the ink measurement catch those;
+anything under INK_FLOOR percent coverage is dropped, and the survivors are then
+checked by eye against a contact sheet for a partner's mark served as the
+company's own (CHEP offered Coca-Cola's, Gargash offered Mercedes-Benz's).
+
 Input:  logo-candidates.json from the browser scrape
 Output: scripts/research/logos.json  {id: url}
 """

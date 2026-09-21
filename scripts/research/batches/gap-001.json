@@ -1,0 +1,93 @@
+[
+ {
+  "id": "ag-melco-elevator-co-llc",
+  "name": "AG MELCO Elevator Co. L.L.C.",
+  "website": "https://www.agmelco.com",
+  "area": "Dubai Internet City",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "al-ahli-bank-of-kuwait",
+  "name": "Al Ahli Bank of Kuwait",
+  "website": "https://abk.eahli.com",
+  "area": "Dubai Internet City",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "al-buhaira-national-insurance-co",
+  "name": "Al Buhaira National Insurance Co.",
+  "website": "https://www.albuhaira.com",
+  "area": "Downtown",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "al-bustan-rotana-hotel",
+  "name": "Al Bustan Rotana Hotel",
+  "website": null,
+  "area": "Business Bay",
+  "needs": [
+   "shortDescription",
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "al-ghurair",
+  "name": "Al Ghurair",
+  "website": "https://www.al-ghurair.com",
+  "area": "Dubai Internet City",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "al-mal-capital-psc",
+  "name": "Al Mal Capital PSC",
+  "website": "https://www.almalcapital.com",
+  "area": "DIFC",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "al-masraf",
+  "name": "Al Masraf",
+  "website": "https://www.almasraf.ae",
+  "area": "Dubai Internet City",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "al-safi-danone",
+  "name": "Al Safi Danone",
+  "website": null,
+  "area": "JLT",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "al-serkal-group",
+  "name": "Al Serkal Group",
+  "website": "https://alserkalgroup.com",
+  "area": "Dubai Internet City",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "almulla-group",
+  "name": "Almulla Group",
+  "website": null,
+  "area": "Downtown",
+  "needs": [
+   "commonCareers"
+  ]
+ }
+]

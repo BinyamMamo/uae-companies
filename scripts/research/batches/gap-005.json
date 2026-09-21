@@ -1,0 +1,93 @@
+[
+ {
+  "id": "inter-regional-for-strategic-and-analysis-mir",
+  "name": "Inter Regional for Strategic and Analysis (MIR)",
+  "website": "https://interregional.com",
+  "area": "Downtown",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "isharq-hospitality",
+  "name": "Isharq Hospitality",
+  "website": null,
+  "area": "Business Bay",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "kc-international-finance-management-services",
+  "name": "KC International Finance & Management Services",
+  "website": null,
+  "area": "JLT",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "medpharma",
+  "name": "Medpharma",
+  "website": "https://www.medpharma.ae",
+  "area": "Business Bay",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "millennial-partners",
+  "name": "Millennial Partners",
+  "website": "https://millennial.ae",
+  "area": "JLT",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "mohammed-bin-rashid-library-foundation",
+  "name": "Mohammed Bin Rashid Library Foundation",
+  "website": "https://www.mbrl.ae",
+  "area": "Dubai Internet City",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "nike",
+  "name": "Nike",
+  "website": "https://www.nike.ae",
+  "area": "JLT",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "nimr-alsahra-trading-company",
+  "name": "Nimr Alsahra Trading Company",
+  "website": "https://www.nimr.com",
+  "area": "Dubai Internet City",
+  "needs": [
+   "shortDescription",
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "oliv",
+  "name": "Oliv",
+  "website": "https://www.oliv.com",
+  "area": "Downtown",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "pareto-people",
+  "name": "Pareto People",
+  "website": "https://www.paretopeople.com",
+  "area": "Dubai Internet City",
+  "needs": [
+   "commonCareers"
+  ]
+ }
+]

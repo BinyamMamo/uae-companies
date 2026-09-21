@@ -1,0 +1,92 @@
+[
+ {
+  "id": "erada-center",
+  "name": "Erada Center",
+  "website": "https://www.erada.ae",
+  "area": "Downtown",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "expeditors",
+  "name": "Expeditors",
+  "website": "https://www.expeditors.com",
+  "area": "Dubai Internet City",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "gargash-group",
+  "name": "Gargash Group",
+  "website": "https://www.gargash.ae",
+  "area": "Downtown",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "global-feeder-shipping-llc",
+  "name": "Global Feeder Shipping LLC",
+  "website": "https://globalfeeders.com",
+  "area": "Dubai Internet City",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "globe-soccer-dwc-llc",
+  "name": "Globe Soccer DWC LLC",
+  "website": "https://www.globesoccer.com",
+  "area": "Downtown",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "goodwill-world",
+  "name": "Goodwill World",
+  "website": "https://goodwillworld.com",
+  "area": "JLT",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "goodyear",
+  "name": "Goodyear",
+  "website": "https://www.goodyear-mea.com",
+  "area": "Dubai Internet City",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "gulf-petrochemicals-and-chemicals-association-gpca",
+  "name": "Gulf Petrochemicals and Chemicals Association (GPCA)",
+  "website": "https://www.gpca.org.ae",
+  "area": "Downtown",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "habib-bank",
+  "name": "Habib Bank",
+  "website": "https://www.habibbank.com/ae/",
+  "area": "JLT",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "inditech-middle-east",
+  "name": "Inditech Middle East",
+  "website": "https://www.inditechme.com",
+  "area": "Al Quoz",
+  "needs": [
+   "commonCareers"
+  ]
+ }
+]

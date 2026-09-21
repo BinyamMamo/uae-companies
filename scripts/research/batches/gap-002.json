@@ -1,0 +1,94 @@
+[
+ {
+  "id": "amlak-finance",
+  "name": "Amlak Finance",
+  "website": "https://www.amlakfinance.com",
+  "area": "Downtown",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "amplify-dubai",
+  "name": "Amplify Dubai",
+  "website": "https://amplifydubai.com",
+  "area": "Business Bay",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "audi-volkswagen-middle-east-fze",
+  "name": "Audi Volkswagen Middle East FZE",
+  "website": "https://volkswagengroup-me.com",
+  "area": "Downtown",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "ava-group",
+  "name": "AVA Group",
+  "website": null,
+  "area": "JLT",
+  "needs": [
+   "shortDescription",
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "bac-middle-east",
+  "name": "BAC Middle East",
+  "website": null,
+  "area": "Business Bay",
+  "needs": [
+   "shortDescription",
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "bahri",
+  "name": "Bahri",
+  "website": "https://www.bahri.sa",
+  "area": "JLT",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "bahri-and-mazroei-trading-company",
+  "name": "Bahri and Mazroei Trading Company",
+  "website": "https://bahrimazroei.com",
+  "area": "Dubai Internet City",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "basf-fze",
+  "name": "BASF FZE",
+  "website": "https://www.basf.com/ae/en.html",
+  "area": "Dubai Internet City",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "bausch-lomb",
+  "name": "Bausch + Lomb",
+  "website": "https://www.bausch.com",
+  "area": "Downtown",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "bdp-global-project-logistic-llc",
+  "name": "BDP Global Project Logistic LLC",
+  "website": "https://psabdp.com",
+  "area": "Dubai Internet City",
+  "needs": [
+   "commonCareers"
+  ]
+ }
+]

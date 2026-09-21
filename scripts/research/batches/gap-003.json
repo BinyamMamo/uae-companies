@@ -1,0 +1,92 @@
+[
+ {
+  "id": "beiersdorf",
+  "name": "Beiersdorf",
+  "website": "https://www.beiersdorf-me.com",
+  "area": "Downtown",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "belhasa-international-co-llc",
+  "name": "Belhasa International CO LLC",
+  "website": "https://www.belhasa.com",
+  "area": "Business Bay",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "bon-education",
+  "name": "Bon Education",
+  "website": "https://boneducation.com",
+  "area": "Downtown",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "chep",
+  "name": "CHEP",
+  "website": "https://www.chep.com",
+  "area": "Downtown",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "commerzbank-ag",
+  "name": "Commerzbank AG",
+  "website": "https://www.commerzbank.ae",
+  "area": "Dubai Internet City",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "dana-gas",
+  "name": "Dana Gas",
+  "website": "https://www.danagas.com",
+  "area": "Business Bay",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "delta-insurance-services",
+  "name": "Delta Insurance Services",
+  "website": null,
+  "area": "Business Bay",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "dozzer-middle-east",
+  "name": "Dozzer Middle East",
+  "website": "https://dozzer.me",
+  "area": "Downtown",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "ellucian",
+  "name": "Ellucian",
+  "website": "https://www.ellucian.com",
+  "area": "Downtown",
+  "needs": [
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "emirates-glass",
+  "name": "Emirates Glass",
+  "website": "https://emiratesglass.com",
+  "area": "Al Quoz",
+  "needs": [
+   "commonCareers"
+  ]
+ }
+]

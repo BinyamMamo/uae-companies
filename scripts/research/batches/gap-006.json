@@ -1,0 +1,31 @@
+[
+ {
+  "id": "quantom-edge",
+  "name": "Quantom Edge",
+  "website": null,
+  "area": "Dubai Internet City",
+  "needs": [
+   "shortDescription",
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "sharjah-union-coop",
+  "name": "Sharjah Union Coop",
+  "website": null,
+  "area": "Sharjah",
+  "needs": [
+   "shortDescription",
+   "commonCareers"
+  ]
+ },
+ {
+  "id": "zomato",
+  "name": "Zomato UAE",
+  "website": "https://www.zomato.com/dubai",
+  "area": "Dubai Media City",
+  "needs": [
+   "commonCareers"
+  ]
+ }
+]
