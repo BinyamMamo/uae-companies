@@ -103,10 +103,7 @@ const AppContent: React.FC = () => {
               <span className="hidden sm:inline" aria-hidden="true">·</span>
               <span>{companies.length} companies</span>
             </div>
-            <div className="flex items-center gap-3 sm:justify-end">
-              <span className="text-ink-3 text-balance">
-                Designed for University of Dubai students
-              </span>
+            <div className="flex items-center sm:justify-end">
               <SocialLinks className="-mr-2" />
             </div>
           </div>

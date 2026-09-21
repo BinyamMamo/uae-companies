@@ -446,3 +446,35 @@ html.dark .district-tip-badge:hover {
   transform: scale(1.2);
   z-index: 999 !important;
 }
+
+
+/* =========================================================================
+   TRANSIENT CONFIRMATION
+   A line that appears, holds, and leaves on its own. Two separate utilities
+   rather than one keyframe set, so the exit can be triggered by a class swap
+   and still run to completion before the node is removed.
+   ========================================================================= */
+@keyframes status-in {
+  from { opacity: 0; transform: translateY(-4px); max-height: 0; }
+  to   { opacity: 1; transform: translateY(0);    max-height: 4rem; }
+}
+
+@keyframes status-out {
+  from { opacity: 1; transform: translateY(0);    max-height: 4rem; }
+  to   { opacity: 0; transform: translateY(-4px); max-height: 0; }
+}
+
+@utility animate-status-in {
+  animation: status-in 260ms ease-in-out both;
+}
+
+@utility animate-status-out {
+  animation: status-out 260ms ease-in-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-status-in,
+  .animate-status-out {
+    animation-duration: 1ms;
+  }
+}

@@ -13,6 +13,8 @@ import {
   Trash2,
   MapPinHouse,
   Search,
+  LocateFixed,
+  Check,
 } from 'lucide-react';
 import { ResponsiveSheet } from './ui/ResponsiveSheet';
 import { SocialLinks } from './ui/SocialLinks';
@@ -39,6 +41,29 @@ export const SettingsModal: React.FC = () => {
 
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<DubaiLocationPreset[]>([]);
+  /*
+    A line under the map that says where the location landed, then removes
+    itself. `leaving` drives the exit animation: the node has to stay mounted
+    long enough for it to play, so it is dropped on a second timer.
+  */
+  const [locationNotice, setLocationNotice] = useState<string | null>(null);
+  const [noticeLeaving, setNoticeLeaving] = useState(false);
+  const noticeTimers = useRef<number[]>([]);
+
+  const showLocationNotice = (name: string) => {
+    noticeTimers.current.forEach(clearTimeout);
+    setNoticeLeaving(false);
+    setLocationNotice(name);
+    noticeTimers.current = [
+      window.setTimeout(() => setNoticeLeaving(true), 3200),
+      window.setTimeout(() => setLocationNotice(null), 3500),
+    ];
+  };
+
+  useEffect(() => {
+    const timers = noticeTimers;
+    return () => timers.current.forEach(clearTimeout);
+  }, []);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchError, setSearchError] = useState<string | null>(null);
   const { toast } = useToast();
@@ -80,6 +105,7 @@ export const SettingsModal: React.FC = () => {
       miniMarkerRef.current.setLatLng([loc.latitude, loc.longitude]);
       miniMapInstanceRef.current.setView([loc.latitude, loc.longitude], 13, { animate: true });
     }
+    showLocationNotice(loc.name);
   };
 
   // Search submit handler (with OpenStreetMap Nominatim fallback)
@@ -228,6 +254,7 @@ export const SettingsModal: React.FC = () => {
           miniMarkerRef.current.setLatLng([lat, lng]);
           miniMapInstanceRef.current.setView([lat, lng], 13, { animate: true });
         }
+        showLocationNotice(chosenName);
       },
       err => {
         toast(`Could not get your location: ${err.message}`, 'error');
@@ -312,15 +339,13 @@ export const SettingsModal: React.FC = () => {
               <label htmlFor="home-search" className="font-semibold text-ink">
                 Home Address
               </label>
-              <button
-                type="button"
-                onClick={handleUseGps}
-                className="p-1 rounded-md text-ink-3 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
-                title="Use my current location"
-                aria-label="Use my current location"
-              >
-                <MapPinHouse className={`w-4 h-4 ${isLocationSet ? '' : 'opacity-40'}`} aria-hidden="true" />
-              </button>
+              {/* A state light, not a control: grey until a place is chosen. */}
+              <MapPinHouse
+                className={`w-4 h-4 ${
+                  isLocationSet ? 'text-brand-600 dark:text-brand-400' : 'text-line-strong'
+                }`}
+                aria-hidden="true"
+              />
             </div>
 
             {/* Search with instant suggestions; picking one applies it immediately */}
@@ -335,8 +360,19 @@ export const SettingsModal: React.FC = () => {
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
                 placeholder="Search a place or address"
-                className="w-full text-xs pl-8 pr-3 py-2 bg-surface-2 border border-line rounded-lg focus:outline-hidden focus:ring-1 focus:ring-brand-500 text-ink placeholder:text-ink-3"
+                className="w-full text-xs pl-8 pr-9 py-2 bg-surface-2 border border-line rounded-lg focus:outline-hidden focus:ring-1 focus:ring-brand-500 text-ink placeholder:text-ink-3"
               />
+
+              {/* Asking the browser is quicker than typing an address. */}
+              <button
+                type="button"
+                onClick={handleUseGps}
+                className="absolute right-1.5 top-1/2 -translate-y-1/2 p-1 rounded-md text-ink-3 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                title="Use my current location"
+                aria-label="Use my current location"
+              >
+                <LocateFixed className="w-4 h-4" aria-hidden="true" />
+              </button>
 
               {isSearchOpen && searchResults.length > 0 && (
                 <ul className="absolute top-full left-0 right-0 mt-1 bg-surface border border-line rounded-lg shadow-popup z-50 overflow-hidden max-h-48 overflow-y-auto">
@@ -402,6 +438,18 @@ export const SettingsModal: React.FC = () => {
                 )}
               </div>
             </div>
+
+            {locationNotice && (
+              <div
+                role="status"
+                className={`flex items-center gap-2 overflow-hidden text-[11px] font-medium text-emerald-700 dark:text-emerald-400 ${
+                  noticeLeaving ? 'animate-status-out' : 'animate-status-in'
+                }`}
+              >
+                <Check className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+                <span className="truncate">Location set to {locationNotice}</span>
+              </div>
+            )}
           </div>
 
           {/* Redesigned Divider */}

@@ -19,16 +19,27 @@ import { loadFirebase, isAnalyticsConfigured } from './firebase';
 type AnalyticsClient = import('firebase/analytics').Analytics;
 type LogEvent = typeof import('firebase/analytics').logEvent;
 type SetUserId = typeof import('firebase/analytics').setUserId;
+type SetUserProps = typeof import('firebase/analytics').setUserProperties;
 
 let client: AnalyticsClient | null = null;
 let logEventFn: LogEvent | null = null;
 let setUserIdFn: SetUserId | null = null;
+let setUserPropsFn: SetUserProps | null = null;
+let pendingProps: Record<string, string> | null = null;
 
 const queue: Array<[string, Record<string, unknown> | undefined]> = [];
 let starting = false;
 
+/*
+  Dev sessions were being counted alongside real ones: .env.local carries the
+  same measurement id as production, so every `npm run dev` reload showed up in
+  the same GA4 property. Analytics is production-only now, which means the
+  numbers describe visitors rather than visitors plus whoever is building it.
+*/
+const analyticsEnabled = isAnalyticsConfigured && import.meta.env.PROD;
+
 export function initAnalytics(): void {
-  if (starting || client || !isAnalyticsConfigured) return;
+  if (starting || client || !analyticsEnabled) return;
   starting = true;
 
   const pending = loadFirebase();
@@ -43,6 +54,15 @@ export function initAnalytics(): void {
       client = mod.getAnalytics(fb.app);
       logEventFn = mod.logEvent;
       setUserIdFn = mod.setUserId;
+      setUserPropsFn = mod.setUserProperties;
+      if (pendingProps) {
+        try {
+          mod.setUserProperties(client, pendingProps);
+        } catch {
+          // ignore
+        }
+        pendingProps = null;
+      }
 
       for (const [name, params] of queue.splice(0)) {
         try {
@@ -127,6 +147,28 @@ export function trackView(view: string): void {
 }
 
 /** Attribute subsequent events to a signed-in user. */
+/**
+ * Record whether this visitor is signed in.
+ *
+ * GA4 turns a user property into a dimension, so this is what lets DAU be split
+ * into signed-in and signed-out. `setUserId` alone does not: it identifies a
+ * person without saying anything about the ones who never sign in.
+ */
+export function setSignedInProperty(signedIn: boolean): void {
+  const props = { signed_in: signedIn ? 'yes' : 'no' };
+  if (!analyticsEnabled) return;
+  if (client && setUserPropsFn) {
+    try {
+      setUserPropsFn(client, props);
+    } catch {
+      // ignore
+    }
+  } else {
+    // Analytics loads on idle, so this can land before it is ready.
+    pendingProps = props;
+  }
+}
+
 export function identifyUser(id: string): void {
   try {
     if (client && setUserIdFn) setUserIdFn(client, id);

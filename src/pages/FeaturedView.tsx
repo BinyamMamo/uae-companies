@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { useApp } from '../context/AppContext';
 import { EmptyState } from '../components/ui/EmptyState';
 import { useIsDesktop } from '../hooks/useMediaQuery';
-import { EXPLORABLE_INTERESTS, calculateStudentFitScore } from '../utils/relevance';
+import { EXPLORABLE_INTERESTS, calculateStudentFitScore, DEFAULT_STUDENT_INTERESTS } from '../utils/relevance';
 import { formatDistance } from '../utils/distance';
 import { CompanyDrawer } from '../components/CompanyDrawer';
 import { CompanyBottomSheet } from '../components/CompanyBottomSheet';
@@ -32,13 +32,17 @@ export const FeaturedView: React.FC = () => {
 
   // Rank companies dynamically based on active user interests in real time
   const rankedCompanies = useMemo(() => {
+    // With nothing chosen every score is zero and the grid comes out empty, so
+    // ranking falls back to the default set. That orders the page; it does not
+    // let anything claim to match a preference nobody expressed.
+    const ranking = userInterests.length ? userInterests : DEFAULT_STUDENT_INTERESTS;
     return companies
       .map(company => {
         const fitScore = calculateStudentFitScore(
           company.categories,
           company.technicalAreas,
           company.commonCareers,
-          userInterests
+          ranking
         );
         return { company, fitScore };
       })

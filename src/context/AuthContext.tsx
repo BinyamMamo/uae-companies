@@ -8,7 +8,7 @@ import React, {
   useState,
 } from 'react';
 import { loadFirebase, isAuthConfigured, type User } from '../lib/firebase';
-import { identifyUser, resetUser, track } from '../lib/analytics';
+import { identifyUser, resetUser, setSignedInProperty, track } from '../lib/analytics';
 
 export interface AuthUser {
   uid: string;
@@ -95,8 +95,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             const mapped = toAuthUser(next);
             setUser(mapped);
             identifyUser(mapped.uid);
+            setSignedInProperty(true);
           } else {
             setUser(null);
+            setSignedInProperty(false);
           }
           setLoading(false);
         });
@@ -129,6 +131,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       source of truth for whether a session is actually valid.
     */
     if (!hadSessionBefore()) {
+      setSignedInProperty(false);
       setLoading(false);
       return () => {
         cancelled = true;

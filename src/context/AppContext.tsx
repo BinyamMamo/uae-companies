@@ -29,9 +29,9 @@ const isUserLocation = (v: unknown): v is UserLocation =>
 
 /** Where distances are measured from until the visitor picks somewhere. */
 export const DEFAULT_ORIGIN = {
-  name: 'University of Dubai',
-  latitude: 25.1304,
-  longitude: 55.4273,
+  name: 'KSK Students Residence',
+  latitude: 25.1292,
+  longitude: 55.4268,
 };
 
 const LOCATION_SET_KEY = 'uae_location_set';
@@ -130,8 +130,15 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setSelectedCompanyState(company);
   }, []);
   const [filters, setFilters] = useState<FilterState>(initialFilters);
+  /*
+    Starts empty. Pre-selecting all eleven defaults meant every card claimed
+    "3 roles match your interests" to someone who had never chosen any, which
+    is the same false personalisation as the pre-saved lists. With none chosen
+    the app simply does not claim a match; Featured still has an order, from an
+    editorial default rather than a pretend preference.
+  */
   const [userInterests, setUserInterests] = useState<string[]>(() => {
-    return readJSON('uae_user_interests', isStringArray) ?? DEFAULT_STUDENT_INTERESTS;
+    return readJSON('uae_user_interests', isStringArray) ?? [];
   });
 
   useEffect(() => {
@@ -178,10 +185,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
   /*
-    Distances need an origin, so one is assumed, University of Dubai, the
-    campus this is built for. That assumption is not a claim about where the
-    visitor lives: isLocationSet stays false until they choose for themselves,
-    and the app says so once rather than caveating every number.
+    Distances need an origin, so one is assumed. That assumption is not a claim
+    about where the visitor lives: isLocationSet stays false until they choose
+    for themselves, and the app says so once rather than caveating every number.
   */
   const [userLocation, setUserLocationState] = useState<UserLocation>(() => {
     // Only trust a stored place if it was actually chosen. Early builds wrote a
