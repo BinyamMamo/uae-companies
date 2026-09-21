@@ -186,6 +186,12 @@ def main():
             srcs.append({"title": s.get("title", "Source"), "url": u})
         r["sources"] = srcs
 
+        # Roles are only kept when the model cited where it saw them.
+        if r.get("commonCareers") and not r.get("careersEvidence"):
+            rejects["commonCareers dropped (no evidence cited)"].append(rid)
+            r.pop("commonCareers", None)
+            r.pop("technicalAreas", None)
+
         # never accept invented people
         if r.pop("employees", None):
             rejects["employees dropped (not verifiable)"].append(rid)
@@ -206,7 +212,7 @@ def main():
         k = sum(1 for r in clean if r.get(key))
         return f"{k:>3}/{len(clean)}"
     print("\nSurviving fields:")
-    for key in ("website", "careersUrl", "shortDescription", "address", "latitude", "logo", "sources"):
+    for key in ("website", "careersUrl", "shortDescription", "address", "latitude", "logo", "sources", "commonCareers"):
         print(f"  {key:<18} {kept(key)}")
 
     out = VERIFIED_DIR / "_merged.json"

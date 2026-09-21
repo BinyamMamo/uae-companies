@@ -1,0 +1,328 @@
+[
+  {
+    "id": "bausch-lomb",
+    "website": "https://www.bausch.com",
+    "websiteSource": "https://www.bausch.com",
+    "careersUrl": "https://www.bausch.com/careers/",
+    "careersSource": "https://www.bausch.com/careers/",
+    "shortDescription": "Distributes and supports eye health products, contact lenses, and ophthalmic pharmaceuticals across the UAE and Middle East.",
+    "whatTheyDo": "Bausch + Lomb distributes eye care devices, contact lenses, lens care solutions, and ophthalmic pharmaceuticals across the Middle East. Its regional commercial operations operate through Bausch Health Trading DWC - LLC, providing sales oversight, medical device distribution, and customer support.",
+    "descriptionSource": "https://www.bausch.com",
+    "industry": "Healthcare & Medical Devices",
+    "address": "14th Floor, Rolex Tower, Sheikh Zayed Road, Dubai, UAE",
+    "latitude": 25.20975,
+    "longitude": 55.27543,
+    "locationSource": "https://en.wikipedia.org/wiki/Rolex_Tower",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai Chamber Commercial Directory",
+        "url": "https://www.dcciinfo.com"
+      },
+      {
+        "title": "Rolex Tower Information",
+        "url": "https://en.wikipedia.org/wiki/Rolex_Tower"
+      }
+    ],
+    "notes": "Previously listed in the directory under Downtown, but verified commercial operations in Dubai are based at Rolex Tower on Sheikh Zayed Road (registered under Bausch Health Trading DWC - LLC). Older trade listings also note an office at Executive Tower D in Business Bay."
+  },
+  {
+    "id": "bayer",
+    "website": "https://middleeast.bayer.com",
+    "websiteSource": "https://middleeast.bayer.com",
+    "careersUrl": "https://www.bayer.com/en/careers",
+    "careersSource": "https://www.bayer.com/en/careers",
+    "shortDescription": "Regional headquarters managing Bayer's pharmaceuticals, consumer health, and crop science divisions across the Middle East.",
+    "whatTheyDo": "Bayer Middle East FZE coordinates the marketing, medical affairs, regulatory compliance, and commercial distribution of prescription pharmaceuticals, over-the-counter consumer healthcare products, and crop science solutions. The Dubai office functions as the administrative and commercial headquarters for the Middle East.",
+    "descriptionSource": "https://middleeast.bayer.com",
+    "industry": "Pharmaceuticals & Life Sciences",
+    "address": "Dubai Science Park Headquarters, North Tower, 13th Floor, Al Barsha South 2, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://middleeast.bayer.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.bayer.com/en/careers",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai Science Park Directory",
+        "url": "https://dsp.ae"
+      },
+      {
+        "title": "Yello.ae Bayer Middle East Listing",
+        "url": "https://www.yello.ae"
+      }
+    ],
+    "notes": "Previously listed in the directory under Business Bay, but Bayer Middle East FZE's verified corporate headquarters is located at Dubai Science Park Headquarters (North Tower) in Al Barsha South 2. Coordinates are set to null as exact 5-decimal place office geodata is unconfirmed."
+  },
+  {
+    "id": "bayut",
+    "website": "https://www.bayut.com",
+    "websiteSource": "https://www.bayut.com",
+    "careersUrl": "https://apply.workable.com/bayut-dubizzle/",
+    "careersSource": "https://apply.workable.com/bayut-dubizzle/",
+    "shortDescription": "Leading UAE property portal connecting buyers, tenants, agents, and developers through digital real estate listings and search tools.",
+    "whatTheyDo": "Bayut operates a digital property search portal, market intelligence tools such as TruCheck and TruEstimate, and real estate advertising platforms across the UAE. Its Dubai headquarters houses engineering, machine learning, product design, and business intelligence teams operating under the Dubizzle Group.",
+    "descriptionSource": "https://www.bayut.com",
+    "industry": "Technology & PropTech",
+    "address": "Office 511, Building 3, Dubai Design District (d3), Dubai, UAE",
+    "latitude": 25.18750,
+    "longitude": 55.29748,
+    "locationSource": "https://dubaidesigndistrict.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://apply.workable.com/bayut-dubizzle/",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf News Real Estate Reporting",
+        "url": "https://gulfnews.com"
+      },
+      {
+        "title": "The National UAE Proptech Feature",
+        "url": "https://www.thenationalnews.com"
+      },
+      {
+        "title": "Dubai Design District Directory",
+        "url": "https://dubaidesigndistrict.com"
+      }
+    ],
+    "notes": "Previously listed in the directory under Dubai Internet City, but Bayut's headquarters is officially located at Building 3 in Dubai Design District (d3)."
+  },
+  {
+    "id": "bdp-global-project-logistic-llc",
+    "website": "https://psabdp.com",
+    "websiteSource": "https://psabdp.com",
+    "careersUrl": "https://psabdp.com/careers",
+    "careersSource": "https://psabdp.com/careers",
+    "shortDescription": "Regional headquarters for PSA BDP delivering global freight forwarding and project logistics across the Middle East, Türkiye, and Africa.",
+    "whatTheyDo": "BDP Global Project Logistics LLC provides international supply chain management, sea and air freight forwarding, project logistics, heavy-lift transport, and industrial plant relocation. In Dubai, it operates its regional headquarters at Burj Al Salam along with operational facilities at Dubai Cargo Village.",
+    "descriptionSource": "https://psabdp.com",
+    "industry": "Logistics & Supply Chain",
+    "address": "Burj Al Salam Office Building, Office 1602-1606, Sheikh Zayed Road, Trade Centre 1, Dubai, UAE",
+    "latitude": 25.22975,
+    "longitude": 55.28658,
+    "locationSource": "https://en.wikipedia.org/wiki/Burj_Al_Salam",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "AmCham Dubai Member Directory",
+        "url": "https://amchamdubai.org"
+      },
+      {
+        "title": "Ministry of Industry and Advanced Technology Directory",
+        "url": "https://moiat.gov.ae"
+      },
+      {
+        "title": "Burj Al Salam Overview",
+        "url": "https://en.wikipedia.org/wiki/Burj_Al_Salam"
+      }
+    ],
+    "notes": "Previously listed in the directory under Dubai Internet City, but BDP Global Project Logistics LLC (part of PSA BDP) is headquartered in the Burj Al Salam building on Sheikh Zayed Road."
+  },
+  {
+    "id": "beiersdorf",
+    "website": "https://www.beiersdorf-me.com",
+    "websiteSource": "https://www.beiersdorf-me.com",
+    "careersUrl": "https://www.beiersdorf.com/career/students-and-graduates",
+    "careersSource": "https://www.beiersdorf.com/career/students-and-graduates",
+    "shortDescription": "Regional headquarters managing marketing, distribution, and supply chain operations for international personal care and skincare brands.",
+    "whatTheyDo": "Beiersdorf Middle East manages commercial marketing, distribution partnerships, and supply chain logistics for consumer skincare brands including NIVEA, Eucerin, and Hansaplast. Its Dubai Media City headquarters oversees business operations across the Middle East and Near East.",
+    "descriptionSource": "https://www.beiersdorf-me.com",
+    "industry": "Consumer Goods & Skincare",
+    "address": "1st Floor, Zee Tower, Abdullah Omran Taryam Street, Dubai Media City, Dubai, UAE",
+    "latitude": 25.10190,
+    "longitude": 55.16780,
+    "locationSource": "https://wikimapia.org",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.beiersdorf.com/career/students-and-graduates",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "LEI Register Listing: Beiersdorf Near East FZ-LLC",
+        "url": "https://lei-lookup.com"
+      },
+      {
+        "title": "ATN Business Directory UAE",
+        "url": "https://atninfo.com"
+      }
+    ],
+    "notes": "Previously listed in the directory under Downtown, but the verified regional office is located at Zee Tower in Dubai Media City (registered as Beiersdorf Middle East FZCO and Beiersdorf Near East FZ-LLC)."
+  },
+  {
+    "id": "belhasa-international-co-llc",
+    "website": "https://www.belhasa.com",
+    "websiteSource": "https://www.belhasa.com",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "Emirati conglomerate holding company managing major subsidiaries in construction, driving education, automotive, and real estate.",
+    "whatTheyDo": "Belhasa International Company LLC oversees a portfolio of more than 30 subsidiary businesses including Belhasa Projects, Emirates Driving Institute, and Belhasa Real Estate. Group activities in the UAE encompass infrastructure contracting, transportation training, facility management, and commercial services.",
+    "descriptionSource": "https://www.belhasa.com",
+    "industry": "Conglomerate & Diversified Holdings",
+    "address": "Belhasa International Building, 28th Street, Hor Al Anz East, Deira, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://belhasaprojects.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Oil and Gas Directory Middle East",
+        "url": "https://oilandgasdirectory.com"
+      },
+      {
+        "title": "Belhasa Projects Corporate Portal",
+        "url": "https://belhasaprojects.com"
+      }
+    ],
+    "notes": "Previously listed in the directory under Business Bay, but its corporate headquarters is located at the Belhasa International Building in Hor Al Anz East, Deira. Coordinates are null due to lack of verified 5-decimal place office geodata."
+  },
+  {
+    "id": "binghatti-holding",
+    "website": "https://www.binghatti.com",
+    "websiteSource": "https://www.binghatti.com",
+    "careersUrl": "https://www.binghatti.com/careers",
+    "careersSource": "https://www.binghatti.com/careers",
+    "shortDescription": "Leading Emirati holding company and real estate developer known for architectural luxury residential towers and branded developments.",
+    "whatTheyDo": "Binghatti Holding develops architectural residential and commercial real estate projects across Dubai, collaborating with global luxury brands including Bugatti, Mercedes-Benz, and Jacob & Co. The holding group also controls manufacturing, hospitality, and DIFC-based investment management operations.",
+    "descriptionSource": "https://www.binghatti.com",
+    "industry": "Real Estate & Property Development",
+    "address": "Gate Village 6, Level 1, Suite 108, Dubai International Financial Centre (DIFC), Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.difc.ae",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai International Financial Centre Public Register",
+        "url": "https://www.difc.ae"
+      },
+      {
+        "title": "YellowPages UAE Binghatti Holding Profile",
+        "url": "https://yellowpages.ae"
+      }
+    ],
+    "notes": "Previously listed in the directory under JLT, but Binghatti Holding's primary corporate office and asset management entities are based in DIFC (Gate Village 6 and ICD Brookfield Place). Coordinates are set to null as 5-decimal place building coordinates are unconfirmed."
+  },
+  {
+    "id": "bnc-network",
+    "website": "https://www.bncnetwork.net",
+    "websiteSource": "https://www.bncnetwork.net",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "Operates an intelligence SaaS platform tracking construction and capital projects across the Middle East and North Africa.",
+    "whatTheyDo": "BNC Network (Industry Networks FZC) maintains a project intelligence database that monitors construction, infrastructure, and energy developments throughout the MENA region. The platform provides project forecasting, tender tracking, and market analytics to contractors, consultants, and building product manufacturers.",
+    "descriptionSource": "https://www.bncnetwork.net",
+    "industry": "Construction Intelligence & Market Research",
+    "address": "Industry Networks FZC, G1-3, 61st Street, SAIF Zone, Sharjah, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.naukrigulf.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "ADIPEC Partner Profile",
+        "url": "https://www.adipec.com"
+      },
+      {
+        "title": "Naukrigulf Company Profile: Industry Networks FZC",
+        "url": "https://www.naukrigulf.com"
+      }
+    ],
+    "notes": "Previously listed in the directory under Dubai Internet City, but BNC Network is headquartered in the SAIF Zone in Sharjah, UAE (registered under Industry Networks FZC). While it monitors Dubai construction projects, it does not operate a physical office in Dubai Internet City."
+  },
+  {
+    "id": "bon-education",
+    "website": "https://boneducation.com",
+    "websiteSource": "https://boneducation.com",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "UAE-based educational consultancy and learning design studio delivering youth empowerment and career readiness programs.",
+    "whatTheyDo": "Bon Education designs experiential learning curricula, youth empowerment programs, and workforce readiness workshops for government agencies, universities, and corporate clients across the UAE. The organization partners with regional talent development initiatives, including the Dubai Business Associates programme, to train young professionals.",
+    "descriptionSource": "https://boneducation.com",
+    "industry": "Education Management & Consulting",
+    "address": null,
+    "latitude": null,
+    "longitude": null,
+    "locationSource": null,
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Arabian Business Coverage",
+        "url": "https://www.arabianbusiness.com"
+      },
+      {
+        "title": "Dubai Business Associates Partner Listing",
+        "url": "https://dubaibusinessassociates.ae"
+      },
+      {
+        "title": "KHDA Directory Listing",
+        "url": "https://www.khda.gov.ae"
+      }
+    ],
+    "notes": "Previously listed in the directory under Downtown Dubai, but Bon Education lists its headquarters in Ras Al Khaimah and Abu Dhabi while running programs across the UAE; it does not publish a Downtown Dubai street address. Distinct from B O N Professional & Management Development Training LLC (British Orchard Nursery)."
+  },
+  {
+    "id": "booz-allen",
+    "website": "https://www.boozallen.com",
+    "websiteSource": "https://www.boozallen.com",
+    "careersUrl": "https://careers.boozallen.com",
+    "careersSource": "https://careers.boozallen.com",
+    "shortDescription": "Global management and technology consulting firm providing specialized cybersecurity and defense advisory services.",
+    "whatTheyDo": "Booz Allen Hamilton provides technology, digital transformation, cloud architecture, and cybersecurity consulting services, primarily serving defense, national security, and government clients. In the Middle East, its continuing operations focus on defense and U.S. government advisory work following the 2022 divestiture of its regional management consulting unit.",
+    "descriptionSource": "https://www.boozallen.com",
+    "industry": "Management & Technology Consulting",
+    "address": "Gate Precinct Building 3, 4th Floor, Units 405 & 406, Dubai International Financial Centre (DIFC), Dubai, UAE",
+    "latitude": 25.20481,
+    "longitude": 55.27081,
+    "locationSource": "https://www.google.com/maps",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "PR Newswire: Oliver Wyman Completes Acquisition of Booz Allen Hamilton MENA",
+        "url": "https://www.prnewswire.com"
+      },
+      {
+        "title": "Consultancy-me: Oliver Wyman Acquires Booz Allen Hamilton Middle East",
+        "url": "https://www.consultancy-me.com"
+      },
+      {
+        "title": "DIFC Public Register",
+        "url": "https://www.difc.ae"
+      }
+    ],
+    "notes": "Previously listed in the directory under Business Bay, but Booz Allen Hamilton (Dubai) Limited was registered at Gate Precinct Building 3, DIFC. In September 2022, Oliver Wyman acquired Booz Allen's MENA management consulting business; Booz Allen retained only specialized regional work for U.S. government/defense clients. Distinct from Strategy& (formerly Booz & Company, acquired by PwC)."
+  }
+]

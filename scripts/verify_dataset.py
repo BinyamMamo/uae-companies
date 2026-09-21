@@ -34,6 +34,12 @@ TEMPLATE_PATTERNS = [
     re.compile(r"suitable for engineering and technology graduates", re.I),
 ]
 SYNTHETIC_ADDRESS = re.compile(r" Regional Office, ")
+
+# The generator emitted these exact role sets for 118 and 15 companies.
+TEMPLATED_ROLE_SETS = {
+    ("IT Specialist", "Operations Engineer", "Data Analyst"),
+    ("Systems Integration", "Digital Operations"),
+}
 PLACEHOLDER_LOGO = re.compile(r"avatar\.vercel\.sh")
 
 
@@ -97,6 +103,10 @@ def main():
             text = c.get(key) or ""
             if any(p.search(text) for p in TEMPLATE_PATTERNS):
                 errors.append(f"{cid}: {key} is templated text")
+
+        for key in ("commonCareers", "technicalAreas"):
+            if tuple(c.get(key) or ()) in TEMPLATED_ROLE_SETS:
+                errors.append(f"{cid}: {key} is a templated set")
 
         logo = c.get("logo")
         if logo and PLACEHOLDER_LOGO.search(logo):

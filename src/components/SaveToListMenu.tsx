@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Check, Plus, X } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
@@ -6,8 +7,8 @@ interface SaveToListMenuProps {
   companyId: string;
   companyName: string;
   onClose: () => void;
-  /** Which corner the panel grows from, so it stays on screen near the trigger. */
-  align?: 'left' | 'right';
+  /** The button the menu hangs off; used to position the portalled panel. */
+  anchorRef: React.RefObject<HTMLElement | null>;
 }
 
 /**
@@ -21,7 +22,7 @@ export const SaveToListMenu: React.FC<SaveToListMenuProps> = ({
   companyId,
   companyName,
   onClose,
-  align = 'right',
+  anchorRef,
 }) => {
   const { savedLists, listsContaining, addCompanyToList, removeCompanyFromList, createSavedList } =
     useApp();
@@ -29,12 +30,49 @@ export const SaveToListMenu: React.FC<SaveToListMenuProps> = ({
   const [newName, setNewName] = useState('');
   const panelRef = useRef<HTMLDivElement>(null);
   const newNameRef = useRef<HTMLInputElement>(null);
+  const [pos, setPos] = useState<{ top: number; left: number } | null>(null);
+
+  /*
+    Rendered in a portal because the company card sets `content-visibility`,
+    which implies paint containment and clipped this panel to the card.
+    Position is measured from the trigger and flipped if it would overflow.
+  */
+  useLayoutEffect(() => {
+    const place = () => {
+      const anchor = anchorRef.current;
+      if (!anchor) return;
+      const r = anchor.getBoundingClientRect();
+      const width = 240;
+      const estHeight = panelRef.current?.offsetHeight ?? 260;
+      const gap = 8;
+
+      let left = r.right - width;
+      left = Math.max(8, Math.min(left, window.innerWidth - width - 8));
+
+      let top = r.bottom + gap;
+      if (top + estHeight > window.innerHeight - 8) {
+        top = Math.max(8, r.top - estHeight - gap);
+      }
+      setPos({ top, left });
+    };
+
+    place();
+    window.addEventListener('scroll', place, true);
+    window.addEventListener('resize', place);
+    return () => {
+      window.removeEventListener('scroll', place, true);
+      window.removeEventListener('resize', place);
+    };
+  }, [anchorRef]);
 
   const memberOf = new Set(listsContaining(companyId));
 
   useEffect(() => {
     const onPointer = (e: MouseEvent) => {
-      if (!panelRef.current?.contains(e.target as Node)) onClose();
+      const target = e.target as Node;
+      if (panelRef.current?.contains(target)) return;
+      if (anchorRef.current?.contains(target)) return;
+      onClose();
     };
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -48,7 +86,7 @@ export const SaveToListMenu: React.FC<SaveToListMenuProps> = ({
       document.removeEventListener('mousedown', onPointer);
       document.removeEventListener('keydown', onKey);
     };
-  }, [onClose]);
+  }, [onClose, anchorRef]);
 
   useEffect(() => {
     if (creating) newNameRef.current?.focus();
@@ -63,14 +101,13 @@ export const SaveToListMenu: React.FC<SaveToListMenuProps> = ({
     setCreating(false);
   };
 
-  return (
+  return createPortal(
     <div
       ref={panelRef}
       role="dialog"
       aria-label={`Save ${companyName} to a list`}
-      className={`absolute top-full mt-2 ${
-        align === 'right' ? 'right-0' : 'left-0'
-      } w-60 bg-surface border border-line rounded-xl shadow-popup overflow-hidden z-50 animate-fade-in`}
+      style={{ top: pos?.top ?? -9999, left: pos?.left ?? -9999 }}
+      className="fixed w-60 bg-surface border border-line rounded-xl shadow-popup overflow-hidden z-10015 animate-fade-in"
     >
       <div className="flex items-center justify-between px-3 py-2.5 border-b border-line">
         <span className="text-xs font-semibold text-ink">Save to</span>
@@ -156,6 +193,7 @@ export const SaveToListMenu: React.FC<SaveToListMenuProps> = ({
           </button>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };

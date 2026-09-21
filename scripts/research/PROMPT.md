@@ -19,6 +19,13 @@ access in this run — do not attempt to run commands or write files.
 3. **A field you cannot verify is `null`.** An empty field is a correct answer.
    A plausible-looking invention is a failure.
 4. **Do not invent people.** Leave `employees` out entirely.
+4b. **Do not invent roles.** `commonCareers` must be roles you actually saw
+   advertised or described for *this* company — on its careers page, a job
+   board listing, or a news article. Do not infer roles from the industry.
+   A university mostly hires academic and administrative staff, not "Cloud
+   Architects"; a trading company is not a software house. If you did not see
+   real openings, return `"commonCareers": []`. The same applies to
+   `technicalAreas`: leave it empty unless the company describes that work.
 5. **`sources` must be third-party** — news, government registries, directories,
    university career pages. The company's own website is not a source for
    claims about itself; it goes in `website`, not `sources`.
@@ -45,6 +52,9 @@ company, using the same `id`. Use this shape, omitting keys you cannot fill:
     "whatTheyDo": "Two to three sentences: products, services, who they serve, which technical teams they run in the UAE.",
     "descriptionSource": "https://...",
     "industry": "Technology & Software",
+    "commonCareers": ["Cloud Solution Architect", "Account Technology Strategist"],
+    "careersEvidence": "https://... the page where these roles were listed",
+    "technicalAreas": ["Cloud Computing", "AI"],
     "address": "Building 8, Dubai Internet City, Dubai, UAE",
     "latitude": 25.09721,
     "longitude": 55.16854,

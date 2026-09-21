@@ -47,18 +47,45 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
   // Both of these used to run on every render: a filter over the whole company
   // list, and a several-hundred-line route solver — the latter even when the
   // Location tab was closed.
-  const similarCompanies = useMemo(
-    () =>
-      companies
-        .filter(
-          c =>
-            c.id !== company.id &&
-            (c.categories.some(cat => company.categories.includes(cat)) ||
-              c.location.area === company.location.area)
-        )
-        .slice(0, 3),
-    [companies, company.id, company.categories, company.location.area]
-  );
+  /*
+    Similarity is only offered between records whose profile was actually
+    researched. The original generator gave 118 companies the same two
+    categories, so matching on them returned whatever came first — 3M appeared
+    under almost everything. Comparing unverified profiles cannot produce a
+    real answer, so the tab stays hidden for them and appears as the research
+    pipeline fills records in.
+  */
+  const similarCompanies = useMemo(() => {
+    if (!company.shortDescription) return [];
+
+    // The two buckets the generator applied to most records carry no signal.
+    const BROAD = new Set(['Tech / Software', 'Engineering']);
+    const mySpecific = new Set(company.categories.filter(c => !BROAD.has(c)));
+
+    return companies
+      .filter(c => c.id !== company.id && c.shortDescription)
+      .map(c => {
+        const shared = c.categories.filter(cat => !BROAD.has(cat) && mySpecific.has(cat));
+        let score = shared.length * 3;
+        if (c.location.area === company.location.area) score += 2;
+        if (c.industry && c.industry === company.industry) score += 4;
+        return { company: c, score };
+      })
+      .filter(entry => entry.score >= 3)
+      .sort(
+        (a, b) =>
+          b.score - a.score || a.company.commute.distanceKm - b.company.commute.distanceKm
+      )
+      .slice(0, 3)
+      .map(entry => entry.company);
+  }, [
+    companies,
+    company.id,
+    company.categories,
+    company.industry,
+    company.location.area,
+    company.shortDescription,
+  ]);
 
   const transitPlan = useMemo(
     () =>
@@ -200,7 +227,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
     { id: 'overview', label: 'Overview' },
     { id: 'careers', label: 'Careers' },
     { id: 'location', label: 'Location' },
-    { id: 'similar', label: 'Similar' },
+    ...(similarCompanies.length > 0 ? [{ id: 'similar' as const, label: 'Similar' }] : []),
   ];
 
   return (
@@ -535,7 +562,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
                           {role}
                         </span>
                         <span className="text-[11px] text-ink-2">
-                          {relevant ? 'High alignment with your degree' : 'Standard engineering path'}
+                          {relevant ? 'Matches your interests' : 'Related role'}
                         </span>
                       </div>
                       {company.careersUrl && (

@@ -216,9 +216,14 @@ def build(seed, audit, verified):
         addr = loc.get("address") or ""
         if v.get("address"):
             loc["address"] = v["address"]
-            loc["latitude"] = v.get("latitude", loc["latitude"])
-            loc["longitude"] = v.get("longitude", loc["longitude"])
-            loc["precision"] = "building"
+            # An explicit null means "district only" — keep the seed centroid
+            # rather than writing None into a required coordinate.
+            v_lat, v_lon = v.get("latitude"), v.get("longitude")
+            has_point = isinstance(v_lat, (int, float)) and isinstance(v_lon, (int, float))
+            if has_point:
+                loc["latitude"] = v_lat
+                loc["longitude"] = v_lon
+            loc["precision"] = "building" if has_point else "area"
             loc_prov = prov(v.get("locationSource"), "verified")
         elif TEMPLATE_ADDR.search(addr):
             loc["address"] = None
@@ -233,10 +238,11 @@ def build(seed, audit, verified):
         loc["freeZoneName"] = c["location"].get("freeZoneName")
 
         # ---- programmes ----
-        if "internshipsKnown" in v or "graduateRolesKnown" in v:
+        prog_source = v.get("programmesSource") or careers
+        if ("internshipsKnown" in v or "graduateRolesKnown" in v) and prog_source:
             interns = v.get("internshipsKnown")
             grads = v.get("graduateRolesKnown")
-            prog_prov = prov(v.get("programmesSource") or careers, "verified")
+            prog_prov = prov(prog_source, "verified")
         elif careers:
             # Only meaningful if we actually found a careers page.
             interns = c.get("internshipsKnown")
@@ -285,6 +291,27 @@ def build(seed, audit, verified):
         if reason and TEMPLATE_REASON.match(reason):
             reason = None
 
+        # The generator emitted roles and technical areas from the same 36
+        # buckets as the descriptions — 118 companies share one role set. If the
+        # description was templated, so were these, so they go too.
+        templated_profile = desc is None and not v.get("shortDescription")
+        TEMPLATED_SETS = {
+            ("IT Specialist", "Operations Engineer", "Data Analyst"),
+            ("Systems Integration", "Digital Operations"),
+        }
+        careers_list = v.get("commonCareers")
+        tech_list = v.get("technicalAreas")
+        if careers_list is None:
+            careers_list = [] if templated_profile else c.get("commonCareers", [])
+        if tech_list is None:
+            tech_list = [] if templated_profile else c.get("technicalAreas", [])
+        # Checked last, so it also catches the seed values the fallback just
+        # restored and anything researched before the "don't infer roles" rule.
+        if tuple(careers_list) in TEMPLATED_SETS:
+            careers_list = []
+        if tuple(tech_list) in TEMPLATED_SETS:
+            tech_list = []
+
         out.append({
             "id": c["id"],
             "name": c["name"],
@@ -299,8 +326,8 @@ def build(seed, audit, verified):
             "logo": logo,
             # 22 stock photos recycled across 225 companies signalled nothing.
             "bannerImage": v.get("bannerImage"),
-            "technicalAreas": c.get("technicalAreas", []),
-            "commonCareers": c.get("commonCareers", []),
+            "technicalAreas": tech_list,
+            "commonCareers": careers_list,
             "internshipsKnown": interns,
             "graduateRolesKnown": grads,
             # The 9 seeded profiles had real-looking LinkedIn URLs for people

@@ -211,7 +211,7 @@ export const SavedView: React.FC = () => {
                           type="button"
                           onClick={() => setActiveListId(list.id)}
                           aria-current={isActive ? 'true' : undefined}
-                          className="flex-1 min-w-0 flex items-baseline gap-2 pl-3 pr-2 py-2 text-left"
+                          className="flex-1 min-w-0 flex items-baseline gap-2 pl-3 pr-1 py-2 text-left"
                         >
                           <span
                             className={`text-xs truncate ${
@@ -222,34 +222,40 @@ export const SavedView: React.FC = () => {
                           >
                             {list.name}
                           </span>
-                          <span className="ml-auto text-[11px] text-ink-3 tabular-nums shrink-0">
+                          <span className="ml-auto w-5 text-right text-[11px] text-ink-3 tabular-nums shrink-0">
                             {list.companyIds.length}
                           </span>
                         </button>
 
-                        {list.id !== 'default' && (
-                          <span className="flex items-center pr-1 sm:opacity-0 sm:group-hover:opacity-100 sm:focus-within:opacity-100 transition-opacity">
-                            <button
-                              type="button"
-                              onClick={() => {
-                                setRenamingId(list.id);
-                                setRenameValue(list.name);
-                              }}
-                              className="p-1 rounded text-ink-3 hover:text-ink transition-colors"
-                              aria-label={`Rename ${list.name}`}
-                            >
-                              <Pencil className="w-3 h-3" aria-hidden="true" />
-                            </button>
-                            <button
-                              type="button"
-                              onClick={() => void handleDeleteList(list.id, list.name)}
-                              className="p-1 rounded text-ink-3 hover:text-red-600 dark:hover:text-red-400 transition-colors"
-                              aria-label={`Delete ${list.name}`}
-                            >
-                              <Trash2 className="w-3 h-3" aria-hidden="true" />
-                            </button>
-                          </span>
-                        )}
+                        {/*
+                          Fixed width on every row, including the default list
+                          that has no actions, so the counts line up.
+                        */}
+                        <span className="w-14 flex items-center justify-end pr-1 shrink-0">
+                          {list.id !== 'default' && (
+                            <span className="flex items-center sm:opacity-0 sm:group-hover:opacity-100 sm:focus-within:opacity-100 transition-opacity">
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setRenamingId(list.id);
+                                  setRenameValue(list.name);
+                                }}
+                                className="p-1 rounded text-ink-3 hover:text-ink transition-colors"
+                                aria-label={`Rename ${list.name}`}
+                              >
+                                <Pencil className="w-3 h-3" aria-hidden="true" />
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => void handleDeleteList(list.id, list.name)}
+                                className="p-1 rounded text-ink-3 hover:text-red-600 dark:hover:text-red-400 transition-colors"
+                                aria-label={`Delete ${list.name}`}
+                              >
+                                <Trash2 className="w-3 h-3" aria-hidden="true" />
+                              </button>
+                            </span>
+                          )}
+                        </span>
                       </div>
                     )}
                   </li>
@@ -268,12 +274,11 @@ export const SavedView: React.FC = () => {
         {/* ---------------- Contents ---------------- */}
         <main className="flex-1 min-w-0 flex flex-col">
           <div className="flex items-center justify-between gap-3 px-4 sm:px-5 h-14 border-b border-line shrink-0">
-            <div className="min-w-0 flex items-baseline gap-2">
-              <h1 className="text-sm font-semibold text-ink truncate">{activeList?.name}</h1>
-              <span className="text-xs text-ink-3 shrink-0">
-                {activeList?.companyIds.length ?? 0}
-              </span>
-            </div>
+            <p className="text-xs text-ink-3 min-w-0 truncate">
+              {listCompanies.length}
+              {companyQuery.trim() ? ' matching' : ''}{' '}
+              {listCompanies.length === 1 ? 'company' : 'companies'}
+            </p>
 
             <div className="flex items-center gap-1.5 shrink-0">
               {(activeList?.companyIds.length ?? 0) > 3 && (

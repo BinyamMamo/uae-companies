@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import type { Company } from '../types/company';
 import { useApp } from '../context/AppContext';
 import { isCareerRelevant, countMatchingRoles, getStudentMatchLabel } from '../utils/relevance';
@@ -17,6 +17,7 @@ const MAX_VISIBLE_ROLES = 4;
 
 const CompanyCardComponent: React.FC<CompanyCardProps> = ({ company, isSelected = false }) => {
   const [isSaveMenuOpen, setIsSaveMenuOpen] = useState(false);
+  const saveButtonRef = useRef<HTMLButtonElement>(null);
   const {
     setSelectedCompany,
     isCompanySaved,
@@ -96,6 +97,7 @@ const CompanyCardComponent: React.FC<CompanyCardProps> = ({ company, isSelected 
 
               <div className="relative">
                 <button
+                  ref={saveButtonRef}
                   type="button"
                   onClick={() => setIsSaveMenuOpen(open => !open)}
                   aria-pressed={isSaved}
@@ -119,6 +121,7 @@ const CompanyCardComponent: React.FC<CompanyCardProps> = ({ company, isSelected 
                   <SaveToListMenu
                     companyId={company.id}
                     companyName={company.name}
+                    anchorRef={saveButtonRef}
                     onClose={() => setIsSaveMenuOpen(false)}
                   />
                 )}
