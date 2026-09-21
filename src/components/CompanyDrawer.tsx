@@ -4,7 +4,7 @@ import { useApp } from '../context/AppContext';
 import { track } from '../lib/analytics';
 import { TabBar, tabPanelId } from './ui/TabBar';
 import { Modal } from './ui/Modal';
-import { formatBusCommute, formatDistance } from '../utils/distance';
+import { formatDistance } from '../utils/distance';
 import { isCareerRelevant } from '../utils/relevance';
 import { directionsUrl, directionsEmbedUrl } from '../utils/directions';
 import { CompanyLogo } from './ui/CompanyLogo';
@@ -34,7 +34,22 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
   const [activeTab, setActiveTab] = useState<'overview' | 'careers' | 'location' | 'similar'>('overview');
   const [commuteMode, setCommuteMode] = useState<'transit' | 'driving'>('transit');
 
+  // The embed takes a moment; show a skeleton rather than an empty box. The key
+  // changes with company and mode, so switching either re-arms the skeleton.
+  const routeMapKey = `${company.id}-${commuteMode}`;
+  const [loadedRouteMap, setLoadedRouteMap] = useState<string | null>(null);
+  const isRouteMapLoaded = loadedRouteMap === routeMapKey;
+  const setIsRouteMapLoaded = (loaded: boolean) =>
+    setLoadedRouteMap(loaded ? routeMapKey : null);
+
   const isSaved = isCompanySaved(company.id);
+
+  const hasProfile = Boolean(
+    company.shortDescription ||
+      company.whatTheyDo ||
+      company.technicalAreas.length ||
+      company.commonCareers.length
+  );
 
   // Both of these used to run on every render: a filter over the whole company
   // list, and a several-hundred-line route solver — the latter even when the
@@ -132,8 +147,6 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
             </span>
             <span className="text-slate-300 dark:text-slate-700">·</span>
             <span>{formatDistance(company.commute.distanceKm)}</span>
-            <span className="text-slate-300 dark:text-slate-700">·</span>
-            <span className="font-medium text-slate-700 dark:text-slate-200">{formatBusCommute(company.commute.busMinutes)}</span>
           </div>
 
           <button
@@ -186,28 +199,46 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
         {/* TAB 1: OVERVIEW */}
         {activeTab === 'overview' && (
           <div className="space-y-6">
+
+            {/* 193 of 225 records have no verified profile text yet. Say so
+                rather than rendering a column of empty headings. */}
+            {!hasProfile && (
+              <div className="border border-line rounded-lg p-3.5 bg-surface-2">
+                <h3 className="text-xs font-semibold text-ink">
+                  No verified profile yet
+                </h3>
+                <p className="text-xs text-ink-2 mt-1 leading-relaxed">
+                  We only publish details we can trace to a source. This
+                  company&rsquo;s description and roles haven&rsquo;t been
+                  verified, so they&rsquo;re left blank rather than guessed.
+                  {company.website ? ' Their own site is linked below.' : ''}
+                </p>
+              </div>
+            )}
             
-            {/* About */}
-            <div>
-              <h3 className="text-xs font-bold text-ink uppercase tracking-wider mb-2">
-                About
-              </h3>
-              <p className="text-xs sm:text-sm text-ink-2 leading-relaxed">
-                {company.shortDescription}
-              </p>
-            </div>
+            {company.shortDescription && (
+              <div>
+                <h3 className="text-xs font-bold text-ink uppercase tracking-wider mb-2">
+                  About
+                </h3>
+                <p className="text-xs sm:text-sm text-ink-2 leading-relaxed">
+                  {company.shortDescription}
+                </p>
+              </div>
+            )}
 
-            {/* What They Do */}
-            <div>
-              <h3 className="text-xs font-bold text-ink uppercase tracking-wider mb-2">
-                What They Do
-              </h3>
-              <p className="text-xs sm:text-sm text-ink-2 leading-relaxed">
-                {company.whatTheyDo}
-              </p>
-            </div>
+            {company.whatTheyDo && (
+              <div>
+                <h3 className="text-xs font-bold text-ink uppercase tracking-wider mb-2">
+                  What They Do
+                </h3>
+                <p className="text-xs sm:text-sm text-ink-2 leading-relaxed">
+                  {company.whatTheyDo}
+                </p>
+              </div>
+            )}
 
-            {/* Technical Areas */}
+            {company.technicalAreas.length > 0 && (
             <div>
               <h3 className="text-xs font-bold text-ink uppercase tracking-wider mb-2">
                 Technical Areas
@@ -223,8 +254,9 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
                 ))}
               </div>
             </div>
+            )}
 
-            {/* Common Careers with student match highlights */}
+            {company.commonCareers.length > 0 && (
             <div>
               <div className="flex items-center justify-between mb-2">
                 <h3 className="text-xs font-bold text-ink uppercase tracking-wider">
@@ -248,6 +280,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
                 })}
               </div>
             </div>
+            )}
 
             {/* Potential Student Relevance Note */}
             {company.studentMatchReason && (
@@ -427,7 +460,9 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
               </div>
             )}
 
-            {/* Technical Career Roles List */}
+            {/* Technical Career Roles List — only for records where the roles
+                were actually verified; most companies have none. */}
+            {company.commonCareers.length > 0 && (
             <div>
               <h3 className="text-xs font-bold text-ink uppercase tracking-wider mb-2.5">
                 Technical Career Paths
@@ -466,6 +501,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
                 })}
               </div>
             </div>
+            )}
 
           </div>
         )}
@@ -564,14 +600,25 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
                 names and stop order but no bus stop coordinates, so an in-app
                 route could not be verified.
               */}
-              <div className="rounded-lg overflow-hidden border border-line">
+              <div className="relative rounded-lg overflow-hidden border border-line h-64">
+                {!isRouteMapLoaded && (
+                  <div
+                    className="absolute inset-0 bg-surface-2 animate-pulse flex items-center justify-center"
+                    aria-hidden="true"
+                  >
+                    <span className="text-[11px] text-ink-3">Loading route…</span>
+                  </div>
+                )}
                 <iframe
-                  key={`${company.id}-${commuteMode}`}
+                  key={routeMapKey}
                   title={`Route from ${userLocation.name} to ${company.name}`}
                   src={directionsEmbedUrl(userLocation, company.location, commuteMode)}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full h-64 border-0 block"
+                  onLoad={() => setIsRouteMapLoaded(true)}
+                  className={`w-full h-full border-0 block transition-opacity duration-200 ${
+                    isRouteMapLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
                 />
               </div>
             </div>

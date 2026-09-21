@@ -2,10 +2,10 @@ import React, { useState, useId } from 'react';
 import type { Company } from '../types/company';
 import { useApp } from '../context/AppContext';
 import { track } from '../lib/analytics';
-import { directionsUrl, ESTIMATE_NOTE } from '../utils/directions';
+import { directionsUrl } from '../utils/directions';
 import { TabBar, tabPanelId } from './ui/TabBar';
 import { Modal } from './ui/Modal';
-import { formatBusCommute, formatDistance } from '../utils/distance';
+import { formatDistance } from '../utils/distance';
 import { isCareerRelevant } from '../utils/relevance';
 import { CompanyLogo } from './ui/CompanyLogo';
 import {
@@ -13,8 +13,6 @@ import {
   Bookmark,
   ExternalLink,
   MapPin,
-  Clock,
-  Car,
   Users
 } from 'lucide-react';
 
@@ -90,9 +88,7 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
               {company.location.area}
             </span>
             <span className="text-slate-300 dark:text-slate-700">·</span>
-            <span>{formatDistance(company.commute.distanceKm)}</span>
-            <span className="text-slate-300 dark:text-slate-700">·</span>
-            <span className="font-semibold text-ink">{formatBusCommute(company.commute.busMinutes)}</span>
+            <span className="font-semibold text-ink">{formatDistance(company.commute.distanceKm)}</span>
           </div>
         </div>
 
@@ -117,12 +113,21 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
       >
           {activeTab === 'overview' && (
             <div className="space-y-4">
-              <div>
-                <h4 className="font-bold text-ink uppercase tracking-wider mb-1">About</h4>
-                <p className="text-ink-2 leading-relaxed">
-                  {company.shortDescription ?? 'No verified description yet.'}
-                </p>
-              </div>
+              {company.shortDescription ? (
+                <div>
+                  <h4 className="font-bold text-ink uppercase tracking-wider mb-1">About</h4>
+                  <p className="text-ink-2 leading-relaxed">{company.shortDescription}</p>
+                </div>
+              ) : (
+                <div className="border border-line rounded-md p-3 bg-surface-2">
+                  <h4 className="font-semibold text-ink">No verified profile yet</h4>
+                  <p className="text-ink-2 mt-1 leading-relaxed">
+                    We only publish details we can trace to a source, so this
+                    company&rsquo;s description and roles are left blank rather
+                    than guessed.
+                  </p>
+                </div>
+              )}
 
               {company.whatTheyDo && (
                 <div>
@@ -131,6 +136,7 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
                 </div>
               )}
 
+              {company.commonCareers.length > 0 && (
               <div>
                 <h4 className="font-bold text-ink uppercase tracking-wider mb-1.5">Common Careers</h4>
                 <div className="flex flex-wrap gap-1.5">
@@ -147,6 +153,7 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
                   })}
                 </div>
               </div>
+              )}
 
               {company.studentMatchReason && (
                 <div className="bg-surface-2 border border-line rounded-md p-3">
@@ -241,21 +248,12 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
 
               <div className="border border-line p-3 rounded-md bg-surface-2 space-y-2">
                 <div className="text-ink font-semibold">From {userLocation.name}</div>
-                <div className="grid grid-cols-2 gap-2 text-center">
-                  <div className="bg-surface p-2 rounded-md border border-line">
-                    <Clock className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400 mx-auto" aria-hidden="true" />
-                    <div className="font-bold text-ink mt-0.5">
-                      {formatBusCommute(company.commute.busMinutes)}
-                    </div>
+                <div className="text-center bg-surface p-2.5 rounded-md border border-line">
+                  <div className="font-bold text-ink">
+                    {formatDistance(company.commute.distanceKm)}
                   </div>
-                  <div className="bg-surface p-2 rounded-md border border-line">
-                    <Car className="w-3.5 h-3.5 text-ink-2 mx-auto" aria-hidden="true" />
-                    <div className="font-bold text-ink mt-0.5">
-                      ~{company.commute.drivingMinutes} min drive
-                    </div>
-                  </div>
+                  <div className="text-[10px] text-ink-3 mt-0.5">direct distance</div>
                 </div>
-                <p className="text-[10px] text-ink-3 leading-relaxed">{ESTIMATE_NOTE}</p>
               </div>
 
               <a

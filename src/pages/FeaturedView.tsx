@@ -3,7 +3,7 @@ import { useApp } from '../context/AppContext';
 import { EmptyState } from '../components/ui/EmptyState';
 import { useIsDesktop } from '../hooks/useMediaQuery';
 import { EXPLORABLE_INTERESTS, calculateStudentFitScore } from '../utils/relevance';
-import { formatBusCommute, formatDistance } from '../utils/distance';
+import { formatDistance } from '../utils/distance';
 import { CompanyDrawer } from '../components/CompanyDrawer';
 import { CompanyBottomSheet } from '../components/CompanyBottomSheet';
 import { MapPin, Bookmark, Sparkles } from 'lucide-react';
@@ -141,8 +141,6 @@ export const FeaturedView: React.FC = () => {
                     <span>{company.location.area}</span>
                     <span className="text-slate-300 dark:text-slate-600">·</span>
                     <span>{formatDistance(company.commute.distanceKm)}</span>
-                    <span className="text-slate-300 dark:text-slate-600">·</span>
-                    <span className="font-medium text-ink-2">{formatBusCommute(company.commute.busMinutes)}</span>
                   </div>
 
                   {/* Image banner preview if available */}
@@ -164,7 +162,9 @@ export const FeaturedView: React.FC = () => {
                   )}
                 </div>
 
-                {/* Career Tags */}
+                {/* Career Tags — the divider would otherwise hang on its own
+                    for the companies whose roles aren't verified. */}
+                {company.commonCareers.length > 0 && (
                 <div className="mt-4 pt-3 border-t border-line flex flex-wrap items-center gap-1.5">
                   {company.commonCareers.slice(0, 3).map(role => (
                     <span
@@ -175,6 +175,7 @@ export const FeaturedView: React.FC = () => {
                     </span>
                   ))}
                 </div>
+                )}
 
               </div>
             );
