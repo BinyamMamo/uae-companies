@@ -13,7 +13,7 @@ interface LocationPickerProps {
   className?: string;
   /**
    * Drop the popover chrome (fixed width, border, shadow, own dialog role) for
-   * when this is already inside a dialog — the mobile bottom sheet supplies all
+   * when this is already inside a dialog, the mobile bottom sheet supplies all
    * of that, and nesting them looks like a card inside a card.
    */
   bare?: boolean;
@@ -23,7 +23,7 @@ interface LocationPickerProps {
  * Search-and-set for the user's home location.
  *
  * Replaces a "Set location" toggle that put the map into a click-to-place mode
- * — a mode you had to discover, and which couldn't answer "where is X?". This
+ *, a mode you had to discover, and which couldn't answer "where is X?". This
  * offers the known Dubai landmarks first, falls back to a geocoder, and keeps
  * "use my current location" as one row rather than a separate button.
  */

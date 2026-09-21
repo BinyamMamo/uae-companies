@@ -171,5 +171,5 @@ const CompanyCardComponent: React.FC<CompanyCardProps> = ({ company, isSelected 
   );
 };
 
-/** 225 of these render at once — memoising keeps filter/search typing smooth. */
+/** 225 of these render at once, memoising keeps filter/search typing smooth. */
 export const CompanyCard = React.memo(CompanyCardComponent);

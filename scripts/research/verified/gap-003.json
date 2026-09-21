@@ -1,0 +1,359 @@
+[
+  {
+    "id": "beiersdorf",
+    "website": "https://www.beiersdorf-me.com",
+    "websiteSource": "https://www.beiersdorf.com",
+    "careersUrl": "https://www.en.beiersdorf-me.com/career",
+    "careersSource": "https://www.beiersdorf-me.com",
+    "shortDescription": "Beiersdorf Middle East is the regional headquarters managing personal care and skincare consumer brands across the MENA region.",
+    "whatTheyDo": "Beiersdorf Middle East oversees marketing, commercial sales, supply chain, and retail distribution for global skincare brands such as NIVEA, Eucerin, and Hansaplast. Its regional office in Dubai coordinates operations across the GCC, Levant, and North Africa.",
+    "descriptionSource": "https://gulfnews.com/business/german-firm-plans-to-set-up-regional-office-in-dubai-1.393437",
+    "industry": "Consumer Goods & FMCG",
+    "commonCareers": [
+      "Key Account Manager",
+      "Global Performance Marketing & Retail Media Manager",
+      "Commercial Manager",
+      "PR & Media Manager"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com",
+    "technicalAreas": [],
+    "address": "Zee Tower, 1st Floor, Dubai Media City, Dubai, UAE",
+    "latitude": 25.10218,
+    "longitude": 55.16781,
+    "locationSource": "https://www.beiersdorf-me.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "Winnership",
+        "kind": "internship"
+      },
+      {
+        "name": "BEYOND Graduate Program",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://www.beiersdorf.com/career",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf News Business Feature",
+        "url": "https://gulfnews.com/business/german-firm-plans-to-set-up-regional-office-in-dubai-1.393437"
+      },
+      {
+        "title": "Bayt Company Overview",
+        "url": "https://www.bayt.com"
+      }
+    ],
+    "notes": "Office is situated in Dubai Media City (Zee Tower), not Downtown Dubai as originally listed."
+  },
+  {
+    "id": "belhasa-international-co-llc",
+    "website": "https://www.belhasa.com",
+    "websiteSource": "https://www.belhasa.com",
+    "careersUrl": "https://www.belhasa.com/career",
+    "careersSource": "https://www.belhasa.com",
+    "shortDescription": "Belhasa International Co. LLC is a prominent diversified Emirati conglomerate with operations spanning contracting, automotive, and trading.",
+    "whatTheyDo": "Belhasa International oversees more than 30 operating subsidiaries including Belhasa Projects, Emirates Driving Institute, and United Decoration Company. Its business activities cover civil engineering, contracting, automotive services, manufacturing, and commercial trading across the UAE.",
+    "descriptionSource": "https://www.bayt.com",
+    "industry": "Conglomerate & Construction",
+    "commonCareers": [
+      "Senior QA/QC Engineer",
+      "Projects Coordinator",
+      "Senior Accountant",
+      "Group Internal Auditor",
+      "Sales Executive",
+      "Procurement Officer"
+    ],
+    "careersEvidence": "https://www.bayt.com",
+    "technicalAreas": [
+      "Civil Engineering",
+      "MEP Engineering"
+    ],
+    "address": "Belhasa International Building, 28th Street, Hor Al Anz East, Deira, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.belhasa.com",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Bayt Corporate Registry Profile",
+        "url": "https://www.bayt.com"
+      }
+    ],
+    "notes": "Headquarters is situated in Hor Al Anz East, Deira, rather than Business Bay. Coordinates are null as exact building coordinates could not be verified to 5 decimal places."
+  },
+  {
+    "id": "bon-education",
+    "website": "https://boneducation.com",
+    "websiteSource": "https://boneducation.com",
+    "careersUrl": null,
+    "shortDescription": "Bon Education is a UAE-based learning design and workforce development consultancy.",
+    "whatTheyDo": "Bon Education develops custom educational programs, curriculum frameworks, and youth employability initiatives for government and corporate clients. It acts as a primary learning partner for major regional programs including the Dubai Business Associates initiative.",
+    "descriptionSource": "https://mediaoffice.ae",
+    "industry": "Education & Consulting",
+    "commonCareers": [
+      "Career Coach",
+      "Program Coordinator"
+    ],
+    "careersEvidence": "https://www.founditgulf.com",
+    "technicalAreas": [
+      "Instructional Design",
+      "Curriculum Development"
+    ],
+    "address": null,
+    "latitude": null,
+    "longitude": null,
+    "locationSource": null,
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai Media Office - Dubai Business Associates Program Coverage",
+        "url": "https://mediaoffice.ae"
+      },
+      {
+        "title": "Dubai Business Associates Learning Partners",
+        "url": "https://dubaibusinessassociates.ae"
+      }
+    ],
+    "notes": "Officially registered as Bon Education FZ-LLC with primary offices in Ras Al Khaimah and Abu Dhabi; no verified street address in Downtown Dubai was identified."
+  },
+  {
+    "id": "chep",
+    "website": "https://www.chep.com",
+    "websiteSource": "https://www.chep.com",
+    "careersUrl": "https://www.brambles.com/people-and-careers",
+    "careersSource": "https://www.brambles.com",
+    "shortDescription": "CHEP Middle East FZCO, a subsidiary of Brambles Limited, provides supply chain pallet and container pooling services.",
+    "whatTheyDo": "CHEP manages circular pallet and container pooling systems, serving clients in consumer goods, retail, fresh produce, and manufacturing. Its Dubai regional headquarters coordinates customer accounts, logistics planning, and equipment circulation throughout the Middle East.",
+    "descriptionSource": "https://www.yellowpages-uae.com",
+    "industry": "Logistics & Supply Chain",
+    "commonCareers": [],
+    "technicalAreas": [
+      "Supply Chain Management",
+      "Pallet Pooling"
+    ],
+    "address": "Office 1801, Swiss Tower, Cluster Y, Jumeirah Lake Towers, Dubai, UAE",
+    "latitude": 25.07768,
+    "longitude": 55.15362,
+    "locationSource": "https://www.yellowpages-uae.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Yellow Pages UAE Business Listing",
+        "url": "https://www.yellowpages-uae.com"
+      }
+    ],
+    "notes": "Office is located in Swiss Tower (Cluster Y, Jumeirah Lake Towers), not Downtown Dubai. Recruitment is handled centrally by parent entity Brambles; no active local openings were found listed."
+  },
+  {
+    "id": "commerzbank-ag",
+    "website": "https://www.commerzbank.ae",
+    "websiteSource": "https://www.dfsa.ae",
+    "careersUrl": "https://jobs.commerzbank.com",
+    "careersSource": "https://www.commerzbank.de",
+    "shortDescription": "Commerzbank AG operates a representative office in Dubai International Financial Centre (DIFC) serving corporate and institutional clients.",
+    "whatTheyDo": "Commerzbank AG's Dubai representative office provides relationship coverage and advisory support for trade finance and cross-border commercial transactions between Germany/Europe and the Middle East. It does not conduct retail banking or software development in the UAE.",
+    "descriptionSource": "https://www.dfsa.ae",
+    "industry": "Financial Services & Banking",
+    "commonCareers": [],
+    "technicalAreas": [],
+    "address": "Suite 11-15, 4th Floor, Gate Village 05, DIFC, P.O. Box 506596, Dubai, UAE",
+    "latitude": 25.21342,
+    "longitude": 55.2796,
+    "locationSource": "https://www.dfsa.ae",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai Financial Services Authority (DFSA) Public Register",
+        "url": "https://www.dfsa.ae"
+      }
+    ],
+    "notes": "Regulated by the DFSA as a representative office in DIFC Gate Village 05; there is no office in Dubai Internet City. No active local vacancies found."
+  },
+  {
+    "id": "dana-gas",
+    "website": "https://www.danagas.com",
+    "websiteSource": "https://www.adx.ae",
+    "careersUrl": "https://www.danagas.com/careers",
+    "careersSource": "https://www.danagas.com",
+    "shortDescription": "Dana Gas PJSC is the Middle East's largest publicly listed private natural gas company, listed on the Abu Dhabi Securities Exchange.",
+    "whatTheyDo": "Dana Gas explores, produces, and processes natural gas with upstream and midstream assets in the UAE, the Kurdistan Region of Iraq, and Egypt. Headquartered in Sharjah, its corporate office oversees exploration concessions, plant operations, and regional gas marketing.",
+    "descriptionSource": "https://www.adx.ae",
+    "industry": "Energy & Utilities",
+    "commonCareers": [],
+    "technicalAreas": [
+      "Upstream Oil & Gas",
+      "Gas Processing"
+    ],
+    "address": "Crescent Tower, 11th Floor, Al Buhaira Corniche, P.O. Box 2011, Sharjah, UAE",
+    "latitude": 25.3266,
+    "longitude": 55.37897,
+    "locationSource": "https://www.danagas.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Abu Dhabi Securities Exchange (ADX) Listed Company Profile",
+        "url": "https://www.adx.ae"
+      }
+    ],
+    "notes": "Headquartered at Crescent Tower on Al Buhaira Corniche in Sharjah, not Business Bay. The company invites CV submissions at careers@danagas.com but had no active vacancies published."
+  },
+  {
+    "id": "delta-insurance-services",
+    "website": "https://www.deltains-brokers.com",
+    "websiteSource": "https://www.centralbank.ae",
+    "careersUrl": null,
+    "shortDescription": "Delta Insurance Services L.L.C. is an independent insurance broker registered with the Central Bank of the UAE.",
+    "whatTheyDo": "Delta Insurance Services provides insurance broking and consultancy for personal and commercial clients, covering motor, health, property, marine, and travel risks. Founded in 1990, the firm negotiates coverage terms and policies with major domestic and international insurance carriers.",
+    "descriptionSource": "https://www.centralbank.ae",
+    "industry": "Insurance",
+    "commonCareers": [
+      "Business Development Specialist"
+    ],
+    "careersEvidence": "https://wazifnynow.com",
+    "technicalAreas": [
+      "Insurance Brokerage",
+      "Underwriting Analysis"
+    ],
+    "address": "Business Tower, Office 902, Corniche Street, Al Majaz 2, Sharjah, UAE",
+    "latitude": 25.32962,
+    "longitude": 55.39134,
+    "locationSource": "https://www.deltains-brokers.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Central Bank of the UAE Registered Insurance Brokers Directory",
+        "url": "https://www.centralbank.ae"
+      },
+      {
+        "title": "Dubai Health Authority (DHA) / ISAHD Registered Insurance Intermediaries",
+        "url": "https://www.isahd.ae"
+      }
+    ],
+    "notes": "Licensed broker headquartered in Al Majaz 2, Sharjah; not located in Business Bay, Dubai. Official website confirmed as https://www.deltains-brokers.com."
+  },
+  {
+    "id": "dozzer-middle-east",
+    "website": "https://dozzer.me",
+    "websiteSource": "https://dozzer.me",
+    "careersUrl": null,
+    "shortDescription": "Dozzer Middle East is an online B2B marketplace for purchasing, leasing, and servicing heavy equipment and machinery.",
+    "whatTheyDo": "Dozzer provides a digital marketplace connecting contractors, equipment dealers, and fleet owners for buying, selling, and renting commercial heavy machinery and spare parts. It also coordinates equipment inspections, logistics support, and industry media coverage.",
+    "descriptionSource": "https://forbesmiddleeastevents.com",
+    "industry": "E-Commerce & Heavy Machinery",
+    "commonCareers": [],
+    "technicalAreas": [
+      "Marketplace Platform",
+      "Heavy Equipment Logistics"
+    ],
+    "address": null,
+    "latitude": null,
+    "longitude": null,
+    "locationSource": null,
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Forbes Middle East Events Speaker & Entity Profile",
+        "url": "https://forbesmiddleeastevents.com"
+      }
+    ],
+    "notes": "Registered as Dozzer FZ-LLC in the UAE; no verified physical office located in Downtown Dubai. No current public vacancies found."
+  },
+  {
+    "id": "ellucian",
+    "website": "https://www.ellucian.com",
+    "websiteSource": "https://www.ellucian.com",
+    "careersUrl": "https://careers.ellucian.com",
+    "careersSource": "https://www.ellucian.com",
+    "shortDescription": "Ellucian is an educational technology software company providing cloud solutions and ERP systems for higher education.",
+    "whatTheyDo": "Ellucian develops student information systems (SIS), enterprise resource planning platforms, and cloud analytics software tailored for colleges and universities. Its regional Dubai office in Dubai Internet City provides account management, consulting, and customer success services to institutions across the Middle East.",
+    "descriptionSource": "https://2gis.ae",
+    "industry": "Education Technology & Software",
+    "commonCareers": [
+      "Senior Account Executive"
+    ],
+    "careersEvidence": "https://ae.indeed.com",
+    "technicalAreas": [
+      "Student Information Systems",
+      "Enterprise Resource Planning",
+      "Cloud Computing"
+    ],
+    "address": "Innovation Hub, Building 2, 3rd Floor, Office 304, Dubai Internet City, Dubai, UAE",
+    "latitude": 25.1005,
+    "longitude": 55.1637,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "2GIS UAE Business Directory",
+        "url": "https://2gis.ae"
+      }
+    ],
+    "notes": "Office is located in Innovation Hub Building 2, Dubai Internet City, rather than Downtown Dubai."
+  },
+  {
+    "id": "emirates-glass",
+    "website": "https://emiratesglass.com",
+    "websiteSource": "https://emiratesglass.com",
+    "careersUrl": "https://emiratesglass.com/career/",
+    "careersSource": "https://emiratesglass.com",
+    "shortDescription": "Emirates Glass LLC, a subsidiary of Dubai Investments PJSC, is a major processor of architectural flat glass in the Middle East.",
+    "whatTheyDo": "Emirates Glass manufactures and processes energy-efficient architectural glass, including low-emissivity, solar-control, tempered, and laminated glass. Operating from Al Quoz Industrial Area 4, Dubai, it supplies major commercial developments and infrastructure projects locally and internationally.",
+    "descriptionSource": "https://www.glassonweb.com",
+    "industry": "Manufacturing & Building Materials",
+    "commonCareers": [
+      "Electrical Technician",
+      "Maintenance Technician",
+      "Accounting Specialist",
+      "Sales Executive",
+      "Finance Manager"
+    ],
+    "careersEvidence": "https://ae.indeed.com",
+    "technicalAreas": [
+      "Glass Processing",
+      "Thermal Coating",
+      "Architectural Glazing"
+    ],
+    "address": "Street 10, Al Quoz Industrial Area 4, Dubai, UAE",
+    "latitude": 25.11418,
+    "longitude": 55.22546,
+    "locationSource": "https://emiratesglass.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "GlassOnWeb Industry Directory Listing",
+        "url": "https://www.glassonweb.com"
+      },
+      {
+        "title": "Yellow Pages UAE Directory",
+        "url": "https://www.yellowpages.ae"
+      }
+    ],
+    "notes": "A subsidiary of Dubai Investments PJSC; facility and headquarters are located on Street 10 in Al Quoz Industrial Area 4."
+  }
+]

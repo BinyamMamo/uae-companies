@@ -2,7 +2,7 @@
  * Address lookup via OpenStreetMap Nominatim.
  *
  * The previous inline call had no timeout, no abort, no `res.ok` check and no
- * response validation, and its only failure handling was a console.error — so
+ * response validation, and its only failure handling was a console.error, so
  * a failed lookup silently did nothing. Nominatim's usage policy also asks for
  * an identifying referrer and at most one request per second; browsers forbid
  * setting User-Agent, so we identify via the Referer the browser sends and

@@ -1,0 +1,433 @@
+[
+  {
+    "id": "erada-center",
+    "website": "https://www.erada.ae",
+    "websiteSource": "https://www.dha.gov.ae",
+    "careersUrl": "https://jobs.dubai.gov.ae",
+    "careersSource": "https://www.dubaicareers.ae",
+    "shortDescription": "Erada Center for Treatment and Rehab is a specialized government healthcare facility in Dubai dedicated to substance use and addiction rehabilitation.",
+    "whatTheyDo": "Established by decree in Dubai, the center delivers evidence-based medical and psychological rehabilitation services, residential care, and community awareness programs. It operates clinical and therapeutic teams specializing in addiction science, psychiatry, and pharmacology.",
+    "descriptionSource": "https://www.dha.gov.ae",
+    "industry": "Healthcare & Rehabilitation",
+    "commonCareers": [
+      "Pharmacist",
+      "Senior Community Awareness Officer",
+      "Senior Internal Auditor",
+      "Specialist, CEO Office"
+    ],
+    "careersEvidence": "https://www.dubaicareers.ae",
+    "technicalAreas": [
+      "Addiction Rehabilitation",
+      "Clinical Psychology",
+      "Pharmacotherapy",
+      "Public Health Education"
+    ],
+    "address": "Al Khawaneej Street, Villa No 17 to 22, Wadi Al Amardi, Al Khawaneej, Dubai, UAE",
+    "latitude": 25.22398,
+    "longitude": 55.47833,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": true,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "programmesSource": "https://www.gmu.ac.ae",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai Health Authority Healthcare Directory",
+        "url": "https://www.dha.gov.ae"
+      },
+      {
+        "title": "CARF International Provider Directory",
+        "url": "https://www.carf.org"
+      }
+    ],
+    "notes": "The directory listed area as Downtown, but the facility is located in Al Khawaneej / Wadi Al Amardi. It operates as an approved clinical training and internship site in partnership with regional universities including Gulf Medical University and American University of Sharjah."
+  },
+  {
+    "id": "expeditors",
+    "website": "https://www.expeditors.com",
+    "websiteSource": "https://en.wikipedia.org/wiki/Expeditors_International",
+    "careersUrl": "https://www.expeditors.com/careers",
+    "careersSource": "https://www.expeditors.com",
+    "linkedinUrl": "https://www.linkedin.com/company/expeditors",
+    "linkedinSource": "https://en.wikipedia.org/wiki/Expeditors_International",
+    "shortDescription": "Expeditors International is a Fortune 500 global logistics and supply chain services provider operating a major regional hub in Dubai.",
+    "whatTheyDo": "In the UAE, Expeditors provides air and ocean freight consolidation, customs clearance, warehousing, and supply chain management. The Dubai branch operates a 10,000 sqm warehouse and Container Freight Station (CFS) facility handling regional Middle Eastern trade.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Expeditors_International",
+    "industry": "Logistics & Supply Chain",
+    "commonCareers": [
+      "Global Account Manager",
+      "District Sales Manager",
+      "Logistics Coordinator",
+      "Warehouse Supervisor"
+    ],
+    "careersEvidence": "https://www.bayt.com",
+    "technicalAreas": [
+      "Freight Forwarding",
+      "Customs Brokerage",
+      "Warehousing & Distribution",
+      "Supply Chain Architecture"
+    ],
+    "address": "Dubai South Business Park, Building B2, 4th Floor, Office 406, Dubai South, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.atninfo.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": false,
+    "programmes": [
+      {
+        "name": "Opportunity Knocks",
+        "kind": "internship"
+      }
+    ],
+    "programmesSource": "https://www.expeditors.com",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Wikipedia Expeditors Overview",
+        "url": "https://en.wikipedia.org/wiki/Expeditors_International"
+      },
+      {
+        "title": "Bayt UAE Profile",
+        "url": "https://www.bayt.com"
+      }
+    ],
+    "notes": "The directory listed area as Dubai Internet City, but the company's official UAE freight forwarding office is located in Dubai South Business Park Building B2."
+  },
+  {
+    "id": "gargash-group",
+    "website": "https://www.gargash.ae",
+    "websiteSource": "https://gulfnews.com",
+    "careersUrl": "https://gargash.ae",
+    "careersSource": "https://gargash.ae",
+    "linkedinUrl": "https://www.linkedin.com/company/gargash-group",
+    "linkedinSource": "https://gulfnews.com",
+    "shortDescription": "Gargash Group is a diversified UAE business conglomerate founded in 1918 and the authorized distributor of Mercedes-Benz in Dubai and the Northern Emirates.",
+    "whatTheyDo": "The group operates across automotive distribution, luxury retail, real estate development, financial services, and healthcare. Its UAE technical teams run automotive workshops, diagnostic facilities, corporate IT, and finance operations.",
+    "descriptionSource": "https://gulfnews.com",
+    "industry": "Automotive & Conglomerates",
+    "commonCareers": [
+      "Service Advisor",
+      "Automotive Technician",
+      "Department Coordinator",
+      "IT Executive"
+    ],
+    "careersEvidence": "https://ae.indeed.com/cmp/Gargash-Group",
+    "technicalAreas": [
+      "Automotive Engineering",
+      "Vehicle Maintenance & Diagnostics",
+      "Corporate Finance",
+      "IT Systems & Infrastructure"
+    ],
+    "address": "Sheikh Zayed Road, P.O. Box 452, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.atninfo.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "iStar Graduate Program",
+        "kind": "graduate"
+      },
+      {
+        "name": "iStar Technical Apprenticeship Program",
+        "kind": "apprenticeship"
+      }
+    ],
+    "programmesSource": "https://gulfnews.com",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf News Profile on Gargash Group",
+        "url": "https://gulfnews.com"
+      },
+      {
+        "title": "Arabian Business Conglomerate Feature",
+        "url": "https://www.arabianbusiness.com"
+      }
+    ],
+    "notes": "The directory listed area as Downtown, but Gargash Group's primary corporate management offices are on Sheikh Zayed Road and in Port Saeed / Deira."
+  },
+  {
+    "id": "global-feeder-shipping-llc",
+    "website": "https://globalfeeders.com",
+    "websiteSource": "https://splash247.com",
+    "careersUrl": "https://globalfeeders.com/careers/",
+    "careersSource": "https://globalfeeders.com/careers/",
+    "shortDescription": "Global Feeder Shipping LLC (GFS) is a major container feeder shipping line headquartered in Dubai and majority-owned by AD Ports Group.",
+    "whatTheyDo": "GFS operates container shipping feeder networks connecting the Middle East, the Indian Subcontinent, the Red Sea, and Southeast Asia. Its Dubai corporate headquarters manages liner operations, maritime logistics, vessel management, and trade routes.",
+    "descriptionSource": "https://splash247.com",
+    "industry": "Maritime & Logistics",
+    "commonCareers": [
+      "Line Management Executive",
+      "Shipping Assistant",
+      "Operations Executive"
+    ],
+    "careersEvidence": "https://www.maritimeone.sg",
+    "technicalAreas": [
+      "Container Feeder Operations",
+      "Maritime Logistics",
+      "Liner Trade Management",
+      "Fleet Operations"
+    ],
+    "address": "Building 04, Bay Square, Al Asayel Street, Business Bay, P.O. Box 23174, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://craft.co",
+    "internshipsKnown": false,
+    "graduateRolesKnown": true,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Splash247 AD Ports Group GFS Acquisition",
+        "url": "https://splash247.com"
+      },
+      {
+        "title": "MaritimeONE Industry Directory",
+        "url": "https://www.maritimeone.sg"
+      }
+    ],
+    "notes": "The directory listed area as Dubai Internet City, but the company's global headquarters is located in Bay Square, Business Bay, Dubai. AD Ports Group owns an 81% controlling stake."
+  },
+  {
+    "id": "globe-soccer-dwc-llc",
+    "website": "https://www.globesoccer.com",
+    "websiteSource": "https://en.wikipedia.org/wiki/Globe_Soccer_Awards",
+    "shortDescription": "Globe Soccer DWC LLC is the Dubai-based company that organizes the annual Globe Soccer Awards recognizing international football excellence.",
+    "whatTheyDo": "The company organizes the annual Globe Soccer Awards ceremony held in Dubai in partnership with UEFA, the European Club Association (ECA), and the Dubai Sports Council. It manages event production, international broadcast licensing, and digital fan voting platforms.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Globe_Soccer_Awards",
+    "industry": "Sports & Event Management",
+    "commonCareers": [],
+    "technicalAreas": [],
+    "address": "Office 231, A3 Building, Dubai World Central, Dubai South, P.O. Box 712110, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://en.wikipedia.org/wiki/Globe_Soccer_Awards",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Wikipedia Globe Soccer Awards Overview",
+        "url": "https://en.wikipedia.org/wiki/Globe_Soccer_Awards"
+      },
+      {
+        "title": "Dubai Media Office Sports Coverage",
+        "url": "https://mediaoffice.ae"
+      }
+    ],
+    "notes": "The directory listed area as Downtown, but the registered corporate entity is located in Dubai World Central (Dubai South). The organization runs an annual awards ceremony with event management partners rather than maintaining regular public job openings."
+  },
+  {
+    "id": "goodwill-world",
+    "website": "https://goodwillworld.com",
+    "websiteSource": "https://www.thenationalnews.com",
+    "shortDescription": "Goodwill World is a Dubai-based multi-family office and financial advisory firm encompassing Goodwill Insurance Brokers LLC.",
+    "whatTheyDo": "Founded by Dr. Sanjay Tolani, the firm provides intergenerational wealth structuring, family office governance, and estate planning for high-net-worth clients. It also operates insurance brokerage and financial advisory services through Goodwill Insurance Brokers in the UAE.",
+    "descriptionSource": "https://www.thenationalnews.com",
+    "industry": "Financial Services & Family Office",
+    "commonCareers": [],
+    "technicalAreas": [
+      "Wealth Architecture",
+      "Intergenerational Estate Planning",
+      "Insurance Broking",
+      "Family Office Governance"
+    ],
+    "address": "Bur Dubai, P.O. Box 2948, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.hidubai.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "The National UAE Feature on Goodwill World / Dr. Sanjay Tolani",
+        "url": "https://www.thenationalnews.com"
+      },
+      {
+        "title": "Gulf News Business Coverage",
+        "url": "https://gulfnews.com"
+      }
+    ],
+    "notes": "The directory listed area as JLT, but business registrations and historical records associate the firm with Bur Dubai and Business Bay; no verified office in JLT was found. It operates as a private family office with no public job vacancies."
+  },
+  {
+    "id": "goodyear",
+    "website": "https://www.goodyear-mea.com",
+    "websiteSource": "https://corporate.goodyear.com",
+    "careersUrl": "https://jobs.goodyear.com",
+    "careersSource": "https://corporate.goodyear.com",
+    "shortDescription": "Goodyear Middle East FZE is the regional headquarters of The Goodyear Tire & Rubber Company overseeing operations across the Middle East and Africa.",
+    "whatTheyDo": "From Dubai, Goodyear directs regional commercial sales, distributor networks, consumer and commercial tire marketing, and fleet tire solutions across MEA. Its regional team handles supply chain logistics, distributor operations, and product marketing.",
+    "descriptionSource": "https://corporate.goodyear.com",
+    "industry": "Automotive & Manufacturing",
+    "commonCareers": [
+      "Regional Sales & Business Development Manager",
+      "Marketing Coordinator",
+      "Payable Controller",
+      "Sales Manager"
+    ],
+    "careersEvidence": "https://www.bayt.com",
+    "technicalAreas": [
+      "Tire Engineering & Technology",
+      "Fleet Management Solutions",
+      "Automotive Distribution",
+      "Supply Chain Operations"
+    ],
+    "address": "Dubai Silicon Oasis, HQ Building, A-Wing, 4th Floor, P.O. Box 33528, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.goodyear-mea.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Bayt Goodyear Middle East Profile",
+        "url": "https://www.bayt.com"
+      },
+      {
+        "title": "Goodyear Corporate Locations Directory",
+        "url": "https://corporate.goodyear.com"
+      }
+    ],
+    "notes": "The directory listed area as Dubai Internet City, but Goodyear Middle East FZE is headquartered in Dubai Silicon Oasis (DSO HQ Building, A-Wing, 4th Floor)."
+  },
+  {
+    "id": "gulf-petrochemicals-and-chemicals-association-gpca",
+    "website": "https://www.gpca.org.ae",
+    "websiteSource": "https://www.abc-gcc.net",
+    "shortDescription": "The Gulf Petrochemicals and Chemicals Association (GPCA) is the representative industry body for the downstream hydrocarbon and chemicals sector in the Arabian Gulf.",
+    "whatTheyDo": "Established in 2006 in Dubai, GPCA represents over 250 chemical and petrochemical companies producing more than 95% of the Gulf's chemical output. It provides industry advocacy, thought leadership, networking conferences, and youth development initiatives across the GCC.",
+    "descriptionSource": "https://www.bayt.com",
+    "industry": "Trade Association & Chemicals",
+    "commonCareers": [
+      "Communications Specialist",
+      "Head of Responsible Care"
+    ],
+    "careersEvidence": "https://www.bayt.com",
+    "technicalAreas": [
+      "Petrochemical Industry Advocacy",
+      "EHS & Responsible Care Standards",
+      "Chemical Supply Chain",
+      "Youth Development & STEM"
+    ],
+    "address": "Vision Tower, Business Bay, P.O. Box 123055, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.abc-gcc.net",
+    "internshipsKnown": true,
+    "graduateRolesKnown": false,
+    "programmes": [
+      {
+        "name": "Leaders of Tomorrow",
+        "kind": "internship"
+      }
+    ],
+    "programmesSource": "https://www.gpcachem.org",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Bayt GPCA Organizational Profile",
+        "url": "https://www.bayt.com"
+      },
+      {
+        "title": "ABC-GCC Regional Business Directory",
+        "url": "https://www.abc-gcc.net"
+      }
+    ],
+    "notes": "The directory listed area as Downtown, but the GPCA secretariat is located in Vision Tower, Business Bay, Dubai. GPCA sponsors and operates the 'Leaders of Tomorrow' youth development programme."
+  },
+  {
+    "id": "habib-bank",
+    "website": "https://www.habibbank.com/ae/",
+    "websiteSource": "https://bank-uae.com",
+    "careersUrl": "https://www.habibbank.com/ae/careers/",
+    "careersSource": "https://www.habibbank.com/ae/careers/",
+    "shortDescription": "Habib Bank AG Zurich (HBZ) is a Swiss commercial bank that has operated an extensive branch network in the UAE since 1974.",
+    "whatTheyDo": "In the UAE, Habib Bank AG Zurich provides commercial, corporate, Islamic ('Sirat'), and priority banking services to retail and business clients. Its operations encompass trade finance, wealth management, treasury operations, and online banking platforms.",
+    "descriptionSource": "https://bank-uae.com",
+    "industry": "Banking & Financial Services",
+    "commonCareers": [
+      "Treasury and Wealth Management Specialist",
+      "Regulatory Compliance Officer",
+      "Internal Auditor",
+      "Operations Officer"
+    ],
+    "careersEvidence": "https://www.bayt.com",
+    "technicalAreas": [
+      "Commercial Banking",
+      "Trade Finance",
+      "Islamic Banking (Sirat)",
+      "Regulatory Compliance & AML"
+    ],
+    "address": "367-1013, Umm Al Sheif, Opposite Gold & Diamond Park, Sheikh Zayed Road, P.O. Box 3306, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://bank-uae.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Bank-UAE Financial Directory",
+        "url": "https://bank-uae.com"
+      },
+      {
+        "title": "Bayt Habib Bank AG Zurich Profile",
+        "url": "https://www.bayt.com"
+      }
+    ],
+    "notes": "Ambiguity note: The website habibbank.com belongs to Habib Bank AG Zurich (a Swiss-based bank founded in 1967, present in the UAE since 1974), NOT Habib Bank Limited (HBL Pakistan, hbl.com). The directory listed area as JLT, but the UAE Zonal Office is located in Umm Al Sheif on Sheikh Zayed Road."
+  },
+  {
+    "id": "inditech-middle-east",
+    "website": "https://www.inditechme.com",
+    "websiteSource": "https://craft.co",
+    "careersUrl": "https://www.inditechme.com/career/",
+    "careersSource": "https://www.inditechme.com/career/",
+    "shortDescription": "Inditech Middle East is a Dubai-based IT solutions and services company established in 2008 specializing in retail technology and custom software development.",
+    "whatTheyDo": "The company delivers Point of Sale (POS) software, retail video analytics, CCTV security systems, and custom API and software integrations. Headquartered in Dubai with over 60 staff locally, it serves retail, hospitality, and corporate clients across the UAE.",
+    "descriptionSource": "https://craft.co",
+    "industry": "Information Technology & Software",
+    "commonCareers": [
+      "Software Engineer (C#)",
+      "Business Development Executive",
+      "Pre-Sales & Solution Architect"
+    ],
+    "careersEvidence": "https://ae.indeed.com/cmp/Inditech-Middle-East",
+    "technicalAreas": [
+      "Point of Sale (POS) Architecture",
+      "C# .NET Software Development",
+      "Retail Analytics",
+      "SIRA-Compliant Security Systems",
+      "API Integration"
+    ],
+    "address": "Suite 107, 109 & 208, Al Khaleej Building, Near Karama Park, Al Karama, P.O. Box 48956, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://ae.indeed.com/cmp/Inditech-Middle-East",
+    "internshipsKnown": true,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Craft.co Inditech Middle East Profile",
+        "url": "https://craft.co"
+      },
+      {
+        "title": "Indeed UAE Inditech Middle East Company Page",
+        "url": "https://ae.indeed.com/cmp/Inditech-Middle-East"
+      }
+    ],
+    "notes": "The directory listed area as Al Quoz, but the company's headquarters is in Al Khaleej Building, Al Karama, Dubai. Its career application portal specifically accepts internship submissions."
+  }
+]

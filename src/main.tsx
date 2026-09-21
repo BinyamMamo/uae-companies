@@ -14,7 +14,7 @@ if (typeof window.requestIdleCallback === 'function') {
 
 // Registered after load so it never competes with the first render. In dev the
 // worker would serve stale modules straight past Vite's HMR, so it only runs in
-// a real build — and any previously registered one is torn down.
+// a real build, and any previously registered one is torn down.
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     if (import.meta.env.PROD) {

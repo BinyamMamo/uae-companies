@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
  *
  * Used so the desktop drawer and the mobile bottom sheet are mounted
  * exclusively. Previously both rendered at every breakpoint with one merely
- * `display:none` — which meant two `role="dialog"` elements open at once, the
+ * `display:none`, which meant two `role="dialog"` elements open at once, the
  * hidden one stealing focus and breaking the focus trap, plus two Leaflet
  * instances' worth of setup for one visible panel.
  */

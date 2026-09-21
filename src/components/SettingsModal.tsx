@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import L from 'leaflet';
 import { TILE_CONFIGS, previewStyleForTheme } from '../utils/mapTiles';
 import 'leaflet/dist/leaflet.css';
-import { useApp } from '../context/AppContext';
+import { useApp, DEFAULT_ORIGIN } from '../context/AppContext';
 import { useTheme } from '../context/ThemeContext';
 import {
   X,
@@ -15,6 +15,7 @@ import {
   Search,
 } from 'lucide-react';
 import { ResponsiveSheet } from './ui/ResponsiveSheet';
+import { SocialLinks } from './ui/SocialLinks';
 import { useToast } from './ui/Toast';
 import { useConfirm } from '../hooks/useConfirm';
 import { DUBAI_LOCATIONS, type DubaiLocationPreset } from '../utils/dubaiLocations';
@@ -130,7 +131,7 @@ export const SettingsModal: React.FC = () => {
     const marker = L.marker([userLocation.latitude, userLocation.longitude], {
       icon: userIcon,
       draggable: true,
-      alt: 'Your home location — drag to move',
+      alt: 'Your home location, drag to move',
       title: 'Drag to move your home location',
     }).addTo(map);
 
@@ -305,7 +306,7 @@ export const SettingsModal: React.FC = () => {
 
 
 
-          {/* 2. Home Address — search inline, status floats on the map */}
+          {/* 2. Home Address, search inline, status floats on the map */}
           <div className="space-y-3">
             <div className="flex items-center justify-between text-xs">
               <label htmlFor="home-search" className="font-semibold text-ink">
@@ -318,7 +319,7 @@ export const SettingsModal: React.FC = () => {
                 title="Use my current location"
                 aria-label="Use my current location"
               >
-                <MapPinHouse className="w-4 h-4" aria-hidden="true" />
+                <MapPinHouse className={`w-4 h-4 ${isLocationSet ? '' : 'opacity-40'}`} aria-hidden="true" />
               </button>
             </div>
 
@@ -371,14 +372,13 @@ export const SettingsModal: React.FC = () => {
 
               <div className="absolute bottom-2 left-2 right-2 z-400 flex items-center gap-2 bg-white/92 dark:bg-slate-900/92 backdrop-blur-xs px-2.5 py-1.5 rounded-md border border-line shadow-2xs">
                 <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-1.5 min-w-0">
-                    <span className="text-[11px] font-semibold text-ink truncate">
-                      {userLocation.name}
-                    </span>
-                    {/* Distances are being measured from a guess until they
-                        pick; the map alone does not say which it is. */}
-                    {!isLocationSet && (
-                      <span className="shrink-0 text-[9px] uppercase tracking-wider font-semibold text-amber-700 dark:text-amber-400 border border-amber-500/40 rounded px-1 py-px">
+                  <div className="min-w-0">
+                    {isLocationSet ? (
+                      <span className="text-[11px] font-semibold text-ink truncate block">
+                        {userLocation.name}
+                      </span>
+                    ) : (
+                      <span className="text-[11px] font-semibold text-amber-700 dark:text-amber-400">
                         Not set
                       </span>
                     )}
@@ -386,7 +386,7 @@ export const SettingsModal: React.FC = () => {
                   <div className="text-[10px] text-ink-3">
                     {isLocationSet
                       ? 'Drag the pin to fine-tune'
-                      : 'Assumed — pick a place or drag the pin'}
+                      : `Assumed ${DEFAULT_ORIGIN.name}`}
                   </div>
                 </div>
                 {userLocation.isCustom && (
@@ -408,14 +408,13 @@ export const SettingsModal: React.FC = () => {
           <div className="border-t border-slate-200/80 dark:border-slate-800" />
 
           {/* 4. Data Management */}
-          <div className="pt-1 flex items-center justify-between">
-            <div className="text-[11px] text-ink-2 font-medium">
-              {savedCompanyIds.length} saved · {savedLists.length} lists
-            </div>
+          <div className="pt-1 flex items-center justify-between gap-3 flex-wrap">
+            <SocialLinks className="-ml-2" />
             <div className="flex gap-2">
               <button
                 type="button"
                 onClick={handleExportData}
+                title="Downloads your saved companies, lists and settings"
                 className="px-3 py-1.5 bg-surface-2 hover:bg-slate-200 dark:hover:bg-surface-2 text-slate-700 dark:text-slate-200 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 border border-line"
               >
                 <Download className="w-3.5 h-3.5" />

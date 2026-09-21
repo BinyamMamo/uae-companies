@@ -29,7 +29,7 @@ def main():
         return f"{k:>3} / {n}  ({k * 100 // n:>2}%)"
 
     print("=" * 68)
-    print(f"DATASET INTEGRITY REPORT  —  {n} companies")
+    print(f"DATASET INTEGRITY REPORT ,  {n} companies")
     print("=" * 68)
 
     # --- URLs ---

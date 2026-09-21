@@ -4,7 +4,7 @@ Split the companies needing verification into batches for the agy pipeline.
 
 Companies already fully verified are skipped, so re-running after a partial
 pass only queues what is still missing. Batches are small because the free
-Antigravity tier has weekly rate limits — this is meant to run incrementally.
+Antigravity tier has weekly rate limits, this is meant to run incrementally.
 """
 import argparse
 import json

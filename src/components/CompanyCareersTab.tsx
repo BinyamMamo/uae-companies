@@ -22,7 +22,7 @@ export const CompanyCareersTab: React.FC<CompanyCareersTabProps> = ({ company })
   return (
       <div className="space-y-5">
         
-        {/* Direct Careers Link — a card that only says we found nothing is
+        {/* Direct Careers Link, a card that only says we found nothing is
             not worth the space it takes. */}
         {company.careersUrl && (
         <div className="bg-slate-50 dark:bg-slate-800 border border-line rounded-lg p-4 flex items-center justify-between">
@@ -112,7 +112,7 @@ export const CompanyCareersTab: React.FC<CompanyCareersTabProps> = ({ company })
           </div>
         )}
 
-        {/* Technical Career Roles List — only for records where the roles
+        {/* Technical Career Roles List, only for records where the roles
             were actually verified; most companies have none. */}
         {company.commonCareers.length > 0 && (
         <div>

@@ -26,7 +26,7 @@ declare global {
 }
 
 /**
- * Google One Tap — the prompt you see on many sites.
+ * Google One Tap, the prompt you see on many sites.
  *
  * Deliberately not shown the instant the page loads: it waits for the user to
  * actually engage with the page first, and it stays away for the rest of the
@@ -44,7 +44,7 @@ export const GoogleOneTap: React.FC = () => {
     try {
       if (sessionStorage.getItem(DISMISS_KEY)) return;
     } catch {
-      // storage blocked — just don't show the prompt
+      // storage blocked, just don't show the prompt
       return;
     }
 

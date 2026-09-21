@@ -4,7 +4,7 @@ import type { Firestore } from 'firebase/firestore';
 /**
  * Firebase is optional and loaded on demand.
  *
- * With no config the app runs exactly as before — everything stays in
+ * With no config the app runs exactly as before, everything stays in
  * localStorage and the sign-in UI is hidden. Even when configured, the SDK is
  * dynamically imported so it never lands in the initial bundle (it is ~800KB
  * uncompressed, on a page whose primary job is to render a list fast).

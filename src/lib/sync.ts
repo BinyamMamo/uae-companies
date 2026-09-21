@@ -35,7 +35,7 @@ export async function fetchProfile(uid: string): Promise<Partial<SyncedProfile> 
     if (!snap.exists()) return null;
     return snap.data() as Partial<SyncedProfile>;
   } catch {
-    // Offline or rules denied — fall back to local data.
+    // Offline or rules denied, fall back to local data.
     return null;
   }
 }
@@ -54,7 +54,7 @@ export async function saveProfile(uid: string, profile: SyncedProfile): Promise<
   }
 }
 
-/** Union merge — signing in adds to what you had, it never deletes it. */
+/** Union merge, signing in adds to what you had, it never deletes it. */
 export function mergeProfiles(
   local: SyncedProfile,
   remote: Partial<SyncedProfile> | null
@@ -86,7 +86,7 @@ export function mergeProfiles(
     savedCompanyIds,
     savedLists: Array.from(byId.values()),
     userInterests,
-    // Local preferences win — they reflect this device, which the user is looking at.
+    // Local preferences win, they reflect this device, which the user is looking at.
     userLocation: local.userLocation ?? remote.userLocation ?? null,
     accentColor: local.accentColor ?? remote.accentColor ?? null,
     theme: local.theme ?? remote.theme ?? null,

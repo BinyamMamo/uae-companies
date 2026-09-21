@@ -5,7 +5,7 @@ interface DataErrorProps {
   onRetry: () => void;
 }
 
-/** Shown when the company dataset fails to load — offline, or a bad deploy. */
+/** Shown when the company dataset fails to load, offline, or a bad deploy. */
 export const DataError: React.FC<DataErrorProps> = ({ onRetry }) => (
   <div className="bg-surface border border-line rounded-xl p-10 text-center" role="alert">
     <div className="w-12 h-12 rounded-full bg-surface-2 border border-line flex items-center justify-center mx-auto mb-3 text-ink-3">

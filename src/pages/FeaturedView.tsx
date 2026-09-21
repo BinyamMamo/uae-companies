@@ -162,7 +162,7 @@ export const FeaturedView: React.FC = () => {
                   )}
                 </div>
 
-                {/* Career Tags — the divider would otherwise hang on its own
+                {/* Career Tags, the divider would otherwise hang on its own
                     for the companies whose roles aren't verified. */}
                 {company.commonCareers.length > 0 && (
                 <div className="mt-4 pt-3 border-t border-line flex flex-wrap items-center gap-1.5">

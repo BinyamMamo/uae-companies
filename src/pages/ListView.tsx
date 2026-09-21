@@ -127,7 +127,7 @@ export const ListView: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-2.5">
-              {/* Compare Button — phones get the icon in the search field plus
+              {/* Compare Button, phones get the icon in the search field plus
                   the floating bar below, so this one is desktop-only. */}
               <button
                 type="button"

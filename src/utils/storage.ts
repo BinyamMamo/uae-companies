@@ -31,7 +31,7 @@ export function writeJSON(key: string, value: unknown): void {
   try {
     localStorage.setItem(key, JSON.stringify(value));
   } catch {
-    // Quota exceeded or storage disabled — non-fatal.
+    // Quota exceeded or storage disabled, non-fatal.
   }
 }
 

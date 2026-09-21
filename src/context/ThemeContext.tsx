@@ -15,7 +15,7 @@ import { track } from '../lib/analytics';
  * Theme and accent live in their own context.
  *
  * They used to sit in AppContext, so flipping the theme invalidated a context
- * that all ~45 members of the app consume — re-rendering every one of the 225
+ * that all ~45 members of the app consume, re-rendering every one of the 225
  * company cards on a change that CSS variables already handle. Splitting them
  * out is what makes the switch cheap.
  */
@@ -35,11 +35,9 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [theme, setTheme] = useState<Theme>(() => {
     const stored = readString('uae_theme');
     if (stored === 'dark' || stored === 'light') return stored;
-    try {
-      if (window.matchMedia?.('(prefers-color-scheme: dark)').matches) return 'dark';
-    } catch {
-      // ignore
-    }
+    // Light unless they ask for dark. The system preference is not followed:
+    // this is read in daylight on a campus far more often than at night, and a
+    // visitor whose laptop is set to dark was getting a theme nobody chose.
     return 'light';
   });
 

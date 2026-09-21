@@ -62,7 +62,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSaved, onOpenInterests }) 
           <button
             onClick={() => setActiveTab('list')}
             className="flex items-center gap-2.5 text-left hover:opacity-90 transition-opacity min-w-0"
-            aria-label="UAE Companies — go to list"
+            aria-label="UAE Companies, go to list"
           >
             <Logo className="w-7 h-7 sm:w-8 sm:h-8 shrink-0 text-brand-600 dark:text-brand-400" />
             <span className="text-sm sm:text-base font-bold tracking-tight text-ink truncate">
@@ -71,7 +71,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSaved, onOpenInterests }) 
           </button>
         </div>
 
-        {/* Centre: nav on desktop only — on mobile it moves to its own row below */}
+        {/* Centre: nav on desktop only, on mobile it moves to its own row below */}
         <nav
           className="hidden md:flex items-center justify-center gap-4 lg:gap-6"
           aria-label="Main"

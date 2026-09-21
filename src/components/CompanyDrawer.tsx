@@ -55,12 +55,12 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
   );
 
   // Both of these used to run on every render: a filter over the whole company
-  // list, and a several-hundred-line route solver — the latter even when the
+  // list, and a several-hundred-line route solver, the latter even when the
   // Location tab was closed.
   /*
     Similarity is only offered between records whose profile was actually
     researched. The original generator gave 118 companies the same two
-    categories, so matching on them returned whatever came first — 3M appeared
+    categories, so matching on them returned whatever came first, 3M appeared
     under almost everything. Comparing unverified profiles cannot produce a
     real answer, so the tab stays hidden for them and appears as the research
     pipeline fills records in.
@@ -149,7 +149,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
             )}
           </div>
 
-          {/* Opens the list picker, like the cards do — saving from here used
+          {/* Opens the list picker, like the cards do, saving from here used
               to drop the company into "All Saved" with no say in the matter. */}
           <div className="relative shrink-0">
             <button
@@ -304,7 +304,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
               </div>
             )}
 
-            {/* Where to go next — the company's own pages, when we have them */}
+            {/* Where to go next, the company's own pages, when we have them */}
             {(company.website || company.linkedinUrl) && (
               <div className="flex flex-wrap items-center gap-2 pt-1">
                 {company.website && (

@@ -73,7 +73,7 @@ export const ProfileMenu: React.FC<ProfileMenuProps> = ({ onOpenInterests }) => 
   const item =
     'w-full flex items-center gap-3 px-4 py-2.5 text-xs text-ink-2 hover:bg-surface-2 hover:text-ink transition-colors text-left';
 
-  // Only when sign-in is actually available and we know the answer — a spinner
+  // Only when sign-in is actually available and we know the answer, a spinner
   // or an unconfigured build must not sprout a dot.
   const signedOut = configured && !user && !loading && !error;
 
@@ -89,19 +89,19 @@ export const ProfileMenu: React.FC<ProfileMenuProps> = ({ onOpenInterests }) => 
           user
             ? `Account menu for ${user.name}`
             : signedOut
-              ? 'Account menu — not signed in'
+              ? 'Account menu, not signed in'
               : 'Account menu'
         }
         title={
           signedOut
-            ? 'Not signed in — saved lists stay on this device'
+            ? 'Not signed in. Saved lists stay on this device'
             : undefined
         }
         className="relative w-8 h-8 flex items-center justify-center rounded-full border border-line hover:border-line-strong transition-colors"
       >
         {/*
-          A small dot, not a warning. Signing in is optional — everything works
-          signed out — so this says "there is something here" without nagging.
+          A small dot, not a warning. Signing in is optional, everything works
+          signed out, so this says "there is something here" without nagging.
         */}
         {signedOut && (
           <span
@@ -134,7 +134,7 @@ export const ProfileMenu: React.FC<ProfileMenuProps> = ({ onOpenInterests }) => 
           role="menu"
           className="absolute right-0 mt-2 w-64 bg-surface border border-line rounded-xl shadow-popup overflow-hidden z-50 animate-fade-in"
         >
-          {/* Identity, or the reason to sign in — same padding either way */}
+          {/* Identity, or the reason to sign in, same padding either way */}
           {user ? (
             <div className="px-4 py-3 border-b border-line">
               <p className="text-xs font-semibold text-ink truncate">{user.name}</p>

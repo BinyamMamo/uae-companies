@@ -48,7 +48,7 @@ export const ResponsiveSheet: React.FC<ResponsiveSheetProps> = ({
         style={sheetStyle}
         className={`bg-surface w-full ${maxWidthClassName} ${heightClassName} flex flex-col shadow-popup border-t sm:border border-line overflow-hidden text-ink pointer-events-auto rounded-t-2xl sm:rounded-xl animate-slide-up sm:animate-fade-in`}
       >
-        {/* Grab area: phones only — on a desktop the header's × is the target. */}
+        {/* Grab area: phones only, on a desktop the header's × is the target. */}
         <div
           {...handleProps}
           className="sm:hidden pt-2.5 pb-1.5 flex justify-center shrink-0 cursor-grab active:cursor-grabbing touch-none"

@@ -25,7 +25,7 @@
   --color-slate-900: #18181b;
   --color-slate-950: #121214;
 
-  /* Semantic surfaces and text — theme-aware, no dark: variant required. */
+  /* Semantic surfaces and text, theme-aware, no dark: variant required. */
   --color-app: var(--bg-app);
   --color-surface: var(--bg-surface);
   --color-surface-2: var(--bg-surface-hover);
@@ -95,7 +95,7 @@
   --border-hover: #d4d4d8;
   --text-primary: #09090b;
   --text-secondary: #52525b;
-  /* Muted text sits at 4.6:1 on white — the old #a1a1aa was 2.5:1 and failed AA. */
+  /* Muted text sits at 4.6:1 on white, the old #a1a1aa was 2.5:1 and failed AA. */
   --text-muted: #6b6b75;
 
   --accent-primary: #2563eb;
@@ -195,7 +195,7 @@ html.dark {
 
    The toggle runs inside document.startViewTransition(), which cross-fades a
    snapshot of the page. While that runs we suppress the live DOM's own
-   transitions — otherwise both animate at once and the switch smears.
+   transitions, otherwise both animate at once and the switch smears.
    ========================================================================= */
 ::view-transition-old(root),
 ::view-transition-new(root) {
@@ -248,7 +248,7 @@ html[data-theme-switching] *::after {
 
 /* =========================================================================
    SCROLLBARS
-   Thin and unobtrusive, but present — content that scrolls must say so.
+   Thin and unobtrusive, but present, content that scrolls must say so.
    ========================================================================= */
 * {
   scrollbar-width: thin;

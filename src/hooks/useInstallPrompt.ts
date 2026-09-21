@@ -29,7 +29,7 @@ function isIos(): boolean {
  * Whether and how this browser can install the app.
  *
  * Chromium hands over a real prompt, so pressing the button installs it. Safari
- * has no such API at all — the only way in is Share → Add to Home Screen — so
+ * has no such API at all, the only way in is Share → Add to Home Screen, so
  * there the button has to explain rather than act. Everything else gets no
  * button, because offering one that cannot work is worse than offering none.
  */

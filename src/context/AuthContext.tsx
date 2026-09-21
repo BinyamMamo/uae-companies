@@ -18,7 +18,7 @@ export interface AuthUser {
 }
 
 interface AuthContextValue {
-  /** False when Firebase env vars are absent — the UI hides sign-in entirely. */
+  /** False when Firebase env vars are absent, the UI hides sign-in entirely. */
   configured: boolean;
   user: AuthUser | null;
   /** True until the first auth state resolves, so we don't flash a signed-out menu. */
@@ -69,7 +69,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   /*
     Set once the auth listener is live. The deferred bootstrap below only
     attaches it for someone who has signed in here before, so a first sign-in
-    has to attach it itself — otherwise nothing tells the header a user now
+    has to attach it itself, otherwise nothing tells the header a user now
     exists and the avatar stays generic until the page is reloaded.
   */
   const watching = useRef(false);

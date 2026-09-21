@@ -110,7 +110,7 @@ def main():
         careers = c.get("careersUrl")
         # /careers is where a real careers page often lives, so the shape alone
         # proves nothing. What matters is whether the pipeline actually fetched
-        # it and cited where it came from — an unverified one is a guess.
+        # it and cited where it came from, an unverified one is a guess.
         if careers and website and careers.rstrip("/") == website.rstrip("/") + "/careers":
             careers_prov = (c.get("provenance") or {}).get("careersUrl") or {}
             if careers_prov.get("confidence") != "verified" or not careers_prov.get("sourceUrl"):

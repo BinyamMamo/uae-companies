@@ -75,7 +75,7 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
         className="bg-surface rounded-t-2xl h-[82dvh] flex flex-col shadow-drawer border-t border-line overflow-hidden pointer-events-auto animate-slide-up"
         style={sheetStyle}
       >
-        {/* Drag handle — the whole strip is the target, not just the bar. */}
+        {/* Drag handle, the whole strip is the target, not just the bar. */}
         <div
           {...handleProps}
           aria-label="Close details"
@@ -275,7 +275,7 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
                 </div>
               </div>
 
-              {/* The same embedded route the desktop drawer shows — it was
+              {/* The same embedded route the desktop drawer shows, it was
                   missing here, so the mobile Location tab had no map at all. */}
               <div className="relative rounded-lg overflow-hidden border border-line h-56">
                 {!isRouteMapLoaded && (

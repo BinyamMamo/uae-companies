@@ -23,7 +23,7 @@ export interface Provenance {
 export interface CompanyLocation {
   emirate: Emirate;
   area: string;
-  /** Null when no real street address is known — never a generated placeholder. */
+  /** Null when no real street address is known, never a generated placeholder. */
   address: string | null;
   latitude: number;
   longitude: number;
@@ -51,7 +51,7 @@ export interface CompanyCommute {
 export interface CompanySource {
   title: string;
   url: string;
-  /** False for the company's own site — that is a claim, not a citation. */
+  /** False for the company's own site, that is a claim, not a citation. */
   thirdParty: boolean;
 }
 
@@ -67,7 +67,7 @@ export interface Company {
   location: CompanyLocation;
   /** Null when no working website is known. */
   website: string | null;
-  /** Null unless a real careers page was found — never website + "/careers". */
+  /** Null unless a real careers page was found, never website + "/careers". */
   careersUrl: string | null;
   /** Null falls back to a monogram tile rather than a generated avatar. */
   logo: string | null;
@@ -85,7 +85,7 @@ export interface Company {
   relevanceScore: number;
   studentMatchReason?: string | null;
   sources: CompanySource[];
-  /** ISO date this record was last checked, per record — not a global stamp. */
+  /** ISO date this record was last checked, per record, not a global stamp. */
   lastUpdated: string | null;
   /** Per-field provenance for the claims a user might act on. */
   provenance: {

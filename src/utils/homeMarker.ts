@@ -16,7 +16,7 @@ const MAP_PIN_HOUSE = `
 `;
 
 /**
- * A soft radial wash of one hue — light at the centre, deeper at the rim — so
+ * A soft radial wash of one hue, light at the centre, deeper at the rim, so
  * the pin reads as a single object against the map rather than a chip with a
  * ring drawn round it.
  */

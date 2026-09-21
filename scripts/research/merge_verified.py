@@ -25,13 +25,13 @@ UA = "Mozilla/5.0 (compatible; uae-companies-dataset-audit/1.0)"
 TIMEOUT = 12
 
 # The search tool hands back grounding-redirect links. They are opaque, they
-# expire, and a reader cannot check one — so they are never a citation, and
+# expire, and a reader cannot check one, so they are never a citation, and
 # never evidence that a page was seen.
 OPAQUE_SOURCE = re.compile(
     r"vertexaisearch\.cloud\.google\.com|grounding-api-redirect", re.I
 )
 
-# UAE bounding box — anything outside is a wrong country, not a typo.
+# UAE bounding box, anything outside is a wrong country, not a typo.
 UAE_BOUNDS = (22.5, 26.5, 51.0, 56.5)
 
 TEMPLATE_SIGNS = [
@@ -43,7 +43,7 @@ TEMPLATE_SIGNS = [
 
 
 # Plenty of corporate sites answer a non-browser client with 403/405/429 or
-# simply hang. That means "bot-blocked", not "does not exist" — rejecting those
+# simply hang. That means "bot-blocked", not "does not exist", rejecting those
 # would throw away correct URLs. Only treat a definitive negative as dead.
 BLOCKED_CODES = {401, 403, 405, 406, 409, 429, 503}
 DEAD_CODES = {404, 410}
@@ -91,7 +91,7 @@ def main():
     args = ap.parse_args()
 
     records = []
-    # Skip _merged.json — it is this script's own output from a previous run.
+    # Skip _merged.json, it is this script's own output from a previous run.
     for path in sorted(x for x in VERIFIED_DIR.glob("*.json") if not x.name.startswith("_")):
         try:
             data = json.loads(path.read_text(encoding="utf-8"))
@@ -142,7 +142,7 @@ def main():
                 rejects["website claimed by 2+ companies"].append(rid)
                 r.pop("website", None)
 
-        # careers url — must resolve AND not be a constructed /careers path
+        # careers url, must resolve AND not be a constructed /careers path
         careers = r.get("careersUrl")
         for key in ("careersSource", "careersEvidence", "websiteSource",
                     "descriptionSource", "locationSource", "programmesSource"):
@@ -192,6 +192,13 @@ def main():
             if not (lo_lat <= lat <= hi_lat and lo_lon <= lon <= hi_lon):
                 rejects["coordinates outside the UAE"].append(rid)
                 r.pop("latitude", None); r.pop("longitude", None); r.pop("address", None)
+
+        # House style has no em dashes, and the model reaches for them
+        # constantly, so they are normalised here rather than left to leak into
+        # the app one research batch at a time.
+        for key in ("shortDescription", "whatTheyDo", "studentMatchReason", "address"):
+            if isinstance(r.get(key), str) and "\u2014" in r[key]:
+                r[key] = re.sub(r"\s*\u2014\s*", ", ", r[key])
 
         # description must not be templated or a model apology
         for key in ("shortDescription", "whatTheyDo"):

@@ -6,7 +6,7 @@ appending `/careers` to a guessed homepage, 118 companies shared one identical
 description, and 14 different "Al ..." companies all pointed at `al.com`
 (an Alabama news site). Run `audit_report.py` to see the full picture.
 
-This pipeline replaces that with sourced data, and — importantly — leaves
+This pipeline replaces that with sourced data, and, importantly, leaves
 fields empty when nothing backs them up.
 
 ## How it works

@@ -8,7 +8,7 @@ replace guesses with sourced facts, **or to say you could not find them**.
 ## Tools
 
 Use `search_web` and `read_url_content` only. You have no shell and no file
-access in this run — do not attempt to run commands or write files.
+access in this run, do not attempt to run commands or write files.
 
 ## Absolute rules
 
@@ -20,7 +20,7 @@ access in this run — do not attempt to run commands or write files.
    A plausible-looking invention is a failure.
 4. **Do not invent people.** Leave `employees` out entirely.
 4b. **Do not invent roles.** `commonCareers` must be roles you actually saw
-   advertised or described for *this* company — on its careers page, a job
+   advertised or described for *this* company, on its careers page, a job
    board listing, or a news article. Do not infer roles from the industry.
    A university mostly hires academic and administrative staff, not "Cloud
    Architects"; a trading company is not a software house. If you did not see
@@ -31,7 +31,7 @@ access in this run — do not attempt to run commands or write files.
    Programme", "Summer Internship"). Only names you saw published. If you can
    tell a scheme exists but it has no public name, leave `programmes` empty and
    set the boolean instead.
-5. **`sources` must be third-party** — news, government registries, directories,
+5. **`sources` must be third-party**, news, government registries, directories,
    university career pages. The company's own website is not a source for
    claims about itself; it goes in `website`, not `sources`.
 6. If two companies share a name fragment (e.g. several "Al ..." groups), make
@@ -92,5 +92,5 @@ If a company cannot be confirmed to exist in the UAE at all, return
   Hotels. Before you return a `website`, read the page and confirm it names this
   company. If the page belongs to someone else, omit the field.
 - **Only return `linkedinUrl` if you actually found the page linked from
-  somewhere.** Never build one from the company name — `linkedin.com/company/<slug>`
+  somewhere.** Never build one from the company name, `linkedin.com/company/<slug>`
   guesses were 404s. If you cannot cite where you saw it, omit it.

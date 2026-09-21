@@ -12,8 +12,46 @@
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121214" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UAE Companies</title>
-    <meta name="description" content="Find companies in the UAE that hire students and graduates. Verified details, real distances, saved lists and side-by-side comparison." />
+    <title>UAE Companies: internships and graduate jobs in the UAE</title>
+    <meta name="description" content="Find companies in the UAE that hire students and graduates. Verified websites and careers pages, real distances, saved lists and side-by-side comparison." />
+    <link rel="canonical" href="https://uaecompanies.onrender.com/" />
+
+    <!--
+      Open Graph. Without these a shared link shows title and description only:
+      Telegram, WhatsApp and LinkedIn all read og:image, and there was none, so
+      the preview had no picture. The image must be an absolute URL.
+    -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="UAE Companies" />
+    <meta property="og:url" content="https://uaecompanies.onrender.com/" />
+    <meta property="og:title" content="UAE Companies: where to work in the UAE" />
+    <meta property="og:description" content="225 verified companies that hire students and graduates. Real websites, real careers pages, real distances." />
+    <meta property="og:image" content="https://uaecompanies.onrender.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="UAE Companies: where to work in the UAE" />
+    <meta property="og:locale" content="en_AE" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="UAE Companies: where to work in the UAE" />
+    <meta name="twitter:description" content="225 verified companies that hire students and graduates." />
+    <meta name="twitter:image" content="https://uaecompanies.onrender.com/og-image.png" />
+
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="Binyam Mamo" />
+    <meta name="keywords" content="UAE companies, Dubai internships, graduate jobs UAE, student jobs Dubai, careers UAE, Dubai employers" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "UAE Companies",
+        "url": "https://uaecompanies.onrender.com/",
+        "description": "Verified UAE companies that hire students and graduates, with sourced details and real distances.",
+        "inLanguage": "en",
+        "author": { "@type": "Person", "name": "Binyam Mamo" }
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -24,7 +62,9 @@
         var root = document.documentElement;
         try {
           var t = localStorage.getItem('uae_theme');
-          var dark = t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          // Light by default; only an explicit choice turns it dark. Must match
+          // ThemeContext, or the page flashes the other theme before hydration.
+          var dark = t === 'dark';
           root.classList.toggle('dark', dark);
         } catch (e) {}
 

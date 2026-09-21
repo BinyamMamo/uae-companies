@@ -3,11 +3,11 @@
  *
  * Goals, in order: know how many people use the app (total, and daily active),
  * and know which features they actually use. Signed-out visitors are counted
- * anonymously — nobody is asked to log in to be measured.
+ * anonymously, nobody is asked to log in to be measured.
  *
  * Components never call the SDK directly; they call `track()` below, so every
  * event name and its properties are typed in one place. GA4 constrains names
- * to <=40 chars, alphanumeric plus underscore, starting with a letter — the
+ * to <=40 chars, alphanumeric plus underscore, starting with a letter, the
  * union below is written to satisfy that.
  *
  * The SDK is dynamically imported so it never lands in the initial bundle, and

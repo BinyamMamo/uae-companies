@@ -14,7 +14,7 @@ interface SaveToListMenuProps {
 /**
  * Pick which lists a company belongs to.
  *
- * Lists were previously creatable but unfillable — `addCompanyToList` existed
+ * Lists were previously creatable but unfillable, `addCompanyToList` existed
  * in context and was called by nothing, so every list except "All Saved" stayed
  * permanently empty. Saving now goes through here.
  */

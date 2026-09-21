@@ -2,7 +2,7 @@ import React from 'react';
 
 interface LogoProps {
   className?: string;
-  /** Decorative by default — the wordmark beside it carries the name. */
+  /** Decorative by default, the wordmark beside it carries the name. */
   title?: string;
 }
 

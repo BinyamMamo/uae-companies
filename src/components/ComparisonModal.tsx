@@ -12,7 +12,7 @@ import { CompanyLogo } from './ui/CompanyLogo';
  * spot a difference. Earlier it wrapped almost every value in a coloured pill,
  * which made everything look equally important and nothing scannable. Values
  * are now text, hierarchy comes from weight and spacing, and colour is kept for
- * the one thing it should mark — a match against your interests.
+ * the one thing it should mark, a match against your interests.
  */
 
 const Row: React.FC<{ label: string; children: React.ReactNode }> = ({ label, children }) => (
@@ -31,7 +31,7 @@ const Cell: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <td className="py-4 pr-6 text-xs text-ink-2 min-w-[190px] align-top">{children}</td>
 );
 
-const List: React.FC<{ items: string[]; empty?: string }> = ({ items, empty = '—' }) =>
+const List: React.FC<{ items: string[]; empty?: string }> = ({ items, empty = 'Not listed' }) =>
   items.length === 0 ? (
     <span className="text-ink-3">{empty}</span>
   ) : (

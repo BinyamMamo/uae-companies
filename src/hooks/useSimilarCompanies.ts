@@ -7,7 +7,7 @@ import { useApp } from '../context/AppContext';
  *
  * Only researched records take part. Matching on any shared category put 3M at
  * the top of almost every list, because 163 of 225 companies carry
- * "Tech / Software" — a bucket the old generator handed out, not a fact about
+ * "Tech / Software", a bucket the old generator handed out, not a fact about
  * the company. So the broad buckets score nothing, and a record with no
  * verified description is not compared at all.
  *

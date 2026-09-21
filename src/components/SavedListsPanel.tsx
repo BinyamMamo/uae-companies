@@ -15,13 +15,13 @@ import { Bookmark, Check, Pencil, Plus, Search, Share2, Trash2, X } from 'lucide
  * Saved lists.
  *
  * Lists and their contents share one panel split by a divider, rather than a
- * floating sidebar card next to a separate bordered body — two disconnected
+ * floating sidebar card next to a separate bordered body, two disconnected
  * boxes that read as unfinished when either side was empty.
  */
 interface SavedListsPanelProps {
   /** Modal variant sizes to its container instead of the page. */
   variant?: 'page' | 'modal';
-  /** When given, the panel header shows a close button — the modal has no title bar of its own. */
+  /** When given, the panel header shows a close button, the modal has no title bar of its own. */
   onClose?: () => void;
 }
 
@@ -127,11 +127,20 @@ export const SavedListsPanel: React.FC<SavedListsPanelProps> = ({ variant = 'pag
         >
           <div className="flex items-center justify-between gap-2 px-4 h-14 border-b border-line shrink-0">
             <h2 className="text-xs font-bold text-ink uppercase tracking-wider">Lists</h2>
+            <button
+              type="button"
+              onClick={() => setIsCreating(v => !v)}
+              className="hidden md:flex p-1.5 rounded-md text-ink-3 hover:text-ink hover:bg-surface-2 transition-colors"
+              aria-label="Create a new list"
+              title="New list"
+            >
+              <Plus className="w-4 h-4" aria-hidden="true" />
+            </button>
             {onClose && (
               <button
                 type="button"
                 onClick={onClose}
-                className="p-1.5 rounded-md text-ink-3 hover:text-ink hover:bg-surface-2 transition-colors"
+                className="md:hidden p-1.5 rounded-md text-ink-3 hover:text-ink hover:bg-surface-2 transition-colors"
                 aria-label="Close saved companies"
               >
                 <X className="w-4 h-4" aria-hidden="true" />
@@ -332,12 +341,22 @@ export const SavedListsPanel: React.FC<SavedListsPanelProps> = ({ variant = 'pag
               <button
                 type="button"
                 onClick={() => setIsCreating(v => !v)}
-                className="p-1.5 rounded-md text-ink-3 hover:text-ink hover:bg-surface-2 transition-colors"
+                className="md:hidden p-1.5 rounded-md text-ink-3 hover:text-ink hover:bg-surface-2 transition-colors"
                 aria-label="Create a new list"
                 title="New list"
               >
                 <Plus className="w-4 h-4" aria-hidden="true" />
               </button>
+              {onClose && (
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="hidden md:flex p-1.5 rounded-md text-ink-3 hover:text-ink hover:bg-surface-2 transition-colors"
+                  aria-label="Close saved companies"
+                >
+                  <X className="w-4 h-4" aria-hidden="true" />
+                </button>
+              )}
             </div>
           </div>
 

@@ -4,7 +4,7 @@ import React from 'react';
  * Browse facets.
  *
  * Each facet is a real button that narrows the list, labelled with its true
- * count from the loaded data — nothing here is hardcoded, so a slice can never
+ * count from the loaded data, nothing here is hardcoded, so a slice can never
  * advertise companies it doesn't have.
  *
  * The bar is a magnitude cue only: one hue, recessive, and always accompanied

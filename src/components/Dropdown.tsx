@@ -35,7 +35,7 @@ export function Dropdown<T extends string | number = string>({
   const [menuPos, setMenuPos] = useState<{ top: number; left: number; width: number } | null>(null);
 
   // The menu is rendered into <body>, because these live inside the filter
-  // sheet, which is an `overflow-y-auto` box — an absolutely positioned menu
+  // sheet, which is an `overflow-y-auto` box, an absolutely positioned menu
   // was simply clipped by it. Being in the body means positioning by hand.
   const placeMenu = useCallback(() => {
     const btn = buttonRef.current;
@@ -115,7 +115,7 @@ export function Dropdown<T extends string | number = string>({
         />
       </button>
 
-      {/* Menu Popover — portalled so no scroll container can clip it */}
+      {/* Menu Popover, portalled so no scroll container can clip it */}
       {isOpen && createPortal(
         <div
           ref={menuRef}

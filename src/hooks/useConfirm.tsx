@@ -5,7 +5,7 @@ import { ConfirmDialog, type ConfirmOptions } from '../components/ui/ConfirmDial
  * `const confirm = useConfirm()` then `if (await confirm({...})) { ... }`.
  *
  * One dialog instance lives at the app root, so any component can ask for a
- * confirmation without each one wiring up its own open/close state — which is
+ * confirmation without each one wiring up its own open/close state, which is
  * what let several destructive actions ship with no confirmation at all.
  */
 type ConfirmFn = (options: ConfirmOptions) => Promise<boolean>;

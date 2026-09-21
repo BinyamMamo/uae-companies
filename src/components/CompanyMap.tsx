@@ -145,7 +145,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
           draggable: true,
           // Leaflet marks interactive markers role="button"; without this they
           // have no accessible name at all.
-          alt: 'Your home location — drag to move',
+          alt: 'Your home location, drag to move',
           title: 'Drag to move your home location',
         }
       ).addTo(map);
@@ -283,7 +283,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
   useEffect(() => {
     if (userMarkerRef.current) {
       userMarkerRef.current.setLatLng([userLocation.latitude, userLocation.longitude]);
-      // Just the name — the bottom-left card already carries the detail.
+      // Just the name, the bottom-left card already carries the detail.
       userMarkerRef.current.setTooltipContent(userLocation.name);
     }
   }, [userLocation]);
@@ -470,7 +470,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
 
       {/*
         Phones: the same control as an icon, stacked above the map-style button,
-        opening as a bottom sheet rather than a dropup — a 288px popover does not
+        opening as a bottom sheet rather than a dropup, a 288px popover does not
         fit over a phone-width map.
       */}
       <button

@@ -20,7 +20,7 @@ interface CompanyLogoProps {
  * Company logo tile with a monogram fallback.
  *
  * Replaces eight near-identical copies across the app, three of which used
- * `parentElement.innerHTML` to swap in the fallback — that injected the
+ * `parentElement.innerHTML` to swap in the fallback, that injected the
  * company name as raw HTML and detached the subtree from React.
  */
 export const CompanyLogo: React.FC<CompanyLogoProps> = ({

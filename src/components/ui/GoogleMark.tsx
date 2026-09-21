@@ -1,7 +1,7 @@
 import React from 'react';
 
 /**
- * Official Google "G", served as a file rather than inlined — the source SVG
+ * Official Google "G", served as a file rather than inlined, the source SVG
  * defines gradients with ids a–s, which would collide with any other inlined
  * SVG on the page.
  */

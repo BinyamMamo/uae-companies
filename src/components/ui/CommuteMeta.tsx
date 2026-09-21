@@ -25,7 +25,7 @@ const Dot = () => (
  *
  * Travel time is deliberately absent. The estimates were derived from
  * straight-line distance and ran roughly 3x optimistic against real transit
- * times, so only the distance — which is exact — is shown.
+ * times, so only the distance, which is exact, is shown.
  */
 export const CommuteMeta: React.FC<CommuteMetaProps> = ({
   company,

@@ -41,7 +41,7 @@ export interface ModalProps {
   label?: string;
   labelledBy?: string;
   children: React.ReactNode;
-  /** Wrapper around the panel — controls where the panel sits (centre, right, bottom). */
+  /** Wrapper around the panel, controls where the panel sits (centre, right, bottom). */
   className?: string;
   backdropClassName?: string;
   /** Set false for panels that should not close on outside click. */

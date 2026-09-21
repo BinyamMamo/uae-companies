@@ -29,7 +29,7 @@ interface InterestsModalProps {
 }
 
 /**
- * Interests get their own modal rather than a section inside Settings — they
+ * Interests get their own modal rather than a section inside Settings, they
  * are the one preference that changes what the app shows you, so they deserve
  * to be reachable in one step.
  */

@@ -81,7 +81,7 @@ CATEGORY_ALIASES = {
 
 def load_seed():
     """
-    The original hand-assembled company list. Kept as a build input only — it
+    The original hand-assembled company list. Kept as a build input only, it
     is never shipped, because most of its fields were template-generated. The
     pipeline treats it as a list of company *names* to research, not as facts.
     """
@@ -222,7 +222,7 @@ def build(seed, audit, verified):
         key = (c["location"]["latitude"], c["location"]["longitude"])
         coord_claims.setdefault(key, []).append(c["id"])
 
-    # The research can hand two companies the same point — a shared tower, or a
+    # The research can hand two companies the same point, a shared tower, or a
     # district centroid dressed up as an address. Either way it is not a
     # building-level fix for both, so neither one gets to claim that.
     verified_coord_claims = {}
@@ -303,7 +303,7 @@ def build(seed, audit, verified):
         addr = loc.get("address") or ""
         if v.get("address"):
             loc["address"] = v["address"]
-            # An explicit null means "district only" — keep the seed centroid
+            # An explicit null means "district only", keep the seed centroid
             # rather than writing None into a required coordinate.
             v_lat, v_lon = v.get("latitude"), v.get("longitude")
             has_point = isinstance(v_lat, (int, float)) and isinstance(v_lon, (int, float))
@@ -407,7 +407,7 @@ def build(seed, audit, verified):
             reason = None
 
         # The generator emitted roles and technical areas from the same 36
-        # buckets as the descriptions — 118 companies share one role set. If the
+        # buckets as the descriptions, 118 companies share one role set. If the
         # description was templated, so were these, so they go too.
         templated_profile = desc is None and not v.get("shortDescription")
         TEMPLATED_SETS = {

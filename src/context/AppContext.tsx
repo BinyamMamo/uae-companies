@@ -178,15 +178,23 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
   /*
-    Distances need an origin, so one is assumed — University of Dubai, the
+    Distances need an origin, so one is assumed, University of Dubai, the
     campus this is built for. That assumption is not a claim about where the
     visitor lives: isLocationSet stays false until they choose for themselves,
     and the app says so once rather than caveating every number.
   */
   const [userLocation, setUserLocationState] = useState<UserLocation>(() => {
-    const stored = readJSON('uae_user_location', isUserLocation);
-    if (stored) return stored;
-    return { ...DEFAULT_ORIGIN, isCustom: false };
+    // Only trust a stored place if it was actually chosen. Early builds wrote a
+    // default in here without recording a choice, which left the app showing
+    // that name while reporting the location as unset.
+    let chosen = false;
+    try {
+      chosen = localStorage.getItem(LOCATION_SET_KEY) === '1';
+    } catch {
+      chosen = false;
+    }
+    const stored = chosen ? readJSON('uae_user_location', isUserLocation) : null;
+    return stored ?? { ...DEFAULT_ORIGIN, isCustom: false };
   });
 
   const [isLocationSet, setIsLocationSet] = useState<boolean>(() => {
