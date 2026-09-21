@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AppProvider, useApp } from './context/AppContext';
 import { Header } from './components/Header';
 import { ListView } from './pages/ListView';
@@ -13,15 +13,22 @@ import { ConfirmProvider } from './hooks/useConfirm';
 import { AuthProvider } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
 import { GoogleOneTap } from './components/GoogleOneTap';
+import { SavedModal } from './components/SavedModal';
+import { InterestsModal } from './components/InterestsModal';
 
 const AppContent: React.FC = () => {
   const { activeTab, companies } = useApp();
+  const [isSavedModalOpen, setIsSavedModalOpen] = useState(false);
+  const [isInterestsOpen, setIsInterestsOpen] = useState(false);
 
   return (
     <div className="min-h-screen flex flex-col bg-app text-ink font-sans selection:bg-brand-100 selection:text-brand-900 transition-colors duration-150">
       
       {/* Centered Minimal Header */}
-      <Header />
+      <Header
+        onOpenSaved={() => setIsSavedModalOpen(true)}
+        onOpenInterests={() => setIsInterestsOpen(true)}
+      />
 
       {/* Main View Container */}
       <div className="flex-1">
@@ -36,6 +43,9 @@ const AppContent: React.FC = () => {
 
       {/* Settings Modal */}
       <SettingsModal />
+
+      <SavedModal open={isSavedModalOpen} onClose={() => setIsSavedModalOpen(false)} />
+      <InterestsModal open={isInterestsOpen} onClose={() => setIsInterestsOpen(false)} />
 
       {/* Google One Tap prompt (signed-out users only, after first interaction) */}
       <GoogleOneTap />

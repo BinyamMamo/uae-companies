@@ -14,7 +14,12 @@ const NAV_ITEMS: Array<{ id: TabId; label: string }> = [
   { id: 'saved', label: 'Saved' },
 ];
 
-export const Header: React.FC = () => {
+interface HeaderProps {
+  onOpenSaved: () => void;
+  onOpenInterests: () => void;
+}
+
+export const Header: React.FC<HeaderProps> = ({ onOpenSaved, onOpenInterests }) => {
   const {
     activeTab,
     setActiveTab,
@@ -119,7 +124,7 @@ export const Header: React.FC = () => {
             <Settings className="w-4 h-4" aria-hidden="true" />
           </button>
 
-          <ProfileMenu />
+          <ProfileMenu onOpenSaved={onOpenSaved} onOpenInterests={onOpenInterests} />
         </div>
       </div>
 
