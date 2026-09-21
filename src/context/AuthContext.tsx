@@ -38,14 +38,36 @@ const toAuthUser = (u: User): AuthUser => ({
   photoURL: u.photoURL,
 });
 
+
+const HAD_SESSION = 'uae_had_session';
+
+/** Whether anyone has ever signed in on this device. */
+function hadSessionBefore(): boolean {
+  try {
+    return localStorage.getItem(HAD_SESSION) === '1';
+  } catch {
+    // Private mode and blocked storage both land here; assume no session and
+    // load Firebase on demand instead.
+    return false;
+  }
+}
+
+function rememberSession(yes: boolean) {
+  try {
+    if (yes) localStorage.setItem(HAD_SESSION, '1');
+    else localStorage.removeItem(HAD_SESSION);
+  } catch {
+    /* nothing we can do, and nothing depends on it being durable */
+  }
+}
+
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<AuthUser | null>(null);
   const [loading, setLoading] = useState(isAuthConfigured);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const pending = loadFirebase();
-    if (!pending) {
+    if (!isAuthConfigured) {
       setLoading(false);
       return;
     }
@@ -53,7 +75,37 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     let unsubscribe: (() => void) | undefined;
     let cancelled = false;
 
-    void pending
+    /*
+      Firebase auth + firestore + analytics is ~700KB, and it was being fetched
+      during first paint on every visit, including the great majority that never
+      sign in. So:
+
+        - someone who has signed in on this device before gets it restored, but
+          only once the browser is idle, so it never competes with first paint;
+        - everyone else pays nothing. loadFirebase() still runs on demand the
+          moment they press Sign in.
+
+      HAD_SESSION is only a hint about which of those two paths to take. Firebase
+      remains the source of truth for whether the session is actually valid.
+    */
+    if (!hadSessionBefore()) {
+      setLoading(false);
+      return;
+    }
+
+    let idle: number | undefined;
+    const start = () => {
+      if (cancelled) return;
+      const pending = loadFirebase();
+      if (!pending) {
+        setLoading(false);
+        return;
+      }
+      attach(pending);
+    };
+
+    const attach = (pending: NonNullable<ReturnType<typeof loadFirebase>>) => {
+      void pending
       .then(fb => {
         if (cancelled) return;
         unsubscribe = fb.onAuthStateChanged(fb.auth, next => {
@@ -70,9 +122,21 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       .catch(() => {
         if (!cancelled) setLoading(false);
       });
+    };
+
+    const ric = window.requestIdleCallback;
+    if (typeof ric === 'function') {
+      idle = ric(start, { timeout: 3000 });
+    } else {
+      idle = window.setTimeout(start, 1200);
+    }
 
     return () => {
       cancelled = true;
+      if (idle !== undefined) {
+        if (typeof window.cancelIdleCallback === 'function') window.cancelIdleCallback(idle);
+        else window.clearTimeout(idle);
+      }
       unsubscribe?.();
     };
   }, []);
@@ -83,6 +147,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setError(null);
     try {
       await fb.signInWithPopup(fb.auth, fb.googleProvider);
+      rememberSession(true);
       track('signed_in', { method: 'google_popup' });
     } catch (err) {
       const code = (err as { code?: string }).code ?? '';
@@ -114,6 +179,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const fb = await loadFirebase();
     if (!fb) return;
     await fb.signOut(fb.auth);
+    rememberSession(false);
     track('signed_out');
     resetUser();
   }, []);

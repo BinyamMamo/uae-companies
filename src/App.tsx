@@ -1,23 +1,43 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { AppProvider, useApp } from './context/AppContext';
 import { Header, MobileNavBar } from './components/Header';
 import { CompareBar } from './components/CompareBar';
 import { ListView } from './pages/ListView';
-import { FeaturedView } from './pages/FeaturedView';
-import { MapView } from './pages/MapView';
-import { ComparisonModal } from './components/ComparisonModal';
-import { SettingsModal } from './components/SettingsModal';
+
+const MapView = lazy(() => import('./pages/MapView').then(m => ({ default: m.MapView })));
+const FeaturedView = lazy(() => import('./pages/FeaturedView').then(m => ({ default: m.FeaturedView })));
+const ComparisonModal = lazy(() => import('./components/ComparisonModal').then(m => ({ default: m.ComparisonModal })));
+const SettingsModal = lazy(() => import('./components/SettingsModal').then(m => ({ default: m.SettingsModal })));
+const SavedModal = lazy(() => import('./components/SavedModal').then(m => ({ default: m.SavedModal })));
+const InterestsModal = lazy(() => import('./components/InterestsModal').then(m => ({ default: m.InterestsModal })));
+
+/** Fills the view area while a lazily loaded page arrives. */
+const ViewFallback: React.FC = () => (
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10" aria-busy="true">
+    <div className="h-8 w-40 bg-surface-2 rounded-md animate-pulse" />
+    <div className="mt-4 grid gap-3">
+      {Array.from({ length: 4 }).map((_, i) => (
+        <div key={i} className="h-24 bg-surface-2 rounded-lg animate-pulse" />
+      ))}
+    </div>
+  </div>
+);
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
 import { ToastProvider } from './components/ui/Toast';
 import { ConfirmProvider } from './hooks/useConfirm';
 import { AuthProvider } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
 import { GoogleOneTap } from './components/GoogleOneTap';
-import { SavedModal } from './components/SavedModal';
-import { InterestsModal } from './components/InterestsModal';
 
 const AppContent: React.FC = () => {
-  const { activeTab, companies, sharedListArrived, setSharedListArrived } = useApp();
+  const {
+    activeTab,
+    companies,
+    sharedListArrived,
+    setSharedListArrived,
+    isCompareModalOpen,
+    isSettingsModalOpen,
+  } = useApp();
   const [isSavedModalOpen, setIsSavedModalOpen] = useState(false);
   const [isInterestsOpen, setIsInterestsOpen] = useState(false);
 
@@ -40,19 +60,25 @@ const AppContent: React.FC = () => {
 
       {/* Main View Container */}
       <div className="flex-1">
-        {activeTab === 'list' && <ListView />}
-        {activeTab === 'featured' && <FeaturedView />}
-        {activeTab === 'map' && <MapView />}
+        <Suspense fallback={<ViewFallback />}>
+          {activeTab === 'list' && <ListView />}
+          {activeTab === 'featured' && <FeaturedView />}
+          {activeTab === 'map' && <MapView />}
+        </Suspense>
       </div>
 
-      {/* Comparison Modal */}
-      <ComparisonModal />
-
-      {/* Settings Modal */}
-      <SettingsModal />
-
-      <SavedModal open={isSavedModalOpen} onClose={() => setIsSavedModalOpen(false)} />
-      <InterestsModal open={isInterestsOpen} onClose={() => setIsInterestsOpen(false)} />
+      {/* Each of these is mounted only while open, so its chunk is fetched
+          the first time it is actually needed. */}
+      <Suspense fallback={null}>
+        {isCompareModalOpen && <ComparisonModal />}
+        {isSettingsModalOpen && <SettingsModal />}
+        {isSavedModalOpen && (
+          <SavedModal open onClose={() => setIsSavedModalOpen(false)} />
+        )}
+        {isInterestsOpen && (
+          <InterestsModal open onClose={() => setIsInterestsOpen(false)} />
+        )}
+      </Suspense>
 
       {/* Google One Tap prompt (signed-out users only, after first interaction) */}
       <GoogleOneTap />

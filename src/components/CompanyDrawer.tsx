@@ -132,6 +132,21 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
             </span>
             <span className="text-slate-300 dark:text-slate-700">·</span>
             <span>{formatDistance(company.commute.distanceKm)}</span>
+            {company.website && (
+              <>
+                <span className="text-slate-300 dark:text-slate-700">·</span>
+                <a
+                  href={company.website}
+                  onClick={() => track('website_link_clicked', { company_id: company.id })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 font-medium text-brand-600 dark:text-brand-400 hover:underline"
+                >
+                  <Globe className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+                  <span>Website</span>
+                </a>
+              </>
+            )}
           </div>
 
           {/* Opens the list picker, like the cards do — saving from here used
