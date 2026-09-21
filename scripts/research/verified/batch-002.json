@@ -1,0 +1,286 @@
+[
+  {
+    "id": "aecom",
+    "website": "https://aecom.com",
+    "websiteSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHAcYO4IZ4w7U9G3n67IH4LBRBZezAlxADbjPYWCgVBwtQ1OE8QlbyfuCiSXu_1bivihbNWSndEbm5TBluMCwGZlZI_m5MYtxC5tWA6jfCFBSxfVhioL16spUQngVn3LP23c-5ozM7v2nKDHCqasxFgOmeJl_I7HkSUgGBHOBgnKSSInGrO",
+    "careersUrl": "https://aecom.com/careers/early-careers/middle-east/",
+    "careersSource": "https://aecom.com/careers/early-careers/middle-east/",
+    "shortDescription": "AECOM provides infrastructure consulting, engineering design, and program management services for major development projects across the UAE.",
+    "whatTheyDo": "In the UAE, AECOM provides civil engineering, master planning, architecture, and project management services to both government and private clients. The firm has delivered major projects including landmarks like Etihad Towers and conducted feasibility and design studies for the 55km Dubai Airport Express rail corridor. Its technical teams in the UAE specialize in structural engineering, transportation planning, sustainability consulting, and building information modeling (BIM).",
+    "descriptionSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFQUyHJJjU-sXV3-owfggvuv3gJUT16gPBEqe3eH-s0S2RVTMwZ0Gt6Wy0eCQAZFTlT4jtSqA-pgRQShbCW7audzYj0vhtxN2FhsL2zBBmYtVNWe0JZNttTO6ofaVZlzrjw86H45K4VegKPtkQVx9p5h2GkX4xsRYENxyXDI6U0GJoaXGGspzPGrWKlCogESA7BUpS0--Kl2xUBhJzu6zS98j3i7uG8GDFsOh4b2gZy_oN8tffvhEyK3Q==",
+    "industry": "Civil Engineering & Infrastructure Consulting",
+    "address": "Level 43, Ubora Tower, Al Abraj Street, Business Bay, Dubai, UAE",
+    "latitude": 25.18058,
+    "longitude": 55.27103,
+    "locationSource": "https://en.wikipedia.org/wiki/Ubora_Towers",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://aecom.com/careers/early-careers/middle-east/",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai Airport Express Line study proposals - Gulf News",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFQUyHJJjU-sXV3-owfggvuv3gJUT16gPBEqe3eH-s0S2RVTMwZ0Gt6Wy0eCQAZFTlT4jtSqA-pgRQShbCW7audzYj0vhtxN2FhsL2zBBmYtVNWe0JZNttTO6ofaVZlzrjw86H45K4VegKPtkQVx9p5h2GkX4xsRYENxyXDI6U0GJoaXGGspzPGrWKlCogESA7BUpS0--Kl2xUBhJzu6zS98j3i7uG8GDFsOh4b2gZy_oN8tffvhEyK3Q=="
+      },
+      {
+        "title": "AECOM Middle East Limited Dubai Profile - Dubai Online",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHAcYO4IZ4w7U9G3n67IH4LBRBZezAlxADbjPYWCgVBwtQ1OE8QlbyfuCiSXu_1bivihbNWSndEbm5TBluMCwGZlZI_m5MYtxC5tWA6jfCFBSxfVhioL16spUQngVn3LP23c-5ozM7v2nKDHCqasxFgOmeJl_I7HkSUgGBHOBgnKSSInGrO"
+      }
+    ],
+    "notes": "Main Dubai corporate office is located in Ubora Tower in Business Bay, rather than JLT as listed in the input directory."
+  },
+  {
+    "id": "ag-melco-elevator-co-llc",
+    "website": "http://www.agmelco.com",
+    "websiteSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH_V_IchhbZLUuWtLEEA8ec1N0xrOI-V5ZJwZFOL4A-rDO5kKk-RbnjPdggpDElaYe1iT7foPOJjxPoK4sC2px3M5QdKTYMxa188fAEGNIW_sXP7Fq3vntLx27EoIF10PZ9HnKWsq-05t-o6bqzZGADGkxLTBHUCrsgRg==",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "AG MELCO Elevator Co. L.L.C. provides sales, installation, modernization, and maintenance services for Mitsubishi Electric elevators and escalators in the UAE.",
+    "whatTheyDo": "Established in 1975, the company supplies and maintains vertical transportation equipment including passenger lifts, freight elevators, escalators, moving walkways, and dumbwaiters. It serves commercial towers, residential communities, and public infrastructure projects across the UAE and the broader region. Technical personnel manage on-site installations, scheduled maintenance, systems modernization, and 24/7 breakdown callouts.",
+    "descriptionSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHBfBMZchlIEeH81dlwSgFNdiL4zv-df7OxFRNban9qb0KYQ3yq_6C3gjMQ9QHMOJmJ6I5F9oP9rvc9fRKJZj2Ssz---H92ZtRjse6ySeeKXxmX-twStqRWJDEdgRI0blPIuh__x9Cf-hg=",
+    "industry": "Vertical Transportation & Building Engineering",
+    "address": "1st Floor, Dubai Municipality Building, Adjacent to Muraqqabat Police Station, Salahuddin Road, Deira, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEHlZbUhncZihanUt-BQmxBuvTgIMjvJxLP0e2-JptdZuoXYh_bvp-UaFn-V1bqWv-rZRirFgIIjt9J9FB0SbwX9YMLKx-W1UHuxwgIOzZ9wpnXeKAhDzd6pU29yUn3IzYQ0tLLhOpOD8cCa1Vagwl2j79Ia1sM5TST48I09dmNSzEBCtbrEGF6S6s=",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Mitsubishi Electric Completes Acquisition of Shares in AG MELCO Elevator Co. L.L.C.",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHBfBMZchlIEeH81dlwSgFNdiL4zv-df7OxFRNban9qb0KYQ3yq_6C3gjMQ9QHMOJmJ6I5F9oP9rvc9fRKJZj2Ssz---H92ZtRjse6ySeeKXxmX-twStqRWJDEdgRI0blPIuh__x9Cf-hg="
+      },
+      {
+        "title": "Mitsubishi Electric Acquires UAE Partner AG MELCO Elevator - Elevator World",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEXE6w2bWBpudDIptJj0CzHqLICIq1eoydlOM7aBLERr0FaiuECfuAH7o9XcXZBPhFpNZkF_iQWvacimUi_yyEdqidF_yCAC5l8xACEDg3dq7Ct17mKHmgxTtlZ-b7Y9kvM1xwG81nqvI03y_IQ1-Ek6MZkd5keLEA30jwq8S5w8C_9vX6sbQ=="
+      }
+    ],
+    "notes": "Formerly a 50-year joint venture between Al Ghurair and Mitsubishi Electric; in November 2025 Mitsubishi Electric acquired 100% of the company's shares and renamed it Mitsubishi Electric Middle East Africa and CIS Co. L.L.C. (MMAC) in December 2025. Headquartered in Deira, not Dubai Internet City."
+  },
+  {
+    "id": "agmc-bmw-mini-rollsroyce",
+    "website": "https://www.agmc.com",
+    "websiteSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHYQDOpvGkeIHR1CYrg19MYooDczXmHmhafLM43OpaG9Fw0zj0c72226RuxaBEjb8AgHHR0u9SwBioM_nRMYo70sCbA94kA-QTnrfU-XbZB-Wx1qdVgBH7y",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "AGMC is the official importer and distributor of BMW, MINI, and Rolls-Royce vehicles in Dubai, Sharjah, and the Northern Emirates.",
+    "whatTheyDo": "Established in 1976 as part of the Albatha Group, AGMC manages automotive dealerships, certified pre-owned programs, genuine spare parts distribution, and authorized service centers across the UAE. It serves individual motorists, corporate fleets, and luxury vehicle clients. Technical teams include manufacturer-certified master diagnostic technicians, bodyshop repair specialists, and automotive service advisors.",
+    "descriptionSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGnTPYqpAwvLt1bKzfcT8rxUNWPwMAefW6Qts5ztlJEltITvB1YK1ggRK7zztNbehX7LFG2C_-W9jqDjRFlG-yZq0J4sShGb90vesR9JB_KDJOkdzNsXWjTlbJVsbOq_Md4kgeuneOVEJTao1PbhSdWwLaLCQ7peiZpGmumTTgIpM2-S9yfN-2tAZW3tWLVLVrmTlo-zn7yGg==",
+    "industry": "Automotive Retail & Services",
+    "address": "Sheikh Zayed Road, Al Quoz 1, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFcAu156TljVJTh6uCl5wiohFF822YFqZRT0LBxMzEgFhYjsYCpuLIg7HbHrfYCjbh3rqyAW9GQp4eIlJ1EJUG7G4up8sqM6xOblp2CI8s2DE6UKD8aV_DtO-CQVRHveUsRpfXw",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "AGMC BMW Flagship Facility & Operations - Gulf News",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGnTPYqpAwvLt1bKzfcT8rxUNWPwMAefW6Qts5ztlJEltITvB1YK1ggRK7zztNbehX7LFG2C_-W9jqDjRFlG-yZq0J4sShGb90vesR9JB_KDJOkdzNsXWjTlbJVsbOq_Md4kgeuneOVEJTao1PbhSdWwLaLCQ7peiZpGmumTTgIpM2-S9yfN-2tAZW3tWLVLVrmTlo-zn7yGg=="
+      },
+      {
+        "title": "Albatha Automotive Group Profile - AGMC",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHYQDOpvGkeIHR1CYrg19MYooDczXmHmhafLM43OpaG9Fw0zj0c72226RuxaBEjb8AgHHR0u9SwBioM_nRMYo70sCbA94kA-QTnrfU-XbZB-Wx1qdVgBH7y"
+      }
+    ],
+    "notes": "Legal entity name is Arabian Gulf Mechanical Centre LLC, operating under Albatha Group. Corporate headquarters and main showroom are located on Sheikh Zayed Road in Al Quoz 1, rather than Downtown."
+  },
+  {
+    "id": "aki-group",
+    "website": "https://www.akigroup.com",
+    "websiteSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH3vkxmjpc3ytPLUluDgOWywaG80C1V7iG8eY7qzXHDKSpw8x5yuNbflfFEZnuzYYC_NjKMJ3pqrkGPdLP1cDj_56oK-6tqvCVN9f1myB2pMtNmo7UH6VNS",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "Al Khayyat Investments (AKI) is a diversified UAE family conglomerate operating across pharmaceuticals, retail, FMCG, contracting, and logistics.",
+    "whatTheyDo": "Founded in 1982, AKI distributes consumer products, pharmaceuticals, and lifestyle brands across the Middle East, anchoring retail chains such as BinSina Pharmacy alongside over 150 international retail brands. The group provides end-to-end supply chain services, contracting, and automotive distribution to regional partners and consumers. In Dubai, it operates a 1-million-square-foot Fulfilment & Innovation Centre with specialized technical teams in supply chain logistics, application integration, and pharmacy operations.",
+    "descriptionSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGZIq_IeQCh7tCQ3dDgXJpirvCv1rGRR6891dp0WZLv8p16E-sIQcC5YpekYuWVMSuotInasCClxVYki4WgZaHmey2kqzxxeZYufXD68ce3UbQclDZkpcvc2CKL8AAF4EFcUGT__1gL97D_e56-CLP3toXVq23uI4t0KxSsVO8WW4u6WfJQd-o9EvDtn18FKefxyOQNVuQ7nqoTZ9TZsa1vteUiuYmp_GFwxWdQVsSte9dXXNfnfG8kCAv2AY-G28LI0drmjQ4OTQ_iiR2b_GtQpQ==",
+    "industry": "Conglomerate (Retail, Healthcare & Logistics)",
+    "address": "I-Rise Tower, Al Thanyah First, Barsha Heights, Dubai, UAE",
+    "latitude": 25.09691,
+    "longitude": 55.18068,
+    "locationSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH6Z6YKxypJbbKfi6LUkI-JDgYhBwc5CLSwKGjAyO1h9KO6ljYdE9NShbAl0tsMT5LcqXmFRT1c1hi-Safn89VeqOgLyRXcIXjvN1sdOeuUOWHI4TNjuIjCSNehP5X1wsuFdkCswszmy7XrS-yujj-lrNrvtg1dmyLMQMD3fy7a2BGSvv9z5Aas0LxpJRBnlPmv8vZfLgEo9__WT6mFLlxgDkvB_JTBpYZ421FssfqnhsnOcvSwxjvCasDLjfhaY7NIm3kHER2X4squ_Hw8ThbJo67UUuVgSNs=",
+    "internshipsKnown": true,
+    "graduateRolesKnown": null,
+    "programmesSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJojQ2JL01YpKi-wJNNn8mz-qaIfdp_3cgCxcXzEV_S66gbbvT5yUsGUjjdayNPJjidwobrkKGNnaCPYlrVISwtzcv2OiVLe1F2-outVFD_OQJ1De0aRJHtqRXK9JK6GU=",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Al Khayyat Investments Corporate Profile - Arabian Business",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGZIq_IeQCh7tCQ3dDgXJpirvCv1rGRR6891dp0WZLv8p16E-sIQcC5YpekYuWVMSuotInasCClxVYki4WgZaHmey2kqzxxeZYufXD68ce3UbQclDZkpcvc2CKL8AAF4EFcUGT__1gL97D_e56-CLP3toXVq23uI4t0KxSsVO8WW4u6WfJQd-o9EvDtn18FKefxyOQNVuQ7nqoTZ9TZsa1vteUiuYmp_GFwxWdQVsSte9dXXNfnfG8kCAv2AY-G28LI0drmjQ4OTQ_iiR2b_GtQpQ=="
+      },
+      {
+        "title": "Al Khayyat Investments Logistics Hub Expansion - Gulf News",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFaUiF5ppx0Xco_moafHb1LuKJgxT5gvtr2OnaeUHwpOJMOTRrQ3zjuFNLr5eGbrCw7md3f5SqUmWsrJ3bGrt8Qm6HtThJ_Yd8AGZY5NuOpCPtYrvrQOnBENsMkoHL_grKBhvgBxFOy8iZs8mIQT_X3IKPgLpnuhXjuoTc_1Y76yc5cYNvk2N2Mykpi5BUjykPbCNLxZC1f_BlLeb0kU2cPvjA0_72G4862egI96ki5ofAc0gRIbDP_PzlYuzEeXofJawNWi6RBLII="
+      }
+    ],
+    "notes": "Corporate headquarters is situated in I-Rise Tower in Barsha Heights, not Business Bay as recorded in the directory."
+  },
+  {
+    "id": "akzonobel",
+    "website": "https://www.akzonobel.com",
+    "websiteSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGvTlWhOSuzfKDPabMMualhQqb3mWvG1rLNDkmaQquuQ_bqBQGTmbyz6g4PbtDJcZ5LKfb8rqmPBUjxaoEn_WH3UTmpdlQI_KSxBriRVjymBxerbFWzzu8vsXIYKcPDT1abg-pgJQ==",
+    "careersUrl": "https://www.akzonobel.com/en/careers",
+    "careersSource": "https://www.akzonobel.com/en/careers",
+    "shortDescription": "AkzoNobel manufactures and distributes decorative paints and performance coatings for automotive, industrial, and consumer markets in the UAE.",
+    "whatTheyDo": "In the UAE, AkzoNobel supplies architectural paints under the Dulux brand, vehicle refinishes through Sikkens, and protective marine and industrial coatings. The company serves construction contractors, body shops, shipbuilders, and infrastructure developers across the region. In Dubai, it operates a regional Application Training Centre in Al Quoz dedicated to color matching, digital tinting technologies, and sustainable coating solutions.",
+    "descriptionSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE2ead2gQ0JiBiq7lw0jgZkTE59SxdQFtIUOwMsLFHANpu-uCqBNwwgKjjaTFzax29staxG5S2tb09X1CbBJq2qN2VoCAzrwztDgk7JYFV1meHlWSNXvg1hPkC0mR3AXpz0h7YJp9UKSeFzR83lRRyLBP52hyK_S0sz6xoZIFbAu0ryKeGAWlM=",
+    "industry": "Chemicals, Paints & Performance Coatings",
+    "address": "11th & 12th Floor, Al Habtoor Business Tower, Dubai Marina, Dubai, UAE",
+    "latitude": 25.08528,
+    "longitude": 55.14167,
+    "locationSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEewr66I118GVsmUp58Mfg9lP9GHVThXXdDxWMbGMeRA-aB9IrV29tPtIouxTOnQy_sfkjOwcjTtpNzuvLi3asead4zBegOmaArf-Ben4bi4D0ZlU-eGpQUuBSn3I9_BurEPIxyqrizEfPlnx5A",
+    "internshipsKnown": null,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.akzonobel.com/en/careers",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "AkzoNobel Application Training Centre in Dubai - Gulf News",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE2ead2gQ0JiBiq7lw0jgZkTE59SxdQFtIUOwMsLFHANpu-uCqBNwwgKjjaTFzax29staxG5S2tb09X1CbBJq2qN2VoCAzrwztDgk7JYFV1meHlWSNXvg1hPkC0mR3AXpz0h7YJp9UKSeFzR83lRRyLBP52hyK_S0sz6xoZIFbAu0ryKeGAWlM="
+      },
+      {
+        "title": "AkzoNobel Middle East Profile - Yellow Pages UAE",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGvTlWhOSuzfKDPabMMualhQqb3mWvG1rLNDkmaQquuQ_bqBQGTmbyz6g4PbtDJcZ5LKfb8rqmPBUjxaoEn_WH3UTmpdlQI_KSxBriRVjymBxerbFWzzu8vsXIYKcPDT1abg-pgJQ=="
+      }
+    ],
+    "notes": "Main corporate office is in Al Habtoor Business Tower in Dubai Marina, not JLT. Offers Emirati Graduate Project Coordinator roles through its global careers portal."
+  },
+  {
+    "id": "al-ahli-bank-of-kuwait",
+    "website": "https://abk.eahli.com",
+    "websiteSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEnlAhtT-EeoeyQl9mgDzSQKFZcEnX1KFUm5L_Dah-ic-bkjkljhBHyHNOy7wqRkEhKRmi6lUN6lMPcXuY_pYuNnVLVNTJwXXwC21i8TuSe-XK13Y3y9mEAcTI=",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "Al Ahli Bank of Kuwait (ABK) provides retail, commercial, and wholesale banking services in the UAE.",
+    "whatTheyDo": "In the UAE, ABK operates full-service commercial banking providing retail deposits, consumer lending, trade finance, and treasury services. Its Dubai International Financial Centre (DIFC) branch holds a Category 1 DFSA license, serving corporate and institutional clients with structured lending, syndications, and cross-border financing. Banking teams in Dubai focus on relationship management, corporate credit analysis, risk management, and regulatory compliance.",
+    "descriptionSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFNbyDVrqv0M_n2q6n-I9v0VZGuqQvoSCtB_0A7XX0RDp8Zq8P8iQ0x_gLhe_CdAjJHXrX67hoKwpTmKjcAkKrWshTzT3_qDXcCY7etM9qg8cqaEhHg6VkKI_rBeXFb4wHkyAL8rfkD_28G3c0HT3fZvGzBKDp6e2vPNg9zd0_NZAb1P3p9AaFonPA6eig6wq2TQBymsAU3kB3ZnF826K4=",
+    "industry": "Banking & Financial Services",
+    "address": "Opposite Hamarain Centre, Abu Baker Al Siddique Road, Deira, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEJ9pVVhQB74TnHVPzDlLotgCEConS-0STAecihwtjTZpPNyGY7RAEt6CU0O1IKWemO00GPvzRmX1ptoM1NcVRSCF5UXFKWLJA8uUgyIDosHLOkOQdFSUWD_lYuixg9hWvhiPWyxTRxYvizG7XOy4-Iyw9IfRrw1fDGqkK592FFznd3oZomgEYUsgu_C9kd_2iGPg==",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "ABK Upgrades DIFC Branch License to Category 1 - DIFC Press Release",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFNbyDVrqv0M_n2q6n-I9v0VZGuqQvoSCtB_0A7XX0RDp8Zq8P8iQ0x_gLhe_CdAjJHXrX67hoKwpTmKjcAkKrWshTzT3_qDXcCY7etM9qg8cqaEhHg6VkKI_rBeXFb4wHkyAL8rfkD_28G3c0HT3fZvGzBKDp6e2vPNg9zd0_NZAb1P3p9AaFonPA6eig6wq2TQBymsAU3kB3ZnF826K4="
+      },
+      {
+        "title": "Al Ahli Bank of Kuwait UAE Branch Directory - Bank-UAE",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEnlAhtT-EeoeyQl9mgDzSQKFZcEnX1KFUm5L_Dah-ic-bkjkljhBHyHNOy7wqRkEhKRmi6lUN6lMPcXuY_pYuNnVLVNTJwXXwC21i8TuSe-XK13Y3y9mEAcTI="
+      }
+    ],
+    "notes": "Main Dubai retail branch is on Abu Baker Al Siddique Road in Deira, and wholesale banking is conducted via Emirates Financial Towers in DIFC; has no office in Dubai Internet City."
+  },
+  {
+    "id": "al-buhaira-national-insurance-co",
+    "website": "https://www.albuhaira.com",
+    "websiteSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEHzGUeraKsuJ-y8kgz8mFms9hh7yWukX_ljeQDd4v31L-2kLxrFzbDWR0PqVG_H6005673Sk0t3KZpEGbHqoOzM3h9FoaoYOGjp30nWDd9G88TiNm4Q_PC9UWUjetHIwqmTudN68GOlKBAEuC6wpr8JpAYVue56mNFdgC2CyaV1zejHXVaZCEJ0G3I7jwaZsEuTMHoeT4=",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "Al Buhaira National Insurance Company (ABNIC) provides general, life, and health insurance coverage to individuals and businesses across the UAE.",
+    "whatTheyDo": "Established in 1978 and listed on the Abu Dhabi Securities Exchange (ADX), ABNIC underwrites motor, medical, property, marine, engineering, and liability insurance. The company serves personal policyholders, small and medium enterprises, and major corporate clients across the UAE. In Dubai, it maintains underwriting divisions, actuarial analysis teams, claims handling and surveying units, and customer support centers.",
+    "descriptionSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH0Z-4JYgNBYkuA7BLoeZKY59v1CsmyyFqO_IBrkkqEVStnvuxZqR6lKpmydCYTau1lxpfZOal6Amrgt8w--L7OTktYqQ-mlEXRtSjdJ2Sa5FEic9Wr5kwvtXeRYVY-3-0wvubSFjyF6SUIrjgAqUaCKEL0j6i5CFn_gSrcdk0Ycg3VM_LytaKEiDo3dw==",
+    "industry": "Insurance",
+    "address": "Ground & 1st Floor, Al Buhairah Building, near Deira Clock Tower, Deira, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEqt3cdU9BQ1CK3tuTfTAmhc3O9KCE85DdfR0PABcwRzGVSTqKCekjZovl3FsDWhl48iGiJ_AbOO-oLeBiL_9o8v5XCKStjSazsFzh87irCwrJ9mYwuzS-BTmeU",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Al Buhaira National Insurance Company (ABNIC) Profile - ADX",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH0Z-4JYgNBYkuA7BLoeZKY59v1CsmyyFqO_IBrkkqEVStnvuxZqR6lKpmydCYTau1lxpfZOal6Amrgt8w--L7OTktYqQ-mlEXRtSjdJ2Sa5FEic9Wr5kwvtXeRYVY-3-0wvubSFjyF6SUIrjgAqUaCKEL0j6i5CFn_gSrcdk0Ycg3VM_LytaKEiDo3dw=="
+      },
+      {
+        "title": "ABNIC Company Information - Fair Insurance Review",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFgADBP1U0QE-ksBUteO19o7A-VkPE107xTE3sbOpnq5weXDPgBFLlmB9zgE3GrtPWF4IaJb-9gNNGfQPeM7p6GzbDvAgq9b1Zr-iiTTiRV_oueZOJ94i1xysbyrkE5RJDsKYTQJPakQx-f9sqAUHRELrAFLEEJvmo7alFz4SD-gg=="
+      }
+    ],
+    "notes": "Public shareholding company listed on ADX; headquartered on Buhaira Corniche in Sharjah. Dubai branches are located in Deira and on Sheikh Zayed Road; no branch exists in Downtown."
+  },
+  {
+    "id": "al-bustan-rotana-hotel",
+    "notFound": true,
+    "notes": "Ceased operating under the Rotana brand on January 1, 2017 following mutual termination of the management agreement. Originally located in Al Garhoud near Dubai International Airport (not Business Bay), the property rebranded to Roda Al Bustan and currently operates as Mövenpick Grand Al Bustan Dubai."
+  },
+  {
+    "id": "al-futtaim",
+    "website": "https://www.alfuttaim.com",
+    "websiteSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE8pkaFdGG_jl0F8whkI2hlTvR9g7X4_c1X2WoLZnCO1Thtqomwl9azmeGubVi0zEaf6kFXG0Z25hwi_IEVWKZSQ_HFp4oWMOF32hv6oxqKwp9jq6wpdQO1ZN-qMmwGrmaF2cY-MVYtkDHz7qxg9Oursw4QjLjN1Vg2QuO2OJAa4pq5UssWkGI=",
+    "careersUrl": "http://www.afuturewithus.com/",
+    "careersSource": "http://www.afuturewithus.com/",
+    "shortDescription": "Al-Futtaim is a prominent family-owned conglomerate operating across automotive, retail, real estate, financial services, and healthcare in the UAE.",
+    "whatTheyDo": "Headquartered in Dubai Festival City, Al-Futtaim represents global automotive franchises (including Toyota, Lexus, and Honda), retail brands (such as IKEA, Marks & Spencer, and ACE), and major master developments. The group serves retail consumers, commercial enterprises, and public sector organizations across the Middle East, Asia, and Africa. Its technical divisions in the UAE encompass automotive diagnostics and workshop engineering, enterprise IT, building systems, and supply chain logistics.",
+    "descriptionSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEyw7PYQYm6Te5oeVT9NfmEVFREz1D8prE-dd1nIq4NvN9DmgWV3quJYg1rTR1yGZLXKcZFxWKtjaXyziRkTx0y_ix82tYFMK_bQvPOh5TSNSciwOucHK5rp--6Pbxr2w==",
+    "industry": "Conglomerate (Automotive, Retail & Real Estate)",
+    "address": "Festival Tower, Dubai Festival City, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE8pkaFdGG_jl0F8whkI2hlTvR9g7X4_c1X2WoLZnCO1Thtqomwl9azmeGubVi0zEaf6kFXG0Z25hwi_IEVWKZSQ_HFp4oWMOF32hv6oxqKwp9jq6wpdQO1ZN-qMmwGrmaF2cY-MVYtkDHz7qxg9Oursw4QjLjN1Vg2QuO2OJAa4pq5UssWkGI=",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "http://www.afuturewithus.com/",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Al-Futtaim Group Corporate Profile - Arabian Business",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEyw7PYQYm6Te5oeVT9NfmEVFREz1D8prE-dd1nIq4NvN9DmgWV3quJYg1rTR1yGZLXKcZFxWKtjaXyziRkTx0y_ix82tYFMK_bQvPOh5TSNSciwOucHK5rp--6Pbxr2w=="
+      },
+      {
+        "title": "Al-Futtaim Headquarters Festival Tower - Law Society Directory",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE8pkaFdGG_jl0F8whkI2hlTvR9g7X4_c1X2WoLZnCO1Thtqomwl9azmeGubVi0zEaf6kFXG0Z25hwi_IEVWKZSQ_HFp4oWMOF32hv6oxqKwp9jq6wpdQO1ZN-qMmwGrmaF2cY-MVYtkDHz7qxg9Oursw4QjLjN1Vg2QuO2OJAa4pq5UssWkGI="
+      }
+    ],
+    "notes": "Corporate headquarters is located at Festival Tower in Dubai Festival City, not JLT. Offers structured talent and graduate development programs through its SINYAR Emiratisation initiative."
+  },
+  {
+    "id": "al-ghurair",
+    "website": "https://www.al-ghurair.com",
+    "websiteSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFlY93s_kngh3j5qPiWrHp5syBNEqOff4oWVH7nKgiBquYnfbh1hTHU_-vc77G1stcTGeRCi9dmeNGH7a3ScJar9NXl_VqdZTHA41m4kDHX1kPX7hy2e1SuH5c7tujtRoIastNhuAsbhWv649DQgfdEyG--",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "Al Ghurair Investment is a diversified UAE family conglomerate operating in foods, resources, property, construction, and energy.",
+    "whatTheyDo": "Founded over 50 years ago, Al Ghurair operates essential regional manufacturing and retail businesses, including Al Ghurair Foods (grain milling, edible oils, and animal nutrition), commercial shopping malls including Al Ghurair Centre, and industrial construction ventures. The group serves regional consumers, industrial manufacturers, and international grain commodity markets across more than 20 countries. Its technical and engineering teams in the UAE specialize in industrial food processing, supply chain logistics, building construction, and facilities engineering.",
+    "descriptionSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEC6meFSU7wHcZbHn9cMUMOPpT2heZQjgD-hnzchbSGegDwVA8U7M3uI7zv6xRjCOs87RAAuuWdE6goFXZlQXNWBgvvaoRRl5fE72VWhj2syjDYN26aO8x5_191y-gO_DgyijfJezHWI086HNXFJbboaK_sxfr-Qtun9nUtrJ-YVtg1qh-EozCygIDXICZeH04CdM9noRK1Wg==",
+    "industry": "Conglomerate (Food Production, Real Estate & Manufacturing)",
+    "address": "Al Ghurair Head Office, Omar Bin Al Khattab Road, Deira, Dubai, UAE",
+    "latitude": 25.26781,
+    "longitude": 55.31746,
+    "locationSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGaOi87aANXNR1czs-OyXkmhTnA5YuP0lbkI8ia5B7qn5kjTH6T_XMvuFJhXa3sowOAxt62LvHDfOiJPCOcQkeOW9eOM6a_0gGMDlapxaIr61UAEre09mqkyMg2WtkH4cduLGIGQKvz5b9wBr9KblnpTAO5w2RDItoTySN4eKpURw==",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.alghurairfoundation.org/careers/",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Al Ghurair Investment Overview - Arabian Business",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEC6meFSU7wHcZbHn9cMUMOPpT2heZQjgD-hnzchbSGegDwVA8U7M3uI7zv6xRjCOs87RAAuuWdE6goFXZlQXNWBgvvaoRRl5fE72VWhj2syjDYN26aO8x5_191y-gO_DgyijfJezHWI086HNXFJbboaK_sxfr-Qtun9nUtrJ-YVtg1qh-EozCygIDXICZeH04CdM9noRK1Wg=="
+      },
+      {
+        "title": "Al Ghurair Investment Expansion and Sector Overview - Gulf News",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGhRaSvh2IByPQYtnFMgPqGZ9VzvtEmFOjSe_RgBmdFU7ZcTxRZtW5VNDvEu-E_3NXsgWRyxMeOC5Dl4kuBZSK5PlE_kyBT5dIS97DVSk6o9U_91USrZ0cTnEn_qmIVOQx5NuCXZEtpI1CDbqF4P9nsVMNeXrjcaGCaNLoFge5OFG2jhfJf0qOZMiudfGt7_uHAzIO-z3b2aawIGuL5T-G5v1KDtfY="
+      }
+    ],
+    "notes": "Headquartered on Omar Bin Al Khattab Road in Deira, adjacent to Al Ghurair Centre; not located in Dubai Internet City as stated in directory. Youth internships and graduate readiness initiatives are administered via the associated Abdulla Al Ghurair Foundation."
+  }
+]

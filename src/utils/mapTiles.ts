@@ -6,7 +6,7 @@
  * Esri's terms require attribution, so it is included here and rendered.
  */
 
-export type MapStyleId = 'street' | 'clean' | 'dark' | 'satellite';
+export type MapStyleId = 'street' | 'dark' | 'satellite';
 
 export interface TileConfig {
   url: string;
@@ -23,12 +23,6 @@ export const TILE_CONFIGS: Record<MapStyleId, TileConfig> = {
     url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
     maxZoom: 18,
     name: 'Street',
-    attribution: ESRI_ATTRIBUTION,
-  },
-  clean: {
-    url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
-    maxZoom: 16,
-    name: 'Minimal',
     attribution: ESRI_ATTRIBUTION,
   },
   dark: {
@@ -53,4 +47,4 @@ export const defaultStyleForTheme = (theme: 'light' | 'dark'): MapStyleId =>
 
 /** Inline map style for the small embedded route/preview maps. */
 export const previewStyleForTheme = (theme: 'light' | 'dark'): MapStyleId =>
-  theme === 'dark' ? 'dark' : 'clean';
+  theme === 'dark' ? 'dark' : 'street';

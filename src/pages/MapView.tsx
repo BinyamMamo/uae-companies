@@ -9,13 +9,11 @@ export const MapView: React.FC = () => {
   const { companies, selectedCompany, setSelectedCompany } = useApp();
   const isDesktop = useIsDesktop();
   const [activeCategory, setActiveCategory] = useState<string>('All');
-  const [isFreeZoneOnly, setIsFreeZoneOnly] = useState<boolean>(false);
 
   const categories = ['All', 'Tech', 'AI/ML', 'Cybersecurity', 'Hardware', 'Aviation'];
 
   const filteredForMap = useMemo(() => {
     return companies.filter(c => {
-      if (isFreeZoneOnly && !c.location.isFreeZone) return false;
 
       if (activeCategory === 'All') return true;
       if (activeCategory === 'Tech') {
@@ -35,7 +33,7 @@ export const MapView: React.FC = () => {
       }
       return true;
     });
-  }, [companies, activeCategory, isFreeZoneOnly]);
+  }, [companies, activeCategory]);
 
   const handleSelectCompany = React.useCallback((company: any) => {
     setSelectedCompany(company);
@@ -45,7 +43,7 @@ export const MapView: React.FC = () => {
     <div className="relative w-full h-[calc(100dvh-var(--header-h))] flex flex-col bg-surface-3 transition-colors">
       
       {/* Top Map Filter Controls */}
-      <div className="absolute top-4 left-4 right-4 z-900 flex flex-wrap items-center justify-between gap-2 pointer-events-none">
+      <div className="absolute top-4 left-4 z-900 flex flex-wrap items-center gap-2 pointer-events-none max-w-[calc(100%-2rem)]">
         
         {/* Category Pills */}
         <div className="flex items-center gap-1.5 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-1.5 rounded-lg border border-line shadow-lg pointer-events-auto overflow-x-auto max-w-full transition-colors">
@@ -61,17 +59,6 @@ export const MapView: React.FC = () => {
               </button>
             );
           })}
-        </div>
-
-        {/* Free Zone Toggle Button */}
-        <div className="pointer-events-auto">
-          <button
-            onClick={() => setIsFreeZoneOnly(prev => !prev)}
-            className={`flex items-center gap-2 px-3 py-2 text-xs font-medium rounded-lg border backdrop-blur-md shadow-lg transition ${ isFreeZoneOnly ? 'bg-brand-600 text-white border-brand-500 shadow-2xs' : 'bg-white/95 dark:bg-slate-900/95 text-ink-2 border-line hover:text-ink hover:bg-slate-100 dark:hover:bg-surface-2' }`}
-          >
-            <span className={`w-2 h-2 rounded-full ${isFreeZoneOnly ? 'bg-white' : 'bg-slate-400 dark:bg-slate-500'}`} />
-            <span>Free Zone Only</span>
-          </button>
         </div>
 
       </div>

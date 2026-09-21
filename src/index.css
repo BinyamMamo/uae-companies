@@ -219,6 +219,16 @@ html[data-theme-switching] *::after {
   contain-intrinsic-size: auto 188px;
 }
 
+/*
+  Z-INDEX LAYERS (low to high)
+    map overlays / controls   900 - 1100
+    sticky header             1200   (above map controls, below dialogs)
+    base dialogs              9999 backdrop / 10000 panel
+    company detail drawer     10010 / 10011  (opens on top of a dialog)
+    confirm dialog            10020 / 10021
+    toasts                    10030
+*/
+
 /* =========================================================================
    SCROLLBARS
    Thin and unobtrusive, but present — content that scrolls must say so.
@@ -332,40 +342,48 @@ html.dark .leaflet-popup-content-wrapper {
   white-space: nowrap;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  pointer-events: none;
   user-select: none;
-
-  /* `--district` is set per badge in CompanyMap. */
-  --district: #94a3b8;
   /*
-    The district colour washes in from the left and fades out, so the label is
-    tied to its region without an edge competing with the map.
+    The wrapper is pointer-events:none so badges don't block panning; the badge
+    itself opts back in, which is a small enough target to be harmless.
   */
-  background:
-    linear-gradient(
-      90deg,
-      color-mix(in srgb, var(--district) 55%, transparent) 0%,
-      color-mix(in srgb, var(--district) 14%, transparent) 45%,
-      transparent 80%
-    ),
-    rgba(255, 255, 255, 0.93);
+  pointer-events: auto;
+  transition: box-shadow 120ms ease-out, background-color 120ms ease-out;
+
+  /* Surface fades out to the right rather than carrying a district colour. */
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.85) 55%,
+    rgba(255, 255, 255, 0.6) 100%
+  );
   color: #18181b;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
+.district-tip-badge:hover {
+  box-shadow:
+    0 0 0 2px var(--district, #94a3b8),
+    0 2px 10px rgba(0, 0, 0, 0.14);
+}
+
 html.dark .district-tip-badge {
-  background:
-    linear-gradient(
-      90deg,
-      color-mix(in srgb, var(--district) 55%, transparent) 0%,
-      color-mix(in srgb, var(--district) 16%, transparent) 45%,
-      transparent 80%
-    ),
-    rgba(18, 18, 20, 0.9);
+  background: linear-gradient(
+    90deg,
+    rgba(18, 18, 20, 0.92) 0%,
+    rgba(18, 18, 20, 0.8) 55%,
+    rgba(18, 18, 20, 0.55) 100%
+  );
   color: #f4f4f5;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+html.dark .district-tip-badge:hover {
+  box-shadow:
+    0 0 0 2px var(--district, #94a3b8),
+    0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
 /* Map tooltips */

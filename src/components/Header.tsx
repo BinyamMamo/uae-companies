@@ -57,7 +57,7 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-30 bg-app border-b border-line transition-colors duration-150">
+    <header className="sticky top-0 z-1200 bg-app border-b border-line transition-colors duration-150">
       {/*
         Three-column grid: the centre column is nav, so it stays optically
         centred without the fixed-width side rails that used to overflow

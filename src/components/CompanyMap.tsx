@@ -7,14 +7,24 @@ import { useTheme } from '../context/ThemeContext';
 import { useToast } from './ui/Toast';
 import { LocationPicker } from './ui/LocationPicker';
 import { formatBusCommute, formatDistance } from '../utils/distance';
-import { TILE_CONFIGS, defaultStyleForTheme, type MapStyleId } from '../utils/mapTiles';
+import { TILE_CONFIGS, MAP_STYLE_IDS, defaultStyleForTheme, type MapStyleId } from '../utils/mapTiles';
 import {
   MapPinHouse,
   Locate,
   Layers,
+  Map,
+  Moon,
+  Satellite,
   ExternalLink,
   X
 } from 'lucide-react';
+
+/** One icon per map style, matching the dropup order. */
+const STYLE_ICONS: Record<MapStyleId, React.ComponentType<{ className?: string }>> = {
+  street: Map,
+  dark: Moon,
+  satellite: Satellite,
+};
 
 interface CompanyMapProps {
   companies: Company[];
@@ -57,6 +67,17 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
   const [mapStyle, setMapStyle] = useState<MapStyleId>(() => defaultStyleForTheme(theme));
   const userPickedStyleRef = useRef(false);
   const [isPickerOpen, setIsPickerOpen] = useState(false);
+  const [isTilesOpen, setIsTilesOpen] = useState(false);
+  const tilesRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isTilesOpen) return;
+    const onPointer = (e: MouseEvent) => {
+      if (!tilesRef.current?.contains(e.target as Node)) setIsTilesOpen(false);
+    };
+    document.addEventListener('mousedown', onPointer);
+    return () => document.removeEventListener('mousedown', onPointer);
+  }, [isTilesOpen]);
   const pickerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -152,13 +173,11 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
         showNotification(`Location set to ${lat.toFixed(3)}°, ${lng.toFixed(3)}°`);
       });
 
-      userMarker.bindTooltip(
-        `<div style="font-family: Inter, sans-serif; font-size: 11px; padding: 2px 4px;">
-           <strong style="color:#f8fafc;">${userLocation.name}</strong><br/>
-           <span style="color:#a1a1aa;">Drag to set location or click map</span>
-         </div>`,
-        { permanent: false, direction: 'top', className: 'map-tooltip' }
-      );
+      userMarker.bindTooltip(userLocation.name, {
+        permanent: false,
+        direction: 'top',
+        className: 'map-tooltip',
+      });
 
       userMarkerRef.current = userMarker;
 
@@ -253,12 +272,8 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
   useEffect(() => {
     if (userMarkerRef.current) {
       userMarkerRef.current.setLatLng([userLocation.latitude, userLocation.longitude]);
-      userMarkerRef.current.setTooltipContent(
-        `<div style="font-family: Inter, sans-serif; font-size: 11px; padding: 2px 4px;">
-           <strong style="color:#f8fafc;">${userLocation.name}</strong><br/>
-           <span style="color:#a1a1aa;">${userLocation.isCustom ? 'Custom Location (Drag to move)' : 'Academic City Reference Point'}</span>
-         </div>`
-      );
+      // Just the name — the bottom-left card already carries the detail.
+      userMarkerRef.current.setTooltipContent(userLocation.name);
     }
   }, [userLocation]);
 
@@ -374,40 +389,47 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
       {/* Map Leaflet Canvas */}
       <div ref={mapContainerRef} className="w-full h-full min-h-[360px] md:min-h-[580px]" />
 
-      {/* Top right: tile style */}
-      <div className="absolute top-4 right-4 z-1000 flex flex-col items-end gap-2">
-        {/* Map Tile Provider Selector: Street (Default), Clean (Hide streets), Dark, Satellite */}
-        <div className="flex items-center gap-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-1 rounded-lg border border-line shadow-lg transition-colors">
-          <Layers className="w-3.5 h-3.5 text-slate-400 ml-1.5 mr-1" />
-          <button
-            onClick={() => handleSwitchTile('street')}
-            className={`px-2 py-0.5 text-[11px] font-medium rounded transition ${ mapStyle === 'street' ? 'bg-brand-600 text-white shadow-2xs' : 'text-slate-600 dark:text-slate-300 hover:text-ink hover:bg-slate-100 dark:hover:bg-surface-2' }`}
-            title="Street Map with English labels"
-          >
-            Street
-          </button>
-          <button
-            onClick={() => handleSwitchTile('clean')}
-            className={`px-2 py-0.5 text-[11px] font-medium rounded transition ${ mapStyle === 'clean' ? 'bg-brand-600 text-white shadow-2xs' : 'text-slate-600 dark:text-slate-300 hover:text-ink hover:bg-slate-100 dark:hover:bg-surface-2' }`}
-            title="Hide streets and keep clean regional canvas"
-          >
-            Clean
-          </button>
-          <button
-            onClick={() => handleSwitchTile('dark')}
-            className={`px-2 py-0.5 text-[11px] font-medium rounded transition ${ mapStyle === 'dark' ? 'bg-brand-600 text-white shadow-2xs' : 'text-slate-600 dark:text-slate-300 hover:text-ink hover:bg-slate-100 dark:hover:bg-surface-2' }`}
-            title="Dark Gray Minimal"
-          >
-            Dark
-          </button>
-          <button
-            onClick={() => handleSwitchTile('satellite')}
-            className={`px-2 py-0.5 text-[11px] font-medium rounded transition ${ mapStyle === 'satellite' ? 'bg-brand-600 text-white shadow-2xs' : 'text-slate-600 dark:text-slate-300 hover:text-ink hover:bg-slate-100 dark:hover:bg-surface-2' }`}
-            title="Esri Satellite Imagery"
-          >
-            Satellite
-          </button>
-        </div>
+      {/*
+        Map style, stacked directly above Leaflet's zoom control at
+        bottom-right. Collapsed to an icon so four style names don't sit
+        permanently over the map.
+      */}
+      <div className="absolute bottom-[6.25rem] right-2.5 z-1000" ref={tilesRef}>
+        {isTilesOpen && (
+          <div className="absolute bottom-full right-0 mb-2 w-36 bg-surface border border-line rounded-lg shadow-popup overflow-hidden py-1">
+            {MAP_STYLE_IDS.map(id => {
+              const Icon = STYLE_ICONS[id];
+              return (
+                <button
+                  key={id}
+                  onClick={() => {
+                    handleSwitchTile(id);
+                    setIsTilesOpen(false);
+                  }}
+                  aria-pressed={mapStyle === id}
+                  className={`w-full flex items-center gap-2.5 px-3 py-1.5 text-left text-xs transition-colors ${
+                    mapStyle === id
+                      ? 'text-brand-600 dark:text-brand-400 font-semibold bg-surface-2'
+                      : 'text-ink-2 hover:text-ink hover:bg-surface-2'
+                  }`}
+                >
+                  <Icon className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+                  <span>{TILE_CONFIGS[id].name}</span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+        <button
+          onClick={() => setIsTilesOpen(open => !open)}
+          aria-expanded={isTilesOpen}
+          aria-haspopup="menu"
+          aria-label={`Map style: ${TILE_CONFIGS[mapStyle].name}`}
+          title={`Map style: ${TILE_CONFIGS[mapStyle].name}`}
+          className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-line shadow-lg text-ink-2 hover:text-ink transition-colors"
+        >
+          <Layers className="w-4 h-4" aria-hidden="true" />
+        </button>
       </div>
 
       {/*
@@ -425,10 +447,10 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
           aria-expanded={isPickerOpen}
           aria-haspopup="dialog"
           className="flex items-center gap-1.5 px-2.5 py-2 text-xs font-medium rounded-lg bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-line shadow-lg text-ink-2 hover:text-ink transition-colors"
-          title="Change the location commutes are measured from"
+          title="Set the location commutes are measured from"
         >
           <MapPinHouse className="w-4 h-4" aria-hidden="true" />
-          <span>Change location</span>
+          <span>Set location</span>
         </button>
       </div>
 
@@ -455,7 +477,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
       {/* Floating Selected Company Popup Card */}
       {activePopupCompany && (
         <div
-          className="absolute top-28 right-4 z-1000 bg-surface rounded-lg p-3.5 shadow-popup border border-line max-w-xs transition-colors text-ink"
+          className="absolute top-4 right-4 z-1000 bg-surface rounded-lg p-3.5 shadow-popup border border-line max-w-xs transition-colors text-ink"
         >
           <div className="flex items-start justify-between gap-2">
             <div
