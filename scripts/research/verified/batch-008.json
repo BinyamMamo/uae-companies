@@ -1,0 +1,404 @@
+[
+  {
+    "id": "bpg-group",
+    "website": "https://bpggroup.com",
+    "websiteSource": "https://campaignme.com",
+    "careersUrl": "https://bpggroup.com/careers",
+    "careersSource": "https://bpggroup.com/careers",
+    "shortDescription": "BPG Group (formerly Bates PanGulf) is an integrated marketing, advertising, and communications agency headquartered in Dubai.",
+    "whatTheyDo": "BPG Group provides brand strategy, creative advertising, public relations, media planning, and customer experience (CX) services. In the UAE, it manages omnichannel communications and marketing transformation campaigns for regional corporate, retail, and government clients.",
+    "descriptionSource": "https://campaignme.com",
+    "industry": "Marketing & Advertising",
+    "commonCareers": [
+      "CX Director",
+      "Account Director - CX",
+      "Account Manager",
+      "Media Planner",
+      "Creative Strategist",
+      "Copywriter"
+    ],
+    "careersEvidence": "https://bpggroup.com/careers",
+    "technicalAreas": [
+      "Customer Experience (CX)",
+      "CRM",
+      "MarTech",
+      "UI/UX",
+      "Web Development"
+    ],
+    "address": "Publishing Pavilion, Unit 118, 1st Floor, Me'aisem First, Dubai Production City, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://bpggroup.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://bpggroup.com/careers",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Campaign Middle East Agency Profile - BPG Group",
+        "url": "https://campaignme.com"
+      },
+      {
+        "title": "Gulf News Business Directory and Coverage",
+        "url": "https://gulfnews.com"
+      }
+    ],
+    "notes": "The directory listed the area as JLT; however, BPG Group's Dubai headquarters is located in the Publishing Pavilion at Dubai Production City."
+  },
+  {
+    "id": "canopy-by-hilton",
+    "website": "https://www.hilton.com/en/hotels/dxbsepy-canopy-dubai-al-seef/",
+    "websiteSource": "https://www.hilton.com/en/hotels/dxbsepy-canopy-dubai-al-seef/",
+    "careersUrl": "https://jobs.hilton.com",
+    "careersSource": "https://jobs.hilton.com",
+    "shortDescription": "Canopy by Hilton Dubai Al Seef is an upscale boutique lifestyle hotel operated by Hilton along the Dubai Creek waterfront.",
+    "whatTheyDo": "The hotel provides 200 rooms and suites, dining venues including Skafos Mediterranean restaurant, event spaces, rooftop pool amenities, and wellness facilities. In Dubai, it operates hospitality, culinary, front office, housekeeping, and guest services teams serving international tourists and business visitors.",
+    "descriptionSource": "https://www.hilton.com/en/hotels/dxbsepy-canopy-dubai-al-seef/",
+    "industry": "Hospitality & Tourism",
+    "commonCareers": [
+      "Pastry Sous Chef",
+      "Commis Chef",
+      "Guest Service Agent"
+    ],
+    "careersEvidence": "https://jobs.hilton.com",
+    "technicalAreas": [],
+    "address": "Al Seef Street, Umm Hurair 1, Dubai Creek, Dubai, UAE",
+    "latitude": 25.25613,
+    "longitude": 55.31217,
+    "locationSource": "https://mapcarta.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Mapcarta Geographic Profile - Canopy by Hilton Dubai Al Seef",
+        "url": "https://mapcarta.com"
+      },
+      {
+        "title": "Travel Weekly Hotel Review - Canopy by Hilton Dubai Al Seef",
+        "url": "https://www.travelweekly.com"
+      }
+    ],
+    "notes": "The directory listed the area as Dubai Internet City; however, the only Canopy by Hilton property in Dubai is Canopy by Hilton Dubai Al Seef in Umm Hurair 1 on Dubai Creek. Hilton's corporate regional office is situated in Dubai Internet City."
+  },
+  {
+    "id": "capgemini",
+    "website": "https://www.capgemini.com/ae-en/",
+    "websiteSource": "https://www.capgemini.com/ae-en/",
+    "careersUrl": "https://www.capgemini.com/ae-en/careers/",
+    "careersSource": "https://www.capgemini.com/ae-en/careers/",
+    "shortDescription": "Capgemini is a multinational information technology consulting, digital engineering, and business transformation services firm with operations in Dubai.",
+    "whatTheyDo": "Capgemini provides IT consulting, cloud infrastructure, enterprise application management, data engineering, and artificial intelligence solutions. In the UAE, it runs delivery and advisory teams across financial transformation, architecture, and technology services for enterprise and public sector clients.",
+    "descriptionSource": "https://www.capgemini.com/ae-en/",
+    "industry": "Technology & Software",
+    "commonCareers": [
+      "Finance Transformation Architect",
+      "Senior Azure AI Architect",
+      "Investment Data Architect",
+      "Finance Transformation Senior Consultant",
+      "AI Development FDE",
+      "Snowflake Data Engineer"
+    ],
+    "careersEvidence": "https://www.capgemini.com/ae-en/careers/",
+    "technicalAreas": [
+      "Cloud Computing",
+      "Artificial Intelligence",
+      "Data Engineering",
+      "Enterprise Architecture"
+    ],
+    "address": "The Offices 2, One Central, 6th Floor, Office 603, Dubai Trade Centre Complex, Dubai, UAE",
+    "latitude": 25.22046,
+    "longitude": 55.28569,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.capgemini.com/ae-en/careers/",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf News Report on Digital Services Leaders in the GCC",
+        "url": "https://gulfnews.com"
+      },
+      {
+        "title": "Maptons Building Directory - The Offices 2 One Central",
+        "url": "https://maptons.com"
+      }
+    ],
+    "notes": "The directory listed Downtown, but Capgemini's Dubai office is located in The Offices 2 at One Central in the Dubai World Trade Centre (DWTC) complex."
+  },
+  {
+    "id": "caterpillar-sarl",
+    "website": "https://www.caterpillar.com",
+    "websiteSource": "https://www.caterpillar.com",
+    "careersUrl": "https://careers.caterpillar.com/",
+    "careersSource": "https://careers.caterpillar.com/",
+    "shortDescription": "Caterpillar SARL is the regional branch of Caterpillar Inc., managing parts distribution, training, and commercial equipment support across the Middle East.",
+    "whatTheyDo": "Caterpillar SARL manages regional distribution and product support for construction and mining machinery, diesel and natural gas engines, and industrial turbines. In Dubai, it operates the Middle East Distribution Center (MEDC) and a Regional Training Center supporting dealer networks throughout the Africa and Middle East (AME) region.",
+    "descriptionSource": "https://www.caterpillar.com",
+    "industry": "Industrial Engineering & Machinery",
+    "commonCareers": [
+      "Senior Manager, Distribution Capability Development",
+      "Data Management Product Adoption Consultant",
+      "Shipping Coordinator",
+      "Shipping Clerk"
+    ],
+    "careersEvidence": "https://careers.caterpillar.com/",
+    "technicalAreas": [
+      "Heavy Machinery Engineering",
+      "Supply Chain & Logistics",
+      "Parts Distribution"
+    ],
+    "address": "Jebel Ali Free Zone (JAFZA), Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.caterpillar.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Teknoxgroup Caterpillar Middle East Regional Facility Profile",
+        "url": "https://www.teknoxgroup.com"
+      },
+      {
+        "title": "Dubai Chamber Commercial Directory - Caterpillar SARL Middle East",
+        "url": "https://www.dcciinfo.com"
+      }
+    ],
+    "notes": "The directory listed Business Bay, but Caterpillar SARL Middle East operates out of the Jebel Ali Free Zone (JAFZA)."
+  },
+  {
+    "id": "century-financial",
+    "website": "https://www.century.ae",
+    "websiteSource": "https://www.century.ae",
+    "careersUrl": "https://www.century.ae/careers",
+    "careersSource": "https://www.century.ae/careers",
+    "shortDescription": "Century Financial is a UAE-based financial services and investment consultancy providing market analysis and trading solutions.",
+    "whatTheyDo": "Century Financial provides financial consulting, market research, and multi-asset trading execution across global equities, commodities, indices, and currencies. In Dubai, its team serves retail, high-net-worth, and corporate clients through client advisory, financial analysis, and relationship management desks.",
+    "descriptionSource": "https://www.century.ae",
+    "industry": "Financial Services",
+    "commonCareers": [
+      "Relationship Manager",
+      "Assistant Relationship Manager",
+      "Relationship Manager - Exchange Derivatives",
+      "Network and System Administrator"
+    ],
+    "careersEvidence": "https://www.century.ae/careers",
+    "technicalAreas": [
+      "Capital Markets",
+      "Derivatives Trading",
+      "Financial Technology",
+      "Network Administration"
+    ],
+    "address": "6th Floor, Building No. 4, Emaar Square, Downtown Dubai, Dubai, UAE",
+    "latitude": 25.20080,
+    "longitude": 55.27416,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://gulfnews.com",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf News Coverage of Century Financial University Partnerships",
+        "url": "https://gulfnews.com"
+      },
+      {
+        "title": "Great Place to Work Middle East - Century Financial Certification",
+        "url": "https://greatplacetowork.me"
+      },
+      {
+        "title": "Maptons Building Directory - Emaar Square Building 4",
+        "url": "https://maptons.com"
+      }
+    ],
+    "notes": "The directory listed JLT, but Century Financial's headquarters is in Building 4, Emaar Square, Downtown Dubai."
+  },
+  {
+    "id": "ceva-logistics",
+    "website": "https://www.cevalogistics.com",
+    "websiteSource": "https://www.cevalogistics.com",
+    "careersUrl": "https://www.cevalogistics.com/en/careers",
+    "careersSource": "https://www.cevalogistics.com/en/careers",
+    "shortDescription": "CEVA Logistics is a global supply chain and third-party logistics company operating multimodal logistics hubs across Dubai.",
+    "whatTheyDo": "CEVA Logistics provides end-to-end supply chain services including air, ocean, and ground freight forwarding, contract logistics, and project cargo management. In Dubai, it runs specialized e-commerce and logistics facilities serving clients across the Middle East, North Africa, and Central Asia.",
+    "descriptionSource": "https://www.cevalogistics.com",
+    "industry": "Logistics & Supply Chain",
+    "commonCareers": [
+      "Business Development Manager (Contract Logistics)",
+      "Key Account Management Senior Specialist",
+      "Program/Project Engineer"
+    ],
+    "careersEvidence": "https://www.cevalogistics.com/en/careers",
+    "technicalAreas": [
+      "Contract Logistics",
+      "Freight Forwarding",
+      "Supply Chain Engineering",
+      "E-Commerce Logistics"
+    ],
+    "address": "Building FC-6, Office R17, Logistics District, Dubai South, Dubai World Central, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://waze.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf News Report on CEVA Logistics Regional Hub at DWC",
+        "url": "https://gulfnews.com"
+      },
+      {
+        "title": "Logistics Manager Coverage of CEVA Logistics UAE Operations",
+        "url": "https://www.logisticsmanager.com"
+      }
+    ],
+    "notes": "The directory listed Dubai Internet City, but CEVA Logistics does not maintain an office there; its primary Dubai operations and regional offices are located in Dubai South (Dubai World Central) and the Jebel Ali Free Zone."
+  },
+  {
+    "id": "chep",
+    "website": "https://www.chep.com",
+    "websiteSource": "https://www.chep.com",
+    "careersUrl": "https://brambles.wd5.myworkdayjobs.com/Brambles_Careers",
+    "careersSource": "https://brambles.wd5.myworkdayjobs.com/Brambles_Careers",
+    "shortDescription": "CHEP Middle East FZCO is a Brambles company specializing in managed pallet and container pooling solutions for supply chains.",
+    "whatTheyDo": "CHEP manages circular economy equipment pooling services, providing standardized wooden pallets, containers, and crates to producers, manufacturers, and retailers. In the UAE, it manages regional commercial accounts, asset control, and supply chain logistics for consumer goods and industrial clients.",
+    "descriptionSource": "https://www.chep.com",
+    "industry": "Logistics & Supply Chain",
+    "commonCareers": [],
+    "technicalAreas": [],
+    "address": "Office 1801, Swiss Tower, Cluster Y, Jumeirah Lakes Towers (JLT), Dubai, UAE",
+    "latitude": 25.07808,
+    "longitude": 55.15288,
+    "locationSource": "https://yellowpages-uae.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Yellow Pages UAE - CHEP Middle East FZCO Official Business Entry",
+        "url": "https://www.yellowpages-uae.com"
+      },
+      {
+        "title": "Logistics Gulf - Industry Coverage of CHEP Middle East Operations",
+        "url": "https://logisticsgulf.com"
+      }
+    ],
+    "notes": "The directory listed Downtown, but CHEP Middle East FZCO is located in Swiss Tower, Cluster Y, JLT."
+  },
+  {
+    "id": "choueiri-group",
+    "website": "https://www.choueirigroup.com",
+    "websiteSource": "https://www.choueirigroup.com",
+    "careersUrl": "https://www.choueirigroup.com",
+    "careersSource": "https://www.choueirigroup.com",
+    "shortDescription": "Choueiri Group is an independent media representation and advertising sales company in the Middle East, based in Dubai Media City.",
+    "whatTheyDo": "Choueiri Group represents television channels, digital publishers, out-of-home display networks, radio, and print media across the Arab world. Through subsidiaries including Digital Media Services (DMS) and Arabian Outdoor, its Dubai headquarters oversees advertising sales representation, adtech integrations, and market research.",
+    "descriptionSource": "https://www.choueirigroup.com",
+    "industry": "Media & Advertising",
+    "commonCareers": [
+      "Media Executive",
+      "Digital Sales Executive",
+      "Media Planner"
+    ],
+    "careersEvidence": "https://www.choueirigroup.com",
+    "technicalAreas": [
+      "Digital Advertising",
+      "Audience Analytics",
+      "Media Sales"
+    ],
+    "address": "Choueiri Group Building, Al Falak Street, Dubai Media City, Dubai, UAE",
+    "latitude": 25.10257,
+    "longitude": 55.16405,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf News Report on Choueiri Group Arabian Outdoor Concession",
+        "url": "https://gulfnews.com"
+      },
+      {
+        "title": "Campaign Middle East Coverage of Choueiri Group Partnerships",
+        "url": "https://campaignme.com"
+      },
+      {
+        "title": "Maptons Building Directory - Choueiri Group Building",
+        "url": "https://maptons.com"
+      }
+    ],
+    "notes": "Choueiri Group is based in its own commercial building on Al Falak Street in Dubai Media City."
+  },
+  {
+    "id": "clarins-middle-east",
+    "website": "https://www.clarins.ae",
+    "websiteSource": "https://www.clarins.ae",
+    "careersUrl": "https://www.groupeclarins.com/en/join-us/",
+    "careersSource": "https://www.groupeclarins.com/en/join-us/",
+    "shortDescription": "Clarins Middle East (Clarins Group Middle East Limited) is the regional division of French luxury skincare and cosmetics house Groupe Clarins.",
+    "whatTheyDo": "Clarins Middle East oversees the regional distribution, retail management, and marketing of plant-based skincare, cosmetics, and fragrances across the Middle East. Headquartered in DAFZA, its teams support company-owned boutiques, department store concessions, beauty therapist training, and e-commerce fulfillment.",
+    "descriptionSource": "https://www.groupeclarins.com/en/join-us/",
+    "industry": "Consumer Goods & Luxury Retail",
+    "commonCareers": [
+      "Beauty Coach",
+      "Beauty Therapist",
+      "Make-up Artist",
+      "Store/Sales Manager"
+    ],
+    "careersEvidence": "https://www.groupeclarins.com/en/join-us/",
+    "technicalAreas": [
+      "Skincare Therapy",
+      "Cosmetics Retail Operations"
+    ],
+    "address": "Building 1W (West Wing 1), Ground Floor, Al Quds Street, Dubai Airport Freezone (DAFZA), Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://yellowpages-uae.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf News Feature on Clarins Retail Presence in the UAE",
+        "url": "https://gulfnews.com"
+      },
+      {
+        "title": "Yellow Pages UAE Commercial Listing - Clarins Group Middle East Limited",
+        "url": "https://www.yellowpages-uae.com"
+      }
+    ],
+    "notes": "The directory listed JLT, but Clarins Middle East is based in Building 1W within the Dubai Airport Freezone (DAFZA)."
+  },
+  {
+    "id": "commerzbank-ag",
+    "website": "https://www.commerzbank.ae",
+    "websiteSource": "https://www.commerzbank.ae",
+    "careersUrl": "https://jobs.commerzbank.com/",
+    "careersSource": "https://jobs.commerzbank.com/",
+    "shortDescription": "Commerzbank AG is a major German banking institution operating a corporate and institutional hub in the Dubai International Financial Centre (DIFC).",
+    "whatTheyDo": "Commerzbank AG provides corporate banking, trade finance, structured export finance, and capital markets advisory to institutional, multinational, and sovereign entities trading between Europe and the GCC. In Dubai, its team serves regional corporate clients and financial institutions under DFSA regulation.",
+    "descriptionSource": "https://www.commerzbank.ae",
+    "industry": "Banking & Financial Services",
+    "commonCareers": [],
+    "technicalAreas": [],
+    "address": "Gate District, Precinct Building 04, Level 5, DIFC, Dubai, UAE",
+    "latitude": 25.21397,
+    "longitude": 55.28203,
+    "locationSource": "https://aroundus.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai Financial Services Authority (DFSA) Public Register - Commerzbank AG",
+        "url": "https://www.dfsa.ae/public-register/firms/commerzbank-aktiengesellschaft"
+      },
+      {
+        "title": "AroundUs Location Directory - Gate Precinct 4 DIFC",
+        "url": "https://aroundus.com"
+      }
+    ],
+    "notes": "The directory listed Dubai Internet City, but Commerzbank AG is located in Precinct Building 04 in the Gate District of the Dubai International Financial Centre (DIFC) and is licensed by the DFSA."
+  }
+]

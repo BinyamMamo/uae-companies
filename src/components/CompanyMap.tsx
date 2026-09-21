@@ -44,6 +44,7 @@ const CATEGORY_COLORS: Record<string, { bg: string; border: string }> = {
 };
 
 import { DUBAI_DISTRICTS_GEO } from '../data/dubaiDistrictsGeo';
+import { pointInPolygon } from '../utils/geometry';
 import { CompanyLogo } from './ui/CompanyLogo';
 
 export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompany }) => {
@@ -252,7 +253,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
       });
 
       tipMarker.bindTooltip(
-        `<div class="district-tip-badge" style="--district: ${d.borderColor};">
+        `<div class="district-tip-badge" data-district="${d.id}" style="--district: ${d.borderColor};">
            <span>${d.badgeName}</span>
          </div>`,
         {
@@ -265,6 +266,26 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
       );
 
       districtsLayer.addLayer(tipMarker);
+
+      /*
+        Hovering the badge highlights its region and fades company pins outside
+        it, which is the quickest way to see who is actually in that district.
+      */
+      const badgeEl = tipMarker.getTooltip()?.getElement();
+      const focus = (on: boolean) => {
+        polygon.setStyle(
+          on
+            ? { fillOpacity: 0.28, weight: 2.5, dashArray: '' }
+            : { fillOpacity: 0.08, weight: 1.5, dashArray: '4, 4' }
+        );
+        const container = mapInstanceRef.current?.getContainer();
+        container?.classList.toggle('is-district-focused', on);
+        container
+          ?.querySelectorAll<HTMLElement>('[data-district]')
+          .forEach(el => el.classList.toggle('is-dimmed', on && el.dataset.district !== d.id));
+      };
+      badgeEl?.addEventListener('mouseenter', () => focus(true));
+      badgeEl?.addEventListener('mouseleave', () => focus(false));
     });
   }, []);
 
@@ -322,11 +343,14 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
       const lat = company.location.latitude;
       const lon = company.location.longitude;
 
+      // Tagged so hovering a district badge can single out its companies.
+      const district = DUBAI_DISTRICTS_GEO.find(d => pointInPolygon([lat, lon], d.polygon));
+
       const primaryCat = company.categories[0] || 'Other';
       const colorScheme = CATEGORY_COLORS[primaryCat] || CATEGORY_COLORS['Other'];
 
       const markerHtml = `
-        <div class="group relative cursor-pointer" title="${company.name}">
+        <div class="group relative cursor-pointer" data-district="${district?.id ?? ''}" title="${company.name}">
           <div class="w-5 h-5 rounded-full flex items-center justify-center shadow-md transition-transform hover:scale-125" style="background-color: ${colorScheme.bg}; border: 2px solid ${colorScheme.border};">
             <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
           </div>

@@ -1,0 +1,404 @@
+[
+  {
+    "id": "ellucian",
+    "website": "https://www.ellucian.com",
+    "websiteSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEZP6SP9pNov2IcJMhUIFg6UAlvyW2OiyzjZEnp-iOHEBoy45cC4slaN_18NE21yF1EbUyk5eYEWpkrrX3etS1aMsxHN_-_LMjk-k8UYgDhYBqTHb46R3n7_MSnub8Zpdk4RA==",
+    "careersUrl": "https://careers.ellucian.com",
+    "careersSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGnvJmsjZ1V1s_X_LmVPU0H_BVK5_XJy_6YEFfVVvNv15SaS_NjNjJWLK0_e3sdbwlnYTveodYIDPu_EE9hpIZFYWy-AwmbtA0ydZ_SFv9ibD-SdFk9KtY==",
+    "shortDescription": "Ellucian provides cloud-based enterprise software and student information systems to higher education institutions across the UAE and Middle East.",
+    "whatTheyDo": "Ellucian delivers higher education software solutions including the Banner Student Information System (SIS) and the Ellucian SaaS Platform for university administration and student life cycle management. In the UAE, it supports institutions including the American University in Dubai and Ajman University. Its regional office oversees cloud migration, SaaS modernization, system integration, and professional consulting services across the Middle East.",
+    "descriptionSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHkj_RetlFVWRvJed7gvPQNMb2fMoClrbnOt7d36p0dnRRJSmhKnmbwHfe8qlWKnWDmflAQOHPrISs1clwppWY2jtpPoyt7eg4eg7uyk7xLVrGj8wLQU4BU0E8vj0CXvvLwcg6THjmzyMmKvlqJiZ3Tb0nCWXiRwx9lA-Pr6v0CT1aq6ncu3vjbfnKSS-WUS6v2zo39A7YH4lIni9ysAhu2BYNIZIWgq73ZQhZig-821TPPC4y6JoOInfEKRpiv3S5mM7f_VOnRvNTqivHsLld17vQY==",
+    "industry": "Higher Education Technology & Software",
+    "commonCareers": [
+      "Senior Account Executive"
+    ],
+    "careersEvidence": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHUBr8QEWh3DcfMsTkENG2CJOe_b-tlu2zyabyfQVmzIPWi8yrRGvkL84qJDj2Dqq9_ER_wqiDqHWl1JpAgA2AtS1sWeGoRX_9Tl01jQEk7lrhPJuVJ-eiyq9at6qB4YJVKIAxhMkhaCpyzrByIEVoLNwY3JqHX8JjMR2cG9bk=",
+    "technicalAreas": [
+      "Student Information Systems (SIS)",
+      "Higher Education ERP",
+      "SaaS Modernization"
+    ],
+    "address": "Office 304, Building 2B, Innovation Hub, Al Falak Street, Dubai Internet City, Dubai, UAE",
+    "latitude": 25.10054,
+    "longitude": 55.16365,
+    "locationSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEZP6SP9pNov2IcJMhUIFg6UAlvyW2OiyzjZEnp-iOHEBoy45cC4slaN_18NE21yF1EbUyk5eYEWpkrrX3etS1aMsxHN_-_LMjk-k8UYgDhYBqTHb46R3n7_MSnub8Zpdk4RA==",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Ajman University wins 2021 Ellucian Impact Award - Gulf News",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHBg1U_T-2kKINCY0gM_eO5wJY-FK5VlkWGyakXLg4xWHnzcLLisANMEWm8MT4wvy0U9MlLzeb2qylmMhdxOsfNSTO5sG50VFA3M41naeWM2qv1A1vMg6-ySjOvm8N4MpbEhBjUaTrQAT9GHw93E92V8zw5yb3y_r-RVFWCk15QRYi8zxF4zXfw6XtwpIGVQGGe5COB8EZUn4ahh8WncoDz_Em1FIPKMQZodQbpoIv_ga8-Zi0AG4I2MHjOjMpbnnRFljAPA82wTWT3O4p95f-gQwQS"
+      },
+      {
+        "title": "HBMSU signs partnership with Ellucian to launch training center - Emirates News Agency (WAM)",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFXER5nYNGJ9LHFXHWVfX8qC23-5-u5jY-J3BwXJmt7-m_KjXoHTuT8NrBJWsbo76bdC9iOw11kZKIyCrsy_zsIpNA-1KgtiOzNWbaJPFWdALtGzbrKvlOYKf3LnubBfcVG_f_HM0Tu-XKc9I-JhLWAG6m09DfuKL20SBb36h9QdVft59TFcV4D4f_uPAcTz3KFjNFiZA=="
+      }
+    ],
+    "notes": "Input specified area as Downtown; verified regional office is located in Dubai Internet City (Innovation Hub, Building 2B)."
+  },
+  {
+    "id": "emirates-glass",
+    "website": "https://emiratesglass.com",
+    "websiteSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEJvd1eJrjVCyL6yBpHKhfGKf3wsuAuyEy1YOv-DbHoFsKMYu1sdzA4F2QWxy2Gh5UUusbTQG-AQr78Gs0lh7PlqumHhbhhpnLVwId-t0MFIh6OJaAj1oIqSgNV",
+    "careersUrl": "https://emiratesglass.com/careers",
+    "careersSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFiShRClgtisudnH7Wn7rtibAsREKsiFBzxyazleKzysHMfgeP9VuhlXwI0d03FAtXoY883vr8ho_Ba1jzTCLcgdJFN1setVD8yoH-ultEy7Al6-ztp3rb2LmTSc645hOmDu0AzyMIboeRojbAHhgT33o37b4ZXIA==",
+    "shortDescription": "Emirates Glass LLC is an architectural flat glass processor and manufacturer of energy-efficient coated glass based in Al Quoz, Dubai.",
+    "whatTheyDo": "Emirates Glass, a subsidiary of Dubai Investments PJSC, manufactures and processes sputter-coated architectural glass, including its flagship EmiCool range of solar-control and thermal-insulating Low-E glass. Its manufacturing facility in Al Quoz supplies major architectural projects across the UAE and international markets. Its operations encompass magnetron sputtering vacuum deposition, glass tempering, laminating, and double-glazing production.",
+    "descriptionSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFAllWqM2lv2Win8RgnJKXUqJsDfWpD-sToZZYKuzfsKtWC-LNpu97akH0cZg6UqbB785TdR0WyDndPo5INu4I8NsoHVdQpdmZED9854dtth_eGVRN4fvmLcRes_O1tsZzJ5r295Tjxl1v1nnWWGecpUUzxD1KIsDlOUhf8FuA==",
+    "industry": "Glass Manufacturing & Building Materials",
+    "commonCareers": [
+      "Machine Operator"
+    ],
+    "careersEvidence": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFiShRClgtisudnH7Wn7rtibAsREKsiFBzxyazleKzysHMfgeP9VuhlXwI0d03FAtXoY883vr8ho_Ba1jzTCLcgdJFN1setVD8yoH-ultEy7Al6-ztp3rb2LmTSc645hOmDu0AzyMIboeRojbAHhgT33o37b4ZXIA==",
+    "technicalAreas": [
+      "Architectural Glass Processing",
+      "Magnetron Sputter Vacuum Deposition (MSVD)",
+      "Thermal Insulation & Solar Control"
+    ],
+    "address": "Street 10, Al Quoz Industrial Area 4, P.O. Box 29769, Dubai, UAE",
+    "latitude": 25.11418,
+    "longitude": 55.22546,
+    "locationSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGVOaPgU8fNmy3ur0-1C9wzEEi3xj1Cnj5ABiaV0rZl0JR2TzYvg2petLq3-KvEBLo1XiszmRctp3CTR3vxD0D_S5ZEmVheJspev1hV6iX8FZPSkHYP60q-_38YK_qo38fgacpavQ==",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Emirates Glass expands operations - Gulf News",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFAllWqM2lv2Win8RgnJKXUqJsDfWpD-sToZZYKuzfsKtWC-LNpu97akH0cZg6UqbB785TdR0WyDndPo5INu4I8NsoHVdQpdmZED9854dtth_eGVRN4fvmLcRes_O1tsZzJ5r295Tjxl1v1nnWWGecpUUzxD1KIsDlOUhf8FuA=="
+      },
+      {
+        "title": "Emirates Glass LLC Company Profile - Naukrigulf",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFiShRClgtisudnH7Wn7rtibAsREKsiFBzxyazleKzysHMfgeP9VuhlXwI0d03FAtXoY883vr8ho_Ba1jzTCLcgdJFN1setVD8yoH-ultEy7Al6-ztp3rb2LmTSc645hOmDu0AzyMIboeRojbAHhgT33o37b4ZXIA=="
+      }
+    ]
+  },
+  {
+    "id": "emirates-global-aluminium-ega",
+    "website": "https://www.ega.ae",
+    "websiteSource": "https://en.wikipedia.org/wiki/Emirates_Global_Aluminium",
+    "careersUrl": "https://www.ega.ae/en/careers",
+    "careersSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFeN14nLhDqB0Jn8jibdQMF6v65qmQZoHNhhi6GwewhnVlGDngCDITJ1sTNXNTgV9gjCmj0KyrCJhjNieiKleZuZP4Im4yhiAYr5qW2_xlPvO7M3rwmuTG3cg6eNbiiFPVSc1pOyQ8riha9b-MxsnIRCro=",
+    "shortDescription": "Emirates Global Aluminium is the world's largest premium aluminium producer and the largest industrial company in the UAE outside oil and gas.",
+    "whatTheyDo": "EGA operates major aluminium smelters at Jebel Ali in Dubai and Al Taweelah in Abu Dhabi, producing cast aluminium products including billets, slabs, and foundry alloys for global export. Its Jebel Ali complex integrates smelting reduction cells, dedicated power plant generation, carbon anode baking, and casting facilities. Its technical teams lead industrial automation, metallurgy research, process engineering, and sustainability initiatives across the UAE.",
+    "descriptionSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEIMGxjOocHpxca5J8lQT89JbVH_h7Xy5eTiwUB2qq1TIZOraUc9R3Mf1V5tQi89lSyUP1ZS3k9PSXh-fLt8TGGt9uKYTfSt1u_6RHLa3FIE_F4Iw9PzoDwgSvXLOEWfwwiXNuRcjInqotydvpWHLjtAzTF",
+    "industry": "Industrial Manufacturing & Aluminium Smelting",
+    "commonCareers": [
+      "Instrument Technician",
+      "Mechanical Technician",
+      "Electrical Technician",
+      "Credit Risk Analyst",
+      "Graduate Trainee"
+    ],
+    "careersEvidence": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGKwvAfH8Twbu4ac9bediHp8WywG3kJqcL7RUg6ePZHtySOkx0xTCBcnVFeSNrJ_NNYH8Yl0_E3BQIt4cn13x21Ar89M7QwU0uNKFaexIh0R04ow9ATvWgBYoFGKu0IDaneQdYXWbHIbqNZKyDjkLJrncySvDekj1v-VphYqmUq-urCkL0=",
+    "technicalAreas": [
+      "Aluminium Smelting",
+      "Metallurgy",
+      "Industrial Automation",
+      "Thermal & Power Plant Operations"
+    ],
+    "address": "Sheikh Zayed Road, opposite Ibn Battuta Mall, Jebel Ali, P.O. Box 3627, Dubai, UAE",
+    "latitude": 25.03496,
+    "longitude": 55.09856,
+    "locationSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFTnimTZthn7OqHXt_Y3Dl4qA6hQmRko8QIpvFqPZ6KHyF1gT7i74oDqJtghdCvGHugt7qCWSLiVxeBG9rErp4B1BNMU90dLRsg5sCCsIWylwYV_z8-Y5OnjSYdxheDPIVrcQ==",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEIMGxjOocHpxca5J8lQT89JbVH_h7Xy5eTiwUB2qq1TIZOraUc9R3Mf1V5tQi89lSyUP1ZS3k9PSXh-fLt8TGGt9uKYTfSt1u_6RHLa3FIE_F4Iw9PzoDwgSvXLOEWfwwiXNuRcjInqotydvpWHLjtAzTF",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/5/5b/Emirates_Global_Aluminium_logo.svg",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "EGA Academy launches to develop UAE industrial talent - Emirates News Agency (WAM)",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEIMGxjOocHpxca5J8lQT89JbVH_h7Xy5eTiwUB2qq1TIZOraUc9R3Mf1V5tQi89lSyUP1ZS3k9PSXh-fLt8TGGt9uKYTfSt1u_6RHLa3FIE_F4Iw9PzoDwgSvXLOEWfwwiXNuRcjInqotydvpWHLjtAzTF"
+      },
+      {
+        "title": "Emirates Global Aluminium - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Emirates_Global_Aluminium"
+      }
+    ]
+  },
+  {
+    "id": "enoc",
+    "website": "https://www.enoc.com",
+    "websiteSource": "https://en.wikipedia.org/wiki/ENOC",
+    "careersUrl": "https://careers.enoc.com",
+    "careersSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQES9OMv5C1ok4gZCG24JNP3M-n2rMSghnmYXvvgS3UGf9-vkMeimrpuKYzG2wI6-7R_pN-uyY5G6ksq3qwO2F1erXxfAFKAG9RvEg0m8b8U4ozirQ2fY16Z9g93jaafmKKFuLTqW9l7VvNSb_1DSzSTtZnBr42AwVrpuDxX5weuaLYU57SJTpk=",
+    "shortDescription": "Emirates National Oil Company (ENOC) is a leading integrated global oil and gas group wholly owned by the Government of Dubai.",
+    "whatTheyDo": "ENOC operates across the energy value chain spanning exploration, refining, fuel retail, lubricants manufacturing, terminal storage, and aviation fuelling. Headquartered at the ENOC Complex in Oud Metha, Dubai, it operates specialized technical teams in petroleum refining, process engineering, industrial lubricants blending, and automated retail fuel systems across the UAE.",
+    "descriptionSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFoOuVA21IoodeEIZoT8Yy2WNJ_ncE-tfpBRRViRIjucq_h2PtrOb9oNS_nb0eK4LkiOkMqr9kWkMvJ9UQ7kY5i-os-TUMINm8snB14kiCJWZbkwONbZDcroCa_NCrYTL_2bbu6Fq6lYgecOiSfJpN7Kb3x7u1R9OunP2ozTHkat8JNP6EhQI9Msw==",
+    "industry": "Oil & Gas, Refining & Energy",
+    "commonCareers": [
+      "Lead Engineer-Process",
+      "Operations Manager",
+      "Inventory Materials Controller",
+      "Distribution Coordinator",
+      "Planning/Customer Care Manager"
+    ],
+    "careersEvidence": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFdqEwDrHk4Mhx0GOVgmsfKNHWBlD0MR6Ru_CiEcl95hUoFKk5aZEz_IpTM21g3muymyRyTb5VPG8dFZmzCmWLaQIu-_AzpxX_X2q0Dg6AUkYuk6akkOLo4m_lT9V0YLmAqPd_PTGz6Nker0sVPX8SVKJM2P7mu81mlTGX1li2X4KGf4dKEYIs58hSmyS8RYYvjaD3xJqoY5lkRvCC_oIOClezORExYId6EYhIugMaCSwJpuQyjI6eH_DC2Og4dklNaqNglk4kSTC0FifsdlmnhAmjSJi8-WhO8",
+    "technicalAreas": [
+      "Petroleum Refining",
+      "Process Engineering",
+      "Lubricants & Grease Manufacturing",
+      "Terminal Storage & Pipeline Distribution"
+    ],
+    "address": "ENOC Complex, Oud Metha Road, Bur Dubai, P.O. Box 6442, Dubai, UAE",
+    "latitude": 25.23750,
+    "longitude": 55.31450,
+    "locationSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHgV_7o_bYpTQgL4O2e-jFPrrM9D4e9-EPE6XIj_VaPeSwoPuTAjXJJTz_p_1sAKnn26r6el7ysb7v4_83cI0Cg29pvAnCs-J7TP-d6A7Azw32d7tFuay7I_WjEc-B3NV0P",
+    "graduateRolesKnown": true,
+    "programmesSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFoOuVA21IoodeEIZoT8Yy2WNJ_ncE-tfpBRRViRIjucq_h2PtrOb9oNS_nb0eK4LkiOkMqr9kWkMvJ9UQ7kY5i-os-TUMINm8snB14kiCJWZbkwONbZDcroCa_NCrYTL_2bbu6Fq6lYgecOiSfJpN7Kb3x7u1R9OunP2ozTHkat8JNP6EhQI9Msw==",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/0/00/ENOC_DL_logo.svg",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "ENOC Group advances Emiratisation and Graduate Development Programme - WAM",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFoOuVA21IoodeEIZoT8Yy2WNJ_ncE-tfpBRRViRIjucq_h2PtrOb9oNS_nb0eK4LkiOkMqr9kWkMvJ9UQ7kY5i-os-TUMINm8snB14kiCJWZbkwONbZDcroCa_NCrYTL_2bbu6Fq6lYgecOiSfJpN7Kb3x7u1R9OunP2ozTHkat8JNP6EhQI9Msw=="
+      },
+      {
+        "title": "ENOC (Emirates National Oil Company) - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/ENOC"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City (where only an ENOC fuel station is located); the corporate headquarters is the ENOC Complex in Oud Metha."
+  },
+  {
+    "id": "erada-center",
+    "website": "https://www.erada.ae",
+    "websiteSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFqFV9guQqGrctQiHMLQQTRfUtS6-eqtwWS3Y0QvEq16IG0wvJbT7Eq4OINsZJiJe6_LCPeFhuW7kFI3jGPNvhSfKtPNAFM_m2JQUamxysWtdZIZprqX14QKj-o13ATrYyGeBaZLeJi-GLTgz1siuA9K9WQ6wIGt87YGK_t_qVybcFZjuKEzU-Ggb-Wq0L2R10kE5JKTvcelQJEotxyLQ==",
+    "careersUrl": "https://dubaicareers.ae",
+    "careersSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHbupieUJshRjU3EWrkePs5nHhJDLhQH4lPKcr3vG5XchaKU4Er0IUoWj0venVZ0Obf9upgS2JzudrQtLZAzNYOjRXBxKB-hZKCqL3pgw6JdJXOo0emT4WOcyaQ4BbH4QiNTKt82ifefyFWWKCLbT0oRovRFPsW0EBgS7DuUELy3_LIE2u94blNQgzayEE=",
+    "shortDescription": "Erada Center for Treatment and Rehabilitation is an independent Dubai Government healthcare institution providing specialized treatment and rehabilitation for addiction.",
+    "whatTheyDo": "Established by Dubai Government decree, Erada Center provides medical detoxification, psychosocial rehabilitation, and community reintegration services for individuals coping with substance use disorders. It operates inpatient clinical facilities, outpatient programs, and addiction prevention research. Its multidisciplinary staff includes psychiatrists, clinical psychologists, recovery counselors, and pharmacists.",
+    "descriptionSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFZ8PvaMG3v4AZKlbFTv1kwYv1i9kKo1yrtmd-NpRl7EIerxayvY5ARVuKeIev09hAR3UeHK84NuU6HTBq_KIOv0rlfexYVUazJ5U4t0fE2qzTELQEthyaHM-Hh_NFxTVZ7ESPNGf-kbQmjyVQ38W_gF4clmrRrDru_PcujxBJE6QbPTbk0IAMUYrU6HIzzT7wq4-zT1UmLLJZ97RKRoJ0jaSbQ71W3cD21HXtTidvdJjvnCH5fMSpkb0-AEYuPqzbRLOM_lTsG2Zp_E6TE6jH2UIk=",
+    "industry": "Healthcare & Addiction Rehabilitation",
+    "commonCareers": [
+      "Pharmacist",
+      "Senior Recovery Counselor",
+      "Senior Community Awareness Officer",
+      "Senior Internal Auditor",
+      "Information Technology Specialist"
+    ],
+    "careersEvidence": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHbupieUJshRjU3EWrkePs5nHhJDLhQH4lPKcr3vG5XchaKU4Er0IUoWj0venVZ0Obf9upgS2JzudrQtLZAzNYOjRXBxKB-hZKCqL3pgw6JdJXOo0emT4WOcyaQ4BbH4QiNTKt82ifefyFWWKCLbT0oRovRFPsW0EBgS7DuUELy3_LIE2u94blNQgzayEE=",
+    "technicalAreas": [
+      "Addiction Medicine",
+      "Psychosocial Rehabilitation",
+      "Clinical Pharmacy"
+    ],
+    "address": "1 Street 16, Al Khawaneej 1, P.O. Box 440100, Dubai, UAE",
+    "latitude": 25.22398,
+    "longitude": 55.47833,
+    "locationSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEH71Rd5FremQOJHGNR2p_GNb7n1zW_9K2Tk9tQcjEgnOLWHz5Rw6qZWkc266qIB07Mg9MRmkaPOr4O0x-h3bWQW4_LI9rC2bPTc4vHtprEka4vann3tshbAX2jZ53NacLB",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai Health Authority - Erada Center for Treatment and Rehabilitation Listing",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFqFV9guQqGrctQiHMLQQTRfUtS6-eqtwWS3Y0QvEq16IG0wvJbT7Eq4OINsZJiJe6_LCPeFhuW7kFI3jGPNvhSfKtPNAFM_m2JQUamxysWtdZIZprqX14QKj-o13ATrYyGeBaZLeJi-GLTgz1siuA9K9WQ6wIGt87YGK_t_qVybcFZjuKEzU-Ggb-Wq0L2R10kE5JKTvcelQJEotxyLQ=="
+      },
+      {
+        "title": "Law No. (5) of 2016 Establishing Erada Center for Treatment and Rehabilitation - Dubai Government",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFZ8PvaMG3v4AZKlbFTv1kwYv1i9kKo1yrtmd-NpRl7EIerxayvY5ARVuKeIev09hAR3UeHK84NuU6HTBq_KIOv0rlfexYVUazJ5U4t0fE2qzTELQEthyaHM-Hh_NFxTVZ7ESPNGf-kbQmjyVQ38W_gF4clmrRrDru_PcujxBJE6QbPTbk0IAMUYrU6HIzzT7wq4-zT1UmLLJZ97RKRoJ0jaSbQ71W3cD21HXtTidvdJjvnCH5fMSpkb0-AEYuPqzbRLOM_lTsG2Zp_E6TE6jH2UIk="
+      }
+    ],
+    "notes": "Input listed area as Downtown; Erada Center is located in Al Khawaneej 1."
+  },
+  {
+    "id": "ericsson",
+    "website": "https://www.ericsson.com",
+    "websiteSource": "https://en.wikipedia.org/wiki/Ericsson",
+    "careersUrl": "https://jobs.ericsson.com",
+    "careersSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHoEnwRFd0XiT2UpPpDtR3wKNJ-wj9JMEN89oWLuiezInRhhgQw_hjFROMnsMaHOSos-k4dsi9LXm9zF4EFitGXSrnLpfYg0WKxkrljXt5eqmxCr3FhTgfqJdrCYl9nkSQOYkrau8byiXsy5tO0u_7qSILngQgVKNPIE6UUsToY-WB72ZqBPYMJBMzyCBp_mUZKiDa2kbFf2k-CSg2ih1hF5aY=",
+    "shortDescription": "Ericsson provides 5G telecommunications infrastructure, digital services, and network software to telecom operators in the UAE and Middle East.",
+    "whatTheyDo": "Ericsson supplies 5G radio access network (RAN) hardware, cloud core infrastructure, and managed network services to regional telecommunications operators including e& and du. From its regional hub and Innovation and R&D Centre in Dubai Internet City, it runs technical teams covering mobile network optimization, telecom software deployment, and radio frequency engineering. It also coordinates 5G and IoT testbeds across the Middle East.",
+    "descriptionSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEq0XDe2rfVb1rEsmTbrlRnTUrN9PkhKGhRGQeguqN25QsBpqFByoTbc5PdBOMsGyvcH-glxQT1Mmrnj_xe0azzqCht5eX8ui8vnTUAWJB57zqD8Sn0XAxBiI6VoGTVt5PFJleqm-KI6tbvw7lIT2QI7xbe3TJbzTG-C02NAgGSzo4MccPhS_chYQ==",
+    "industry": "Telecommunications & Network Infrastructure",
+    "commonCareers": [
+      "Incident Manager",
+      "Technical Authority Expert",
+      "IT Operations Support Graduate Engineer"
+    ],
+    "careersEvidence": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHoEnwRFd0XiT2UpPpDtR3wKNJ-wj9JMEN89oWLuiezInRhhgQw_hjFROMnsMaHOSos-k4dsi9LXm9zF4EFitGXSrnLpfYg0WKxkrljXt5eqmxCr3FhTgfqJdrCYl9nkSQOYkrau8byiXsy5tO0u_7qSILngQgVKNPIE6UUsToY-WB72ZqBPYMJBMzyCBp_mUZKiDa2kbFf2k-CSg2ih1hF5aY=",
+    "technicalAreas": [
+      "5G Wireless Networks",
+      "Radio Access Network (RAN)",
+      "Cloud & Core Networks",
+      "Telecommunications Software"
+    ],
+    "address": "3rd Floor, Innovation Hub Building 2, Dubai Internet City, P.O. Box 7817, Dubai, UAE",
+    "latitude": 25.10054,
+    "longitude": 55.16365,
+    "locationSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGu5PPuYPtlZL5TXCetIoGP-3ckZxTMzOvEegDXuQ8BzLB3yxTHCO5Y8R283y-qTLZvzLTr_8XkasdsP2ZDtOifuyrgQ7bCFRqMP4mLej4ervF8Z1bwYX3r-M2F1iVSqTgnXw==",
+    "graduateRolesKnown": true,
+    "programmesSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFnQPXQJgPkBKzZYfhVSnQ7NRZlGSmDhf2jkTnV5j743uFoUWqpY-1OPHXxUjtICHQB2aUMI6sbTmdTnB1tRI6M6h4JUUud7bAi7okbJ-XuUp-PjycPlj9jlIvY0IvfOUXotstZDkdm5PIkz1F4W56iv1HBH0gghl5FugaVVMfoqq9-1PTm0qqG48iVL7VCj7sb4MJeAImC1Ls9_hLocTbS9z4mmNzLFN6ePheS",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/2/29/Ericsson_logo.svg",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai Internet City hosts 19 global R&D innovation centres including Ericsson - WAM",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEq0XDe2rfVb1rEsmTbrlRnTUrN9PkhKGhRGQeguqN25QsBpqFByoTbc5PdBOMsGyvcH-glxQT1Mmrnj_xe0azzqCht5eX8ui8vnTUAWJB57zqD8Sn0XAxBiI6VoGTVt5PFJleqm-KI6tbvw7lIT2QI7xbe3TJbzTG-C02NAgGSzo4MccPhS_chYQ=="
+      },
+      {
+        "title": "Ericsson - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Ericsson"
+      }
+    ]
+  },
+  {
+    "id": "ernst-young-ey",
+    "website": "https://www.ey.com",
+    "websiteSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFAcYXYCOxcFUdq1Wy2iLCY6xSq80pSifZLleWdlqqdAoIjFaHID8EXix9TuRO4S6F7CwcAZRa4f3NFqrcxqQ65Qm5XO7F5g2ziA8v2jTuQpNa58Pt7ErIYM9V0f6CaBIqMo-Ks-vspkSthLQ==",
+    "careersUrl": "https://www.ey.com/en_gl/careers",
+    "careersSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE05h4xZ9Svl7xPo8_gm9O0SaJi6D38kcoHGjrua4BvTZwP_xa0XMeJ8n-ODzu6iUvjMv5pj8MsyceeAQJLPNCjCb3Iw6o1FxDL_fTCmPO4l_BrgOOATZBn_bPaB6JUM-mz7qNIHfSntuIpUimIZGTjBmEfkrU=",
+    "shortDescription": "Ernst & Young (EY) is a Big Four multinational professional services firm providing audit, assurance, consulting, and tax services in the UAE.",
+    "whatTheyDo": "EY provides statutory audit, tax advisory, business consulting, and strategy and transactions services (EY-Parthenon) to multinational corporations, sovereign wealth funds, and government entities across the Middle East. Headquartered regionally at ICD Brookfield Place in DIFC, Dubai, it runs technical teams in tax technology, financial modeling, forensic technology, and cybersecurity. It also manages regional professional training and Emiratisation development programs.",
+    "descriptionSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFAcYXYCOxcFUdq1Wy2iLCY6xSq80pSifZLleWdlqqdAoIjFaHID8EXix9TuRO4S6F7CwcAZRa4f3NFqrcxqQ65Qm5XO7F5g2ziA8v2jTuQpNa58Pt7ErIYM9V0f6CaBIqMo-Ks-vspkSthLQ==",
+    "industry": "Professional Services & Management Consulting",
+    "commonCareers": [
+      "Senior External Auditor",
+      "Senior Consultant - Tax Technology & Transformation",
+      "Technology Support Specialist",
+      "Workforce Planning Specialist"
+    ],
+    "careersEvidence": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHt0hmLS6n41MRTChpHb9dNwlc1bqQjidwUxSz2jXZJOUQI8P05EEO1p_H1054K73wp2AummepiCjFhGDMPCLkE6hkLp9Af-pO7mqK007Rvi-G0532pD5gOFzS9xGiFgd2QGGw8LbCCw603bvQ55M8drkLilCnOP6_tDxvDE48ll0XeRY-coEsXK668I9kha_mp-wIlG4wtqSKUQ4WONuuKhHzrChujqwT1heH8Zt-36AmNjXK2L2LmtnaVrcy9E6Gsx2lww3Bv1zs=",
+    "technicalAreas": [
+      "Financial Audit & Assurance",
+      "Tax Technology & Transformation",
+      "Technology Consulting",
+      "Cybersecurity & Forensic Analytics"
+    ],
+    "address": "ICD Brookfield Place, Al Mustaqbal Street, DIFC, P.O. Box 9267, Dubai, UAE",
+    "latitude": 25.21199,
+    "longitude": 55.28041,
+    "locationSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHUhk-Usfj91m01LgIqGfZZCGH5mFa1JUWi3BcR7ph35xleiy_v6arOtWJwOJmIH_RFiJQE4ysgykfpLN4VxYM8bwU-gf81Jq5ZbgSSC7InhvmsKZ1j",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE05h4xZ9Svl7xPo8_gm9O0SaJi6D38kcoHGjrua4BvTZwP_xa0XMeJ8n-ODzu6iUvjMv5pj8MsyceeAQJLPNCjCb3Iw6o1FxDL_fTCmPO4l_BrgOOATZBn_bPaB6JUM-mz7qNIHfSntuIpUimIZGTjBmEfkrU=",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/3/34/EY_logo_2019.svg",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "DFSA Public Register - Ernst & Young Middle East (Dubai Branch)",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFAcYXYCOxcFUdq1Wy2iLCY6xSq80pSifZLleWdlqqdAoIjFaHID8EXix9TuRO4S6F7CwcAZRa4f3NFqrcxqQ65Qm5XO7F5g2ziA8v2jTuQpNa58Pt7ErIYM9V0f6CaBIqMo-Ks-vspkSthLQ=="
+      },
+      {
+        "title": "Ernst & Young - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Ernst_%26_Young"
+      }
+    ],
+    "notes": "Input listed area as JLT; EY does not maintain an office in JLT, its Dubai office is located in ICD Brookfield Place, DIFC."
+  },
+  {
+    "id": "expeditors",
+    "website": "https://www.expeditors.com",
+    "websiteSource": "https://en.wikipedia.org/wiki/Expeditors_International",
+    "careersUrl": "https://www.expeditors.com/careers",
+    "careersSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEZfgWHZJxJza1O8z4L-jA-LFcMGGf8nGJHywN9NVkUvawqGe4z6oSApLmvoCLQuH8Dy4hSfatIY_ZZ6ipm2NUgTis3bU5KK0MWDx7OssvXx5-NOKe0MD2pbeaAqWJOW5iC2KKnB4fVS0VxbiFp05hEeFrW445mOMe89isESNNwdpZo_A==",
+    "shortDescription": "Expeditors is a Fortune 500 global logistics and freight forwarding company providing supply chain and customs brokerage services in the UAE.",
+    "whatTheyDo": "Expeditors provides international air and ocean freight forwarding, customs clearance, vendor consolidation, warehousing, and temperature-controlled logistics. Its regional headquarters for the Middle East, Africa, and India operates from Dubai South Business Park, supported by air cargo facilities at Al Maktoum International Airport. Its UAE teams manage supply chain optimization, customs compliance, and multimodal distribution.",
+    "descriptionSource": "https://mediaoffice.ae/en/news/2025/04/21/21-04-dubai-south-inaugurates-new-state-of-the-art-facility-for-expeditors",
+    "industry": "Logistics, Supply Chain & Freight Forwarding",
+    "commonCareers": [
+      "Air Export Agent",
+      "Ocean Export Agent",
+      "Customs Brokerage Agent"
+    ],
+    "careersEvidence": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEZfgWHZJxJza1O8z4L-jA-LFcMGGf8nGJHywN9NVkUvawqGe4z6oSApLmvoCLQuH8Dy4hSfatIY_ZZ6ipm2NUgTis3bU5KK0MWDx7OssvXx5-NOKe0MD2pbeaAqWJOW5iC2KKnB4fVS0VxbiFp05hEeFrW445mOMe89isESNNwdpZo_A==",
+    "technicalAreas": [
+      "Supply Chain Optimization",
+      "Customs Brokerage & Trade Compliance",
+      "Multimodal Freight Logistics",
+      "Temperature-Controlled Logistics"
+    ],
+    "address": "Building B2, 4th Floor, Office 406, Dubai South Business Park, Dubai South, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://mediaoffice.ae/en/news/2025/01/20/20-01-dubai-south-and-expeditors-sign-agreement-to-open-a-new-facility-at-the-logistics-district",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/3/30/Expeditors_logo.svg",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai South and Expeditors sign agreement to open new facility - Dubai Media Office",
+        "url": "https://mediaoffice.ae/en/news/2025/01/20/20-01-dubai-south-and-expeditors-sign-agreement-to-open-a-new-facility-at-the-logistics-district"
+      },
+      {
+        "title": "Dubai South inaugurates new state-of-the-art facility for Expeditors - Dubai Media Office",
+        "url": "https://mediaoffice.ae/en/news/2025/04/21/21-04-dubai-south-inaugurates-new-state-of-the-art-facility-for-expeditors"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City; Expeditors does not operate in DIC. Its UAE headquarters and logistics facilities are located in Dubai South."
+  },
+  {
+    "id": "ezelink",
+    "website": "https://www.ezelink.com",
+    "websiteSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGU1gkceKQPqlEot6RHNLGFIMC1bm_vXk9x4kAQx-J5ysnEWrSdHjABNVDk-SupdXfSpbnuJtReA6g2KAWnzZBHWpKoAvHHk3Sw1MqltDMvmd6y9ybJ6r9M0TOzC8UEPSRiJT_MT7WJ9NgB",
+    "careersUrl": "https://ezelink.com/careers",
+    "careersSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJbUCAyQgJSHDSIdCYFpiQMehQBSUYZZhEdAXkzhiOBFNKOxelqwG4R-vsslySjLFzdghxa3ta_8OSvclMGPvCQGcoNw2fI6vPQjL6vyGNzKXGhc6zaWJmIgmVQQLQ900jU8G40RA=",
+    "shortDescription": "EZELINK is a UAE-headquartered telecommunications and managed Wi-Fi provider offering enterprise wireless networking and IoT connectivity solutions.",
+    "whatTheyDo": "EZELINK designs, deploys, and manages enterprise Wi-Fi networks, captive portals, guest intelligence platforms, and outdoor wireless infrastructure. In the UAE, it has deployed major public network infrastructure projects including the 7.2 sq km community Wi-Fi across Dubai Silicon Oasis. Its Dubai operations house its regional Network Operations Center (NOC) and engineering teams covering wireless network engineering and cloud portal development.",
+    "descriptionSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGU1gkceKQPqlEot6RHNLGFIMC1bm_vXk9x4kAQx-J5ysnEWrSdHjABNVDk-SupdXfSpbnuJtReA6g2KAWnzZBHWpKoAvHHk3Sw1MqltDMvmd6y9ybJ6r9M0TOzC8UEPSRiJT_MT7WJ9NgB",
+    "industry": "Telecommunications & Managed Network Services",
+    "commonCareers": [
+      "Network Engineer",
+      "Technical Manager",
+      "Key Account Manager"
+    ],
+    "careersEvidence": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJbUCAyQgJSHDSIdCYFpiQMehQBSUYZZhEdAXkzhiOBFNKOxelqwG4R-vsslySjLFzdghxa3ta_8OSvclMGPvCQGcoNw2fI6vPQjL6vyGNzKXGhc6zaWJmIgmVQQLQ900jU8G40RA=",
+    "technicalAreas": [
+      "Managed Wi-Fi Systems",
+      "Wireless Network Engineering",
+      "Network Operations Center (NOC)",
+      "Captive Portal & Location Analytics"
+    ],
+    "address": "2nd Floor, EDB Building, Al Rebat Street, Al Garhoud, P.O. Box 111581, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEdWj_vG7E-FHUeCLS60LdtRTUcTv5VREYkj12e5fUDO885vqu5LlfPjC0z2TLK-mySVrROQ0vcErCPTXGH9iNMYMRaMqfslms5gRwN4kTHzHX8xITHyQD1bioZCdqAUrqCZRxGE4iB1Q==",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "EZELINK Telecom Profile - Naukrigulf",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGU1gkceKQPqlEot6RHNLGFIMC1bm_vXk9x4kAQx-J5ysnEWrSdHjABNVDk-SupdXfSpbnuJtReA6g2KAWnzZBHWpKoAvHHk3Sw1MqltDMvmd6y9ybJ6r9M0TOzC8UEPSRiJT_MT7WJ9NgB"
+      },
+      {
+        "title": "EZELINK Careers & Company Profile - Bayt.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJbUCAyQgJSHDSIdCYFpiQMehQBSUYZZhEdAXkzhiOBFNKOxelqwG4R-vsslySjLFzdghxa3ta_8OSvclMGPvCQGcoNw2fI6vPQjL6vyGNzKXGhc6zaWJmIgmVQQLQ900jU8G40RA="
+      }
+    ],
+    "notes": "Input listed area as Dubai Silicon Oasis (where EZELINK deployed the zone-wide outdoor Wi-Fi network); its corporate headquarters is located in Al Garhoud."
+  },
+  {
+    "id": "fedex-express",
+    "website": "https://www.fedex.com/en-ae/home.html",
+    "websiteSource": "https://mediaoffice.ae/en/news/2024/02/14/14-02-ahmed-bin-saeed-inaugurates-fedexs-new-regional-hub-at-dubai-south",
+    "careersUrl": "https://careers.fedex.com",
+    "careersSource": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHRbgBSq5-nB3s1XUcICxhyv6sJgZyZsP4JQpf814RhMG7ApNrf9EuoDOJf3Tz9-HXFcsqgq5Pq2H9eLrqPuuhrC5g-WYeLAH4-QKpRuU6jE3suHR0GY0XB7wXVu6wYC-SzHdU8GT4kf8uVFncp_hO0bUmyGwVABbO2WZbK56MnOO3iTTpoURt6yUSQJVPqPrkkkg==",
+    "shortDescription": "FedEx Express is a global express transportation and air cargo carrier operating its Middle East, Indian Subcontinent, and Africa regional hub in Dubai.",
+    "whatTheyDo": "FedEx Express operates express parcel delivery, time-definite air freight, customs clearance, and cold-chain logistics across the UAE and broader MEISA region. Its regional hub at Dubai South Logistics District adjacent to Al Maktoum International Airport (DWC) features automated sorting systems, cold-storage suites, and dangerous goods processing. Its UAE teams manage air operations, aircraft on ground (AOG) rapid-response logistics, sales, and supply chain solutions.",
+    "descriptionSource": "https://mediaoffice.ae/en/news/2024/02/14/14-02-ahmed-bin-saeed-inaugurates-fedexs-new-regional-hub-at-dubai-south",
+    "industry": "Logistics, Courier & Air Freight",
+    "commonCareers": [
+      "AOG Desk Front Officer",
+      "National Sales Account Executive"
+    ],
+    "careersEvidence": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHRbgBSq5-nB3s1XUcICxhyv6sJgZyZsP4JQpf814RhMG7ApNrf9EuoDOJf3Tz9-HXFcsqgq5Pq2H9eLrqPuuhrC5g-WYeLAH4-QKpRuU6jE3suHR0GY0XB7wXVu6wYC-SzHdU8GT4kf8uVFncp_hO0bUmyGwVABbO2WZbK56MnOO3iTTpoURt6yUSQJVPqPrkkkg==",
+    "technicalAreas": [
+      "Automated Parcel Sorting",
+      "Cold-Chain Logistics",
+      "Aviation Logistics (AOG)",
+      "Express Air Freight Operations"
+    ],
+    "address": "FedEx Express MEISA Regional Hub, Logistics District, Dubai South, adjacent to Al Maktoum International Airport, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://mediaoffice.ae/en/news/2024/02/14/14-02-ahmed-bin-saeed-inaugurates-fedexs-new-regional-hub-at-dubai-south",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/9/9d/FedEx_Express.svg",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Ahmed bin Saeed inaugurates FedEx's new regional hub at Dubai South - Dubai Media Office",
+        "url": "https://mediaoffice.ae/en/news/2024/02/14/14-02-ahmed-bin-saeed-inaugurates-fedexs-new-regional-hub-at-dubai-south"
+      },
+      {
+        "title": "FedEx Express - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/FedEx_Express"
+      }
+    ],
+    "notes": "Input listed area as Airport areas; FedEx Express opened its AED 1.3 billion regional hub at Dubai South adjacent to Al Maktoum International Airport (DWC)."
+  }
+]

@@ -401,6 +401,26 @@ html.dark .district-tip-badge:hover {
   border-bottom-color: var(--bg-surface) !important;
 }
 
+/*
+  Hovering a district badge focuses that region: its own pins stay at full
+  strength while everything else recedes, so you can read off who is actually
+  in the district.
+*/
+.leaflet-container.is-district-focused .custom-map-pin,
+.leaflet-container.is-district-focused .district-tip-badge {
+  transition: opacity 140ms ease-out, filter 140ms ease-out;
+}
+
+.custom-map-pin .is-dimmed,
+.district-tip-badge.is-dimmed {
+  opacity: 0.22;
+  filter: saturate(0.4);
+}
+
+.district-tip-badge.is-dimmed {
+  opacity: 0.35;
+}
+
 .custom-map-pin {
   transition: transform 0.15s ease-out;
 }

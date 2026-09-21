@@ -1,0 +1,438 @@
+[
+  {
+    "id": "firex",
+    "website": "https://www.firexuae.com",
+    "websiteSource": "https://www.naukrigulf.com",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "FIREX (Emirates Fire Fighting Equipment Factory LLC) is a UAE manufacturer and supplier of firefighting and safety equipment.",
+    "whatTheyDo": "FIREX manufactures and distributes firefighting equipment including fire extinguishers, fire pumps, suppression systems, alarms, and emergency vehicles. It provides fire safety installation and maintenance services for commercial, industrial, and residential projects.",
+    "descriptionSource": "https://www.naukrigulf.com",
+    "industry": "Manufacturing & Fire Safety",
+    "commonCareers": [
+      "Estimation Engineer",
+      "Senior Projects Engineer",
+      "Fire Protection Systems Maintenance Engineer",
+      "Fire Alarm Technician"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com",
+    "technicalAreas": [
+      "Fire Protection Systems",
+      "Fire Alarm Engineering",
+      "Mechanical Systems Maintenance"
+    ],
+    "address": "Industrial Area 13, Sharjah, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Naukrigulf Company Profile",
+        "url": "https://www.naukrigulf.com"
+      },
+      {
+        "title": "2GIS Business Directory",
+        "url": "https://2gis.ae"
+      }
+    ],
+    "notes": "Input specified Al Quoz, Dubai, but FIREX (Emirates Fire Fighting Equipment Factory LLC) has its primary headquarters and manufacturing in Industrial Area 13, Sharjah, with a Dubai branch office in Umm Ramool; no facility was found in Al Quoz."
+  },
+  {
+    "id": "first-abu-dhabi-bank-fab",
+    "website": "https://www.bankfab.com",
+    "websiteSource": "https://www.bloomberg.com",
+    "careersUrl": "https://www.bankfab.com/en-ae/about-fab/careers",
+    "careersSource": "https://www.bankfab.com/en-ae/about-fab/careers",
+    "shortDescription": "First Abu Dhabi Bank (FAB) is the largest bank in the UAE, formed by the merger of First Gulf Bank and National Bank of Abu Dhabi.",
+    "whatTheyDo": "FAB provides corporate, commercial, retail, and investment banking services across the UAE and globally. Its operations encompass consumer banking, corporate finance, global transaction banking, and digital banking platforms.",
+    "descriptionSource": "https://www.bloomberg.com",
+    "industry": "Banking & Financial Services",
+    "commonCareers": [
+      "Relationship Manager",
+      "Financial Analyst",
+      "Operations Manager",
+      "Investment Operations Manager"
+    ],
+    "careersEvidence": "https://www.bankfab.com/en-ae/about-fab/careers",
+    "technicalAreas": [
+      "Digital Banking",
+      "Risk Management",
+      "Corporate Finance",
+      "IT & Cybersecurity"
+    ],
+    "address": "FAB Building, Khalifa Business Park, Al Qurm District, Abu Dhabi, UAE",
+    "latitude": 24.42851,
+    "longitude": 54.46520,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.bankfab.com/en-ae/about-fab/careers",
+    "logo": "https://commons.wikimedia.org/wiki/File:First_Abu_Dhabi_Bank_Logo.svg",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Bloomberg Company Profile",
+        "url": "https://www.bloomberg.com"
+      },
+      {
+        "title": "Maptons Geolocation Directory",
+        "url": "https://maptons.com"
+      }
+    ],
+    "notes": null
+  },
+  {
+    "id": "first-security-group",
+    "website": "http://www.firstsg.com",
+    "websiteSource": "https://www.khda.gov.ae",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "First Security Group is a Dubai-based security services, guarding, and facilities management provider.",
+    "whatTheyDo": "First Security Group provides physical security guarding, surveillance operations, SIRA-certified security training, risk consultancy, and facility management services. Established by retired Dubai Police officials, it supports government, hospitality, and corporate institutions.",
+    "descriptionSource": "https://www.khda.gov.ae",
+    "industry": "Security & Facilities Services",
+    "commonCareers": [
+      "Security Guard",
+      "Security Officer",
+      "Security Supervisor",
+      "CCTV Operator"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com",
+    "technicalAreas": [
+      "Surveillance & CCTV Operations",
+      "Security Training & Certification",
+      "Risk Management"
+    ],
+    "address": "First Security Group Building, Dubai Academic City, Al Rowaiyah Second, Dubai, UAE",
+    "latitude": 25.10746,
+    "longitude": 55.40981,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "KHDA Dubai Directory",
+        "url": "https://www.khda.gov.ae"
+      },
+      {
+        "title": "2GIS UAE Business Directory",
+        "url": "https://2gis.ae"
+      }
+    ],
+    "notes": "Input listed Downtown Dubai, but the company's verified headquarters is located in Dubai International Academic City (Al Rowaiyah Second)."
+  },
+  {
+    "id": "five-hotels-and-resorts",
+    "website": "https://fivehotelsandresorts.com",
+    "websiteSource": "https://www.five-holdings.com",
+    "careersUrl": "https://careers.fivehotelsandresorts.com",
+    "careersSource": "https://five-holdings.com",
+    "shortDescription": "FIVE Hotels and Resorts is a Dubai-based luxury lifestyle and hospitality group.",
+    "whatTheyDo": "FIVE Hotels and Resorts develops and manages entertainment and lifestyle hospitality venues including FIVE Palm Jumeirah, FIVE Jumeirah Village, and FIVE LUXE JBR. Its operations span luxury guest accommodations, fine dining restaurants, nightlife venues, and beach clubs.",
+    "descriptionSource": "https://www.forbesmiddleeast.com",
+    "industry": "Hospitality & Real Estate",
+    "commonCareers": [
+      "VIP Waiter/Waitress",
+      "Duty Manager",
+      "Public Relations Manager",
+      "Group Reservations Agent",
+      "HVAC Technician"
+    ],
+    "careersEvidence": "https://careers.fivehotelsandresorts.com",
+    "technicalAreas": [
+      "Hotel Operations",
+      "Hospitality Management",
+      "Guest Services"
+    ],
+    "address": "FIVE Palm Jumeirah, No. 1 Palm Jumeirah, Dubai, UAE",
+    "latitude": 25.10346,
+    "longitude": 55.14787,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Forbes Middle East Coverage",
+        "url": "https://www.forbesmiddleeast.com"
+      },
+      {
+        "title": "Maptons Geolocation Directory",
+        "url": "https://maptons.com"
+      }
+    ],
+    "notes": "Input listed Business Bay, but the corporate headquarters and flagship property are located at FIVE Palm Jumeirah."
+  },
+  {
+    "id": "flc-marketing-group",
+    "website": "https://flc-me.com",
+    "websiteSource": "https://campaignme.com",
+    "careersUrl": "https://flc-me.com/careers",
+    "careersSource": "https://campaignme.com",
+    "shortDescription": "FLC Marketing Group is an integrated shopper marketing and experiential brand activation agency in Dubai.",
+    "whatTheyDo": "FLC Marketing Group delivers consumer engagement, experiential brand activations, retail shopper marketing, event staging, influencer campaigns, and digital content production. It serves regional and multinational consumer goods and technology brands across the GCC.",
+    "descriptionSource": "https://campaignme.com",
+    "industry": "Marketing & Advertising",
+    "commonCareers": [
+      "Senior Account Manager",
+      "Account Executive",
+      "Creative Designer",
+      "Events Manager",
+      "Social Media Specialist"
+    ],
+    "careersEvidence": "https://flc-me.com/careers",
+    "technicalAreas": [
+      "Shopper Marketing",
+      "Brand Activation",
+      "Digital & Performance Marketing",
+      "Content Production"
+    ],
+    "address": "Grosvenor Business Tower, Barsha Heights, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://campaignme.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Campaign Middle East Agency Directory",
+        "url": "https://campaignme.com"
+      }
+    ],
+    "notes": "Input listed JLT, but the company's verified primary office is located in Grosvenor Business Tower, Barsha Heights (TECOM)."
+  },
+  {
+    "id": "flydubai",
+    "website": "https://www.flydubai.com",
+    "websiteSource": "https://www.bloomberg.com",
+    "careersUrl": "https://careers.flydubai.com",
+    "careersSource": "https://www.flydubai.com",
+    "shortDescription": "flydubai is the government-owned low-cost carrier of Dubai, operating scheduled flights across the Middle East, Africa, Asia, and Europe.",
+    "whatTheyDo": "flydubai operates scheduled commercial air transport services from Dubai International Airport utilizing a fleet of Boeing 737 aircraft. Its technical divisions manage flight operations, aircraft maintenance engineering, flight dispatch, crew training, and route planning across more than 100 destinations.",
+    "descriptionSource": "https://www.bloomberg.com",
+    "industry": "Aviation & Airlines",
+    "commonCareers": [
+      "First Officer",
+      "Cabin Crew",
+      "Aircraft Maintenance Engineer",
+      "AMC Production Planning Engineer",
+      "Flight Dispatcher"
+    ],
+    "careersEvidence": "https://careers.flydubai.com",
+    "technicalAreas": [
+      "Aviation Engineering",
+      "Flight Operations",
+      "Fleet Maintenance",
+      "Flight Dispatch"
+    ],
+    "address": "flydubai Headquarters, Dubai International Airport, Terminal 2, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.flydubai.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://careers.flydubai.com",
+    "logo": "https://commons.wikimedia.org/wiki/File:Fly_Dubai_logo_2010_03.svg",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Bloomberg Profile",
+        "url": "https://www.bloomberg.com"
+      },
+      {
+        "title": "flydubai Corporate Information",
+        "url": "https://www.flydubai.com"
+      }
+    ],
+    "notes": "flydubai operates corporate headquarters at Terminal 2 of Dubai International Airport, along with a flight training campus at Al Warsan 3."
+  },
+  {
+    "id": "food-quest",
+    "website": "https://www.foodquest.ae",
+    "websiteSource": "https://www.caterermiddleeast.com",
+    "careersUrl": "https://foodquest.ae/join-us",
+    "careersSource": "https://www.foodquest.ae",
+    "shortDescription": "Food Quest Restaurants Management LLC is an F&B restaurant operator and franchise investor based in Dubai.",
+    "whatTheyDo": "Food Quest develops, operates, and franchises quick-service, casual, and premium dining concepts in the UAE and wider GCC. Its restaurant portfolio includes ALBAIK in the UAE, Denny's, and upscale dining brands managed under its Leisure Quest division.",
+    "descriptionSource": "https://www.caterermiddleeast.com",
+    "industry": "Food & Beverage / Hospitality",
+    "commonCareers": [
+      "Restaurant Manager",
+      "Head Chef",
+      "Cashier",
+      "Kitchen Helper",
+      "Waiter/Waitress"
+    ],
+    "careersEvidence": "https://foodquest.ae/join-us",
+    "technicalAreas": [
+      "F&B Operations",
+      "Franchise Management",
+      "Culinary Operations"
+    ],
+    "address": "Office 302-B, 3rd Floor, Sama Tower, Sheikh Zayed Road, Dubai, UAE",
+    "latitude": 25.22862,
+    "longitude": 55.28556,
+    "locationSource": "https://en.wikipedia.org/wiki/Sama_Tower",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Caterer Middle East Coverage",
+        "url": "https://www.caterermiddleeast.com"
+      },
+      {
+        "title": "Wikipedia Sama Tower Entry",
+        "url": "https://en.wikipedia.org/wiki/Sama_Tower"
+      }
+    ],
+    "notes": "Input listed Downtown Dubai; the head office is located in Sama Tower on Sheikh Zayed Road (Trade Centre area)."
+  },
+  {
+    "id": "ford-middle-east",
+    "website": "https://www.me.ford.com",
+    "websiteSource": "https://www.bloomberg.com",
+    "careersUrl": "https://careers.ford.com",
+    "careersSource": "https://careers.ford.com",
+    "shortDescription": "Ford Middle East is the regional subsidiary of Ford Motor Company directing vehicle distribution and operations in the Middle East.",
+    "whatTheyDo": "Ford Middle East oversees regional marketing, vehicle distribution, customer support, parts supply, and dealership operations for Ford and Lincoln brands. It runs regional sales and technical service support across the Middle East.",
+    "descriptionSource": "https://www.bloomberg.com",
+    "industry": "Automotive",
+    "commonCareers": [
+      "PD Lead Technologist",
+      "Sales Advisor",
+      "Service Technician"
+    ],
+    "careersEvidence": "https://careers.ford.com",
+    "technicalAreas": [
+      "Automotive Engineering",
+      "Product Development",
+      "Vehicle Diagnostics"
+    ],
+    "address": "Iris Bay Tower, Al Mustaqbal Street, Business Bay, Dubai, UAE",
+    "latitude": 25.18727,
+    "longitude": 55.26021,
+    "locationSource": "https://en.wikipedia.org/wiki/Iris_Bay_(Dubai)",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": "https://commons.wikimedia.org/wiki/File:Ford_logo.svg",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Bloomberg Profile",
+        "url": "https://www.bloomberg.com"
+      },
+      {
+        "title": "Wikipedia Iris Bay Entry",
+        "url": "https://en.wikipedia.org/wiki/Iris_Bay_(Dubai)"
+      },
+      {
+        "title": "2GIS Dubai Directory",
+        "url": "https://2gis.ae"
+      }
+    ],
+    "notes": "Sales office located in Iris Bay Tower, Business Bay; additional corporate facilities situated on Sheikh Zayed Road and training center in JAFZA."
+  },
+  {
+    "id": "g4s-international-logistics",
+    "website": "https://www.g4s.com/en-ae",
+    "websiteSource": "https://www.g4s.com/en-ae",
+    "careersUrl": "https://www.g4s.com/en-ae/careers",
+    "careersSource": "https://www.g4s.com/en-ae",
+    "shortDescription": "G4S International Logistics was the secure transport and commodity logistics division of G4S operating in the UAE.",
+    "whatTheyDo": "G4S International Logistics provided secure cross-border transportation, storage, and vaulting services for high-value commodities such as precious metals, diamonds, and artwork. In the UAE, G4S continues to operate security management, cash and courier solutions, and workforce support.",
+    "descriptionSource": "https://www.sec.gov",
+    "industry": "Security & Logistics",
+    "commonCareers": [
+      "Security Guard",
+      "Driver Light Vehicle",
+      "Operations Coordinator"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com",
+    "technicalAreas": [
+      "Secure Logistics",
+      "Valuables Transport",
+      "Supply Chain Security"
+    ],
+    "address": "Almas Tower, Jumeirah Lakes Towers (JLT), Dubai, UAE",
+    "latitude": 25.06889,
+    "longitude": 55.14111,
+    "locationSource": "https://en.wikipedia.org/wiki/Almas_Tower",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "SEC Regulatory Filing",
+        "url": "https://www.sec.gov"
+      },
+      {
+        "title": "Wikipedia Almas Tower Entry",
+        "url": "https://en.wikipedia.org/wiki/Almas_Tower"
+      }
+    ],
+    "notes": "G4S International Logistics (G4Si) historically operated high-value transport and vault pickup services at Almas Tower, JLT and DAFZA. The global G4Si business was acquired by Brink's in 2020, while G4S plc was acquired by Allied Universal in 2021."
+  },
+  {
+    "id": "galadari-brothers-group",
+    "website": "https://galadaribrothers.com",
+    "websiteSource": "https://www.forbesmiddleeast.com",
+    "careersUrl": "https://galadaribrothers.com/careers",
+    "careersSource": "https://galadaribrothers.com",
+    "shortDescription": "Galadari Brothers Group is a multi-industry conglomerate operating across automotive, media, engineering, and F&B in the UAE.",
+    "whatTheyDo": "Galadari Brothers Group operates business units spanning automotive retail (Mazda distributor), news publishing (Khaleej Times), ice cream and restaurant franchising (Baskin-Robbins), heavy construction equipment, and industrial engineering services across the UAE and international markets.",
+    "descriptionSource": "https://www.forbesmiddleeast.com",
+    "industry": "Conglomerate / Multi-Industry",
+    "commonCareers": [
+      "Sales Executive",
+      "Branch Accountant",
+      "Sales Coordinator",
+      "Service Engineer"
+    ],
+    "careersEvidence": "https://galadaribrothers.com/careers",
+    "technicalAreas": [
+      "Automotive Distribution",
+      "Heavy Equipment Engineering",
+      "Media Publishing",
+      "F&B Franchising"
+    ],
+    "address": "Khaleej Times Building, 14 Latifa Bint Hamdan Street, Al Quoz First Industrial Area, PO Box 138, Dubai, UAE",
+    "latitude": 25.15310,
+    "longitude": 55.23755,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://galadaribrothers.com/careers",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Forbes Middle East Profile",
+        "url": "https://www.forbesmiddleeast.com"
+      },
+      {
+        "title": "Maptons Geolocation Directory",
+        "url": "https://maptons.com"
+      }
+    ],
+    "notes": "Input listed Dubai Internet City, where the group owns the Galadari Building commercial property; the corporate headquarters is situated in the Khaleej Times Building in Al Quoz First Industrial Area."
+  }
+]

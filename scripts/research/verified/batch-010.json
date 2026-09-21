@@ -1,0 +1,407 @@
+[
+  {
+    "id": "dna-recruitment",
+    "website": "https://dna-uae.com",
+    "websiteSource": "https://meamarkets.digital",
+    "careersUrl": "https://dna-uae.com/job-search/",
+    "careersSource": "https://dna-uae.com",
+    "shortDescription": "DNA Recruitment is a Dubai-based recruitment consultancy specializing in the life sciences and healthcare sectors.",
+    "whatTheyDo": "DNA Recruitment connects healthcare and life sciences organizations across the Middle East, Africa, and Europe with specialized talent. The firm focuses on talent acquisition for pharmaceuticals, medical devices, diagnostics, and biotechnology. Their services include contingent and executive search, recruitment process outsourcing (RPO), and market entry consulting.",
+    "descriptionSource": "https://meamarkets.digital",
+    "industry": "Recruitment & Staffing",
+    "commonCareers": [
+      "Sales Specialist",
+      "Technical Service Professional Trainer",
+      "Customer Relations Manager",
+      "District Sales Manager",
+      "Medical Representative"
+    ],
+    "careersEvidence": "https://dna-uae.com/job-search/",
+    "technicalAreas": [
+      "Life Sciences Recruitment",
+      "Medical Devices",
+      "Pharmaceuticals",
+      "Executive Search"
+    ],
+    "address": "Al Saaha Offices B, Souk Al Bahar, Downtown Dubai, P.O. Box 487177, Dubai, UAE",
+    "latitude": 25.19314,
+    "longitude": 55.27675,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "MEA Markets UAE Business Awards 2024",
+        "url": "https://meamarkets.digital"
+      },
+      {
+        "title": "Bayt Employer Profile - DNA Recruitment",
+        "url": "https://www.bayt.com"
+      }
+    ],
+    "notes": "Input listed area as JLT; verified physical office is at Al Saaha Offices B, Souk Al Bahar in Downtown Dubai. Distinct from London-based creative agency DNA Recruit."
+  },
+  {
+    "id": "doodle-worldwide",
+    "website": "https://doodleworldwide.com",
+    "websiteSource": "https://agencyspotter.com",
+    "careersUrl": null,
+    "shortDescription": "Doodle Worldwide DMCC is a digital marketing, brand partnership, and customer loyalty agency based in Dubai.",
+    "whatTheyDo": "Doodle Worldwide provides end-to-end digital strategy, performance marketing, web and mobile app development, and loyalty program management. It acts as an official channel partner for Smiles, a major UAE customer engagement platform, and manages digital marketing for regional and international consumer brands.",
+    "descriptionSource": "https://agencyspotter.com",
+    "industry": "Marketing & Advertising",
+    "commonCareers": [
+      "Marketing Coordinator Intern",
+      "Senior Digital Marketing Executive",
+      "Digital Marketing Executive"
+    ],
+    "careersEvidence": "https://www.indeed.com",
+    "technicalAreas": [
+      "Digital Marketing",
+      "Customer Loyalty Platforms",
+      "Web Development",
+      "Mobile Marketing"
+    ],
+    "address": "Office 1609, Tiffany Tower, Cluster W, Jumeirah Lakes Towers (JLT), Dubai, UAE",
+    "latitude": 25.07557,
+    "longitude": 55.14536,
+    "locationSource": "https://en.wikipedia.org/wiki/Tiffany_Tower",
+    "internshipsKnown": true,
+    "graduateRolesKnown": null,
+    "programmesSource": "https://virtualinternships.com",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Agency Spotter Directory - Doodle Worldwide",
+        "url": "https://agencyspotter.com"
+      },
+      {
+        "title": "Virtual Internships Host Profile - Doodle Worldwide DMCC",
+        "url": "https://virtualinternships.com"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City; registered office is located in Tiffany Tower, Cluster W, JLT."
+  },
+  {
+    "id": "dozzer-middle-east",
+    "website": "https://dozzer.me",
+    "websiteSource": "https://www.youtube.com",
+    "careersUrl": null,
+    "shortDescription": "Dozzer Middle East (DOZZER FZ-LLC) operates an online marketplace for heavy equipment, machinery, and spare parts in the Middle East.",
+    "whatTheyDo": "Dozzer Middle East provides a centralized digital platform connecting equipment owners, contractors, and suppliers to buy, sell, and rent heavy machinery. In addition to online machinery and spare parts listings, the company offers technical inspection services and logistics support for equipment transport across the UAE.",
+    "descriptionSource": "https://dozzer.me",
+    "industry": "E-Commerce & Heavy Machinery",
+    "commonCareers": [],
+    "technicalAreas": [
+      "B2B Marketplace",
+      "Heavy Machinery Procurement",
+      "Equipment Maintenance",
+      "Logistics"
+    ],
+    "address": "Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "The Big 5 Global Exhibition Coverage",
+        "url": "https://www.youtube.com"
+      }
+    ],
+    "notes": "Input listed area as Downtown; registered as DOZZER FZ-LLC in Dubai without a publicly verified physical street office address."
+  },
+  {
+    "id": "dubai-cable",
+    "website": "https://ducab.com",
+    "websiteSource": "https://www.dfsa.ae",
+    "careersUrl": "https://ducab.com/careers",
+    "careersSource": "https://ducab.com",
+    "shortDescription": "Dubai Cable Company (Ducab) is a leading UAE-based manufacturer of energy cables and advanced metal solutions.",
+    "whatTheyDo": "Ducab manufactures high-, medium-, and low-voltage power cables, utility-grade cables, building wires, and overhead conductors for the energy, industrial, and infrastructure sectors globally. It operates specialized manufacturing divisions including Ducab HV and Ducab Metals, supplying major utilities and contractors across the Middle East.",
+    "descriptionSource": "https://www.wam.ae",
+    "industry": "Manufacturing & Industrial",
+    "commonCareers": [
+      "Manufacturing Engineer",
+      "Order Execution Officer"
+    ],
+    "careersEvidence": "https://ducab.com/careers",
+    "technicalAreas": [
+      "High Voltage Cable Manufacturing",
+      "Electrical Engineering",
+      "Metallurgy",
+      "Energy Infrastructure"
+    ],
+    "address": "Street 531, Jebel Ali Industrial Area 1, P.O. Box 11529, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.ku.ac.ae",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "WAM News: Ducab Energy Infrastructure Developments",
+        "url": "https://www.wam.ae"
+      },
+      {
+        "title": "Khalifa University Collaboration Announcement",
+        "url": "https://www.ku.ac.ae"
+      },
+      {
+        "title": "GDN Online National Development Program Coverage",
+        "url": "https://www.gdnonline.com"
+      }
+    ],
+    "notes": "Input listed name as Dubai Cable and area as Al Quoz; officially Dubai Cable Company (Private) Limited (Ducab), headquartered with manufacturing in Jebel Ali Industrial Area 1, while Al Quoz houses independent distributors."
+  },
+  {
+    "id": "dubai-developments",
+    "website": "https://www.dubaidevelopments.com",
+    "websiteSource": "https://gludo.org",
+    "careersUrl": null,
+    "shortDescription": "Dubai Developments is a property development and asset management firm established in 1994 in Dubai.",
+    "whatTheyDo": "Formerly known as Dubai International Real Estate (DIRE), Dubai Developments develops and manages residential, commercial, and hospitality real estate assets. Its portfolio includes the Jewel of the Creek master development in Port Saeed, Al Hudaiba Awards Buildings, and Blue Tower on Sheikh Zayed Road.",
+    "descriptionSource": "https://gludo.org",
+    "industry": "Real Estate & Property Development",
+    "commonCareers": [
+      "Property Manager",
+      "Facility Manager",
+      "Leasing Executive"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com",
+    "technicalAreas": [
+      "Real Estate Development",
+      "Property Asset Management",
+      "Facilities Management"
+    ],
+    "address": "Al Hudaiba Awards Buildings, Block A, Jumeirah Road, P.O. Box 29000, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gludo Corporate Directory - Dubai Developments Profile",
+        "url": "https://gludo.org"
+      },
+      {
+        "title": "Naukrigulf Employer Profile - Dubai Developments",
+        "url": "https://www.naukrigulf.com"
+      }
+    ],
+    "notes": "Input listed area as JLT; corporate headquarters are located at Al Hudaiba Awards Buildings, Block A, Jumeirah / Al Mina. Formerly named Dubai International Real Estate (DIRE)."
+  },
+  {
+    "id": "dubai-golf",
+    "website": "https://www.dubaigolf.com",
+    "websiteSource": "https://hotelier-indonesia.com",
+    "careersUrl": "https://www.dubaigolf.com/careers",
+    "careersSource": "https://www.dubaigolf.com",
+    "shortDescription": "Dubai Golf is a leading hospitality and leisure management company operating premier championship golf venues in the UAE.",
+    "whatTheyDo": "Dubai Golf manages major leisure destinations including Emirates Golf Club, Dubai Creek Golf & Yacht Club, Jumeirah Golf Estates, and Topgolf Dubai. It provides golf operations, professional tournament hosting, fine dining, recreation, and digital consumer services through its Viya platform.",
+    "descriptionSource": "https://hotelier-indonesia.com",
+    "industry": "Hospitality & Leisure",
+    "commonCareers": [
+      "F&B Captain",
+      "Golf Operations Attendant",
+      "Golf Operations Supervisor"
+    ],
+    "careersEvidence": "https://jobeka.com",
+    "technicalAreas": [
+      "Hospitality Management",
+      "Sports Facility Operations",
+      "Event Management"
+    ],
+    "address": "Emirates Golf Club, Sheikh Zayed Road, P.O. Box 24040, Dubai, UAE",
+    "latitude": 25.08541,
+    "longitude": 55.15872,
+    "locationSource": "https://lecoingolf.fr",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Hotelier Indonesia Feature on Dubai Golf & Viya",
+        "url": "https://hotelier-indonesia.com"
+      },
+      {
+        "title": "Jobeka Hospitality Job Listings",
+        "url": "https://jobeka.com"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City; headquarters (Viya Office) are located on the grounds of Emirates Golf Club immediately adjacent to DIC."
+  },
+  {
+    "id": "dubai-holding",
+    "website": "https://dubaiholding.com",
+    "websiteSource": "https://www.swfinstitute.org",
+    "careersUrl": "https://dubaiholding.com/en/careers/",
+    "careersSource": "https://dubaiholding.com",
+    "shortDescription": "Dubai Holding is a sovereign-backed global investment conglomerate managing strategic economic sectors in Dubai.",
+    "whatTheyDo": "Dubai Holding operates across real estate, hospitality, tourism, media, asset management, and retail through subsidiaries including Jumeirah Group, Dubai Holding Asset Management, and Dubai Holding Entertainment. It develops and operates master communities, international luxury hospitality brands, business districts, and tourist destinations across the UAE.",
+    "descriptionSource": "https://www.wam.ae",
+    "industry": "Investment & Conglomerate",
+    "commonCareers": [
+      "Senior Guest Services Executive",
+      "Finance Executive",
+      "Project Development Manager"
+    ],
+    "careersEvidence": "https://dhcareers.avature.net",
+    "technicalAreas": [
+      "Asset Management",
+      "Real Estate Development",
+      "Hospitality Operations",
+      "Strategic Investment"
+    ],
+    "address": "Level 49, Emirates Towers, Sheikh Zayed Road, P.O. Box 66000, Dubai, UAE",
+    "latitude": 25.21722,
+    "longitude": 55.28306,
+    "locationSource": "https://en.wikipedia.org/wiki/Emirates_Towers",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.wam.ae",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "WAM News: Dubai Holding Emiratisation & Graduate Programmes",
+        "url": "https://www.wam.ae"
+      },
+      {
+        "title": "Sovereign Wealth Fund Institute Profile - Dubai Holding",
+        "url": "https://www.swfinstitute.org"
+      }
+    ],
+    "notes": "Input listed area as Downtown; corporate headquarters are located at Emirates Towers on Sheikh Zayed Road."
+  },
+  {
+    "id": "dubai-national-insurance",
+    "website": "https://www.dni.ae",
+    "websiteSource": "https://www.ambest.com",
+    "careersUrl": "https://www.dni.ae/careers",
+    "careersSource": "https://www.dni.ae",
+    "shortDescription": "Dubai National Insurance (DNI) is a publicly listed multiline insurance company operating in the UAE.",
+    "whatTheyDo": "Dubai National Insurance provides comprehensive personal and commercial insurance solutions, including motor, medical, life, property, and engineering coverage. Its underwriting, actuarial, and claims management teams serve individual policyholders, corporate clients, and public institutions across the UAE.",
+    "descriptionSource": "https://www.ambest.com",
+    "industry": "Insurance & Financial Services",
+    "commonCareers": [
+      "Motor Underwriter",
+      "Claims Officer",
+      "Sales Coordinator"
+    ],
+    "careersEvidence": "https://www.bayt.com",
+    "technicalAreas": [
+      "Insurance Underwriting",
+      "Claims Processing",
+      "Actuarial Analysis",
+      "Risk Assessment"
+    ],
+    "address": "Dubai National Insurance Building, 150 Sheikh Zayed Road, Al Wasl, P.O. Box 1806, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "AM Best Credit Rating Assessment - Dubai National Insurance",
+        "url": "https://www.ambest.com"
+      },
+      {
+        "title": "Bayt Employer Overview - Dubai National Insurance",
+        "url": "https://www.bayt.com"
+      }
+    ],
+    "notes": "Input listed area as Business Bay; head office is at the Dubai National Insurance Building, 150 Sheikh Zayed Road, Al Wasl (behind Coca-Cola Arena)."
+  },
+  {
+    "id": "dulsco",
+    "website": "https://www.dulsco.com",
+    "websiteSource": "https://atninfo.com",
+    "careersUrl": "https://www.dulsco.com/careers",
+    "careersSource": "https://www.dulsco.com",
+    "shortDescription": "Dulsco Group is a leading UAE provider of integrated environmental solutions, waste management, facilities management, and staffing services.",
+    "whatTheyDo": "Dulsco provides circular economy solutions, industrial and municipal waste collection and recycling, facilities management, and specialized human resources outsourcing. It operates advanced material recovery facilities in Dubai and serves government, aviation, logistics, and industrial sectors across the UAE.",
+    "descriptionSource": "https://atninfo.com",
+    "industry": "Environmental & Facilities Services",
+    "commonCareers": [
+      "Seaport Supervisor",
+      "Bid Coordinator",
+      "Safety Supervisor-Aviation",
+      "Welfare Officer"
+    ],
+    "careersEvidence": "https://www.dulsco.com/careers",
+    "technicalAreas": [
+      "Waste Management",
+      "Recycling & Material Recovery",
+      "Facilities Management",
+      "Workforce Outsourcing"
+    ],
+    "address": "78 26th Street, Al Quoz Industrial Area 4, P.O. Box 6238, Dubai, UAE",
+    "latitude": 25.11098,
+    "longitude": 55.23406,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.dulsco.com/careers",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "ATN Info Business Directory - Dulsco Profile",
+        "url": "https://atninfo.com"
+      },
+      {
+        "title": "2GIS UAE - Dulsco Head Office",
+        "url": "https://2gis.ae"
+      }
+    ],
+    "notes": "Input listed area as JLT; corporate headquarters are located at 78 26th Street, Al Quoz Industrial Area 4."
+  },
+  {
+    "id": "efg-hermes",
+    "website": "https://efgholding.com",
+    "websiteSource": "https://www.dfsa.ae",
+    "careersUrl": "https://careers.efghldg.com",
+    "careersSource": "https://efghldg.com",
+    "shortDescription": "EFG Hermes is a premier financial services corporation and investment bank operating across frontier and emerging markets.",
+    "whatTheyDo": "EFG Hermes provides investment banking advisory, equity and debt capital markets underwriting, securities brokerage, asset management, private equity, and equity research. Its DIFC-based entity executes cross-border advisory, corporate finance, and institutional brokerage services across the Middle East.",
+    "descriptionSource": "https://www.dfsa.ae",
+    "industry": "Financial Services & Investment Banking",
+    "commonCareers": [
+      "Investment Banking Analyst",
+      "Investment Banking Associate"
+    ],
+    "careersEvidence": "https://careers.efghldg.com",
+    "technicalAreas": [
+      "Investment Banking",
+      "Financial Modeling",
+      "Securities Brokerage",
+      "Equity Research"
+    ],
+    "address": "Office 301, The Exchange Building, Gate Village 11, Dubai International Financial Centre (DIFC), P.O. Box 30727, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://careers.efghldg.com",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "DFSA Public Register - EFG Hermes UAE Limited",
+        "url": "https://www.dfsa.ae"
+      },
+      {
+        "title": "Law Society Directory Listing",
+        "url": "https://www.lawsociety.org.uk"
+      }
+    ],
+    "notes": "Operates in DIFC as EFG Hermes UAE Limited (under parent EFG Holding). Distinct from the unrelated French luxury brand Hermès."
+  }
+]

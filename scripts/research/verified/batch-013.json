@@ -1,0 +1,384 @@
+[
+  {
+    "id": "gargash-group",
+    "website": "https://www.gargash.ae",
+    "websiteSource": "https://mid-east.info",
+    "careersUrl": "https://gargash-group.com/people-and-growth",
+    "careersSource": "https://www.gulftalent.com",
+    "shortDescription": "Gargash Group is a diversified UAE conglomerate operating across automotive distribution, real estate, financial services, and hospitality.",
+    "whatTheyDo": "Gargash Group serves as the authorized UAE distributor for automotive brands including Mercedes-Benz, Alfa Romeo, and GAC Motor, alongside operating Sixt rent-a-car and leasing. Its operations also encompass Gargash Real Estate development and asset management through Daman Investments. In the UAE, the group runs centralized corporate functions and automotive technical service teams.",
+    "descriptionSource": "https://www.thenationalnews.com",
+    "industry": "Automotive & Conglomerates",
+    "commonCareers": [],
+    "technicalAreas": [
+      "Automotive Technology",
+      "Electromechanical Maintenance"
+    ],
+    "address": "Sheikh Zayed Road, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.gargash.ae",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://gargash-group.com/people-and-growth",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "The National News - Gargash Group Coverage",
+        "url": "https://www.thenationalnews.com"
+      },
+      {
+        "title": "GulfTalent - Gargash Group Company Profile",
+        "url": "https://www.gulftalent.com"
+      }
+    ],
+    "notes": "Gargash Group operates multiple corporate offices and showrooms along Sheikh Zayed Road and across Dubai; no single specific head office street number is published."
+  },
+  {
+    "id": "gatex-innovations",
+    "website": "https://gatex.us.com",
+    "websiteSource": "https://admobility.gov.ae",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "GateX (GateX IOT Global Positioning Systems Trading LLC) develops IoT sensors, telematics, and automated fuel management systems in Dubai.",
+    "whatTheyDo": "GateX designs and supplies IoT monitoring hardware and software solutions including real-time fuel management systems, RFID vehicle identification, and GPS fleet tracking. In the UAE, it serves commercial fleets, fuel distributors, and construction enterprises. The engineering team in Dubai Silicon Oasis handles technical integration and support.",
+    "descriptionSource": "https://admobility.gov.ae",
+    "industry": "Information Technology & IoT",
+    "commonCareers": [
+      "Electronics Engineer",
+      "Mechatronics Engineer"
+    ],
+    "careersEvidence": "https://www.indeed.com",
+    "technicalAreas": [
+      "IoT",
+      "Fleet Management",
+      "Fuel Management Systems",
+      "Telematics"
+    ],
+    "address": "Office 417, IT Plaza, Dubai Silicon Oasis, Dubai, UAE",
+    "latitude": 25.12130,
+    "longitude": 55.39836,
+    "locationSource": "https://mapcarta.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Abu Dhabi Mobility (AD Mobility) Approved Vendor Registry",
+        "url": "https://admobility.gov.ae"
+      },
+      {
+        "title": "Mapcarta - IT Plaza Dubai Silicon Oasis",
+        "url": "https://mapcarta.com"
+      }
+    ],
+    "notes": "Officially registered in Dubai as Gatex IOT Global Positioning Systems Trading L.L.C."
+  },
+  {
+    "id": "gcc-services",
+    "website": "https://alliad.com",
+    "websiteSource": "https://www.devex.com",
+    "careersUrl": "https://alliad.com/work-with-us",
+    "careersSource": "https://alliad.com",
+    "shortDescription": "GCC Services (rebranded as Alliad) provides remote site support, facilities management, catering, and supply chain logistics.",
+    "whatTheyDo": "GCC Services / Alliad provides integrated life support services including camp construction, facilities management, catering, and logistics to international organizations, defense, and energy sectors. Its corporate headquarters in JLT manages international operations, procurement, and administrative functions.",
+    "descriptionSource": "https://www.devex.com",
+    "industry": "Facilities Management & Logistics",
+    "commonCareers": [
+      "Supply Chain Coordinator",
+      "Logistics Coordinator",
+      "Finance Analyst"
+    ],
+    "careersEvidence": "https://alliad.com",
+    "technicalAreas": [
+      "Supply Chain Logistics",
+      "Facilities Management"
+    ],
+    "address": "33rd Floor, Units 3304-3308, Mazaya Business Avenue Tower AA1, First Al Khail St, JLT, Dubai, UAE",
+    "latitude": 25.06889,
+    "longitude": 55.14569,
+    "locationSource": "https://en.wikipedia.org",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Devex - GCC Services Organization Profile",
+        "url": "https://www.devex.com"
+      },
+      {
+        "title": "Naukrigulf - GCC Services Company Overview",
+        "url": "https://www.naukrigulf.com"
+      }
+    ],
+    "notes": "GCC Services officially rebranded to Alliad in 2024."
+  },
+  {
+    "id": "general-electric-ge",
+    "website": "https://www.ge.com",
+    "websiteSource": "https://www.lawsociety.org.uk",
+    "careersUrl": "https://jobs.gecareers.com",
+    "careersSource": "https://jobs.gecareers.com",
+    "shortDescription": "General Electric (GE) operates regional hubs in Dubai Internet City covering energy infrastructure and aerospace technology across the Middle East.",
+    "whatTheyDo": "General Electric historically managed broad energy, healthcare, and aviation operations from Dubai Internet City. Following its corporate separation into GE Aerospace and GE Vernova, its entities maintain facilities in Dubai providing regional engineering support, grid solutions, power system maintenance, and corporate services.",
+    "descriptionSource": "https://www.ge.com/news",
+    "industry": "Conglomerate & Engineering",
+    "commonCareers": [
+      "Early Career Trainee",
+      "Field Engineer"
+    ],
+    "careersEvidence": "https://jobs.gevernova.com",
+    "technicalAreas": [
+      "Power Systems",
+      "Grid Automation",
+      "Aviation Engineering"
+    ],
+    "address": "Building 18, Dubai Internet City, Dubai, UAE",
+    "latitude": 25.09340,
+    "longitude": 55.16330,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://jobs.gevernova.com",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Law Society UK - General Electric International Inc. Dubai Internet City Listing",
+        "url": "https://www.lawsociety.org.uk"
+      },
+      {
+        "title": "Consultancy-me - GE Vernova regional presence in Dubai",
+        "url": "https://www.consultancy-me.com"
+      }
+    ],
+    "notes": "General Electric completed its corporate separation into GE Aerospace and GE Vernova in April 2024 (and GE HealthCare in 2023); both continue regional operations at Building 18 in Dubai Internet City."
+  },
+  {
+    "id": "generation-3d-llc",
+    "website": "https://www.generation3d.ae",
+    "websiteSource": "https://voxelmatters.directory",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "Generation 3D is a Dubai-based 3D printing and design company specializing in additive manufacturing and architectural modeling.",
+    "whatTheyDo": "Generation 3D operates a 10,000 sq ft production facility in Al Quoz equipped with robotic arms and over 50 3D printers. It provides architectural scale models, digital CAD-to-fabrication workflows, and custom 3D-printed architectural and interior elements for AEC clients.",
+    "descriptionSource": "https://voxelmatters.directory",
+    "industry": "3D Printing & Additive Manufacturing",
+    "commonCareers": [
+      "Joinery Manager",
+      "Joinery & Fabrication Lead"
+    ],
+    "careersEvidence": "https://www.jobleads.com",
+    "technicalAreas": [
+      "3D Printing",
+      "Additive Manufacturing",
+      "Architectural Modeling",
+      "CAD/CAM"
+    ],
+    "address": "46 - 48 26th St, Al Quoz Industrial Area 4, Dubai, UAE",
+    "latitude": 25.11546,
+    "longitude": 55.23780,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "VoxelMatters Directory - Generation 3D Listing",
+        "url": "https://voxelmatters.directory"
+      },
+      {
+        "title": "Maptons - Generation 3D Location Data",
+        "url": "https://maptons.com"
+      }
+    ],
+    "notes": null
+  },
+  {
+    "id": "ghobash-trading-and-investment-co-ltd",
+    "website": "https://ghobash.com",
+    "websiteSource": "https://www.accaglobal.com",
+    "careersUrl": "https://ghobash.smartrecruiters.com",
+    "careersSource": "https://ghobash.smartrecruiters.com",
+    "shortDescription": "Ghobash Group is a diversified UAE investment and trading group operating across IT, healthcare, retail, real estate, and industrial sectors.",
+    "whatTheyDo": "Ghobash Group operates investments and operating companies in information technology, healthcare, and trading across the Middle East. Through technology subsidiaries such as CODE81, they deliver enterprise software consulting, cloud solutions, and digital transformation services. Shared corporate functions are managed via Aban Investment in Dubai.",
+    "descriptionSource": "https://www.accaglobal.com",
+    "industry": "Investment & Diversified Holdings",
+    "commonCareers": [
+      "Azure Data Engineer",
+      "Business Application Consultant",
+      "OIC Consultant"
+    ],
+    "careersEvidence": "https://ghobash.smartrecruiters.com",
+    "technicalAreas": [
+      "Information Technology",
+      "Cloud Data Solutions",
+      "Enterprise Resource Planning",
+      "Digital Transformation"
+    ],
+    "address": "Suite 309, 3rd Floor, Makeen Building, Airport Road, Al Garhoud, Dubai, UAE",
+    "latitude": 25.24750,
+    "longitude": 55.34450,
+    "locationSource": "https://www.bayut.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "ACCA Global - Ghobash Group Employer Profile",
+        "url": "https://www.accaglobal.com"
+      },
+      {
+        "title": "Bayut - Makeen Building Al Garhoud Overview",
+        "url": "https://www.bayut.com"
+      }
+    ],
+    "notes": "The group's corporate headquarters in Dubai is located in Makeen Building in Al Garhoud; some subsidiary activities and job postings are associated with Business Bay."
+  },
+  {
+    "id": "gifts-markets-general-trading-llc",
+    "website": "https://shonati.com",
+    "websiteSource": "https://2gis.ae",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "Gifts Markets General Trading LLC is a UAE retail and wholesale business operating the luggage and travel accessories brand Shonati.",
+    "whatTheyDo": "The company operates retail showrooms and wholesale distribution of travel luggage, handbags, leather goods, and travel accessories under the brand Shonati. Its primary operational base is in Sharjah with a retail branch in Wafi Mall, Dubai.",
+    "descriptionSource": "https://2gis.ae",
+    "industry": "Retail & General Trading",
+    "commonCareers": [
+      "Shop Assistant"
+    ],
+    "careersEvidence": "https://workabroad.ph",
+    "technicalAreas": [],
+    "address": null,
+    "latitude": null,
+    "longitude": null,
+    "locationSource": null,
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "2GIS UAE - Gifts Markets General Trd LLC / Shonati",
+        "url": "https://2gis.ae"
+      },
+      {
+        "title": "EasyUAE Directory - Gifts Markets General Trading",
+        "url": "https://easyuae.com"
+      }
+    ],
+    "notes": "Operates retail brand Shonati with stores in Sharjah and Wafi Mall, Dubai. No confirmed office or entity found in JLT as stated in the directory input."
+  },
+  {
+    "id": "global-feeder-shipping-llc",
+    "website": "https://globalfeeders.com",
+    "websiteSource": "https://multiples.vc",
+    "careersUrl": "https://globalfeeders.com",
+    "careersSource": "https://globalfeeders.com",
+    "shortDescription": "Global Feeder Shipping (GFS) is a Dubai-based container feeder operator connecting regional ports with major maritime hubs.",
+    "whatTheyDo": "Global Feeder Shipping provides container feeder shipping services linking trade lanes across the Middle East, Indian Subcontinent, Southeast Asia, and Africa. Majority-owned by AD Ports Group, the company coordinates fleet logistics, vessel operations, and commercial cargo management from its Dubai headquarters.",
+    "descriptionSource": "https://multiples.vc",
+    "industry": "Maritime Shipping & Logistics",
+    "commonCareers": [],
+    "technicalAreas": [
+      "Maritime Logistics",
+      "Vessel Operations",
+      "Container Fleet Management"
+    ],
+    "address": "Building 04, Bay Square, Al Asayel Street, Business Bay, Dubai, UAE",
+    "latitude": 25.18546,
+    "longitude": 55.28006,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Multiples VC - Global Feeder Shipping Overview",
+        "url": "https://multiples.vc"
+      },
+      {
+        "title": "Maptons - Bay Square Building 4 Location",
+        "url": "https://maptons.com"
+      }
+    ],
+    "notes": "Headquartered in Bay Square, Business Bay; input specified Dubai Internet City which was inaccurate."
+  },
+  {
+    "id": "globe-soccer-dwc-llc",
+    "website": "https://www.globesoccer.com",
+    "websiteSource": "https://www.globenewswire.com",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "Globe Soccer DWC LLC organizes the international Dubai Globe Soccer Awards and Dubai International Sports Conference.",
+    "whatTheyDo": "Globe Soccer DWC LLC manages the annual Dubai Globe Soccer Awards recognizing excellence in football players, coaches, and clubs. The organization coordinates international sports conferences, media broadcasting rights, corporate sponsorships, and digital fan voting platforms.",
+    "descriptionSource": "https://www.globenewswire.com",
+    "industry": "Sports Events & Entertainment",
+    "commonCareers": [],
+    "technicalAreas": [],
+    "address": "Office 231, Building A3, Business Park, Dubai World Central, Dubai South, Dubai, UAE",
+    "latitude": 24.90920,
+    "longitude": 55.11870,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Globe Newswire - Globe Soccer Awards Official Announcement",
+        "url": "https://www.globenewswire.com"
+      },
+      {
+        "title": "Maptons - Business Park Building A3 Dubai South",
+        "url": "https://maptons.com"
+      }
+    ],
+    "notes": "Legally registered at Dubai World Central (Dubai South) with developer offices in Gold & Diamond Park, not Downtown Dubai where award galas are traditionally hosted."
+  },
+  {
+    "id": "gm-middle-east-operations",
+    "website": "https://www.gmarabia.com",
+    "websiteSource": "https://www.amchamdubai.org",
+    "careersUrl": "https://search-careers.gm.com/locations/united-arab-emirates/",
+    "careersSource": "https://search-careers.gm.com",
+    "shortDescription": "GM Middle East Operations manages regional sales, marketing, and distribution for General Motors vehicle brands across Africa and the Middle East.",
+    "whatTheyDo": "General Motors Overseas Distribution LLC (Dubai Branch) oversees commercial vehicle distribution, dealer networks, customer care, and marketing for Chevrolet, GMC, and Cadillac. It also operates a regional parts distribution center in JAFZA and manages connected vehicle services including OnStar.",
+    "descriptionSource": "https://www.amchamdubai.org",
+    "industry": "Automotive",
+    "commonCareers": [
+      "Product Marketing Manager"
+    ],
+    "careersEvidence": "https://search-careers.gm.com",
+    "technicalAreas": [
+      "Automotive Engineering",
+      "Connected Vehicles",
+      "Fleet Telematics",
+      "Supply Chain Operations"
+    ],
+    "address": "31st Floor, Sheikh Rashid Tower, Dubai World Trade Centre, Sheikh Zayed Road, Dubai, UAE",
+    "latitude": 25.22760,
+    "longitude": 55.28880,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://search-careers.gm.com",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "AmCham Dubai - General Motors Overseas Distribution LLC Member Profile",
+        "url": "https://www.amchamdubai.org"
+      },
+      {
+        "title": "Arab News - GM Middle East Operations and Distribution Center",
+        "url": "https://arabnews.com"
+      }
+    ],
+    "notes": "Headquartered at Sheikh Rashid Tower in Dubai World Trade Centre (DWTC), not Business Bay. Operates legally as General Motors Overseas Distribution LLC (Dubai Branch) with a major distribution facility in JAFZA."
+  }
+]
