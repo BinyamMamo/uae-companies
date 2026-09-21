@@ -9,14 +9,14 @@ import { CompanyLogo } from '../components/ui/CompanyLogo';
 import { CommuteMeta } from '../components/ui/CommuteMeta';
 import { EmptyState } from '../components/ui/EmptyState';
 import { track } from '../lib/analytics';
-import { Bookmark, Plus, Search, Share2, Trash2, X, Check, Pencil } from 'lucide-react';
+import { Bookmark, Check, Pencil, Plus, Search, Share2, Trash2, X } from 'lucide-react';
 
 /**
  * Saved lists.
  *
- * The lists live in a sidebar that mirrors the filter card on the list view, so
- * switching between them is one click rather than a scrolling tab strip. Every
- * destructive action goes through the shared confirmation dialog.
+ * Lists and their contents share one panel split by a divider, rather than a
+ * floating sidebar card next to a separate bordered body — two disconnected
+ * boxes that read as unfinished when either side was empty.
  */
 export const SavedView: React.FC = () => {
   const {
@@ -44,6 +44,7 @@ export const SavedView: React.FC = () => {
   const [isShareOpen, setIsShareOpen] = useState(false);
 
   const activeList = savedLists.find(l => l.id === activeListId) ?? savedLists[0];
+  const totalSaved = savedLists.find(l => l.id === 'default')?.companyIds.length ?? 0;
 
   const visibleLists = useMemo(() => {
     const q = listQuery.trim().toLowerCase();
@@ -76,8 +77,7 @@ export const SavedView: React.FC = () => {
   const handleDeleteList = async (id: string, name: string) => {
     const ok = await confirm({
       title: `Delete "${name}"?`,
-      description:
-        'The list is removed. The companies in it stay saved under All Saved.',
+      description: 'The list is removed. The companies in it stay saved under All Saved.',
       confirmLabel: 'Delete list',
       tone: 'danger',
     });
@@ -105,25 +105,29 @@ export const SavedView: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
-      <div className="flex flex-col md:flex-row gap-5">
-        {/* Lists — mirrors the filter card on the list view */}
-        <aside className="w-full md:w-56 lg:w-60 shrink-0 md:sticky md:top-[calc(var(--header-h)+1.5rem)] md:self-start">
-          <div className="bg-surface border border-line rounded-xl p-3 shadow-subtle">
-            <div className="flex items-center justify-between mb-2.5">
-              <h2 className="text-xs font-bold text-ink uppercase tracking-wider">Lists</h2>
-              <button
-                type="button"
-                onClick={() => setIsCreating(v => !v)}
-                className="p-1 rounded text-ink-3 hover:text-ink hover:bg-surface-2 transition-colors"
-                aria-label="Create a new list"
-                title="New list"
-              >
-                <Plus className="w-3.5 h-3.5" aria-hidden="true" />
-              </button>
-            </div>
+      {/* One panel: lists and their contents share a surface, split by a rule */}
+      <div className="bg-surface border border-line rounded-xl overflow-hidden flex flex-col md:flex-row md:min-h-[32rem]">
+        {/* ---------------- Lists ---------------- */}
+        <aside
+          aria-label="Your saved lists"
+          className="md:w-60 lg:w-64 shrink-0 md:border-r border-b md:border-b-0 border-line flex flex-col"
+        >
+          <div className="flex items-center justify-between gap-2 px-4 h-14 border-b border-line shrink-0">
+            <h2 className="text-xs font-bold text-ink uppercase tracking-wider">Lists</h2>
+            <button
+              type="button"
+              onClick={() => setIsCreating(v => !v)}
+              className="p-1.5 rounded-md text-ink-3 hover:text-ink hover:bg-surface-2 transition-colors"
+              aria-label="Create a new list"
+              title="New list"
+            >
+              <Plus className="w-4 h-4" aria-hidden="true" />
+            </button>
+          </div>
 
+          <div className="p-2 space-y-2 flex-1 md:overflow-y-auto">
             {isCreating && (
-              <form onSubmit={handleCreate} className="flex items-center gap-1.5 mb-2">
+              <form onSubmit={handleCreate} className="flex items-center gap-1.5">
                 <label htmlFor="new-list" className="sr-only">
                   New list name
                 </label>
@@ -134,20 +138,20 @@ export const SavedView: React.FC = () => {
                   onChange={e => setNewListName(e.target.value)}
                   onKeyDown={e => e.key === 'Escape' && setIsCreating(false)}
                   placeholder="List name"
-                  className="flex-1 min-w-0 px-2 py-1.5 text-xs bg-surface-2 border border-line rounded-md text-ink placeholder:text-ink-3 focus:outline-hidden focus:ring-1 focus:ring-brand-500"
+                  className="flex-1 min-w-0 px-2.5 py-1.5 text-xs bg-surface-2 border border-line rounded-md text-ink placeholder:text-ink-3 focus:outline-hidden focus:ring-1 focus:ring-brand-500"
                 />
                 <button
                   type="submit"
                   disabled={!newListName.trim()}
-                  className="px-2 py-1.5 text-xs font-semibold rounded-md bg-brand-600 hover:bg-brand-700 disabled:opacity-40 text-white transition-colors"
+                  className="px-2.5 py-1.5 text-xs font-semibold rounded-md bg-brand-600 hover:bg-brand-700 disabled:opacity-40 text-white transition-colors"
                 >
                   Add
                 </button>
               </form>
             )}
 
-            {savedLists.length > 4 && (
-              <div className="relative mb-2">
+            {savedLists.length > 5 && (
+              <div className="relative">
                 <Search
                   className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-ink-3 pointer-events-none"
                   aria-hidden="true"
@@ -170,20 +174,20 @@ export const SavedView: React.FC = () => {
               {visibleLists.map(list => {
                 const isActive = list.id === activeList?.id;
                 return (
-                  <li key={list.id} className="group relative">
+                  <li key={list.id} className="group">
                     {renamingId === list.id ? (
-                      <form onSubmit={submitRename} className="flex items-center gap-1 p-1">
+                      <form onSubmit={submitRename} className="flex items-center gap-1">
                         <input
                           autoFocus
                           value={renameValue}
                           onChange={e => setRenameValue(e.target.value)}
                           onKeyDown={e => e.key === 'Escape' && setRenamingId(null)}
-                          className="flex-1 min-w-0 px-2 py-1 text-xs bg-surface-2 border border-line rounded text-ink focus:outline-hidden focus:ring-1 focus:ring-brand-500"
+                          className="flex-1 min-w-0 px-2 py-1.5 text-xs bg-surface-2 border border-line rounded-md text-ink focus:outline-hidden focus:ring-1 focus:ring-brand-500"
                           aria-label={`Rename ${list.name}`}
                         />
                         <button
                           type="submit"
-                          className="p-1 rounded text-brand-600 dark:text-brand-400"
+                          className="p-1.5 rounded-md text-brand-600 dark:text-brand-400"
                           aria-label="Save name"
                         >
                           <Check className="w-3.5 h-3.5" aria-hidden="true" />
@@ -191,19 +195,29 @@ export const SavedView: React.FC = () => {
                       </form>
                     ) : (
                       <div
-                        className={`flex items-center rounded-lg transition-colors ${
-                          isActive ? 'bg-surface-2' : 'hover:bg-surface-2'
+                        className={`relative flex items-center rounded-lg transition-colors ${
+                          isActive
+                            ? 'bg-brand-50 dark:bg-brand-500/10'
+                            : 'hover:bg-surface-2'
                         }`}
                       >
+                        {isActive && (
+                          <span
+                            className="absolute left-0 top-1.5 bottom-1.5 w-0.5 rounded-full bg-brand-600 dark:bg-brand-400"
+                            aria-hidden="true"
+                          />
+                        )}
                         <button
                           type="button"
                           onClick={() => setActiveListId(list.id)}
                           aria-current={isActive ? 'true' : undefined}
-                          className="flex-1 min-w-0 flex items-baseline gap-2 px-2.5 py-2 text-left"
+                          className="flex-1 min-w-0 flex items-baseline gap-2 pl-3 pr-2 py-2 text-left"
                         >
                           <span
                             className={`text-xs truncate ${
-                              isActive ? 'font-semibold text-ink' : 'text-ink-2'
+                              isActive
+                                ? 'font-semibold text-brand-700 dark:text-brand-300'
+                                : 'text-ink-2'
                             }`}
                           >
                             {list.name}
@@ -214,7 +228,7 @@ export const SavedView: React.FC = () => {
                         </button>
 
                         {list.id !== 'default' && (
-                          <span className="flex items-center pr-1 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity">
+                          <span className="flex items-center pr-1 sm:opacity-0 sm:group-hover:opacity-100 sm:focus-within:opacity-100 transition-opacity">
                             <button
                               type="button"
                               onClick={() => {
@@ -244,63 +258,66 @@ export const SavedView: React.FC = () => {
             </ul>
 
             {visibleLists.length === 0 && (
-              <p className="text-[11px] text-ink-3 px-2 py-3">No lists match &ldquo;{listQuery}&rdquo;.</p>
+              <p className="text-[11px] text-ink-3 px-2 py-3">
+                No lists match &ldquo;{listQuery}&rdquo;.
+              </p>
             )}
           </div>
         </aside>
 
-        {/* Companies in the selected list */}
-        <main className="flex-1 min-w-0">
-          <div className="flex items-center justify-between gap-3 mb-4">
-            <div className="min-w-0">
-              <h1 className="text-lg font-semibold text-ink truncate">{activeList?.name}</h1>
-              <p className="text-xs text-ink-3 mt-0.5">
-                {activeList?.companyIds.length ?? 0}{' '}
-                {activeList?.companyIds.length === 1 ? 'company' : 'companies'}
-              </p>
+        {/* ---------------- Contents ---------------- */}
+        <main className="flex-1 min-w-0 flex flex-col">
+          <div className="flex items-center justify-between gap-3 px-4 sm:px-5 h-14 border-b border-line shrink-0">
+            <div className="min-w-0 flex items-baseline gap-2">
+              <h1 className="text-sm font-semibold text-ink truncate">{activeList?.name}</h1>
+              <span className="text-xs text-ink-3 shrink-0">
+                {activeList?.companyIds.length ?? 0}
+              </span>
             </div>
 
-            {(activeList?.companyIds.length ?? 0) > 0 && (
-              <button
-                type="button"
-                onClick={() => {
-                  track('list_shared', { company_count: activeList?.companyIds.length ?? 0 });
-                  setIsShareOpen(true);
-                }}
-                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-md border border-line text-ink-2 hover:text-ink hover:bg-surface-2 transition-colors shrink-0"
-              >
-                <Share2 className="w-3.5 h-3.5" aria-hidden="true" />
-                <span>Share</span>
-              </button>
-            )}
+            <div className="flex items-center gap-1.5 shrink-0">
+              {(activeList?.companyIds.length ?? 0) > 3 && (
+                <div className="relative hidden sm:block">
+                  <Search
+                    className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-ink-3 pointer-events-none"
+                    aria-hidden="true"
+                  />
+                  <label htmlFor="saved-search" className="sr-only">
+                    Search within this list
+                  </label>
+                  <input
+                    id="saved-search"
+                    type="search"
+                    value={companyQuery}
+                    onChange={e => setCompanyQuery(e.target.value)}
+                    placeholder="Search"
+                    className="w-40 pl-8 pr-2 py-1.5 text-xs bg-surface-2 border border-line rounded-md text-ink placeholder:text-ink-3 focus:outline-hidden focus:ring-1 focus:ring-brand-500"
+                  />
+                </div>
+              )}
+
+              {(activeList?.companyIds.length ?? 0) > 0 && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    track('list_shared', { company_count: activeList?.companyIds.length ?? 0 });
+                    setIsShareOpen(true);
+                  }}
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium rounded-md text-ink-2 hover:text-ink hover:bg-surface-2 transition-colors"
+                >
+                  <Share2 className="w-3.5 h-3.5" aria-hidden="true" />
+                  <span className="hidden sm:inline">Share</span>
+                </button>
+              )}
+            </div>
           </div>
 
-          {(activeList?.companyIds.length ?? 0) > 3 && (
-            <div className="relative mb-3">
-              <Search
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ink-3 pointer-events-none"
-                aria-hidden="true"
-              />
-              <label htmlFor="saved-search" className="sr-only">
-                Search within this list
-              </label>
-              <input
-                id="saved-search"
-                type="search"
-                value={companyQuery}
-                onChange={e => setCompanyQuery(e.target.value)}
-                placeholder="Search in this list"
-                className="w-full pl-9 pr-3 py-2 text-sm bg-transparent border-0 border-b border-line rounded-none text-ink placeholder:text-ink-3 focus:outline-hidden focus:border-brand-500 transition-colors"
-              />
-            </div>
-          )}
-
           {listCompanies.length > 0 ? (
-            <ul className="space-y-2">
+            <ul className="divide-y divide-line flex-1">
               {listCompanies.map(company => (
                 <li
                   key={company.id}
-                  className="group flex items-center gap-3 bg-surface border border-line hover:border-line-strong rounded-xl p-3 sm:p-4 transition-colors"
+                  className="group flex items-center gap-3 px-4 sm:px-5 py-3 hover:bg-surface-2 transition-colors"
                 >
                   <CompanyLogo name={company.name} src={company.logo} size="sm" />
 
@@ -309,7 +326,7 @@ export const SavedView: React.FC = () => {
                     onClick={() => setSelectedCompany(company)}
                     className="flex-1 min-w-0 text-left"
                   >
-                    <span className="block text-sm font-semibold text-ink truncate hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                    <span className="block text-sm font-semibold text-ink truncate group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                       {company.name}
                     </span>
                     <span className="block text-xs text-ink-3 truncate mt-0.5">
@@ -321,7 +338,7 @@ export const SavedView: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => void handleRemove(company.id, company.name)}
-                    className="p-2 rounded-md text-ink-3 hover:text-red-600 dark:hover:text-red-400 hover:bg-surface-2 transition-colors shrink-0"
+                    className="p-2 rounded-md text-ink-3 hover:text-red-600 dark:hover:text-red-400 hover:bg-surface transition-colors shrink-0 sm:opacity-0 sm:group-hover:opacity-100 sm:focus:opacity-100"
                     aria-label={`Remove ${company.name} from ${activeList?.name}`}
                     title="Remove from this list"
                   >
@@ -331,19 +348,39 @@ export const SavedView: React.FC = () => {
               ))}
             </ul>
           ) : companyQuery.trim() ? (
-            <EmptyState
-              icon={Search}
-              title="No matches in this list"
-              description={`Nothing in "${activeList?.name}" matches "${companyQuery.trim()}".`}
-              action={{ label: 'Clear search', onClick: () => setCompanyQuery('') }}
-            />
+            <div className="flex-1 flex items-center justify-center">
+              <EmptyState
+                bare
+                icon={Search}
+                title="No matches in this list"
+                description={`Nothing in "${activeList?.name}" matches "${companyQuery.trim()}".`}
+                action={{ label: 'Clear search', onClick: () => setCompanyQuery('') }}
+              />
+            </div>
           ) : (
-            <EmptyState
-              icon={Bookmark}
-              title={activeList?.id === 'default' ? 'Nothing saved yet' : 'This list is empty'}
-              description="Use the bookmark button on any company to save it, and pick which lists it belongs to."
-              action={{ label: 'Browse companies', onClick: () => setActiveTab('list') }}
-            />
+            <div className="flex-1 flex items-center justify-center">
+              <EmptyState
+                bare
+                icon={Bookmark}
+                title={
+                  activeList?.id === 'default'
+                    ? 'Nothing saved yet'
+                    : `"${activeList?.name}" is empty`
+                }
+                description={
+                  activeList?.id === 'default' || totalSaved === 0
+                    ? 'Use the bookmark button on any company to save it, and pick which lists it belongs to.'
+                    : 'Open a company you have saved and tick this list in its bookmark menu.'
+                }
+                action={
+                  totalSaved === 0
+                    ? { label: 'Find companies', onClick: () => setActiveTab('list') }
+                    : activeList?.id !== 'default'
+                      ? { label: 'Go to All Saved', onClick: () => setActiveListId('default') }
+                      : undefined
+                }
+              />
+            </div>
           )}
         </main>
       </div>

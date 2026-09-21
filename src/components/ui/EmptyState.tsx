@@ -6,6 +6,8 @@ interface EmptyStateProps {
   title: string;
   description: string;
   action?: { label: string; onClick: () => void };
+  /** Drop the card chrome when already inside a bordered container. */
+  bare?: boolean;
   className?: string;
 }
 
@@ -15,9 +17,12 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
   title,
   description,
   action,
+  bare = false,
   className = '',
 }) => (
-  <div className={`bg-surface border border-line rounded-xl p-10 text-center ${className}`}>
+  <div
+    className={`${bare ? '' : 'bg-surface border border-line rounded-xl'} p-10 text-center ${className}`}
+  >
     <div className="w-12 h-12 rounded-full bg-surface-2 border border-line flex items-center justify-center mx-auto mb-3 text-ink-3">
       <Icon className="w-6 h-6" aria-hidden="true" />
     </div>
