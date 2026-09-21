@@ -60,7 +60,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           if (next) {
             const mapped = toAuthUser(next);
             setUser(mapped);
-            identifyUser(mapped.uid, { email: mapped.email, name: mapped.name });
+            identifyUser(mapped.uid);
           } else {
             setUser(null);
           }

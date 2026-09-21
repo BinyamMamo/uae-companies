@@ -1,53 +1,60 @@
 /**
- * Product analytics.
+ * Product analytics, via Firebase (Google Analytics 4).
  *
  * Goals, in order: know how many people use the app (total, and daily active),
  * and know which features they actually use. Signed-out visitors are counted
  * anonymously — nobody is asked to log in to be measured.
  *
- * Components never call `posthog.capture` directly; they call `track()` below,
- * so every event name and its properties are typed in one place.
+ * Components never call the SDK directly; they call `track()` below, so every
+ * event name and its properties are typed in one place. GA4 constrains names
+ * to <=40 chars, alphanumeric plus underscore, starting with a letter — the
+ * union below is written to satisfy that.
+ *
+ * The SDK is dynamically imported so it never lands in the initial bundle, and
+ * events raised before it finishes loading are queued rather than dropped.
  */
 
-const KEY = import.meta.env.VITE_PUBLIC_POSTHOG_KEY as string | undefined;
-const HOST = (import.meta.env.VITE_PUBLIC_POSTHOG_HOST as string | undefined)
-  ?? 'https://eu.i.posthog.com';
+import { loadFirebase, isAnalyticsConfigured } from './firebase';
 
-type PostHog = typeof import('posthog-js').default;
+type AnalyticsClient = import('firebase/analytics').Analytics;
+type LogEvent = typeof import('firebase/analytics').logEvent;
+type SetUserId = typeof import('firebase/analytics').setUserId;
 
-let client: PostHog | null = null;
-/** Events fired before the SDK finishes loading, replayed once it does. */
+let client: AnalyticsClient | null = null;
+let logEventFn: LogEvent | null = null;
+let setUserIdFn: SetUserId | null = null;
+
 const queue: Array<[string, Record<string, unknown> | undefined]> = [];
+let starting = false;
 
-/**
- * Loads posthog-js on demand. Analytics must never delay first paint, so the
- * SDK is dynamically imported and events raised in the meantime are queued.
- */
 export function initAnalytics(): void {
-  if (client || !KEY) return;
+  if (starting || client || !isAnalyticsConfigured) return;
+  starting = true;
 
-  void import('posthog-js').then(({ default: posthog }) => {
-    posthog.init(KEY, {
-      api_host: HOST,
-      // Anonymous events for signed-out visitors; a person profile is only
-      // created once someone signs in. Still counts unique visitors and DAU.
-      person_profiles: 'identified_only',
-      capture_pageview: false, // no router — we fire these manually on tab change
-      capture_pageleave: true,
-      autocapture: false, // explicit events only, so the data stays legible
-      disable_session_recording: true,
-      persistence: 'localStorage+cookie',
-    });
+  const pending = loadFirebase();
+  if (!pending) return;
 
-    client = posthog;
-    for (const [name, props] of queue.splice(0)) {
-      try {
-        posthog.capture(name, props);
-      } catch {
-        // ignore
+  void pending
+    .then(async fb => {
+      const mod = await import('firebase/analytics');
+      // Blocked by some browsers and unavailable in unsupported environments.
+      if (!(await mod.isSupported())) return;
+
+      client = mod.getAnalytics(fb.app);
+      logEventFn = mod.logEvent;
+      setUserIdFn = mod.setUserId;
+
+      for (const [name, params] of queue.splice(0)) {
+        try {
+          logEventFn(client, name, params);
+        } catch {
+          // ignore
+        }
       }
-    }
-  });
+    })
+    .catch(() => {
+      // Analytics must never break the app.
+    });
 }
 
 /** Every tracked interaction in the app, with its properties. */
@@ -85,42 +92,39 @@ type PropsFor<N extends EventName> = Extract<AnalyticsEvent, { name: N }> extend
   ? P
   : never;
 
-export function track<N extends EventName>(
-  ...args: PropsFor<N> extends never | undefined ? [name: N] : [name: N, props: PropsFor<N>]
-): void {
-  if (!KEY) return;
-  const [name, props] = args;
-  const payload = props as Record<string, unknown> | undefined;
-  if (!client) {
-    if (queue.length < 50) queue.push([name, payload]);
+function send(name: string, params?: Record<string, unknown>): void {
+  if (!isAnalyticsConfigured) return;
+  if (!client || !logEventFn) {
+    if (queue.length < 50) queue.push([name, params]);
     return;
   }
   try {
-    client.capture(name, payload);
+    logEventFn(client, name, params);
   } catch {
     // Analytics must never break the app.
   }
 }
 
-/** Manual pageview, since the app switches views without changing the URL. */
-export function trackView(view: string): void {
-  if (!KEY) return;
-  const payload = { view, $current_url: `${window.location.origin}/#${view}` };
-  if (!client) {
-    if (queue.length < 50) queue.push(['$pageview', payload]);
-    return;
-  }
-  try {
-    client.capture('$pageview', payload);
-  } catch {
-    // ignore
-  }
+export function track<N extends EventName>(
+  ...args: PropsFor<N> extends never | undefined ? [name: N] : [name: N, props: PropsFor<N>]
+): void {
+  const [name, props] = args;
+  send(name, props as Record<string, unknown> | undefined);
 }
 
-/** Link anonymous history to a signed-in user. */
-export function identifyUser(id: string, traits?: Record<string, unknown>): void {
+/** Manual pageview, since the app switches views without changing the URL. */
+export function trackView(view: string): void {
+  send('page_view', {
+    page_title: view,
+    page_location: `${window.location.origin}/#${view}`,
+    page_path: `/${view}`,
+  });
+}
+
+/** Attribute subsequent events to a signed-in user. */
+export function identifyUser(id: string): void {
   try {
-    client?.identify(id, traits);
+    if (client && setUserIdFn) setUserIdFn(client, id);
   } catch {
     // ignore
   }
@@ -128,10 +132,10 @@ export function identifyUser(id: string, traits?: Record<string, unknown>): void
 
 export function resetUser(): void {
   try {
-    client?.reset();
+    if (client && setUserIdFn) setUserIdFn(client, null);
   } catch {
     // ignore
   }
 }
 
-export const isAnalyticsEnabled = (): boolean => Boolean(KEY);
+export const isAnalyticsEnabled = (): boolean => isAnalyticsConfigured;

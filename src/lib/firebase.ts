@@ -15,13 +15,24 @@ const config = {
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
 export const isAuthConfigured = Boolean(
   config.apiKey && config.authDomain && config.projectId && config.appId
 );
 
+/**
+ * Analytics additionally needs a measurementId, which only exists once a
+ * Google Analytics property is linked to the Firebase project. Without it the
+ * app runs normally and simply reports nothing.
+ */
+export const isAnalyticsConfigured = Boolean(
+  isAuthConfigured && config.measurementId
+);
+
 export interface FirebaseBundle {
+  app: import('firebase/app').FirebaseApp;
   auth: Auth;
   db: Firestore;
   signInWithPopup: typeof import('firebase/auth').signInWithPopup;
@@ -53,12 +64,14 @@ export function loadFirebase(): Promise<FirebaseBundle> | null {
       authDomain: config.authDomain!,
       projectId: config.projectId!,
       appId: config.appId!,
+      ...(config.measurementId ? { measurementId: config.measurementId } : {}),
     });
 
     const googleProvider = new authMod.GoogleAuthProvider();
     googleProvider.setCustomParameters({ prompt: 'select_account' });
 
     return {
+      app,
       auth: authMod.getAuth(app),
       db: firestoreMod.getFirestore(app),
       signInWithPopup: authMod.signInWithPopup,

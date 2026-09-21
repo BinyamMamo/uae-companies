@@ -36,8 +36,8 @@ the browser.
 
 | Variable | What it enables |
 |---|---|
-| `VITE_PUBLIC_POSTHOG_KEY` | Product analytics (visitor counts, DAU, feature usage) |
 | `VITE_FIREBASE_*` | Google sign-in and cross-device sync of saved lists |
+| `VITE_FIREBASE_MEASUREMENT_ID` | Analytics — visitor counts, daily actives, feature usage |
 | `VITE_GOOGLE_CLIENT_ID` | The Google One Tap prompt (optional; sign-in works without it) |
 
 Set the same values on Vercel with `vercel env add`.
