@@ -107,6 +107,30 @@ def main():
         print("No verified records found. Run scripts/research/agy-verify.sh first.")
         return
 
+    # --- one record per company, before anything is judged ---
+    #
+    # A company can appear in more than one batch: the gap pass re-researched
+    # records that were already covered. Left as duplicates they fail the
+    # "one website per company" check against themselves, which silently
+    # deleted 64 correct websites. Later values win, but only where they exist,
+    # so a narrow follow-up pass cannot erase a broad earlier one.
+    by_id = {}
+    order = []
+    for r in records:
+        cid = r.get("id")
+        if not cid:
+            continue
+        if cid not in by_id:
+            by_id[cid] = dict(r)
+            order.append(cid)
+            continue
+        for key, value in r.items():
+            if value not in (None, "", [], {}):
+                by_id[cid][key] = value
+    if len(by_id) != len(records):
+        print(f"{len(records)} records cover {len(by_id)} companies; merged the duplicates\n")
+    records = [by_id[cid] for cid in order]
+
     rejects = defaultdict(list)
 
     # --- collect every URL once, check concurrently ---
@@ -115,8 +139,26 @@ def main():
         for key in ("website", "careersUrl", "logo"):
             if r.get(key):
                 urls.add(r[key])
+    urls = sorted(urls)
     with ThreadPoolExecutor(max_workers=12) as pool:
         checked = dict(zip(urls, pool.map(lambda u: url_ok(u), urls)))
+
+    # Anything that failed gets a second, unhurried look.
+    #
+    # Twelve concurrent requests make slow hosts time out, and a failure here
+    # deletes a correct website from the dataset. One run silently dropped 13
+    # live sites this way. A retry, sequential and with more patience, is the
+    # difference between "did not answer under load" and "does not exist".
+    retry = [u for u, (ok, _) in checked.items() if not ok]
+    if retry:
+        print(f"re-checking {len(retry)} URL(s) that failed the first pass...")
+        recovered = 0
+        for u in retry:
+            ok, why = url_ok(u)
+            if ok:
+                checked[u] = (ok, why)
+                recovered += 1
+        print(f"  {recovered} of them answered on the second try\n")
 
     # --- a URL claimed by two companies is right for at most one ---
     site_claims = Counter(r.get("website") for r in records if r.get("website"))

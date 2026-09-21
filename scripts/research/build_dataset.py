@@ -121,8 +121,23 @@ def load_verified():
             print(f"  warn: skipping malformed {path.name}")
             continue
         for rec in data if isinstance(data, list) else []:
-            if isinstance(rec, dict) and rec.get("id") and not rec.get("notFound"):
-                out[rec["id"]] = rec
+            if not (isinstance(rec, dict) and rec.get("id") and not rec.get("notFound")):
+                continue
+            cid = rec["id"]
+            if cid not in out:
+                out[cid] = dict(rec)
+                continue
+            # Merge field by field rather than replacing.
+            #
+            # A later pass is often narrower than an earlier one: the gap
+            # batches asked only for a description and job roles, so replacing
+            # wholesale dropped the website, address and coordinates the first
+            # pass had found. A field is only overwritten by a value that is
+            # actually there.
+            merged = out[cid]
+            for key, value in rec.items():
+                if value not in (None, "", [], {}):
+                    merged[key] = value
     return out
 
 
