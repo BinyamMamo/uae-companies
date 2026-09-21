@@ -55,7 +55,7 @@ export const FeaturedView: React.FC = () => {
       <section className="bg-surface border border-line rounded-lg p-6 sm:p-7 shadow-subtle mb-8">
         <div className="max-w-2xl">
           <h1 className="text-xl sm:text-2xl font-bold text-ink tracking-tight">
-            Tell us what you&rsquo;re interested in
+            Choose what you&rsquo;re interested in
           </h1>
           <p className="text-xs sm:text-sm text-ink-2 mt-1.5 leading-relaxed">
             Choose the technical areas you want to explore and companies will re-rank instantly to match your skills.

@@ -2,7 +2,6 @@ import React from 'react';
 import { AppProvider, useApp } from './context/AppContext';
 import { Header } from './components/Header';
 import { ListView } from './pages/ListView';
-import { BrowseView } from './pages/BrowseView';
 import { FeaturedView } from './pages/FeaturedView';
 import { MapView } from './pages/MapView';
 import { SavedView } from './pages/SavedView';
@@ -26,7 +25,6 @@ const AppContent: React.FC = () => {
       {/* Main View Container */}
       <div className="flex-1">
         {activeTab === 'list' && <ListView />}
-        {activeTab === 'browse' && <BrowseView />}
         {activeTab === 'featured' && <FeaturedView />}
         {activeTab === 'map' && <MapView />}
         {activeTab === 'saved' && <SavedView />}

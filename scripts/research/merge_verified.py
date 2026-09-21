@@ -35,7 +35,15 @@ TEMPLATE_SIGNS = [
 ]
 
 
+# Plenty of corporate sites answer a non-browser client with 403/405/429 or
+# simply hang. That means "bot-blocked", not "does not exist" — rejecting those
+# would throw away correct URLs. Only treat a definitive negative as dead.
+BLOCKED_CODES = {401, 403, 405, 406, 409, 429, 503}
+DEAD_CODES = {404, 410}
+
+
 def url_ok(url):
+    """Return (keep, reason). `keep` is False only for a definitive negative."""
     if not url or not re.match(r"^https://", url):
         return False, "not https"
     ctx = ssl.create_default_context()
@@ -44,9 +52,23 @@ def url_ok(url):
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     try:
         with urllib.request.urlopen(req, timeout=TIMEOUT, context=ctx) as r:
-            return (r.status < 400), f"HTTP {r.status}"
+            if r.status in DEAD_CODES:
+                return False, f"HTTP {r.status}"
+            return True, f"HTTP {r.status}"
     except urllib.error.HTTPError as e:
+        if e.code in DEAD_CODES:
+            return False, f"HTTP {e.code}"
+        if e.code in BLOCKED_CODES:
+            return True, f"HTTP {e.code} (bot-blocked, host resolves)"
         return False, f"HTTP {e.code}"
+    except urllib.error.URLError as e:
+        # DNS failure or refused connection is a real negative; a timeout is not.
+        reason = str(getattr(e, "reason", e))
+        if "timed out" in reason.lower():
+            return True, "timeout (host exists, slow)"
+        return False, f"unreachable ({reason[:40]})"
+    except TimeoutError:
+        return True, "timeout (host exists, slow)"
     except Exception as e:
         return False, type(e).__name__
 
@@ -62,7 +84,8 @@ def main():
     args = ap.parse_args()
 
     records = []
-    for path in sorted(VERIFIED_DIR.glob("*.json")):
+    # Skip _merged.json — it is this script's own output from a previous run.
+    for path in sorted(x for x in VERIFIED_DIR.glob("*.json") if not x.name.startswith("_")):
         try:
             data = json.loads(path.read_text(encoding="utf-8"))
         except json.JSONDecodeError as e:
@@ -116,9 +139,11 @@ def main():
         careers = r.get("careersUrl")
         if careers:
             ok, why = checked.get(careers, (False, "unchecked"))
+            cited = (r.get("careersSource") or "").rstrip("/")
             constructed = (
                 r.get("website")
                 and careers.rstrip("/") == r["website"].rstrip("/") + "/careers"
+                and cited in ("", careers.rstrip("/"), r["website"].rstrip("/"))
             )
             if not ok:
                 rejects[f"careersUrl dead ({why})"].append(rid)

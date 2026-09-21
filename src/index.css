@@ -323,7 +323,7 @@ html.dark .leaflet-popup-content-wrapper {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 5px 11px;
+  padding: 3px 9px;
   border-radius: 9999px;
   font-family: inherit;
   font-size: 10px;
@@ -335,23 +335,36 @@ html.dark .leaflet-popup-content-wrapper {
   pointer-events: none;
   user-select: none;
 
-  /*
-    A single coloured edge ties the label to its region without competing with
-    the map. `--district` is set per badge in CompanyMap.
-  */
+  /* `--district` is set per badge in CompanyMap. */
   --district: #94a3b8;
-  background: rgba(255, 255, 255, 0.92);
+  /*
+    The district colour washes in from the left and fades out, so the label is
+    tied to its region without an edge competing with the map.
+  */
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--district) 55%, transparent) 0%,
+      color-mix(in srgb, var(--district) 14%, transparent) 45%,
+      transparent 80%
+    ),
+    rgba(255, 255, 255, 0.93);
   color: #18181b;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-left: 2.5px solid var(--district);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 html.dark .district-tip-badge {
-  background: rgba(18, 18, 20, 0.88);
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--district) 55%, transparent) 0%,
+      color-mix(in srgb, var(--district) 16%, transparent) 45%,
+      transparent 80%
+    ),
+    rgba(18, 18, 20, 0.9);
   color: #f4f4f5;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-left: 2.5px solid var(--district);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 

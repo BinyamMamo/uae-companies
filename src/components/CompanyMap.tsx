@@ -5,15 +5,14 @@ import type { Company } from '../types/company';
 import { useApp } from '../context/AppContext';
 import { useTheme } from '../context/ThemeContext';
 import { useToast } from './ui/Toast';
+import { LocationPicker } from './ui/LocationPicker';
 import { formatBusCommute, formatDistance } from '../utils/distance';
 import { TILE_CONFIGS, defaultStyleForTheme, type MapStyleId } from '../utils/mapTiles';
 import {
+  MapPinHouse,
   Locate,
   Layers,
   ExternalLink,
-  MapPin,
-  Navigation,
-  RotateCcw,
   X
 } from 'lucide-react';
 
@@ -38,7 +37,7 @@ import { DUBAI_DISTRICTS_GEO } from '../data/dubaiDistrictsGeo';
 import { CompanyLogo } from './ui/CompanyLogo';
 
 export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompany }) => {
-  const { userLocation, setUserLocation, resetUserLocation } = useApp();
+  const { userLocation, setUserLocation } = useApp();
   const { theme } = useTheme();
   
   const mapContainerRef = useRef<HTMLDivElement>(null);
@@ -57,7 +56,17 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
   // Tile style follows the UI theme unless the user picks one explicitly.
   const [mapStyle, setMapStyle] = useState<MapStyleId>(() => defaultStyleForTheme(theme));
   const userPickedStyleRef = useRef(false);
-  const [isClickToSetMode, setIsClickToSetMode] = useState<boolean>(false);
+  const [isPickerOpen, setIsPickerOpen] = useState(false);
+  const pickerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isPickerOpen) return;
+    const onPointer = (e: MouseEvent) => {
+      if (!pickerRef.current?.contains(e.target as Node)) setIsPickerOpen(false);
+    };
+    document.addEventListener('mousedown', onPointer);
+    return () => document.removeEventListener('mousedown', onPointer);
+  }, [isPickerOpen]);
   const { toast } = useToast();
   const showNotification = useCallback(
     (msg: string) => toast(msg, 'success'),
@@ -254,29 +263,6 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
   }, [userLocation]);
 
   // Click-on-map to set location handler
-  useEffect(() => {
-    const map = mapInstanceRef.current;
-    if (!map) return;
-
-    const handleMapClick = (e: L.LeafletMouseEvent) => {
-      if (!isClickToSetMode) return;
-      const lat = Math.round(e.latlng.lat * 100000) / 100000;
-      const lng = Math.round(e.latlng.lng * 100000) / 100000;
-      setUserLocation({
-        name: `Custom Location (${lat.toFixed(3)}, ${lng.toFixed(3)})`,
-        latitude: lat,
-        longitude: lng,
-        isCustom: true,
-      });
-      setIsClickToSetMode(false);
-      showNotification(`Location set to ${lat.toFixed(3)}°, ${lng.toFixed(3)}°`);
-    };
-
-    map.on('click', handleMapClick);
-    return () => {
-      map.off('click', handleMapClick);
-    };
-  }, [isClickToSetMode, setUserLocation]);
 
   // Handle Tile Style Switcher
   const applyTileStyle = useCallback((newStyle: MapStyleId) => {
@@ -380,42 +366,10 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
     }
   };
 
-  const handleUseGps = () => {
-    if (!navigator.geolocation) {
-      toast('Your browser does not support location access.', 'error');
-      return;
-    }
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        const lat = Math.round(pos.coords.latitude * 100000) / 100000;
-        const lng = Math.round(pos.coords.longitude * 100000) / 100000;
-        setUserLocation({
-          name: 'My GPS Location',
-          latitude: lat,
-          longitude: lng,
-          isCustom: true,
-        });
-        if (mapInstanceRef.current) {
-          mapInstanceRef.current.setView([lat, lng], 13, { animate: true });
-        }
-        showNotification('Set origin to your GPS location');
-      },
-      (err) => {
-        toast(`Could not get your location: ${err.message}`, 'error');
-      }
-    );
-  };
 
-  const handleResetLocation = () => {
-    resetUserLocation();
-    showNotification('Reset origin to Academic City');
-    if (mapInstanceRef.current) {
-      mapInstanceRef.current.setView([25.12901, 55.42684], 13, { animate: true });
-    }
-  };
 
   return (
-    <div className={`relative w-full h-full min-h-[360px] md:min-h-[580px] rounded-lg overflow-hidden border border-line bg-surface-3 ${isClickToSetMode ? 'cursor-crosshair' : ''}`}>
+    <div className={`relative w-full h-full min-h-[360px] md:min-h-[580px] rounded-lg overflow-hidden border border-line bg-surface-3 `}>
       
       {/* Map Leaflet Canvas */}
       <div ref={mapContainerRef} className="w-full h-full min-h-[360px] md:min-h-[580px]" />
@@ -456,67 +410,46 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
         </div>
       </div>
 
-      {/* Bottom left: which location the commute figures are measured from */}
-      <div className="absolute bottom-6 left-6 z-1000 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-line rounded-lg p-3 text-ink shadow-xl flex items-center gap-3 transition-colors">
-        <div className="min-w-0">
-          <div className="text-[10px] uppercase font-semibold text-ink-2 tracking-wider">
-            {userLocation.isCustom ? 'Your Custom Location' : 'Default Reference Location'}
-          </div>
-          <div className="text-xs font-semibold text-ink truncate max-w-[200px]">
-            {userLocation.name}
-          </div>
-          <div className="text-[11px] text-ink-2">
-            {userLocation.latitude.toFixed(3)}° N, {userLocation.longitude.toFixed(3)}° E · (drag pin to move)
-          </div>
-        </div>
-        <button
-          onClick={handleCenterOnUser}
-          className="ml-1 p-1.5 rounded-sm hover:bg-surface-2 text-slate-400 hover:text-ink transition"
-          title="Center map on your location"
-          aria-label="Center map on your location"
-        >
-          <Locate className="w-4 h-4" />
-        </button>
-      </div>
-
       {/*
         Sits to the left of Leaflet's zoom control, which renders at
         bottom-right. right-16 clears the ~40px zoom buttons plus their margin.
       */}
-      <div className="absolute bottom-6 right-16 z-1000 flex items-center gap-1.5 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-1.5 rounded-lg border border-line shadow-lg transition-colors">
-        <button
-          onClick={() => setIsClickToSetMode(prev => !prev)}
-          aria-pressed={isClickToSetMode}
-          className={`px-2.5 py-1 text-xs font-medium rounded-md flex items-center gap-1.5 transition-colors ${
-            isClickToSetMode
-              ? 'bg-brand-600 text-white shadow-2xs'
-              : 'text-ink-2 hover:text-ink hover:bg-surface-2'
-          }`}
-          title="Place your location pin anywhere on the map"
-        >
-          <MapPin className="w-3.5 h-3.5" aria-hidden="true" />
-          <span>{isClickToSetMode ? 'Click map to place' : 'Set location'}</span>
-        </button>
-
-        <button
-          onClick={handleUseGps}
-          className="p-1.5 rounded-md text-ink-2 hover:text-ink hover:bg-surface-2 transition-colors"
-          title="Use my GPS location"
-          aria-label="Use my GPS location"
-        >
-          <Navigation className="w-3.5 h-3.5" aria-hidden="true" />
-        </button>
-
-        {userLocation.isCustom && (
-          <button
-            onClick={handleResetLocation}
-            className="p-1.5 rounded-md text-ink-2 hover:text-ink hover:bg-surface-2 transition-colors"
-            title="Reset location to Academic City"
-            aria-label="Reset location to Academic City"
-          >
-            <RotateCcw className="w-3.5 h-3.5" aria-hidden="true" />
-          </button>
+      <div className="absolute bottom-6 right-16 z-1000" ref={pickerRef}>
+        {isPickerOpen && (
+          <div className="absolute bottom-full right-0 mb-2">
+            <LocationPicker direction="up" onClose={() => setIsPickerOpen(false)} />
+          </div>
         )}
+        <button
+          onClick={() => setIsPickerOpen(open => !open)}
+          aria-expanded={isPickerOpen}
+          aria-haspopup="dialog"
+          className="flex items-center gap-1.5 px-2.5 py-2 text-xs font-medium rounded-lg bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-line shadow-lg text-ink-2 hover:text-ink transition-colors"
+          title="Change the location commutes are measured from"
+        >
+          <MapPinHouse className="w-4 h-4" aria-hidden="true" />
+          <span>Change location</span>
+        </button>
+      </div>
+
+      {/* Bottom left: which location the commute figures are measured from */}
+      <div className="absolute bottom-6 left-6 z-1000 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-line rounded-lg px-3 py-2 text-ink shadow-xl flex items-center gap-2 transition-colors">
+        <div className="min-w-0">
+          <div className="text-xs font-semibold text-ink truncate max-w-[220px]">
+            {userLocation.name}
+          </div>
+          <div className="text-[11px] text-ink-3">
+            Commutes measured from here · drag to move
+          </div>
+        </div>
+        <button
+          onClick={handleCenterOnUser}
+          className="p-1.5 rounded-md text-ink-3 hover:text-ink hover:bg-surface-2 transition-colors shrink-0"
+          title="Centre map on this location"
+          aria-label="Centre map on this location"
+        >
+          <Locate className="w-4 h-4" aria-hidden="true" />
+        </button>
       </div>
 
       {/* Floating Selected Company Popup Card */}

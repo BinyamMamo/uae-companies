@@ -1,0 +1,270 @@
+[
+  {
+    "id": "3m",
+    "website": "https://www.3mae.ae",
+    "websiteSource": "https://yellowpages-uae.com/business/3m-gulf-limited",
+    "careersUrl": "https://www.3m.com/careers",
+    "careersSource": "https://www.3mae.ae",
+    "shortDescription": "3M Gulf serves as the regional headquarters for 3M in the Middle East, supplying science-based industrial, safety, healthcare, and consumer products.",
+    "whatTheyDo": "3M Gulf distributes personal protective equipment, industrial adhesives, abrasives, medical and dental supplies, and automotive aftermarket solutions. In Dubai, it operates regional executive leadership, customer technical support, and the 3M Innovation Centre for product application engineering. It serves key sectors including healthcare providers, telecommunications networks, construction firms, and general manufacturing industries across the UAE.",
+    "descriptionSource": "https://gulfnews.com/business/etisalat-tamdeed-projects-rolls-out-new-deal-with-3m-gulf-1.2279155",
+    "industry": "Industrial & Manufacturing",
+    "address": "Building 11, Dubai Internet City, Dubai, United Arab Emirates",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://yellowpages-uae.com/business/3m-gulf-limited",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Etisalat Tamdeed Projects rolls out new deal with 3M Gulf - Gulf News",
+        "url": "https://gulfnews.com/business/etisalat-tamdeed-projects-rolls-out-new-deal-with-3m-gulf-1.2279155"
+      },
+      {
+        "title": "3M Gulf Limited - Yellow Pages UAE",
+        "url": "https://yellowpages-uae.com/business/3m-gulf-limited"
+      }
+    ],
+    "notes": "Input listed area as Downtown, but verified corporate headquarters for 3M Gulf is in Building 11, Dubai Internet City."
+  },
+  {
+    "id": "7x-emirates-post",
+    "website": "https://www.7x.ae",
+    "websiteSource": "https://swfinstitute.org/profiles/state-owned-enterprise/emirates-post-group",
+    "careersSource": "https://swfinstitute.org/profiles/state-owned-enterprise/emirates-post-group",
+    "shortDescription": "7X is the UAE's state-owned holding group managing postal, express logistics, digital parcel infrastructure, and financial service entities.",
+    "whatTheyDo": "7X oversees operating subsidiaries including Emirates Post, EMX courier and parcel delivery, FINTX financial solutions, and Electronic Documents Centre (EDC). In the UAE, it manages nationwide mail delivery, last-mile e-commerce logistics, smart locker networks through NXN, digital address platforms like Wayn, and international freight forwarding. Its technical and operational units serve individual residents, corporate enterprises, and government authorities across all seven emirates.",
+    "descriptionSource": "https://swfinstitute.org/profiles/state-owned-enterprise/emirates-post-group",
+    "industry": "Logistics, Postal & Supply Chain",
+    "address": "Street 54 (near Al Mawakeb School), Al Garhoud, Dubai, United Arab Emirates",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://swfinstitute.org/profiles/state-owned-enterprise/emirates-post-group",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://peoplemattersglobal.com/article/skilling/logistics-firm-7x-university-of-dubai-join-hands-to-empower-young-talent-45366",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Emirates Post Group Profile - SWFI",
+        "url": "https://swfinstitute.org/profiles/state-owned-enterprise/emirates-post-group"
+      },
+      {
+        "title": "Logistics firm 7X, University of Dubai join hands to empower young talent - People Matters",
+        "url": "https://peoplemattersglobal.com/article/skilling/logistics-firm-7x-university-of-dubai-join-hands-to-empower-young-talent-45366"
+      }
+    ],
+    "notes": "Input area listed as Business Bay, but corporate headquarters is located on Street 54, Al Garhoud. Emirates Post Group officially rebranded as 7X in 2024."
+  },
+  {
+    "id": "aal-mir-trading-co-llc",
+    "website": "https://aalmir.com",
+    "websiteSource": "https://ae.kompass.com/c/aal-mir-group/ae801957/",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "Aal Mir Trading Co. L.L.C is a premier FMCG distributor and trading company in the UAE specialising in confectionery, beverages, and packaged foodstuffs.",
+    "whatTheyDo": "Aal Mir Trading Co. L.L.C imports, markets, and distributes international confectionery, biscuits, snacks, canned goods, and grocery products across the UAE and GCC. It operates extensive temperature-controlled warehousing, logistics hubs, and fleet distribution based in Dubai Investments Park. The company supplies modern trade hypermarkets, supermarkets, convenience stores, and wholesale distribution networks throughout the country.",
+    "descriptionSource": "https://ae.kompass.com/c/aal-mir-group/ae801957/",
+    "industry": "Wholesale & FMCG Distribution",
+    "address": "Building 598-932, 78 Street, Dubai Investments Park 1, Dubai, United Arab Emirates",
+    "latitude": 24.97516,
+    "longitude": 55.17208,
+    "locationSource": "https://ae.kompass.com/c/aal-mir-group/ae801957/",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Aal Mir Group Profile - Kompass UAE",
+        "url": "https://ae.kompass.com/c/aal-mir-group/ae801957/"
+      }
+    ],
+    "notes": "Input listed area as JLT, but verified corporate headquarters and main distribution centre are located in Dubai Investments Park 1 (DIP 1)."
+  },
+  {
+    "id": "abb-industries-llc",
+    "website": "https://www.abb.com/ae",
+    "websiteSource": "https://yellowpages-uae.com/business/abb-industries-llc",
+    "careersUrl": "https://global.abb/group/en/careers",
+    "careersSource": "https://global.abb/group/en/careers",
+    "shortDescription": "ABB Industries LLC is the UAE operating subsidiary of global technology company ABB, specializing in electrification and industrial automation.",
+    "whatTheyDo": "ABB Industries LLC engineers, supplies, and services power distribution equipment, medium- and low-voltage switchgear, variable frequency drives, industrial electric motors, and robotic automation systems. In the UAE, it maintains technical engineering, assembly, repair, and field service facilities in Dubai and Abu Dhabi. It serves regional utility providers (DEWA, ADDC), oil and gas producers, infrastructure developers, and industrial manufacturing plants.",
+    "descriptionSource": "https://yellowpages-uae.com/business/abb-industries-llc",
+    "industry": "Industrial Automation & Electrical Engineering",
+    "address": "Al Quoz Industrial Area 3, 4th Interchange, Street No. 4, Dubai, United Arab Emirates",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://yellowpages-uae.com/business/abb-industries-llc",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://global.abb/group/en/careers",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "ABB Industries LLC - Yellow Pages UAE",
+        "url": "https://yellowpages-uae.com/business/abb-industries-llc"
+      }
+    ],
+    "notes": null
+  },
+  {
+    "id": "abu-dhabi-aviation",
+    "website": "https://ada.ae",
+    "websiteSource": "https://pitchbook.com/profiles/company/107572-15",
+    "careersUrl": "https://ada.ae",
+    "careersSource": "https://pitchbook.com/profiles/company/107572-15",
+    "shortDescription": "Abu Dhabi Aviation is the largest commercial helicopter and fixed-wing aircraft operator in the Middle East and North Africa.",
+    "whatTheyDo": "Abu Dhabi Aviation provides offshore aviation transport support for oil and gas production, medical evacuation, search and rescue missions, VIP executive passenger charters, and aerial photography. It operates aircraft maintenance, repair, and overhaul (MRO) hangars and flight training simulator centres at its dedicated terminal at Zayed International Airport. It primarily serves state oil companies, government departments, and international aviation operators.",
+    "descriptionSource": "https://pitchbook.com/profiles/company/107572-15",
+    "industry": "Aviation & Aerospace",
+    "address": "Abu Dhabi Aviation Terminal, Next to Terminal 2, Zayed International Airport, Abu Dhabi, United Arab Emirates",
+    "latitude": 24.41878,
+    "longitude": 54.65799,
+    "locationSource": "https://pitchbook.com/profiles/company/107572-15",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://ada.ae",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Abu Dhabi Aviation Company Profile - PitchBook",
+        "url": "https://pitchbook.com/profiles/company/107572-15"
+      }
+    ],
+    "notes": "Input listed area as general 'Abu Dhabi areas'; official headquarters and operations terminal are located adjacent to Terminal 2 at Zayed International Airport."
+  },
+  {
+    "id": "abu-dhabi-commercial-bank-adcb",
+    "website": "https://www.adcb.com",
+    "websiteSource": "https://www.swfinstitute.org/profiles/bank/abu-dhabi-commercial-bank",
+    "careersUrl": "https://www.adcb.com/en/about/careers/",
+    "careersSource": "https://www.adcb.com/en/about/careers/",
+    "shortDescription": "Abu Dhabi Commercial Bank (ADCB) is a major UAE banking institution offering consumer, commercial, Islamic, and investment banking services.",
+    "whatTheyDo": "ADCB delivers retail banking, corporate and commercial lending, Islamic banking products, treasury services, trade finance, and private wealth management. Across the UAE, it manages an extensive branch network and digital platforms supported by information technology, cyber defence, risk modelling, and corporate finance units in Abu Dhabi. It serves retail depositors, growing small and medium businesses, large corporations, and public sector organizations.",
+    "descriptionSource": "https://www.swfinstitute.org/profiles/bank/abu-dhabi-commercial-bank",
+    "industry": "Banking & Financial Services",
+    "address": "Abu Dhabi Commercial Bank Building, Sheikh Zayed Bin Sultan Street, Abu Dhabi, United Arab Emirates",
+    "latitude": 24.49327,
+    "longitude": 54.37461,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.adcb.com/en/about/careers/",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Abu Dhabi Commercial Bank Profile - SWFI",
+        "url": "https://www.swfinstitute.org/profiles/bank/abu-dhabi-commercial-bank"
+      }
+    ],
+    "notes": "Input listed area as general 'Abu Dhabi areas'; corporate headquarters is situated in the ADCB Building on Sheikh Zayed Bin Sultan Street (Electra area), Abu Dhabi."
+  },
+  {
+    "id": "abu-dhabi-islamic-bank-adib",
+    "website": "https://www.adib.ae",
+    "websiteSource": "https://swfinstitute.org/profile/5988e17b6462712959000030",
+    "careersUrl": "https://www.adib.ae/en/Pages/Careers.aspx",
+    "careersSource": "https://www.adib.ae/en/Pages/Careers.aspx",
+    "shortDescription": "Abu Dhabi Islamic Bank (ADIB) is a leading Islamic financial institution headquartered in Abu Dhabi providing comprehensive Sharia-compliant banking services.",
+    "whatTheyDo": "ADIB provides retail, business, corporate, and private Islamic banking products alongside Islamic treasury, capital markets, and trade finance solutions. In the UAE, it maintains a nationwide branch network, digital mobile platforms, and central operational, risk management, and fintech units based in Abu Dhabi. It caters to individual retail consumers, small and medium enterprises, multinational corporations, and government institutions.",
+    "descriptionSource": "https://swfinstitute.org/profile/5988e17b6462712959000030",
+    "industry": "Islamic Banking & Financial Services",
+    "address": "ADIB HQ Building, Sheikh Rashid Bin Saeed Street, Al Muntazah, Abu Dhabi, United Arab Emirates",
+    "latitude": 24.42223,
+    "longitude": 54.45782,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.adib.ae/en/Pages/Careers.aspx",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Abu Dhabi Islamic Bank Profile - SWFI",
+        "url": "https://swfinstitute.org/profile/5988e17b6462712959000030"
+      }
+    ],
+    "notes": "Input listed area as general 'Abu Dhabi areas'; corporate headquarters is located on Sheikh Rashid Bin Saeed Street (Old Airport Road) in Al Muntazah, Abu Dhabi."
+  },
+  {
+    "id": "accenture",
+    "website": "https://www.accenture.com/ae-en",
+    "websiteSource": "https://www.consultancy-me.com/advisory/accenture",
+    "careersSource": "https://www.accenture.com/ae-en/careers",
+    "shortDescription": "Accenture is a global professional services firm delivering strategy, digital transformation, cloud engineering, and technology consulting across the UAE.",
+    "whatTheyDo": "Accenture provides corporate strategy consulting, enterprise cloud implementation, systems integration, digital experience design (Accenture Song), cybersecurity, and operations management. In the UAE, its consultants and engineers drive large-scale digital initiatives, national technology agendas, and business modernizations for public sector entities, financial institutions, telecom operators, and energy companies. Its primary regional office is located at Arenco Tower on Sheikh Zayed Road.",
+    "descriptionSource": "https://www.consultancy-me.com/advisory/accenture",
+    "industry": "Management Consulting & Technology Services",
+    "address": "Arenco Tower, Al Sufouh 2, Sheikh Zayed Road, Dubai, United Arab Emirates",
+    "latitude": 25.09151,
+    "longitude": 55.15871,
+    "locationSource": "https://en.wikipedia.org/wiki/AAM_Tower",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.accenture.com/ae-en/careers",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Accenture Middle East Profile - Consultancy-me.com",
+        "url": "https://www.consultancy-me.com/advisory/accenture"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City; main Dubai corporate office is situated in Arenco Tower (AAM Tower) in adjacent Al Sufouh 2 / Media City area."
+  },
+  {
+    "id": "accor",
+    "website": "https://group.accor.com",
+    "websiteSource": "https://www.hoteliermiddleeast.com/business/accor-dubai-office-embraces-hotel-design",
+    "careersUrl": "https://careers.accor.com",
+    "careersSource": "https://careers.accor.com",
+    "shortDescription": "Accor operates its regional corporate headquarters for the Middle East, Africa, and Turkey in Dubai, managing a large portfolio of international hotel brands.",
+    "whatTheyDo": "Accor manages luxury, premium, midscale, and economy hospitality properties throughout the UAE, including Raffles, Fairmont, Sofitel, Pullman, Novotel, and Ibis. From its regional headquarters in Dubai Media City, its teams direct regional hotel operations, brand standards, hotel development, commercial sales, and owner partnerships. It serves hospitality investors, business and leisure hotel guests, corporate travel managers, and food and beverage patrons.",
+    "descriptionSource": "https://www.hoteliermiddleeast.com/business/accor-dubai-office-embraces-hotel-design",
+    "industry": "Hospitality & Tourism",
+    "address": "GBS Building, Al Falak Street, Dubai Media City, Dubai, United Arab Emirates",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.hoteliermiddleeast.com/business/accor-dubai-office-embraces-hotel-design",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://careers.accor.com",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Accor Dubai office embraces hotel design - Hotelier Middle East",
+        "url": "https://www.hoteliermiddleeast.com/business/accor-dubai-office-embraces-hotel-design"
+      }
+    ],
+    "notes": "Input listed area as Downtown, but verified regional corporate headquarters is situated in the GBS Building, Dubai Media City."
+  },
+  {
+    "id": "adecco",
+    "websiteSource": "https://www.yellowpages-uae.com/uae/abu-dhabi/adecco-middle-east",
+    "careersSource": "https://www.adecco.ae",
+    "shortDescription": "Adecco Middle East is a prominent human resources, staffing, and workforce solutions consultancy operating across the UAE.",
+    "whatTheyDo": "Adecco Middle East provides permanent professional recruitment, contingent and temporary staffing, executive search, outsourced HR administration, and payroll management services across the UAE. From its offices in Dubai and Abu Dhabi, its specialized recruitment consultants place talent in sectors including banking, technology, engineering, retail, and corporate functions. It also runs dedicated workforce nationalisation programs supporting UAE Emiratisation targets.",
+    "descriptionSource": "https://www.yellowpages-uae.com/uae/abu-dhabi/adecco-middle-east",
+    "industry": "HR & Recruitment Services",
+    "address": "Office 2403, The Citadel Tower, Marasi Drive, Business Bay, Dubai, United Arab Emirates",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.adecco.ae",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Adecco Middle East - Yellow Pages UAE",
+        "url": "https://www.yellowpages-uae.com/uae/abu-dhabi/adecco-middle-east"
+      }
+    ],
+    "notes": "Adecco maintains operations in Dubai at Office 2403, The Citadel Tower, Business Bay, alongside an Abu Dhabi regional office."
+  }
+]

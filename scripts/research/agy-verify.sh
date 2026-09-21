@@ -15,8 +15,7 @@ set -euo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROMPT="$HERE/PROMPT.md"
 OUT_DIR="$HERE/verified"
-MODEL="${AGY_MODEL:-gemini-3-flash}"
-EFFORT="${AGY_EFFORT:-high}"
+MODEL="${AGY_MODEL:-gemini-3.8-flash-high}"
 TIMEOUT="${AGY_TIMEOUT:-15m}"
 
 command -v agy >/dev/null 2>&1 || {
@@ -43,16 +42,16 @@ run_batch() {
   local result status response
   # The prompt goes on stdin rather than argv so company names don't show up
   # in the process list, and so batch size isn't limited by ARG_MAX.
+  # The CLI does not read the prompt from stdin, so it goes on argv. Batches
+  # are 10 companies, which keeps this well inside ARG_MAX.
+  local prompt
+  prompt="$(cat "$PROMPT")
+$(printf '\n## Companies to verify\n\n')
+$(cat "$batch")"
+
   result="$(
-    {
-      cat "$PROMPT"
-      echo
-      echo '## Companies to verify'
-      echo
-      cat "$batch"
-    } | agy -p - \
+    agy -p "$prompt" \
         --model "$MODEL" \
-        --effort "$EFFORT" \
         --output-format json \
         --print-timeout "$TIMEOUT" 2>/dev/null
   )" || { echo "fail  $name (agy exited non-zero)" >&2; return 1; }
@@ -66,7 +65,7 @@ run_batch() {
 
   response="$(jq -r '.response' <<<"$result")"
   # Strip code fences if the model added them despite the instruction.
-  response="$(sed -e 's/^```json$//' -e 's/^```$//' <<<"$response")"
+  response="$(sed -e 's/^[[:space:]]*```json[[:space:]]*$//' -e 's/^[[:space:]]*```[[:space:]]*$//' <<<"$response")"
 
   if ! jq -e 'type == "array"' <<<"$response" >/dev/null 2>&1; then
     echo "fail  $name (response was not a JSON array)" >&2

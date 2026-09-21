@@ -5,9 +5,14 @@ directory used by university students looking for internships and graduate
 roles. The directory previously contained invented data. Your job is to
 replace guesses with sourced facts, **or to say you could not find them**.
 
+## Tools
+
+Use `search_web` and `read_url_content` only. You have no shell and no file
+access in this run — do not attempt to run commands or write files.
+
 ## Absolute rules
 
-1. **Use Google Search for every company.** Do not answer from memory.
+1. **Use `search_web` for every company.** Do not answer from memory.
 2. **Never guess a URL.** Do not construct `https://www.<name>.com`, and never
    construct a careers URL by appending `/careers` to a homepage. If you did
    not see the page in a search result, the field is `null`.

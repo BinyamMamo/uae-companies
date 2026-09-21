@@ -41,8 +41,8 @@ interface AppContextType {
   reloadCompanies: () => void;
   selectedCompany: Company | null;
   setSelectedCompany: (company: Company | null) => void;
-  activeTab: 'list' | 'browse' | 'featured' | 'map' | 'saved';
-  setActiveTab: (tab: 'list' | 'browse' | 'featured' | 'map' | 'saved') => void;
+  activeTab: 'list' | 'featured' | 'map' | 'saved';
+  setActiveTab: (tab: 'list' | 'featured' | 'map' | 'saved') => void;
   filters: FilterState;
   setFilters: React.Dispatch<React.SetStateAction<FilterState>>;
   clearFilters: () => void;
@@ -99,9 +99,9 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // Read-only here: the profile sync mirrors these, it does not own them.
   const { theme, accentColor } = useTheme();
-  const [activeTab, setActiveTabState] = useState<'list' | 'browse' | 'featured' | 'map' | 'saved'>('list');
+  const [activeTab, setActiveTabState] = useState<'list' | 'featured' | 'map' | 'saved'>('list');
 
-  const setActiveTab = useCallback((tab: 'list' | 'browse' | 'featured' | 'map' | 'saved') => {
+  const setActiveTab = useCallback((tab: 'list' | 'featured' | 'map' | 'saved') => {
     setActiveTabState(prev => {
       if (prev !== tab) {
         trackView(tab);

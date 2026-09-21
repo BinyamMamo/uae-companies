@@ -5,11 +5,10 @@ import { ProfileMenu } from './ProfileMenu';
 import { Logo } from './ui/Logo';
 import { SlidersHorizontal, Sun, Moon, Settings } from 'lucide-react';
 
-type TabId = 'list' | 'browse' | 'featured' | 'map' | 'saved';
+type TabId = 'list' | 'featured' | 'map' | 'saved';
 
 const NAV_ITEMS: Array<{ id: TabId; label: string }> = [
   { id: 'list', label: 'List' },
-  { id: 'browse', label: 'Browse' },
   { id: 'featured', label: 'Featured' },
   { id: 'map', label: 'Map' },
   { id: 'saved', label: 'Saved' },
@@ -84,13 +83,8 @@ export const Header: React.FC = () => {
             aria-label="UAE Companies — go to list"
           >
             <Logo className="w-7 h-7 sm:w-8 sm:h-8 shrink-0 text-brand-600 dark:text-brand-400" />
-            <span className="hidden sm:flex flex-col leading-tight min-w-0">
-              <span className="text-sm font-bold tracking-tight text-ink truncate">
-                UAE <span className="text-brand-600 dark:text-brand-400">Companies</span>
-              </span>
-              <span className="text-[11px] text-ink-3 font-normal truncate">
-                Tech &amp; Jobs Discovery
-              </span>
+            <span className="hidden sm:block text-base font-bold tracking-tight text-ink truncate">
+              UAE <span className="text-brand-600 dark:text-brand-400">Companies</span>
             </span>
           </button>
         </div>

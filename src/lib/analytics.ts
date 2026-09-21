@@ -64,7 +64,7 @@ export type AnalyticsEvent =
   | { name: 'filter_applied'; props: { filter: string; value: string } }
   | { name: 'filters_cleared'; props?: never }
   | { name: 'sort_changed'; props: { sort_by: string } }
-  | { name: 'company_opened'; props: { company_id: string; surface: 'card' | 'map' | 'saved' | 'featured' | 'browse' } }
+  | { name: 'company_opened'; props: { company_id: string; surface: 'card' | 'map' | 'saved' | 'featured' } }
   | { name: 'company_tab_viewed'; props: { company_id: string; tab: string } }
   | { name: 'company_saved'; props: { company_id: string; saved: boolean } }
   | { name: 'list_created'; props?: never }
