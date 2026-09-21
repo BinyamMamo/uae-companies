@@ -1,0 +1,40 @@
+# Render Blueprint.
+#
+# The app is a static Vite build with no server of its own, so this is a static
+# site rather than a web service: no instance to spin down, and nothing to keep
+# warm. Firebase keys are the public web config that ships inside the client
+# bundle anyway, so they are ordinary build variables, not secrets.
+services:
+  - type: web
+    runtime: static
+    name: uaecompanies
+    branch: main
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
+    autoDeploy: true
+    envVars:
+      - key: VITE_FIREBASE_API_KEY
+        sync: false
+      - key: VITE_FIREBASE_AUTH_DOMAIN
+        sync: false
+      - key: VITE_FIREBASE_PROJECT_ID
+        sync: false
+      - key: VITE_FIREBASE_APP_ID
+        sync: false
+      - key: VITE_FIREBASE_MEASUREMENT_ID
+        sync: false
+      - key: VITE_GOOGLE_CLIENT_ID
+        sync: false
+    headers:
+      # The dataset is refetched on each visit; everything else is hashed.
+      - path: /data/*
+        name: Cache-Control
+        value: public, max-age=300, must-revalidate
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+    routes:
+      # No router today, but a deep link should still land on the app.
+      - type: rewrite
+        source: /*
+        destination: /index.html
