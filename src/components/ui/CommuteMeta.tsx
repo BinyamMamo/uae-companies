@@ -1,7 +1,7 @@
 import React from 'react';
 import { MapPin } from 'lucide-react';
 import type { Company } from '../../types/company';
-import { formatBusCommute, formatDistance } from '../../utils/distance';
+import { formatDistance } from '../../utils/distance';
 
 interface CommuteMetaProps {
   company: Company;
@@ -17,9 +17,12 @@ const Dot = () => (
 );
 
 /**
- * The "where it is / how far / how long by bus" line, shared by the card,
- * drawer, bottom sheet, saved list, featured grid and map popup — which
- * previously each had their own copy with drifting separator colours.
+ * The "where it is / how far" line, shared by the card,
+ * drawer, bottom sheet, saved list, featured grid and map popup.
+ *
+ * Travel time is deliberately absent. The estimates were derived from
+ * straight-line distance and ran roughly 3x optimistic against real transit
+ * times, so only the distance — which is exact — is shown.
  */
 export const CommuteMeta: React.FC<CommuteMetaProps> = ({
   company,
@@ -32,10 +35,6 @@ export const CommuteMeta: React.FC<CommuteMetaProps> = ({
       <span>{showArea ? company.location.area : `${company.location.emirate}, UAE`}</span>
     </span>
     <Dot />
-    <span>{formatDistance(company.commute.distanceKm)}</span>
-    <Dot />
-    <span className="font-medium text-ink">
-      {formatBusCommute(company.commute.busMinutes)}
-    </span>
+    <span className="font-medium text-ink">{formatDistance(company.commute.distanceKm)}</span>
   </div>
 );

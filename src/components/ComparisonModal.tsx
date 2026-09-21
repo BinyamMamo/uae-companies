@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { useApp } from '../context/AppContext';
-import { formatBusCommute, formatDistance } from '../utils/distance';
+import { formatDistance } from '../utils/distance';
 import { X, Plus, Search } from 'lucide-react';
 import { Modal } from './ui/Modal';
 import { CompanyLogo } from './ui/CompanyLogo';
@@ -210,11 +210,9 @@ export const ComparisonModal: React.FC = () => {
                 {compared.map(c => (
                   <Cell key={c.id}>
                     <div className="text-sm font-semibold text-ink">
-                      {formatBusCommute(c.commute.busMinutes)}
+                      {formatDistance(c.commute.distanceKm)}
                     </div>
-                    <div className="mt-0.5 text-ink-3">
-                      {formatDistance(c.commute.distanceKm)} · {c.location.area}
-                    </div>
+                    <div className="mt-0.5 text-ink-3">{c.location.area}</div>
                   </Cell>
                 ))}
               </Row>

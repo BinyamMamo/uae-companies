@@ -6,7 +6,7 @@ import { useApp } from '../context/AppContext';
 import { useTheme } from '../context/ThemeContext';
 import { useToast } from './ui/Toast';
 import { LocationPicker } from './ui/LocationPicker';
-import { formatBusCommute, formatDistance } from '../utils/distance';
+import { formatDistance } from '../utils/distance';
 import { TILE_CONFIGS, MAP_STYLE_IDS, defaultStyleForTheme, type MapStyleId } from '../utils/mapTiles';
 import {
   MapPinHouse,
@@ -519,10 +519,6 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
                 <div className="flex items-center gap-2 text-xs text-ink-2 mt-2">
                   <span className="font-semibold text-ink">
                     {formatDistance(activePopupCompany.commute.distanceKm)}
-                  </span>
-                  <span className="text-slate-300 dark:text-slate-600">·</span>
-                  <span className="text-brand-600 dark:text-brand-400 font-medium">
-                    {formatBusCommute(activePopupCompany.commute.busMinutes)}
                   </span>
                 </div>
               </div>

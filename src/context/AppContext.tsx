@@ -36,13 +36,15 @@ export interface UserLocation {
 
 interface AppContextType {
   companies: Company[];
+  sharedListArrived: boolean;
+  setSharedListArrived: (value: boolean) => void;
   /** 'loading' until the fetched dataset arrives; views show skeletons meanwhile. */
   companiesStatus: 'loading' | 'ready' | 'error';
   reloadCompanies: () => void;
   selectedCompany: Company | null;
   setSelectedCompany: (company: Company | null) => void;
-  activeTab: 'list' | 'featured' | 'map' | 'saved';
-  setActiveTab: (tab: 'list' | 'featured' | 'map' | 'saved') => void;
+  activeTab: 'list' | 'featured' | 'map';
+  setActiveTab: (tab: 'list' | 'featured' | 'map') => void;
   filters: FilterState;
   setFilters: React.Dispatch<React.SetStateAction<FilterState>>;
   clearFilters: () => void;
@@ -87,7 +89,6 @@ const initialFilters: FilterState = {
   location: 'All locations',
   area: 'All areas',
   distanceMax: null,
-  busMinutesMax: null,
   isFreeZoneOnly: null,
   careerFilter: null,
   hasCareersUrl: false,
@@ -100,9 +101,9 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // Read-only here: the profile sync mirrors these, it does not own them.
   const { theme, accentColor } = useTheme();
-  const [activeTab, setActiveTabState] = useState<'list' | 'featured' | 'map' | 'saved'>('list');
+  const [activeTab, setActiveTabState] = useState<'list' | 'featured' | 'map'>('list');
 
-  const setActiveTab = useCallback((tab: 'list' | 'featured' | 'map' | 'saved') => {
+  const setActiveTab = useCallback((tab: 'list' | 'featured' | 'map') => {
     setActiveTabState(prev => {
       if (prev !== tab) {
         trackView(tab);
@@ -284,6 +285,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   );
 
   const [activeListId, setActiveListId] = useState<string>('default');
+  /** Set when a ?share_ids= link added a list, so the app can reveal it. */
+  const [sharedListArrived, setSharedListArrived] = useState(false);
 
   // Check URL parameters on mount for shared list
   useEffect(() => {
@@ -304,7 +307,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           }
         ]);
         setActiveListId(newListId);
-        setActiveTab('saved');
+        // Saved is a modal now; App opens it when a shared list arrives.
+        setSharedListArrived(true);
       }
     } catch {
       // ignore
@@ -524,11 +528,6 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         if (company.location.isFreeZone !== filters.isFreeZoneOnly) return false;
       }
 
-      // Max bus commute, in minutes
-      if (filters.busMinutesMax !== null) {
-        if (company.commute.busMinutes >= filters.busMinutesMax) return false;
-      }
-
       // Only companies with a careers page we actually found
       if (filters.hasCareersUrl && !company.careersUrl) return false;
 
@@ -590,6 +589,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const value = useMemo<AppContextType>(
     () => ({
       companies,
+      sharedListArrived,
+      setSharedListArrived,
       companiesStatus,
       reloadCompanies,
       selectedCompany,
@@ -668,6 +669,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       setIsCompareModalOpen,
       setIsMobileFilterOpen,
       setIsSettingsModalOpen,
+      setSharedListArrived,
+      sharedListArrived,
       setSelectedCompany,
       setUserInterests,
       setUserLocation,
