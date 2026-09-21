@@ -1,228 +1,367 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useApp } from '../context/AppContext';
 import { useIsDesktop } from '../hooks/useMediaQuery';
+import { useConfirm } from '../hooks/useConfirm';
 import { CompanyDrawer } from '../components/CompanyDrawer';
 import { CompanyBottomSheet } from '../components/CompanyBottomSheet';
 import { ShareListModal } from '../components/ShareListModal';
-import { formatBusCommute, formatDistance } from '../utils/distance';
 import { CompanyLogo } from '../components/ui/CompanyLogo';
-import {
-  Trash2,
-  Share2,
-  Plus,
-  MapPin,
-  BookmarkCheck
-} from 'lucide-react';
+import { CommuteMeta } from '../components/ui/CommuteMeta';
+import { EmptyState } from '../components/ui/EmptyState';
+import { track } from '../lib/analytics';
+import { Bookmark, Plus, Search, Share2, Trash2, X, Check, Pencil } from 'lucide-react';
 
+/**
+ * Saved lists.
+ *
+ * The lists live in a sidebar that mirrors the filter card on the list view, so
+ * switching between them is one click rather than a scrolling tab strip. Every
+ * destructive action goes through the shared confirmation dialog.
+ */
 export const SavedView: React.FC = () => {
   const {
     companies,
-    selectedCompany,
-    setSelectedCompany,
     savedLists,
     activeListId,
     setActiveListId,
     createSavedList,
     deleteSavedList,
+    renameSavedList,
     removeCompanyFromList,
-    toggleSaveCompany
+    selectedCompany,
+    setSelectedCompany,
+    setActiveTab,
   } = useApp();
   const isDesktop = useIsDesktop();
+  const confirm = useConfirm();
 
-  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+  const [listQuery, setListQuery] = useState('');
+  const [companyQuery, setCompanyQuery] = useState('');
+  const [isCreating, setIsCreating] = useState(false);
   const [newListName, setNewListName] = useState('');
-  const [isCreatingList, setIsCreatingList] = useState(false);
+  const [renamingId, setRenamingId] = useState<string | null>(null);
+  const [renameValue, setRenameValue] = useState('');
+  const [isShareOpen, setIsShareOpen] = useState(false);
 
-  // Active list object
-  const currentList = savedLists.find(l => l.id === activeListId) || savedLists[0];
+  const activeList = savedLists.find(l => l.id === activeListId) ?? savedLists[0];
 
-  // Resolve companies in this list
-  const savedCompanies = (currentList?.companyIds || [])
-    .map(id => companies.find(c => c.id === id))
-    .filter(Boolean) as typeof companies;
+  const visibleLists = useMemo(() => {
+    const q = listQuery.trim().toLowerCase();
+    return q ? savedLists.filter(l => l.name.toLowerCase().includes(q)) : savedLists;
+  }, [savedLists, listQuery]);
 
-  const handleCreateList = (e: React.FormEvent) => {
+  const listCompanies = useMemo(() => {
+    if (!activeList) return [];
+    const inList = activeList.companyIds
+      .map(id => companies.find(c => c.id === id))
+      .filter((c): c is (typeof companies)[number] => Boolean(c));
+    const q = companyQuery.trim().toLowerCase();
+    return q
+      ? inList.filter(
+          c =>
+            c.name.toLowerCase().includes(q) ||
+            c.categories.some(cat => cat.toLowerCase().includes(q))
+        )
+      : inList;
+  }, [activeList, companies, companyQuery]);
+
+  const handleCreate = (e: React.FormEvent) => {
     e.preventDefault();
     if (!newListName.trim()) return;
-    createSavedList(newListName.trim());
+    createSavedList(newListName);
     setNewListName('');
-    setIsCreatingList(false);
+    setIsCreating(false);
+  };
+
+  const handleDeleteList = async (id: string, name: string) => {
+    const ok = await confirm({
+      title: `Delete "${name}"?`,
+      description:
+        'The list is removed. The companies in it stay saved under All Saved.',
+      confirmLabel: 'Delete list',
+      tone: 'danger',
+    });
+    if (ok) deleteSavedList(id);
+  };
+
+  const handleRemove = async (companyId: string, companyName: string) => {
+    const fromDefault = activeList?.id === 'default';
+    const ok = await confirm({
+      title: fromDefault ? `Unsave ${companyName}?` : `Remove ${companyName}?`,
+      description: fromDefault
+        ? 'It will be removed from all of your lists.'
+        : `It will be taken out of "${activeList?.name}" but stay under All Saved.`,
+      confirmLabel: fromDefault ? 'Unsave' : 'Remove',
+      tone: 'danger',
+    });
+    if (ok && activeList) removeCompanyFromList(activeList.id, companyId);
+  };
+
+  const submitRename = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (renamingId && renameValue.trim()) renameSavedList(renamingId, renameValue);
+    setRenamingId(null);
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6">
-      
-      {/* List Tabs, Create List & Share Action */}
-      <div className="flex items-center justify-between gap-3 mb-6 overflow-x-auto pb-1">
-        <div className="flex items-center gap-1.5">
-          {savedLists.map(list => {
-            const isActive = list.id === activeListId;
-            return (
-              <button
-                key={list.id}
-                onClick={() => setActiveListId(list.id)}
-                className={`px-3 py-1.5 text-xs font-medium rounded-lg border transition whitespace-nowrap flex items-center gap-2 ${ isActive ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-slate-900 dark:border-white shadow-2xs' : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 border-line hover:bg-slate-50 dark:hover:bg-slate-800' }`}
-              >
-                <span>{list.name}</span>
-                <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${ isActive ? 'bg-slate-800 dark:bg-slate-200 text-slate-300 dark:text-slate-800' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400' }`}>
-                  {list.companyIds.length}
-                </span>
-              </button>
-            );
-          })}
-
-          {/* New List button */}
-          {!isCreatingList ? (
-            <button
-              onClick={() => setIsCreatingList(true)}
-              className="px-2.5 py-1.5 text-xs font-medium text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 hover:bg-accent-soft rounded-lg border border-dashed border-accent-soft-border transition-colors flex items-center gap-1 shrink-0"
-            >
-              <Plus className="w-3.5 h-3.5" aria-hidden="true" />
-              <span>New list</span>
-            </button>
-          ) : (
-            <form onSubmit={handleCreateList} className="flex items-center gap-1.5">
-              <input
-                type="text"
-                value={newListName}
-                onChange={e => setNewListName(e.target.value)}
-                placeholder="List name..."
-                autoFocus
-                className="text-xs px-2.5 py-1.5 border border-brand-500 rounded-lg focus:outline-hidden w-32"
-              />
-              <button
-                type="submit"
-                className="px-2 py-1.5 bg-brand-600 text-white text-xs font-semibold rounded-lg"
-              >
-                Save
-              </button>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+      <div className="flex flex-col md:flex-row gap-5">
+        {/* Lists — mirrors the filter card on the list view */}
+        <aside className="w-full md:w-56 lg:w-60 shrink-0 md:sticky md:top-[calc(var(--header-h)+1.5rem)] md:self-start">
+          <div className="bg-surface border border-line rounded-xl p-3 shadow-subtle">
+            <div className="flex items-center justify-between mb-2.5">
+              <h2 className="text-xs font-bold text-ink uppercase tracking-wider">Lists</h2>
               <button
                 type="button"
-                onClick={() => setIsCreatingList(false)}
-                className="text-xs text-slate-400 hover:text-slate-600 px-1"
+                onClick={() => setIsCreating(v => !v)}
+                className="p-1 rounded text-ink-3 hover:text-ink hover:bg-surface-2 transition-colors"
+                aria-label="Create a new list"
+                title="New list"
               >
-                Cancel
+                <Plus className="w-3.5 h-3.5" aria-hidden="true" />
               </button>
-            </form>
-          )}
-        </div>
+            </div>
 
-        {/* Right actions: Share list & Delete list */}
-        <div className="flex items-center gap-2 shrink-0">
-          {savedCompanies.length > 0 && (
-            <button
-              onClick={() => setIsShareModalOpen(true)}
-              className="px-3.5 py-1.5 bg-surface hover:bg-surface-2 text-slate-700 dark:text-slate-200 text-xs font-semibold rounded-sm border border-line shadow-2xs transition flex items-center gap-1.5"
-            >
-              <Share2 className="w-3.5 h-3.5 text-ink-2" />
-              <span>Share list</span>
-            </button>
+            {isCreating && (
+              <form onSubmit={handleCreate} className="flex items-center gap-1.5 mb-2">
+                <label htmlFor="new-list" className="sr-only">
+                  New list name
+                </label>
+                <input
+                  id="new-list"
+                  autoFocus
+                  value={newListName}
+                  onChange={e => setNewListName(e.target.value)}
+                  onKeyDown={e => e.key === 'Escape' && setIsCreating(false)}
+                  placeholder="List name"
+                  className="flex-1 min-w-0 px-2 py-1.5 text-xs bg-surface-2 border border-line rounded-md text-ink placeholder:text-ink-3 focus:outline-hidden focus:ring-1 focus:ring-brand-500"
+                />
+                <button
+                  type="submit"
+                  disabled={!newListName.trim()}
+                  className="px-2 py-1.5 text-xs font-semibold rounded-md bg-brand-600 hover:bg-brand-700 disabled:opacity-40 text-white transition-colors"
+                >
+                  Add
+                </button>
+              </form>
+            )}
+
+            {savedLists.length > 4 && (
+              <div className="relative mb-2">
+                <Search
+                  className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-ink-3 pointer-events-none"
+                  aria-hidden="true"
+                />
+                <label htmlFor="list-search" className="sr-only">
+                  Search your lists
+                </label>
+                <input
+                  id="list-search"
+                  type="search"
+                  value={listQuery}
+                  onChange={e => setListQuery(e.target.value)}
+                  placeholder="Search lists"
+                  className="w-full pl-8 pr-2 py-1.5 text-xs bg-surface-2 border border-line rounded-md text-ink placeholder:text-ink-3 focus:outline-hidden focus:ring-1 focus:ring-brand-500"
+                />
+              </div>
+            )}
+
+            <ul className="space-y-0.5">
+              {visibleLists.map(list => {
+                const isActive = list.id === activeList?.id;
+                return (
+                  <li key={list.id} className="group relative">
+                    {renamingId === list.id ? (
+                      <form onSubmit={submitRename} className="flex items-center gap-1 p-1">
+                        <input
+                          autoFocus
+                          value={renameValue}
+                          onChange={e => setRenameValue(e.target.value)}
+                          onKeyDown={e => e.key === 'Escape' && setRenamingId(null)}
+                          className="flex-1 min-w-0 px-2 py-1 text-xs bg-surface-2 border border-line rounded text-ink focus:outline-hidden focus:ring-1 focus:ring-brand-500"
+                          aria-label={`Rename ${list.name}`}
+                        />
+                        <button
+                          type="submit"
+                          className="p-1 rounded text-brand-600 dark:text-brand-400"
+                          aria-label="Save name"
+                        >
+                          <Check className="w-3.5 h-3.5" aria-hidden="true" />
+                        </button>
+                      </form>
+                    ) : (
+                      <div
+                        className={`flex items-center rounded-lg transition-colors ${
+                          isActive ? 'bg-surface-2' : 'hover:bg-surface-2'
+                        }`}
+                      >
+                        <button
+                          type="button"
+                          onClick={() => setActiveListId(list.id)}
+                          aria-current={isActive ? 'true' : undefined}
+                          className="flex-1 min-w-0 flex items-baseline gap-2 px-2.5 py-2 text-left"
+                        >
+                          <span
+                            className={`text-xs truncate ${
+                              isActive ? 'font-semibold text-ink' : 'text-ink-2'
+                            }`}
+                          >
+                            {list.name}
+                          </span>
+                          <span className="ml-auto text-[11px] text-ink-3 tabular-nums shrink-0">
+                            {list.companyIds.length}
+                          </span>
+                        </button>
+
+                        {list.id !== 'default' && (
+                          <span className="flex items-center pr-1 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setRenamingId(list.id);
+                                setRenameValue(list.name);
+                              }}
+                              className="p-1 rounded text-ink-3 hover:text-ink transition-colors"
+                              aria-label={`Rename ${list.name}`}
+                            >
+                              <Pencil className="w-3 h-3" aria-hidden="true" />
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => void handleDeleteList(list.id, list.name)}
+                              className="p-1 rounded text-ink-3 hover:text-red-600 dark:hover:text-red-400 transition-colors"
+                              aria-label={`Delete ${list.name}`}
+                            >
+                              <Trash2 className="w-3 h-3" aria-hidden="true" />
+                            </button>
+                          </span>
+                        )}
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+
+            {visibleLists.length === 0 && (
+              <p className="text-[11px] text-ink-3 px-2 py-3">No lists match &ldquo;{listQuery}&rdquo;.</p>
+            )}
+          </div>
+        </aside>
+
+        {/* Companies in the selected list */}
+        <main className="flex-1 min-w-0">
+          <div className="flex items-center justify-between gap-3 mb-4">
+            <div className="min-w-0">
+              <h1 className="text-lg font-semibold text-ink truncate">{activeList?.name}</h1>
+              <p className="text-xs text-ink-3 mt-0.5">
+                {activeList?.companyIds.length ?? 0}{' '}
+                {activeList?.companyIds.length === 1 ? 'company' : 'companies'}
+              </p>
+            </div>
+
+            {(activeList?.companyIds.length ?? 0) > 0 && (
+              <button
+                type="button"
+                onClick={() => {
+                  track('list_shared', { company_count: activeList?.companyIds.length ?? 0 });
+                  setIsShareOpen(true);
+                }}
+                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-md border border-line text-ink-2 hover:text-ink hover:bg-surface-2 transition-colors shrink-0"
+              >
+                <Share2 className="w-3.5 h-3.5" aria-hidden="true" />
+                <span>Share</span>
+              </button>
+            )}
+          </div>
+
+          {(activeList?.companyIds.length ?? 0) > 3 && (
+            <div className="relative mb-3">
+              <Search
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ink-3 pointer-events-none"
+                aria-hidden="true"
+              />
+              <label htmlFor="saved-search" className="sr-only">
+                Search within this list
+              </label>
+              <input
+                id="saved-search"
+                type="search"
+                value={companyQuery}
+                onChange={e => setCompanyQuery(e.target.value)}
+                placeholder="Search in this list"
+                className="w-full pl-9 pr-3 py-2 text-sm bg-transparent border-0 border-b border-line rounded-none text-ink placeholder:text-ink-3 focus:outline-hidden focus:border-brand-500 transition-colors"
+              />
+            </div>
           )}
 
-          {/* Delete current custom list */}
-          {currentList && currentList.id !== 'default' && (
-            <button
-              onClick={() => deleteSavedList(currentList.id)}
-              className="text-xs text-red-600 hover:text-red-700 font-medium shrink-0 flex items-center gap-1 ml-1"
-            >
-              <Trash2 className="w-3.5 h-3.5" />
-              <span>Delete list</span>
-            </button>
+          {listCompanies.length > 0 ? (
+            <ul className="space-y-2">
+              {listCompanies.map(company => (
+                <li
+                  key={company.id}
+                  className="group flex items-center gap-3 bg-surface border border-line hover:border-line-strong rounded-xl p-3 sm:p-4 transition-colors"
+                >
+                  <CompanyLogo name={company.name} src={company.logo} size="sm" />
+
+                  <button
+                    type="button"
+                    onClick={() => setSelectedCompany(company)}
+                    className="flex-1 min-w-0 text-left"
+                  >
+                    <span className="block text-sm font-semibold text-ink truncate hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                      {company.name}
+                    </span>
+                    <span className="block text-xs text-ink-3 truncate mt-0.5">
+                      {company.categories.slice(0, 3).join(' · ')}
+                    </span>
+                    <CommuteMeta company={company} className="mt-1.5" />
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => void handleRemove(company.id, company.name)}
+                    className="p-2 rounded-md text-ink-3 hover:text-red-600 dark:hover:text-red-400 hover:bg-surface-2 transition-colors shrink-0"
+                    aria-label={`Remove ${company.name} from ${activeList?.name}`}
+                    title="Remove from this list"
+                  >
+                    <X className="w-4 h-4" aria-hidden="true" />
+                  </button>
+                </li>
+              ))}
+            </ul>
+          ) : companyQuery.trim() ? (
+            <EmptyState
+              icon={Search}
+              title="No matches in this list"
+              description={`Nothing in "${activeList?.name}" matches "${companyQuery.trim()}".`}
+              action={{ label: 'Clear search', onClick: () => setCompanyQuery('') }}
+            />
+          ) : (
+            <EmptyState
+              icon={Bookmark}
+              title={activeList?.id === 'default' ? 'Nothing saved yet' : 'This list is empty'}
+              description="Use the bookmark button on any company to save it, and pick which lists it belongs to."
+              action={{ label: 'Browse companies', onClick: () => setActiveTab('list') }}
+            />
           )}
-        </div>
+        </main>
       </div>
 
-      {/* Company Items List (matching screenshot bottom-right) */}
-      {savedCompanies.length > 0 ? (
-        <div className="space-y-3">
-          {savedCompanies.map(company => (
-            <div
-              key={company.id}
-              onClick={() => setSelectedCompany(company)}
-              className="bg-surface border border-line hover:border-line-strong rounded-lg p-4 shadow-subtle flex items-center justify-between gap-4 transition-colors transition-shadow cursor-pointer group"
-            >
-              <div className="flex items-center gap-3.5 min-w-0">
-                
-                {/* Logo */}
-                <CompanyLogo name={company.name} src={company.logo} size="sm" />
-
-                {/* Info */}
-                <div className="min-w-0">
-                  <h3 className="text-sm font-semibold text-ink truncate group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
-                    {company.name}
-                  </h3>
-                  <div className="text-xs text-ink-2 truncate">
-                    {company.categories.slice(0, 3).join(' · ')}
-                  </div>
-                  <div className="flex items-center gap-1.5 text-xs text-ink-2 mt-1">
-                    <MapPin className="w-3.5 h-3.5 text-ink-3 shrink-0" />
-                    <span>{company.location.emirate}, UAE</span>
-                    <span className="text-slate-300 dark:text-slate-600">·</span>
-                    <span>{formatDistance(company.commute.distanceKm)}</span>
-                    <span className="text-slate-300 dark:text-slate-600">·</span>
-                    <span className="text-ink-2 font-medium">{formatBusCommute(company.commute.busMinutes)}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Actions */}
-              <div className="flex items-center gap-1 shrink-0">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    if (currentList.id === 'default') {
-                      toggleSaveCompany(company.id);
-                    } else {
-                      removeCompanyFromList(currentList.id, company.id);
-                    }
-                  }}
-                  className="p-2 rounded-sm text-slate-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/40 transition"
-                  title="Remove from this list"
-                >
-                  <Trash2 className="w-4 h-4" />
-                </button>
-              </div>
-
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="bg-surface border border-line rounded-lg p-12 text-center mt-6">
-          <BookmarkCheck className="w-10 h-10 text-slate-300 dark:text-slate-700 mx-auto mb-2" />
-          <h3 className="text-sm font-semibold text-ink">
-            No saved companies in this list
-          </h3>
-          <p className="text-xs text-ink-2 mt-1 max-w-sm mx-auto">
-            Save companies while browsing the directory or exploring the map and they will appear here.
-          </p>
-        </div>
-      )}
-
-      {/* Share Modal */}
-      {isShareModalOpen && currentList && (
+      {isShareOpen && activeList && (
         <ShareListModal
-          listName={currentList.name}
-          companies={savedCompanies}
-          onClose={() => setIsShareModalOpen(false)}
+          listName={activeList.name}
+          companies={listCompanies}
+          onClose={() => setIsShareOpen(false)}
         />
       )}
 
-      {/* Desktop Drawer */}
       {selectedCompany && isDesktop && (
-          <CompanyDrawer
-            company={selectedCompany}
-            onClose={() => setSelectedCompany(null)}
-          />
-        )}
-
-      {/* Mobile Bottom Sheet */}
-      {selectedCompany && !isDesktop && (
-          <CompanyBottomSheet
-          company={selectedCompany}
-          onClose={() => setSelectedCompany(null)}
-        />
+        <CompanyDrawer company={selectedCompany} onClose={() => setSelectedCompany(null)} />
       )}
-
+      {selectedCompany && !isDesktop && (
+        <CompanyBottomSheet company={selectedCompany} onClose={() => setSelectedCompany(null)} />
+      )}
     </div>
   );
 };

@@ -9,6 +9,7 @@ import { ComparisonModal } from './components/ComparisonModal';
 import { SettingsModal } from './components/SettingsModal';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
 import { ToastProvider } from './components/ui/Toast';
+import { ConfirmProvider } from './hooks/useConfirm';
 import { AuthProvider } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
 import { GoogleOneTap } from './components/GoogleOneTap';
@@ -70,6 +71,7 @@ export function App() {
   return (
     <ErrorBoundary>
       <ToastProvider>
+        <ConfirmProvider>
         <ThemeProvider>
           <AuthProvider>
             <AppProvider>
@@ -77,6 +79,7 @@ export function App() {
             </AppProvider>
           </AuthProvider>
         </ThemeProvider>
+        </ConfirmProvider>
       </ToastProvider>
     </ErrorBoundary>
   );

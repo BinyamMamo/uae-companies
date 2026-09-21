@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { Company } from '../types/company';
 import { useApp } from '../context/AppContext';
 import { isCareerRelevant, countMatchingRoles, getStudentMatchLabel } from '../utils/relevance';
 import { Bookmark, Scale } from 'lucide-react';
 import { CompanyLogo } from './ui/CompanyLogo';
 import { CommuteMeta } from './ui/CommuteMeta';
+import { SaveToListMenu } from './SaveToListMenu';
 import { ProvenanceBadge } from './ui/ProvenanceBadge';
 
 interface CompanyCardProps {
@@ -15,9 +16,9 @@ interface CompanyCardProps {
 const MAX_VISIBLE_ROLES = 4;
 
 const CompanyCardComponent: React.FC<CompanyCardProps> = ({ company, isSelected = false }) => {
+  const [isSaveMenuOpen, setIsSaveMenuOpen] = useState(false);
   const {
     setSelectedCompany,
-    toggleSaveCompany,
     isCompanySaved,
     toggleCompareCompany,
     isCompanyInCompare,
@@ -93,23 +94,35 @@ const CompanyCardComponent: React.FC<CompanyCardProps> = ({ company, isSelected 
                 <Scale className="w-4 h-4" aria-hidden="true" />
               </button>
 
-              <button
-                type="button"
-                onClick={() => toggleSaveCompany(company.id)}
-                aria-pressed={isSaved}
-                className={`p-2 rounded-md border transition-colors ${
-                  isSaved
-                    ? 'text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-500/15 border-brand-200 dark:border-brand-500/30'
-                    : 'text-ink-3 border-line hover:text-ink hover:bg-surface-2'
-                }`}
-                aria-label={isSaved ? `Remove ${company.name} from saved` : `Save ${company.name}`}
-                title={isSaved ? 'Remove from saved' : 'Save company'}
-              >
-                <Bookmark
-                  className={`w-4 h-4 ${isSaved ? 'fill-current' : ''}`}
-                  aria-hidden="true"
-                />
-              </button>
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setIsSaveMenuOpen(open => !open)}
+                  aria-pressed={isSaved}
+                  aria-expanded={isSaveMenuOpen}
+                  aria-haspopup="dialog"
+                  className={`p-2 rounded-md border transition-colors ${
+                    isSaved
+                      ? 'text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-500/15 border-brand-200 dark:border-brand-500/30'
+                      : 'text-ink-3 border-line hover:text-ink hover:bg-surface-2'
+                  }`}
+                  aria-label={isSaved ? `Edit lists for ${company.name}` : `Save ${company.name} to a list`}
+                  title={isSaved ? 'Edit lists' : 'Save to a list'}
+                >
+                  <Bookmark
+                    className={`w-4 h-4 ${isSaved ? 'fill-current' : ''}`}
+                    aria-hidden="true"
+                  />
+                </button>
+
+                {isSaveMenuOpen && (
+                  <SaveToListMenu
+                    companyId={company.id}
+                    companyName={company.name}
+                    onClose={() => setIsSaveMenuOpen(false)}
+                  />
+                )}
+              </div>
             </div>
           </div>
 

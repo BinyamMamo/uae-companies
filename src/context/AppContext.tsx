@@ -50,11 +50,12 @@ interface AppContextType {
   toggleSaveCompany: (id: string) => void;
   isCompanySaved: (id: string) => boolean;
   savedLists: SavedList[];
-  createSavedList: (name: string) => void;
+  createSavedList: (name: string, companyIds?: string[]) => string | null;
   deleteSavedList: (id: string) => void;
   renameSavedList: (id: string, newName: string) => void;
   addCompanyToList: (listId: string, companyId: string) => void;
   removeCompanyFromList: (listId: string, companyId: string) => void;
+  listsContaining: (companyId: string) => string[];
   activeListId: string;
   setActiveListId: (id: string) => void;
   userInterests: string[];
@@ -349,18 +350,30 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const isCompanySaved = useCallback((id: string) => savedCompanyIds.includes(id), [savedCompanyIds]);
 
-  const createSavedList = useCallback((name: string) => {
+  const createSavedList = useCallback((name: string, companyIds: string[] = []) => {
     const trimmed = name.trim();
-    if (!trimmed) return;
+    if (!trimmed) return null;
     const newList: SavedList = {
       id: 'list-' + Date.now(),
       name: trimmed,
-      companyIds: [],
-      createdAt: new Date().toISOString()
+      companyIds,
+      createdAt: new Date().toISOString(),
     };
-    setSavedLists(prev => [...prev, newList]);
+    setSavedLists(prev =>
+      [...prev, newList].map(l =>
+        // Seed members must also land in "All Saved".
+        l.id === 'default'
+          ? { ...l, companyIds: [...new Set([...l.companyIds, ...companyIds])] }
+          : l
+      )
+    );
+    if (companyIds.length) {
+      setSavedCompanyIds(prev => [...new Set([...prev, ...companyIds])]);
+    }
     setActiveListId(newList.id);
     track('list_created');
+    // Returned so callers can add to the list they just made.
+    return newList.id;
   }, []);
 
   const deleteSavedList = useCallback((id: string) => {
@@ -378,24 +391,49 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setSavedLists(prev => prev.map(l => l.id === id ? { ...l, name: trimmed } : l));
   }, []);
 
+  /*
+    Invariant: anything in any list is also in "All Saved".
+    Without this, adding to a custom list left the master list showing 0 and the
+    header badge out of step with what the user had actually saved.
+  */
   const addCompanyToList = useCallback((listId: string, companyId: string) => {
-    setSavedLists(prev => prev.map(l => {
-      if (l.id === listId && !l.companyIds.includes(companyId)) {
-        return { ...l, companyIds: [...l.companyIds, companyId] };
-      }
-      return l;
-    }));
+    setSavedLists(prev =>
+      prev.map(l => {
+        const shouldHold = l.id === listId || l.id === 'default';
+        if (shouldHold && !l.companyIds.includes(companyId)) {
+          return { ...l, companyIds: [...l.companyIds, companyId] };
+        }
+        return l;
+      })
+    );
     setSavedCompanyIds(prev => (prev.includes(companyId) ? prev : [...prev, companyId]));
+    track('company_saved', { company_id: companyId, saved: true });
   }, []);
 
   const removeCompanyFromList = useCallback((listId: string, companyId: string) => {
-    setSavedLists(prev => prev.map(l => {
-      if (l.id === listId) {
-        return { ...l, companyIds: l.companyIds.filter(id => id !== companyId) };
-      }
-      return l;
-    }));
+    setSavedLists(prev =>
+      prev.map(l =>
+        l.id === listId
+          ? { ...l, companyIds: l.companyIds.filter(id => id !== companyId) }
+          : l
+      )
+    );
+    // "All Saved" is the master list, so leaving it means unsaving outright.
+    if (listId === 'default') {
+      setSavedCompanyIds(prev => prev.filter(id => id !== companyId));
+      setSavedLists(prev =>
+        prev.map(l => ({ ...l, companyIds: l.companyIds.filter(id => id !== companyId) }))
+      );
+      track('company_saved', { company_id: companyId, saved: false });
+    }
   }, []);
+
+  /** Which lists a company currently belongs to. Drives the save picker. */
+  const listsContaining = useCallback(
+    (companyId: string) =>
+      savedLists.filter(l => l.companyIds.includes(companyId)).map(l => l.id),
+    [savedLists]
+  );
 
   const toggleCompareCompany = useCallback((id: string) => {
     setCompareCompanyIds(prev => {
@@ -564,6 +602,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       savedCompanyIds,
       toggleSaveCompany,
       isCompanySaved,
+      listsContaining,
       savedLists,
       createSavedList,
       deleteSavedList,

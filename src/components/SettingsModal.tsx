@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import { Modal } from './ui/Modal';
 import { useToast } from './ui/Toast';
-import { ConfirmDialog } from './ui/ConfirmDialog';
+import { useConfirm } from '../hooks/useConfirm';
 import { DUBAI_LOCATIONS, type DubaiLocationPreset } from '../utils/dubaiLocations';
 
 const SUGGESTED_DOMAINS = [
@@ -64,8 +64,8 @@ export const SettingsModal: React.FC = () => {
   const [searchResults, setSearchResults] = useState<DubaiLocationPreset[]>([]);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchError, setSearchError] = useState<string | null>(null);
-  const [isResetConfirmOpen, setIsResetConfirmOpen] = useState(false);
   const { toast } = useToast();
+  const confirm = useConfirm();
 
   const miniMapContainerRef = useRef<HTMLDivElement>(null);
   const miniMapInstanceRef = useRef<L.Map | null>(null);
@@ -518,7 +518,26 @@ export const SettingsModal: React.FC = () => {
               <button
                 type="button"
                 onClick={() => {
-                  setIsResetConfirmOpen(true);
+                  void (async () => {
+                    const ok = await confirm({
+                      title: 'Reset everything?',
+                      description:
+                        'This clears your saved companies, lists, interests and home address on this device. It cannot be undone.',
+                      confirmLabel: 'Reset everything',
+                      tone: 'danger',
+                    });
+                    if (!ok) return;
+                    ['uae_saved_companies', 'uae_saved_lists', 'uae_user_interests', 'uae_user_location'].forEach(
+                      key => {
+                        try {
+                          localStorage.removeItem(key);
+                        } catch {
+                          // ignore
+                        }
+                      }
+                    );
+                    window.location.reload();
+                  })();
                 }}
                 className="px-3 py-1.5 bg-surface-2 hover:bg-slate-200 dark:hover:bg-surface-2 text-ink-2 hover:text-red-600 dark:hover:text-red-400 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 border border-line"
               >
@@ -532,26 +551,6 @@ export const SettingsModal: React.FC = () => {
 
       </div>
 
-      <ConfirmDialog
-        open={isResetConfirmOpen}
-        destructive
-        title="Reset everything?"
-        description="This clears your saved companies, lists, interests and home address on this device. It cannot be undone."
-        confirmLabel="Reset everything"
-        onCancel={() => setIsResetConfirmOpen(false)}
-        onConfirm={() => {
-          ['uae_saved_companies', 'uae_saved_lists', 'uae_user_interests', 'uae_user_location'].forEach(
-            key => {
-              try {
-                localStorage.removeItem(key);
-              } catch {
-                // ignore
-              }
-            }
-          );
-          window.location.reload();
-        }}
-      />
     </Modal>
   );
 };
