@@ -53,6 +53,8 @@ company, using the same `id`. Use this shape, omitting keys you cannot fill:
     "websiteSource": "https://...",
     "careersUrl": "https://careers.microsoft.com/...",
     "careersSource": "https://...",
+    "linkedinUrl": "https://www.linkedin.com/company/microsoft",
+    "linkedinSource": "https://... where this LinkedIn page was linked from",
     "shortDescription": "One factual sentence about what they do in the UAE.",
     "whatTheyDo": "Two to three sentences: products, services, who they serve, which technical teams they run in the UAE.",
     "descriptionSource": "https://...",
@@ -83,3 +85,12 @@ company, using the same `id`. Use this shape, omitting keys you cannot fill:
 
 If a company cannot be confirmed to exist in the UAE at all, return
 `{"id": "...", "notFound": true, "notes": "..."}` for it.
+
+
+- **A URL that loads is not the same as the right URL.** `https://www.university.com`
+  answers with a 200 and is not the University of Dubai; `time.com` is not TIME
+  Hotels. Before you return a `website`, read the page and confirm it names this
+  company. If the page belongs to someone else, omit the field.
+- **Only return `linkedinUrl` if you actually found the page linked from
+  somewhere.** Never build one from the company name — `linkedin.com/company/<slug>`
+  guesses were 404s. If you cannot cite where you saw it, omit it.

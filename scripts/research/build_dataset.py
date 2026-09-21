@@ -151,6 +151,45 @@ def resolves(entry, kind):
     return bool(status and status < 400)
 
 
+CORRECTIONS = json.loads(
+    (ROOT / "scripts/research/corrections.json").read_text(encoding="utf-8")
+)
+
+
+def apply_corrections(records):
+    """Overlay the hand-checked fixes for URLs that resolve but are not the
+    company (university.com for University of Dubai, time.com for TIME Hotels).
+    A URL liveness check can never catch these."""
+    fixed = 0
+    by_id = {r["id"]: r for r in records}
+    for cid, fix in CORRECTIONS.items():
+        if cid.startswith("_"):
+            continue
+        r = by_id.get(cid)
+        if not r:
+            print(f"  warn: correction for unknown id {cid}")
+            continue
+        if "website" in fix:
+            r["website"] = fix["website"]
+            r["provenance"]["website"] = {
+                "sourceUrl": fix["website"],
+                "retrievedAt": TODAY if fix["website"] else None,
+                "confidence": "verified" if fix["website"] else "unverified",
+            }
+            # A careers URL hanging off the wrong domain is wrong too.
+            if r.get("careersUrl") and fix.get("was") and r["careersUrl"].startswith(
+                fix["was"].rstrip("/")
+            ):
+                r["careersUrl"] = None
+                r["provenance"]["careersUrl"] = {
+                    "sourceUrl": None, "retrievedAt": None,
+                    "confidence": "unverified",
+                }
+            fixed += 1
+    print(f"  applied {fixed} hand-verified URL corrections")
+    return records
+
+
 def build(seed, audit, verified):
     # A URL claimed by more than one company can be right for at most one of
     # them, so we trust none of them.
@@ -376,7 +415,12 @@ def build(seed, audit, verified):
             # who could not be confirmed to exist. Publishing those is the
             # worst thing in the dataset, so they go.
             "employees": v.get("employees", []),
-            "linkedinUrl": c.get("linkedinUrl"),
+            # 208 of the 225 seeded LinkedIn URLs were the company name turned
+            # into a slug, and none of them came from the research — the same
+            # guess that produced website + "/careers". Eight were already
+            # confirmed 404s and the rest cannot be checked from behind
+            # LinkedIn's auth wall, so only a researched one is published.
+            "linkedinUrl": v.get("linkedinUrl"),
             "commute": c["commute"],
             "relevanceScore": c.get("relevanceScore", 0),
             "studentMatchReason": reason,
@@ -397,7 +441,7 @@ def main():
     seed = load_seed()
     audit = load_audit()
     verified = load_verified()
-    records = build(seed, audit, verified)
+    records = apply_corrections(build(seed, audit, verified))
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(records, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")

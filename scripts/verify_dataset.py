@@ -7,6 +7,7 @@ fabricated data, so they cannot come back:
 
   - a URL claimed by more than one company
   - an opaque search-grounding redirect passed off as a citation
+  - a linkedinUrl that is just the company name turned into a slug
   - a careersUrl built by appending /careers to a homepage
   - templated description text
   - synthetic "<Name> Regional Office" addresses
@@ -48,6 +49,10 @@ PLACEHOLDER_LOGO = re.compile(r"avatar\.vercel\.sh")
 OPAQUE_SOURCE = re.compile(
     r"vertexaisearch\.cloud\.google\.com|grounding-api-redirect", re.I
 )
+
+
+def name_slug(name):
+    return re.sub(r"-+", "-", re.sub(r"[^a-z0-9]+", "-", (name or "").lower())).strip("-")
 
 
 def host(url):
@@ -121,6 +126,15 @@ def main():
         for key in ("commonCareers", "technicalAreas"):
             if tuple(c.get(key) or ()) in TEMPLATED_ROLE_SETS:
                 errors.append(f"{cid}: {key} is a templated set")
+
+        # 208/225 linkedinUrl values were the name slugged into a URL, and
+        # eight of those were already 404s. LinkedIn sits behind an auth wall,
+        # so a guess here can never be checked by a reader either.
+        li = c.get("linkedinUrl")
+        if li and li.rstrip("/").rsplit("/", 1)[-1] == name_slug(c.get("name")):
+            prov_li = (c.get("provenance") or {}).get("linkedinUrl") or {}
+            if prov_li.get("confidence") != "verified":
+                errors.append(f"{cid}: linkedinUrl is the name slugged, with no source")
 
         logo = c.get("logo")
         if logo and PLACEHOLDER_LOGO.search(logo):
