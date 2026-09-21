@@ -1,0 +1,72 @@
+[
+  {
+    "id": "meraas",
+    "name": "Meraas",
+    "officialName": "Meraas",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "meralis-group",
+    "name": "Meralis Group",
+    "officialName": "Meralis Group",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "met-ts",
+    "name": "MET T&S",
+    "officialName": "MET T&S",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "microsoft-fz-middle-east",
+    "name": "Microsoft",
+    "officialName": "Microsoft FZ Middle East",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "millennial-partners",
+    "name": "Millennial Partners",
+    "officialName": "Millennial Partners",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "mohammed-bin-rashid-library-foundation",
+    "name": "Mohammed Bin Rashid Library Foundation",
+    "officialName": "Mohammed Bin Rashid Library Foundation",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "mohammed-bin-rashid-university-of-medicine-and-health-sciences",
+    "name": "Mohammed Bin Rashid University of Medicine and Health Sciences",
+    "officialName": "Mohammed Bin Rashid University of Medicine and Health Sciences",
+    "emirate": "Dubai",
+    "area": "Academic City"
+  },
+  {
+    "id": "motorola-solutions",
+    "name": "Motorola Solutions",
+    "officialName": "Motorola Solutions",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "nas-neuron",
+    "name": "NAS Neuron",
+    "officialName": "NAS Neuron",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "nathan-nathan",
+    "name": "Nathan & Nathan",
+    "officialName": "Nathan & Nathan",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  }
+]

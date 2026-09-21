@@ -1,0 +1,364 @@
+[
+  {
+    "id": "pirelli",
+    "website": "https://www.pirelli.com",
+    "websiteSource": "https://2gis.ae",
+    "careersUrl": "https://jobs.pirelli.com/",
+    "careersSource": "https://jobs.pirelli.com/",
+    "shortDescription": "Pirelli Tyre MEAI DMCC manages regional distribution, sales, and marketing across the Middle East, Africa, and India from Dubai.",
+    "whatTheyDo": "Pirelli Tyre MEAI DMCC serves as the regional headquarters for the MEAI region, directing the supply chain, sales operations, and marketing of passenger car and motorcycle tyres. It collaborates with authorized national distributors and operates the flagship P Zero World retail concept in the UAE.",
+    "descriptionSource": "https://2gis.ae",
+    "industry": "Automotive & Manufacturing",
+    "commonCareers": [
+      "Area Sales Manager",
+      "Trade Marketing Specialist"
+    ],
+    "careersEvidence": "https://jobs.pirelli.com/",
+    "technicalAreas": [],
+    "address": "Office 1702, 17th Floor, Fortune Tower, Cluster C, Jumeirah Lakes Towers (JLT), Dubai, UAE",
+    "latitude": 25.06876,
+    "longitude": 55.13888,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": true,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "2GIS Dubai Directory - Pirelli Tyre Meai DMCC",
+        "url": "https://2gis.ae"
+      },
+      {
+        "title": "Italian Industry & Commerce in UAE Directory",
+        "url": "https://iicuae.com"
+      }
+    ],
+    "notes": "Pirelli's regional entity is Pirelli Tyre MEAI DMCC, located in Fortune Tower, Cluster C, JLT. Consumer tyre distribution and servicing are carried out through authorized distributor networks."
+  },
+  {
+    "id": "porsche-middle-east-africa-fze",
+    "website": "https://www.porsche.com/middle-east/",
+    "websiteSource": "https://yellowpages.ae",
+    "careersUrl": "https://porsche-jobs.nathanhr.com/",
+    "careersSource": "https://porsche-jobs.nathanhr.com/",
+    "shortDescription": "Porsche Middle East & Africa FZE oversees regional operations, importer relations, and network development across MEA.",
+    "whatTheyDo": "Porsche Middle East & Africa FZE is a wholly owned subsidiary of Dr. Ing. h.c. F. Porsche AG that manages regional marketing, aftersales, digital transformation, and business development across the Middle East, Levant, Africa, and India. It also operates a regional training facility for dealership staff and technical certification.",
+    "descriptionSource": "https://yellowpages.ae",
+    "industry": "Automotive",
+    "commonCareers": [
+      "IT & Digitalisation Manager"
+    ],
+    "careersEvidence": "https://porsche-jobs.nathanhr.com/",
+    "technicalAreas": [
+      "Digital Transformation"
+    ],
+    "address": "Plot 29-911, Dubai Silicon Oasis, P.O. Box 341356, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://yellowpages.ae",
+    "internshipsKnown": true,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "YellowPages UAE - Porsche Middle East & Africa FZE",
+        "url": "https://yellowpages.ae"
+      }
+    ],
+    "notes": "The previous directory listed Dubai Internet City, but Porsche Middle East & Africa FZE is headquartered in Dubai Silicon Oasis (Plot 29-911). Retail sales and vehicle servicing in Dubai are operated by Al Nabooda Automobiles."
+  },
+  {
+    "id": "pricewaterhousecoopers-pwc",
+    "website": "https://www.pwc.com/m1/en.html",
+    "websiteSource": "https://lawsociety.org.uk",
+    "careersUrl": "https://www.pwc.com/m1/en/careers.html",
+    "careersSource": "https://www.pwc.com/m1/en/careers.html",
+    "shortDescription": "PwC Middle East delivers assurance, tax, and advisory professional services to businesses and government institutions in the UAE.",
+    "whatTheyDo": "PwC Middle East provides audit, tax, deals advisory, and management consulting services across multiple industries in the UAE. Its Dubai operations in Downtown Dubai house Strategy& and PwC's Academy, catering to public and private sector clients.",
+    "descriptionSource": "https://lawsociety.org.uk",
+    "industry": "Professional Services & Consulting",
+    "commonCareers": [
+      "Graduate Associate - Assurance",
+      "Graduate Associate - Consulting",
+      "Associate",
+      "Summer Associate"
+    ],
+    "careersEvidence": "https://www.pwc.com/m1/en/careers.html",
+    "technicalAreas": [
+      "Audit & Assurance",
+      "Tax & Legal",
+      "Management Consulting",
+      "Financial Advisory"
+    ],
+    "address": "Building 5, Emaar Square, Downtown Dubai, Dubai, UAE",
+    "latitude": 25.20096,
+    "longitude": 55.27325,
+    "locationSource": "https://mapcarta.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "Watani Graduate Programme",
+        "kind": "graduate"
+      },
+      {
+        "name": "Al Massar Internship Programme",
+        "kind": "internship"
+      }
+    ],
+    "programmesSource": "https://www.pwc.com/m1/en/careers.html",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "The Law Society Directory - PricewaterhouseCoopers Dubai",
+        "url": "https://lawsociety.org.uk"
+      },
+      {
+        "title": "Consultancy-me Coverage of PwC Middle East",
+        "url": "https://consultancy-me.com"
+      }
+    ],
+    "notes": "PwC operates its primary Dubai corporate office at Building 5, Emaar Square in Downtown Dubai, alongside an office presence in DIFC."
+  },
+  {
+    "id": "publicis",
+    "website": "https://www.publicisgroupe.com",
+    "websiteSource": "https://dmc.ae",
+    "careersUrl": "https://careers.publicisgroupe.com/",
+    "careersSource": "https://careers.publicisgroupe.com/",
+    "shortDescription": "Publicis Groupe provides advertising, media investment, communications, and digital marketing services across the UAE.",
+    "whatTheyDo": "Operating under its 'Power of One' model in Dubai Media City, Publicis Groupe unites advertising and media agencies including Publicis Middle East, Leo Burnett, Saatchi & Saatchi, Starcom, and Zenith. It develops integrated creative campaigns, media planning strategies, and digital business solutions for regional and global brands.",
+    "descriptionSource": "https://dmc.ae",
+    "industry": "Advertising, Marketing & Media",
+    "commonCareers": [
+      "Copywriter",
+      "Media Planner",
+      "Senior Executive - Communications & Project Management"
+    ],
+    "careersEvidence": "https://careers.publicisgroupe.com/",
+    "technicalAreas": [
+      "Media Planning",
+      "Digital Marketing",
+      "Advertising & Communications"
+    ],
+    "address": "Level 5, Dubai Properties HQ Building, Al Falak Street, Dubai Media City, Dubai, UAE",
+    "latitude": 25.10333,
+    "longitude": 55.16833,
+    "locationSource": "https://wikimapia.org",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai Media City Directory",
+        "url": "https://dmc.ae"
+      },
+      {
+        "title": "Interactive Advertising Bureau (IAB) MENA Directory",
+        "url": "https://iabmena.com"
+      }
+    ],
+    "notes": "Publicis Groupe operates several agency brands in Dubai Media City (such as Publicis Middle East, Publicis Sapient, and Zenith), with central regional operations situated on Level 5 of the Dubai Properties HQ building."
+  },
+  {
+    "id": "puig",
+    "website": "https://www.puig.com",
+    "websiteSource": "https://bizdirlib.com",
+    "careersUrl": "https://www.puig.com/en/talent/careers",
+    "careersSource": "https://www.puig.com/en/talent/careers",
+    "shortDescription": "Puig Middle East FZCO oversees regional commercial distribution and marketing for luxury fashion and fragrance brands.",
+    "whatTheyDo": "Puig Middle East FZCO manages brand management, trade marketing, and commercial retail operations for luxury fashion and fragrance houses such as Carolina Herrera, Paco Rabanne, Jean Paul Gaultier, and Byredo. It serves department stores, travel retail, and beauty retailers throughout the GCC and Middle East.",
+    "descriptionSource": "https://naukrigulf.com",
+    "industry": "Luxury Goods, Fashion & Cosmetics",
+    "commonCareers": [
+      "HR Business Partner",
+      "Media Manager"
+    ],
+    "careersEvidence": "https://www.puig.com/en/talent/careers",
+    "technicalAreas": [],
+    "address": "Units A202-A204, 2nd Floor, Building 7, Dubai Design District (d3), Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://puig.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Naukrigulf Company Profile - Puig Middle East FZCO",
+        "url": "https://naukrigulf.com"
+      }
+    ],
+    "notes": "The previous directory listed JLT, but Puig Middle East FZCO operates its commercial office from Building 7 in the Dubai Design District (d3), with a registered free zone office in JAFZA."
+  },
+  {
+    "id": "quantom-edge",
+    "notFound": true,
+    "notes": "No company named 'Quantom Edge' could be confirmed to exist in Dubai Internet City or anywhere in the UAE. This appears to have been invented data in the directory. A search for 'Quantum Edge' also shows no such business registered or operating in Dubai Internet City."
+  },
+  {
+    "id": "rak-bank",
+    "website": "https://www.rakbank.ae",
+    "websiteSource": "https://propsearch.ae",
+    "careersUrl": "https://rakbank.taleo.net/careersection/ex/jobsearch.ftl",
+    "careersSource": "https://rakbank.taleo.net/careersection/ex/jobsearch.ftl",
+    "shortDescription": "RAKBANK is a prominent UAE national bank offering retail, corporate, and digital financial solutions.",
+    "whatTheyDo": "The National Bank of Ras Al Khaimah (RAKBANK) delivers retail banking, business loans, trade finance, treasury, and Islamic banking services across the UAE. In Dubai, the bank runs centralized operations, corporate functions, and technology teams from its headquarters facility in Dubai Silicon Oasis.",
+    "descriptionSource": "https://propsearch.ae",
+    "industry": "Banking & Financial Services",
+    "commonCareers": [
+      "Relationship Manager - Elite Banking",
+      "Virtual Relationship Manager"
+    ],
+    "careersEvidence": "https://rakbank.taleo.net/careersection/ex/jobsearch.ftl",
+    "technicalAreas": [
+      "Digital Banking",
+      "Credit Risk"
+    ],
+    "address": "RAKBANK Headquarters Building, Dubai Silicon Oasis, Dubai, UAE",
+    "latitude": 25.11306,
+    "longitude": 55.37556,
+    "locationSource": "https://wikimapia.org",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Propsearch Dubai - RAKBank Headquarters Building",
+        "url": "https://propsearch.ae"
+      },
+      {
+        "title": "ATN Info UAE Business Directory - RAKBANK",
+        "url": "https://atninfo.com"
+      }
+    ],
+    "notes": "The previous directory listed Downtown Dubai. RAKBANK has no branch in Downtown Dubai (only an ATM in Dubai Mall and an Elite branch in Business Bay); its major corporate operations in Dubai are situated at the RAKBANK Headquarters Building in Dubai Silicon Oasis, with legal headquarters in Ras Al Khaimah."
+  },
+  {
+    "id": "recruit-me",
+    "website": "https://www.recruitme-uae.com",
+    "websiteSource": "https://torre.ai",
+    "careersUrl": "https://recruitme-uae.com/vacancies",
+    "careersSource": "https://recruitme-uae.com/vacancies",
+    "shortDescription": "recruitME is a boutique recruitment agency in Dubai specializing in corporate administration, HR, finance, and legal roles.",
+    "whatTheyDo": "recruitME provides recruitment consulting and candidate screening services for multinational organizations operating in the Middle East. It focuses on placing candidates into administrative, legal secretary, human resources, office management, and accounting positions.",
+    "descriptionSource": "https://torre.ai",
+    "industry": "Staffing & Recruitment",
+    "commonCareers": [
+      "Executive Assistant",
+      "Office Manager",
+      "Legal Secretary"
+    ],
+    "careersEvidence": "https://recruitme-uae.com/vacancies",
+    "technicalAreas": [],
+    "address": "Level 27, Marina Plaza, Al Marsa Street, Dubai Marina, Dubai, UAE",
+    "latitude": 25.075,
+    "longitude": 55.13972,
+    "locationSource": "https://wikimapia.org",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Torre.ai Company Profile - recruitME UAE",
+        "url": "https://torre.ai"
+      }
+    ],
+    "notes": "The previous directory listed Business Bay, but recruitME (RecruitME FZE) is based at Marina Plaza in Dubai Marina. recruitME is distinct from other regional recruiting firms like RecruitMe Plus."
+  },
+  {
+    "id": "samsung",
+    "website": "https://www.samsung.com/ae/",
+    "websiteSource": "https://greatplacetowork.me",
+    "careersUrl": "https://www.samsung.com/ae/about-us/careers/",
+    "careersSource": "https://www.samsung.com/ae/about-us/careers/",
+    "shortDescription": "Samsung Gulf Electronics coordinates distribution, marketing, and customer support for consumer electronics across the Gulf.",
+    "whatTheyDo": "Samsung Gulf Electronics serves as the regional hub for the UAE and surrounding Gulf markets, supervising product distribution, B2B enterprise offerings, and consumer marketing for smartphones, home entertainment, and digital appliances. It also operates regional customer service centers and experience facilities such as SmartThings Home in Dubai Media City.",
+    "descriptionSource": "https://greatplacetowork.me",
+    "industry": "Consumer Electronics & Technology",
+    "commonCareers": [
+      "Product Management Manager",
+      "Sales Operations Specialist",
+      "Technical Product Support Engineer"
+    ],
+    "careersEvidence": "https://www.samsung.com/ae/about-us/careers/",
+    "technicalAreas": [
+      "Consumer Electronics",
+      "Mobile Telecommunications",
+      "IoT & SmartThings"
+    ],
+    "address": "Tower A, Butterfly Building, Al Bourooj Street, Dubai Media City, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://samsung.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Great Place to Work Middle East - Samsung Gulf Electronics",
+        "url": "https://greatplacetowork.me"
+      },
+      {
+        "title": "Lever.ae Architectural Portfolio - The Butterfly",
+        "url": "https://lever.ae"
+      }
+    ],
+    "notes": "Samsung Gulf Electronics operates from Tower A of the Butterfly Building in Dubai Media City, which sits along the border of Dubai Media City and Dubai Internet City."
+  },
+  {
+    "id": "sap",
+    "website": "https://www.sap.com/mena/index.html",
+    "websiteSource": "https://dic.ae",
+    "careersUrl": "https://jobs.sap.com/",
+    "careersSource": "https://jobs.sap.com/",
+    "shortDescription": "SAP MENA delivers cloud software, enterprise resource planning, and AI solutions to businesses across the Middle East.",
+    "whatTheyDo": "SAP MENA LLC develops and deploys enterprise application software, cloud ERP, analytics, and business transformation platforms for public and private sector clients. Based in Dubai Internet City, it houses solution consulting, customer success, software sales, and technology training functions.",
+    "descriptionSource": "https://dic.ae",
+    "industry": "Enterprise Software & Cloud Computing",
+    "commonCareers": [
+      "Machine Learning Engineer",
+      "Forward Deployed AI Engineer",
+      "Data Science Expert",
+      "Account Executive Expert"
+    ],
+    "careersEvidence": "https://jobs.sap.com/",
+    "technicalAreas": [
+      "Enterprise Resource Planning",
+      "Machine Learning",
+      "Artificial Intelligence",
+      "Cloud Computing"
+    ],
+    "address": "Butterfly Building B, Al Bourooj Street, Dubai Internet City, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://sap.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "SAP Young Professionals Program",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://www.sap.com/mena/about/careers.html",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai Internet City Community Directory - SAP",
+        "url": "https://dic.ae"
+      },
+      {
+        "title": "Lever.ae Architectural Portfolio - The Butterfly",
+        "url": "https://lever.ae"
+      }
+    ],
+    "notes": "SAP MENA LLC is headquartered at Butterfly Building B on Al Bourooj Street in Dubai Internet City, adjacent to Tower A in the same complex."
+  }
+]

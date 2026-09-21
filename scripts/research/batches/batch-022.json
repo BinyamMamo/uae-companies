@@ -1,0 +1,72 @@
+[
+  {
+    "id": "tanfeeth",
+    "name": "Tanfeeth",
+    "officialName": "Tanfeeth",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "tensor",
+    "name": "Tensor Systems",
+    "officialName": "Tensor",
+    "emirate": "Dubai",
+    "area": "Dubai Silicon Oasis"
+  },
+  {
+    "id": "the-iml-group",
+    "name": "The IML Group",
+    "officialName": "The IML Group",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "time-hotels",
+    "name": "Time Hotels",
+    "officialName": "Time Hotels",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "transguard-group",
+    "name": "Transguard Group",
+    "officialName": "Transguard Group",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "union-coop",
+    "name": "Union Coop",
+    "officialName": "Union Coop",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "united-engineering",
+    "name": "United Engineering",
+    "officialName": "United Engineering",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "university-of-dubai",
+    "name": "University of Dubai",
+    "officialName": "University of Dubai",
+    "emirate": "Dubai",
+    "area": "Academic City"
+  },
+  {
+    "id": "vfs-global",
+    "name": "VFS Global",
+    "officialName": "VFS Global",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "virgin-mena",
+    "name": "Virgin MENA",
+    "officialName": "Virgin MENA",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  }
+]

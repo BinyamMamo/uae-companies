@@ -306,27 +306,47 @@ export const ACCENT_THEMES: AccentTheme[] = [
   },
 ];
 
+/** Key that the pre-paint script in index.html reads. See `applyAccentTheme`. */
+export const ACCENT_VARS_STORAGE_KEY = 'uae_accent_vars';
+
+const buildVars = (theme: AccentTheme): Record<string, string> => ({
+  '--accent-primary': theme.vars.primary,
+  '--accent-hover': theme.vars.hover,
+  '--accent-50': theme.vars.c50,
+  '--accent-100': theme.vars.c100,
+  '--accent-200': theme.vars.c200,
+  '--accent-300': theme.vars.c300,
+  '--accent-400': theme.vars.c400,
+  '--accent-500': theme.vars.c500,
+  '--accent-700': theme.vars.c700,
+  '--accent-800': theme.vars.c800,
+  '--accent-900': theme.vars.c900,
+  '--accent-rgb': theme.vars.rgb,
+  // Accent-tinted card and tag surfaces
+  '--accent-card-border': `rgba(${theme.vars.rgb}, 0.22)`,
+  '--accent-card-border-hover': `rgba(${theme.vars.rgb}, 0.45)`,
+  '--accent-tag-bg': `rgba(${theme.vars.rgb}, 0.14)`,
+  '--accent-tag-border': `rgba(${theme.vars.rgb}, 0.4)`,
+  '--accent-tag-text': theme.vars.c300,
+});
+
 export const applyAccentTheme = (accentId: string): void => {
-  const theme = ACCENT_THEMES.find(t => t.id === accentId) || ACCENT_THEMES[0];
+  const theme = ACCENT_THEMES.find(t => t.id === accentId) ?? ACCENT_THEMES[0];
   const root = document.documentElement;
+  const vars = buildVars(theme);
 
-  root.style.setProperty('--accent-primary', theme.vars.primary);
-  root.style.setProperty('--accent-hover', theme.vars.hover);
-  root.style.setProperty('--accent-50', theme.vars.c50);
-  root.style.setProperty('--accent-100', theme.vars.c100);
-  root.style.setProperty('--accent-200', theme.vars.c200);
-  root.style.setProperty('--accent-300', theme.vars.c300);
-  root.style.setProperty('--accent-400', theme.vars.c400);
-  root.style.setProperty('--accent-500', theme.vars.c500);
-  root.style.setProperty('--accent-700', theme.vars.c700);
-  root.style.setProperty('--accent-800', theme.vars.c800);
-  root.style.setProperty('--accent-900', theme.vars.c900);
-  root.style.setProperty('--accent-rgb', theme.vars.rgb);
+  for (const [name, value] of Object.entries(vars)) {
+    root.style.setProperty(name, value);
+  }
 
-  // Dynamic card border and tag border resembling accent color
-  root.style.setProperty('--accent-card-border', `rgba(${theme.vars.rgb}, 0.22)`);
-  root.style.setProperty('--accent-card-border-hover', `rgba(${theme.vars.rgb}, 0.45)`);
-  root.style.setProperty('--accent-tag-bg', `rgba(${theme.vars.rgb}, 0.14)`);
-  root.style.setProperty('--accent-tag-border', `rgba(${theme.vars.rgb}, 0.4)`);
-  root.style.setProperty('--accent-tag-text', theme.vars.c300);
+  /*
+    Cache the resolved values so the blocking script in index.html can paint
+    the right accent before React loads. Storing the values (rather than
+    duplicating the palette in HTML) means the two can never drift apart.
+  */
+  try {
+    localStorage.setItem(ACCENT_VARS_STORAGE_KEY, JSON.stringify(vars));
+  } catch {
+    // ignore
+  }
 };

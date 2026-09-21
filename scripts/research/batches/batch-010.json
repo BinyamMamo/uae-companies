@@ -1,0 +1,72 @@
+[
+  {
+    "id": "dna-recruitment",
+    "name": "DNA Recruitment",
+    "officialName": "DNA Recruitment",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "doodle-worldwide",
+    "name": "Doodle Worldwide",
+    "officialName": "Doodle Worldwide",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "dozzer-middle-east",
+    "name": "Dozzer Middle East",
+    "officialName": "Dozzer Middle East",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "dubai-cable",
+    "name": "Dubai Cable",
+    "officialName": "Dubai Cable",
+    "emirate": "Dubai",
+    "area": "Al Quoz"
+  },
+  {
+    "id": "dubai-developments",
+    "name": "Dubai Developments",
+    "officialName": "Dubai Developments",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "dubai-golf",
+    "name": "Dubai Golf",
+    "officialName": "Dubai Golf",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "dubai-holding",
+    "name": "Dubai Holding",
+    "officialName": "Dubai Holding",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "dubai-national-insurance",
+    "name": "Dubai National Insurance",
+    "officialName": "Dubai National Insurance",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "dulsco",
+    "name": "Dulsco",
+    "officialName": "Dulsco",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "efg-hermes",
+    "name": "EFG Hermes",
+    "officialName": "EFG Hermes",
+    "emirate": "Dubai",
+    "area": "DIFC"
+  }
+]

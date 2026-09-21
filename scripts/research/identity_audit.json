@@ -1,0 +1,3358 @@
+[
+ {
+  "id": "3m",
+  "name": "3M",
+  "website": "https://www.3mae.ae",
+  "verdict": "unreachable",
+  "detail": "The read operation timed out"
+ },
+ {
+  "id": "7x-emirates-post",
+  "name": "7X (Emirates Post)",
+  "website": "https://www.7x.ae",
+  "verdict": "blocked",
+  "detail": "HTTP 403"
+ },
+ {
+  "id": "aal-mir-trading-co-llc",
+  "name": "Aal Mir Trading Co. L.L.C",
+  "website": "https://aalmir.com",
+  "final": "https://aalmir.com",
+  "title": "Aalmir &#8211; Aal Mir Group of Companies",
+  "domain": "aalmir.com",
+  "matched": [
+   "aal",
+   "mir",
+   "trading"
+  ],
+  "of": [
+   "aal",
+   "mir",
+   "trading"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "abb-industries-llc",
+  "name": "ABB",
+  "website": "https://www.abb.com/ae",
+  "final": "https://new.abb.com/middle-east",
+  "title": "ABB in the Middle East - Leading digital technologies for industry | abb.com/middle-east",
+  "domain": "new.abb.com",
+  "matched": [
+   "abb"
+  ],
+  "of": [
+   "abb"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "abu-dhabi-aviation",
+  "name": "Abu Dhabi Aviation",
+  "website": "https://ada.ae",
+  "verdict": "blocked",
+  "detail": "HTTP 403"
+ },
+ {
+  "id": "abu-dhabi-commercial-bank-adcb",
+  "name": "ADCB",
+  "website": "https://www.adcb.com",
+  "verdict": "blocked",
+  "detail": "HTTP 403"
+ },
+ {
+  "id": "abu-dhabi-islamic-bank-adib",
+  "name": "Abu Dhabi Islamic Bank (ADIB)",
+  "website": "https://www.adib.ae",
+  "final": "https://www.adib.ae",
+  "title": "Financial &amp; Banking Services In The UAE Cards, Financing, Accounts And More | ADIB Abu",
+  "domain": "adib.ae",
+  "matched": [
+   "abu",
+   "dhabi",
+   "islamic",
+   "bank"
+  ],
+  "of": [
+   "abu",
+   "dhabi",
+   "islamic",
+   "bank"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "accenture",
+  "name": "Accenture",
+  "website": "https://www.accenture.com/ae-en",
+  "final": "https://www.accenture.com/en",
+  "title": "",
+  "domain": "accenture.com",
+  "matched": [],
+  "of": [
+   "accenture"
+  ],
+  "domainBacksIt": true,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "accor",
+  "name": "Accor",
+  "website": "https://group.accor.com",
+  "final": "https://group.accor.com/en",
+  "title": "Accor Group",
+  "domain": "group.accor.com",
+  "matched": [
+   "accor"
+  ],
+  "of": [
+   "accor"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "adecco",
+  "name": "Adecco",
+  "website": "https://www.adecco.com",
+  "final": "https://www.adecco.com",
+  "title": "Find Jobs &amp; Staffing Solutions Worldwide",
+  "domain": "adecco.com",
+  "matched": [
+   "adecco"
+  ],
+  "of": [
+   "adecco"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "aecom",
+  "name": "AECOM",
+  "website": "https://aecom.com",
+  "final": "https://aecom.com",
+  "title": "AECOM",
+  "domain": "aecom.com",
+  "matched": [
+   "aecom"
+  ],
+  "of": [
+   "aecom"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "ag-melco-elevator-co-llc",
+  "name": "AG MELCO Elevator Co. L.L.C.",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "agmc-bmw-mini-rollsroyce",
+  "name": "AGMC \u2013 BMW, MINI & Rolls-Royce",
+  "website": "https://www.agmc.com",
+  "final": "https://www.agmc.com/en",
+  "title": "Always Moving | AGMC.",
+  "domain": "agmc.com",
+  "matched": [
+   "agmc",
+   "bmw",
+   "mini",
+   "rolls",
+   "royce"
+  ],
+  "of": [
+   "agmc",
+   "bmw",
+   "mini",
+   "rolls",
+   "royce"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "aki-group",
+  "name": "AKI Group",
+  "website": "https://www.akigroup.com",
+  "final": "https://www.akigroup.com",
+  "title": "Al Khayyat Investments (AKI) | Emirati Family Holding UAE",
+  "domain": "akigroup.com",
+  "matched": [
+   "aki"
+  ],
+  "of": [
+   "aki",
+   "group"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "akzonobel",
+  "name": "AkzoNobel",
+  "website": "https://www.akzonobel.com",
+  "final": "https://www.akzonobel.com/en",
+  "title": "AkzoNobel | AkzoNobel",
+  "domain": "akzonobel.com",
+  "matched": [
+   "akzonobel"
+  ],
+  "of": [
+   "akzonobel"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "al-ahli-bank-of-kuwait",
+  "name": "Al Ahli Bank of Kuwait",
+  "website": "https://abk.eahli.com",
+  "final": "https://abk.eahli.com/en/",
+  "title": "ABK - Al Ahli Bank of Kuwait (ABK)",
+  "domain": "abk.eahli.com",
+  "matched": [
+   "ahli",
+   "bank",
+   "kuwait"
+  ],
+  "of": [
+   "ahli",
+   "bank",
+   "kuwait"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "al-buhaira-national-insurance-co",
+  "name": "Al Buhaira National Insurance Co.",
+  "website": "https://www.albuhaira.com",
+  "final": "https://www.albuhaira.com",
+  "title": "Your One-Stop Destination for Medical to Motor Insurance Solutions - Al Buhaira",
+  "domain": "albuhaira.com",
+  "matched": [
+   "buhaira",
+   "national",
+   "insurance"
+  ],
+  "of": [
+   "buhaira",
+   "national",
+   "insurance"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "al-bustan-rotana-hotel",
+  "name": "Al Bustan Rotana Hotel",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "al-futtaim",
+  "name": "Al Futtaim",
+  "website": "https://www.alfuttaim.com",
+  "final": "https://www.alfuttaim.com/en/",
+  "title": "Leading Diversified Business in the UAE | Al-Futtaim",
+  "domain": "alfuttaim.com",
+  "matched": [
+   "futtaim"
+  ],
+  "of": [
+   "futtaim"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "al-ghurair",
+  "name": "Al Ghurair",
+  "website": "https://www.al-ghurair.com",
+  "final": "https://al-ghurair.com/en/home/!ut/p/z0/04_Sj9CPykssy0xPLMnMz0vMAfIjo8ziPY0cDYzcgw2MLF0dXQzMjA3C3IKcg02d_Qz0C7IdFQFiVxCT/",
+  "title": "Home",
+  "domain": "al-ghurair.com",
+  "matched": [
+   "ghurair"
+  ],
+  "of": [
+   "ghurair"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "al-habtoor",
+  "name": "Al Habtoor",
+  "website": "https://www.habtoor.com",
+  "final": "https://www.habtoor.com/en/",
+  "title": "Al Habtoor Group",
+  "domain": "habtoor.com",
+  "matched": [
+   "habtoor"
+  ],
+  "of": [
+   "habtoor"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "al-mal-capital-psc",
+  "name": "Al Mal Capital PSC",
+  "website": "https://www.almalcapital.com",
+  "final": "https://www.almalcapital.com",
+  "title": "ALMAL CAPITAL PSC",
+  "domain": "almalcapital.com",
+  "matched": [
+   "mal",
+   "capital",
+   "psc"
+  ],
+  "of": [
+   "mal",
+   "capital",
+   "psc"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "al-marai",
+  "name": "Al Marai",
+  "website": "https://www.almarai.com",
+  "final": "https://www.almarai.com/ar",
+  "title": "\u0645\u0646\u062a\u062c\u0627\u062a \u0635\u062d\u064a\u0629 \u0639\u0627\u0644\u064a\u0629 \u0627\u0644\u062c\u0648\u062f\u0629 \u0644\u062c\u0645\u064a\u0639 \u0623\u0641\u0631\u0627\u062f \u0627\u0644\u0623\u0633\u0631\u0629 | \u0627\u0644\u0645\u0631\u0627\u0639\u064a",
+  "domain": "almarai.com",
+  "matched": [],
+  "of": [
+   "marai"
+  ],
+  "domainBacksIt": true,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "al-masraf",
+  "name": "Al Masraf",
+  "website": "https://www.almasraf.ae",
+  "final": "https://www.almasraf.ae",
+  "title": "Leading Bank in UAE | Al Masraf",
+  "domain": "almasraf.ae",
+  "matched": [
+   "masraf"
+  ],
+  "of": [
+   "masraf"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "al-naboodah-group-enterprises-llc",
+  "name": "Al Naboodah Group Enterprises LLC",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "al-rostamani-group",
+  "name": "Al Rostamani Group",
+  "website": "https://alrostamanigroup.ae",
+  "final": "https://alrostamanigroup.ae/en/",
+  "title": "Home - Al Rostamani Group",
+  "domain": "alrostamanigroup.ae",
+  "matched": [
+   "rostamani",
+   "group"
+  ],
+  "of": [
+   "rostamani",
+   "group"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "al-safi-danone",
+  "name": "Al Safi Danone",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "al-serkal-group",
+  "name": "Al Serkal Group",
+  "website": "https://alserkalgroup.com",
+  "final": "https://alserkalgroup.com",
+  "title": "Alserkal Group",
+  "domain": "alserkalgroup.com",
+  "matched": [
+   "group"
+  ],
+  "of": [
+   "serkal",
+   "group"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "al-shaya-group",
+  "name": "Al Shaya Group",
+  "website": "https://www.alshaya.com",
+  "verdict": "blocked",
+  "detail": "HTTP 403"
+ },
+ {
+  "id": "albwardy-marine-engineering",
+  "name": "Albwardy Marine Engineering",
+  "website": "https://www.albwardydamen.com/",
+  "final": "https://www.albwardydamen.com/",
+  "title": "Shipyard in Dubai - Shipyard company in the UAE - Albwardy Damen",
+  "domain": "albwardydamen.com",
+  "matched": [
+   "albwardy",
+   "engineering"
+  ],
+  "of": [
+   "albwardy",
+   "marine",
+   "engineering"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "allergan",
+  "name": "Allergan",
+  "website": "https://www.allerganaesthetics.com",
+  "final": "https://www.allerganaesthetics.com",
+  "title": "Allergan Aesthetics | An AbbVie Company",
+  "domain": "allerganaesthetics.com",
+  "matched": [
+   "allergan"
+  ],
+  "of": [
+   "allergan"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "allianz-trade",
+  "name": "Allianz Trade",
+  "website": "https://www.allianz-trade.com/en_AE/",
+  "verdict": "blocked",
+  "detail": "HTTP 403"
+ },
+ {
+  "id": "almulla-group",
+  "name": "Almulla Group",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "alpha-data",
+  "name": "Alpha Data",
+  "website": "https://www.alpha.ae/",
+  "final": "https://www.alpha.ae/",
+  "title": "Alpha Data | Digital Transformation &amp; IT Systems Integrator in the UAE since 1981",
+  "domain": "alpha.ae",
+  "matched": [
+   "alpha",
+   "data"
+  ],
+  "of": [
+   "alpha",
+   "data"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "alrais-enterprise-group",
+  "name": "Alrais Enterprise Group",
+  "website": "https://alraisgroup.com/",
+  "final": "https://alraisholding.com/",
+  "title": "Home - Alrais Holding",
+  "domain": "alraisholding.com",
+  "matched": [
+   "alrais",
+   "group"
+  ],
+  "of": [
+   "alrais",
+   "enterprise",
+   "group"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "amazon-web-services-aws",
+  "name": "Amazon Web Services (AWS)",
+  "website": "https://aws.amazon.com/",
+  "final": "https://aws.amazon.com/",
+  "title": "Cloud Computing Services - Amazon Web Services (AWS)",
+  "domain": "aws.amazon.com",
+  "matched": [
+   "amazon",
+   "web",
+   "services"
+  ],
+  "of": [
+   "amazon",
+   "web",
+   "services"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "amlak-finance",
+  "name": "Amlak Finance",
+  "website": "https://www.amlakfinance.com/",
+  "final": "https://www.amlakfinance.com/",
+  "title": "home - Amlak Finance",
+  "domain": "amlakfinance.com",
+  "matched": [
+   "amlak",
+   "finance"
+  ],
+  "of": [
+   "amlak",
+   "finance"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "amplify-dubai",
+  "name": "Amplify Dubai",
+  "website": "https://amplifydubai.com/",
+  "final": "https://amplifydubai.com/",
+  "title": "Dubai Marketing Advertising Agency | B2B &amp; B2C | Est.2008",
+  "domain": "amplifydubai.com",
+  "matched": [
+   "amplify",
+   "dubai"
+  ],
+  "of": [
+   "amplify",
+   "dubai"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "ams-osram",
+  "name": "AMS Osram",
+  "website": "https://ams-osram.com/",
+  "final": "https://ams-osram.com/",
+  "title": "ams OSRAM is a global leader in innovative light and sensor solutions | ams OSRAM",
+  "domain": "ams-osram.com",
+  "matched": [
+   "ams",
+   "osram"
+  ],
+  "of": [
+   "ams",
+   "osram"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "aneeq-llc-fz",
+  "name": "Aneeq LLC FZ",
+  "website": "https://aneeq.co/",
+  "final": "https://aneeq.co/",
+  "title": "Men&#039;s Health Solutions - DHA Licensed Telehealth | Aneeq",
+  "domain": "aneeq.co",
+  "matched": [
+   "aneeq"
+  ],
+  "of": [
+   "aneeq"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "apco-worldwide",
+  "name": "APCO Worldwide",
+  "website": "https://apcoworldwide.com",
+  "final": "https://apcoworldwide.com",
+  "title": "APCO",
+  "domain": "apcoworldwide.com",
+  "matched": [
+   "apco"
+  ],
+  "of": [
+   "apco",
+   "worldwide"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "apparel-group",
+  "name": "Apparel Group",
+  "website": "https://www.apparelgroup.com",
+  "final": "https://www.apparelgroup.com/en/",
+  "title": "APPAREL GROUP: Exceed Expectations Everyday",
+  "domain": "apparelgroup.com",
+  "matched": [
+   "apparel",
+   "group"
+  ],
+  "of": [
+   "apparel",
+   "group"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "apple",
+  "name": "Apple Middle East",
+  "website": "https://www.apple.com/ae",
+  "final": "https://www.apple.com/ae/",
+  "title": "Apple (United Arab Emirates)",
+  "domain": "apple.com",
+  "matched": [
+   "apple"
+  ],
+  "of": [
+   "apple",
+   "middle",
+   "east"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "arab-loss-adjusters-llc",
+  "name": "Arab Loss Adjusters LLC",
+  "website": "https://www.arablossadjusters.com",
+  "final": "https://arablossadjusters.com/",
+  "title": "Arab Loss Adjusters",
+  "domain": "arablossadjusters.com",
+  "matched": [
+   "arab",
+   "loss",
+   "adjusters"
+  ],
+  "of": [
+   "arab",
+   "loss",
+   "adjusters"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "aramex",
+  "name": "Aramex",
+  "website": "https://www.aramex.com",
+  "verdict": "blocked",
+  "detail": "HTTP 403"
+ },
+ {
+  "id": "arcelormittal",
+  "name": "ArcelorMittal",
+  "website": "https://corporate.arcelormittal.com",
+  "verdict": "blocked",
+  "detail": "HTTP 403"
+ },
+ {
+  "id": "arj-holding-llc",
+  "name": "ARJ Holding L.L.C",
+  "website": "https://arjholding.com",
+  "final": "https://arjholding.com",
+  "title": "home - ARJ Holding L.L.C.",
+  "domain": "arjholding.com",
+  "matched": [
+   "arj",
+   "holding"
+  ],
+  "of": [
+   "arj",
+   "holding"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "asus-middle-east-fzco",
+  "name": "ASUS Middle East FZCO",
+  "website": "https://www.asus.com/me-en/",
+  "final": "https://www.asus.com/me-en/",
+  "title": "ASUS Middle East",
+  "domain": "asus.com",
+  "matched": [
+   "asus",
+   "middle",
+   "east"
+  ],
+  "of": [
+   "asus",
+   "middle",
+   "east"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "audi-volkswagen-middle-east-fze",
+  "name": "Audi Volkswagen Middle East FZE",
+  "website": "https://volkswagengroup-me.com",
+  "final": "https://volkswagengroup-me.com",
+  "title": "Volkswagen Group Middle East",
+  "domain": "volkswagengroup-me.com",
+  "matched": [
+   "volkswagen",
+   "middle",
+   "east"
+  ],
+  "of": [
+   "audi",
+   "volkswagen",
+   "middle",
+   "east"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "augustus-media",
+  "name": "Augustus Media",
+  "website": "https://augustusmedia.com",
+  "final": "https://augustusmedia.com",
+  "title": "Augustus Media",
+  "domain": "augustusmedia.com",
+  "matched": [
+   "augustus",
+   "media"
+  ],
+  "of": [
+   "augustus",
+   "media"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "ava-group",
+  "name": "AVA Group",
+  "website": "https://www.ava.com",
+  "final": "https://www.ava.com",
+  "title": "AVA Cinema Remote | AVA OS | AVA Inc.",
+  "domain": "ava.com",
+  "matched": [
+   "ava"
+  ],
+  "of": [
+   "ava",
+   "group"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "aveva",
+  "name": "AVEVA",
+  "website": "https://www.aveva.com",
+  "final": "https://www.aveva.com",
+  "title": "AVEVA - Global Leader in Industrial Software",
+  "domain": "aveva.com",
+  "matched": [
+   "aveva"
+  ],
+  "of": [
+   "aveva"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "azadea-group",
+  "name": "Azadea Group",
+  "website": "https://www.azadeagroupholding.com",
+  "final": "https://www.azadeagroupholding.com/english/home",
+  "title": "Home | Azadea Group",
+  "domain": "azadeagroupholding.com",
+  "matched": [
+   "azadea",
+   "group"
+  ],
+  "of": [
+   "azadea",
+   "group"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "bac-middle-east",
+  "name": "BAC Middle East",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "bahri",
+  "name": "Bahri",
+  "website": "https://www.bahri.sa",
+  "final": "https://www.bahri.sa",
+  "title": "Bahri",
+  "domain": "bahri.sa",
+  "matched": [
+   "bahri"
+  ],
+  "of": [
+   "bahri"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "bahri-and-mazroei-trading-company",
+  "name": "Bahri and Mazroei Trading Company",
+  "website": "https://bahrimazroei.com",
+  "final": "https://bahrimazroei.com",
+  "title": "Bahri & Mazroei | Reliable, Intelligent and Sustainable Building Solutions",
+  "domain": "bahrimazroei.com",
+  "matched": [
+   "bahri",
+   "mazroei",
+   "trading",
+   "company"
+  ],
+  "of": [
+   "bahri",
+   "mazroei",
+   "trading",
+   "company"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "bain-company-middle-east",
+  "name": "Bain & Company Middle East",
+  "website": "https://www.bain.com",
+  "final": "https://www.bain.com",
+  "title": "Global Management Consulting Firm | Bain &amp; Company",
+  "domain": "bain.com",
+  "matched": [
+   "bain",
+   "company",
+   "middle",
+   "east"
+  ],
+  "of": [
+   "bain",
+   "company",
+   "middle",
+   "east"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "baker-hughes",
+  "name": "Baker Hughes",
+  "website": "https://www.bakerhughes.com",
+  "final": "https://www.bakerhughes.com",
+  "title": "Baker Hughes | Rewriting The Energy Equation\u2122",
+  "domain": "bakerhughes.com",
+  "matched": [
+   "baker",
+   "hughes"
+  ],
+  "of": [
+   "baker",
+   "hughes"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "bank-of-sharjah",
+  "name": "Bank of Sharjah",
+  "website": "https://www.bankofsharjah.com",
+  "final": "https://www.bankofsharjah.com/en",
+  "title": "Bank of Sharjah - Everyday Banking, Corporate &amp; Private Wealth Services in UAE",
+  "domain": "bankofsharjah.com",
+  "matched": [
+   "bank",
+   "sharjah"
+  ],
+  "of": [
+   "bank",
+   "sharjah"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "basf-fze",
+  "name": "BASF FZE",
+  "website": "https://www.basf.com/ae/en.html",
+  "final": "https://www.basf.com/ae/en",
+  "title": "BASF \u2013 United Arab Emirates",
+  "domain": "basf.com",
+  "matched": [
+   "basf"
+  ],
+  "of": [
+   "basf"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "bausch-lomb",
+  "name": "Bausch + Lomb",
+  "website": "https://www.bausch.com",
+  "final": "https://www.bausch.com",
+  "title": "Bausch &#x2B; Lomb Official Home Page",
+  "domain": "bausch.com",
+  "matched": [
+   "bausch",
+   "lomb"
+  ],
+  "of": [
+   "bausch",
+   "lomb"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "bayer",
+  "name": "Bayer",
+  "website": "https://middleeast.bayer.com",
+  "verdict": "blocked",
+  "detail": "HTTP 403"
+ },
+ {
+  "id": "bayut",
+  "name": "Bayut",
+  "website": "https://www.bayut.com",
+  "verdict": "dead",
+  "detail": "HTTP 503"
+ },
+ {
+  "id": "bdp-global-project-logistic-llc",
+  "name": "BDP Global Project Logistic LLC",
+  "website": "https://psabdp.com",
+  "final": "https://psabdp.com",
+  "title": "PSA BDP | Made for Trade",
+  "domain": "psabdp.com",
+  "matched": [
+   "bdp",
+   "global",
+   "project",
+   "logistic"
+  ],
+  "of": [
+   "bdp",
+   "global",
+   "project",
+   "logistic"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "beiersdorf",
+  "name": "Beiersdorf",
+  "website": "https://www.beiersdorf-me.com",
+  "final": "https://www.en.beiersdorf-me.com/",
+  "title": "Beiersdorf - Skin care is everything to us",
+  "domain": "en.beiersdorf-me.com",
+  "matched": [
+   "beiersdorf"
+  ],
+  "of": [
+   "beiersdorf"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "belhasa-international-co-llc",
+  "name": "Belhasa International CO LLC",
+  "website": "https://www.belhasa.com",
+  "final": "https://www.belhasa.com",
+  "title": "Welcome to Belhasa International",
+  "domain": "belhasa.com",
+  "matched": [
+   "belhasa",
+   "international"
+  ],
+  "of": [
+   "belhasa",
+   "international"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "binghatti-holding",
+  "name": "Binghatti Holding",
+  "website": "https://www.binghatti.com",
+  "final": "https://www.binghatti.com",
+  "title": "Luxury Real Estate Developer in Dubai | Binghatti UAE",
+  "domain": "binghatti.com",
+  "matched": [
+   "binghatti"
+  ],
+  "of": [
+   "binghatti",
+   "holding"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "bnc-network",
+  "name": "BNC Network",
+  "website": "https://www.bncnetwork.net",
+  "final": "https://www.bncnetwork.net",
+  "title": "BNC Network - Construction Intelligence Platform",
+  "domain": "bncnetwork.net",
+  "matched": [
+   "bnc",
+   "network"
+  ],
+  "of": [
+   "bnc",
+   "network"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "bon-education",
+  "name": "Bon Education",
+  "website": "https://boneducation.com",
+  "final": "https://www.boneducation.com/",
+  "title": "Welcome to Bon Education",
+  "domain": "boneducation.com",
+  "matched": [
+   "bon",
+   "education"
+  ],
+  "of": [
+   "bon",
+   "education"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "booz-allen",
+  "name": "Booz Allen",
+  "website": "https://www.boozallen.com",
+  "final": "https://www.boozallen.com",
+  "title": "Booz Allen",
+  "domain": "boozallen.com",
+  "matched": [
+   "booz",
+   "allen"
+  ],
+  "of": [
+   "booz",
+   "allen"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "bpg-group",
+  "name": "BPG Group",
+  "website": "https://bpggroup.com",
+  "final": "https://www.bpggroup.com/",
+  "title": "We are BPG Group, one of the Gulf&#x27;s leading integrated agencies",
+  "domain": "bpggroup.com",
+  "matched": [
+   "bpg",
+   "group"
+  ],
+  "of": [
+   "bpg",
+   "group"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "canopy-by-hilton",
+  "name": "Canopy by Hilton",
+  "website": "https://www.hilton.com/en/hotels/dxbsepy-canopy-dubai-al-seef/",
+  "verdict": "blocked",
+  "detail": "HTTP 403"
+ },
+ {
+  "id": "capgemini",
+  "name": "Capgemini",
+  "website": "https://www.capgemini.com/ae-en/",
+  "final": "https://www.capgemini.com/ae-en/",
+  "title": "Capgemini - Get The Future You Want",
+  "domain": "capgemini.com",
+  "matched": [
+   "capgemini"
+  ],
+  "of": [
+   "capgemini"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "caterpillar-sarl",
+  "name": "Caterpillar SARL",
+  "website": "https://www.caterpillar.com",
+  "verdict": "blocked",
+  "detail": "HTTP 403"
+ },
+ {
+  "id": "century-financial",
+  "name": "Century Financial",
+  "website": "https://www.century.ae",
+  "final": "https://www.century.ae/en/",
+  "title": "Invest with UAE\u2019s Best Broker | Century Financial",
+  "domain": "century.ae",
+  "matched": [
+   "century",
+   "financial"
+  ],
+  "of": [
+   "century",
+   "financial"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "ceva-logistics",
+  "name": "CEVA Logistics",
+  "website": "https://www.cevalogistics.com",
+  "verdict": "blocked",
+  "detail": "HTTP 403"
+ },
+ {
+  "id": "chep",
+  "name": "CHEP",
+  "website": "https://www.chep.com",
+  "final": "https://www.chep.com/us/en/services-solutions",
+  "title": "Reliable Pallet Suppliers for Your Operations | CHEP USA",
+  "domain": "chep.com",
+  "matched": [
+   "chep"
+  ],
+  "of": [
+   "chep"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "choueiri-group",
+  "name": "Choueiri Group",
+  "website": "https://www.choueirigroup.com",
+  "final": "https://www.choueirigroup.com",
+  "title": "Choueiri Group",
+  "domain": "choueirigroup.com",
+  "matched": [
+   "choueiri",
+   "group"
+  ],
+  "of": [
+   "choueiri",
+   "group"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "clarins-middle-east",
+  "name": "Clarins Middle East",
+  "website": "https://ae.clarins.com/on/demandware.store/Sites-clarinsare-Site/ar_AE",
+  "final": "https://ae.clarins.com/on/demandware.store/Sites-clarinsare-Site/ar_AE",
+  "title": "CLARINS: Natural Beauty, Skincare and Make-up powered by plants.",
+  "domain": "ae.clarins.com",
+  "matched": [
+   "clarins"
+  ],
+  "of": [
+   "clarins",
+   "middle",
+   "east"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "commerzbank-ag",
+  "name": "Commerzbank AG",
+  "website": "https://www.commerzbank.ae",
+  "final": "https://www.commerzbank.de/group/who-we-are/commerzbank-worldwide/",
+  "title": "Commerzbank worldwide - Group Website",
+  "domain": "commerzbank.de",
+  "matched": [
+   "commerzbank"
+  ],
+  "of": [
+   "commerzbank"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "crowe-uae",
+  "name": "Crowe UAE",
+  "website": "https://www.crowe.com/ae",
+  "verdict": "blocked",
+  "detail": "HTTP 403"
+ },
+ {
+  "id": "dacha",
+  "name": "Dacha",
+  "website": "https://dacha.ae",
+  "final": "https://www.dacha.ae/",
+  "title": "Real Estate Agents in Dubai | Dubai Real Estate Brokers | Dacha Real Estate",
+  "domain": "dacha.ae",
+  "matched": [
+   "dacha"
+  ],
+  "of": [
+   "dacha"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "daikin-middle-east-and-africa",
+  "name": "Daikin Middle East and Africa",
+  "website": "https://www.daikinmea.com",
+  "final": "https://www.daikinmea.com",
+  "title": "Daikin Middle East and Africa | Daikin",
+  "domain": "daikinmea.com",
+  "matched": [
+   "daikin",
+   "middle",
+   "east",
+   "africa"
+  ],
+  "of": [
+   "daikin",
+   "middle",
+   "east",
+   "africa"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "daimler-mercedesbenz",
+  "name": "Daimler (Mercedes-Benz)",
+  "website": "https://www.mercedes-benz-mena.com",
+  "final": "https://www.mercedes-benz-mena.com",
+  "title": "Buy New and Used Mercedes-Benz Cars in the Middle East",
+  "domain": "mercedes-benz-mena.com",
+  "matched": [],
+  "of": [
+   "daimler"
+  ],
+  "domainBacksIt": false,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "damac-group",
+  "name": "Damac Group",
+  "website": "https://www.damacproperties.com",
+  "final": "https://www.damacproperties.com/en/",
+  "title": "Luxury Real Estate Developer in Dubai | DAMAC Properties",
+  "domain": "damacproperties.com",
+  "matched": [
+   "damac"
+  ],
+  "of": [
+   "damac",
+   "group"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "dana-gas",
+  "name": "Dana Gas",
+  "website": "https://www.danagas.com",
+  "final": "https://www.danagas.com",
+  "title": "",
+  "domain": "danagas.com",
+  "matched": [],
+  "of": [
+   "dana",
+   "gas"
+  ],
+  "domainBacksIt": true,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "danone-middle-east",
+  "name": "Danone Middle East",
+  "website": "https://www.danone.com",
+  "final": "https://www.danone.com",
+  "title": "Danone: World food company | Danone Group",
+  "domain": "danone.com",
+  "matched": [
+   "danone",
+   "middle",
+   "east"
+  ],
+  "of": [
+   "danone",
+   "middle",
+   "east"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "danzas-aei-emirates-llc-dhl-express",
+  "name": "Danzas AEI Emirates LLC (DHL Express)",
+  "website": "https://www.dhl.com/ae-en/home/global-forwarding.html",
+  "verdict": "unreachable",
+  "detail": "The read operation timed out"
+ },
+ {
+  "id": "deloitte",
+  "name": "Deloitte",
+  "website": "https://www.deloitte.com/middle-east",
+  "final": "https://www.deloitte.com/middle-east/en.html",
+  "title": "Deloitte Middle East | Audit, Consulting, Financial, Risk Management, Tax Services",
+  "domain": "deloitte.com",
+  "matched": [
+   "deloitte"
+  ],
+  "of": [
+   "deloitte"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "delta-insurance-services",
+  "name": "Delta Insurance Services",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "dna-recruitment",
+  "name": "DNA Recruitment",
+  "website": "https://dna-uae.com",
+  "final": "https://dna-uae.com",
+  "title": "Recruitment and Talent Acquisition Experts - DNA Recruitment",
+  "domain": "dna-uae.com",
+  "matched": [
+   "dna",
+   "recruitment"
+  ],
+  "of": [
+   "dna",
+   "recruitment"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "doodle-worldwide",
+  "name": "Doodle Worldwide",
+  "website": "https://doodleworldwide.com",
+  "verdict": "dead",
+  "detail": "HTTP 503"
+ },
+ {
+  "id": "dozzer-middle-east",
+  "name": "Dozzer Middle East",
+  "website": "https://dozzer.me",
+  "final": "https://dozzer.me",
+  "title": "Dozzer | the #1 heavy equipment marketplace in the Middle East",
+  "domain": "dozzer.me",
+  "matched": [
+   "dozzer",
+   "middle",
+   "east"
+  ],
+  "of": [
+   "dozzer",
+   "middle",
+   "east"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "dubai-cable",
+  "name": "Dubai Cable",
+  "website": "https://ducab.com",
+  "verdict": "blocked",
+  "detail": "HTTP 403"
+ },
+ {
+  "id": "dubai-developments",
+  "name": "Dubai Developments",
+  "website": "https://www.dubaidevelopments.com",
+  "verdict": "unreachable",
+  "detail": "The read operation timed out"
+ },
+ {
+  "id": "dubai-golf",
+  "name": "Dubai Golf",
+  "website": "https://www.dubaigolf.com",
+  "final": "https://www.dubaigolf.com",
+  "title": "Dubai Golf: Book Golf Online | Best Golf Courses in Dubai, UAE",
+  "domain": "dubaigolf.com",
+  "matched": [
+   "dubai",
+   "golf"
+  ],
+  "of": [
+   "dubai",
+   "golf"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "dubai-holding",
+  "name": "Dubai Holding",
+  "website": "https://dubaiholding.com",
+  "final": "https://www.dubaiholding.com/en",
+  "title": "Global Diversified Investment Company\u200b | Dubai Holding",
+  "domain": "dubaiholding.com",
+  "matched": [
+   "dubai",
+   "holding"
+  ],
+  "of": [
+   "dubai",
+   "holding"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "dubai-national-insurance",
+  "name": "Dubai National Insurance",
+  "website": "https://www.dni.ae",
+  "final": "https://www.dni.ae",
+  "title": "One of the Best Insurance Companies in Dubai, Abu Dhabi - Car, Health, Home, Life",
+  "domain": "dni.ae",
+  "matched": [
+   "dubai",
+   "national",
+   "insurance"
+  ],
+  "of": [
+   "dubai",
+   "national",
+   "insurance"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "dulsco",
+  "name": "Dulsco",
+  "website": "https://www.dulsco.com",
+  "final": "https://www.dulsco.com",
+  "title": "Dulsco Group - People and Environmental Solutions Company",
+  "domain": "dulsco.com",
+  "matched": [
+   "dulsco"
+  ],
+  "of": [
+   "dulsco"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "efg-hermes",
+  "name": "EFG Hermes",
+  "website": "https://efgholding.com",
+  "final": "https://efgholding.com/en",
+  "title": "EFG Holding",
+  "domain": "efgholding.com",
+  "matched": [
+   "efg",
+   "hermes"
+  ],
+  "of": [
+   "efg",
+   "hermes"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "ellucian",
+  "name": "Ellucian",
+  "website": "https://www.ellucian.com",
+  "final": "https://www.ellucian.com",
+  "title": "Unifying Campus Technology Solutions to Power Higher Ed | Ellucian",
+  "domain": "ellucian.com",
+  "matched": [
+   "ellucian"
+  ],
+  "of": [
+   "ellucian"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "emirates-glass",
+  "name": "Emirates Glass",
+  "website": "https://emiratesglass.com",
+  "final": "https://emiratesglass.com",
+  "title": "Bullet Resistant Glass",
+  "domain": "emiratesglass.com",
+  "matched": [
+   "emirates",
+   "glass"
+  ],
+  "of": [
+   "emirates",
+   "glass"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "emirates-global-aluminium-ega",
+  "name": "Emirates Global Aluminium (EGA)",
+  "website": "https://www.ega.ae",
+  "final": "https://www.ega.ae/en",
+  "title": "A leader in global aluminium production | EGA",
+  "domain": "ega.ae",
+  "matched": [
+   "emirates",
+   "global",
+   "aluminium"
+  ],
+  "of": [
+   "emirates",
+   "global",
+   "aluminium"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "enoc",
+  "name": "ENOC",
+  "website": "https://www.enoc.com",
+  "verdict": "blocked",
+  "detail": "HTTP 403"
+ },
+ {
+  "id": "erada-center",
+  "name": "Erada Center",
+  "website": "https://www.erada.ae",
+  "final": "https://www.erada.ae",
+  "title": "Erada Center for Treatment and Rehabilitation in Dubai",
+  "domain": "erada.ae",
+  "matched": [
+   "erada",
+   "center"
+  ],
+  "of": [
+   "erada",
+   "center"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "ericsson",
+  "name": "Ericsson",
+  "website": "https://www.ericsson.com",
+  "verdict": "blocked",
+  "detail": "HTTP 403"
+ },
+ {
+  "id": "ernst-young-ey",
+  "name": "Ernst & Young (EY)",
+  "website": "https://www.ey.com",
+  "final": "https://www.ey.com/en_ae",
+  "title": "EY - MENA | Shape the future with confidence",
+  "domain": "ey.com",
+  "matched": [],
+  "of": [
+   "ernst",
+   "young"
+  ],
+  "domainBacksIt": true,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "expeditors",
+  "name": "Expeditors",
+  "website": "https://www.expeditors.com",
+  "final": "https://www.expeditors.com",
+  "title": "Expeditors | Home",
+  "domain": "expeditors.com",
+  "matched": [
+   "expeditors"
+  ],
+  "of": [
+   "expeditors"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "ezelink",
+  "name": "EZELINK",
+  "website": "https://www.ezelink.com",
+  "final": "https://www.ezelink.com",
+  "title": "Managed WiFi Services in Dubai &amp; GCC | EZELINK",
+  "domain": "ezelink.com",
+  "matched": [
+   "ezelink"
+  ],
+  "of": [
+   "ezelink"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "fedex-express",
+  "name": "FedEx Express",
+  "website": "https://www.fedex.com/en-ae/home.html",
+  "final": "https://www.fedex.com/en-ae/home.html",
+  "title": "FedEx | System Down",
+  "domain": "fedex.com",
+  "matched": [
+   "fedex"
+  ],
+  "of": [
+   "fedex",
+   "express"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "firex",
+  "name": "FIREX",
+  "website": "https://www.firexuae.com",
+  "final": "https://www.firexuae.com",
+  "title": "Home Page | Emirates Fire Fighting Equipment Factory (FIREX)",
+  "domain": "firexuae.com",
+  "matched": [
+   "firex"
+  ],
+  "of": [
+   "firex"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "first-abu-dhabi-bank-fab",
+  "name": "First Abu Dhabi Bank (FAB)",
+  "website": "https://www.bankfab.com",
+  "final": "https://www.bankfab.com/en-ae/personal",
+  "title": "Personal Banking &amp; Financial Services | FAB UAE",
+  "domain": "bankfab.com",
+  "matched": [
+   "first",
+   "abu",
+   "dhabi",
+   "bank"
+  ],
+  "of": [
+   "first",
+   "abu",
+   "dhabi",
+   "bank"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "first-security-group",
+  "name": "First Security Group",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "five-hotels-and-resorts",
+  "name": "FIVE Hotels and Resorts",
+  "website": "https://fivehotelsandresorts.com",
+  "final": "https://fivehotelsandresorts.com",
+  "title": "FIVE Hotels and Resorts | Luxury Hotels and Resorts",
+  "domain": "fivehotelsandresorts.com",
+  "matched": [
+   "five",
+   "hotels",
+   "resorts"
+  ],
+  "of": [
+   "five",
+   "hotels",
+   "resorts"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "flc-marketing-group",
+  "name": "FLC Marketing Group",
+  "website": "https://flc-me.com",
+  "final": "https://flc-me.com",
+  "title": "Shopper &amp; Experiential Marketing Agency in Dubai | FLC",
+  "domain": "flc-me.com",
+  "matched": [
+   "flc",
+   "marketing",
+   "group"
+  ],
+  "of": [
+   "flc",
+   "marketing",
+   "group"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "flydubai",
+  "name": "flydubai",
+  "website": "https://www.flydubai.com",
+  "verdict": "unreachable",
+  "detail": "The read operation timed out"
+ },
+ {
+  "id": "food-quest",
+  "name": "Food Quest",
+  "website": "https://www.foodquest.ae",
+  "final": "https://foodquest.ae/",
+  "title": "Food Quest",
+  "domain": "foodquest.ae",
+  "matched": [
+   "food",
+   "quest"
+  ],
+  "of": [
+   "food",
+   "quest"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "ford-middle-east",
+  "name": "Ford Middle East",
+  "website": "https://www.me.ford.com",
+  "verdict": "blocked",
+  "detail": "HTTP 403"
+ },
+ {
+  "id": "g4s-international-logistics",
+  "name": "G4S International Logistics",
+  "website": "https://www.g4s.com/en-ae",
+  "final": "https://www.g4s.com/en-ae",
+  "title": "",
+  "domain": "g4s.com",
+  "matched": [],
+  "of": [
+   "g4s",
+   "international",
+   "logistics"
+  ],
+  "domainBacksIt": true,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "galadari-brothers-group",
+  "name": "Galadari Brothers Group",
+  "website": "https://galadaribrothers.com",
+  "final": "https://galadaribrothers.com",
+  "title": "Galadari Brothers",
+  "domain": "galadaribrothers.com",
+  "matched": [
+   "galadari",
+   "brothers",
+   "group"
+  ],
+  "of": [
+   "galadari",
+   "brothers",
+   "group"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "gargash-group",
+  "name": "Gargash Group",
+  "website": "https://www.gargash.ae",
+  "final": "https://www.mercedes-benz-mena.com/dubai/en/",
+  "title": "Mercedes-Benz Cars and Services in Dubai and Northern Emirates, UAE | Gargash Mercedes-Ben",
+  "domain": "mercedes-benz-mena.com",
+  "matched": [
+   "gargash"
+  ],
+  "of": [
+   "gargash",
+   "group"
+  ],
+  "domainBacksIt": false,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "gatex-innovations",
+  "name": "GateX Innovations",
+  "website": "https://gatex.us.com",
+  "final": "https://gatex.us.com",
+  "title": "GateX IoT &#8211; Fuel Control Systems",
+  "domain": "gatex.us.com",
+  "matched": [
+   "gatex"
+  ],
+  "of": [
+   "gatex",
+   "innovations"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "gcc-services",
+  "name": "GCC Services",
+  "website": "https://alliad.com",
+  "final": "https://alliad.com",
+  "title": "Home - AlliadAlliad",
+  "domain": "alliad.com",
+  "matched": [
+   "gcc",
+   "services"
+  ],
+  "of": [
+   "gcc",
+   "services"
+  ],
+  "domainBacksIt": false,
+  "verdict": "ok"
+ },
+ {
+  "id": "general-electric-ge",
+  "name": "General Electric (GE)",
+  "website": "https://www.ge.com",
+  "final": "https://www.ge.com",
+  "title": "GE Companies: Next Generation and Future | General Electric",
+  "domain": "ge.com",
+  "matched": [
+   "general",
+   "electric"
+  ],
+  "of": [
+   "general",
+   "electric"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "generation-3d-llc",
+  "name": "Generation 3D",
+  "website": "https://www.generation3d.ae",
+  "final": "https://generation3d.ae/",
+  "title": "3D Printing In Dubai | 3D Printing UAE | Generation 3D",
+  "domain": "generation3d.ae",
+  "matched": [
+   "generation"
+  ],
+  "of": [
+   "generation"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "ghobash-trading-and-investment-co-ltd",
+  "name": "Ghobash Trading and Investment Co. LTD",
+  "website": "https://ghobash.com",
+  "final": "https://ghobash.com",
+  "title": "",
+  "domain": "ghobash.com",
+  "matched": [],
+  "of": [
+   "ghobash",
+   "trading",
+   "investment"
+  ],
+  "domainBacksIt": true,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "gifts-markets-general-trading-llc",
+  "name": "Gifts Markets General Trading LLC",
+  "website": "https://shonati.com",
+  "final": "https://shonati.com",
+  "title": "SHONATI | Luggage Store in UAE \u2013 Dubai &amp; Sharjah",
+  "domain": "shonati.com",
+  "matched": [],
+  "of": [
+   "gifts",
+   "markets",
+   "general",
+   "trading"
+  ],
+  "domainBacksIt": false,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "global-feeder-shipping-llc",
+  "name": "Global Feeder Shipping LLC",
+  "website": "https://globalfeeders.com",
+  "final": "https://globalfeeders.com/en/",
+  "title": "Global feeder shipping",
+  "domain": "globalfeeders.com",
+  "matched": [
+   "global",
+   "feeder",
+   "shipping"
+  ],
+  "of": [
+   "global",
+   "feeder",
+   "shipping"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "globe-soccer-dwc-llc",
+  "name": "Globe Soccer DWC LLC",
+  "website": "https://www.globesoccer.com",
+  "final": "https://www.globesoccer.com",
+  "title": "Globe Soccer Awards - 16th Edition",
+  "domain": "globesoccer.com",
+  "matched": [
+   "globe",
+   "soccer"
+  ],
+  "of": [
+   "globe",
+   "soccer",
+   "dwc"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "gm-middle-east-operations",
+  "name": "GM Middle East Operations",
+  "website": "https://www.gmarabia.com",
+  "final": "https://www.gmarabia.com/ar/home.html",
+  "title": "\u062c\u0646\u0631\u0627\u0644 \u0645\u0648\u062a\u0648\u0631\u0632 \u0625\u0641\u0631\u064a\u0642\u064a\u0627 \u0648\u0627\u0644\u0634\u0631\u0642 \u0627\u0644\u0623\u0648\u0633\u0637",
+  "domain": "gmarabia.com",
+  "matched": [],
+  "of": [
+   "middle",
+   "east",
+   "operations"
+  ],
+  "domainBacksIt": false,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "goodwill-world",
+  "name": "Goodwill World",
+  "website": "https://goodwillworld.com",
+  "final": "https://goodwillworld.com",
+  "title": "Goodwill World | Global Family Office and Legacy Planning in Dubai",
+  "domain": "goodwillworld.com",
+  "matched": [
+   "goodwill",
+   "world"
+  ],
+  "of": [
+   "goodwill",
+   "world"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "goodyear",
+  "name": "Goodyear",
+  "website": "https://www.goodyear-mea.com",
+  "final": "https://www.goodyear-mea.com/choose-your-country.html",
+  "title": "Choose Your Country",
+  "domain": "goodyear-mea.com",
+  "matched": [
+   "goodyear"
+  ],
+  "of": [
+   "goodyear"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "grant-thornton",
+  "name": "Grant Thornton",
+  "website": "https://www.grantthornton.ae",
+  "final": "https://www.grantthornton.ae",
+  "title": "Grant Thornton | Grant Thornton UAE",
+  "domain": "grantthornton.ae",
+  "matched": [
+   "grant",
+   "thornton"
+  ],
+  "of": [
+   "grant",
+   "thornton"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "gucci",
+  "name": "Gucci",
+  "website": "https://www.gucci.com",
+  "verdict": "unreachable",
+  "detail": "The read operation timed out"
+ },
+ {
+  "id": "gulf-business-machines",
+  "name": "Gulf Business Machines",
+  "website": "https://www.gbmme.com",
+  "final": "https://www.gbmme.com",
+  "title": "Gulf Business Machines | GBM",
+  "domain": "gbmme.com",
+  "matched": [
+   "gulf",
+   "business",
+   "machines"
+  ],
+  "of": [
+   "gulf",
+   "business",
+   "machines"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "gulf-drug",
+  "name": "Gulf Drug",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "gulf-petrochemicals-and-chemicals-association-gpca",
+  "name": "Gulf Petrochemicals and Chemicals Association (GPCA)",
+  "website": "https://www.gpca.org.ae",
+  "final": "https://gpcachem.org/",
+  "title": "HOME - GPCA",
+  "domain": "gpcachem.org",
+  "matched": [
+   "gulf",
+   "petrochemicals",
+   "chemicals",
+   "association"
+  ],
+  "of": [
+   "gulf",
+   "petrochemicals",
+   "chemicals",
+   "association"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "gwr-consulting",
+  "name": "GWR Consulting",
+  "website": "https://www.gwrconsulting.com",
+  "final": "https://www.gwrconsulting.com/en",
+  "title": "Executive CX Advisory | G.W.R. Consulting",
+  "domain": "gwrconsulting.com",
+  "matched": [
+   "gwr",
+   "consulting"
+  ],
+  "of": [
+   "gwr",
+   "consulting"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "habib-bank",
+  "name": "Habib Bank",
+  "website": "https://www.habibbank.com/ae/",
+  "final": "https://habibbank.com:443/ae/",
+  "title": "Welcome To Habib Bank AG Zurich, UAE | HBZAE",
+  "domain": "habibbank.com:443",
+  "matched": [
+   "habib",
+   "bank"
+  ],
+  "of": [
+   "habib",
+   "bank"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "haleon",
+  "name": "Haleon",
+  "website": "https://www.haleon.com",
+  "final": "https://www.haleon.com",
+  "title": "Challenge Validation",
+  "domain": "haleon.com",
+  "matched": [],
+  "of": [
+   "haleon"
+  ],
+  "domainBacksIt": true,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "hamdan-al-shamsi-lawyers-legal-consultants",
+  "name": "Hamdan Al Shamsi Lawyers & Legal Consultants",
+  "website": "https://has.law",
+  "final": "https://has.law",
+  "title": "HAS Law Firm Dubai | Top Lawyers in Dubai UAE | Legal Services",
+  "domain": "has.law",
+  "matched": [
+   "hamdan",
+   "shamsi",
+   "lawyers",
+   "legal",
+   "consultants"
+  ],
+  "of": [
+   "hamdan",
+   "shamsi",
+   "lawyers",
+   "legal",
+   "consultants"
+  ],
+  "domainBacksIt": false,
+  "verdict": "ok"
+ },
+ {
+  "id": "hasbro",
+  "name": "Hasbro",
+  "website": "https://corporate.hasbro.com",
+  "final": "https://corporate.hasbro.com/en-us",
+  "title": "About the Company \u2013 Hasbro",
+  "domain": "corporate.hasbro.com",
+  "matched": [
+   "hasbro"
+  ],
+  "of": [
+   "hasbro"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "hays",
+  "name": "HAYS",
+  "website": "https://www.hays.ae",
+  "final": "https://www.hays.ae",
+  "title": "Find Jobs in the Middle East with Hays Recruitment | Hays",
+  "domain": "hays.ae",
+  "matched": [
+   "hays"
+  ],
+  "of": [
+   "hays"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "help-ag",
+  "name": "Help AG (e& enterprise)",
+  "website": "https://www.helpag.com",
+  "final": "https://www.helpag.com",
+  "title": "Leading Cybersecurity Firm in the Middle East | Cybersecurity Consulting Company Dubai - H",
+  "domain": "helpag.com",
+  "matched": [
+   "help"
+  ],
+  "of": [
+   "help"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "henkel",
+  "name": "Henkel",
+  "website": "https://www.henkel-gcc.com",
+  "final": "https://www.henkel-gcc.com",
+  "title": "Home",
+  "domain": "henkel-gcc.com",
+  "matched": [
+   "henkel"
+  ],
+  "of": [
+   "henkel"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "hilton",
+  "name": "Hilton",
+  "website": "https://www.hilton.com",
+  "verdict": "blocked",
+  "detail": "HTTP 403"
+ },
+ {
+  "id": "horeca-trade",
+  "name": "HORECA Trade",
+  "website": "https://www.bidfoodme.com/",
+  "final": "https://www.bidfoodme.com/",
+  "title": "Foodservice Distribution Across the GCC | Bidfood Middle East",
+  "domain": "bidfoodme.com",
+  "matched": [],
+  "of": [
+   "horeca",
+   "trade"
+  ],
+  "domainBacksIt": false,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "howden",
+  "name": "Howden",
+  "website": "https://www.howdengroup.com/ae-en",
+  "final": "https://www.howdengroup.com/ae-en",
+  "title": "Howden UAE: Specialist Insurance Broker",
+  "domain": "howdengroup.com",
+  "matched": [
+   "howden"
+  ],
+  "of": [
+   "howden"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "hsbc-bank-middle-east",
+  "name": "HSBC Bank Middle East",
+  "website": "https://www.hsbc.ae",
+  "final": "https://www.hsbc.ae",
+  "title": "HSBC UAE - Personal &amp; Online Banking",
+  "domain": "hsbc.ae",
+  "matched": [
+   "hsbc",
+   "bank",
+   "middle",
+   "east"
+  ],
+  "of": [
+   "hsbc",
+   "bank",
+   "middle",
+   "east"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "img-worlds",
+  "name": "IMG Worlds",
+  "website": "https://www.imgworlds.com",
+  "final": "https://www.imgworlds.com",
+  "title": "",
+  "domain": "imgworlds.com",
+  "matched": [],
+  "of": [
+   "img",
+   "worlds"
+  ],
+  "domainBacksIt": true,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "inditech-middle-east",
+  "name": "Inditech Middle East",
+  "website": "https://www.inditechme.com",
+  "final": "https://www.inditechme.com",
+  "title": "Retail IT Company Dubai | POS, CCTV, Mall Analytics | Inditech ME",
+  "domain": "inditechme.com",
+  "matched": [
+   "inditech",
+   "east"
+  ],
+  "of": [
+   "inditech",
+   "middle",
+   "east"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "instinctif-partners",
+  "name": "Instinctif Partners",
+  "website": "https://instinctif.com",
+  "verdict": "blocked",
+  "detail": "HTTP 403"
+ },
+ {
+  "id": "inter-regional-for-strategic-and-analysis-mir",
+  "name": "Inter Regional for Strategic and Analysis (MIR)",
+  "website": "https://interregional.com",
+  "final": "https://www.interregional.com/ar",
+  "title": "\u0625\u0646\u062a\u0631\u0631\u064a\u062c\u0648\u0646\u0627\u0644 \u0644\u0644\u062a\u062d\u0644\u064a\u0644\u0627\u062a \u0627\u0644\u0627\u0633\u062a\u0631\u0627\u062a\u064a\u062c\u064a\u0629 - MIR",
+  "domain": "interregional.com",
+  "matched": [],
+  "of": [
+   "inter",
+   "regional",
+   "strategic",
+   "analysis"
+  ],
+  "domainBacksIt": true,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "isharq-hospitality",
+  "name": "Isharq Hospitality",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "iss-global-forwarding",
+  "name": "ISS Global Forwarding",
+  "website": "https://iss-globalforwarding.com",
+  "final": "https://iss-globalforwarding.com",
+  "title": "Home - ISS Global Forwarding",
+  "domain": "iss-globalforwarding.com",
+  "matched": [
+   "iss",
+   "global",
+   "forwarding"
+  ],
+  "of": [
+   "iss",
+   "global",
+   "forwarding"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "iss-shipping",
+  "name": "ISS Shipping",
+  "website": "https://www.iss-shipping.com",
+  "final": "https://www.iss-shipping.com",
+  "title": "Inchcape Shipping Services \u2013 Connect to a Smoother, Smarter Ocean | In",
+  "domain": "iss-shipping.com",
+  "matched": [
+   "iss",
+   "shipping"
+  ],
+  "of": [
+   "iss",
+   "shipping"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "jotun",
+  "name": "Jotun",
+  "website": "https://www.jotun.com/me",
+  "final": "https://www.jotun.com:443/me-en/decorative",
+  "title": "Jotun Paints: Transform Your Space with Quality Paints",
+  "domain": "jotun.com:443",
+  "matched": [
+   "jotun"
+  ],
+  "of": [
+   "jotun"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "juma-al-majid-holding-group-llc",
+  "name": "Juma Al Majid Holding Group L.L.C",
+  "website": "https://www.al-majid.com",
+  "final": "https://www.al-majid.com",
+  "title": "Juma Al Majid Holding Group | Leading Conglomerate Company in Dubai",
+  "domain": "al-majid.com",
+  "matched": [
+   "juma",
+   "majid",
+   "holding",
+   "group"
+  ],
+  "of": [
+   "juma",
+   "majid",
+   "holding",
+   "group"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "kc-international-finance-management-services",
+  "name": "KC International Finance & Management Services",
+  "website": "https://www.kc.com",
+  "final": "https://www.kc.com",
+  "title": "\u9996\u9801 | Hong Kong Kool Car Limited",
+  "domain": "kc.com",
+  "matched": [],
+  "of": [
+   "international",
+   "finance",
+   "management",
+   "services"
+  ],
+  "domainBacksIt": false,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "kingston-stanley",
+  "name": "Kingston Stanley",
+  "website": "https://kingstonstanley.com",
+  "final": "https://kingstonstanley.com",
+  "title": "Homepage - Kingston Stanley Recruitment",
+  "domain": "kingstonstanley.com",
+  "matched": [
+   "kingston",
+   "stanley"
+  ],
+  "of": [
+   "kingston",
+   "stanley"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "kitopi",
+  "name": "Kitopi",
+  "website": "https://www.kitopi.com",
+  "final": "https://www.kitopi.com",
+  "title": "Kitopi | Restaurants, Food Delivery, Cloud Kitchens and more",
+  "domain": "kitopi.com",
+  "matched": [
+   "kitopi"
+  ],
+  "of": [
+   "kitopi"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "kpmg",
+  "name": "KPMG",
+  "website": "https://home.kpmg/ae",
+  "final": "https://kpmg.com/ae/en.html",
+  "title": "KPMG in the United Arab Emirates",
+  "domain": "kpmg.com",
+  "matched": [
+   "kpmg"
+  ],
+  "of": [
+   "kpmg"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "kuehnenagel",
+  "name": "Kuehne+Nagel",
+  "website": "https://home.kuehne-nagel.com",
+  "final": "https://www.kuehne-nagel.com/",
+  "title": "Global Freight Forwarding and Supply Chain Management | Kuehne+Nagel",
+  "domain": "kuehne-nagel.com",
+  "matched": [
+   "kuehne",
+   "nagel"
+  ],
+  "of": [
+   "kuehne",
+   "nagel"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "loral-middle-east",
+  "name": "L'Or\u00e9al Middle East",
+  "website": "https://www.loreal.com",
+  "final": "https://www.loreal.com/en/",
+  "title": "L'Or\u00e9al Groupe, the most innovative and caring company",
+  "domain": "loreal.com",
+  "matched": [
+   "middle",
+   "east"
+  ],
+  "of": [
+   "middle",
+   "east"
+  ],
+  "domainBacksIt": false,
+  "verdict": "ok"
+ },
+ {
+  "id": "landmark-group",
+  "name": "Landmark Group",
+  "website": "https://www.landmarkgroup.com",
+  "final": "https://www.landmarkgroup.com",
+  "title": "Landmark Group | Retail &amp; Hospitality Leader",
+  "domain": "landmarkgroup.com",
+  "matched": [
+   "landmark",
+   "group"
+  ],
+  "of": [
+   "landmark",
+   "group"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "majid-al-futtaim-maf",
+  "name": "Majid Al Futtaim (MAF)",
+  "website": "https://www.majidalfuttaim.com",
+  "final": "https://www.majidalfuttaim.com",
+  "title": "Majid Al Futtaim Malls, Hotels &amp; Lifestyle Brands | Majid Al Futtaim",
+  "domain": "majidalfuttaim.com",
+  "matched": [
+   "majid",
+   "futtaim"
+  ],
+  "of": [
+   "majid",
+   "futtaim"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "mashreq-bank",
+  "name": "Mashreq Bank (Mashreq Neo)",
+  "website": "https://www.mashreq.com",
+  "final": "https://www.mashreq.com/en/uae/neo/",
+  "title": "Mashreq | Best Digital Banking in Middle East | Rise Everyday",
+  "domain": "mashreq.com",
+  "matched": [
+   "mashreq",
+   "bank"
+  ],
+  "of": [
+   "mashreq",
+   "bank"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "mbg-corporate-services",
+  "name": "MBG Corporate Services",
+  "website": "https://www.mbgcorp.com",
+  "final": "https://www.mbgcorp.com",
+  "title": "MBG Corporate Services",
+  "domain": "mbgcorp.com",
+  "matched": [
+   "mbg",
+   "corporate",
+   "services"
+  ],
+  "of": [
+   "mbg",
+   "corporate",
+   "services"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "mckinsey-company",
+  "name": "McKinsey & Company",
+  "website": "https://www.mckinsey.com",
+  "verdict": "unreachable",
+  "detail": "The read operation timed out"
+ },
+ {
+  "id": "medpharma",
+  "name": "Medpharma",
+  "website": "https://medpharmgtllc.com",
+  "final": "https://medpharmgtllc.com",
+  "title": "medpharmgtllc &#8211; medical",
+  "domain": "medpharmgtllc.com",
+  "matched": [],
+  "of": [
+   "medpharma"
+  ],
+  "domainBacksIt": false,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "meraas",
+  "name": "Meraas",
+  "website": "https://www.meraas.com",
+  "verdict": "blocked",
+  "detail": "HTTP 403"
+ },
+ {
+  "id": "meralis-group",
+  "name": "Meralis Group",
+  "website": "https://www.meralisgroup.com",
+  "final": "https://www.meralisgroup.com",
+  "title": "",
+  "domain": "meralisgroup.com",
+  "matched": [
+   "meralis"
+  ],
+  "of": [
+   "meralis",
+   "group"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "met-ts",
+  "name": "MET T&S",
+  "website": "https://www.met-ts.co.uk",
+  "final": "https://www.met-ts.co.uk/en/",
+  "title": "Official Website | Met T&S",
+  "domain": "met-ts.co.uk",
+  "matched": [
+   "met"
+  ],
+  "of": [
+   "met"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "microsoft-fz-middle-east",
+  "name": "Microsoft",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "millennial-partners",
+  "name": "Millennial Partners",
+  "website": "https://millennial.ae",
+  "final": "https://millennial.ae",
+  "title": "Millennial Partners",
+  "domain": "millennial.ae",
+  "matched": [
+   "millennial",
+   "partners"
+  ],
+  "of": [
+   "millennial",
+   "partners"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "mohammed-bin-rashid-library-foundation",
+  "name": "Mohammed Bin Rashid Library Foundation",
+  "website": "https://www.mbrl.ae",
+  "final": "https://www.mbrl.ae",
+  "title": "Mohammed Bin Rashid Library - MBRL",
+  "domain": "mbrl.ae",
+  "matched": [
+   "mohammed",
+   "bin",
+   "rashid",
+   "library"
+  ],
+  "of": [
+   "mohammed",
+   "bin",
+   "rashid",
+   "library",
+   "foundation"
+  ],
+  "domainBacksIt": false,
+  "verdict": "ok"
+ },
+ {
+  "id": "mohammed-bin-rashid-university-of-medicine-and-health-sciences",
+  "name": "Mohammed Bin Rashid University of Medicine and Health Sciences",
+  "website": "https://www.mbru.ac.ae",
+  "final": "https://www.mbru.ac.ae",
+  "title": "Mohammed Bin Rashid University Of Medicine and Health Sciences | MBRU",
+  "domain": "mbru.ac.ae",
+  "matched": [
+   "mohammed",
+   "bin",
+   "rashid",
+   "university",
+   "medicine",
+   "health",
+   "sciences"
+  ],
+  "of": [
+   "mohammed",
+   "bin",
+   "rashid",
+   "university",
+   "medicine",
+   "health",
+   "sciences"
+  ],
+  "domainBacksIt": false,
+  "verdict": "ok"
+ },
+ {
+  "id": "motorola-solutions",
+  "name": "Motorola Solutions",
+  "website": "https://www.motorolasolutions.com",
+  "final": "https://www.motorolasolutions.com/ar_sa.html?geo=redirect",
+  "title": "",
+  "domain": "motorolasolutions.com",
+  "matched": [],
+  "of": [
+   "motorola",
+   "solutions"
+  ],
+  "domainBacksIt": true,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "nas-neuron",
+  "name": "NAS Neuron",
+  "website": "https://nasneuron.com",
+  "final": "https://nasneuron.com",
+  "title": "Nas Neuron Health Services LLC",
+  "domain": "nasneuron.com",
+  "matched": [
+   "nas",
+   "neuron"
+  ],
+  "of": [
+   "nas",
+   "neuron"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "nathan-nathan",
+  "name": "Nathan & Nathan",
+  "website": "https://www.nathanhr.com",
+  "final": "https://www.nathanhr.com",
+  "title": "Nathan HR | Uniting People, Tech &amp; Expertise",
+  "domain": "nathanhr.com",
+  "matched": [
+   "nathan",
+   "nathan"
+  ],
+  "of": [
+   "nathan",
+   "nathan"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "national-bank-of-fujairah-nbf",
+  "name": "National Bank of Fujairah (NBF)",
+  "website": "https://www.nbf.ae",
+  "final": "https://nbf.ae/",
+  "title": "Best Bank in UAE for Personal and Business Banking | NBF",
+  "domain": "nbf.ae",
+  "matched": [
+   "national",
+   "bank",
+   "fujairah"
+  ],
+  "of": [
+   "national",
+   "bank",
+   "fujairah"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "nestl-middle-east-fze",
+  "name": "Nestl\u00e9 - Middle East FZE",
+  "website": "https://www.nestle-mena.com",
+  "verdict": "blocked",
+  "detail": "HTTP 403"
+ },
+ {
+  "id": "nike",
+  "name": "Nike",
+  "website": "https://www.nike.ae",
+  "final": "https://www.nike.ae/en/home/",
+  "title": "Nike UAE Official Online Store - Shop Shoes, Clothing, Bags & More",
+  "domain": "nike.ae",
+  "matched": [
+   "nike"
+  ],
+  "of": [
+   "nike"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "nimr-alsahra-trading-company",
+  "name": "Nimr Alsahra Trading Company",
+  "website": "https://www.nimr.com",
+  "final": "https://www.nimr.com",
+  "title": "",
+  "domain": "nimr.com",
+  "matched": [],
+  "of": [
+   "nimr",
+   "alsahra",
+   "trading",
+   "company"
+  ],
+  "domainBacksIt": true,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "oliv",
+  "name": "Oliv",
+  "website": "https://www.oliv.com",
+  "final": "https://www.oliv.com",
+  "title": "Find Internships & Fresh Graduate Jobs in UAE - Oliv",
+  "domain": "oliv.com",
+  "matched": [
+   "oliv"
+  ],
+  "of": [
+   "oliv"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "oliver-wyman",
+  "name": "Oliver Wyman",
+  "website": "https://www.oliverwyman.com",
+  "final": "https://www.oliverwyman.com/index.html",
+  "title": "Oliver Wyman: Impact-Driven Strategy And Consulting",
+  "domain": "oliverwyman.com",
+  "matched": [
+   "oliver",
+   "wyman"
+  ],
+  "of": [
+   "oliver",
+   "wyman"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "omnicom",
+  "name": "Omnicom",
+  "website": "https://omnicommedia.com",
+  "final": "https://omnicommedia.com",
+  "title": "Omnicom Media &#8211; Client-First. Data-Led. People-Powered.",
+  "domain": "omnicommedia.com",
+  "matched": [
+   "omnicom"
+  ],
+  "of": [
+   "omnicom"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "pareto-people",
+  "name": "Pareto People",
+  "website": "https://www.paretopeople.com",
+  "final": "https://www.paretopeople.com",
+  "title": "Home - Pareto People",
+  "domain": "paretopeople.com",
+  "matched": [
+   "pareto",
+   "people"
+  ],
+  "of": [
+   "pareto",
+   "people"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "pepsico",
+  "name": "PepsiCo",
+  "website": "https://www.pepsico.com",
+  "verdict": "blocked",
+  "detail": "HTTP 403"
+ },
+ {
+  "id": "petrofac",
+  "name": "Petrofac",
+  "website": "https://www.petrofac.com",
+  "final": "https://www.petrofac.com",
+  "title": "Petrofac",
+  "domain": "petrofac.com",
+  "matched": [
+   "petrofac"
+  ],
+  "of": [
+   "petrofac"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "pirelli",
+  "name": "Pirelli",
+  "website": "https://www.pirelli.com/global/en-ww/homepage/",
+  "final": "https://www.pirelli.com/global/en-ww/homepage/",
+  "title": "Pirelli Global: Discover our world | Pirelli",
+  "domain": "pirelli.com",
+  "matched": [
+   "pirelli"
+  ],
+  "of": [
+   "pirelli"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "porsche-middle-east-africa-fze",
+  "name": "Porsche Middle East & Africa FZE",
+  "website": "https://www.porsche.com/middle-east/_dubai_/?cs_redirect=1",
+  "final": "https://www.porsche.com/middle-east/_dubai_/?cs_redirect=1",
+  "title": "Porsche Dubai | Official Website",
+  "domain": "porsche.com",
+  "matched": [
+   "porsche"
+  ],
+  "of": [
+   "porsche",
+   "middle",
+   "east",
+   "africa"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "pricewaterhousecoopers-pwc",
+  "name": "PricewaterhouseCoopers (PwC)",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "publicis",
+  "name": "Publicis",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "puig",
+  "name": "Puig",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "quantom-edge",
+  "name": "Quantom Edge",
+  "website": "https://www.quantom.com",
+  "final": "https://www.quantom.com",
+  "title": "Quantom.com",
+  "domain": "quantom.com",
+  "matched": [
+   "quantom"
+  ],
+  "of": [
+   "quantom",
+   "edge"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "rak-bank",
+  "name": "RAK Bank",
+  "website": "https://www.rak.com",
+  "final": "https://www.rak.com",
+  "title": "Rak.com",
+  "domain": "rak.com",
+  "matched": [
+   "rak"
+  ],
+  "of": [
+   "rak",
+   "bank"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "recruit-me",
+  "name": "Recruit ME",
+  "website": "https://recruit.com/",
+  "final": "https://recruit.com/",
+  "title": "Recruit",
+  "domain": "recruit.com",
+  "matched": [
+   "recruit"
+  ],
+  "of": [
+   "recruit"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "samsung",
+  "name": "Samsung Electronics",
+  "website": "https://www.samsung.com/ae/",
+  "final": "https://www.samsung.com/ae/",
+  "title": "Samsung Gulf | Mobiles | Home Appliances | TVs | Electronics",
+  "domain": "samsung.com",
+  "matched": [
+   "samsung",
+   "electronics"
+  ],
+  "of": [
+   "samsung",
+   "electronics"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "sap",
+  "name": "SAP",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "schindler",
+  "name": "Schindler",
+  "website": "https://www.schindler.com/en.html",
+  "final": "https://www.schindler.com/en.html",
+  "title": "Manufacturer of elevators, escalators, &amp; moving walkways | Schindler U.S.",
+  "domain": "schindler.com",
+  "matched": [
+   "schindler"
+  ],
+  "of": [
+   "schindler"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "score-plus",
+  "name": "Score Plus",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "seddiqi-holding",
+  "name": "Seddiqi Holding",
+  "website": "https://www.seddiqi.com",
+  "final": "https://www.seddiqi.com",
+  "title": "Luxury Watches &amp; Fine Jewellery | Ahmed Seddiqi UAE",
+  "domain": "seddiqi.com",
+  "matched": [
+   "seddiqi"
+  ],
+  "of": [
+   "seddiqi",
+   "holding"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "serco-middle-east",
+  "name": "Serco Middle East",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "sharaf-dg",
+  "name": "Sharaf DG",
+  "website": "https://www.sharaf.com",
+  "final": "https://www.sharaf.com",
+  "title": "",
+  "domain": "sharaf.com",
+  "matched": [],
+  "of": [
+   "sharaf"
+  ],
+  "domainBacksIt": true,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "sharjah-union-coop",
+  "name": "Sharjah Union Coop",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "sobha-realty",
+  "name": "Sobha Realty",
+  "website": "https://www.sobha.com",
+  "final": "https://www.sobha.com",
+  "title": "SOBHA Limited | Luxury Real Estate Company in India",
+  "domain": "sobha.com",
+  "matched": [
+   "sobha"
+  ],
+  "of": [
+   "sobha",
+   "realty"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "socialeyez",
+  "name": "SocialEyez",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "sunset-hospitality",
+  "name": "Sunset Hospitality",
+  "website": "https://sunset.com/",
+  "final": "https://sunset.com/",
+  "title": "Sunset.com - Sunset Magazine",
+  "domain": "sunset.com",
+  "matched": [
+   "sunset"
+  ],
+  "of": [
+   "sunset",
+   "hospitality"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "takaful-emarat",
+  "name": "Takaful Emarat",
+  "website": "https://www.takaful.com",
+  "final": "https://www.takaful.com",
+  "title": "",
+  "domain": "takaful.com",
+  "matched": [],
+  "of": [
+   "takaful",
+   "emarat"
+  ],
+  "domainBacksIt": true,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "tanfeeth",
+  "name": "Tanfeeth",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "tensor",
+  "name": "Tensor Systems",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "the-iml-group",
+  "name": "The IML Group",
+  "website": "https://www.the.com",
+  "final": "https://www.the.com",
+  "title": "the.com",
+  "domain": "the.com",
+  "matched": [],
+  "of": [
+   "iml",
+   "group"
+  ],
+  "domainBacksIt": false,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "time-hotels",
+  "name": "Time Hotels",
+  "website": "https://time.com/",
+  "final": "https://time.com/",
+  "title": "TIME | Current &amp; Breaking News | National &amp; World Updates",
+  "domain": "time.com",
+  "matched": [
+   "time"
+  ],
+  "of": [
+   "time",
+   "hotels"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "transguard-group",
+  "name": "Transguard Group",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "union-coop",
+  "name": "Union Coop",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "united-engineering",
+  "name": "United Engineering",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "university-of-dubai",
+  "name": "University of Dubai",
+  "website": "https://www.university.com",
+  "final": "https://www.university.com",
+  "title": "University.com | The Modern Degree That Actually Pays",
+  "domain": "university.com",
+  "matched": [
+   "university"
+  ],
+  "of": [
+   "university",
+   "dubai"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "vfs-global",
+  "name": "VFS Global",
+  "website": "https://vfs.edu/",
+  "final": "https://vfs.edu/",
+  "title": "Vancouver Film School: Entertainment Arts Training For Film, TV, Animation, Games",
+  "domain": "vfs.edu",
+  "matched": [
+   "vfs",
+   "global"
+  ],
+  "of": [
+   "vfs",
+   "global"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "virgin-mena",
+  "name": "Virgin MENA",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "virgin-mobile",
+  "name": "Virgin Mobile",
+  "website": null,
+  "verdict": "no-website"
+ },
+ {
+  "id": "visa",
+  "name": "Visa",
+  "website": "https://ae.visamiddleeast.com/",
+  "final": "https://ae.visamiddleeast.com/",
+  "title": "Visa UAE \u2013 Cards, Offers &amp; Payment Solutions | Visa",
+  "domain": "ae.visamiddleeast.com",
+  "matched": [
+   "visa"
+  ],
+  "of": [
+   "visa"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "wasl-asset-management-group",
+  "name": "Wasl Asset Management Group",
+  "website": "https://www.wasl.ae/en",
+  "final": "https://www.wasl.ae/en",
+  "title": "Buy and Rent Premium Real Estate Properties in Dubai | Wasl",
+  "domain": "wasl.ae",
+  "matched": [
+   "wasl",
+   "management",
+   "group"
+  ],
+  "of": [
+   "wasl",
+   "asset",
+   "management",
+   "group"
+  ],
+  "domainBacksIt": true,
+  "verdict": "ok"
+ },
+ {
+  "id": "zahrawi-medical",
+  "name": "Zahrawi Medical",
+  "website": "https://www.zahrawi.com",
+  "final": "https://www.zahrawi.com",
+  "title": "Index of /",
+  "domain": "zahrawi.com",
+  "matched": [],
+  "of": [
+   "zahrawi",
+   "medical"
+  ],
+  "domainBacksIt": true,
+  "verdict": "mismatch"
+ },
+ {
+  "id": "zomato",
+  "name": "Zomato UAE",
+  "website": null,
+  "verdict": "no-website"
+ }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "virgin-mobile",
+    "name": "Virgin Mobile",
+    "officialName": "Virgin Mobile",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "visa",
+    "name": "Visa",
+    "officialName": "Visa",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "wasl-asset-management-group",
+    "name": "Wasl Asset Management Group",
+    "officialName": "Wasl Asset Management Group",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "zahrawi-medical",
+    "name": "Zahrawi Medical",
+    "officialName": "Zahrawi Medical",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "zomato",
+    "name": "Zomato UAE",
+    "officialName": "Zomato",
+    "emirate": "Dubai",
+    "area": "Dubai Media City"
+  }
+]

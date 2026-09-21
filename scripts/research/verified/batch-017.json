@@ -1,0 +1,429 @@
+[
+  {
+    "id": "kitopi",
+    "website": "https://www.kitopi.com",
+    "websiteSource": "https://en.wikipedia.org/wiki/List_of_unicorn_startup_companies",
+    "careersUrl": "https://www.kitopi.com/careers",
+    "careersSource": "https://www.kitopi.com/careers",
+    "shortDescription": "Kitopi is a tech-driven cloud kitchen platform and multi-brand restaurant operator founded in Dubai.",
+    "whatTheyDo": "Kitopi partners with restaurant brands to cook, scale, and deliver their food through a network of delivery kitchens. It builds and operates proprietary kitchen technology including its Smart Kitchen Operating System (SKOS), robotics, and data science platforms. In the UAE, it manages corporate headquarters at One Central and operational kitchens across Dubai.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Crescent_Enterprises",
+    "industry": "Food & Beverage Technology",
+    "commonCareers": [
+      "Commis Chef",
+      "Sous Chef",
+      "Kitchen Manager",
+      "Analytics Manager"
+    ],
+    "careersEvidence": "https://www.kitopi.com/careers",
+    "technicalAreas": [
+      "Smart Kitchen Operating System (SKOS)",
+      "Robotics",
+      "Data Science",
+      "Artificial Intelligence"
+    ],
+    "address": "Offices 4, One Central, Trade Centre 2, Dubai, United Arab Emirates",
+    "latitude": 25.21976,
+    "longitude": 55.28559,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://startup.jobs/companies/kitopi",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "List of unicorn startup companies - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/List_of_unicorn_startup_companies"
+      },
+      {
+        "title": "Kitopi Headquarters - 2GIS",
+        "url": "https://2gis.ae"
+      }
+    ],
+    "notes": "Input listed area as Dubai Silicon Oasis, but Kitopi's global corporate headquarters is at One Central Offices 4, Trade Centre 2, Dubai; Silicon Oasis hosts kitchen and warehouse operations."
+  },
+  {
+    "id": "kpmg",
+    "website": "https://home.kpmg/ae",
+    "websiteSource": "https://www.khda.gov.ae",
+    "careersUrl": "https://home.kpmg/ae/en/home/careers.html",
+    "careersSource": "https://home.kpmg/ae/en/home/careers.html",
+    "shortDescription": "KPMG Lower Gulf provides audit, tax, and advisory services to corporations and government entities in the UAE.",
+    "whatTheyDo": "KPMG Lower Gulf delivers financial audit and assurance, tax consulting, cybersecurity, risk management, and deal advisory services across the UAE and the broader region. It serves financial institutions, energy corporations, public sector bodies, and healthcare providers. In Dubai, it operates multidisciplinary client service and consulting teams.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/KPMG",
+    "industry": "Accounting & Professional Services",
+    "commonCareers": [
+      "Audit Supervisor",
+      "Regulatory and Risk Advisory Associate Director",
+      "Strategy Consultant",
+      "Tax Consultant"
+    ],
+    "careersEvidence": "https://jobs.accaglobal.com",
+    "technicalAreas": [
+      "Audit & Assurance",
+      "Tax Advisory",
+      "Risk Consulting",
+      "Deal Advisory"
+    ],
+    "address": "The Offices 5, Level 4, One Central, Dubai World Trade Centre, Sheikh Zayed Road, Dubai, United Arab Emirates",
+    "latitude": 25.22022,
+    "longitude": 55.28476,
+    "locationSource": "https://mapcarta.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://home.kpmg/ae/en/home/careers.html",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "KHDA Educational Directory - KPMG Lower Gulf Limited",
+        "url": "https://www.khda.gov.ae"
+      },
+      {
+        "title": "ACCA Careers - KPMG Lower Gulf",
+        "url": "https://jobs.accaglobal.com"
+      }
+    ],
+    "notes": "Operates as KPMG Lower Gulf Limited. Primary Dubai office is at The Offices 5, One Central, Dubai World Trade Centre (Sheikh Zayed Road), not in Business Bay."
+  },
+  {
+    "id": "kuehnenagel",
+    "website": "https://home.kuehne-nagel.com",
+    "websiteSource": "https://www.iata.org",
+    "careersUrl": "https://careers.kuehne-nagel.com",
+    "careersSource": "https://careers.kuehne-nagel.com",
+    "shortDescription": "Kuehne+Nagel provides sea, air, road freight forwarding and contract logistics services across the UAE.",
+    "whatTheyDo": "Kuehne+Nagel manages global supply chain logistics, sea and air freight consolidation, and integrated contract logistics for enterprise clients across the Middle East. In Dubai, it operates fulfillment and logistics facilities in Dubai Logistics City (Dubai South), Cargo Village (Al Garhoud), and Dubai Airport Freezone. It provides freight tracking, temperature-controlled pharma logistics, and customs brokerage.",
+    "descriptionSource": "https://www.iata.org",
+    "industry": "Logistics & Supply Chain",
+    "commonCareers": [
+      "Operational Care Specialist",
+      "Customer Care Specialist",
+      "Logistics Coordinator",
+      "Logistics Specialist"
+    ],
+    "careersEvidence": "https://careers.kuehne-nagel.com",
+    "technicalAreas": [
+      "Sea Logistics",
+      "Air Logistics",
+      "Contract Logistics",
+      "Freight Forwarding"
+    ],
+    "address": "Plot WB01, Dubai Logistics City, Dubai South, P.O. Box 22577, Dubai, United Arab Emirates",
+    "latitude": 24.9175,
+    "longitude": 55.12111,
+    "locationSource": "https://www.iata.org",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://careers.kuehne-nagel.com",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "IATA Cargo Agency Directory - Kuehne + Nagel LLC",
+        "url": "https://www.iata.org"
+      },
+      {
+        "title": "Ministry of Industry and Advanced Technology Directory",
+        "url": "https://moiat.gov.ae"
+      }
+    ],
+    "notes": "Input listed area as JLT, but Kuehne+Nagel operates in Dubai Logistics City (Dubai South), Dubai Airport Freezone, and Cargo Village, with no verified office in JLT."
+  },
+  {
+    "id": "loral-middle-east",
+    "website": "https://www.loreal.com",
+    "websiteSource": "https://2gis.ae",
+    "careersUrl": "https://careers.loreal.com/en_US/content/United-Arab-Emirates",
+    "careersSource": "https://careers.loreal.com/en_US/content/United-Arab-Emirates",
+    "shortDescription": "L'Oréal Middle East manages the commercial distribution, marketing, and brand operations of L'Oréal beauty products across the GCC.",
+    "whatTheyDo": "L'Oréal Middle East oversees the regional portfolio of consumer products, luxury brands, active cosmetics, and professional beauty products across the Middle East. Its regional headquarters in Dubai directs omnichannel marketing, digital commerce, brand PR, and retail partner relationships. It operates commercial and corporate support teams serving markets across the Arabian Gulf.",
+    "descriptionSource": "https://www.hidubai.com",
+    "industry": "Cosmetics & Consumer Goods",
+    "commonCareers": [
+      "Management Trainee",
+      "Digital Marketing Specialist",
+      "Supply Chain Planner",
+      "Brand Manager"
+    ],
+    "careersEvidence": "https://careers.loreal.com/en_US/content/United-Arab-Emirates",
+    "technicalAreas": [
+      "Digital Marketing",
+      "Supply Chain",
+      "E-commerce"
+    ],
+    "address": "Building 3, Floors 12-14, The Galleries, Downtown Jebel Ali, P.O. Box 16924, Dubai, United Arab Emirates",
+    "latitude": 24.9803,
+    "longitude": 55.0925,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://careers.loreal.com/en_US/content/United-Arab-Emirates",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "2GIS - The Galleries 3 Downtown Jebel Ali",
+        "url": "https://2gis.ae"
+      },
+      {
+        "title": "HiDubai - L'Oreal Middle East Listing",
+        "url": "https://www.hidubai.com"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City, but L'Oréal Middle East's regional corporate headquarters is situated in The Galleries Building 3, Downtown Jebel Ali (JAFZA)."
+  },
+  {
+    "id": "landmark-group",
+    "website": "https://www.landmarkgroup.com",
+    "websiteSource": "https://en.wikipedia.org/wiki/Landmark_Group",
+    "careersUrl": "https://www.landmarkgroup.com/careers",
+    "careersSource": "https://www.landmarkgroup.com/careers",
+    "shortDescription": "Landmark Group is a multinational retail and hospitality conglomerate headquartered in Dubai.",
+    "whatTheyDo": "Landmark Group operates major retail chains including Centrepoint, Max, Splash, Home Centre, Babyshop, and Shoe Mart across the Middle East, North Africa, and India. It manages extensive omnichannel retail technology, logistics automation, and e-commerce platforms headquartered out of Jebel Ali. It also operates hospitality, fitness, and confectionery businesses.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Landmark_Group",
+    "industry": "Retail & Hospitality",
+    "commonCareers": [
+      "Assistant Manager - Buying",
+      "Buyer",
+      "Visual Merchandiser",
+      "E-commerce Growth Manager"
+    ],
+    "careersEvidence": "https://www.landmarkgroup.com/careers",
+    "technicalAreas": [
+      "E-commerce",
+      "Retail Technology",
+      "Supply Chain Management"
+    ],
+    "address": "JAFZA One, Jebel Ali Free Zone, P.O. Box 25030, Dubai, United Arab Emirates",
+    "latitude": 24.96476,
+    "longitude": 55.08059,
+    "locationSource": "https://mapcarta.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": false,
+    "programmesSource": "https://www.naukrigulf.com",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Landmark Group - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Landmark_Group"
+      },
+      {
+        "title": "Office Snapshots - Landmark Group Headquarters JAFZA One",
+        "url": "https://officesnapshots.com"
+      }
+    ],
+    "notes": "Input listed area as Downtown, but Landmark Group's corporate headquarters is at JAFZA One, Jebel Ali Free Zone, Dubai (previously Landmark Tower in Dubai Marina)."
+  },
+  {
+    "id": "majid-al-futtaim-maf",
+    "website": "https://www.majidalfuttaim.com",
+    "websiteSource": "https://en.wikipedia.org/wiki/Majid_Al_Futtaim_Group",
+    "careersUrl": "https://www.majidalfuttaim.com/en/careers",
+    "careersSource": "https://www.majidalfuttaim.com/en/careers",
+    "shortDescription": "Majid Al Futtaim develops and operates shopping malls, retail stores, and entertainment communities across the Middle East.",
+    "whatTheyDo": "Majid Al Futtaim develops and runs leading regional shopping destinations including Mall of the Emirates and City Centre malls, holds the exclusive franchise for Carrefour in the region, and operates entertainment brands such as VOX Cinemas and Ski Dubai. In Dubai, it runs centralized engineering, digital product, and advanced analytics teams that power retail experiences across 17 countries.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Majid_Al_Futtaim_Group",
+    "industry": "Retail, Real Estate & Entertainment",
+    "commonCareers": [
+      "Data Science Manager",
+      "Data Analyst",
+      "BI Development Manager",
+      "Operations Manager"
+    ],
+    "careersEvidence": "https://www.majidalfuttaim.com/en/careers",
+    "technicalAreas": [
+      "Data Science",
+      "Machine Learning",
+      "Business Intelligence",
+      "Retail Analytics"
+    ],
+    "address": "Tower 1, 10th Floor, City Centre Deira Complex, Port Saeed, P.O. Box 91100, Dubai, United Arab Emirates",
+    "latitude": 25.25313,
+    "longitude": 55.33018,
+    "locationSource": "https://worldplaces.me",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.majidalfuttaim.com/en/careers",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Majid Al Futtaim Group - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Majid_Al_Futtaim_Group"
+      },
+      {
+        "title": "Dar Al-Handasah - Majid Al Futtaim Tower 1 Project Profile",
+        "url": "https://dar.ae"
+      }
+    ],
+    "notes": "Input listed area as Business Bay, but corporate headquarters is at MAF Tower 1, City Centre Deira Complex, Port Saeed, Deira, Dubai. Distinct from Al-Futtaim Group."
+  },
+  {
+    "id": "mashreq-bank",
+    "website": "https://www.mashreq.com",
+    "websiteSource": "https://en.wikipedia.org/wiki/Mashreq_(bank)",
+    "careersUrl": "https://www.mashreq.com/en/uae/about-us/careers/",
+    "careersSource": "https://www.mashreq.com/en/uae/about-us/careers/",
+    "shortDescription": "Mashreq Bank is an Emirati financial institution providing retail, corporate, and digital banking solutions.",
+    "whatTheyDo": "Mashreq Bank offers corporate banking, retail finance, treasury services, and Islamic banking products. It is a regional pioneer in digital banking, operating platforms such as Mashreq Neo and NeoBiz. In Dubai, it runs extensive digital transformation, DevOps automation, cybersecurity, and financial technology units.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Mashreq_(bank)",
+    "industry": "Banking & Financial Services",
+    "commonCareers": [
+      "Automation DevOps Engineer",
+      "Relationship Manager",
+      "AI Product Delivery Manager",
+      "Compliance Officer"
+    ],
+    "careersEvidence": "https://www.mashreq.com/en/uae/about-us/careers/",
+    "technicalAreas": [
+      "Digital Banking",
+      "DevOps",
+      "Artificial Intelligence",
+      "Fintech"
+    ],
+    "address": "1a, Financial Center Street, Downtown Dubai / Burj Khalifa Community, P.O. Box 1250, Dubai, United Arab Emirates",
+    "latitude": 25.2015,
+    "longitude": 55.2778,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.mashreq.com/en/uae/about-us/careers/",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Mashreq (bank) - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mashreq_(bank)"
+      },
+      {
+        "title": "2GIS Dubai - Mashreq Bank Global HQ",
+        "url": "https://2gis.ae"
+      }
+    ],
+    "notes": "Operates digital banking platforms Mashreq Neo and Mashreq NeoBiz. Corporate headquarters is located on Financial Center Street in Downtown Dubai / Burj Khalifa community."
+  },
+  {
+    "id": "mbg-corporate-services",
+    "website": "https://www.mbgcorp.com",
+    "websiteSource": "https://www.accaglobal.com",
+    "careersUrl": "https://careers.mbgcorp.com/",
+    "careersSource": "https://careers.mbgcorp.com/",
+    "shortDescription": "MBG Corporate Services is an international advisory firm providing legal, tax, internal audit, and enterprise setup services in the UAE.",
+    "whatTheyDo": "MBG Corporate Services assists multinational corporations and SMEs with UAE corporate tax compliance, VAT consulting, risk advisory, internal audit, and business structuring. It guides foreign investors through free zone and mainland incorporation across Dubai and Abu Dhabi. Its UAE headquarters is located in Business Bay, Dubai.",
+    "descriptionSource": "https://www.accaglobal.com",
+    "industry": "Corporate Services & Legal/Tax Advisory",
+    "commonCareers": [
+      "Value Added Tax (VAT) Consultant",
+      "Senior Tax Consultant",
+      "Internal Audit Specialist"
+    ],
+    "careersEvidence": "https://careers.mbgcorp.com/",
+    "technicalAreas": [
+      "Taxation & VAT",
+      "Internal Audit",
+      "Corporate Advisory",
+      "Legal & Compliance"
+    ],
+    "address": "Office 3401, 34th Floor, Al Manara Tower, Marasi Drive, Business Bay, P.O. Box 75952, Dubai, United Arab Emirates",
+    "latitude": 25.18414,
+    "longitude": 55.27175,
+    "locationSource": "https://propertystellar.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://careers.mbgcorp.com/",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "ACCA Global - MBG Corporate Services Accreditation",
+        "url": "https://www.accaglobal.com"
+      },
+      {
+        "title": "2GIS Dubai - Al Manara Tower Business Bay",
+        "url": "https://2gis.ae"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City, but physical headquarters is at Al Manara Tower, Business Bay, Dubai; the firm provides business setup services for Dubai Internet City and other free zones."
+  },
+  {
+    "id": "mckinsey-company",
+    "website": "https://www.mckinsey.com",
+    "websiteSource": "https://en.wikipedia.org/wiki/McKinsey_%26_Company",
+    "careersUrl": "https://www.mckinsey.com/middle-east/careers",
+    "careersSource": "https://www.mckinsey.com/middle-east/careers",
+    "shortDescription": "McKinsey & Company is a global management consulting firm advising major corporations, governments, and institutions in the UAE.",
+    "whatTheyDo": "McKinsey & Company's Dubai office advises clients across banking, sovereign wealth funds, public sector infrastructure, energy, and digital transformation in the GCC. The firm provides strategic planning, organizational turnaround, implementation advisory, and advanced analytics via QuantumBlack. Its Dubai office is based in the Dubai International Financial Centre (DIFC).",
+    "descriptionSource": "https://en.wikipedia.org/wiki/McKinsey_%26_Company",
+    "industry": "Management Consulting",
+    "commonCareers": [
+      "Business Analyst",
+      "Associate",
+      "Engagement Manager",
+      "Fellow"
+    ],
+    "careersEvidence": "https://www.mckinsey.com/middle-east/careers",
+    "technicalAreas": [
+      "Management Consulting",
+      "Digital Transformation",
+      "Advanced Analytics",
+      "Strategy"
+    ],
+    "address": "Level 5, Legatum Plaza (The Gate Precinct Building 6), Dubai International Financial Centre (DIFC), P.O. Box 33629, Dubai, United Arab Emirates",
+    "latitude": 25.21555,
+    "longitude": 55.28081,
+    "locationSource": "https://www.mckinsey.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.mckinsey.com/middle-east/careers",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "McKinsey & Company - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/McKinsey_%26_Company"
+      },
+      {
+        "title": "Bayut - The Gate Precinct Building 6 (Legatum Plaza) DIFC",
+        "url": "https://bayut.com"
+      }
+    ],
+    "notes": "Input listed area as Downtown, but office is located at Legatum Plaza (The Gate Precinct Building 6), Level 5, in Dubai International Financial Centre (DIFC)."
+  },
+  {
+    "id": "medpharma",
+    "website": "https://medpharmgtllc.com",
+    "websiteSource": "https://2gis.ae",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "MedPharm General Trading LLC is a medical and pharmaceutical distributor and wholesaler operating from Business Bay, Dubai.",
+    "whatTheyDo": "MedPharm General Trading LLC distributes medical devices, healthcare equipment, and pharmaceutical products across GCC and CIS markets. Established in 1997, it provides import, export, warehousing, and commercial distribution from its office in Business Bay, Dubai.",
+    "descriptionSource": "https://2gis.ae",
+    "industry": "Pharmaceutical & Medical Device Distribution",
+    "commonCareers": [],
+    "careersEvidence": null,
+    "technicalAreas": [],
+    "address": "Office 1310, 13th Floor, Lake Central Tower, Marasi Drive, Business Bay, P.O. Box 56036, Dubai, United Arab Emirates",
+    "latitude": 25.1848,
+    "longitude": 55.2758,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "2GIS Dubai - MedPharm General Trading LLC",
+        "url": "https://2gis.ae"
+      },
+      {
+        "title": "HiDubai - MedPharm General Trading LLC Business Bay",
+        "url": "https://www.hidubai.com"
+      }
+    ],
+    "notes": "Identified as MedPharm General Trading LLC located in Business Bay, Dubai. Distinct from Medpharma Pharmaceutical & Chemical Industries LLC, which is a pharmaceutical manufacturer based in Sharjah."
+  }
+]

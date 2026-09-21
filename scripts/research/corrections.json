@@ -1,0 +1,76 @@
+{
+  "_note": [
+    "Hand-verified corrections, applied last by build_dataset.py.",
+    "Every entry here was checked by opening the page in a real browser and",
+    "reading what the site says it is. The failure mode they fix is a URL that",
+    "resolves perfectly but belongs to someone else: university.com is not the",
+    "University of Dubai, time.com is not TIME Hotels. check_identity.py finds",
+    "these; a URL liveness check never will.",
+    "A null website means the wrong one was removed and no correct one was found."
+  ],
+  "university-of-dubai": {
+    "website": "https://ud.ac.ae",
+    "was": "https://www.university.com",
+    "why": "university.com sells online degrees; ud.ac.ae is the University of Dubai"
+  },
+  "time-hotels": {
+    "website": "https://www.timehotels.com",
+    "was": "https://time.com/",
+    "why": "time.com is TIME magazine"
+  },
+  "sunset-hospitality": {
+    "website": "https://www.sunsethospitality.com",
+    "was": "https://sunset.com/",
+    "why": "sunset.com is Sunset magazine"
+  },
+  "vfs-global": {
+    "website": "https://www.vfsglobal.com",
+    "was": "https://vfs.edu/",
+    "why": "vfs.edu is Vancouver Film School"
+  },
+  "rak-bank": {
+    "website": "https://www.rakbank.ae",
+    "was": "https://www.rak.com",
+    "why": "rak.com is not the bank"
+  },
+  "zahrawi-medical": {
+    "website": "https://www.zahrawigroup.com",
+    "was": "https://www.zahrawi.com",
+    "why": "zahrawi.com served a bare directory index"
+  },
+  "sobha-realty": {
+    "website": "https://sobharealty.com",
+    "was": "https://www.sobha.com",
+    "why": "sobha.com is the Indian parent, not the Dubai developer"
+  },
+  "medpharma": {
+    "website": "https://www.medpharma.ae",
+    "was": "https://medpharmgtllc.com",
+    "why": "the old link was an unrelated placeholder site"
+  },
+  "gifts-markets-general-trading-llc": {
+    "website": "https://giftsmarkets.com",
+    "was": "https://shonati.com",
+    "why": "shonati.com is a luggage retailer"
+  },
+  "the-iml-group": {
+    "website": null,
+    "was": "https://www.the.com",
+    "why": "the.com is unrelated; no IML Group site found"
+  },
+  "kc-international-finance-management-services": {
+    "website": null,
+    "was": "https://www.kc.com",
+    "why": "kc.com is Hong Kong Kool Car Limited"
+  },
+  "ava-group": {
+    "website": null,
+    "was": "https://www.ava.com",
+    "why": "ava.com is AVA Inc (cinema tech); no UAE AVA Group site found"
+  },
+  "quantom-edge": {
+    "website": null,
+    "was": "https://www.quantom.com",
+    "why": "quantom.com is a parked page; no company site found"
+  }
+}

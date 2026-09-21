@@ -1,0 +1,72 @@
+[
+  {
+    "id": "3m",
+    "name": "3M",
+    "officialName": "3M",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "7x-emirates-post",
+    "name": "7X (Emirates Post)",
+    "officialName": "7X (Emirates Post)",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "aal-mir-trading-co-llc",
+    "name": "Aal Mir Trading Co. L.L.C",
+    "officialName": "Aal Mir Trading Co. L.L.C",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "abb-industries-llc",
+    "name": "ABB",
+    "officialName": "ABB Industries LLC",
+    "emirate": "Dubai",
+    "area": "Al Quoz"
+  },
+  {
+    "id": "abu-dhabi-aviation",
+    "name": "Abu Dhabi Aviation",
+    "officialName": "Abu Dhabi Aviation",
+    "emirate": "Abu Dhabi",
+    "area": "Abu Dhabi areas"
+  },
+  {
+    "id": "abu-dhabi-commercial-bank-adcb",
+    "name": "ADCB",
+    "officialName": "Abu Dhabi Commercial Bank (ADCB)",
+    "emirate": "Abu Dhabi",
+    "area": "Abu Dhabi areas"
+  },
+  {
+    "id": "abu-dhabi-islamic-bank-adib",
+    "name": "Abu Dhabi Islamic Bank (ADIB)",
+    "officialName": "Abu Dhabi Islamic Bank (ADIB)",
+    "emirate": "Abu Dhabi",
+    "area": "Abu Dhabi areas"
+  },
+  {
+    "id": "accenture",
+    "name": "Accenture",
+    "officialName": "Accenture",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "accor",
+    "name": "Accor",
+    "officialName": "Accor",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "adecco",
+    "name": "Adecco",
+    "officialName": "Adecco",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  }
+]

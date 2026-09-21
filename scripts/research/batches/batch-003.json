@@ -1,0 +1,72 @@
+[
+  {
+    "id": "al-habtoor",
+    "name": "Al Habtoor",
+    "officialName": "Al Habtoor",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "al-mal-capital-psc",
+    "name": "Al Mal Capital PSC",
+    "officialName": "Al Mal Capital PSC",
+    "emirate": "Dubai",
+    "area": "DIFC"
+  },
+  {
+    "id": "al-marai",
+    "name": "Al Marai",
+    "officialName": "Al Marai",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "al-masraf",
+    "name": "Al Masraf",
+    "officialName": "Al Masraf",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "al-naboodah-group-enterprises-llc",
+    "name": "Al Naboodah Group Enterprises LLC",
+    "officialName": "Al Naboodah Group Enterprises LLC",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "al-rostamani-group",
+    "name": "Al Rostamani Group",
+    "officialName": "Al Rostamani Group",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "al-safi-danone",
+    "name": "Al Safi Danone",
+    "officialName": "Al Safi Danone",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "al-serkal-group",
+    "name": "Al Serkal Group",
+    "officialName": "Al Serkal Group",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "al-shaya-group",
+    "name": "Al Shaya Group",
+    "officialName": "Al Shaya Group",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "albwardy-marine-engineering",
+    "name": "Albwardy Marine Engineering",
+    "officialName": "Albwardy Marine Engineering",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  }
+]

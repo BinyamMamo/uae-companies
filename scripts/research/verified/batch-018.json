@@ -1,0 +1,391 @@
+[
+  {
+    "id": "meraas",
+    "website": "https://www.meraas.com",
+    "websiteSource": "https://www.bayt.com",
+    "careersUrl": "https://www.dubaiholding.com/en/careers/",
+    "careersSource": "https://www.dubaiholding.com/en/careers/",
+    "shortDescription": "Meraas is a Dubai-based master developer and subsidiary of Dubai Holding Real Estate that creates and manages urban destinations and residential communities.",
+    "whatTheyDo": "Meraas designs, builds, and operates master-planned residential, retail, and hospitality destinations across Dubai, including City Walk, Bluewaters, and Port de La Mer. It runs engineering, urban planning, project delivery, and community management operations serving local and international residents and investors.",
+    "descriptionSource": "https://www.bayt.com",
+    "industry": "Real Estate & Urban Development",
+    "commonCareers": [
+      "Site Engineer",
+      "MEP Engineer",
+      "Project Manager"
+    ],
+    "careersEvidence": "https://www.arnnewscentre.ae",
+    "technicalAreas": [
+      "Civil Engineering",
+      "Real Estate Development",
+      "Urban Planning"
+    ],
+    "address": "Building 4 & 5, King Salman Bin Abdul Aziz Al Saud Street, Al Sufouh 2, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.meraas.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Bayt Company Profile - Meraas",
+        "url": "https://www.bayt.com"
+      },
+      {
+        "title": "ARN News Centre - Dubai Holding Career Fair",
+        "url": "https://www.arnnewscentre.ae"
+      }
+    ],
+    "notes": "The directory originally listed Meraas in JLT; however, Meraas is headquartered in Al Sufouh 2 (with corporate offices at Vision Tower, Business Bay) and has no primary corporate office or master developments in JLT. Recruitment is centralized under parent company Dubai Holding."
+  },
+  {
+    "id": "meralis-group",
+    "website": "https://www.meralisgroup.com",
+    "websiteSource": "https://www.rakez.com",
+    "careersUrl": "https://meralisgroup.com/career/",
+    "careersSource": "https://jobs.accaglobal.com",
+    "shortDescription": "Meralis Group is an international chartered accounting, audit, and tax consultancy firm operating in the UAE.",
+    "whatTheyDo": "Meralis Group provides statutory auditing, accounting, VAT and corporate tax consultancy, liquidation services, and corporate advisory. In the UAE, it serves commercial businesses and provides specialized compliance audits such as RERA budget reviews for property managers.",
+    "descriptionSource": "https://jobs.accaglobal.com",
+    "industry": "Accounting, Audit & Tax Advisory",
+    "commonCareers": [
+      "Audit Intern",
+      "Budget Review Supervisor"
+    ],
+    "careersEvidence": "https://jobs.accaglobal.com",
+    "technicalAreas": [
+      "Statutory Audit",
+      "Financial Accounting",
+      "Tax Consultancy"
+    ],
+    "address": "Office 1404, Park Place Tower, Sheikh Zayed Road, Trade Centre 1, Dubai, UAE",
+    "latitude": 25.22389,
+    "longitude": 55.28056,
+    "locationSource": "https://en.wikipedia.org/wiki/Park_Place_(Dubai)",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://jobs.accaglobal.com",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "ACCA Careers - Merali's Chartered Accountants & Registered Auditors",
+        "url": "https://jobs.accaglobal.com"
+      },
+      {
+        "title": "RAKEZ Registered Auditors Directory",
+        "url": "https://www.rakez.com"
+      }
+    ],
+    "notes": "The directory listed Dubai Internet City, but the firm's Dubai office is located in Park Place Tower on Sheikh Zayed Road (Trade Centre 1). Officially registered in the UAE as Merali's Chartered Accountants & Registered Auditors."
+  },
+  {
+    "id": "met-ts",
+    "website": "https://www.met-ts.co.uk",
+    "websiteSource": "https://www.moiat.gov.ae",
+    "careersUrl": "https://careers.met-ts.net/",
+    "careersSource": "https://careers.met-ts.net/",
+    "shortDescription": "MET T&S Ltd is the global employment, procurement, and technical services company of MAIRE Group supporting industrial energy infrastructure in the UAE.",
+    "whatTheyDo": "MET T&S provides specialized workforce deployment, procurement, commissioning, and plant maintenance services for large-scale energy, petrochemical, and oil & gas facilities in the UAE. It also conducts industrial trading of chemicals, catalysts, and specialized technical equipment for project sites such as Borouge 4.",
+    "descriptionSource": "https://www.moiat.gov.ae",
+    "industry": "Engineering Services & Industrial Staffing",
+    "commonCareers": [
+      "Planning Engineer",
+      "HSE Engineer",
+      "Spare Parts Coordinator"
+    ],
+    "careersEvidence": "https://careers.met-ts.net/",
+    "technicalAreas": [
+      "Procurement & Commissioning",
+      "Petrochemical Engineering",
+      "Health, Safety & Environment (HSE)"
+    ],
+    "address": "Al Zahiyah, Abu Dhabi, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.moiat.gov.ae",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "UAE Ministry of Industry and Advanced Technology (MoIAT) ICV Registry",
+        "url": "https://www.moiat.gov.ae"
+      }
+    ],
+    "notes": "MET T&S is an entity of MAIRE Group (formerly Maire Tecnimont). While Maire Tecnimont previously maintained an office in Boulevard Plaza (Downtown Dubai), MET T&S Ltd's registered UAE operations are in Al Zahiyah, Abu Dhabi, with field operations located at industrial project sites such as Ruwais."
+  },
+  {
+    "id": "microsoft-fz-middle-east",
+    "website": "https://www.microsoft.com/en-xm",
+    "websiteSource": "https://dic.ae",
+    "careersUrl": "https://careers.microsoft.com",
+    "careersSource": "https://careers.microsoft.com",
+    "shortDescription": "Microsoft FZ-LLC operates as Microsoft's regional headquarters for the Middle East, delivering enterprise software, cloud infrastructure, and AI solutions.",
+    "whatTheyDo": "Microsoft provides cloud computing (Azure), enterprise software (Microsoft 365, Dynamics 365), and AI services to public and private sector clients across the UAE and Middle East. Its Dubai Internet City hub houses regional sales, partner enablement, technical solution architecture, and software engineering teams.",
+    "descriptionSource": "https://careers.microsoft.com",
+    "industry": "Technology & Software",
+    "commonCareers": [
+      "Cloud Solution Architect",
+      "Software Engineer",
+      "Partner Solution Sales Manager"
+    ],
+    "careersEvidence": "https://careers.microsoft.com",
+    "technicalAreas": [
+      "Cloud Computing",
+      "Artificial Intelligence",
+      "Enterprise Software"
+    ],
+    "address": "Building 8, Dubai Internet City, Al Sufouh 2, Dubai, UAE",
+    "latitude": 25.09721,
+    "longitude": 55.16854,
+    "locationSource": "https://wikimapia.org",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://careers.microsoft.com",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai Internet City Community Directory",
+        "url": "https://dic.ae"
+      }
+    ],
+    "notes": "Operating locally as Microsoft Gulf FZ-LLC, Microsoft's regional hub is located in Building 8, Dubai Internet City."
+  },
+  {
+    "id": "millennial-partners",
+    "website": "https://millennial.ae",
+    "websiteSource": "https://www.goodfirms.co",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "Millennial Partners is a Dubai-based management consulting and enterprise artificial intelligence transformation firm.",
+    "whatTheyDo": "Millennial Partners advises enterprise clients on AI adoption, data strategy, and organizational upskilling across the GCC. It develops custom and proprietary AI applications (such as RAIL for finance and voice/chat agents) for finance, human resources, and procurement operations.",
+    "descriptionSource": "https://millennial.ae",
+    "industry": "Management Consulting & Artificial Intelligence",
+    "commonCareers": [],
+    "careersEvidence": null,
+    "technicalAreas": [
+      "Artificial Intelligence",
+      "Enterprise Workflow Automation"
+    ],
+    "address": "Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": null,
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "GoodFirms Profile - Millennial Partners",
+        "url": "https://www.goodfirms.co"
+      },
+      {
+        "title": "Arabian Business Startup Funding Coverage",
+        "url": "https://www.arabianbusiness.com"
+      }
+    ],
+    "notes": "The directory listed Millennial Partners in JLT; however, public business records only identify the firm generally within Dubai, with no verifiable office building or cluster in JLT."
+  },
+  {
+    "id": "mohammed-bin-rashid-library-foundation",
+    "website": "https://www.mbrl.ae",
+    "websiteSource": "https://www.visitdubai.com",
+    "careersUrl": "https://dubaicareers.ae",
+    "careersSource": "https://dubaicareers.ae",
+    "shortDescription": "Mohammed Bin Rashid Library Foundation manages and operates the Mohammed Bin Rashid Library, Dubai's flagship public and research library.",
+    "whatTheyDo": "The Foundation manages a 66,000-square-meter facility shaped like a traditional rehl, housing more than 1.5 million print and digital volumes across nine specialized libraries. It operates digital preservation laboratories and automated storage and retrieval systems, and hosts literary, educational, and cultural events.",
+    "descriptionSource": "https://dubaicareers.ae",
+    "industry": "Cultural Institutions & Public Libraries",
+    "commonCareers": [],
+    "careersEvidence": null,
+    "technicalAreas": [
+      "Digital Preservation",
+      "Automated Storage and Retrieval Systems (ASRS)",
+      "Library Information Systems"
+    ],
+    "address": "89-90 Al Khail Road, Al Jaddaf, Dubai, UAE",
+    "latitude": 25.22098,
+    "longitude": 55.34414,
+    "locationSource": "https://commons.wikimedia.org",
+    "internshipsKnown": true,
+    "graduateRolesKnown": null,
+    "programmesSource": "https://www.zu.ac.ae",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai Careers - Government of Dubai Portal",
+        "url": "https://dubaicareers.ae"
+      },
+      {
+        "title": "Visit Dubai Government Portal - Mohammed Bin Rashid Library",
+        "url": "https://www.visitdubai.com"
+      }
+    ],
+    "notes": "The directory mistakenly placed the Foundation in Dubai Internet City. The Mohammed Bin Rashid Library is located in Al Jaddaf along Dubai Creek, established under Dubai Law No. 14 of 2016."
+  },
+  {
+    "id": "mohammed-bin-rashid-university-of-medicine-and-health-sciences",
+    "website": "https://www.mbru.ac.ae",
+    "websiteSource": "https://pure.mbru.ac.ae",
+    "careersUrl": "https://www.mbru.ac.ae/work-with-us/",
+    "careersSource": "https://www.mbru.ac.ae/work-with-us/",
+    "shortDescription": "Mohammed Bin Rashid University of Medicine and Health Sciences (MBRU) is an academic health institution and university located in Dubai Healthcare City.",
+    "whatTheyDo": "MBRU provides undergraduate and postgraduate medical, nursing, and dental education through its three colleges. As the academic arm of Dubai Health, it conducts biomedical and clinical research and operates accredited residency, fellowship, and clinical internship training across Dubai public hospitals.",
+    "descriptionSource": "https://www.mbru.ac.ae",
+    "industry": "Higher Education & Healthcare",
+    "commonCareers": [
+      "Clinical Tutor",
+      "Orthodontic Faculty",
+      "Nursing Faculty"
+    ],
+    "careersEvidence": "https://www.mbru.ac.ae/work-with-us/",
+    "technicalAreas": [
+      "Medical Education",
+      "Clinical Healthcare",
+      "Biomedical Research"
+    ],
+    "address": "Building 14, Al Razi Street, Dubai Healthcare City, Umm Hurair 2, Dubai, UAE",
+    "latitude": 25.23276,
+    "longitude": 55.32328,
+    "locationSource": "https://www.waze.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.mbru.ac.ae",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Elsevier Pure - MBRU Institution Profile",
+        "url": "https://pure.mbru.ac.ae"
+      }
+    ],
+    "notes": "The directory incorrectly placed MBRU in Academic City. The university is situated in Building 14, Dubai Healthcare City (DHCC), Umm Hurair 2."
+  },
+  {
+    "id": "motorola-solutions",
+    "website": "https://www.motorolasolutions.com",
+    "websiteSource": "https://tecomgroup.ae",
+    "careersUrl": "https://www.motorolasolutions.com/en_us/about/careers.html",
+    "careersSource": "https://www.motorolasolutions.com/en_us/about/careers.html",
+    "shortDescription": "Motorola Solutions provides mission-critical communications, command center software, and video security infrastructure in the UAE.",
+    "whatTheyDo": "Motorola Solutions designs and deploys mission-critical communication networks (such as TETRA), video security and access control systems, and command center software for government, emergency services, and commercial enterprises. Its Dubai office houses an Innovation and Training Center supporting clients across the Middle East, Africa, and Asia.",
+    "descriptionSource": "https://www.motorolasolutions.com",
+    "industry": "Telecommunications & Security Technology",
+    "commonCareers": [
+      "Pre-Sales Engineer",
+      "System Architect",
+      "Account Manager"
+    ],
+    "careersEvidence": "https://www.motorolasolutions.com",
+    "technicalAreas": [
+      "Mission-Critical Communications",
+      "Video Security & Access Control",
+      "Command Center Software"
+    ],
+    "address": "Building 4, 2nd Floor, Office 201, Dubai Internet City, Al Sufouh 2, Dubai, UAE",
+    "latitude": 25.09286,
+    "longitude": 55.15916,
+    "locationSource": "https://mapcarta.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.motorolasolutions.com",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "TECOM Group - Motorola Solutions Customer Profile",
+        "url": "https://tecomgroup.ae"
+      }
+    ],
+    "notes": "Operates its regional office and Innovation & Training Center from Building 4 in Dubai Internet City."
+  },
+  {
+    "id": "nas-neuron",
+    "website": "https://nasneuron.com",
+    "websiteSource": "https://www.cud.ac.ae",
+    "careersUrl": "https://nasneuron.com/careers",
+    "careersSource": "https://nasneuron.com",
+    "shortDescription": "NAS Neuron Health Services is a leading third-party administrator (TPA) providing healthcare benefits and claims administration in the UAE.",
+    "whatTheyDo": "NAS Neuron provides medical insurance third-party administration, linking insurers, corporate clients, and healthcare providers. Its teams manage member eligibility verification, medical pre-authorizations, healthcare provider networks, and insurance claims adjudication.",
+    "descriptionSource": "https://www.cud.ac.ae",
+    "industry": "Healthcare Insurance Administration (TPA)",
+    "commonCareers": [
+      "Medical Claims Processing Specialist",
+      "Claims Adjudicator",
+      "Pre-Authorization Specialist"
+    ],
+    "careersEvidence": "https://www.founditgulf.com",
+    "technicalAreas": [
+      "Health Claims Adjudication",
+      "TPA Healthcare Management",
+      "Medical Insurance Billing"
+    ],
+    "address": "2nd Floor, Block A, Technohub 1, Dubai Silicon Oasis, Dubai, UAE",
+    "latitude": 25.12179,
+    "longitude": 55.37790,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Canadian University Dubai - NAS Neuron Corporate Profile",
+        "url": "https://www.cud.ac.ae"
+      },
+      {
+        "title": "Arcapita - NAS Neuron Investment and Merger Details",
+        "url": "https://www.arcapita.com"
+      }
+    ],
+    "notes": "The directory incorrectly placed NAS Neuron in JLT; the company is headquartered in Technohub 1, Dubai Silicon Oasis. It was formed by the merger of NAS Administration Services and Neuron LLC."
+  },
+  {
+    "id": "nathan-nathan",
+    "website": "https://www.nathanhr.com",
+    "websiteSource": "https://www.naukrigulf.com",
+    "careersUrl": "https://www.nathanhr.com/careers",
+    "careersSource": "https://www.nathanhr.com/careers",
+    "shortDescription": "Nathan & Nathan (NathanHR) is a UAE-licensed human resources outsourcing, recruitment, and payroll consultancy firm.",
+    "whatTheyDo": "Nathan & Nathan delivers Employer of Record (EOR), Professional Employer Organization (PEO), payroll processing, government PRO services, and specialized staffing solutions. It supports corporate clients ranging from multinational enterprises to regional startups across Dubai and the GCC.",
+    "descriptionSource": "https://joinneo.com",
+    "industry": "Human Resources & Recruitment Services",
+    "commonCareers": [
+      "Area Manager - Sales",
+      "People Excellence Expert"
+    ],
+    "careersEvidence": "https://www.nathanhr.com/careers",
+    "technicalAreas": [
+      "Human Resources Management",
+      "Payroll Processing",
+      "Employer of Record (EOR)"
+    ],
+    "address": "Office 1006, 10th Floor, Marina Plaza, Dubai Marina, Dubai, UAE",
+    "latitude": 25.07500,
+    "longitude": 55.13972,
+    "locationSource": "https://wikimapia.org",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.nathanhr.com/careers",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Naukrigulf Employer Profile - Nathan & Nathan",
+        "url": "https://www.naukrigulf.com"
+      }
+    ],
+    "notes": "The directory listed Dubai Internet City, but the company's head office is located in Marina Plaza, Dubai Marina (with an additional branch in JAFZA). Distinguish from Nathan and Nathan Consultants Private Limited in Bangalore, India."
+  }
+]

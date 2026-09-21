@@ -1,0 +1,423 @@
+[
+  {
+    "id": "al-habtoor",
+    "website": "https://www.habtoor.com",
+    "websiteSource": "https://en.wikipedia.org/wiki/Al_Habtoor_Group",
+    "careersUrl": "https://www.habtoor.com/en/employment.php",
+    "careersSource": "https://www.habtoor.com",
+    "linkedinUrl": "https://www.linkedin.com/company/al-habtoor-group",
+    "linkedinSource": "https://www.altss.com",
+    "shortDescription": "Al Habtoor Group LLC is a prominent UAE conglomerate operating in hospitality, automotive, real estate, education, and publishing.",
+    "whatTheyDo": "Al Habtoor Group manages luxury hotel properties, operates major automotive dealerships via Al Habtoor Motors, develops commercial and residential real estate projects including Al Habtoor City, and runs vehicle leasing and private education institutions in the UAE.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Al_Habtoor_Group",
+    "industry": "Conglomerates & Diversified Holdings",
+    "commonCareers": [
+      "Assistant Front Office Manager",
+      "Rooms Controller",
+      "Receptionist",
+      "Accountant"
+    ],
+    "careersEvidence": "https://www.indeed.com",
+    "technicalAreas": [],
+    "address": "727 Al Wasl Road, Al Safa 2, P.O. Box 25444, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.habtoor.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": false,
+    "programmes": [
+      {
+        "name": "Al Habtoor Group Internship Programme",
+        "kind": "internship"
+      }
+    ],
+    "programmesSource": "https://www.habtoor.com",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Wikipedia - Al Habtoor Group",
+        "url": "https://en.wikipedia.org/wiki/Al_Habtoor_Group"
+      },
+      {
+        "title": "Gulf News Coverage",
+        "url": "https://gulfnews.com"
+      }
+    ],
+    "notes": "Input listed area as Downtown, but corporate headquarters is located at 727 Al Wasl Road, Al Safa 2, Dubai (with major developments including Al Habtoor City situated near Business Bay and Downtown Dubai)."
+  },
+  {
+    "id": "al-mal-capital-psc",
+    "website": "https://www.almalcapital.com",
+    "websiteSource": "https://www.dfm.ae",
+    "careersUrl": null,
+    "careersSource": null,
+    "linkedinUrl": "https://www.linkedin.com/company/al-mal-capital-psc",
+    "linkedinSource": "https://www.gludo.org",
+    "shortDescription": "Al Mal Capital PSC is a regulated investment firm based in Dubai and a majority-owned subsidiary of Dubai Investments PJSC.",
+    "whatTheyDo": "Al Mal Capital PSC provides asset management, investment banking, corporate advisory, and capital markets services across the MENA region. The firm acts as the fund manager for Al Mal Capital REIT, which is listed on the Dubai Financial Market.",
+    "descriptionSource": "https://www.dfm.ae",
+    "industry": "Financial Services & Investment",
+    "commonCareers": [],
+    "careersEvidence": null,
+    "technicalAreas": [],
+    "address": "Office 901, 48 Burj Gate, Sheikh Zayed Road, Downtown Dubai, P.O. Box 119930, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.dfm.ae",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "programmesSource": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai Financial Market (DFM) Company Information",
+        "url": "https://www.dfm.ae"
+      },
+      {
+        "title": "Dubai Investments Portfolio Details",
+        "url": "https://www.dubaiinvestments.com"
+      }
+    ],
+    "notes": "Input listed area as DIFC, but Al Mal Capital PSC is headquartered at 48 Burj Gate on Sheikh Zayed Road in Downtown Dubai and is regulated by the UAE SCA."
+  },
+  {
+    "id": "al-marai",
+    "website": "https://www.almarai.com",
+    "websiteSource": "https://www.forbes.com",
+    "careersUrl": "https://www.almarai.com/en/corporate/careers/",
+    "careersSource": "https://www.almarai.com",
+    "linkedinUrl": "https://www.linkedin.com/company/almarai",
+    "linkedinSource": "https://www.deusens.com",
+    "shortDescription": "Almarai is the Middle East's largest dairy, food, and beverage manufacturing and distribution company.",
+    "whatTheyDo": "Almarai produces and distributes dairy products, baked goods, poultry, fruit juices, and infant nutrition across the GCC region. In the UAE, it operates extensive logistics, sales, and supply chain facilities to serve retail and food service customers.",
+    "descriptionSource": "https://www.forbes.com",
+    "industry": "Food & Beverage Manufacturing",
+    "commonCareers": [
+      "Sales Assistant",
+      "Delivery Driver",
+      "Merchandiser",
+      "Stock Control Clerk"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com/almarai-company-jobs",
+    "technicalAreas": [
+      "Supply Chain Logistics",
+      "Food Safety & Quality Control"
+    ],
+    "address": "Al Marai Emirates Company, Dubai Industrial City (Saih Shuaib 2), Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.localemirates.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "Cooperative Training Program",
+        "kind": "internship"
+      }
+    ],
+    "programmesSource": "https://www.almarai.com/en/corporate/careers/",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Forbes Profile",
+        "url": "https://www.forbes.com"
+      },
+      {
+        "title": "Gulfood Industry Directory",
+        "url": "https://www.gulfood.com"
+      }
+    ],
+    "notes": "Input listed area as JLT, but Almarai's corporate headquarters is in Riyadh, Saudi Arabia, and its primary Dubai operations and depot are in Dubai Industrial City, not JLT."
+  },
+  {
+    "id": "al-masraf",
+    "website": "https://www.almasraf.ae",
+    "websiteSource": "https://www.swfinstitute.org",
+    "careersUrl": null,
+    "careersSource": null,
+    "linkedinUrl": "https://www.linkedin.com/company/al-masraf",
+    "linkedinSource": "https://www.swfinstitute.org",
+    "shortDescription": "Al Masraf (Arab Bank for Investment and Foreign Trade) is a UAE-based financial institution offering commercial, corporate, and Islamic banking services.",
+    "whatTheyDo": "Al Masraf provides corporate and commercial banking, trade finance, treasury services, retail banking, and Sharia-compliant Islamic banking products. Headquartered in Abu Dhabi, it serves institutional and individual clients through a branch network across the UAE.",
+    "descriptionSource": "https://www.swfinstitute.org",
+    "industry": "Banking & Financial Services",
+    "commonCareers": [],
+    "careersEvidence": null,
+    "technicalAreas": [],
+    "address": "Al Masraf Tower, Baniyas Street, Deira, P.O. Box 5549, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.almasraf.ae",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "programmesSource": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "SWF Institute Bank Profile",
+        "url": "https://www.swfinstitute.org"
+      },
+      {
+        "title": "Central Bank of the UAE Directory",
+        "url": "https://www.centralbank.ae"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City, but Al Masraf (Arab Bank for Investment and Foreign Trade) is headquartered in Abu Dhabi and its primary Dubai branch and tower is located on Baniyas Street in Deira."
+  },
+  {
+    "id": "al-naboodah-group-enterprises-llc",
+    "website": "https://www.alnaboodah.com",
+    "websiteSource": "https://pitchbook.com",
+    "careersUrl": "https://www.alnaboodah.com/careers",
+    "careersSource": "https://www.alnaboodah.com",
+    "linkedinUrl": "https://ae.linkedin.com/company/saeed-juma-al-naboodah-group",
+    "linkedinSource": "https://www.altss.com",
+    "shortDescription": "Al Naboodah Group Enterprises LLC is a leading Emirati family-owned conglomerate operating across civil engineering, construction, automotive, and commercial trading.",
+    "whatTheyDo": "Al Naboodah Group Enterprises oversees core divisions including Al Naboodah Construction Group (heavy civil infrastructure, MEP, building construction) and commercial businesses spanning automotive distribution, logistics, electrical products, and travel services across the UAE.",
+    "descriptionSource": "https://pitchbook.com",
+    "industry": "Construction & Diversified Conglomerate",
+    "commonCareers": [
+      "Project Engineer",
+      "Accountant",
+      "CRM Executive",
+      "Mechanic"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com",
+    "technicalAreas": [
+      "Civil Engineering",
+      "MEP Engineering",
+      "Construction Management"
+    ],
+    "address": "Al Awir 800, Dubai–Hatta Road (E44), P.O. Box 80657, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://pitchbook.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "programmesSource": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "PitchBook Profile - Al Naboodah Group Enterprises",
+        "url": "https://pitchbook.com"
+      },
+      {
+        "title": "UN Global Compact Participant Profile",
+        "url": "https://unglobalcompact.org"
+      }
+    ],
+    "notes": "Input listed area as Downtown, but corporate headquarters is located at Al Awir 800 on the Dubai–Hatta Road (E44)."
+  },
+  {
+    "id": "al-rostamani-group",
+    "website": "https://alrostamanigroup.ae",
+    "websiteSource": "https://www.altss.com",
+    "careersUrl": "https://alrostamanigroup.ae/careers/",
+    "careersSource": "https://alrostamanigroup.ae",
+    "linkedinUrl": "https://www.linkedin.com/company/al-rostamani-group/",
+    "linkedinSource": "https://alrostamanigroup.ae",
+    "shortDescription": "Al Rostamani Group is a major UAE conglomerate operating in automotive, building services, real estate, technology, and financial services.",
+    "whatTheyDo": "Al Rostamani Group operates across several core sectors in the UAE, including commercial vehicle distribution via United Diesel, foreign exchange and financial services through Al Rostamani Exchange, building materials, property leasing, and information technology infrastructure solutions.",
+    "descriptionSource": "https://alrostamanigroup.ae",
+    "industry": "Conglomerates & Diversified Holdings",
+    "commonCareers": [
+      "IT Support Engineer",
+      "Automation Engineer",
+      "Sales Consultant",
+      "Procurement Coordinator"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com/al-rostamani-group-of-companies-jobs",
+    "technicalAreas": [
+      "Information Technology",
+      "Industrial Automation"
+    ],
+    "address": "The MAZE Tower, Sheikh Zayed Road, P.O. Box 29046, Dubai, UAE",
+    "latitude": 25.21569,
+    "longitude": 55.2785,
+    "locationSource": "https://en.wikipedia.org/wiki/Maze_Tower",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [],
+    "programmesSource": "https://alrostamanigroup.ae/careers/",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Wikipedia - Maze Tower",
+        "url": "https://en.wikipedia.org/wiki/Maze_Tower"
+      },
+      {
+        "title": "ALTSS Middle East Directory",
+        "url": "https://www.altss.com"
+      }
+    ],
+    "notes": "Input listed area as Business Bay, but corporate headquarters (The MAZE Tower) is located on Sheikh Zayed Road (DIFC / Trade Centre area). Distinct from AW Rostamani Group (AWR)."
+  },
+  {
+    "id": "al-safi-danone",
+    "website": null,
+    "websiteSource": null,
+    "careersUrl": null,
+    "careersSource": null,
+    "linkedinUrl": null,
+    "linkedinSource": null,
+    "shortDescription": "Al Safi Danone is a regional dairy and beverage producer originally founded as a joint venture between Saudi Arabia's Al Faisaliah Group and France's Danone.",
+    "whatTheyDo": "Al Safi Danone manufactures and distributes dairy products, laban, and fresh yogurts under brands including Al Safi, Activia, and Danette. In Dubai, its commercial distribution operations were historically based out of Al Quoz Industrial Area.",
+    "descriptionSource": "https://www.danone.com",
+    "industry": "Food & Beverage Manufacturing",
+    "commonCareers": [],
+    "careersEvidence": null,
+    "technicalAreas": [],
+    "address": "Al Quoz Industrial Area 4, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.yellowpages.ae",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "programmesSource": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Danone Corporate Reporting",
+        "url": "https://www.danone.com"
+      },
+      {
+        "title": "Forbes Middle East Profile",
+        "url": "https://www.forbesmiddleeast.com"
+      }
+    ],
+    "notes": "Input listed area as JLT, but Al Safi Danone's Dubai commercial footprint was located in Al Quoz Industrial Area 4. Standalone corporate website domain alsafidanone.com is inactive."
+  },
+  {
+    "id": "al-serkal-group",
+    "website": "https://alserkalgroup.com",
+    "websiteSource": "https://www.swfinstitute.org",
+    "careersUrl": null,
+    "careersSource": null,
+    "linkedinUrl": null,
+    "linkedinSource": null,
+    "shortDescription": "Alserkal Group is a UAE family conglomerate operating in environmental solutions, real estate, automotive trading, and arts and culture.",
+    "whatTheyDo": "Alserkal Group manages environmental engineering and recycling facilities (including Envirol and Blue LLC), real estate development and facilities management, tyre and automotive distribution, and cultural ventures including Alserkal Avenue in Dubai.",
+    "descriptionSource": "https://www.swfinstitute.org",
+    "industry": "Conglomerates & Diversified Holdings",
+    "commonCareers": [],
+    "careersEvidence": null,
+    "technicalAreas": [
+      "Environmental Engineering",
+      "Waste Recycling"
+    ],
+    "address": "Office 601, 6th Floor, Alserkal Building, Airport Road, Deira, P.O. Box 21333, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://alserkalgroup.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "programmesSource": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "SWF Institute Profile",
+        "url": "https://www.swfinstitute.org"
+      },
+      {
+        "title": "Dubai Culture & Arts Authority Reference",
+        "url": "https://dubaiculture.gov.ae"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City, but Alserkal Group is headquartered at Alserkal Building on Airport Road in Deira, Dubai."
+  },
+  {
+    "id": "al-shaya-group",
+    "website": "https://www.alshaya.com",
+    "websiteSource": "https://en.wikipedia.org/wiki/M._H._Alshaya_Co.",
+    "careersUrl": "https://www.alshaya.com/en/careers/",
+    "careersSource": "https://www.alshaya.com",
+    "linkedinUrl": "https://www.linkedin.com/company/alshayagroup",
+    "linkedinSource": "https://www.kompass.com",
+    "shortDescription": "Alshaya Group is a multinational retail franchise operator managing leading international retail, hospitality, and dining brands.",
+    "whatTheyDo": "Alshaya Group manages franchise networks across the UAE and Middle East for global brands in fashion, food and beverage, beauty, and home furnishings, including Starbucks, H&M, Victoria's Secret, and The Cheesecake Factory.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/M._H._Alshaya_Co.",
+    "industry": "Retail & Franchise Management",
+    "commonCareers": [
+      "Sales Associate",
+      "Store Manager",
+      "Assistant Store Manager",
+      "Warehouse Operator"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com",
+    "technicalAreas": [],
+    "address": "Al Barsha 1, 316 Road, P.O. Box 1277, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.alshaya.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "Alshaya Summer Internship Programme",
+        "kind": "internship"
+      }
+    ],
+    "programmesSource": "https://www.alshaya.com/en/careers/",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Wikipedia - M. H. Alshaya Co.",
+        "url": "https://en.wikipedia.org/wiki/M._H._Alshaya_Co."
+      },
+      {
+        "title": "Kompass Directory - Alshaya",
+        "url": "https://www.kompass.com"
+      }
+    ],
+    "notes": "Input listed area as Downtown, but corporate offices in Dubai are located at Al Barsha 1 (316 Road)."
+  },
+  {
+    "id": "albwardy-marine-engineering",
+    "website": "https://www.albwardydamen.com/",
+    "websiteSource": "https://www.atninfo.com",
+    "careersUrl": "https://www.albwardydamen.com/career",
+    "careersSource": "https://www.albwardydamen.com",
+    "linkedinUrl": null,
+    "linkedinSource": null,
+    "shortDescription": "Albwardy Marine Engineering (operating as Albwardy Damen) is a UAE shipbuilding, ship repair, and marine engineering joint venture.",
+    "whatTheyDo": "Albwardy Damen provides ship construction, vessel conversions, afloat repairs, diving, and drydocking services to the offshore, marine, and oil and gas sectors from its shipyards in Dubai Maritime City, Al Jadaf, Sharjah, and Fujairah.",
+    "descriptionSource": "https://www.albwardydamen.com",
+    "industry": "Marine Engineering & Shipbuilding",
+    "commonCareers": [
+      "Marine Electrician",
+      "Ship Engine Mechanic",
+      "Planning Engineer",
+      "Safety Inspector"
+    ],
+    "careersEvidence": "https://www.albwardydamen.com/career",
+    "technicalAreas": [
+      "Shipbuilding & Marine Engineering",
+      "Ship Repair & Conversion"
+    ],
+    "address": "Dubai Maritime City (DMC), P.O. Box 6515, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.albwardydamen.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "programmesSource": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Damen Shipyards Group Partner Profile",
+        "url": "https://www.damen.com"
+      },
+      {
+        "title": "ATN Info Business Directory",
+        "url": "https://www.atninfo.com"
+      }
+    ],
+    "notes": "Input listed area as Business Bay, but Albwardy Marine Engineering (now Albwardy Damen) has its primary shipyard and offices at Dubai Maritime City and Al Jadaf Docking Yard."
+  }
+]

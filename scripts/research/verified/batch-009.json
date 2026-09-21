@@ -1,0 +1,399 @@
+[
+  {
+    "id": "crowe-uae",
+    "website": "https://www.crowe.com/ae",
+    "websiteSource": "https://www.dfsa.ae/public-register/firms/crowe-mak-limited",
+    "careersUrl": "https://www.crowe.com/ae/careers",
+    "careersSource": "https://jobs.accaglobal.com",
+    "shortDescription": "Crowe UAE is a leading professional services firm providing audit, tax, and advisory solutions across the UAE.",
+    "whatTheyDo": "Crowe UAE operates as a member firm of Crowe Global offering statutory audit, assurance, corporate tax, VAT consulting, and forensic accounting services. In Dubai, its practice groups serve public corporations, family businesses, and financial institutions on financial audit, corporate governance, and regulatory compliance. Regulated operations are also conducted through DFSA-registered Crowe Mak Limited in the DIFC.",
+    "descriptionSource": "https://www.dfsa.ae/public-register/firms/crowe-mak-limited",
+    "industry": "Accounting & Advisory",
+    "commonCareers": [
+      "Audit Associate",
+      "Tax Associate",
+      "Internal Auditor",
+      "AML Associate"
+    ],
+    "careersEvidence": "https://www.crowe.com/ae/careers",
+    "technicalAreas": [
+      "Financial Audit",
+      "Corporate Tax",
+      "Risk Consulting",
+      "AML Compliance"
+    ],
+    "address": "Level 21, The Prism, Business Bay, Sheikh Zayed Road, Dubai, UAE",
+    "latitude": 25.18723,
+    "longitude": 55.26125,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.crowe.com/ae/careers",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "DFSA Public Register - Crowe Mak Limited",
+        "url": "https://www.dfsa.ae/public-register/firms/crowe-mak-limited"
+      },
+      {
+        "title": "ACCA Careers - Crowe UAE Employer Profile",
+        "url": "https://jobs.accaglobal.com"
+      }
+    ],
+    "notes": "Directory listed area as Downtown, but corporate head office is located at The Prism Tower in Business Bay, alongside a DIFC branch at Liberty House."
+  },
+  {
+    "id": "dacha",
+    "website": "https://dacha.ae",
+    "websiteSource": "https://www.propertyfinder.ae",
+    "careersUrl": "https://dacha.ae/careers",
+    "careersSource": "https://dacha.ae",
+    "shortDescription": "Dacha Real Estate is a licensed real estate brokerage and property management agency based in Dubai.",
+    "whatTheyDo": "Established in 2004, Dacha Real Estate provides property sales, leasing, and property management services across residential and commercial sectors in Dubai. Its team of RERA-certified property consultants brokers residential developments, off-plan sales, and commercial office leasing. It serves individual property owners, expatriate tenants, and international investors across Dubai.",
+    "descriptionSource": "https://www.propertyfinder.ae",
+    "industry": "Real Estate",
+    "commonCareers": [
+      "Property Consultant"
+    ],
+    "careersEvidence": "https://dacha.ae/careers",
+    "technicalAreas": [],
+    "address": "Office 2404, Marina Plaza, Al Marsa Street, Dubai Marina, Dubai, UAE",
+    "latitude": 25.0754,
+    "longitude": 55.1398,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Property Finder - Dacha Real Estate Profile",
+        "url": "https://www.propertyfinder.ae"
+      },
+      {
+        "title": "Dubai Business Directory - Dacha Real Estate",
+        "url": "https://dubaibusinessdirectory.ae"
+      }
+    ],
+    "notes": "Directory listed area as Business Bay, but the corporate office is located at Marina Plaza in Dubai Marina; Dacha actively brokers and manages property portfolios throughout Business Bay and greater Dubai."
+  },
+  {
+    "id": "daikin-middle-east-and-africa",
+    "website": "https://www.daikinmea.com",
+    "websiteSource": "https://gulfnews.com",
+    "careersUrl": "https://www.daikinmea.com/en_us/careers/vacancies.html",
+    "careersSource": "https://www.daikinmea.com",
+    "shortDescription": "Daikin Middle East and Africa is the regional subsidiary of Daikin Industries, providing HVAC-R heating and cooling solutions.",
+    "whatTheyDo": "Daikin MEA manufactures, distributes, and services air conditioning, chiller systems, heat pumps, and ventilation equipment across the Middle East and Africa. In the UAE, it operates regional engineering, technical sales, supply chain management, and after-sales servicing from its JAFZA headquarters. The company focuses on energy efficiency, low-GWP refrigerants, and intelligent building climate control.",
+    "descriptionSource": "https://gulfnews.com",
+    "industry": "HVAC & Engineering",
+    "commonCareers": [
+      "Project Sales Engineer",
+      "Service Sales Engineer",
+      "Chiller Business Manager",
+      "Supply Planner",
+      "HSE Supervisor"
+    ],
+    "careersEvidence": "https://www.daikinmea.com/en_us/careers/vacancies.html",
+    "technicalAreas": [
+      "HVAC Engineering",
+      "Chiller Systems",
+      "Refrigeration",
+      "Building Climate Controls"
+    ],
+    "address": "Plot MO0426, Jafza North, Jebel Ali Free Zone, Dubai, UAE",
+    "latitude": 24.97095,
+    "longitude": 55.08548,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": null,
+    "programmesSource": "https://www.daikinmea.com/en_us/careers.html",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf News - Daikin MEA headquarters and sustainability initiatives",
+        "url": "https://gulfnews.com"
+      }
+    ],
+    "notes": "Directory listed area as JLT, but Daikin Middle East and Africa FZE regional headquarters is located in Jebel Ali Free Zone (Jafza North), with an additional service center in Al Quoz."
+  },
+  {
+    "id": "daimler-mercedesbenz",
+    "website": "https://www.mercedes-benz-mena.com",
+    "websiteSource": "https://gulfnews.com",
+    "careersUrl": "https://jobs.mercedes-benz.com",
+    "careersSource": "https://jobs.mercedes-benz.com",
+    "shortDescription": "Mercedes-Benz Cars Middle East FZE coordinates regional automotive distribution, marketing, and after-sales operations.",
+    "whatTheyDo": "Formerly operating under Daimler AG, Mercedes-Benz Cars Middle East FZE serves as the regional distribution and corporate hub for passenger vehicles across the MENA region. From its regional facility in the Jebel Ali Free Zone, its teams oversee dealer relations, vehicle allocations, regional marketing, after-sales operations, and customer support. Authorized passenger car retail dealerships across Dubai and the Northern Emirates are operated by Gargash Enterprises.",
+    "descriptionSource": "https://gulfnews.com",
+    "industry": "Automotive",
+    "commonCareers": [
+      "Sales Executive",
+      "Service Advisor",
+      "Automotive Technician",
+      "Marketing Coordinator"
+    ],
+    "careersEvidence": "https://jobs.mercedes-benz.com",
+    "technicalAreas": [
+      "Automotive Engineering",
+      "Vehicle Diagnostics"
+    ],
+    "address": "N201, Jebel Ali Free Zone, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": null,
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf News - Mercedes-Benz Middle East operations and leadership",
+        "url": "https://gulfnews.com"
+      }
+    ],
+    "notes": "Directory listed area as Dubai Internet City; however, the regional headquarters (Mercedes-Benz Cars Middle East FZE, formerly Daimler) is based in Jebel Ali Free Zone (JAFZA N201). Daimler Truck MENA is also separately located in JAFZA, while dealerships are run by authorized distributor Gargash."
+  },
+  {
+    "id": "damac-group",
+    "website": "https://www.damacproperties.com",
+    "websiteSource": "https://gulfnews.com",
+    "careersUrl": "https://careers.damacproperties.com",
+    "careersSource": "https://www.damacproperties.com/en/careers",
+    "shortDescription": "DAMAC Group is a luxury real estate development and investment conglomerate based in Dubai.",
+    "whatTheyDo": "DAMAC develops luxury residential towers, branded communities, hospitality properties, and commercial real estate across the UAE and internationally. The group operates internal departments for architecture, quantity surveying, GIS operations, civil engineering, project execution, and luxury property sales. It partners with global fashion and luxury automotive houses to deliver branded residences.",
+    "descriptionSource": "https://gulfnews.com",
+    "industry": "Real Estate & Property Development",
+    "commonCareers": [
+      "Property Consultant",
+      "Quantity Surveyor",
+      "GIS Operations Manager",
+      "Sales Executive"
+    ],
+    "careersEvidence": "https://careers.damacproperties.com",
+    "technicalAreas": [
+      "Quantity Surveying",
+      "GIS Mapping",
+      "Civil Engineering",
+      "Project Management"
+    ],
+    "address": "DAMAC Executive Heights, Barsha Heights (TECOM), Dubai, UAE",
+    "latitude": 25.09532,
+    "longitude": 55.17287,
+    "locationSource": "https://mapcarta.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf News - DAMAC project launches and financial performance",
+        "url": "https://gulfnews.com"
+      },
+      {
+        "title": "Arabian Business - DAMAC Group developments",
+        "url": "https://arabianbusiness.com"
+      }
+    ],
+    "notes": "Directory listed Downtown, where DAMAC has sales/handover offices, but the corporate headquarters of DAMAC Properties/DAMAC Group is located at DAMAC Executive Heights in Barsha Heights (TECOM)."
+  },
+  {
+    "id": "dana-gas",
+    "website": "https://www.danagas.com",
+    "websiteSource": "https://www.adx.ae",
+    "careersUrl": "https://www.danagas.com/careers",
+    "careersSource": "https://www.danagas.com",
+    "shortDescription": "Dana Gas PJSC is the Middle East's largest regional private sector natural gas company, based in the UAE.",
+    "whatTheyDo": "Dana Gas PJSC engages in the exploration, production, processing, and transportation of natural gas and associated petroleum liquids, primarily across the Kurdistan Region of Iraq and Egypt. Headquartered in Sharjah, its corporate teams oversee upstream operations, gas plant infrastructure, joint-venture management, and energy trading. The company is publicly traded on the Abu Dhabi Securities Exchange (ADX: DANA).",
+    "descriptionSource": "https://www.adx.ae",
+    "industry": "Oil & Gas / Energy",
+    "commonCareers": [],
+    "careersEvidence": "https://www.danagas.com/careers",
+    "technicalAreas": [
+      "Petroleum Engineering",
+      "Gas Processing",
+      "Geosciences"
+    ],
+    "address": "Crescent Tower, Buhaira Corniche, Al Majaz 3, P.O. Box 2011, Sharjah, UAE",
+    "latitude": 25.32663,
+    "longitude": 55.37909,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Abu Dhabi Securities Exchange (ADX) - Dana Gas PJSC Profile",
+        "url": "https://www.adx.ae"
+      },
+      {
+        "title": "Reuters - Dana Gas PJSC Company Profile",
+        "url": "https://www.reuters.com"
+      }
+    ],
+    "notes": "Directory listed Dubai / Business Bay, but Dana Gas PJSC is headquartered in Sharjah at Crescent Tower, Buhaira Corniche, and has no corporate office in Business Bay, Dubai. It is distinct from the unrelated Dana Group of Companies in Dubai."
+  },
+  {
+    "id": "danone-middle-east",
+    "website": "https://www.danone.com",
+    "websiteSource": "https://www.dmcc.ae",
+    "careersUrl": "https://careers.danone.com",
+    "careersSource": "https://careers.danone.com",
+    "shortDescription": "Danone Middle East is the regional corporate hub of multinational food and nutrition company Danone.",
+    "whatTheyDo": "Danone Middle East oversees specialized nutrition (early life nutrition and medical nutrition) and essential dairy and plant-based foods across the region. In Dubai, it operates regional business development, overheads controlling, financial planning, medical marketing, and supply chain management. The regional corporate entity operates under Nutricia Middle East DMCC in Jumeirah Lakes Towers.",
+    "descriptionSource": "https://careers.danone.com",
+    "industry": "Food & Beverage / Nutrition",
+    "commonCareers": [
+      "Business Controller",
+      "Overheads Controlling Manager",
+      "Business Development Manager",
+      "Office Coordinator",
+      "Management Trainee"
+    ],
+    "careersEvidence": "https://careers.danone.com",
+    "technicalAreas": [
+      "Clinical Nutrition",
+      "Supply Chain Planning",
+      "Regulatory Affairs"
+    ],
+    "address": "Office 3701, Jumeirah Business Center 5, Cluster W, Jumeirah Lakes Towers, Dubai, UAE",
+    "latitude": 25.07666,
+    "longitude": 55.14988,
+    "locationSource": "https://mapcarta.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://careers.danone.com",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "DMCC Member Directory - Nutricia Middle East DMCC (Danone)",
+        "url": "https://www.dmcc.ae"
+      }
+    ],
+    "notes": "Danone's regional operations in JLT are officially incorporated as Nutricia Middle East DMCC in JBC 5, Cluster W."
+  },
+  {
+    "id": "danzas-aei-emirates-llc-dhl-express",
+    "website": "https://www.dhl.com/ae-en/home/global-forwarding.html",
+    "websiteSource": "https://gulfnews.com",
+    "careersUrl": "https://careers.dhl.com",
+    "careersSource": "https://careers.dhl.com",
+    "shortDescription": "Danzas AEI Emirates LLC is the freight forwarding and contract logistics arm in the UAE, fully integrated into DHL Global Forwarding.",
+    "whatTheyDo": "Established in 1995 originally as a joint venture between DHL and Al Tayer Group, the company manages air freight, ocean freight, overland transport, and customs brokerage throughout the UAE. In 2024, DHL acquired the remaining 60% stake and fully rebranded and integrated operations under DHL Global Forwarding. It operates major logistics campuses and multimodal facilities at Dubai South, DAFZA, and JAFZA.",
+    "descriptionSource": "https://gulfnews.com",
+    "industry": "Logistics & Supply Chain",
+    "commonCareers": [
+      "Ocean Freight Customer Relations Specialist",
+      "Pricing Specialist – Aid & Relief",
+      "Regional HSQE Manager - IP",
+      "Senior Rate Management Specialist (RFQ)",
+      "NextGen Industrial Projects Trainee (MEA)"
+    ],
+    "careersEvidence": "https://careers.dhl.com",
+    "technicalAreas": [
+      "Freight Forwarding",
+      "Multimodal Logistics",
+      "Customs Brokerage",
+      "Cold Chain Logistics"
+    ],
+    "address": "Danzas Logistics Campus, DWC Logistics City, Dubai South, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": null,
+    "internshipsKnown": null,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://careers.dhl.com",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf News - DHL Global Forwarding full acquisition of Danzas AEI Emirates",
+        "url": "https://gulfnews.com"
+      },
+      {
+        "title": "The Loadstar - DHL buys out Al Tayer in Danzas AEI Emirates",
+        "url": "https://theloadstar.com"
+      }
+    ],
+    "notes": "Directory listed '(DHL Express)', but Danzas AEI Emirates was specifically the joint venture for DHL Global Forwarding (freight forwarding and industrial projects). DHL bought out Al Tayer Group in January 2024 and integrated all facilities under DHL Global Forwarding."
+  },
+  {
+    "id": "deloitte",
+    "website": "https://www.deloitte.com/middle-east",
+    "websiteSource": "https://gulfnews.com",
+    "careersUrl": "https://www.deloitte.com/middle-east/en/careers.html",
+    "careersSource": "https://www.deloitte.com/middle-east/en/careers.html",
+    "shortDescription": "Deloitte Middle East is a global professional services firm providing audit, consulting, financial advisory, risk advisory, and tax services.",
+    "whatTheyDo": "Deloitte Middle East provides statutory audit and assurance, management and technology consulting, transaction advisory, forensic accounting, and direct/indirect tax compliance across the UAE. In Dubai, its technical practices lead enterprise digital transformations, cyber risk mitigation, cloud implementations, and advanced data analytics. The firm operates dedicated early-career programs including the Kiyadat and Mustaqbaly graduate initiatives.",
+    "descriptionSource": "https://www.deloitte.com/middle-east/en/careers.html",
+    "industry": "Management Consulting & Professional Services",
+    "commonCareers": [
+      "Audit & Assurance Intern",
+      "Tax Consultant",
+      "Risk Advisory Consultant",
+      "Strategy & Operations Consultant"
+    ],
+    "careersEvidence": "https://www.deloitte.com/middle-east/en/careers.html",
+    "technicalAreas": [
+      "Cloud Computing",
+      "Cybersecurity",
+      "Data Analytics",
+      "Financial Advisory",
+      "Statutory Audit"
+    ],
+    "address": "Building 3, Emaar Square, Downtown Dubai, Dubai, UAE",
+    "latitude": 25.20054,
+    "longitude": 55.2721,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.deloitte.com/middle-east/en/careers.html",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf News - Deloitte Middle East expansion and talent programs",
+        "url": "https://gulfnews.com"
+      }
+    ],
+    "notes": "Deloitte occupies several buildings in Emaar Square, Downtown Dubai (Buildings 1, 2, and 3), housing its Regional Consulting, Tax, and Risk Advisory practices."
+  },
+  {
+    "id": "delta-insurance-services",
+    "website": "http://www.deltains-brokers.com",
+    "websiteSource": "https://www.centralbank.ae",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "Delta Insurance Services LLC is an insurance brokerage firm registered with the Central Bank of the UAE.",
+    "whatTheyDo": "Established in 1990, Delta Insurance Services LLC provides insurance brokerage and intermediary solutions across health, motor, life, marine, and property insurance lines. The firm acts as an intermediary connecting private and corporate clients with UAE insurance underwriters. It is regulated by the Central Bank of the UAE under registration number 072 / 58.",
+    "descriptionSource": "https://www.centralbank.ae",
+    "industry": "Insurance Brokerage",
+    "commonCareers": [],
+    "careersEvidence": null,
+    "technicalAreas": [],
+    "address": "Business Tower, Office 902, Corniche Street, Al Majaz 2, Sharjah, UAE",
+    "latitude": 25.32967,
+    "longitude": 55.39128,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Central Bank of the UAE - Register of Insurance Brokers",
+        "url": "https://www.centralbank.ae"
+      }
+    ],
+    "notes": "Directory listed Dubai / Business Bay, but Delta Insurance Services LLC is registered and located at Business Tower, Corniche Street, Al Majaz 2, Sharjah. The directory entry appears to have confused 'Business Tower' in Sharjah with 'Business Bay' in Dubai. No careers page or job listings found."
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "kitopi",
+    "name": "Kitopi",
+    "officialName": "Kitopi",
+    "emirate": "Dubai",
+    "area": "Dubai Silicon Oasis"
+  },
+  {
+    "id": "kpmg",
+    "name": "KPMG",
+    "officialName": "KPMG",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "kuehnenagel",
+    "name": "Kuehne+Nagel",
+    "officialName": "Kuehne+Nagel",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "loral-middle-east",
+    "name": "L'Oréal Middle East",
+    "officialName": "L'Oréal Middle East",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "landmark-group",
+    "name": "Landmark Group",
+    "officialName": "Landmark Group",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "majid-al-futtaim-maf",
+    "name": "Majid Al Futtaim (MAF)",
+    "officialName": "Majid Al Futtaim (MAF)",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "mashreq-bank",
+    "name": "Mashreq Bank (Mashreq Neo)",
+    "officialName": "Mashreq Bank",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "mbg-corporate-services",
+    "name": "MBG Corporate Services",
+    "officialName": "MBG Corporate Services",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "mckinsey-company",
+    "name": "McKinsey & Company",
+    "officialName": "McKinsey & Company",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "medpharma",
+    "name": "Medpharma",
+    "officialName": "Medpharma",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  }
+]

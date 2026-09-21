@@ -1,11 +1,16 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
+import { useIsDesktop } from '../hooks/useMediaQuery';
 import { FilterSidebar } from '../components/FilterSidebar';
 import { CompanyCard } from '../components/CompanyCard';
 import { CompanyDrawer } from '../components/CompanyDrawer';
 import { CompanyBottomSheet } from '../components/CompanyBottomSheet';
 import { Dropdown } from '../components/Dropdown';
-import { SearchX, Search, X, Scale } from 'lucide-react';
+import { SearchX, Search, X, Scale, SlidersHorizontal } from 'lucide-react';
+import { track } from '../lib/analytics';
+import { CompanyCardSkeleton } from '../components/ui/CompanyCardSkeleton';
+import { DataError } from '../components/ui/DataError';
+import type { FilterState } from '../types/company';
 
 export const ListView: React.FC = () => {
   const {
@@ -16,9 +21,23 @@ export const ListView: React.FC = () => {
     setFilters,
     clearFilters,
     isMobileFilterOpen,
+    setIsMobileFilterOpen,
     compareCompanyIds,
-    setIsCompareModalOpen
+    setIsCompareModalOpen,
+    companiesStatus,
+    reloadCompanies
   } = useApp();
+  const isDesktop = useIsDesktop();
+
+  // Drives the filter icon's active state in the search field.
+  const activeFilterCount =
+    filters.companyTypes.length +
+    (filters.location ? 1 : 0) +
+    (filters.area ? 1 : 0) +
+    (filters.distanceMax !== null ? 1 : 0) +
+    (filters.isFreeZoneOnly !== null ? 1 : 0) +
+    (filters.hasCareersUrl ? 1 : 0) +
+    (filters.verifiedOnly ? 1 : 0);
 
   const sortOptions = [
     { value: 'nearest', label: 'Nearest' },
@@ -43,45 +62,80 @@ export const ListView: React.FC = () => {
         {/* Center: Scrollable Company List */}
         <main className="flex-1 min-w-0">
           
-          {/* In-Page Search Bar - Bottom border only, no shadow */}
-          <div className="relative mb-4">
-            <Search className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+          {/*
+            Sticky on phones: the list is 225 rows, and having to scroll back to
+            the top to change the query or open the filters was the main cost of
+            moving the filter control in here. `top-14` clears the header.
+          */}
+          {/* Phones only: on a desktop this lives at the top of the filter card,
+              next to the controls it belongs with. */}
+          <div className="md:hidden relative mb-4 sticky top-14 z-1100 bg-app py-1.5">
+            <Search className="absolute left-1 top-1/2 -translate-y-1/2 w-4 h-4 text-ink-2 pointer-events-none z-10" aria-hidden="true" />
+            <label htmlFor="company-search" className="sr-only">
+              Search companies
+            </label>
             <input
-              type="text"
+              id="company-search"
+              type="search"
               value={filters.search}
               onChange={e => setFilters(prev => ({ ...prev, search: e.target.value }))}
-              placeholder="Search companies by name, domain, industry, role, or tech stack..."
-              className="w-full pl-6 pr-7 py-2 bg-transparent border-0 border-b border-slate-200 dark:border-slate-800 rounded-none text-xs sm:text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-brand-500 focus:ring-0 transition-colors"
+              placeholder="Search by name, industry, role, or tech stack"
+              className="w-full pl-9 pr-16 py-2.5 bg-transparent border-0 border-b border-line rounded-none text-sm text-ink placeholder:text-ink-3 focus:outline-hidden focus:border-brand-500 focus:ring-0 transition-colors"
             />
-            {filters.search && (
+
+            {/* Trailing controls sit inside the field: clear, then filters. */}
+            <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-0.5 z-10">
+              {filters.search && (
+                <button
+                  onClick={() => setFilters(prev => ({ ...prev, search: '' }))}
+                  className="text-ink-3 hover:text-ink p-1"
+                  aria-label="Clear search"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
+              {/* Phones have no room for the sidebar, so filters live here. */}
               <button
-                onClick={() => setFilters(prev => ({ ...prev, search: '' }))}
-                className="absolute right-1 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-0.5"
-                aria-label="Clear search"
+                type="button"
+                onClick={() => setIsMobileFilterOpen(true)}
+                className={`md:hidden p-1 transition-colors ${
+                  activeFilterCount > 0
+                    ? 'text-brand-600 dark:text-brand-400'
+                    : 'text-ink-3 hover:text-ink'
+                }`}
+                aria-label={
+                  activeFilterCount > 0
+                    ? `Filters (${activeFilterCount} active)`
+                    : 'Filters'
+                }
               >
-                <X className="w-3.5 h-3.5" />
+                <SlidersHorizontal className="w-4 h-4" />
               </button>
-            )}
+            </div>
           </div>
           
           {/* List Toolbar / Count & Sort - No bottom border */}
-          <div className="flex items-center justify-between mb-3 text-xs text-slate-600 dark:text-slate-400">
-            <div className="font-medium text-slate-900 dark:text-white">
-              <span className="font-bold text-slate-900 dark:text-white">{filteredCompanies.length}</span>{' '}
+          <div className="flex items-center justify-between mb-3 text-xs text-ink-2">
+            <div className="font-medium text-ink">
+              <span className="font-bold text-ink">{filteredCompanies.length}</span>{' '}
               {filteredCompanies.length === 1 ? 'company' : 'companies'}
               {filters.search && (
-                <span className="text-slate-500 dark:text-slate-400 ml-1">
+                <span className="text-ink-2 ml-1">
                   matching &ldquo;{filters.search}&rdquo;
                 </span>
               )}
             </div>
 
             <div className="flex items-center gap-2.5">
-              {/* Compare Button */}
+              {/* Compare Button — phones get the icon in the search field plus
+                  the floating bar below, so this one is desktop-only. */}
               <button
                 type="button"
-                onClick={() => setIsCompareModalOpen(true)}
-                className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 dark:border-[#27272a] bg-white dark:bg-[#18181b] text-slate-700 dark:text-slate-200 hover:border-brand-500/70 hover:text-brand-600 dark:hover:text-brand-400 transition shadow-2xs"
+                onClick={() => {
+                  track('compare_opened', { company_count: compareCompanyIds.length });
+                  setIsCompareModalOpen(true);
+                }}
+                className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-line bg-surface text-ink-2 hover:border-brand-500/70 hover:text-brand-600 dark:hover:text-brand-400 transition-colors shadow-2xs"
                 title="Compare companies side-by-side"
               >
                 <Scale className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400" />
@@ -95,12 +149,15 @@ export const ListView: React.FC = () => {
 
               {/* Sort by Custom Dropdown */}
               <div className="flex items-center gap-1.5">
-                <span className="hidden sm:inline text-xs text-slate-500 dark:text-slate-400 font-medium">
+                <span className="hidden sm:inline text-xs text-ink-2 font-medium">
                   Sort:
                 </span>
                 <Dropdown
                   value={filters.sortBy}
-                  onChange={(val) => setFilters(prev => ({ ...prev, sortBy: val as any }))}
+                  onChange={val => {
+                    track('sort_changed', { sort_by: val });
+                    setFilters(prev => ({ ...prev, sortBy: val as FilterState['sortBy'] }));
+                  }}
                   options={sortOptions}
                   size="sm"
                 />
@@ -109,7 +166,11 @@ export const ListView: React.FC = () => {
           </div>
 
           {/* Company Cards List */}
-          {filteredCompanies.length > 0 ? (
+          {companiesStatus === 'loading' ? (
+            <CompanyCardSkeleton />
+          ) : companiesStatus === 'error' ? (
+            <DataError onRetry={reloadCompanies} />
+          ) : filteredCompanies.length > 0 ? (
             <div className="space-y-3">
               {filteredCompanies.map(company => (
                 <CompanyCard
@@ -120,19 +181,19 @@ export const ListView: React.FC = () => {
               ))}
             </div>
           ) : (
-            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-12 text-center">
-              <div className="w-12 h-12 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center mx-auto mb-3 text-slate-400 dark:text-slate-500">
+            <div className="bg-surface border border-line rounded-lg p-12 text-center">
+              <div className="w-12 h-12 rounded-full bg-slate-50 dark:bg-slate-800 border border-line flex items-center justify-center mx-auto mb-3 text-ink-3">
                 <SearchX className="w-6 h-6" />
               </div>
-              <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
+              <h3 className="text-sm font-semibold text-ink">
                 No companies found
               </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-sm mx-auto">
+              <p className="text-xs text-ink-2 mt-1 max-w-sm mx-auto">
                 Try changing your filters, clearing the search keyword, or selecting a broader distance radius.
               </p>
               <button
                 onClick={clearFilters}
-                className="mt-4 px-3.5 py-1.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold rounded shadow-2xs transition"
+                className="mt-4 px-3.5 py-1.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold rounded-sm shadow-2xs transition"
               >
                 Reset all filters
               </button>
@@ -142,17 +203,15 @@ export const ListView: React.FC = () => {
         </main>
 
         {/* Right: Company Detail Drawer (Desktop) */}
-        {selectedCompany && (
-          <div className="hidden md:block">
-            <CompanyDrawer
-              company={selectedCompany}
-              onClose={() => setSelectedCompany(null)}
-            />
-          </div>
+        {selectedCompany && isDesktop && (
+          <CompanyDrawer
+            company={selectedCompany}
+            onClose={() => setSelectedCompany(null)}
+          />
         )}
 
         {/* Mobile Bottom Sheet */}
-        {selectedCompany && (
+        {selectedCompany && !isDesktop && (
           <CompanyBottomSheet
             company={selectedCompany}
             onClose={() => setSelectedCompany(null)}

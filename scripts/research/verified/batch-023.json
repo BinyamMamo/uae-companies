@@ -1,0 +1,246 @@
+[
+  {
+    "id": "virgin-mobile",
+    "website": "https://www.virginmobile.ae",
+    "websiteSource": "https://gulfnews.com",
+    "careersUrl": null,
+    "careersSource": null,
+    "linkedinUrl": "https://www.linkedin.com/company/virgin-mobile-uae",
+    "linkedinSource": "https://stevieawards.com",
+    "shortDescription": "Virgin Mobile UAE is a fully digital mobile brand operating as a business unit within Emirates Integrated Telecommunications Company (EITC).",
+    "whatTheyDo": "Virgin Mobile UAE delivers an app-based mobile telecommunications service enabling consumers to customize plans, select numbers, and manage mobile services digitally without visiting physical stores. It utilizes the telecommunications network and infrastructure of parent company EITC (du).",
+    "descriptionSource": "https://gulfnews.com",
+    "industry": "Telecommunications",
+    "commonCareers": [
+      "Sales Promoter",
+      "Brand Ambassador",
+      "Customer Service Representative",
+      "BI Data Engineer"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com",
+    "technicalAreas": [
+      "Telecommunications",
+      "Mobile Applications",
+      "Data Engineering"
+    ],
+    "address": "Floor No. 4A, Building 5, Dubai Design District (d3), Dubai, United Arab Emirates",
+    "latitude": 25.18831,
+    "longitude": 55.29768,
+    "locationSource": "https://www.waze.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "programmesSource": null,
+    "logo": "https://commons.wikimedia.org/wiki/File:Virgin_Mobile.svg",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf News coverage of Virgin Mobile UAE operations",
+        "url": "https://gulfnews.com"
+      },
+      {
+        "title": "Telecompaper report on Virgin Mobile UAE",
+        "url": "https://www.telecompaper.com"
+      }
+    ],
+    "notes": "Virgin Mobile UAE operates as a digital business unit within Emirates Integrated Telecommunications Company PJSC (EITC), the company behind du. The previous directory entry listed its area as Downtown, but the headquarters is located in Dubai Design District (Building 5)."
+  },
+  {
+    "id": "visa",
+    "website": "https://ae.visamiddleeast.com",
+    "websiteSource": "https://thefintechtimes.com",
+    "careersUrl": "https://visa.wd5.myworkdayjobs.com/Visa",
+    "careersSource": "https://www.visa.com/careers",
+    "linkedinUrl": "https://www.linkedin.com/company/visa",
+    "linkedinSource": "https://ae.visamiddleeast.com",
+    "shortDescription": "Visa operates its regional headquarters for Central and Eastern Europe, Middle East, and Africa (CEMEA) and an Innovation Center in Dubai.",
+    "whatTheyDo": "Visa provides digital payment processing, electronic funds transfers, fintech infrastructure, and consulting services supporting operations across nearly 90 countries from Dubai. Its regional office houses consulting directors, sales engineering, communications, and digital commerce teams.",
+    "descriptionSource": "https://thefintechtimes.com",
+    "industry": "Financial Services & FinTech",
+    "commonCareers": [
+      "Sr. Manager, SMB Benefits",
+      "Client Consulting Director",
+      "Acquirer Engagement Director",
+      "Event and AV Operations Analyst",
+      "Senior Manager, Corporate Communications, UAE",
+      "Sr. Manager, Sales Engineering",
+      "Director - Fintech Strategy & Market Enablement"
+    ],
+    "careersEvidence": "https://visa.wd5.myworkdayjobs.com/Visa",
+    "technicalAreas": [
+      "Digital Payments",
+      "FinTech",
+      "Sales Engineering",
+      "Cybersecurity"
+    ],
+    "address": "Visa CEMEA Headquarters, Al Falak Street, Dubai Media City, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://propsearch.ae",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "Visa Internship Program",
+        "kind": "internship"
+      }
+    ],
+    "programmesSource": "https://visa.wd5.myworkdayjobs.com/visa_early_careers",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "The FinTech Times report on Visa CEMEA Headquarters",
+        "url": "https://thefintechtimes.com"
+      },
+      {
+        "title": "Propsearch project data on Visa CEMEA Headquarters",
+        "url": "https://propsearch.ae"
+      }
+    ],
+    "notes": "Visa's regional headquarters for the CEMEA region is located in a purpose-built building on Al Falak Street in Dubai Media City (developed by Sweid & Sweid and completed in 2021), rather than Business Bay as previously indicated in the directory. Coordinates are set to null because a precise verified office centroid was not confirmed to 5 decimal places."
+  },
+  {
+    "id": "wasl-asset-management-group",
+    "website": "https://www.wasl.ae",
+    "websiteSource": "https://mediaoffice.ae",
+    "careersUrl": "https://www.wasl.ae/en/careers",
+    "careersSource": "https://www.wasl.ae",
+    "linkedinUrl": null,
+    "linkedinSource": null,
+    "shortDescription": "Wasl Asset Management Group is a major Dubai government real estate management and urban development organisation.",
+    "whatTheyDo": "Established in 2008 by the Dubai Real Estate Corporation (DREC), Wasl manages extensive property portfolios spanning residential, commercial, and industrial developments across Dubai. It oversees landmark projects such as the Food Tech Valley and 1 Billion Meals Endowment Tower, alongside hospitality and leisure operations.",
+    "descriptionSource": "https://mediaoffice.ae",
+    "industry": "Real Estate & Asset Management",
+    "commonCareers": [
+      "Head of Transformation Office",
+      "Inspector",
+      "Accountant - Receivables",
+      "Graduate Trainee"
+    ],
+    "careersEvidence": "https://www.wasl.ae/en/careers",
+    "technicalAreas": [
+      "Asset Management",
+      "Real Estate Development",
+      "Facilities Management"
+    ],
+    "address": "Wasl Experience Center, Al Safa 2, Sheikh Zayed Road, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://dcciinfo.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "Graduate Training Programme (GTP)",
+        "kind": "graduate"
+      },
+      {
+        "name": "Ajial",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://www.wasl.ae",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Government of Dubai Media Office coverage of Wasl Asset Management Group",
+        "url": "https://mediaoffice.ae"
+      },
+      {
+        "title": "Dubai Chamber of Commerce and Industry Directory entry",
+        "url": "https://dcciinfo.com"
+      }
+    ],
+    "notes": "Wasl Asset Management Group was created in 2008 by the Dubai Real Estate Corporation. The directory formerly recorded its area as JLT, but its head office and Experience Center are situated in Al Safa 2 on Sheikh Zayed Road. Coordinates are set to null because an exact verified building centroid to 5 decimal places could not be confirmed."
+  },
+  {
+    "id": "zahrawi-medical",
+    "website": "https://www.zahrawigroup.com",
+    "websiteSource": "https://gmu.ac.ae",
+    "careersUrl": "https://careers.zahrawigroup.com",
+    "careersSource": "https://www.zahrawigroup.com",
+    "linkedinUrl": "https://www.linkedin.com/company/zahrawi-group",
+    "linkedinSource": "https://www.zahrawigroup.com",
+    "shortDescription": "Zahrawi Medical (Zahrawi Group) is a leading distributor of medical equipment, surgical robotics, and diagnostic solutions in the UAE and GCC.",
+    "whatTheyDo": "Zahrawi Group supplies medical equipment, clinical diagnostic tools, and surgical technologies to healthcare providers, hospitals, and laboratories across the UAE. It partners with international medical manufacturers such as Zimmer Biomet and Medtronic to distribute specialised healthcare equipment and provide biomedical support services.",
+    "descriptionSource": "https://gmu.ac.ae",
+    "industry": "Healthcare & Medical Equipment",
+    "commonCareers": [
+      "Warehouse Coordinator",
+      "Transport Operations Support Coordinator",
+      "Quality Assurance Executive",
+      "Lab Data Analyst Internships"
+    ],
+    "careersEvidence": "https://careers.zahrawigroup.com",
+    "technicalAreas": [
+      "Medical Devices",
+      "Surgical Robotics",
+      "Clinical Diagnostics",
+      "Quality Assurance"
+    ],
+    "address": "1st Floor, Ford Middle East & Africa Building, Al Wasl Office Complex, Sheikh Zayed Road, Downtown, Dubai, United Arab Emirates",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://dcciinfo.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf Medical University Career Fair employer listing for Zahrawi Group",
+        "url": "https://gmu.ac.ae"
+      },
+      {
+        "title": "Dubai Chamber of Commerce & Industry Directory entry for Al-Zahrawi Medical Supplies",
+        "url": "https://dcciinfo.com"
+      }
+    ],
+    "notes": "Zahrawi Medical operates as Zahrawi Group across the GCC. The previous directory entry listed its location as Dubai Internet City, whereas its Dubai headquarters is at the Al Wasl Office Complex on Sheikh Zayed Road. Coordinates are set to null because exact building centroid coordinates to 5 decimal places could not be verified."
+  },
+  {
+    "id": "zomato",
+    "website": "https://www.zomato.com/dubai",
+    "websiteSource": "https://thenationalnews.com",
+    "careersUrl": "https://www.zomato.com/careers",
+    "careersSource": "https://www.zomato.com",
+    "linkedinUrl": "https://www.linkedin.com/company/zomato",
+    "linkedinSource": "https://leadiq.com",
+    "shortDescription": "Zomato UAE operates a restaurant discovery, menu guide, and dining-out ratings service in the UAE.",
+    "whatTheyDo": "Zomato provides an online platform where users in Dubai and across the UAE can search restaurants, view menus, read reviews, and explore dining experiences. After selling its UAE food delivery operations to Delivery Hero (Talabat) in 2019 and ceasing food delivery ordering in November 2022, its UAE operations focus exclusively on restaurant search, dining out, and discovery.",
+    "descriptionSource": "https://thenationalnews.com",
+    "industry": "Internet & Consumer Services",
+    "commonCareers": [],
+    "careersEvidence": null,
+    "technicalAreas": [],
+    "address": "13th Floor, Burj Al Salam Tower, Trade Centre 1, Sheikh Zayed Road, Dubai, UAE",
+    "latitude": 25.22975,
+    "longitude": 55.28658,
+    "locationSource": "https://en.wikipedia.org/wiki/Burj_Al_Salam",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "The National news report on Zomato food delivery shutdown in UAE",
+        "url": "https://thenationalnews.com"
+      },
+      {
+        "title": "Time Out Dubai coverage of Zomato UAE transition to Talabat",
+        "url": "https://timeoutdubai.com"
+      },
+      {
+        "title": "Canadian University Dubai Career Fair records",
+        "url": "https://cud.ac.ae"
+      }
+    ],
+    "notes": "Zomato sold its UAE food ordering business to Delivery Hero / Talabat and officially discontinued food delivery services in November 2022, retaining only restaurant discovery. Its Dubai office is located at Burj Al Salam Tower on Sheikh Zayed Road (Trade Centre 1), rather than Dubai Media City as previously recorded. No active UAE job openings were listed on its recruitment platform."
+  }
+]

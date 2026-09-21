@@ -1,0 +1,72 @@
+[
+  {
+    "id": "schindler",
+    "name": "Schindler",
+    "officialName": "Schindler",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "score-plus",
+    "name": "Score Plus",
+    "officialName": "Score Plus",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "seddiqi-holding",
+    "name": "Seddiqi Holding",
+    "officialName": "Seddiqi Holding",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "serco-middle-east",
+    "name": "Serco Middle East",
+    "officialName": "Serco Middle East",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "sharaf-dg",
+    "name": "Sharaf DG",
+    "officialName": "Sharaf DG",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "sharjah-union-coop",
+    "name": "Sharjah Union Coop",
+    "officialName": "Sharjah Union Coop",
+    "emirate": "Sharjah",
+    "area": "Sharjah"
+  },
+  {
+    "id": "sobha-realty",
+    "name": "Sobha Realty",
+    "officialName": "Sobha Realty",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "socialeyez",
+    "name": "SocialEyez",
+    "officialName": "SocialEyez",
+    "emirate": "Dubai",
+    "area": "Dubai Media City"
+  },
+  {
+    "id": "sunset-hospitality",
+    "name": "Sunset Hospitality",
+    "officialName": "Sunset Hospitality",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "takaful-emarat",
+    "name": "Takaful Emarat",
+    "officialName": "Takaful Emarat",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  }
+]

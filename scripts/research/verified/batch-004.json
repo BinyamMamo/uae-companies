@@ -1,0 +1,370 @@
+[
+  {
+    "id": "allergan",
+    "website": "https://global.allerganaesthetics.com",
+    "websiteSource": "https://usuaebusiness.org",
+    "careersUrl": "https://www.abbvie.com/join-us/opportunities.html",
+    "careersSource": "https://www.abbvie.com",
+    "shortDescription": "Allergan operates in the UAE as Allergan Aesthetics, an AbbVie company, commercializing aesthetic and therapeutic pharmaceuticals.",
+    "whatTheyDo": "Allergan Aesthetics provides medical aesthetics and pharmaceutical products, such as Botox and dermal fillers, to licensed clinics and hospitals throughout the UAE. The regional operation also coordinates clinical education, physician training, and scientific symposia.",
+    "descriptionSource": "https://usuaebusiness.org",
+    "industry": "Pharmaceuticals & Healthcare",
+    "commonCareers": [
+      "Product Specialist",
+      "Key Account Manager"
+    ],
+    "careersEvidence": "https://www.abbvie.com/join-us/opportunities.html",
+    "technicalAreas": [],
+    "address": "Suite 2901, Ubora Tower, Business Bay, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.abbvie.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "US-UAE Business Council Healthcare Sector Report",
+        "url": "https://usuaebusiness.org"
+      },
+      {
+        "title": "AbbVie Acquisition of Allergan PR Newswire Announcement",
+        "url": "https://www.prnewswire.com"
+      }
+    ],
+    "notes": "Allergan was acquired globally by AbbVie in May 2020 and operates locally under Allergan Aesthetics. It maintains no facility in JLT; its regional operations are based out of AbbVie's offices in Dubai (historically Index Tower, DIFC, and Ubora Tower, Business Bay). Recruitment is conducted via AbbVie."
+  },
+  {
+    "id": "allianz-trade",
+    "website": "https://www.allianz-trade.com/en_AE/",
+    "websiteSource": "https://www.difc.ae",
+    "careersUrl": "https://www.allianz-trade.com/en_AE/about-us/careers.html",
+    "careersSource": "https://www.allianz-trade.com/en_AE/",
+    "linkedinUrl": "https://www.linkedin.com/company/allianz-trade",
+    "linkedinSource": "https://www.allianz.com/",
+    "shortDescription": "Allianz Trade operates in the UAE providing trade credit insurance, surety bonds, and debt recovery solutions.",
+    "whatTheyDo": "Allianz Trade Middle East Limited acts as an insurance manager in respect of reinsurance arrangements with regional insurers. It offers commercial credit risk assessment, unpaid invoice protection, and debt collection services to multinational and local businesses across the GCC.",
+    "descriptionSource": "https://wam.ae",
+    "industry": "Financial Services & Insurance",
+    "commonCareers": [
+      "MNC Sales Director",
+      "Commercial Underwriter",
+      "Risk Underwriter"
+    ],
+    "careersEvidence": "https://www.efinancialcareers.com",
+    "technicalAreas": [
+      "Credit Risk Analysis",
+      "Risk Underwriting"
+    ],
+    "address": "DIFC Square, Tower 1, Offices 701-702, Mustaqbal Street, Dubai International Financial Centre, Dubai, UAE",
+    "latitude": 25.21236,
+    "longitude": 55.28443,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": false,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "Talent Pool Program",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://www.allianz.com",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Emirates News Agency (WAM) Coverage of Allianz Trade Office at DIFC Square",
+        "url": "https://wam.ae"
+      },
+      {
+        "title": "Dubai International Financial Centre Public Register",
+        "url": "https://www.difc.ae"
+      }
+    ],
+    "notes": "Formerly known as Euler Hermes prior to rebranding as Allianz Trade in 2022. The office is located in DIFC Square in the DIFC, not Dubai Internet City."
+  },
+  {
+    "id": "almulla-group",
+    "shortDescription": "Mohamed & Obaid AlMulla Group is a long-standing family-owned Emirati conglomerate with major holdings in healthcare, hospitality, and real estate in Dubai.",
+    "whatTheyDo": "Established in 1942, the group operates across Dubai through major subsidiaries, notably healthcare via American Hospital Dubai and hospitality via Ishraq Hospitality (which manages hotels including Pullman Dubai Downtown). It also manages an extensive residential and commercial property portfolio.",
+    "descriptionSource": "https://www.forbesmiddleeast.com",
+    "industry": "Conglomerate",
+    "commonCareers": [],
+    "technicalAreas": [],
+    "address": "Al Mulla Building, Baniyas Street, Deira, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://theceomagazine.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Forbes Middle East Top 100 Arab Family Businesses Profile",
+        "url": "https://www.forbesmiddleeast.com"
+      },
+      {
+        "title": "The CEO Magazine Feature on Mohamed & Obaid Al Mulla Group",
+        "url": "https://theceomagazine.com"
+      }
+    ],
+    "notes": "Three separate corporate groups share this name fragment: Mohamed & Obaid AlMulla Group in Dubai (headquartered in Deira, owning hospitality assets in Downtown Dubai and American Hospital Dubai); Al Mulla Group Est. in Fujairah (almulla.ae); and Al Mulla Group in Kuwait (almullagroup.com). The parent Dubai conglomerate does not operate a centralized corporate group website."
+  },
+  {
+    "id": "alpha-data",
+    "website": "https://www.alpha.ae/",
+    "websiteSource": "https://www.adx.ae",
+    "careersUrl": "https://www.alpha.ae/careers/",
+    "careersSource": "https://www.alpha.ae/",
+    "linkedinUrl": "https://www.linkedin.com/company/707754",
+    "linkedinSource": "https://www.alpha.ae/careers/",
+    "shortDescription": "Alpha Data PJSC is a leading UAE digital transformation provider and IT systems integration firm.",
+    "whatTheyDo": "Alpha Data provides end-to-end enterprise IT solutions, including cloud infrastructure migration (AWS and Microsoft partner), enterprise networking, cybersecurity, managed services, and AI integration. It serves corporate clients and government entities across the UAE.",
+    "descriptionSource": "https://www.adx.ae",
+    "industry": "Technology & Software",
+    "commonCareers": [
+      "Enterprise Account Manager",
+      "Junior Accounts Receivable Officer",
+      "Sales Manager – Managed Services"
+    ],
+    "careersEvidence": "https://www.alpha.ae/careers/",
+    "technicalAreas": [
+      "Cloud Computing",
+      "Cybersecurity",
+      "Artificial Intelligence",
+      "IoT",
+      "Big Data",
+      "Managed Services"
+    ],
+    "address": "Level 26, Addax Tower, Al Reem Island, Abu Dhabi, UAE",
+    "latitude": 24.49901,
+    "longitude": 54.40309,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Abu Dhabi Securities Exchange (ADX) Alpha Data PJSC Profile",
+        "url": "https://www.adx.ae"
+      },
+      {
+        "title": "Emirates News Agency (WAM) Report on Alpha Data IPO",
+        "url": "https://wam.ae"
+      }
+    ],
+    "notes": "Alpha Data is headquartered in Addax Tower on Al Reem Island, Abu Dhabi, and maintains its primary Dubai branch in JLT (Mazaya Business Avenue), not Dubai Healthcare City. Shares trade on the Abu Dhabi Securities Exchange."
+  },
+  {
+    "id": "alrais-enterprise-group",
+    "website": "https://alraisholding.com/",
+    "websiteSource": "https://www.odoo.com",
+    "careersUrl": "https://alraisholding.com/",
+    "careersSource": "https://alraisholding.com/",
+    "shortDescription": "ALRAIS Holding (Alrais Enterprises Group) is a multi-sector Emirati business group operating across hospitality, trade, and logistics in Dubai.",
+    "whatTheyDo": "Founded in 1997, the group operates dining and cafe concepts including the Arabian Tea House, logistics and freight services, general trading, retail distribution, facilities management, and property management across Dubai.",
+    "descriptionSource": "https://www.odoo.com",
+    "industry": "Conglomerate",
+    "commonCareers": [
+      "Branch Manager",
+      "Accountant",
+      "Internal Audit Manager",
+      "Talent Acquisition Executive",
+      "Sales Coordinator"
+    ],
+    "careersEvidence": "https://www.odoo.com",
+    "technicalAreas": [],
+    "address": "Villa No. 600, Al Wasl Road, Jumeirah 3, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://alraisholding.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Odoo ERP Case Study on Alrais Enterprises Group",
+        "url": "https://www.odoo.com"
+      }
+    ],
+    "notes": "Frequently designated as Alrais Enterprises Group or misspelled as 'Alrais Enterprices Group' on job boards. Its corporate headquarters is located on Al Wasl Road in Jumeirah 3, not JLT. It is distinct from Al Rais Travel & Shipping Agencies in Bur Dubai."
+  },
+  {
+    "id": "amazon-web-services-aws",
+    "website": "https://aws.amazon.com/",
+    "websiteSource": "https://gulfnews.com",
+    "careersUrl": "https://www.amazon.jobs",
+    "careersSource": "https://aws.amazon.com/",
+    "linkedinUrl": "https://www.linkedin.com/company/amazon-web-services",
+    "linkedinSource": "https://www.amazon.jobs",
+    "shortDescription": "Amazon Web Services provides on-demand cloud computing platforms, infrastructure, and technical consulting in the UAE.",
+    "whatTheyDo": "AWS operates the AWS Middle East (UAE) cloud infrastructure region and commercial business teams in Dubai. Its Dubai Internet City teams deliver cloud architecture consulting, enterprise sales, regulatory compliance, and partner ecosystem management for public and private sector entities.",
+    "descriptionSource": "https://gulfnews.com",
+    "industry": "Technology & Software",
+    "commonCareers": [
+      "Solutions Architect",
+      "Senior Solutions Architect",
+      "Data Center Technician",
+      "Business Intelligence Engineer"
+    ],
+    "careersEvidence": "https://www.amazon.jobs",
+    "technicalAreas": [
+      "Cloud Computing",
+      "AI & Machine Learning",
+      "Data Infrastructure",
+      "Cybersecurity"
+    ],
+    "address": "Dubai Properties Headquarters Building, 4 Al Falak Street, Dubai Internet City, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://gulfnews.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "Electrical & Mechanical Engineering Operations Trainee",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://www.amazon.jobs",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf News Coverage of AWS Dubai Operations",
+        "url": "https://gulfnews.com"
+      }
+    ],
+    "notes": "AWS operates corporate offices in Dubai Internet City through Amazon Web Services EMEA SARL (Dubai Internet City Branch). Data centers are located separately across undisclosed UAE facilities."
+  },
+  {
+    "id": "amlak-finance",
+    "website": "https://www.amlakfinance.com",
+    "websiteSource": "https://www.dfm.ae",
+    "careersUrl": "https://www.amlakfinance.com/careers",
+    "careersSource": "https://www.amlakfinance.com",
+    "linkedinUrl": "https://www.linkedin.com/company/amlak-finance",
+    "linkedinSource": "https://www.amlakfinance.com",
+    "shortDescription": "Amlak Finance PJSC is a pioneering specialized Islamic real estate financing company based in Dubai.",
+    "whatTheyDo": "Amlak Finance provides Sharia-compliant property financing structures (such as Ijara, Murabaha, and Istisna'a) for residential and commercial property purchasers. The company also engages in property asset management and real estate investment across the UAE.",
+    "descriptionSource": "https://www.dfm.ae",
+    "industry": "Financial Services & Banking",
+    "commonCareers": [],
+    "technicalAreas": [
+      "Islamic Finance",
+      "Financial Technology"
+    ],
+    "address": "Office No. 1803, 18th Floor, Grosvenor Business Tower, Barsha Heights, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.dfm.ae",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai Financial Market (DFM) Company Information",
+        "url": "https://www.dfm.ae"
+      }
+    ],
+    "notes": "Headquartered in Grosvenor Business Tower in Barsha Heights (TECOM), Dubai, not Downtown Dubai. Listed on the Dubai Financial Market under ticker AMLAK."
+  },
+  {
+    "id": "amplify-dubai",
+    "website": "https://amplifydubai.com",
+    "websiteSource": "https://penieltech.com",
+    "shortDescription": "Amplify Marketing Agency is an integrated creative, branding, and digital marketing firm in Dubai.",
+    "whatTheyDo": "Amplify provides 360-degree marketing services, including creative design, social media strategy, SEO, web and app development, and PR. The agency also builds technology-led marketing activations utilizing augmented reality, virtual reality, and 3D animation.",
+    "descriptionSource": "https://penieltech.com",
+    "industry": "Marketing & Advertising",
+    "commonCareers": [],
+    "technicalAreas": [],
+    "address": "Office 3603, Jumeirah Bay X3 Building, Cluster X, Jumeirah Lakes Towers, Dubai, UAE",
+    "latitude": 25.08037,
+    "longitude": 55.15324,
+    "locationSource": "https://amplifydubai.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Peniel Technology UAE Business Directory Profile",
+        "url": "https://penieltech.com"
+      }
+    ],
+    "notes": "Office is located in Jumeirah Bay X3, Cluster X, Jumeirah Lakes Towers (JLT), not Business Bay. Originally established in the UK and active in Dubai since 2008."
+  },
+  {
+    "id": "ams-osram",
+    "website": "https://ams-osram.com",
+    "websiteSource": "https://yellowpages-uae.com",
+    "careersUrl": "https://careers.ams-osram.com",
+    "careersSource": "https://ams-osram.com",
+    "linkedinUrl": "https://www.linkedin.com/company/ams-osram/",
+    "linkedinSource": "https://ams-osram.com",
+    "shortDescription": "ams OSRAM operates in the UAE through OSRAM Lighting Middle East FZE, providing optical and sensing technologies.",
+    "whatTheyDo": "ams OSRAM designs and supplies optical sensors, emitters, and specialty illumination products. In the Middle East, its Dubai Silicon Oasis office oversees regional sales, automotive aftermarket lighting distribution, and technical customer support.",
+    "descriptionSource": "https://yellowpages-uae.com",
+    "industry": "Electronics & Semiconductors",
+    "commonCareers": [
+      "Key Account Manager"
+    ],
+    "careersEvidence": "https://careers.ams-osram.com",
+    "technicalAreas": [
+      "Optical Solutions",
+      "Sensor Technologies",
+      "Automotive Lighting"
+    ],
+    "address": "Office No. 208-209, E-Wing, Dubai Silicon Oasis Headquarters Building, Dubai, UAE",
+    "latitude": 25.12465,
+    "longitude": 55.38066,
+    "locationSource": "https://mapcarta.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Yellow Pages UAE Business Directory Listing",
+        "url": "https://yellowpages-uae.com"
+      }
+    ],
+    "notes": "ams OSRAM operates locally as OSRAM Lighting Middle East FZE in Dubai Silicon Oasis Headquarters, not Jumeirah Lakes Towers (JLT). Previous JLT references in market research citations refer to third-party analysts' offices."
+  },
+  {
+    "id": "aneeq-llc-fz",
+    "website": "https://aneeq.co",
+    "websiteSource": "https://www.dha.gov.ae",
+    "shortDescription": "Aneeq LLC FZ is a DHA-licensed telehealth clinic and digital healthcare platform dedicated to men's health in Dubai.",
+    "whatTheyDo": "Aneeq provides online medical evaluations, digital consultations, and doctor-prescribed treatment plans for hair loss, skincare, sexual health, and metabolic wellness. Patients complete telehealth consultations online, and prescribed medications are prepared in certified laboratories and delivered across the UAE.",
+    "descriptionSource": "https://www.dha.gov.ae",
+    "industry": "Healthcare & Telemedicine",
+    "commonCareers": [
+      "Designer"
+    ],
+    "careersEvidence": "https://aneeq.co",
+    "technicalAreas": [
+      "Telehealth",
+      "Digital Health"
+    ],
+    "address": "Office 2101, Silver Tower, Marasi Drive, Business Bay, Dubai, UAE",
+    "latitude": 25.18444,
+    "longitude": 55.26444,
+    "locationSource": "https://wikimapia.org",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai Health Authority (DHA) Licensed Telehealth Facility Register",
+        "url": "https://www.dha.gov.ae"
+      }
+    ],
+    "notes": "Aneeq LLC FZ is licensed under DHA facility license 5628179 with offices in Silver Tower, Business Bay, not Dubai Internet City. An unrelated trading company with a similar name operates in Sharjah."
+  }
+]

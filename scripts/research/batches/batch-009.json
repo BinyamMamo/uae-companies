@@ -1,0 +1,72 @@
+[
+  {
+    "id": "crowe-uae",
+    "name": "Crowe UAE",
+    "officialName": "Crowe UAE",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "dacha",
+    "name": "Dacha",
+    "officialName": "Dacha",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "daikin-middle-east-and-africa",
+    "name": "Daikin Middle East and Africa",
+    "officialName": "Daikin Middle East and Africa",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "daimler-mercedesbenz",
+    "name": "Daimler (Mercedes-Benz)",
+    "officialName": "Daimler (Mercedes-Benz)",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "damac-group",
+    "name": "Damac Group",
+    "officialName": "Damac Group",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "dana-gas",
+    "name": "Dana Gas",
+    "officialName": "Dana Gas",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "danone-middle-east",
+    "name": "Danone Middle East",
+    "officialName": "Danone Middle East",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "danzas-aei-emirates-llc-dhl-express",
+    "name": "Danzas AEI Emirates LLC (DHL Express)",
+    "officialName": "Danzas AEI Emirates LLC (DHL Express)",
+    "emirate": "Dubai",
+    "area": "Airport areas"
+  },
+  {
+    "id": "deloitte",
+    "name": "Deloitte",
+    "officialName": "Deloitte",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "delta-insurance-services",
+    "name": "Delta Insurance Services",
+    "officialName": "Delta Insurance Services",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  }
+]

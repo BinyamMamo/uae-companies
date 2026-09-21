@@ -1,149 +1,160 @@
 import React from 'react';
+import type { LucideIcon } from 'lucide-react';
 import { useApp } from '../context/AppContext';
-import { SlidersHorizontal, Scale, Sun, Moon, Settings } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
+import { ProfileMenu } from './ProfileMenu';
+import { Logo } from './ui/Logo';
+import { Sun, Moon, Bookmark, LayoutList, BuildingComplex, MapPinned } from 'lucide-react';
 
-export const Header: React.FC = () => {
+type TabId = 'list' | 'featured' | 'map';
+
+const NAV_ITEMS: Array<{ id: TabId; label: string; Icon: LucideIcon }> = [
+  { id: 'list', label: 'List', Icon: LayoutList },
+  { id: 'featured', label: 'Featured', Icon: BuildingComplex },
+  { id: 'map', label: 'Map', Icon: MapPinned },
+];
+
+interface HeaderProps {
+  onOpenSaved: () => void;
+  onOpenInterests: () => void;
+}
+
+export const Header: React.FC<HeaderProps> = ({ onOpenSaved, onOpenInterests }) => {
   const {
     activeTab,
     setActiveTab,
     savedCompanyIds,
-    compareCompanyIds,
-    setIsCompareModalOpen,
-    setIsMobileFilterOpen,
-    setIsSettingsModalOpen,
-    theme,
-    toggleTheme
   } = useApp();
+  const { theme, toggleTheme } = useTheme();
 
-  const navItems: Array<{ id: 'list' | 'browse' | 'featured' | 'map' | 'saved'; label: string }> = [
-    { id: 'list', label: 'List' },
-    { id: 'browse', label: 'Browse' },
-    { id: 'featured', label: 'Featured' },
-    { id: 'map', label: 'Map' },
-    { id: 'saved', label: 'Saved' },
-  ];
+  const renderTab = (item: { id: TabId; label: string; Icon: LucideIcon }) => {
+    const isActive = activeTab === item.id;
+    return (
+      <button
+        key={item.id}
+        onClick={() => setActiveTab(item.id)}
+        aria-current={isActive ? 'page' : undefined}
+        className={`relative shrink-0 py-3 md:py-4 px-2.5 text-sm font-medium transition-colors flex items-center gap-1.5 ${
+          isActive
+            ? 'text-brand-600 dark:text-brand-400 font-semibold'
+            : 'text-ink-2 hover:text-ink'
+        }`}
+      >
+        <span>{item.label}</span>
+        {isActive && (
+          <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-600 dark:bg-brand-500 rounded-t-sm" />
+        )}
+      </button>
+    );
+  };
 
   return (
-    <header className="sticky top-0 z-30 bg-white dark:bg-[#121214] border-b border-slate-200 dark:border-slate-800 transition-colors duration-150">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-        
-        {/* Left: Dynamic Greeting Logo & mobile filter */}
-        <div className="flex items-center gap-3 w-44 sm:w-56 shrink-0">
-          {/* Mobile Filter Button for List View */}
-          {activeTab === 'list' && (
-            <button
-              onClick={() => setIsMobileFilterOpen(true)}
-              className="md:hidden flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded border border-slate-200 dark:border-slate-700 transition-colors"
-              aria-label="Open filters"
-            >
-              <SlidersHorizontal className="w-3.5 h-3.5" />
-              <span>Filters</span>
-            </button>
-          )}
-
-          {/* Logo with Backgroundless Skyscraper Compass and Discovery Text */}
+    <header className="sticky top-0 z-1200 bg-app border-b border-line transition-colors duration-150">
+      {/*
+        Three-column grid: the centre column is nav, so it stays optically
+        centred without the fixed-width side rails that used to overflow
+        below ~380px.
+      */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 grid grid-cols-[auto_1fr_auto] md:grid-cols-[1fr_auto_1fr] items-center gap-2">
+        {/* Left: filters (mobile, list view only) + wordmark */}
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           <button
             onClick={() => setActiveTab('list')}
-            className="flex items-center gap-2.5 text-left hover:opacity-90 transition-opacity"
-            title="UAE Company Discovery"
+            className="flex items-center gap-2.5 text-left hover:opacity-90 transition-opacity min-w-0"
+            aria-label="UAE Companies — go to list"
           >
-            <img
-              src="/logo.png"
-              alt="Company Discovery Logo"
-              className="w-8 h-8 object-contain dark:hidden shrink-0"
-            />
-            <img
-              src="/logo-white.png"
-              alt="Company Discovery Logo"
-              className="w-8 h-8 object-contain hidden dark:block shrink-0"
-            />
-            <div className="flex flex-col leading-tight">
-              <span className="text-xs sm:text-sm font-bold tracking-tight text-slate-900 dark:text-white">
-                UAE <span className="text-brand-600 dark:text-brand-400">Companies</span>
-              </span>
-              <span className="text-[10px] text-slate-500 dark:text-slate-400 font-normal">
-                Tech & Jobs Discovery
-              </span>
-            </div>
+            <Logo className="w-7 h-7 sm:w-8 sm:h-8 shrink-0 text-brand-600 dark:text-brand-400" />
+            <span className="text-sm sm:text-base font-bold tracking-tight text-ink truncate">
+              UAE <span className="text-brand-600 dark:text-brand-400">Companies</span>
+            </span>
           </button>
         </div>
 
-        {/* Center: Main Navigation Tabs with Saved Counter Badge */}
-        <nav className="flex items-center justify-center space-x-1 sm:space-x-6 flex-1" aria-label="Main Navigation">
-          {navItems.map(item => {
-            const isActive = activeTab === item.id;
-            return (
-              <button
-                key={item.id}
-                onClick={() => setActiveTab(item.id)}
-                className={`relative py-4 px-2 text-xs sm:text-sm font-medium transition-colors flex items-center gap-1.5 ${
-                  isActive
-                    ? 'text-brand-600 dark:text-brand-400 font-semibold'
-                    : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
-                }`}
-              >
-                <span>{item.label}</span>
-                {item.id === 'saved' && savedCompanyIds.length > 0 && (
-                  <span className={`text-[10px] font-bold px-1.5 py-0.2 rounded-full transition-colors ${
-                    isActive
-                      ? 'bg-brand-600 dark:bg-brand-500 text-white'
-                      : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200'
-                  }`}>
-                    {savedCompanyIds.length}
-                  </span>
-                )}
-                {isActive && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-600 dark:bg-brand-500 rounded-t-sm" />
-                )}
-              </button>
-            );
-          })}
+        {/* Centre: nav on desktop only — on mobile it moves to its own row below */}
+        <nav
+          className="hidden md:flex items-center justify-center gap-4 lg:gap-6"
+          aria-label="Main"
+        >
+          {NAV_ITEMS.map(renderTab)}
         </nav>
 
-        {/* Right: Theme Toggle, Compare & Settings (mirrors left width to keep nav centered) */}
-        <div className="flex items-center justify-end gap-2 sm:gap-2.5 w-44 sm:w-56 shrink-0">
-          
-          {/* Compare shortcut button */}
-          {compareCompanyIds.length > 0 && (
-            <button
-              onClick={() => setIsCompareModalOpen(true)}
-              className="flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded border border-slate-200 dark:border-slate-700 transition-colors"
-              title="Compare selected companies"
-            >
-              <Scale className="w-3.5 h-3.5 text-slate-600 dark:text-slate-300" />
-              <span className="hidden sm:inline">Compare</span>
-              <span className="bg-brand-600 text-white rounded-full px-1.5 py-0.2 text-[10px] font-bold">
-                {compareCompanyIds.length}
-              </span>
-            </button>
-          )}
-
-          {/* Dark Mode Theme Toggle - White Sun Icon */}
+        {/* Right: actions */}
+        <div className="flex items-center justify-end gap-1">
           <button
             onClick={toggleTheme}
-            className="p-1.5 rounded text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-            title={theme === 'dark' ? 'Switch to Light mode' : 'Switch to Dark mode'}
-            aria-label="Toggle theme"
+            className="w-8 h-8 flex items-center justify-center rounded-md text-ink-2 hover:text-ink hover:bg-surface-2 transition-colors"
+            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
           >
             {theme === 'dark' ? (
-              <Sun className="w-4 h-4 text-white" />
+              <Sun className="w-4 h-4" aria-hidden="true" />
             ) : (
-              <Moon className="w-4 h-4 text-slate-600 dark:text-slate-300" />
+              <Moon className="w-4 h-4" aria-hidden="true" />
             )}
           </button>
 
-          {/* Settings Modal Button */}
+          {/* Saved replaces the old nav tab; the badge carries the count. */}
           <button
-            onClick={() => setIsSettingsModalOpen(true)}
-            className="p-1.5 rounded text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-            title="Settings"
-            aria-label="Platform Settings"
+            onClick={onOpenSaved}
+            className="relative w-8 h-8 flex items-center justify-center rounded-md text-ink-2 hover:text-ink hover:bg-surface-2 transition-colors"
+            aria-label={
+              savedCompanyIds.length > 0
+                ? `Saved companies (${savedCompanyIds.length})`
+                : 'Saved companies'
+            }
           >
-            <Settings className="w-4 h-4" />
+            <Bookmark className="w-4 h-4" aria-hidden="true" />
+            {savedCompanyIds.length > 0 && (
+              <span className="absolute -top-0.5 -right-0.5 min-w-[1.05rem] h-[1.05rem] px-1 rounded-full bg-brand-600 text-white text-[10px] font-bold leading-[1.05rem] text-center tabular-nums">
+                {savedCompanyIds.length > 99 ? '99+' : savedCompanyIds.length}
+              </span>
+            )}
           </button>
-        </div>
 
+          <ProfileMenu onOpenInterests={onOpenInterests} />
+        </div>
       </div>
+
     </header>
+  );
+};
+
+/**
+ * Mobile navigation, as a bottom bar. Thumbs reach the bottom of a phone; a row
+ * under the header does not. It is fixed, so it survives the list scrolling,
+ * and it pads for the home indicator on iOS.
+ */
+export const MobileNavBar: React.FC = () => {
+  const { activeTab, setActiveTab } = useApp();
+
+  return (
+    <nav
+      className="md:hidden fixed bottom-0 inset-x-0 z-1200 bg-app border-t border-line pb-[env(safe-area-inset-bottom)]"
+      aria-label="Main"
+    >
+      <div className="flex items-stretch">
+        {NAV_ITEMS.map(({ id, label, Icon }) => {
+          const isActive = activeTab === id;
+          return (
+            <button
+              key={id}
+              onClick={() => setActiveTab(id)}
+              aria-current={isActive ? 'page' : undefined}
+              className={`flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-[11px] font-medium transition-colors ${
+                isActive
+                  ? 'text-brand-600 dark:text-brand-400'
+                  : 'text-ink-2 hover:text-ink'
+              }`}
+            >
+              <Icon
+                className="w-5 h-5"
+                strokeWidth={isActive ? 2.4 : 1.9}
+                aria-hidden="true"
+              />
+              <span>{label}</span>
+            </button>
+          );
+        })}
+      </div>
+    </nav>
   );
 };

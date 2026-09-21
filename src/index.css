@@ -1,11 +1,91 @@
-@import 'leaflet/dist/leaflet.css';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'leaflet/dist/leaflet.css' layer(base);
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* =========================================================================
-   GLOBAL CSS THEME VARIABLES - Edit these values to customize the entire theme
+   SEMANTIC THEME TOKENS
+
+   `--color-*` entries below generate real Tailwind utilities (bg-surface,
+   text-ink-2, border-line, ...). Each points at a raw variable that is
+   redefined under `.dark`, so a single class works in both themes and no
+   `dark:` variant is needed. Edit the raw values in `:root` / `.dark`.
    ========================================================================= */
+@theme {
+  /* Neutral ramp (zinc-based). Note slate-50 is a real off-white, not #fff. */
+  --color-slate-50: #fafafa;
+  --color-slate-100: #f4f4f5;
+  --color-slate-200: #e4e4e7;
+  --color-slate-300: #d4d4d8;
+  --color-slate-400: #a1a1aa;
+  --color-slate-500: #71717a;
+  --color-slate-600: #52525b;
+  --color-slate-700: #3f3f46;
+  --color-slate-800: #27272a;
+  --color-slate-900: #18181b;
+  --color-slate-950: #121214;
+
+  /* Semantic surfaces and text — theme-aware, no dark: variant required. */
+  --color-app: var(--bg-app);
+  --color-surface: var(--bg-surface);
+  --color-surface-2: var(--bg-surface-hover);
+  --color-surface-3: var(--bg-muted);
+  --color-line: var(--border-subtle);
+  --color-line-strong: var(--border-hover);
+  --color-ink: var(--text-primary);
+  --color-ink-2: var(--text-secondary);
+  --color-ink-3: var(--text-muted);
+
+  /* Accent ramp, driven at runtime by applyAccentTheme(). */
+  --color-brand-50: var(--accent-50, #eff6ff);
+  --color-brand-100: var(--accent-100, #dbeafe);
+  --color-brand-200: var(--accent-200, #bfdbfe);
+  --color-brand-300: var(--accent-300, #93c5fd);
+  --color-brand-400: var(--accent-400, #60a5fa);
+  --color-brand-500: var(--accent-500, #3b82f6);
+  --color-brand-600: var(--accent-primary, #2563eb);
+  --color-brand-700: var(--accent-hover, #1d4ed8);
+  --color-brand-800: var(--accent-800, #1e40af);
+  --color-brand-900: var(--accent-900, #1e3a8a);
+  --color-brand-950: var(--accent-950, #172554);
+
+  /* Tinted accent surfaces that adapt between themes. */
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-soft-border: var(--accent-soft-border);
+  --color-accent-soft-text: var(--accent-soft-text);
+
+  --shadow-subtle:
+    0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+  --shadow-drawer: -4px 0 24px rgba(15, 23, 42, 0.12);
+  --shadow-popup: 0 4px 20px -2px rgba(15, 23, 42, 0.16);
+
+  --font-sans:
+    Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    sans-serif;
+
+  --breakpoint-xs: 26rem;
+
+  --animate-fade-in: fade-in 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --animate-slide-up: slide-up 220ms cubic-bezier(0.32, 0.72, 0, 1);
+  --animate-slide-in-right: slide-in-right 240ms cubic-bezier(0.32, 0.72, 0, 1);
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slide-in-right {
+    from { opacity: 0; transform: translateX(16px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Raw theme values. These feed the `--color-*` tokens above.
+   ------------------------------------------------------------------------- */
 :root {
   --bg-app: #ffffff;
   --bg-surface: #ffffff;
@@ -15,23 +95,38 @@
   --border-hover: #d4d4d8;
   --text-primary: #09090b;
   --text-secondary: #52525b;
-  --text-muted: #71717a;
+  /* Muted text sits at 4.6:1 on white — the old #a1a1aa was 2.5:1 and failed AA. */
+  --text-muted: #6b6b75;
+
   --accent-primary: #2563eb;
   --accent-hover: #1d4ed8;
   --accent-50: #eff6ff;
   --accent-100: #dbeafe;
   --accent-200: #bfdbfe;
+  --accent-300: #93c5fd;
+  --accent-400: #60a5fa;
   --accent-500: #3b82f6;
   --accent-800: #1e40af;
   --accent-900: #1e3a8a;
+  --accent-950: #172554;
+  --accent-rgb: 37, 99, 235;
+
+  /* Header is one row on desktop, two (bar + tab strip) on small screens. */
+  --header-h: 6.75rem;
   --accent-soft: #eff6ff;
   --accent-soft-border: #bfdbfe;
   --accent-soft-text: #1d4ed8;
+
+  color-scheme: light;
 }
 
-html.dark,
-body.dark,
-.dark {
+@media (min-width: 48rem) {
+  :root {
+    --header-h: 3.5rem;
+  }
+}
+
+html.dark {
   --bg-app: #121214;
   --bg-surface: #18181b;
   --bg-surface-hover: #222226;
@@ -40,29 +135,205 @@ body.dark,
   --border-hover: #3f3f46;
   --text-primary: #f4f4f5;
   --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
+  /* 5.0:1 on #18181b; the old #71717a was 4.0:1 and failed AA. */
+  --text-muted: #8e8e99;
+
   --accent-soft: rgba(var(--accent-rgb, 37, 99, 235), 0.16);
   --accent-soft-border: rgba(var(--accent-rgb, 37, 99, 235), 0.35);
   --accent-soft-text: var(--accent-300, #93c5fd);
+
+  color-scheme: dark;
 }
 
+/*
+  Tailwind v4 defaults `border-color` to currentColor. Keep the v3 default so
+  elements written as a bare `border` don't inherit text color.
+*/
 @layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-line);
+  }
+
   body {
     background-color: var(--bg-app);
     color: var(--text-primary);
     @apply antialiased;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
+
+  /*
+    Tailwind v4 changed the default button cursor to `default`; v3 used
+    `pointer`. Restored here rather than adding cursor-pointer to 87 buttons,
+    and scoped so disabled controls still read as unavailable.
+  */
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']),
+  summary,
+  label[for] {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [role='button'][aria-disabled='true'] {
+    cursor: not-allowed;
+  }
+
+  /* Every interactive element gets a visible keyboard ring. */
+  :focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
 }
 
-/* Native View Transitions for theme changes: clean cross-fade without border flashing */
+/* =========================================================================
+   THEME SWITCHING
+
+   The toggle runs inside document.startViewTransition(), which cross-fades a
+   snapshot of the page. While that runs we suppress the live DOM's own
+   transitions — otherwise both animate at once and the switch smears.
+   ========================================================================= */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 220ms;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Custom District Tip Tooltip placed at Boundary Tip */
+html[data-theme-switching] *,
+html[data-theme-switching] *::before,
+html[data-theme-switching] *::after {
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*
+  The list renders every matching company at once (225 at the default filter).
+  content-visibility lets the browser skip layout and paint for rows that are
+  off screen, which is what made theme switching and scrolling expensive. The
+  intrinsic size keeps the scrollbar honest so nothing jumps.
+*/
+.company-row {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 188px;
+}
+
+/*
+  Z-INDEX LAYERS (low to high)
+    map overlays / controls   900 - 1100
+    sticky header             1200   (above map controls, below dialogs)
+    base dialogs              9999 backdrop / 10000 panel
+    company detail drawer     10010 / 10011  (opens on top of a dialog)
+    confirm dialog            10020 / 10021
+    toasts                    10030
+*/
+
+/* =========================================================================
+   SCROLLBARS
+   Thin and unobtrusive, but present — content that scrolls must say so.
+   ========================================================================= */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-hover) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--border-hover);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-muted);
+}
+
+/* =========================================================================
+   LEAFLET
+   All of this follows the active theme rather than being pinned to dark.
+   ========================================================================= */
+.leaflet-container {
+  background-color: var(--bg-muted);
+  font-family: inherit;
+}
+
+.leaflet-popup-content-wrapper {
+  padding: 0 !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.18) !important;
+  border: 1px solid var(--border-subtle) !important;
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+}
+
+html.dark .leaflet-popup-content-wrapper {
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.5) !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: inherit !important;
+}
+
+.leaflet-popup-tip {
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border-subtle) !important;
+}
+
+.leaflet-popup-close-button {
+  color: var(--text-muted) !important;
+}
+
+/* Leaflet's own attribution and controls, themed. */
+.leaflet-control-attribution {
+  background: color-mix(in srgb, var(--bg-surface) 88%, transparent) !important;
+  color: var(--text-muted) !important;
+  font-size: 10px !important;
+}
+
+.leaflet-control-attribution a {
+  color: var(--text-secondary) !important;
+}
+
+.leaflet-bar a {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border-bottom-color: var(--border-subtle) !important;
+}
+
+.leaflet-bar a:hover {
+  background: var(--bg-surface-hover) !important;
+}
+
+/* District boundary tip badges */
 .district-tip-tooltip {
   background: transparent !important;
   border: none !important;
@@ -79,84 +350,99 @@ body.dark,
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 2px 7px;
+  padding: 3px 9px;
   border-radius: 9999px;
-  font-family: Inter, system-ui, -apple-system, sans-serif;
-  font-size: 10.5px;
-  font-weight: 600;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 500;
   letter-spacing: -0.01em;
   white-space: nowrap;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  background: rgba(18, 18, 20, 0.88);
-  color: #f4f4f5;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  pointer-events: none;
   user-select: none;
-}
+  /*
+    The wrapper is pointer-events:none so badges don't block panning; the badge
+    itself opts back in, which is a small enough target to be harmless.
+  */
+  pointer-events: auto;
+  transition: box-shadow 120ms ease-out, background-color 120ms ease-out;
 
-html:not(.dark) .district-tip-badge {
-  background: rgba(255, 255, 255, 0.92);
+  /* Surface fades out to the right rather than carrying a district colour. */
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.85) 55%,
+    rgba(255, 255, 255, 0.6) 100%
+  );
   color: #18181b;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-/* Clean Dark Tooltip for Leaflet */
-.dark-tooltip {
-  background: #18181b !important;
-  color: #f4f4f5 !important;
-  border: 1px solid #27272a !important;
+.district-tip-badge:hover {
+  box-shadow:
+    0 0 0 2px var(--district, #94a3b8),
+    0 2px 10px rgba(0, 0, 0, 0.14);
+}
+
+html.dark .district-tip-badge {
+  background: linear-gradient(
+    90deg,
+    rgba(18, 18, 20, 0.92) 0%,
+    rgba(18, 18, 20, 0.8) 55%,
+    rgba(18, 18, 20, 0.55) 100%
+  );
+  color: #f4f4f5;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+html.dark .district-tip-badge:hover {
+  box-shadow:
+    0 0 0 2px var(--district, #94a3b8),
+    0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Map tooltips */
+.map-tooltip {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-subtle) !important;
   border-radius: 6px !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16) !important;
   padding: 4px 8px !important;
 }
-.dark-tooltip::before {
-  border-top-color: #18181b !important;
-  border-bottom-color: #18181b !important;
+
+.map-tooltip::before {
+  border-top-color: var(--bg-surface) !important;
+  border-bottom-color: var(--bg-surface) !important;
 }
 
-/* Hide all scrollbars globally */
-*::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-}
-* {
-  -ms-overflow-style: none !important;
-  scrollbar-width: none !important;
-}
-
-/* Leaflet Dark Map Customization */
-.leaflet-container {
-  background-color: #121214 !important;
-  font-family: inherit;
+/*
+  Hovering a district badge focuses that region: its own pins stay at full
+  strength while everything else recedes, so you can read off who is actually
+  in the district.
+*/
+.leaflet-container.is-district-focused .custom-map-pin,
+.leaflet-container.is-district-focused .district-tip-badge {
+  transition: opacity 140ms ease-out, filter 140ms ease-out;
 }
 
-.leaflet-popup-content-wrapper {
-  padding: 0 !important;
-  border-radius: 8px !important;
-  overflow: hidden !important;
-  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.5) !important;
-  border: 1px solid #27272a !important;
-  background: #18181b !important;
-  color: #f4f4f5 !important;
+.custom-map-pin .is-dimmed,
+.district-tip-badge.is-dimmed {
+  opacity: 0.22;
+  filter: saturate(0.4);
 }
 
-.leaflet-popup-content {
-  margin: 0 !important;
-  line-height: inherit !important;
-}
-
-.leaflet-popup-tip {
-  background: #18181b !important;
+.district-tip-badge.is-dimmed {
+  opacity: 0.35;
 }
 
 .custom-map-pin {
   transition: transform 0.15s ease-out;
 }
+
 .custom-map-pin:hover {
-  transform: scale(1.25);
+  transform: scale(1.2);
   z-index: 999 !important;
 }

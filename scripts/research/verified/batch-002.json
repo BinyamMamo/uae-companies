@@ -1,0 +1,359 @@
+[
+  {
+    "id": "aecom",
+    "website": "https://aecom.com",
+    "websiteSource": "https://en.wikipedia.org/wiki/Ubora_Towers",
+    "careersUrl": "https://aecom.com/careers",
+    "careersSource": "https://aecom.com/ae/en/locations/middle-east/uae/",
+    "linkedinUrl": "https://www.linkedin.com/company/aecom",
+    "linkedinSource": "https://aecom.com",
+    "shortDescription": "AECOM provides infrastructure consulting, engineering, architecture, and program management services across the UAE.",
+    "whatTheyDo": "AECOM delivers planning, design, engineering, and construction supervision for major civil infrastructure, transportation, and building developments. In the UAE, its multidisciplinary teams handle urban masterplanning, utility design, highway engineering, and site project management.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Ubora_Towers",
+    "industry": "Civil Engineering & Infrastructure Consulting",
+    "commonCareers": [
+      "Engineer - Utilities",
+      "Land Surveyor",
+      "Senior Urban Designer",
+      "Interior Designer",
+      "Project Surveyor"
+    ],
+    "careersEvidence": "https://middleeast.aecom.jobs/",
+    "technicalAreas": [
+      "Civil Infrastructure",
+      "Urban Planning & Design",
+      "Land Surveying",
+      "Utility Protection & Engineering"
+    ],
+    "address": "Ubora Commercial Tower, Level 43, Al Abraj Street, Business Bay, Dubai, UAE",
+    "latitude": 25.18058,
+    "longitude": 55.27103,
+    "locationSource": "https://en.wikipedia.org/wiki/Ubora_Towers",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "ADVANCE Graduate Program",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://aecom.com/careers/graduates-and-early-careers/middle-east-early-careers/",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Wikipedia - Ubora Towers",
+        "url": "https://en.wikipedia.org/wiki/Ubora_Towers"
+      },
+      {
+        "title": "Construction Week Online - AECOM Middle East",
+        "url": "https://www.constructionweekonline.com"
+      }
+    ],
+    "notes": "Input listed area as JLT; however, AECOM's Dubai office is located at Ubora Commercial Tower in Business Bay."
+  },
+  {
+    "id": "ag-melco-elevator-co-llc",
+    "website": "https://www.agmelco.com",
+    "websiteSource": "https://www.businesswire.com",
+    "shortDescription": "AG MELCO Elevator Co. L.L.C. supplies, installs, and maintains Mitsubishi Electric elevators, escalators, and moving walks in the UAE.",
+    "whatTheyDo": "AG MELCO Elevator specializes in vertical transportation systems, supplying Mitsubishi Electric passenger and freight lifts, escalators, and travelators. It provides engineering design, commissioning, modernization, and round-the-clock maintenance services for commercial, hospitality, and residential properties across the UAE.",
+    "descriptionSource": "https://www.businesswire.com",
+    "industry": "Elevators & Vertical Transportation",
+    "commonCareers": [],
+    "technicalAreas": [
+      "Elevator & Escalator Systems",
+      "Vertical Transportation Engineering",
+      "Field Maintenance"
+    ],
+    "address": "1st Floor, Dubai Municipality Building, Salahuddin Road, Deira, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.businesswire.com",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Business Wire - Mitsubishi Electric Completes Acquisition of AG MELCO Elevator Co. L.L.C.",
+        "url": "https://www.businesswire.com"
+      },
+      {
+        "title": "Naukrigulf - AG MELCO Elevator Co. L.L.C. Profile",
+        "url": "https://www.naukrigulf.com"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City; however, AG MELCO Elevator Co. L.L.C. is headquartered in Deira, with operations in Dubai Investments Park 2. In November 2025, Mitsubishi Electric completed the acquisition of all shares of AG MELCO Elevator Co. L.L.C."
+  },
+  {
+    "id": "agmc-bmw-mini-rollsroyce",
+    "website": "https://www.agmc.com",
+    "websiteSource": "https://en.wikipedia.org/wiki/Albatha_Group",
+    "careersUrl": "https://www.agmc.com",
+    "careersSource": "https://www.agmc.com",
+    "shortDescription": "AGMC (Arabian Gulf Mechanical Centre) is the official importer and dealer for BMW, MINI, and Rolls-Royce vehicles in Dubai, Sharjah, and the Northern Emirates.",
+    "whatTheyDo": "AGMC handles retail sales of new and certified pre-owned BMW, MINI, and Rolls-Royce motor vehicles and motorcycles. It operates dedicated service centres, mechanical repair facilities, paint and bodyshops, and parts distribution centres, alongside automotive finance and leasing services across the UAE.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Albatha_Group",
+    "industry": "Automotive Retail & Services",
+    "commonCareers": [
+      "Service Advisor",
+      "Rental Sales Agent",
+      "Diagnostic Technician"
+    ],
+    "careersEvidence": "https://ae.indeed.com",
+    "technicalAreas": [
+      "Automotive Diagnostics",
+      "Vehicle Mechanics & Repair",
+      "Luxury Aftersales Engineering"
+    ],
+    "address": "429 Sheikh Zayed Road, Al Quoz 1, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.agmc.com",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Albatha Group - AGMC Automotive Division Overview",
+        "url": "https://en.wikipedia.org/wiki/Albatha_Group"
+      },
+      {
+        "title": "Dubizzle - AGMC Showrooms Dubai Profile",
+        "url": "https://www.dubizzle.com"
+      }
+    ],
+    "notes": "Input listed area as Downtown; AGMC operates a Rolls-Royce boutique in nearby City Walk, but its corporate headquarters and flagship BMW/MINI/Rolls-Royce sales and service hub are at 429 Sheikh Zayed Road, Al Quoz 1."
+  },
+  {
+    "id": "aki-group",
+    "website": "https://www.akigroup.com",
+    "websiteSource": "https://www.forbesmiddleeast.com",
+    "careersUrl": "https://www.akigroup.com/careers",
+    "careersSource": "https://www.akigroup.com",
+    "linkedinUrl": "https://www.linkedin.com/company/alkhayyatinvestments",
+    "linkedinSource": "https://www.kompass.com",
+    "shortDescription": "Al Khayyat Investments (AKI Group) is a diversified Emirati family conglomerate operating in retail, healthcare, FMCG distribution, and logistics.",
+    "whatTheyDo": "AKI distributes pharmaceuticals, medical equipment, and fast-moving consumer goods across the region, while operating retail pharmacy and lifestyle fashion stores. In the UAE, it manages automated logistics fulfillment centres and runs divisions in contracting, fitness, and environmental services.",
+    "descriptionSource": "https://www.forbesmiddleeast.com",
+    "industry": "Diversified Conglomerate / Retail & Healthcare",
+    "commonCareers": [
+      "AI Engineer",
+      "Project Coordinator",
+      "Receptionist"
+    ],
+    "careersEvidence": "https://www.akigroup.com/careers",
+    "technicalAreas": [
+      "Artificial Intelligence",
+      "Supply Chain Logistics & Fulfillment",
+      "Pharmaceutical Distribution"
+    ],
+    "address": "iRise Tower, Al Thanyah First, Barsha Heights, Dubai, UAE",
+    "latitude": 25.09691,
+    "longitude": 55.18067,
+    "locationSource": "https://mapcarta.com",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Forbes Middle East - Top 100 Arab Family Businesses: AKI Group",
+        "url": "https://www.forbesmiddleeast.com"
+      },
+      {
+        "title": "Kompass UAE - Al Khayyat Investments Profile",
+        "url": "https://www.kompass.com"
+      }
+    ],
+    "notes": "Input listed area as Business Bay; however, AKI Group's corporate headquarters is located at iRise Tower in Barsha Heights, Dubai."
+  },
+  {
+    "id": "akzonobel",
+    "website": "https://www.akzonobel.com",
+    "websiteSource": "https://www.duluxarabia.com",
+    "careersUrl": "https://www.akzonobel.com/en/careers",
+    "careersSource": "https://www.akzonobel.com",
+    "linkedinUrl": "https://www.linkedin.com/company/akzonobel",
+    "linkedinSource": "https://www.akzonobel.com",
+    "shortDescription": "AkzoNobel manufactures and distributes performance coatings, industrial finishes, and decorative paints across the UAE.",
+    "whatTheyDo": "AkzoNobel supplies architectural paints under the Dulux brand, alongside marine, protective, and automotive refinish coatings. In the UAE, its teams provide technical specification, color technology, and specialized fire-protection coating consulting for regional infrastructure and construction projects.",
+    "descriptionSource": "https://www.duluxarabia.com",
+    "industry": "Chemicals, Paints & Coatings",
+    "commonCareers": [
+      "Specification Selling Specialist - Fire Protection",
+      "Site Operations Assistant",
+      "Emirati Graduate Project Coordinator"
+    ],
+    "careersEvidence": "https://www.akzonobel.com/en/careers",
+    "technicalAreas": [
+      "Protective Coatings & Passive Fire Protection",
+      "Architectural Paints & Coatings",
+      "Automotive Refinishing Systems"
+    ],
+    "address": "Al Habtoor Business Tower, 11th & 12th Floor, Dubai Marina, Dubai, UAE",
+    "latitude": 25.08539,
+    "longitude": 55.14165,
+    "locationSource": "https://maptons.com",
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "Emirati Graduate Program",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://www.akzonobel.com/en/careers",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dulux Arabia - AkzoNobel Corporate Presence",
+        "url": "https://www.duluxarabia.com"
+      },
+      {
+        "title": "Yellow Pages UAE - Akzo Nobel UAE Paints LLC",
+        "url": "https://www.yellowpages-uae.com"
+      }
+    ],
+    "notes": "Input listed area as JLT; however, AkzoNobel UAE Paints LLC's primary commercial office is at Al Habtoor Business Tower in Dubai Marina."
+  },
+  {
+    "id": "al-ahli-bank-of-kuwait",
+    "website": "https://abk.eahli.com",
+    "websiteSource": "https://en.wikipedia.org/wiki/Al_Ahli_Bank_of_Kuwait",
+    "careersUrl": "https://abk.eahli.com",
+    "careersSource": "https://abk.eahli.com",
+    "linkedinUrl": "https://www.linkedin.com/company/alahlibankofkuwait",
+    "linkedinSource": "https://abk.eahli.com",
+    "shortDescription": "Al Ahli Bank of Kuwait (ABK) provides wholesale, corporate, and commercial banking services in the UAE.",
+    "whatTheyDo": "ABK operates a wholesale banking branch in the DIFC providing corporate lending, treasury, and trade finance solutions to institutional clients, multinational companies, and government entities. It also operates full-service commercial banking branches in Deira and Abu Dhabi.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Al_Ahli_Bank_of_Kuwait",
+    "industry": "Banking & Financial Services",
+    "commonCareers": [],
+    "address": "Level 21, North Tower, Emirates Financial Towers, DIFC, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://abk.eahli.com",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Wikipedia - Al Ahli Bank of Kuwait",
+        "url": "https://en.wikipedia.org/wiki/Al_Ahli_Bank_of_Kuwait"
+      },
+      {
+        "title": "DIFC Public Register - Al Ahli Bank of Kuwait DIFC Branch",
+        "url": "https://www.difc.ae"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City; however, ABK has no presence in Dubai Internet City. Its UAE operations consist of a wholesale branch in DIFC and retail/commercial branches in Deira and Abu Dhabi."
+  },
+  {
+    "id": "al-buhaira-national-insurance-co",
+    "website": "https://www.albuhaira.com",
+    "websiteSource": "https://www.adx.ae",
+    "careersUrl": "https://www.albuhaira.com/careers",
+    "careersSource": "https://www.albuhaira.com",
+    "shortDescription": "Al Buhaira National Insurance Company (ABNIC) is a UAE public shareholding insurance provider offering commercial and personal coverage.",
+    "whatTheyDo": "ABNIC underwrites a range of risk management and insurance products including motor, medical, property, marine cargo and hull, aviation, and engineering policies. In Dubai, it operates branch offices in Deira and on Sheikh Zayed Road providing claims handling and underwriting support.",
+    "descriptionSource": "https://www.adx.ae",
+    "industry": "Insurance & Financial Services",
+    "commonCareers": [],
+    "address": "Al Buhairah Building, near Deira Clock Tower, Deira, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.albuhaira.com",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Abu Dhabi Securities Exchange (ADX) - ABNIC Profile",
+        "url": "https://www.adx.ae"
+      },
+      {
+        "title": "Central Bank of the UAE - Insurance Directory",
+        "url": "https://www.centralbank.ae"
+      }
+    ],
+    "notes": "Input listed area as Downtown; however, ABNIC's Dubai branches are located in Deira and on Sheikh Zayed Road (Al Wadi Building), with its corporate headquarters in Sharjah."
+  },
+  {
+    "id": "al-bustan-rotana-hotel",
+    "notFound": true,
+    "notes": "Al Bustan Rotana Hotel ceased operations on January 1, 2017 when Rotana's management contract ended. The property in Al Garhoud (not Business Bay) was subsequently rebranded as Mövenpick Grand Al Bustan Dubai."
+  },
+  {
+    "id": "al-futtaim",
+    "website": "https://www.alfuttaim.com",
+    "websiteSource": "https://en.wikipedia.org/wiki/Al-Futtaim_Group",
+    "careersUrl": "https://www.afuturewithus.com",
+    "careersSource": "https://www.alfuttaim.com",
+    "shortDescription": "Al-Futtaim is an Emirati conglomerate operating across automotive, retail, real estate, healthcare, and financial services.",
+    "whatTheyDo": "Al-Futtaim manages exclusive distribution and retail franchises for global brands including Toyota, Lexus, IKEA, and Marks & Spencer. It also develops mixed-use urban master projects such as Dubai Festival City, operates private healthcare facilities, and delivers contracting and financial services across the UAE.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Al-Futtaim_Group",
+    "industry": "Diversified Conglomerate",
+    "commonCareers": [
+      "Data Science Manager",
+      "IT Specialist",
+      "Design Manager (Interiors)",
+      "Tenant Relations Manager",
+      "Sales Assistant"
+    ],
+    "careersEvidence": "https://www.afuturewithus.com",
+    "technicalAreas": [
+      "Data Science",
+      "Information Technology",
+      "Automotive Engineering",
+      "Supply Chain Management"
+    ],
+    "address": "Festival Tower, Dubai Festival City, P.O. Box 152, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://en.wikipedia.org/wiki/Dubai_Festival_City",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "SINYAR Emiratisation Programme",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://www.alfuttaim.com",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Wikipedia - Al-Futtaim Group",
+        "url": "https://en.wikipedia.org/wiki/Al-Futtaim_Group"
+      },
+      {
+        "title": "Gulf News - Al-Futtaim Overview",
+        "url": "https://gulfnews.com"
+      }
+    ],
+    "notes": "Input listed area as JLT; however, Al-Futtaim Group's corporate headquarters is located at Festival Tower in Dubai Festival City. Not to be confused with Majid Al Futtaim, a separate conglomerate."
+  },
+  {
+    "id": "al-ghurair",
+    "website": "https://www.al-ghurair.com",
+    "websiteSource": "https://en.wikipedia.org/wiki/Al-Ghurair_Group",
+    "careersUrl": "https://www.al-ghurair.com/en/careers",
+    "careersSource": "https://www.al-ghurair.com",
+    "linkedinUrl": "https://www.linkedin.com/company/al-ghurair-investment",
+    "linkedinSource": "https://www.naukrigulf.com",
+    "shortDescription": "Al Ghurair Investment is a diversified Emirati family conglomerate operating across foods, resources, properties, construction, energy, and mobility.",
+    "whatTheyDo": "Al Ghurair manages large-scale industrial assets including flour and grain processing mills, printing and packaging operations, and aluminium and facade construction contracting. In the UAE, it also oversees commercial real estate developments, including Al Ghurair Centre, and operates retail mobility services.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Al-Ghurair_Group",
+    "industry": "Diversified Industrial Conglomerate",
+    "commonCareers": [],
+    "technicalAreas": [
+      "Food Manufacturing & Grain Processing",
+      "Structural Engineering & Facade Contracting",
+      "Energy & Resources"
+    ],
+    "address": "Al Ghurair Group Head Office, Omar Bin Al Khattab Road, Al Muraqqabat, Deira, P.O. Box 6999, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://en.wikipedia.org/wiki/Al-Ghurair_Group",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Wikipedia - Al-Ghurair Group",
+        "url": "https://en.wikipedia.org/wiki/Al-Ghurair_Group"
+      },
+      {
+        "title": "Naukrigulf - Al Ghurair Investment Profile",
+        "url": "https://www.naukrigulf.com"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City; however, Al Ghurair Investment is headquartered on Omar Bin Al Khattab Road, Al Muraqqabat, Deira, Dubai."
+  }
+]

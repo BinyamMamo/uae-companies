@@ -1,0 +1,72 @@
+[
+  {
+    "id": "gargash-group",
+    "name": "Gargash Group",
+    "officialName": "Gargash Group",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "gatex-innovations",
+    "name": "GateX Innovations",
+    "officialName": "GateX Innovations",
+    "emirate": "Dubai",
+    "area": "Dubai Silicon Oasis"
+  },
+  {
+    "id": "gcc-services",
+    "name": "GCC Services",
+    "officialName": "GCC Services",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "general-electric-ge",
+    "name": "General Electric (GE)",
+    "officialName": "General Electric (GE)",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "generation-3d-llc",
+    "name": "Generation 3D",
+    "officialName": "Generation 3D LLC",
+    "emirate": "Dubai",
+    "area": "Al Quoz"
+  },
+  {
+    "id": "ghobash-trading-and-investment-co-ltd",
+    "name": "Ghobash Trading and Investment Co. LTD",
+    "officialName": "Ghobash Trading and Investment Co. LTD",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "gifts-markets-general-trading-llc",
+    "name": "Gifts Markets General Trading LLC",
+    "officialName": "Gifts Markets General Trading LLC",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "global-feeder-shipping-llc",
+    "name": "Global Feeder Shipping LLC",
+    "officialName": "Global Feeder Shipping LLC",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "globe-soccer-dwc-llc",
+    "name": "Globe Soccer DWC LLC",
+    "officialName": "Globe Soccer DWC LLC",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "gm-middle-east-operations",
+    "name": "GM Middle East Operations",
+    "officialName": "GM Middle East Operations",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  }
+]

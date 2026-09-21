@@ -1,0 +1,72 @@
+[
+  {
+    "id": "ava-group",
+    "name": "AVA Group",
+    "officialName": "AVA Group",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "aveva",
+    "name": "AVEVA",
+    "officialName": "AVEVA",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "azadea-group",
+    "name": "Azadea Group",
+    "officialName": "Azadea Group",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "bac-middle-east",
+    "name": "BAC Middle East",
+    "officialName": "BAC Middle East",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "bahri",
+    "name": "Bahri",
+    "officialName": "Bahri",
+    "emirate": "Dubai",
+    "area": "JLT"
+  },
+  {
+    "id": "bahri-and-mazroei-trading-company",
+    "name": "Bahri and Mazroei Trading Company",
+    "officialName": "Bahri and Mazroei Trading Company",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  },
+  {
+    "id": "bain-company-middle-east",
+    "name": "Bain & Company Middle East",
+    "officialName": "Bain & Company Middle East",
+    "emirate": "Dubai",
+    "area": "Downtown"
+  },
+  {
+    "id": "baker-hughes",
+    "name": "Baker Hughes",
+    "officialName": "Baker Hughes",
+    "emirate": "Dubai",
+    "area": "Business Bay"
+  },
+  {
+    "id": "bank-of-sharjah",
+    "name": "Bank of Sharjah",
+    "officialName": "Bank of Sharjah",
+    "emirate": "Sharjah",
+    "area": "Sharjah"
+  },
+  {
+    "id": "basf-fze",
+    "name": "BASF FZE",
+    "officialName": "BASF FZE",
+    "emirate": "Dubai",
+    "area": "Dubai Internet City"
+  }
+]

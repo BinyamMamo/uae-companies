@@ -1,181 +1,175 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import type { Company } from '../types/company';
 import { useApp } from '../context/AppContext';
-import { formatBusCommute, formatDistance } from '../utils/distance';
 import { isCareerRelevant, countMatchingRoles, getStudentMatchLabel } from '../utils/relevance';
-import { Bookmark, MapPin, Scale } from 'lucide-react';
+import { Bookmark, Scale } from 'lucide-react';
+import { CompanyLogo } from './ui/CompanyLogo';
+import { CommuteMeta } from './ui/CommuteMeta';
+import { SaveToListMenu } from './SaveToListMenu';
+import { ProvenanceBadge } from './ui/ProvenanceBadge';
 
 interface CompanyCardProps {
   company: Company;
   isSelected?: boolean;
 }
 
-export const CompanyCard: React.FC<CompanyCardProps> = ({ company, isSelected = false }) => {
+const MAX_VISIBLE_ROLES = 4;
+
+const CompanyCardComponent: React.FC<CompanyCardProps> = ({ company, isSelected = false }) => {
+  const [isSaveMenuOpen, setIsSaveMenuOpen] = useState(false);
+  const saveButtonRef = useRef<HTMLButtonElement>(null);
   const {
     setSelectedCompany,
-    toggleSaveCompany,
     isCompanySaved,
     toggleCompareCompany,
     isCompanyInCompare,
-    userInterests
+    userInterests,
   } = useApp();
 
   const isSaved = isCompanySaved(company.id);
   const isCompared = isCompanyInCompare(company.id);
   const matchCount = countMatchingRoles(company.commonCareers, userInterests);
   const matchLabel = getStudentMatchLabel(matchCount);
-
-  const handleCardClick = (e: React.MouseEvent) => {
-    const target = e.target as HTMLElement;
-    if (target.closest('button') || target.closest('input')) {
-      return;
-    }
-    setSelectedCompany(company);
-  };
+  const hiddenRoles = company.commonCareers.length - MAX_VISIBLE_ROLES;
 
   return (
-    <div
-      onClick={handleCardClick}
-      className={`relative bg-white dark:bg-[#18181b] border rounded-lg p-4 sm:p-5 transition-all cursor-pointer group ${
+    /*
+      The title button carries a stretched ::after, so the whole card is
+      clickable while there is exactly one focusable control for it. This
+      replaces a clickable <div> that sniffed `target.closest('button')` and
+      was unreachable by keyboard.
+    */
+    <article
+      className={`company-row group relative isolate bg-surface border rounded-xl p-4 sm:p-5 transition-colors transition-shadow ${
         isSelected
-          ? 'border-brand-600 ring-1 ring-brand-600 shadow-sm'
-          : 'border-slate-200 dark:border-[#27272a] hover:border-slate-300 dark:hover:border-[#3f3f46] hover:shadow-subtle'
+          ? 'border-brand-600 ring-1 ring-brand-600 shadow-xs'
+          : 'border-line hover:border-line-strong hover:shadow-subtle'
       }`}
     >
-      <div className="flex items-start justify-between gap-3">
-        
-        {/* Left: Logo and details */}
-        <div className="flex items-start gap-3.5 sm:gap-4 flex-1 min-w-0">
-          
-          {/* Company Logo / Avatar */}
-          <div className="w-11 h-11 sm:w-12 sm:h-12 rounded border border-slate-100 dark:border-[#27272a] bg-slate-50 dark:bg-[#222226] flex items-center justify-center shrink-0 overflow-hidden p-1.5">
-            <img
-              src={company.logo}
-              alt={`${company.name} logo`}
-              className="w-full h-full object-contain"
-              loading="lazy"
-              onError={(e) => {
-                const target = e.target as HTMLElement;
-                target.style.display = 'none';
-                if (target.parentElement) {
-                  target.parentElement.innerHTML = `<span class="text-xs font-bold text-slate-600 dark:text-slate-300">${company.name.slice(0, 2).toUpperCase()}</span>`;
+      <div className="flex items-start gap-3 sm:gap-4">
+        <CompanyLogo name={company.name} src={company.logo} size="md" className="sm:w-12 sm:h-12" />
+
+        <div className="flex-1 min-w-0">
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0">
+              <div className="flex items-center gap-2 flex-wrap">
+                <h3 className="text-sm sm:text-base font-semibold text-ink">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedCompany(company)}
+                    className="text-left after:absolute after:inset-0 after:rounded-xl after:content-[''] group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+                  >
+                    {company.name}
+                  </button>
+                </h3>
+              </div>
+
+              <p className="text-xs text-ink-3 mt-1 truncate">
+                {company.categories.join(' · ')}
+              </p>
+            </div>
+
+            {/* Actions sit above the stretched link */}
+            <div className="relative z-10 flex items-center gap-1 shrink-0">
+              <button
+                type="button"
+                onClick={() => toggleCompareCompany(company.id)}
+                aria-pressed={isCompared}
+                className={`p-2 rounded-md border transition-colors ${
+                  isCompared
+                    ? 'bg-ink text-app border-ink'
+                    : 'bg-surface text-ink-3 border-line hover:text-ink hover:bg-surface-2'
+                }`}
+                aria-label={
+                  isCompared
+                    ? `Remove ${company.name} from comparison`
+                    : `Add ${company.name} to comparison`
                 }
-              }}
-            />
+                title={isCompared ? 'Remove from comparison' : 'Add to comparison'}
+              >
+                <Scale className="w-4 h-4" aria-hidden="true" />
+              </button>
+
+              <div className="relative">
+                <button
+                  ref={saveButtonRef}
+                  type="button"
+                  onClick={() => setIsSaveMenuOpen(open => !open)}
+                  aria-pressed={isSaved}
+                  aria-expanded={isSaveMenuOpen}
+                  aria-haspopup="dialog"
+                  className={`p-2 rounded-md border transition-colors ${
+                    isSaved
+                      ? 'text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-500/15 border-brand-200 dark:border-brand-500/30'
+                      : 'text-ink-3 border-line hover:text-ink hover:bg-surface-2'
+                  }`}
+                  aria-label={isSaved ? `Edit lists for ${company.name}` : `Save ${company.name} to a list`}
+                  title={isSaved ? 'Edit lists' : 'Save to a list'}
+                >
+                  <Bookmark
+                    className={`w-4 h-4 ${isSaved ? 'fill-current' : ''}`}
+                    aria-hidden="true"
+                  />
+                </button>
+
+                {isSaveMenuOpen && (
+                  <SaveToListMenu
+                    companyId={company.id}
+                    companyName={company.name}
+                    anchorRef={saveButtonRef}
+                    onClose={() => setIsSaveMenuOpen(false)}
+                  />
+                )}
+              </div>
+            </div>
           </div>
 
-          {/* Core Info */}
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2">
-              <h3 className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white truncate group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
-                {company.name}
-              </h3>
-              {company.location.isFreeZone && (
-                <span className="hidden sm:inline-block text-[10px] uppercase font-medium tracking-wider px-1.5 py-0.5 rounded bg-slate-100 dark:bg-[#222226] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-[#27272a]">
-                  Free Zone
-                </span>
-              )}
-            </div>
+          <CommuteMeta company={company} showFreeZone className="mt-2" />
 
-            {/* Categories */}
-            <div className="text-xs text-slate-500 dark:text-slate-400 font-normal mt-0.5 truncate">
-              {company.categories.join(' · ')}
-            </div>
-
-            {/* Location & Metrics */}
-            <div className="flex items-center flex-wrap gap-x-2 gap-y-1 text-xs text-slate-600 dark:text-slate-300 mt-1.5">
-              <span className="flex items-center gap-1 font-medium text-slate-700 dark:text-slate-200">
-                <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                <span>{company.location.emirate}, UAE</span>
-              </span>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
-              <span>{formatDistance(company.commute.distanceKm)}</span>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
-              <span className="text-slate-700 dark:text-slate-200 font-medium">
-                {formatBusCommute(company.commute.busMinutes)}
-              </span>
-            </div>
-
-            {/* Short Description */}
-            <p className="text-xs text-slate-600 dark:text-slate-300 mt-2 line-clamp-2 leading-relaxed font-normal">
+          {company.shortDescription ? (
+            <p className="text-xs sm:text-[13px] text-ink-2 mt-2 line-clamp-2 leading-relaxed">
               {company.shortDescription}
             </p>
+          ) : (
+            <p className="text-xs sm:text-[13px] text-ink-3 mt-2 italic">
+              No verified description yet.
+            </p>
+          )}
 
-            {/* Career Roles with Subtle Relevance Highlights */}
-            <div className="mt-3 flex flex-wrap items-center gap-1.5">
-              {company.commonCareers.slice(0, 4).map((role) => {
-                const relevant = isCareerRelevant(role, userInterests);
-                return (
-                  <span
-                    key={role}
-                    className={`inline-flex items-center px-2 py-0.5 text-[11px] rounded transition-colors border bg-transparent ${
-                      relevant
-                        ? 'text-brand-600 dark:text-brand-400 font-medium border-brand-500/80 dark:border-brand-400 shadow-2xs'
-                        : 'text-slate-600 dark:text-slate-400 font-normal border-slate-200 dark:border-[#27272a]'
-                    }`}
-                  >
-                    {role}
-                  </span>
-                );
-              })}
-
-              {company.commonCareers.length > 4 && (
-                <span className="text-[10px] text-slate-400 dark:text-slate-500 font-normal px-1">
-                  +{company.commonCareers.length - 4} more
+          <div className="mt-3 flex flex-wrap items-center gap-1.5">
+            {company.commonCareers.slice(0, MAX_VISIBLE_ROLES).map(role => {
+              const relevant = isCareerRelevant(role, userInterests);
+              return (
+                <span
+                  key={role}
+                  className={`inline-flex items-center px-2 py-0.5 text-[11px] rounded-md border transition-colors ${
+                    relevant
+                      ? 'text-accent-soft-text font-medium border-accent-soft-border bg-accent-soft'
+                      : 'text-ink-2 border-line bg-transparent'
+                  }`}
+                >
+                  {role}
                 </span>
-              )}
+              );
+            })}
 
-              {matchLabel && (
-                <span className="ml-1 text-[11px] font-medium text-brand-600 dark:text-brand-400 hidden sm:inline">
-                  {matchLabel}
-                </span>
-              )}
-            </div>
+            {hiddenRoles > 0 && (
+              <span className="text-[11px] text-ink-3 px-1">+{hiddenRoles} more</span>
+            )}
+
+            {matchLabel && (
+              <span className="ml-auto text-[11px] font-medium text-brand-600 dark:text-brand-400">
+                {matchLabel}
+              </span>
+            )}
           </div>
+
+          <ProvenanceBadge company={company} caveatOnly className="mt-2.5" />
         </div>
-
-        {/* Right Action buttons */}
-        <div className="flex flex-col items-end gap-2 shrink-0">
-          
-          {/* Bookmark Button */}
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              toggleSaveCompany(company.id);
-            }}
-            className={`p-1.5 rounded transition-colors ${
-              isSaved
-                ? 'text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-500/20'
-                : 'text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-[#222226]'
-            }`}
-            title={isSaved ? 'Remove from saved' : 'Save company'}
-            aria-label={isSaved ? `Unsave ${company.name}` : `Save ${company.name}`}
-          >
-            <Bookmark className={`w-4 h-4 ${isSaved ? 'fill-brand-600 dark:fill-brand-400' : ''}`} />
-          </button>
-
-          {/* Quick Compare Toggle */}
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              toggleCompareCompany(company.id);
-            }}
-            className={`p-1 text-[10px] flex items-center gap-1 rounded border transition-colors ${
-              isCompared
-                ? 'bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-900 border-slate-800 dark:border-slate-200'
-                : 'bg-white dark:bg-[#222226] text-slate-500 dark:text-slate-400 border-slate-200 dark:border-[#27272a] hover:text-slate-800 dark:hover:text-slate-200'
-            }`}
-            title="Compare company"
-            aria-label={`Compare ${company.name}`}
-          >
-            <Scale className="w-3 h-3" />
-            <span className="hidden lg:inline">{isCompared ? 'Compared' : 'Compare'}</span>
-          </button>
-        </div>
-
       </div>
-    </div>
+    </article>
   );
 };
+
+/** 225 of these render at once — memoising keeps filter/search typing smooth. */
+export const CompanyCard = React.memo(CompanyCardComponent);

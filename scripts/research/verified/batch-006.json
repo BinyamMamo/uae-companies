@@ -1,0 +1,247 @@
+[
+  {
+    "id": "ava-group",
+    "notFound": true,
+    "notes": "Cannot confirm an entity officially named 'AVA Group' in JLT, Dubai. Multiple distinct entities exist with similar names, including Ava Global DMCC (a secure precious logistics provider operating in JLT, formerly part of Australia-listed Ava Risk Group), AVA Group Co DMCC (a general trading firm), and unrelated entities such as AVA Group (India) and AVA Group (communications)."
+  },
+  {
+    "id": "aveva",
+    "website": "https://www.aveva.com",
+    "websiteSource": "https://www.aveva.com",
+    "careersUrl": "https://www.aveva.com/en/about/careers/",
+    "careersSource": "https://www.aveva.com/en/about/careers/",
+    "shortDescription": "AVEVA is a global industrial software provider delivering engineering design, digital twin, and operational software solutions in the UAE.",
+    "whatTheyDo": "AVEVA delivers enterprise industrial software solutions to energy, infrastructure, and manufacturing sectors across the Middle East. Operating through AVEVA Software Middle East FZ-LLC and regional partner channels, its UAE teams provide technical consultancy, sales, and software implementation. The company supports digital transformation for regional utilities, energy operators, and engineering contractors.",
+    "descriptionSource": "https://www.aveva.com",
+    "industry": "Industrial Software & Technology",
+    "address": "Office 201, Block D, Office Park, Abdullah Omran Taryam Street, Dubai Internet City, Dubai, UAE",
+    "latitude": 25.10528,
+    "longitude": 55.16833,
+    "locationSource": "https://2gis.ae/dubai/firm/70000001019349897",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "2GIS Office Park Directory Listing",
+        "url": "https://2gis.ae/dubai/firm/70000001019349897"
+      },
+      {
+        "title": "ATN Info Business Listing",
+        "url": "https://www.atninfo.com/uae/aveva-software-middle-east-fz-llc"
+      }
+    ],
+    "notes": "AVEVA operates in the UAE through AVEVA Software Middle East FZ-LLC (historically registered in Office Park at Dubai Internet City / Media City) as well as an office at Dubai Digital Park in Dubai Silicon Oasis."
+  },
+  {
+    "id": "azadea-group",
+    "website": "https://www.azadeagroupholding.com",
+    "websiteSource": "https://www.azadeagroupholding.com",
+    "careersUrl": "https://www.azadeagroupholding.com/careers",
+    "careersSource": "https://www.azadeagroupholding.com/careers",
+    "shortDescription": "Azadea Group is a premier lifestyle retail enterprise operating over 50 prominent international franchise brands across the UAE.",
+    "whatTheyDo": "Azadea Group manages franchised retail networks in fashion, accessories, food and beverage, home furnishings, and sporting goods, including Zara, Massimo Dutti, Virgin Megastore, and Decathlon. In the UAE, the group runs retail store chains and country headquarters overseeing merchandising, supply chain logistics, retail operations, marketing, and human resources.",
+    "descriptionSource": "https://www.azadeagroupholding.com",
+    "industry": "Retail & Consumer Goods",
+    "address": "Floors P1 & P2, O-14 Tower, Abraj Street, Business Bay, P.O. Box 22700, Dubai, UAE",
+    "latitude": 25.18083,
+    "longitude": 55.26972,
+    "locationSource": "https://en.wikipedia.org/wiki/O-14_(Dubai)",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.azadeagroupholding.com/careers",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Wikipedia O-14 Tower Overview",
+        "url": "https://en.wikipedia.org/wiki/O-14_(Dubai)"
+      },
+      {
+        "title": "2GIS Business Bay Directory",
+        "url": "https://2gis.ae"
+      }
+    ],
+    "notes": "The input specified the 'Downtown' area, but Azadea Group's UAE corporate headquarters is situated in the adjacent Business Bay district in O-14 Tower."
+  },
+  {
+    "id": "bac-middle-east",
+    "notFound": true,
+    "notes": "BAC Middle East was a long-standing recruitment consultancy in Dubai, but has officially ceased operations and permanently closed. The company confirmed on its portal that it deleted all candidate and client data in compliance with GDPR and warned that any ongoing operations or listings using the BAC Middle East name are unauthorized."
+  },
+  {
+    "id": "bahri",
+    "website": "https://www.bahri.sa",
+    "websiteSource": "https://www.bahri.sa",
+    "careersUrl": "https://www.bahri.sa/",
+    "careersSource": "https://www.bahri.sa/",
+    "shortDescription": "Bahri is a global leader in maritime transportation and logistics, operating commercial shipping and vessel management offices in Dubai.",
+    "whatTheyDo": "Bahri manages an international maritime fleet covering crude oil transport, chemicals, dry bulk cargo, and integrated logistics. In the UAE, its Dubai offices at One JLT accommodate Bahri Ship Management, Bahri Oil, Bahri Chemicals, and BahriBunge Dry Bulk. The teams in Dubai manage vessel operations, chartering, technical ship management, and regional commercial activities.",
+    "descriptionSource": "https://www.bahri.sa",
+    "industry": "Maritime Shipping & Logistics",
+    "address": "Levels 9 & 10, One JLT, Jumeirah Lakes Towers, Dubai, UAE",
+    "latitude": 25.07238,
+    "longitude": 55.14478,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://themaritimestandard.com",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "The Maritime Standard Coverage",
+        "url": "https://themaritimestandard.com"
+      },
+      {
+        "title": "Arab News Report on Bahri",
+        "url": "https://www.arabnews.com"
+      }
+    ],
+    "notes": "Bahri is the National Shipping Company of Saudi Arabia. Not to be confused with Bahri & Mazroei Group (a separate UAE-based infrastructure firm) or Bahri Bar (a lounge in Madinat Jumeirah)."
+  },
+  {
+    "id": "bahri-and-mazroei-trading-company",
+    "website": "https://bahrimazroei.com",
+    "websiteSource": "https://bahrimazroei.com",
+    "careersUrl": "https://bahrimazroei.com/careers/",
+    "careersSource": "https://bahrimazroei.com/careers/",
+    "shortDescription": "Bahri & Mazroei Trading Company (BMTC) is a premier UAE provider and distributor of electrical, lighting, and building infrastructure systems.",
+    "whatTheyDo": "BMTC distributes electrical components, smart lighting, automation systems, and life safety solutions for commercial, residential, and industrial construction projects across the UAE. It partners with global manufacturers to deliver building infrastructure solutions to contractors and government entities. The company's headquarters in Dubai houses central administration, engineering sales, and technical service teams.",
+    "descriptionSource": "https://bahrimazroei.com/bmtc.php",
+    "industry": "Electrical & Building Infrastructure",
+    "address": "BMTC Building, 22A Street, Al Khabaisi, Deira, P.O. Box 1247, Dubai, UAE",
+    "locationSource": "https://bahrimazroei.com/contact-us.php",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://bahrimazroei.com/careers/",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "2GIS Bahri & Mazroei Profile",
+        "url": "https://2gis.ae/dubai/firm/3215295014389014"
+      },
+      {
+        "title": "Kompass Directory Profile",
+        "url": "https://www.kompass.com"
+      }
+    ],
+    "notes": "The input listed 'Dubai Internet City', but BMTC is headquartered in Al Khabaisi, Deira, Dubai. Specific coordinates are omitted to avoid returning a generic district centroid."
+  },
+  {
+    "id": "bain-company-middle-east",
+    "website": "https://www.bain.com",
+    "websiteSource": "https://www.bain.com",
+    "careersUrl": "https://www.bain.com/careers/",
+    "careersSource": "https://www.bain.com/careers/",
+    "shortDescription": "Bain & Company Middle East is a premier global management consultancy advising public and private sector leaders in the UAE.",
+    "whatTheyDo": "Bain & Company advises senior leadership across strategy, performance improvement, digital transformation, and mergers and acquisitions. In the UAE, its Dubai practice serves sovereign wealth funds, private equity, financial institutions, energy companies, and government ministries. The office hosts strategy consulting teams, data scientists, and digital implementation specialists.",
+    "descriptionSource": "https://www.bain.com",
+    "industry": "Management Consulting",
+    "address": "Level 7, The Offices 4, One Central, Dubai World Trade Centre, P.O. Box 23236, Dubai, UAE",
+    "latitude": 25.22298,
+    "longitude": 55.28699,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.bain.com/careers/",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Consultancy-ME Coverage on Bain Relocation",
+        "url": "https://www.consultancy-me.com"
+      },
+      {
+        "title": "Maptons One Central Directory",
+        "url": "https://maptons.com"
+      }
+    ],
+    "notes": "The input listed 'Downtown', but Bain & Company Middle East relocated its Dubai office to The Offices 4 in One Central at the Dubai World Trade Centre in January 2023."
+  },
+  {
+    "id": "baker-hughes",
+    "website": "https://www.bakerhughes.com",
+    "websiteSource": "https://www.bakerhughes.com",
+    "careersUrl": "https://careers.bakerhughes.com/",
+    "careersSource": "https://careers.bakerhughes.com/",
+    "shortDescription": "Baker Hughes is an energy technology company delivering equipment and digital solutions across the energy value chain in the UAE.",
+    "whatTheyDo": "Baker Hughes provides advanced technologies and services for oilfield operations, turbomachinery, emissions reduction, and industrial asset management. In the UAE, its Jebel Ali facilities serve as key operational bases, technical support centers, and host the Eastern Hemisphere Education Center for workforce and customer training. Its local teams support regional oil and gas operators and clean energy initiatives.",
+    "descriptionSource": "https://www.bakerhughes.com",
+    "industry": "Energy Technology & Oilfield Services",
+    "address": "JAFZA View 19, Downtown Jebel Ali, Jebel Ali Free Zone, P.O. Box 17850, Dubai, UAE",
+    "latitude": 24.98361,
+    "longitude": 55.09388,
+    "locationSource": "https://mapcarta.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://careers.bakerhughes.com/",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Mapcarta Jafza View 19 Overview",
+        "url": "https://mapcarta.com"
+      },
+      {
+        "title": "ProTenders Baker Hughes UAE Profile",
+        "url": "https://www.protenders.com"
+      }
+    ],
+    "notes": "The input listed 'Business Bay', but Baker Hughes maintains its primary corporate, educational, and operational bases in the Jebel Ali Free Zone (JAFZA) / Downtown Jebel Ali area."
+  },
+  {
+    "id": "bank-of-sharjah",
+    "website": "https://www.bankofsharjah.com",
+    "websiteSource": "https://www.bankofsharjah.com",
+    "careersUrl": "https://www.bankofsharjah.com/en/careers",
+    "careersSource": "https://www.bankofsharjah.com/en/careers",
+    "shortDescription": "Bank of Sharjah is a commercial bank offering corporate, commercial, investment, and retail banking services across the UAE.",
+    "whatTheyDo": "Bank of Sharjah provides corporate lending, trade finance, structured finance, treasury, and retail banking services to commercial enterprises, government institutions, and individuals in the UAE. Founded in 1973 as the first commercial bank in Sharjah, it maintains centralized credit, compliance, digital banking, and investment management teams at its Sharjah head office. It operates branches across the emirates.",
+    "descriptionSource": "https://www.bankofsharjah.com",
+    "industry": "Banking & Financial Services",
+    "address": "Bank of Sharjah Head Office, Al Khan Street, P.O. Box 1394, Sharjah, UAE",
+    "latitude": 25.33011,
+    "longitude": 55.36743,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.aus.edu",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Abu Dhabi Securities Exchange (ADX) Listed Company Profile",
+        "url": "https://www.adx.ae"
+      },
+      {
+        "title": "American University of Sharjah Career Placement News",
+        "url": "https://www.aus.edu"
+      }
+    ],
+    "notes": "Bank of Sharjah PJSC is listed on the Abu Dhabi Securities Exchange (ADX: BOS)."
+  },
+  {
+    "id": "basf-fze",
+    "website": "https://www.basf.com/ae/en.html",
+    "websiteSource": "https://www.basf.com/ae/en.html",
+    "careersUrl": "https://www.basf.com/ae/en/careers.html",
+    "careersSource": "https://www.basf.com/ae/en/careers.html",
+    "shortDescription": "BASF FZE is the regional entity of the multinational chemical corporation, supplying performance chemicals and materials in the UAE.",
+    "whatTheyDo": "BASF supplies chemical solutions, performance materials, polymer dispersions, coatings, and agricultural products across the Middle East. In the UAE, its regional headquarters at JAFZA One oversees corporate strategy, supply chain logistics, customer technical support, and regional sales distribution. Technical sales and application engineers collaborate with local construction, energy, and automotive industries.",
+    "descriptionSource": "https://www.basf.com/ae/en.html",
+    "industry": "Chemicals & Materials",
+    "address": "Floor 15, Tower B, JAFZA One, Exit 17, Sheikh Zayed Road, Jebel Ali Free Zone, P.O. Box 61309, Dubai, UAE",
+    "latitude": 24.96476,
+    "longitude": 55.08059,
+    "locationSource": "https://mapcarta.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.basf.com/ae/en/careers.html",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Mapcarta Jafza One Facility Overview",
+        "url": "https://mapcarta.com"
+      },
+      {
+        "title": "2GIS Jafza One Listing",
+        "url": "https://2gis.ae"
+      }
+    ],
+    "notes": "The input listed 'Dubai Internet City', but BASF FZE operates its UAE headquarters from JAFZA One in the Jebel Ali Free Zone."
+  }
+]
