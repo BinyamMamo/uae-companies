@@ -1,0 +1,337 @@
+[
+  {
+    "id": "goodwill-world",
+    "website": "https://goodwillworld.com",
+    "websiteSource": "https://www.thenationalnews.com",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "Goodwill World is a Dubai-based multi-family office and financial advisory firm led by Dr. Sanjay Tolani.",
+    "whatTheyDo": "Goodwill World provides estate planning, intergenerational wealth structuring, succession planning, and financial advisory services for high-net-worth families across the GCC and internationally. It operates as part of the Tolani family office platform in the UAE.",
+    "descriptionSource": "https://www.thenationalnews.com",
+    "industry": "Financial Services",
+    "commonCareers": [],
+    "careersEvidence": null,
+    "technicalAreas": [],
+    "address": null,
+    "latitude": null,
+    "longitude": null,
+    "locationSource": null,
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "The National News coverage on Sanjay Tolani and Goodwill World",
+        "url": "https://www.thenationalnews.com"
+      }
+    ],
+    "notes": "Input listed area as JLT, but no registered office or public street address in JLT was verified. The firm operates as a private family office advisory platform managing inquiries digitally."
+  },
+  {
+    "id": "goodyear",
+    "website": "https://www.goodyear-mea.com",
+    "websiteSource": "https://auto-parts-africa.com",
+    "careersUrl": "https://corporate.goodyear.com/us/en/careers.html",
+    "careersSource": "https://www.goodyear-mea.com",
+    "shortDescription": "Goodyear Middle East FZE serves as the regional commercial and administrative headquarters for Goodyear tires across the Middle East and Africa.",
+    "whatTheyDo": "The regional entity oversees commercial strategy, sales operations, marketing, and distribution coordination for Goodyear passenger and commercial tires across the Middle East and Africa. In the UAE, it operates from Dubai Silicon Oasis and coordinates with local automotive distributor networks.",
+    "descriptionSource": "https://auto-parts-africa.com",
+    "industry": "Automotive & Manufacturing",
+    "commonCareers": [],
+    "careersEvidence": null,
+    "technicalAreas": [],
+    "address": "Goodyear Middle East FZE, A-Wing, 4th Floor, Dubai Silicon Oasis Headquarters, P.O. Box 33528, Dubai, UAE",
+    "latitude": 25.12465,
+    "longitude": 55.38066,
+    "locationSource": "https://mapcarta.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Auto Parts Africa Goodyear Middle East FZE B2B Profile",
+        "url": "https://auto-parts-africa.com"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City, but the official regional headquarters office is located in Dubai Silicon Oasis Headquarters (Goodyear Middle East FZE)."
+  },
+  {
+    "id": "grant-thornton",
+    "website": "https://www.grantthornton.ae",
+    "websiteSource": "https://www.frc.org.uk",
+    "careersUrl": "https://www.grantthornton.ae/careers/",
+    "careersSource": "https://jobs.accaglobal.com",
+    "shortDescription": "Grant Thornton UAE is a major professional services firm delivering assurance, tax, and advisory solutions.",
+    "whatTheyDo": "Grant Thornton UAE offers financial audit and assurance, direct and indirect tax advisory, forensic investigation, and business consulting services. It serves financial institutions, government organizations, and mid-to-large corporates across the UAE, with main offices located in Dubai, Abu Dhabi, and Sharjah.",
+    "descriptionSource": "https://jobs.accaglobal.com",
+    "industry": "Accounting & Professional Services",
+    "commonCareers": [
+      "Assurance Intern",
+      "External Audit Intern",
+      "Advisory Intern"
+    ],
+    "careersEvidence": "https://www.grantthornton.ae/careers/",
+    "technicalAreas": [],
+    "address": "The Offices 5, Level 3, Office 303, One Central, DWTC, P.O. Box 1620, Dubai, UAE",
+    "latitude": 25.22230,
+    "longitude": 55.28390,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.grantthornton.ae/careers/",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "UK Financial Reporting Council Recognized Auditor Register",
+        "url": "https://www.frc.org.uk"
+      },
+      {
+        "title": "ACCA Careers Employer Directory - Grant Thornton UAE",
+        "url": "https://jobs.accaglobal.com"
+      }
+    ],
+    "notes": "Input listed area as Downtown, but the primary Dubai corporate headquarters is located at One Central (The Offices 5) within the Dubai World Trade Centre (DWTC) district."
+  },
+  {
+    "id": "gucci",
+    "website": "https://www.gucci.com",
+    "websiteSource": "https://thedubaimall.com",
+    "careersUrl": "https://kering.com/en/careers/",
+    "careersSource": "https://kering.com/en/careers/",
+    "shortDescription": "Gucci is an Italian luxury fashion house operating retail boutiques and a regional corporate office in Dubai.",
+    "whatTheyDo": "Gucci designs and retails high-end leather goods, ready-to-wear fashion, footwear, fragrances, and accessories. In the UAE, it manages flagship retail boutiques in premier retail centres including The Dubai Mall and Mall of the Emirates, alongside a corporate management office under registered entity Luxury Goods Gulf LLC.",
+    "descriptionSource": "https://thedubaimall.com",
+    "industry": "Luxury Goods & Retail",
+    "commonCareers": [
+      "Client Advisor",
+      "Retail Training Manager",
+      "Payroll Specialist"
+    ],
+    "careersEvidence": "https://kering.com/en/careers/",
+    "technicalAreas": [],
+    "address": "Luxury Goods Gulf LLC, Boulevard Plaza, Tower 1, Office 2104, Downtown Dubai, P.O. Box 115343, Dubai, UAE",
+    "latitude": 25.20037,
+    "longitude": 55.27324,
+    "locationSource": "https://en.wikipedia.org/wiki/Boulevard_Plaza",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "The Dubai Mall Store Directory - Gucci",
+        "url": "https://thedubaimall.com"
+      }
+    ],
+    "notes": "Input listed area as Business Bay, but the legal operating entity for Gucci corporate in Dubai (Luxury Goods Gulf LLC) is registered at Boulevard Plaza Tower 1 in Downtown Dubai. Parent group Kering also operates corporate shared services across Dubai."
+  },
+  {
+    "id": "gulf-business-machines",
+    "website": "https://www.gbmme.com",
+    "websiteSource": "https://www.hcltech.com",
+    "careersUrl": "https://www.gbmme.com/",
+    "careersSource": "https://www.naukrigulf.com",
+    "shortDescription": "Gulf Business Machines (GBM) is an end-to-end digital solutions and IT infrastructure provider across the GCC.",
+    "whatTheyDo": "GBM provides enterprise digital transformation solutions, cloud computing, systems integration, and cybersecurity services. In the UAE, it acts as a premier systems integrator and partner for multinational technology providers including IBM and Cisco, serving corporate and public sector clients.",
+    "descriptionSource": "https://www.hcltech.com",
+    "industry": "Information Technology & Services",
+    "commonCareers": [
+      "Network Engineer",
+      "Security Engineer",
+      "Security Consultant",
+      "Helpdesk Specialist"
+    ],
+    "careersEvidence": "https://www.gbmme.com/",
+    "technicalAreas": [
+      "Cloud Computing",
+      "Cybersecurity",
+      "IT Infrastructure",
+      "AI",
+      "Digital Transformation"
+    ],
+    "address": "Emarat Atrium Building, Block B, 3rd Floor, Sheikh Zayed Road, Al Wasl, P.O. Box 9226, Dubai, UAE",
+    "latitude": 25.18951,
+    "longitude": 55.25634,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.gbmme.com/",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "HCLTech and Gulf Business Machines Strategic Partnership",
+        "url": "https://www.hcltech.com"
+      }
+    ],
+    "notes": "Input listed area as JLT, but GBM's main Dubai corporate office is at the Emarat Atrium Building on Sheikh Zayed Road. The company also maintains secondary branch registrations in JLT (Mazaya Business Avenue) and JAFZA."
+  },
+  {
+    "id": "gulf-drug",
+    "website": "https://www.gulfdrug.com",
+    "websiteSource": "https://www.bayt.com",
+    "careersUrl": "https://gulfdrugcareers.com",
+    "careersSource": "https://gulfdrugcareers.com",
+    "shortDescription": "Gulf Drug LLC is a UAE healthcare company providing distribution of pharmaceuticals, medical equipment, and healthcare consumables.",
+    "whatTheyDo": "Gulf Drug supplies pharmaceuticals, hospital furnishings, surgical tools, and medical equipment across the United Arab Emirates. It partners with international healthcare manufacturers to deliver distribution, logistics, pharmacy services, and medical equipment maintenance to public and private health facilities.",
+    "descriptionSource": "https://www.bayt.com",
+    "industry": "Healthcare & Pharmaceuticals",
+    "commonCareers": [
+      "Pharmacist",
+      "Biomedical Engineer"
+    ],
+    "careersEvidence": "https://gulfdrugcareers.com",
+    "technicalAreas": [
+      "Biomedical Engineering",
+      "Healthcare Logistics",
+      "Pharmaceutical Distribution"
+    ],
+    "address": "Gulf Drug Building, 2nd Street, Al Barsha 1, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": null,
+    "internshipsKnown": true,
+    "graduateRolesKnown": null,
+    "programmesSource": "https://gulfdrugcareers.com",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Bayt Company Profile for Gulf Drug LLC",
+        "url": "https://www.bayt.com"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City, but the head office and management building of Gulf Drug LLC are located in Al Barsha 1."
+  },
+  {
+    "id": "gulf-petrochemicals-and-chemicals-association-gpca",
+    "website": "https://www.gpca.org.ae",
+    "websiteSource": "https://www.gulfsqas.com",
+    "careersUrl": "https://www.gpca.org.ae/leaders-of-tomorrow/",
+    "careersSource": "https://www.gpca.org.ae",
+    "shortDescription": "The Gulf Petrochemicals and Chemicals Association (GPCA) is a regional industry trade body representing downstream chemical and petrochemical producers in the Arabian Gulf.",
+    "whatTheyDo": "GPCA represents the interests of the chemical and petrochemical industries across the GCC through advocacy, technical conferences, research studies, and networking platforms. It runs regional sustainability standards such as Gulf SQAS and educational initiatives for STEM university students.",
+    "descriptionSource": "https://www.gulfsqas.com",
+    "industry": "Chemicals & Non-Profit Associations",
+    "commonCareers": [],
+    "careersEvidence": null,
+    "technicalAreas": [
+      "Chemical Engineering",
+      "Petrochemicals",
+      "Supply Chain Sustainability"
+    ],
+    "address": "Offices 1601/1602, Vision Tower, Business Bay, P.O. Box 123055, Dubai, UAE",
+    "latitude": 25.18822,
+    "longitude": 55.26388,
+    "locationSource": "https://en.wikipedia.org/wiki/Vision_Tower",
+    "internshipsKnown": null,
+    "graduateRolesKnown": true,
+    "programmesSource": "https://www.gpca.org.ae/leaders-of-tomorrow/",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf SQAS Industry Programme Overview",
+        "url": "https://www.gulfsqas.com"
+      }
+    ],
+    "notes": "Input listed area as Downtown, but the headquarters office is located in Vision Tower in Business Bay. GPCA offers the student-focused 'Leaders of Tomorrow' development program rather than conventional corporate hiring."
+  },
+  {
+    "id": "gwr-consulting",
+    "website": "https://www.gwrconsulting.com",
+    "websiteSource": "https://www.buid.ac.ae",
+    "careersUrl": "https://www.gwrconsulting.com",
+    "careersSource": "https://www.buid.ac.ae",
+    "shortDescription": "GWR Consulting is a customer experience consultancy and mystery shopping services provider operating in the Middle East and Europe.",
+    "whatTheyDo": "GWR Consulting specializes in customer experience measurement, mystery shopping auditing, service quality assessment, and compliance evaluations. It serves retail, banking, automotive, and hospitality clients across the UAE, measuring brand standards and frontline employee compliance.",
+    "descriptionSource": "https://www.buid.ac.ae",
+    "industry": "Management Consulting & Market Research",
+    "commonCareers": [
+      "Customer Experience Department Intern",
+      "Mystery Shopper"
+    ],
+    "careersEvidence": "https://www.buid.ac.ae",
+    "technicalAreas": [
+      "Customer Experience Measurement",
+      "Quality Auditing"
+    ],
+    "address": "Circular Building, G2, Office F113, Dubai Production City, Dubai, UAE",
+    "latitude": 25.02798,
+    "longitude": 55.18698,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": null,
+    "programmesSource": "https://www.buid.ac.ae",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "British University in Dubai (BUiD) Career Vacancy Notice",
+        "url": "https://www.buid.ac.ae"
+      }
+    ],
+    "notes": "Input listed area as Business Bay, but the verified Dubai operational office is located in the Circular Building at Dubai Production City (IMPZ)."
+  },
+  {
+    "id": "habib-bank",
+    "website": "https://www.habibbank.com/ae/",
+    "websiteSource": "https://www.bank-uae.com",
+    "careersUrl": "https://habibbank.com/ae/careers/",
+    "careersSource": "https://www.habibbank.com/ae/",
+    "shortDescription": "Habib Bank AG Zurich (HBZ) is an international commercial bank with extensive retail, trade finance, and corporate banking operations in the UAE.",
+    "whatTheyDo": "Habib Bank AG Zurich provides commercial banking, trade financing, business accounts, treasury services, and personal retail banking. Operating in the UAE since 1974, it maintains a branch network across Dubai, Abu Dhabi, Sharjah, and other emirates, with its UAE zonal management located in Umm Al Sheif.",
+    "descriptionSource": "https://www.bank-uae.com",
+    "industry": "Banking & Financial Services",
+    "commonCareers": [],
+    "careersEvidence": null,
+    "technicalAreas": [],
+    "address": "Building 367-1013, Umm Al Sheif, Sheikh Zayed Road, P.O. Box 3306, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": null,
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Bank-UAE UAE Financial Institutions Directory",
+        "url": "https://www.bank-uae.com"
+      }
+    ],
+    "notes": "Two distinct banking institutions share the 'Habib Bank' name in the UAE: Habib Bank AG Zurich (HBZ, Swiss-incorporated, in UAE since 1974, zonal office in Umm Al Sheif) and Habib Bank Limited (HBL, Pakistan-incorporated, in UAE since 1967, main branch in Bur Dubai). Neither bank maintains a branch or office in JLT."
+  },
+  {
+    "id": "haleon",
+    "website": "https://www.haleon.com",
+    "websiteSource": "https://haleonhealthpartner-gne.com",
+    "careersUrl": "https://www.haleon.com/careers",
+    "careersSource": "https://www.haleon.com/careers",
+    "shortDescription": "Haleon is a global consumer health company managing consumer healthcare brands across the Middle East and Africa.",
+    "whatTheyDo": "Haleon develops and markets consumer healthcare products across oral health, pain relief, respiratory, digestive health, and vitamins. Its regional office in Dubai oversees marketing, brand strategy, supply chain, and regulatory affairs for brands such as Panadol, Sensodyne, Voltaren, and Centrum.",
+    "descriptionSource": "https://haleonhealthpartner-gne.com",
+    "industry": "Consumer Healthcare",
+    "commonCareers": [
+      "MEA Brand Director",
+      "MEA CSC Lead",
+      "Senior Reward Business Partner - MEA",
+      "MEA Portfolio & Performance Management Manager"
+    ],
+    "careersEvidence": "https://www.haleon.com/careers",
+    "technicalAreas": [],
+    "address": "Arenco Tower, 27th Floor, Sheikh Zayed Road, Dubai Media City, P.O. Box 23816, Dubai, UAE",
+    "latitude": 25.09144,
+    "longitude": 55.15838,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmesSource": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Haleon HealthPartner Middle East Regional Contact",
+        "url": "https://haleonhealthpartner-gne.com"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City, but the regional corporate office is located in Arenco Tower in Dubai Media City (Al Sufouh 2)."
+  }
+]

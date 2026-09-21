@@ -165,6 +165,23 @@ html.dark {
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
+  /*
+    Tailwind v4 changed the default button cursor to `default`; v3 used
+    `pointer`. Restored here rather than adding cursor-pointer to 87 buttons,
+    and scoped so disabled controls still read as unavailable.
+  */
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']),
+  summary,
+  label[for] {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [role='button'][aria-disabled='true'] {
+    cursor: not-allowed;
+  }
+
   /* Every interactive element gets a visible keyboard ring. */
   :focus-visible {
     outline: 2px solid var(--accent-primary);
