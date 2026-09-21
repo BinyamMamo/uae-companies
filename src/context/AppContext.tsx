@@ -27,6 +27,15 @@ const isUserLocation = (v: unknown): v is UserLocation =>
   Number.isFinite((v as UserLocation).latitude) &&
   Number.isFinite((v as UserLocation).longitude);
 
+/** Where distances are measured from until the visitor picks somewhere. */
+export const DEFAULT_ORIGIN = {
+  name: 'University of Dubai',
+  latitude: 25.1304,
+  longitude: 55.4273,
+};
+
+const LOCATION_SET_KEY = 'uae_location_set';
+
 export interface UserLocation {
   name: string;
   latitude: number;
@@ -81,6 +90,8 @@ interface AppContextType {
   userLocation: UserLocation;
   setUserLocation: (loc: UserLocation) => void;
   resetUserLocation: () => void;
+  /** False until the visitor picks an origin themselves. */
+  isLocationSet: boolean;
 }
 
 const initialFilters: FilterState = {
@@ -93,7 +104,7 @@ const initialFilters: FilterState = {
   careerFilter: null,
   hasCareersUrl: false,
   verifiedOnly: false,
-  sortBy: 'nearest',
+  sortBy: 'relevance',
 };
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -166,38 +177,44 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
-  // User location for commute / distance calculations with localStorage persistence
+  /*
+    Distances need an origin, so one is assumed — University of Dubai, the
+    campus this is built for. That assumption is not a claim about where the
+    visitor lives: isLocationSet stays false until they choose for themselves,
+    and the app says so once rather than caveating every number.
+  */
   const [userLocation, setUserLocationState] = useState<UserLocation>(() => {
     const stored = readJSON('uae_user_location', isUserLocation);
     if (stored) return stored;
-    return {
-      name: ACADEMIC_CITY_COORDS.name,
-      latitude: ACADEMIC_CITY_COORDS.latitude,
-      longitude: ACADEMIC_CITY_COORDS.longitude,
-      isCustom: false,
-    };
+    return { ...DEFAULT_ORIGIN, isCustom: false };
+  });
+
+  const [isLocationSet, setIsLocationSet] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem(LOCATION_SET_KEY) === '1';
+    } catch {
+      return false;
+    }
   });
 
   const setUserLocation = useCallback((loc: UserLocation) => {
     setUserLocationState(loc);
+    setIsLocationSet(true);
     try {
       writeJSON('uae_user_location', loc);
-      track('home_location_changed', { method: loc.isCustom ? 'map' : 'reset' });
+      localStorage.setItem(LOCATION_SET_KEY, '1');
+      track('home_location_changed', { method: loc.isCustom ? 'map' : 'search' });
     } catch {
       // ignore
     }
   }, []);
 
   const resetUserLocation = useCallback(() => {
-    const defLoc: UserLocation = {
-      name: ACADEMIC_CITY_COORDS.name,
-      latitude: ACADEMIC_CITY_COORDS.latitude,
-      longitude: ACADEMIC_CITY_COORDS.longitude,
-      isCustom: false,
-    };
-    setUserLocationState(defLoc);
+    setUserLocationState({ ...DEFAULT_ORIGIN, isCustom: false });
+    setIsLocationSet(false);
     try {
       localStorage.removeItem('uae_user_location');
+      localStorage.removeItem(LOCATION_SET_KEY);
     } catch {
       // ignore
     }
@@ -631,6 +648,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       setIsMobileFilterOpen,
       filteredCompanies,
       userLocation,
+      isLocationSet,
       setUserLocation,
       resetUserLocation,
     }),
@@ -679,6 +697,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       toggleSaveCompany,
       userInterests,
       userLocation,
+      isLocationSet,
       username,
     ]
   );

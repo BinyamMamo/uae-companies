@@ -3,6 +3,7 @@ import type { LucideIcon } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { useTheme } from '../context/ThemeContext';
 import { ProfileMenu } from './ProfileMenu';
+import { InstallButton } from './InstallButton';
 import { Logo } from './ui/Logo';
 import { Sun, Moon, Bookmark, LayoutList, BuildingComplex, MapPinned } from 'lucide-react';
 
@@ -80,6 +81,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSaved, onOpenInterests }) 
 
         {/* Right: actions */}
         <div className="flex items-center justify-end gap-1">
+          <InstallButton />
           <button
             onClick={toggleTheme}
             className="w-8 h-8 flex items-center justify-center rounded-md text-ink-2 hover:text-ink hover:bg-surface-2 transition-colors"

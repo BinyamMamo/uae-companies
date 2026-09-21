@@ -83,7 +83,12 @@ export type AnalyticsEvent =
   | { name: 'website_link_clicked'; props: { company_id: string } }
   | { name: 'data_exported'; props?: never }
   | { name: 'signed_in'; props: { method: 'google_popup' | 'google_one_tap' } }
-  | { name: 'signed_out'; props?: never };
+  | { name: 'signed_out'; props?: never }
+  | { name: 'install_guide_opened'; props: { platform: 'ios' } }
+  | {
+      name: 'install_prompted';
+      props: { outcome: 'accepted' | 'dismissed' | 'unavailable' };
+    };
 
 type EventName = AnalyticsEvent['name'];
 type PropsFor<N extends EventName> = Extract<AnalyticsEvent, { name: N }> extends {

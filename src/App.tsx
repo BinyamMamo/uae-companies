@@ -2,6 +2,7 @@ import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { AppProvider, useApp } from './context/AppContext';
 import { Header, MobileNavBar } from './components/Header';
 import { CompareBar } from './components/CompareBar';
+import { LocationPrompt } from './components/LocationPrompt';
 import { ListView } from './pages/ListView';
 
 const MapView = lazy(() => import('./pages/MapView').then(m => ({ default: m.MapView })));
@@ -83,6 +84,7 @@ const AppContent: React.FC = () => {
       {/* Google One Tap prompt (signed-out users only, after first interaction) */}
       <GoogleOneTap />
 
+      <LocationPrompt />
       <CompareBar />
       <MobileNavBar />
 
