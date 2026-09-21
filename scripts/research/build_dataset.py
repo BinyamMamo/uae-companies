@@ -164,6 +164,18 @@ def build(seed, audit, verified):
         key = (c["location"]["latitude"], c["location"]["longitude"])
         coord_claims.setdefault(key, []).append(c["id"])
 
+    # The research can hand two companies the same point — a shared tower, or a
+    # district centroid dressed up as an address. Either way it is not a
+    # building-level fix for both, so neither one gets to claim that.
+    verified_coord_claims = {}
+    for cid, v in verified.items():
+        vlat, vlon = v.get("latitude"), v.get("longitude")
+        if isinstance(vlat, (int, float)) and isinstance(vlon, (int, float)):
+            verified_coord_claims.setdefault((vlat, vlon), []).append(cid)
+    shared_verified_points = {
+        k for k, ids in verified_coord_claims.items() if len(ids) > 1
+    }
+
     out = []
     for c in seed:
         v = verified.get(c["id"], {})
@@ -171,7 +183,14 @@ def build(seed, audit, verified):
 
         # ---- website ----
         website = v.get("website")
-        website_prov = prov(v.get("websiteSource"), "verified") if website else None
+        website_prov = None
+        if website:
+            site_source = v.get("websiteSource")
+            website_prov = (
+                prov(site_source, "verified")
+                if site_source
+                else prov(website, "reported")
+            )
         if not website:
             claimed = c.get("website")
             if claimed and claimed not in contested and resolves(a, "website"):
@@ -184,7 +203,12 @@ def build(seed, audit, verified):
         # 209/225 were website + "/careers", generated rather than found.
         careers = v.get("careersUrl")
         if careers:
-            careers_prov = prov(v.get("careersSource") or careers, "verified")
+            careers_source = v.get("careersSource")
+            careers_prov = (
+                prov(careers_source, "verified")
+                if careers_source
+                else prov(careers, "reported")
+            )
         else:
             claimed = c.get("careersUrl") or ""
             generated = claimed.rstrip("/") == (c.get("website") or "").rstrip("/") + "/careers"
@@ -198,7 +222,12 @@ def build(seed, audit, verified):
         desc = v.get("shortDescription")
         body = v.get("whatTheyDo")
         if desc:
-            desc_prov = prov(v.get("descriptionSource"), "verified")
+            desc_source = v.get("descriptionSource")
+            desc_prov = (
+                prov(desc_source, "verified")
+                if desc_source
+                else prov(website, "reported" if website else "unverified")
+            )
         else:
             seeded = c.get("shortDescription") or ""
             seeded_body = c.get("whatTheyDo") or ""
@@ -223,8 +252,16 @@ def build(seed, audit, verified):
             if has_point:
                 loc["latitude"] = v_lat
                 loc["longitude"] = v_lon
-            loc["precision"] = "building" if has_point else "area"
-            loc_prov = prov(v.get("locationSource"), "verified")
+            unique_point = has_point and (v_lat, v_lon) not in shared_verified_points
+            loc["precision"] = "building" if unique_point else "area"
+            # "verified" has to point at something. Without a source URL the
+            # address is only as good as the site it probably came from.
+            loc_source = v.get("locationSource")
+            loc_prov = (
+                prov(loc_source, "verified")
+                if loc_source
+                else prov(website, "reported" if website else "unverified")
+            )
         elif TEMPLATE_ADDR.search(addr):
             loc["address"] = None
             loc_prov = prov(None, "unverified")
@@ -242,7 +279,11 @@ def build(seed, audit, verified):
         if ("internshipsKnown" in v or "graduateRolesKnown" in v) and prog_source:
             interns = v.get("internshipsKnown")
             grads = v.get("graduateRolesKnown")
-            prog_prov = prov(prog_source, "verified")
+            prog_prov = (
+                prov(prog_source, "verified")
+                if v.get("programmesSource")
+                else prov(prog_source, "reported")
+            )
         elif careers:
             # Only meaningful if we actually found a careers page.
             interns = c.get("internshipsKnown")

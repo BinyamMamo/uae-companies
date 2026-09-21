@@ -24,6 +24,13 @@ VERIFIED_DIR = ROOT / "scripts/research/verified"
 UA = "Mozilla/5.0 (compatible; uae-companies-dataset-audit/1.0)"
 TIMEOUT = 12
 
+# The search tool hands back grounding-redirect links. They are opaque, they
+# expire, and a reader cannot check one — so they are never a citation, and
+# never evidence that a page was seen.
+OPAQUE_SOURCE = re.compile(
+    r"vertexaisearch\.cloud\.google\.com|grounding-api-redirect", re.I
+)
+
 # UAE bounding box — anything outside is a wrong country, not a typo.
 UAE_BOUNDS = (22.5, 26.5, 51.0, 56.5)
 
@@ -137,6 +144,12 @@ def main():
 
         # careers url — must resolve AND not be a constructed /careers path
         careers = r.get("careersUrl")
+        for key in ("careersSource", "careersEvidence", "websiteSource",
+                    "descriptionSource", "locationSource", "programmesSource"):
+            if OPAQUE_SOURCE.search(str(r.get(key) or "")):
+                rejects[f"{key} was an opaque grounding redirect"].append(rid)
+                r.pop(key, None)
+
         if careers:
             ok, why = checked.get(careers, (False, "unchecked"))
             cited = (r.get("careersSource") or "").rstrip("/")
@@ -178,6 +191,9 @@ def main():
         for s in r.get("sources", []) or []:
             u = s.get("url")
             if not u or host(u) == host(r.get("website")):
+                continue
+            if OPAQUE_SOURCE.search(u):
+                rejects["source was an opaque grounding redirect"].append(rid)
                 continue
             if args.strict:
                 ok, _ = url_ok(u)

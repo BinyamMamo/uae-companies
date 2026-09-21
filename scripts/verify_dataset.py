@@ -6,6 +6,7 @@ Fails the build on the specific failure modes that produced the original
 fabricated data, so they cannot come back:
 
   - a URL claimed by more than one company
+  - an opaque search-grounding redirect passed off as a citation
   - a careersUrl built by appending /careers to a homepage
   - templated description text
   - synthetic "<Name> Regional Office" addresses
@@ -41,6 +42,12 @@ TEMPLATED_ROLE_SETS = {
     ("Systems Integration", "Digital Operations"),
 }
 PLACEHOLDER_LOGO = re.compile(r"avatar\.vercel\.sh")
+
+# A search-grounding redirect is opaque and expires. It can never stand in for
+# a citation a reader could actually open.
+OPAQUE_SOURCE = re.compile(
+    r"vertexaisearch\.cloud\.google\.com|grounding-api-redirect", re.I
+)
 
 
 def host(url):
@@ -96,8 +103,15 @@ def main():
 
         website = c.get("website")
         careers = c.get("careersUrl")
+        # /careers is where a real careers page often lives, so the shape alone
+        # proves nothing. What matters is whether the pipeline actually fetched
+        # it and cited where it came from — an unverified one is a guess.
         if careers and website and careers.rstrip("/") == website.rstrip("/") + "/careers":
-            errors.append(f"{cid}: careersUrl was built by appending /careers")
+            careers_prov = (c.get("provenance") or {}).get("careersUrl") or {}
+            if careers_prov.get("confidence") != "verified" or not careers_prov.get("sourceUrl"):
+                errors.append(
+                    f"{cid}: careersUrl is website + /careers with no verified source"
+                )
 
         for key in ("shortDescription", "whatTheyDo", "studentMatchReason"):
             text = c.get(key) or ""
@@ -117,6 +131,8 @@ def main():
                 errors.append(f"{cid}: source not marked thirdParty: {s.get('url')}")
             if website and host(s.get("url")) == host(website):
                 errors.append(f"{cid}: own website listed as a source: {s.get('url')}")
+            if OPAQUE_SOURCE.search(s.get("url") or ""):
+                errors.append(f"{cid}: source is an opaque grounding redirect")
 
         prov = c.get("provenance")
         if not isinstance(prov, dict):
@@ -128,6 +144,8 @@ def main():
                 errors.append(f"{cid}: provenance.{field} invalid")
             elif p.get("confidence") in ("verified", "reported") and not p.get("sourceUrl"):
                 errors.append(f"{cid}: provenance.{field} is '{p['confidence']}' but has no sourceUrl")
+            elif OPAQUE_SOURCE.search(p.get("sourceUrl") or ""):
+                errors.append(f"{cid}: provenance.{field} cites an opaque grounding redirect")
 
         if c.get("employees"):
             for e in c["employees"]:
