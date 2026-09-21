@@ -2,112 +2,176 @@
   {
     "id": "3m",
     "website": "https://www.3mae.ae",
-    "websiteSource": "https://yellowpages-uae.com/business/3m-gulf-limited",
+    "websiteSource": "https://www.dcciinfo.com",
     "careersUrl": "https://www.3m.com/careers",
     "careersSource": "https://www.3mae.ae",
-    "shortDescription": "3M Gulf serves as the regional headquarters for 3M in the Middle East, supplying science-based industrial, safety, healthcare, and consumer products.",
-    "whatTheyDo": "3M Gulf distributes personal protective equipment, industrial adhesives, abrasives, medical and dental supplies, and automotive aftermarket solutions. In Dubai, it operates regional executive leadership, customer technical support, and the 3M Innovation Centre for product application engineering. It serves key sectors including healthcare providers, telecommunications networks, construction firms, and general manufacturing industries across the UAE.",
-    "descriptionSource": "https://gulfnews.com/business/etisalat-tamdeed-projects-rolls-out-new-deal-with-3m-gulf-1.2279155",
-    "industry": "Industrial & Manufacturing",
-    "address": "Building 11, Dubai Internet City, Dubai, United Arab Emirates",
+    "linkedinUrl": null,
+    "linkedinSource": null,
+    "shortDescription": "3M Gulf Ltd serves as the regional hub for 3M's diversified technology, manufacturing, and industrial operations in the UAE and Middle East.",
+    "whatTheyDo": "3M Gulf distributes and supports a wide portfolio of science-based products across safety and industrial, transportation and electronics, and consumer markets. Its Dubai operations provide application engineering, technical sales, and customer support for infrastructure and industrial clients across the GCC.",
+    "descriptionSource": "https://www.dcciinfo.com",
+    "industry": "Industrial Conglomerates & Manufacturing",
+    "commonCareers": [
+      "Application Engineer",
+      "Sales Specialist",
+      "Account Manager",
+      "Sales Leader"
+    ],
+    "careersEvidence": "https://www.3m.com/careers",
+    "technicalAreas": [
+      "Abrasives",
+      "Adhesives & Tapes",
+      "Personal Protective Equipment",
+      "Transportation & Electronics"
+    ],
+    "address": "3rd Floor, Building 20 (Baitek Building), Dubai Internet City, Dubai, UAE",
     "latitude": null,
     "longitude": null,
-    "locationSource": "https://yellowpages-uae.com/business/3m-gulf-limited",
-    "internshipsKnown": null,
-    "graduateRolesKnown": null,
+    "locationSource": "https://www.dcciinfo.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [],
     "programmesSource": null,
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Etisalat Tamdeed Projects rolls out new deal with 3M Gulf - Gulf News",
-        "url": "https://gulfnews.com/business/etisalat-tamdeed-projects-rolls-out-new-deal-with-3m-gulf-1.2279155"
-      },
-      {
-        "title": "3M Gulf Limited - Yellow Pages UAE",
-        "url": "https://yellowpages-uae.com/business/3m-gulf-limited"
+        "title": "Dubai Chamber of Commerce Directory - 3M Gulf Ltd",
+        "url": "https://www.dcciinfo.com"
       }
     ],
-    "notes": "Input listed area as Downtown, but verified corporate headquarters for 3M Gulf is in Building 11, Dubai Internet City."
+    "notes": "Directory listed area as Downtown, but official UAE operational entity 3M Gulf Ltd is based in Building 20 (Baitek Building), Dubai Internet City."
   },
   {
     "id": "7x-emirates-post",
     "website": "https://www.7x.ae",
-    "websiteSource": "https://swfinstitute.org/profiles/state-owned-enterprise/emirates-post-group",
-    "careersSource": "https://swfinstitute.org/profiles/state-owned-enterprise/emirates-post-group",
-    "shortDescription": "7X is the UAE's state-owned holding group managing postal, express logistics, digital parcel infrastructure, and financial service entities.",
-    "whatTheyDo": "7X oversees operating subsidiaries including Emirates Post, EMX courier and parcel delivery, FINTX financial solutions, and Electronic Documents Centre (EDC). In the UAE, it manages nationwide mail delivery, last-mile e-commerce logistics, smart locker networks through NXN, digital address platforms like Wayn, and international freight forwarding. Its technical and operational units serve individual residents, corporate enterprises, and government authorities across all seven emirates.",
-    "descriptionSource": "https://swfinstitute.org/profiles/state-owned-enterprise/emirates-post-group",
-    "industry": "Logistics, Postal & Supply Chain",
-    "address": "Street 54 (near Al Mawakeb School), Al Garhoud, Dubai, United Arab Emirates",
+    "websiteSource": "https://wam.ae",
+    "careersUrl": "https://www.7x.ae/join-us",
+    "careersSource": "https://www.7x.ae",
+    "linkedinUrl": null,
+    "linkedinSource": null,
+    "shortDescription": "7X is the UAE's state-owned investment and holding group for trade, transport, and logistics, overseeing Emirates Post and related digital services.",
+    "whatTheyDo": "7X manages postal, express courier, and logistics services across the United Arab Emirates through operating entities including Emirates Post, EMX, and FINTX. It drives digital transformation in document management, parcel delivery, and supply chain solutions connecting the seven emirates globally.",
+    "descriptionSource": "https://wam.ae",
+    "industry": "Logistics, Transportation & Postal Services",
+    "commonCareers": [
+      "Senior Software Developer",
+      "Senior Full-Stack Engineer",
+      "DevOps Engineer",
+      "Interior Design Engineer"
+    ],
+    "careersEvidence": "https://emiratespost.ae/careers",
+    "technicalAreas": [
+      "Logistics & Supply Chain",
+      "eCommerce Delivery",
+      "Postal Operations",
+      "FinTech",
+      "Digital Document Solutions"
+    ],
+    "address": "Street 54, Marrakech Street, Al Garhoud, Dubai, UAE",
     "latitude": null,
     "longitude": null,
-    "locationSource": "https://swfinstitute.org/profiles/state-owned-enterprise/emirates-post-group",
-    "internshipsKnown": true,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": false,
     "graduateRolesKnown": true,
-    "programmesSource": "https://peoplemattersglobal.com/article/skilling/logistics-firm-7x-university-of-dubai-join-hands-to-empower-young-talent-45366",
-    "logo": null,
-    "retrievedAt": "2026-09-21",
-    "sources": [
-      {
-        "title": "Emirates Post Group Profile - SWFI",
-        "url": "https://swfinstitute.org/profiles/state-owned-enterprise/emirates-post-group"
-      },
-      {
-        "title": "Logistics firm 7X, University of Dubai join hands to empower young talent - People Matters",
-        "url": "https://peoplemattersglobal.com/article/skilling/logistics-firm-7x-university-of-dubai-join-hands-to-empower-young-talent-45366"
-      }
-    ],
-    "notes": "Input area listed as Business Bay, but corporate headquarters is located on Street 54, Al Garhoud. Emirates Post Group officially rebranded as 7X in 2024."
-  },
-  {
-    "id": "aal-mir-trading-co-llc",
-    "website": "https://aalmir.com",
-    "websiteSource": "https://ae.kompass.com/c/aal-mir-group/ae801957/",
-    "careersUrl": null,
-    "careersSource": null,
-    "shortDescription": "Aal Mir Trading Co. L.L.C is a premier FMCG distributor and trading company in the UAE specialising in confectionery, beverages, and packaged foodstuffs.",
-    "whatTheyDo": "Aal Mir Trading Co. L.L.C imports, markets, and distributes international confectionery, biscuits, snacks, canned goods, and grocery products across the UAE and GCC. It operates extensive temperature-controlled warehousing, logistics hubs, and fleet distribution based in Dubai Investments Park. The company supplies modern trade hypermarkets, supermarkets, convenience stores, and wholesale distribution networks throughout the country.",
-    "descriptionSource": "https://ae.kompass.com/c/aal-mir-group/ae801957/",
-    "industry": "Wholesale & FMCG Distribution",
-    "address": "Building 598-932, 78 Street, Dubai Investments Park 1, Dubai, United Arab Emirates",
-    "latitude": 24.97516,
-    "longitude": 55.17208,
-    "locationSource": "https://ae.kompass.com/c/aal-mir-group/ae801957/",
-    "internshipsKnown": null,
-    "graduateRolesKnown": null,
+    "programmes": [],
     "programmesSource": null,
     "logo": null,
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Aal Mir Group Profile - Kompass UAE",
-        "url": "https://ae.kompass.com/c/aal-mir-group/ae801957/"
+        "title": "Emirates News Agency (WAM) - 7X Rebranding",
+        "url": "https://wam.ae"
+      },
+      {
+        "title": "Logistics Middle East - 7X Transformation",
+        "url": "https://www.logisticsmiddleeast.com"
       }
     ],
-    "notes": "Input listed area as JLT, but verified corporate headquarters and main distribution centre are located in Dubai Investments Park 1 (DIP 1)."
+    "notes": "Directory listed area as Business Bay, but corporate headquarters of 7X (formerly Emirates Post Group) is located in Al Garhoud on Street 54 / Marrakech Street, Dubai; Business Bay only hosts a parcel locker automat at Executive Towers."
+  },
+  {
+    "id": "aal-mir-trading-co-llc",
+    "website": "https://aalmir.com",
+    "websiteSource": "https://www.protenders.com",
+    "careersUrl": null,
+    "careersSource": null,
+    "linkedinUrl": null,
+    "linkedinSource": null,
+    "shortDescription": "Aal Mir Trading Co. L.L.C is an established UAE-based distributor, logistics operator, and marketer of confectionery and FMCG brands.",
+    "whatTheyDo": "Established in 1980, Aal Mir Trading Co. L.L.C distributes international confectionery and fast-moving consumer goods brands across supermarkets, groceries, and retail stores in the UAE and Oman. The company manages warehousing, brand marketing, and supply chain logistics from its hub in Dubai Investment Park.",
+    "descriptionSource": "https://www.protenders.com",
+    "industry": "Wholesale & FMCG Distribution",
+    "commonCareers": [
+      "Trade Marketing Executive"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com",
+    "technicalAreas": [],
+    "address": "Plot 598/932, Community 598, Street 78, Dubai Investment Park 1, Jebel Ali, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://aalmir.com",
+    "internshipsKnown": null,
+    "graduateRolesKnown": null,
+    "programmes": [],
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "ProTenders - Aal Mir Trading Co LLC Profile",
+        "url": "https://www.protenders.com"
+      },
+      {
+        "title": "Naukrigulf - Aal Mir Trading Co Profile",
+        "url": "https://www.naukrigulf.com"
+      }
+    ],
+    "notes": "Directory listed area as JLT, but Aal Mir Trading Co. L.L.C head office and central logistics facilities are located in Dubai Investment Park 1 (DIP), Jebel Ali."
   },
   {
     "id": "abb-industries-llc",
     "website": "https://www.abb.com/ae",
-    "websiteSource": "https://yellowpages-uae.com/business/abb-industries-llc",
-    "careersUrl": "https://global.abb/group/en/careers",
-    "careersSource": "https://global.abb/group/en/careers",
-    "shortDescription": "ABB Industries LLC is the UAE operating subsidiary of global technology company ABB, specializing in electrification and industrial automation.",
-    "whatTheyDo": "ABB Industries LLC engineers, supplies, and services power distribution equipment, medium- and low-voltage switchgear, variable frequency drives, industrial electric motors, and robotic automation systems. In the UAE, it maintains technical engineering, assembly, repair, and field service facilities in Dubai and Abu Dhabi. It serves regional utility providers (DEWA, ADDC), oil and gas producers, infrastructure developers, and industrial manufacturing plants.",
-    "descriptionSource": "https://yellowpages-uae.com/business/abb-industries-llc",
-    "industry": "Industrial Automation & Electrical Engineering",
-    "address": "Al Quoz Industrial Area 3, 4th Interchange, Street No. 4, Dubai, United Arab Emirates",
+    "websiteSource": "https://atninfo.com",
+    "careersUrl": "https://careers.abb",
+    "careersSource": "https://www.abb.com/ae",
+    "linkedinUrl": null,
+    "linkedinSource": null,
+    "shortDescription": "ABB Industries LLC is the UAE operating entity of the global technology leader in electrification and automation.",
+    "whatTheyDo": "ABB provides electrification, motion, industrial automation, and robotics products and solutions across the UAE and Middle East. Its Dubai facility in Al Quoz supports engineering, sales, and service operations for energy and industrial clients.",
+    "descriptionSource": "https://atninfo.com",
+    "industry": "Electrical Engineering & Industrial Automation",
+    "commonCareers": [
+      "Sales Specialist",
+      "Project Engineer",
+      "Service Engineer"
+    ],
+    "careersEvidence": "https://careers.abb",
+    "technicalAreas": [
+      "Electrification",
+      "Industrial Automation",
+      "Instrumentation",
+      "Switchgear",
+      "Drives & Motion"
+    ],
+    "address": "Street No. 4, Al Quoz Industrial Area 3, Dubai, UAE",
     "latitude": null,
     "longitude": null,
-    "locationSource": "https://yellowpages-uae.com/business/abb-industries-llc",
+    "locationSource": "https://atninfo.com",
     "internshipsKnown": true,
     "graduateRolesKnown": true,
-    "programmesSource": "https://global.abb/group/en/careers",
+    "programmes": [
+      {
+        "name": "ABB Discovery Emirati Talent Program",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://careers.abb",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/0/00/ABB_logo.svg",
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "ABB Industries LLC - Yellow Pages UAE",
-        "url": "https://yellowpages-uae.com/business/abb-industries-llc"
+        "title": "ATN Info UAE Business Directory - ABB Industries LLC",
+        "url": "https://atninfo.com"
       }
     ],
     "notes": null
@@ -115,356 +179,683 @@
   {
     "id": "abu-dhabi-aviation",
     "website": "https://ada.ae",
-    "websiteSource": "https://pitchbook.com/profiles/company/107572-15",
+    "websiteSource": "https://en.wikipedia.org/wiki/Abu_Dhabi_Aviation",
     "careersUrl": "https://ada.ae",
-    "careersSource": "https://pitchbook.com/profiles/company/107572-15",
-    "shortDescription": "Abu Dhabi Aviation is the largest commercial helicopter and fixed-wing aircraft operator in the Middle East and North Africa.",
-    "whatTheyDo": "Abu Dhabi Aviation provides offshore aviation transport support for oil and gas production, medical evacuation, search and rescue missions, VIP executive passenger charters, and aerial photography. It operates aircraft maintenance, repair, and overhaul (MRO) hangars and flight training simulator centres at its dedicated terminal at Zayed International Airport. It primarily serves state oil companies, government departments, and international aviation operators.",
-    "descriptionSource": "https://pitchbook.com/profiles/company/107572-15",
+    "careersSource": "https://ada.ae",
+    "linkedinUrl": null,
+    "linkedinSource": null,
+    "shortDescription": "Abu Dhabi Aviation is the largest commercial helicopter and fixed-wing operator in the Middle East.",
+    "whatTheyDo": "Abu Dhabi Aviation operates helicopter and fixed-wing aircraft fleets providing offshore oil and gas support, VIP charter, search and rescue, and aeromedical evacuation services across the UAE and internationally. The company also operates a specialized maintenance, repair, and overhaul (MRO) facility at Al Bateen Executive Airport.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Abu_Dhabi_Aviation",
     "industry": "Aviation & Aerospace",
-    "address": "Abu Dhabi Aviation Terminal, Next to Terminal 2, Zayed International Airport, Abu Dhabi, United Arab Emirates",
-    "latitude": 24.41878,
-    "longitude": 54.65799,
-    "locationSource": "https://pitchbook.com/profiles/company/107572-15",
+    "commonCareers": [
+      "Captain",
+      "First Officer",
+      "Licensed Aircraft Maintenance Engineer",
+      "Technician"
+    ],
+    "careersEvidence": "https://ada.ae",
+    "technicalAreas": [
+      "Helicopter Aviation",
+      "Aviation Maintenance Repair & Overhaul (MRO)",
+      "Search and Rescue Operations",
+      "Fixed-Wing Flight Operations"
+    ],
+    "address": "Next to Terminal 2, Al Bateen Executive Airport, P.O. Box 2723, Abu Dhabi, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://ada.ae",
     "internshipsKnown": true,
     "graduateRolesKnown": true,
+    "programmes": [],
     "programmesSource": "https://ada.ae",
+    "logo": "https://commons.wikimedia.org/wiki/File:ADA_Logo.png",
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Abu Dhabi Aviation Company Profile - PitchBook",
-        "url": "https://pitchbook.com/profiles/company/107572-15"
+        "title": "Wikipedia - Abu Dhabi Aviation",
+        "url": "https://en.wikipedia.org/wiki/Abu_Dhabi_Aviation"
+      },
+      {
+        "title": "PitchBook - Abu Dhabi Aviation Profile",
+        "url": "https://pitchbook.com"
       }
     ],
-    "notes": "Input listed area as general 'Abu Dhabi areas'; official headquarters and operations terminal are located adjacent to Terminal 2 at Zayed International Airport."
+    "notes": "Headquartered at Al Bateen Executive Airport (AZI) in Abu Dhabi, rather than Zayed International Airport (AUH)."
   },
   {
     "id": "abu-dhabi-commercial-bank-adcb",
     "website": "https://www.adcb.com",
-    "websiteSource": "https://www.swfinstitute.org/profiles/bank/abu-dhabi-commercial-bank",
-    "careersUrl": "https://www.adcb.com/en/about/careers/",
-    "careersSource": "https://www.adcb.com/en/about/careers/",
-    "shortDescription": "Abu Dhabi Commercial Bank (ADCB) is a major UAE banking institution offering consumer, commercial, Islamic, and investment banking services.",
-    "whatTheyDo": "ADCB delivers retail banking, corporate and commercial lending, Islamic banking products, treasury services, trade finance, and private wealth management. Across the UAE, it manages an extensive branch network and digital platforms supported by information technology, cyber defence, risk modelling, and corporate finance units in Abu Dhabi. It serves retail depositors, growing small and medium businesses, large corporations, and public sector organizations.",
-    "descriptionSource": "https://www.swfinstitute.org/profiles/bank/abu-dhabi-commercial-bank",
+    "websiteSource": "https://en.wikipedia.org/wiki/Abu_Dhabi_Commercial_Bank",
+    "careersUrl": "https://adcbcareers.com",
+    "careersSource": "https://www.adcb.com",
+    "linkedinUrl": null,
+    "linkedinSource": null,
+    "shortDescription": "Abu Dhabi Commercial Bank (ADCB) is a major UAE banking institution offering retail, corporate, and commercial financial services.",
+    "whatTheyDo": "ADCB provides comprehensive banking services including consumer banking, corporate and investment banking, Islamic financial products, and wealth management. Headquartered in Abu Dhabi, the bank operates across the UAE and maintains offshore banking hubs and international operations.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Abu_Dhabi_Commercial_Bank",
     "industry": "Banking & Financial Services",
-    "address": "Abu Dhabi Commercial Bank Building, Sheikh Zayed Bin Sultan Street, Abu Dhabi, United Arab Emirates",
+    "commonCareers": [
+      "Relationship Manager",
+      "Credit Analyst"
+    ],
+    "careersEvidence": "https://adcbcareers.com",
+    "technicalAreas": [
+      "Retail Banking",
+      "Corporate Banking",
+      "Islamic Banking",
+      "Wealth Management",
+      "FinTech"
+    ],
+    "address": "Abu Dhabi Commercial Bank Building, Sheikh Zayed bin Sultan Street, P.O. Box 939, Abu Dhabi, UAE",
     "latitude": 24.49327,
     "longitude": 54.37461,
     "locationSource": "https://2gis.ae",
     "internshipsKnown": true,
     "graduateRolesKnown": true,
-    "programmesSource": "https://www.adcb.com/en/about/careers/",
+    "programmes": [
+      {
+        "name": "Tamooha Training Programme",
+        "kind": "graduate"
+      },
+      {
+        "name": "Emirati Youth Programme",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://www.adcb.com",
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Abu Dhabi Commercial Bank Profile - SWFI",
-        "url": "https://www.swfinstitute.org/profiles/bank/abu-dhabi-commercial-bank"
+        "title": "Wikipedia - Abu Dhabi Commercial Bank",
+        "url": "https://en.wikipedia.org/wiki/Abu_Dhabi_Commercial_Bank"
+      },
+      {
+        "title": "Sovereign Wealth Fund Institute - ADCB Profile",
+        "url": "https://www.swfinstitute.org"
       }
     ],
-    "notes": "Input listed area as general 'Abu Dhabi areas'; corporate headquarters is situated in the ADCB Building on Sheikh Zayed Bin Sultan Street (Electra area), Abu Dhabi."
+    "notes": null
   },
   {
     "id": "abu-dhabi-islamic-bank-adib",
     "website": "https://www.adib.ae",
-    "websiteSource": "https://swfinstitute.org/profile/5988e17b6462712959000030",
-    "careersUrl": "https://www.adib.ae/en/Pages/Careers.aspx",
-    "careersSource": "https://www.adib.ae/en/Pages/Careers.aspx",
-    "shortDescription": "Abu Dhabi Islamic Bank (ADIB) is a leading Islamic financial institution headquartered in Abu Dhabi providing comprehensive Sharia-compliant banking services.",
-    "whatTheyDo": "ADIB provides retail, business, corporate, and private Islamic banking products alongside Islamic treasury, capital markets, and trade finance solutions. In the UAE, it maintains a nationwide branch network, digital mobile platforms, and central operational, risk management, and fintech units based in Abu Dhabi. It caters to individual retail consumers, small and medium enterprises, multinational corporations, and government institutions.",
-    "descriptionSource": "https://swfinstitute.org/profile/5988e17b6462712959000030",
-    "industry": "Islamic Banking & Financial Services",
-    "address": "ADIB HQ Building, Sheikh Rashid Bin Saeed Street, Al Muntazah, Abu Dhabi, United Arab Emirates",
-    "latitude": 24.42223,
-    "longitude": 54.45782,
-    "locationSource": "https://2gis.ae",
+    "websiteSource": "https://en.wikipedia.org/wiki/Abu_Dhabi_Islamic_Bank",
+    "careersUrl": "https://www.adib.ae/en/personal/about-adib/careers",
+    "careersSource": "https://www.adib.ae",
+    "linkedinUrl": null,
+    "linkedinSource": null,
+    "shortDescription": "Abu Dhabi Islamic Bank (ADIB) is a leading Islamic financial institution headquartered in Abu Dhabi.",
+    "whatTheyDo": "ADIB provides Sharia-compliant retail banking, corporate banking, private banking, treasury, and digital financing solutions. It serves individuals and corporate clients through an extensive branch network in the UAE alongside international operations in the Middle East and Europe.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Abu_Dhabi_Islamic_Bank",
+    "industry": "Banking & Financial Services",
+    "commonCareers": [
+      "Customer Relationship Officer",
+      "Branch Manager",
+      "Credit Analyst"
+    ],
+    "careersEvidence": "https://www.adib.ae/en/personal/about-adib/careers",
+    "technicalAreas": [
+      "Islamic Banking",
+      "Sharia Compliant Finance",
+      "Retail Banking",
+      "Corporate Banking",
+      "Wealth Management"
+    ],
+    "address": "Sheikh Rashid Bin Saeed Street (Old Airport Road), Al Muntazah, P.O. Box 313, Abu Dhabi, UAE",
+    "latitude": 24.42266,
+    "longitude": 54.45759,
+    "locationSource": "https://maptons.com",
     "internshipsKnown": true,
     "graduateRolesKnown": true,
-    "programmesSource": "https://www.adib.ae/en/Pages/Careers.aspx",
+    "programmes": [
+      {
+        "name": "Ethra Program",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://www.adib.ae",
     "logo": null,
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Abu Dhabi Islamic Bank Profile - SWFI",
-        "url": "https://swfinstitute.org/profile/5988e17b6462712959000030"
+        "title": "Wikipedia - Abu Dhabi Islamic Bank",
+        "url": "https://en.wikipedia.org/wiki/Abu_Dhabi_Islamic_Bank"
       }
     ],
-    "notes": "Input listed area as general 'Abu Dhabi areas'; corporate headquarters is located on Sheikh Rashid Bin Saeed Street (Old Airport Road) in Al Muntazah, Abu Dhabi."
+    "notes": null
   },
   {
     "id": "accenture",
     "website": "https://www.accenture.com/ae-en",
-    "websiteSource": "https://www.consultancy-me.com/advisory/accenture",
-    "careersSource": "https://www.accenture.com/ae-en/careers",
-    "shortDescription": "Accenture is a global professional services firm delivering strategy, digital transformation, cloud engineering, and technology consulting across the UAE.",
-    "whatTheyDo": "Accenture provides corporate strategy consulting, enterprise cloud implementation, systems integration, digital experience design (Accenture Song), cybersecurity, and operations management. In the UAE, its consultants and engineers drive large-scale digital initiatives, national technology agendas, and business modernizations for public sector entities, financial institutions, telecom operators, and energy companies. Its primary regional office is located at Arenco Tower on Sheikh Zayed Road.",
-    "descriptionSource": "https://www.consultancy-me.com/advisory/accenture",
+    "websiteSource": "https://en.wikipedia.org/wiki/Accenture",
+    "careersSource": "https://www.accenture.com/ae-en",
+    "linkedinUrl": null,
+    "linkedinSource": null,
+    "shortDescription": "Accenture is a global professional services firm providing strategy, consulting, digital, and technology transformation services in the UAE.",
+    "whatTheyDo": "Accenture delivers strategy and consulting, technology services, and managed operations across private enterprises and government entities in the UAE. Its Middle East practice leads digital transformation, cloud engineering, cybersecurity, and artificial intelligence programs from its headquarters in Dubai.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Accenture",
     "industry": "Management Consulting & Technology Services",
-    "address": "Arenco Tower, Al Sufouh 2, Sheikh Zayed Road, Dubai, United Arab Emirates",
-    "latitude": 25.09151,
-    "longitude": 55.15871,
-    "locationSource": "https://en.wikipedia.org/wiki/AAM_Tower",
+    "commonCareers": [
+      "Consultant",
+      "Data & AI Consultant",
+      "Management Consultant",
+      "Analyst"
+    ],
+    "careersEvidence": "https://www.accenture.com/ae-en/careers",
+    "technicalAreas": [
+      "Cloud Computing",
+      "Artificial Intelligence",
+      "Digital Transformation",
+      "Cybersecurity",
+      "Strategy & Consulting"
+    ],
+    "address": "One Za'abeel Tower, Za'abeel Palace Street, Za'abeel First, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.accenture.com/ae-en",
     "internshipsKnown": true,
     "graduateRolesKnown": true,
+    "programmes": [],
     "programmesSource": "https://www.accenture.com/ae-en/careers",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg",
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Accenture Middle East Profile - Consultancy-me.com",
-        "url": "https://www.consultancy-me.com/advisory/accenture"
+        "title": "Wikipedia - Accenture",
+        "url": "https://en.wikipedia.org/wiki/Accenture"
       }
     ],
-    "notes": "Input listed area as Dubai Internet City; main Dubai corporate office is situated in Arenco Tower (AAM Tower) in adjacent Al Sufouh 2 / Media City area."
+    "notes": "Directory listed area as Dubai Internet City, but Accenture's official UAE office has relocated to One Za'abeel Tower, Za'abeel First, Dubai."
   },
   {
     "id": "accor",
     "website": "https://group.accor.com",
-    "websiteSource": "https://www.hoteliermiddleeast.com/business/accor-dubai-office-embraces-hotel-design",
+    "websiteSource": "https://en.wikipedia.org/wiki/Accor",
     "careersUrl": "https://careers.accor.com",
-    "careersSource": "https://careers.accor.com",
-    "shortDescription": "Accor operates its regional corporate headquarters for the Middle East, Africa, and Turkey in Dubai, managing a large portfolio of international hotel brands.",
-    "whatTheyDo": "Accor manages luxury, premium, midscale, and economy hospitality properties throughout the UAE, including Raffles, Fairmont, Sofitel, Pullman, Novotel, and Ibis. From its regional headquarters in Dubai Media City, its teams direct regional hotel operations, brand standards, hotel development, commercial sales, and owner partnerships. It serves hospitality investors, business and leisure hotel guests, corporate travel managers, and food and beverage patrons.",
-    "descriptionSource": "https://www.hoteliermiddleeast.com/business/accor-dubai-office-embraces-hotel-design",
+    "careersSource": "https://group.accor.com",
+    "linkedinUrl": null,
+    "linkedinSource": null,
+    "shortDescription": "Accor is a multinational hospitality group managing and franchising a large portfolio of hotels and luxury resorts across the UAE.",
+    "whatTheyDo": "Accor manages and franchises luxury, premium, midscale, and economy hotels and resorts across the UAE, including brands such as Raffles, Fairmont, Sofitel, Novotel, and Ibis. Its regional headquarters in Dubai Media City oversees hotel operations, brand marketing, and hospitality development across the Middle East, Africa, and Turkey.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Accor",
     "industry": "Hospitality & Tourism",
-    "address": "GBS Building, Al Falak Street, Dubai Media City, Dubai, United Arab Emirates",
+    "commonCareers": [
+      "Food & Beverage Supervisor",
+      "Guest Relations Officer",
+      "Sales & Marketing Manager"
+    ],
+    "careersEvidence": "https://careers.accor.com",
+    "technicalAreas": [
+      "Hospitality Management",
+      "Hotel Operations",
+      "Revenue Management",
+      "Culinary Arts"
+    ],
+    "address": "GBS Building, Al Falak Street, Dubai Media City, Dubai, UAE",
     "latitude": null,
     "longitude": null,
-    "locationSource": "https://www.hoteliermiddleeast.com/business/accor-dubai-office-embraces-hotel-design",
+    "locationSource": "https://www.hoteliermiddleeast.com",
     "internshipsKnown": true,
     "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "INSPIRE Graduate Program",
+        "kind": "graduate"
+      }
+    ],
     "programmesSource": "https://careers.accor.com",
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Accor Dubai office embraces hotel design - Hotelier Middle East",
-        "url": "https://www.hoteliermiddleeast.com/business/accor-dubai-office-embraces-hotel-design"
+        "title": "Hotelier Middle East - Accor Regional HQ",
+        "url": "https://www.hoteliermiddleeast.com"
+      },
+      {
+        "title": "Wikipedia - Accor",
+        "url": "https://en.wikipedia.org/wiki/Accor"
       }
     ],
-    "notes": "Input listed area as Downtown, but verified regional corporate headquarters is situated in the GBS Building, Dubai Media City."
+    "notes": "Directory listed area as Downtown, but Accor's regional headquarters for the Middle East, Africa, and Turkey is located in the GBS Building, Dubai Media City."
   },
   {
     "id": "adecco",
-    "websiteSource": "https://www.yellowpages-uae.com/uae/abu-dhabi/adecco-middle-east",
+    "websiteSource": "https://www.edarabia.com",
     "careersSource": "https://www.adecco.ae",
-    "shortDescription": "Adecco Middle East is a prominent human resources, staffing, and workforce solutions consultancy operating across the UAE.",
-    "whatTheyDo": "Adecco Middle East provides permanent professional recruitment, contingent and temporary staffing, executive search, outsourced HR administration, and payroll management services across the UAE. From its offices in Dubai and Abu Dhabi, its specialized recruitment consultants place talent in sectors including banking, technology, engineering, retail, and corporate functions. It also runs dedicated workforce nationalisation programs supporting UAE Emiratisation targets.",
-    "descriptionSource": "https://www.yellowpages-uae.com/uae/abu-dhabi/adecco-middle-east",
-    "industry": "HR & Recruitment Services",
-    "address": "Office 2403, The Citadel Tower, Marasi Drive, Business Bay, Dubai, United Arab Emirates",
+    "linkedinUrl": null,
+    "linkedinSource": null,
+    "shortDescription": "Adecco Middle East provides workforce solutions, permanent recruitment, and temporary staffing services across the UAE.",
+    "whatTheyDo": "Adecco delivers human resource solutions across the UAE, specializing in permanent recruitment, temporary staffing, executive search, and workforce outsourcing. The firm supports multiple sectors including technology, finance, engineering, and healthcare, and offers dedicated Emiratisation recruitment programs.",
+    "descriptionSource": "https://www.edarabia.com",
+    "industry": "Human Resources & Staffing Services",
+    "commonCareers": [
+      "Recruitment Consultant",
+      "Onsite Consultant"
+    ],
+    "careersEvidence": "https://www.adecco.com/en-ae/",
+    "technicalAreas": [
+      "Talent Acquisition",
+      "Workforce Management",
+      "HR Outsourcing",
+      "Emiratisation Staffing",
+      "Payroll Services"
+    ],
+    "address": "Office 2403, Citadel Tower, Business Bay, Dubai, UAE",
     "latitude": null,
     "longitude": null,
-    "locationSource": "https://2gis.ae",
+    "locationSource": "https://adecco.com",
     "internshipsKnown": true,
     "graduateRolesKnown": true,
-    "programmesSource": "https://www.adecco.ae",
+    "programmes": [],
+    "programmesSource": null,
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Adecco Middle East - Yellow Pages UAE",
-        "url": "https://www.yellowpages-uae.com/uae/abu-dhabi/adecco-middle-east"
+        "title": "Edarabia - Adecco Middle East Directory",
+        "url": "https://www.edarabia.com"
+      },
+      {
+        "title": "Wikipedia - The Adecco Group",
+        "url": "https://en.wikipedia.org/wiki/The_Adecco_Group"
       }
     ],
-    "notes": "Adecco maintains operations in Dubai at Office 2403, The Citadel Tower, Business Bay, alongside an Abu Dhabi regional office."
+    "notes": "Adecco operates its Middle East regional headquarters at Marina Plaza, Dubai Marina, and maintains its Outsourcing and Delivery Services office at Citadel Tower, Business Bay, Dubai."
   },
   {
     "id": "aecom",
     "website": "https://aecom.com",
-    "careersSource": "https://aecom.com/careers/early-careers/middle-east/",
-    "shortDescription": "AECOM provides infrastructure consulting, engineering design, and program management services for major development projects across the UAE.",
-    "whatTheyDo": "In the UAE, AECOM provides civil engineering, master planning, architecture, and project management services to both government and private clients. The firm has delivered major projects including landmarks like Etihad Towers and conducted feasibility and design studies for the 55km Dubai Airport Express rail corridor. Its technical teams in the UAE specialize in structural engineering, transportation planning, sustainability consulting, and building information modeling (BIM).",
+    "websiteSource": "https://en.wikipedia.org/wiki/Ubora_Towers",
+    "careersUrl": "https://aecom.com/careers",
+    "careersSource": "https://aecom.com/ae/en/locations/middle-east/uae/",
+    "linkedinUrl": "https://www.linkedin.com/company/aecom",
+    "linkedinSource": "https://aecom.com",
+    "shortDescription": "AECOM provides infrastructure consulting, engineering, architecture, and program management services across the UAE.",
+    "whatTheyDo": "AECOM delivers planning, design, engineering, and construction supervision for major civil infrastructure, transportation, and building developments. In the UAE, its multidisciplinary teams handle urban masterplanning, utility design, highway engineering, and site project management.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Ubora_Towers",
     "industry": "Civil Engineering & Infrastructure Consulting",
-    "address": "Level 43, Ubora Tower, Al Abraj Street, Business Bay, Dubai, UAE",
+    "commonCareers": [
+      "Engineer - Utilities",
+      "Land Surveyor",
+      "Senior Urban Designer",
+      "Interior Designer",
+      "Project Surveyor"
+    ],
+    "careersEvidence": "https://middleeast.aecom.jobs/",
+    "technicalAreas": [
+      "Civil Infrastructure",
+      "Urban Planning & Design",
+      "Land Surveying",
+      "Utility Protection & Engineering"
+    ],
+    "address": "Ubora Commercial Tower, Level 43, Al Abraj Street, Business Bay, Dubai, UAE",
     "latitude": 25.18058,
     "longitude": 55.27103,
     "locationSource": "https://en.wikipedia.org/wiki/Ubora_Towers",
     "internshipsKnown": true,
     "graduateRolesKnown": true,
-    "programmesSource": "https://aecom.com/careers/early-careers/middle-east/",
-    "logo": null,
+    "programmes": [
+      {
+        "name": "ADVANCE Graduate Program",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://aecom.com/careers/graduates-and-early-careers/middle-east-early-careers/",
     "retrievedAt": "2026-09-21",
-    "sources": [],
-    "notes": "Main Dubai corporate office is located in Ubora Tower in Business Bay, rather than JLT as listed in the input directory."
+    "sources": [
+      {
+        "title": "Wikipedia - Ubora Towers",
+        "url": "https://en.wikipedia.org/wiki/Ubora_Towers"
+      },
+      {
+        "title": "Construction Week Online - AECOM Middle East",
+        "url": "https://www.constructionweekonline.com"
+      }
+    ],
+    "notes": "Input listed area as JLT; however, AECOM's Dubai office is located at Ubora Commercial Tower in Business Bay."
   },
   {
     "id": "ag-melco-elevator-co-llc",
-    "careersUrl": null,
-    "careersSource": null,
-    "shortDescription": "AG MELCO Elevator Co. L.L.C. provides sales, installation, modernization, and maintenance services for Mitsubishi Electric elevators and escalators in the UAE.",
-    "whatTheyDo": "Established in 1975, the company supplies and maintains vertical transportation equipment including passenger lifts, freight elevators, escalators, moving walkways, and dumbwaiters. It serves commercial towers, residential communities, and public infrastructure projects across the UAE and the broader region. Technical personnel manage on-site installations, scheduled maintenance, systems modernization, and 24/7 breakdown callouts.",
-    "industry": "Vertical Transportation & Building Engineering",
-    "address": "1st Floor, Dubai Municipality Building, Adjacent to Muraqqabat Police Station, Salahuddin Road, Deira, Dubai, UAE",
+    "website": "https://www.agmelco.com",
+    "websiteSource": "https://www.businesswire.com",
+    "shortDescription": "AG MELCO Elevator Co. L.L.C. supplies, installs, and maintains Mitsubishi Electric elevators, escalators, and moving walks in the UAE.",
+    "whatTheyDo": "AG MELCO Elevator specializes in vertical transportation systems, supplying Mitsubishi Electric passenger and freight lifts, escalators, and travelators. It provides engineering design, commissioning, modernization, and round-the-clock maintenance services for commercial, hospitality, and residential properties across the UAE.",
+    "descriptionSource": "https://www.businesswire.com",
+    "industry": "Elevators & Vertical Transportation",
+    "commonCareers": [],
+    "technicalAreas": [
+      "Elevator & Escalator Systems",
+      "Vertical Transportation Engineering",
+      "Field Maintenance"
+    ],
+    "address": "1st Floor, Dubai Municipality Building, Salahuddin Road, Deira, Dubai, UAE",
     "latitude": null,
     "longitude": null,
-    "internshipsKnown": null,
-    "graduateRolesKnown": null,
-    "programmesSource": null,
-    "logo": null,
+    "locationSource": "https://www.businesswire.com",
     "retrievedAt": "2026-09-21",
-    "sources": [],
-    "notes": "Formerly a 50-year joint venture between Al Ghurair and Mitsubishi Electric; in November 2025 Mitsubishi Electric acquired 100% of the company's shares and renamed it Mitsubishi Electric Middle East Africa and CIS Co. L.L.C. (MMAC) in December 2025. Headquartered in Deira, not Dubai Internet City."
+    "sources": [
+      {
+        "title": "Business Wire - Mitsubishi Electric Completes Acquisition of AG MELCO Elevator Co. L.L.C.",
+        "url": "https://www.businesswire.com"
+      },
+      {
+        "title": "Naukrigulf - AG MELCO Elevator Co. L.L.C. Profile",
+        "url": "https://www.naukrigulf.com"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City; however, AG MELCO Elevator Co. L.L.C. is headquartered in Deira, with operations in Dubai Investments Park 2. In November 2025, Mitsubishi Electric completed the acquisition of all shares of AG MELCO Elevator Co. L.L.C."
   },
   {
     "id": "agmc-bmw-mini-rollsroyce",
     "website": "https://www.agmc.com",
-    "careersUrl": null,
-    "careersSource": null,
-    "shortDescription": "AGMC is the official importer and distributor of BMW, MINI, and Rolls-Royce vehicles in Dubai, Sharjah, and the Northern Emirates.",
-    "whatTheyDo": "Established in 1976 as part of the Albatha Group, AGMC manages automotive dealerships, certified pre-owned programs, genuine spare parts distribution, and authorized service centers across the UAE. It serves individual motorists, corporate fleets, and luxury vehicle clients. Technical teams include manufacturer-certified master diagnostic technicians, bodyshop repair specialists, and automotive service advisors.",
+    "websiteSource": "https://en.wikipedia.org/wiki/Albatha_Group",
+    "careersUrl": "https://www.agmc.com",
+    "careersSource": "https://www.agmc.com",
+    "shortDescription": "AGMC (Arabian Gulf Mechanical Centre) is the official importer and dealer for BMW, MINI, and Rolls-Royce vehicles in Dubai, Sharjah, and the Northern Emirates.",
+    "whatTheyDo": "AGMC handles retail sales of new and certified pre-owned BMW, MINI, and Rolls-Royce motor vehicles and motorcycles. It operates dedicated service centres, mechanical repair facilities, paint and bodyshops, and parts distribution centres, alongside automotive finance and leasing services across the UAE.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Albatha_Group",
     "industry": "Automotive Retail & Services",
-    "address": "Sheikh Zayed Road, Al Quoz 1, Dubai, UAE",
+    "commonCareers": [
+      "Service Advisor",
+      "Rental Sales Agent",
+      "Diagnostic Technician"
+    ],
+    "careersEvidence": "https://ae.indeed.com",
+    "technicalAreas": [
+      "Automotive Diagnostics",
+      "Vehicle Mechanics & Repair",
+      "Luxury Aftersales Engineering"
+    ],
+    "address": "429 Sheikh Zayed Road, Al Quoz 1, Dubai, UAE",
     "latitude": null,
     "longitude": null,
-    "internshipsKnown": null,
-    "graduateRolesKnown": null,
-    "programmesSource": null,
-    "logo": null,
+    "locationSource": "https://www.agmc.com",
     "retrievedAt": "2026-09-21",
-    "sources": [],
-    "notes": "Legal entity name is Arabian Gulf Mechanical Centre LLC, operating under Albatha Group. Corporate headquarters and main showroom are located on Sheikh Zayed Road in Al Quoz 1, rather than Downtown."
+    "sources": [
+      {
+        "title": "Albatha Group - AGMC Automotive Division Overview",
+        "url": "https://en.wikipedia.org/wiki/Albatha_Group"
+      },
+      {
+        "title": "Dubizzle - AGMC Showrooms Dubai Profile",
+        "url": "https://www.dubizzle.com"
+      }
+    ],
+    "notes": "Input listed area as Downtown; AGMC operates a Rolls-Royce boutique in nearby City Walk, but its corporate headquarters and flagship BMW/MINI/Rolls-Royce sales and service hub are at 429 Sheikh Zayed Road, Al Quoz 1."
   },
   {
     "id": "aki-group",
     "website": "https://www.akigroup.com",
-    "careersUrl": null,
-    "careersSource": null,
-    "shortDescription": "Al Khayyat Investments (AKI) is a diversified UAE family conglomerate operating across pharmaceuticals, retail, FMCG, contracting, and logistics.",
-    "whatTheyDo": "Founded in 1982, AKI distributes consumer products, pharmaceuticals, and lifestyle brands across the Middle East, anchoring retail chains such as BinSina Pharmacy alongside over 150 international retail brands. The group provides end-to-end supply chain services, contracting, and automotive distribution to regional partners and consumers. In Dubai, it operates a 1-million-square-foot Fulfilment & Innovation Centre with specialized technical teams in supply chain logistics, application integration, and pharmacy operations.",
-    "industry": "Conglomerate (Retail, Healthcare & Logistics)",
-    "address": "I-Rise Tower, Al Thanyah First, Barsha Heights, Dubai, UAE",
+    "websiteSource": "https://www.forbesmiddleeast.com",
+    "careersSource": "https://www.akigroup.com",
+    "linkedinUrl": "https://www.linkedin.com/company/alkhayyatinvestments",
+    "linkedinSource": "https://www.kompass.com",
+    "shortDescription": "Al Khayyat Investments (AKI Group) is a diversified Emirati family conglomerate operating in retail, healthcare, FMCG distribution, and logistics.",
+    "whatTheyDo": "AKI distributes pharmaceuticals, medical equipment, and fast-moving consumer goods across the region, while operating retail pharmacy and lifestyle fashion stores. In the UAE, it manages automated logistics fulfillment centres and runs divisions in contracting, fitness, and environmental services.",
+    "descriptionSource": "https://www.forbesmiddleeast.com",
+    "industry": "Diversified Conglomerate / Retail & Healthcare",
+    "commonCareers": [
+      "AI Engineer",
+      "Project Coordinator",
+      "Receptionist"
+    ],
+    "careersEvidence": "https://www.akigroup.com/careers",
+    "technicalAreas": [
+      "Artificial Intelligence",
+      "Supply Chain Logistics & Fulfillment",
+      "Pharmaceutical Distribution"
+    ],
+    "address": "iRise Tower, Al Thanyah First, Barsha Heights, Dubai, UAE",
     "latitude": 25.09691,
-    "longitude": 55.18068,
-    "internshipsKnown": true,
-    "graduateRolesKnown": null,
-    "logo": null,
+    "longitude": 55.18067,
+    "locationSource": "https://mapcarta.com",
     "retrievedAt": "2026-09-21",
-    "sources": [],
-    "notes": "Corporate headquarters is situated in I-Rise Tower in Barsha Heights, not Business Bay as recorded in the directory."
+    "sources": [
+      {
+        "title": "Forbes Middle East - Top 100 Arab Family Businesses: AKI Group",
+        "url": "https://www.forbesmiddleeast.com"
+      },
+      {
+        "title": "Kompass UAE - Al Khayyat Investments Profile",
+        "url": "https://www.kompass.com"
+      }
+    ],
+    "notes": "Input listed area as Business Bay; however, AKI Group's corporate headquarters is located at iRise Tower in Barsha Heights, Dubai."
   },
   {
     "id": "akzonobel",
     "website": "https://www.akzonobel.com",
+    "websiteSource": "https://www.duluxarabia.com",
     "careersUrl": "https://www.akzonobel.com/en/careers",
-    "careersSource": "https://www.akzonobel.com/en/careers",
-    "shortDescription": "AkzoNobel manufactures and distributes decorative paints and performance coatings for automotive, industrial, and consumer markets in the UAE.",
-    "whatTheyDo": "In the UAE, AkzoNobel supplies architectural paints under the Dulux brand, vehicle refinishes through Sikkens, and protective marine and industrial coatings. The company serves construction contractors, body shops, shipbuilders, and infrastructure developers across the region. In Dubai, it operates a regional Application Training Centre in Al Quoz dedicated to color matching, digital tinting technologies, and sustainable coating solutions.",
-    "industry": "Chemicals, Paints & Performance Coatings",
-    "address": "11th & 12th Floor, Al Habtoor Business Tower, Dubai Marina, Dubai, UAE",
-    "latitude": 25.08528,
-    "longitude": 55.14167,
-    "internshipsKnown": null,
+    "careersSource": "https://www.akzonobel.com",
+    "linkedinUrl": "https://www.linkedin.com/company/akzonobel",
+    "linkedinSource": "https://www.akzonobel.com",
+    "shortDescription": "AkzoNobel manufactures and distributes performance coatings, industrial finishes, and decorative paints across the UAE.",
+    "whatTheyDo": "AkzoNobel supplies architectural paints under the Dulux brand, alongside marine, protective, and automotive refinish coatings. In the UAE, its teams provide technical specification, color technology, and specialized fire-protection coating consulting for regional infrastructure and construction projects.",
+    "descriptionSource": "https://www.duluxarabia.com",
+    "industry": "Chemicals, Paints & Coatings",
+    "commonCareers": [
+      "Specification Selling Specialist - Fire Protection",
+      "Site Operations Assistant",
+      "Emirati Graduate Project Coordinator"
+    ],
+    "careersEvidence": "https://www.akzonobel.com/en/careers",
+    "technicalAreas": [
+      "Protective Coatings & Passive Fire Protection",
+      "Architectural Paints & Coatings",
+      "Automotive Refinishing Systems"
+    ],
+    "address": "Al Habtoor Business Tower, 11th & 12th Floor, Dubai Marina, Dubai, UAE",
+    "latitude": 25.08539,
+    "longitude": 55.14165,
+    "locationSource": "https://maptons.com",
     "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "Emirati Graduate Program",
+        "kind": "graduate"
+      }
+    ],
     "programmesSource": "https://www.akzonobel.com/en/careers",
-    "logo": null,
     "retrievedAt": "2026-09-21",
-    "sources": [],
-    "notes": "Main corporate office is in Al Habtoor Business Tower in Dubai Marina, not JLT. Offers Emirati Graduate Project Coordinator roles through its global careers portal."
+    "sources": [
+      {
+        "title": "Dulux Arabia - AkzoNobel Corporate Presence",
+        "url": "https://www.duluxarabia.com"
+      },
+      {
+        "title": "Yellow Pages UAE - Akzo Nobel UAE Paints LLC",
+        "url": "https://www.yellowpages-uae.com"
+      }
+    ],
+    "notes": "Input listed area as JLT; however, AkzoNobel UAE Paints LLC's primary commercial office is at Al Habtoor Business Tower in Dubai Marina."
   },
   {
     "id": "al-ahli-bank-of-kuwait",
     "website": "https://abk.eahli.com",
-    "careersUrl": null,
-    "careersSource": null,
-    "shortDescription": "Al Ahli Bank of Kuwait (ABK) provides retail, commercial, and wholesale banking services in the UAE.",
-    "whatTheyDo": "In the UAE, ABK operates full-service commercial banking providing retail deposits, consumer lending, trade finance, and treasury services. Its Dubai International Financial Centre (DIFC) branch holds a Category 1 DFSA license, serving corporate and institutional clients with structured lending, syndications, and cross-border financing. Banking teams in Dubai focus on relationship management, corporate credit analysis, risk management, and regulatory compliance.",
+    "websiteSource": "https://en.wikipedia.org/wiki/Al_Ahli_Bank_of_Kuwait",
+    "careersUrl": "https://abk.eahli.com",
+    "careersSource": "https://abk.eahli.com",
+    "linkedinUrl": "https://www.linkedin.com/company/alahlibankofkuwait",
+    "linkedinSource": "https://abk.eahli.com",
+    "shortDescription": "Al Ahli Bank of Kuwait (ABK) provides wholesale, corporate, and commercial banking services in the UAE.",
+    "whatTheyDo": "ABK operates a wholesale banking branch in the DIFC providing corporate lending, treasury, and trade finance solutions to institutional clients, multinational companies, and government entities. It also operates full-service commercial banking branches in Deira and Abu Dhabi.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Al_Ahli_Bank_of_Kuwait",
     "industry": "Banking & Financial Services",
-    "address": "Opposite Hamarain Centre, Abu Baker Al Siddique Road, Deira, Dubai, UAE",
+    "commonCareers": [],
+    "address": "Level 21, North Tower, Emirates Financial Towers, DIFC, Dubai, UAE",
     "latitude": null,
     "longitude": null,
-    "internshipsKnown": null,
-    "graduateRolesKnown": null,
-    "programmesSource": null,
-    "logo": null,
+    "locationSource": "https://abk.eahli.com",
     "retrievedAt": "2026-09-21",
-    "sources": [],
-    "notes": "Main Dubai retail branch is on Abu Baker Al Siddique Road in Deira, and wholesale banking is conducted via Emirates Financial Towers in DIFC; has no office in Dubai Internet City."
+    "sources": [
+      {
+        "title": "Wikipedia - Al Ahli Bank of Kuwait",
+        "url": "https://en.wikipedia.org/wiki/Al_Ahli_Bank_of_Kuwait"
+      },
+      {
+        "title": "DIFC Public Register - Al Ahli Bank of Kuwait DIFC Branch",
+        "url": "https://www.difc.ae"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City; however, ABK has no presence in Dubai Internet City. Its UAE operations consist of a wholesale branch in DIFC and retail/commercial branches in Deira and Abu Dhabi."
   },
   {
     "id": "al-buhaira-national-insurance-co",
     "website": "https://www.albuhaira.com",
-    "careersUrl": null,
-    "careersSource": null,
-    "shortDescription": "Al Buhaira National Insurance Company (ABNIC) provides general, life, and health insurance coverage to individuals and businesses across the UAE.",
-    "whatTheyDo": "Established in 1978 and listed on the Abu Dhabi Securities Exchange (ADX), ABNIC underwrites motor, medical, property, marine, engineering, and liability insurance. The company serves personal policyholders, small and medium enterprises, and major corporate clients across the UAE. In Dubai, it maintains underwriting divisions, actuarial analysis teams, claims handling and surveying units, and customer support centers.",
-    "industry": "Insurance",
-    "address": "Ground & 1st Floor, Al Buhairah Building, near Deira Clock Tower, Deira, Dubai, UAE",
+    "websiteSource": "https://www.adx.ae",
+    "careersSource": "https://www.albuhaira.com",
+    "shortDescription": "Al Buhaira National Insurance Company (ABNIC) is a UAE public shareholding insurance provider offering commercial and personal coverage.",
+    "whatTheyDo": "ABNIC underwrites a range of risk management and insurance products including motor, medical, property, marine cargo and hull, aviation, and engineering policies. In Dubai, it operates branch offices in Deira and on Sheikh Zayed Road providing claims handling and underwriting support.",
+    "descriptionSource": "https://www.adx.ae",
+    "industry": "Insurance & Financial Services",
+    "commonCareers": [],
+    "address": "Al Buhairah Building, near Deira Clock Tower, Deira, Dubai, UAE",
     "latitude": null,
     "longitude": null,
-    "internshipsKnown": null,
-    "graduateRolesKnown": null,
-    "programmesSource": null,
-    "logo": null,
+    "locationSource": "https://www.albuhaira.com",
     "retrievedAt": "2026-09-21",
-    "sources": [],
-    "notes": "Public shareholding company listed on ADX; headquartered on Buhaira Corniche in Sharjah. Dubai branches are located in Deira and on Sheikh Zayed Road; no branch exists in Downtown."
+    "sources": [
+      {
+        "title": "Abu Dhabi Securities Exchange (ADX) - ABNIC Profile",
+        "url": "https://www.adx.ae"
+      },
+      {
+        "title": "Central Bank of the UAE - Insurance Directory",
+        "url": "https://www.centralbank.ae"
+      }
+    ],
+    "notes": "Input listed area as Downtown; however, ABNIC's Dubai branches are located in Deira and on Sheikh Zayed Road (Al Wadi Building), with its corporate headquarters in Sharjah."
   },
   {
     "id": "al-futtaim",
     "website": "https://www.alfuttaim.com",
-    "careersSource": "http://www.afuturewithus.com/",
-    "shortDescription": "Al-Futtaim is a prominent family-owned conglomerate operating across automotive, retail, real estate, financial services, and healthcare in the UAE.",
-    "whatTheyDo": "Headquartered in Dubai Festival City, Al-Futtaim represents global automotive franchises (including Toyota, Lexus, and Honda), retail brands (such as IKEA, Marks & Spencer, and ACE), and major master developments. The group serves retail consumers, commercial enterprises, and public sector organizations across the Middle East, Asia, and Africa. Its technical divisions in the UAE encompass automotive diagnostics and workshop engineering, enterprise IT, building systems, and supply chain logistics.",
-    "industry": "Conglomerate (Automotive, Retail & Real Estate)",
-    "address": "Festival Tower, Dubai Festival City, Dubai, UAE",
+    "websiteSource": "https://en.wikipedia.org/wiki/Al-Futtaim_Group",
+    "careersUrl": "https://www.afuturewithus.com",
+    "careersSource": "https://www.alfuttaim.com",
+    "shortDescription": "Al-Futtaim is an Emirati conglomerate operating across automotive, retail, real estate, healthcare, and financial services.",
+    "whatTheyDo": "Al-Futtaim manages exclusive distribution and retail franchises for global brands including Toyota, Lexus, IKEA, and Marks & Spencer. It also develops mixed-use urban master projects such as Dubai Festival City, operates private healthcare facilities, and delivers contracting and financial services across the UAE.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Al-Futtaim_Group",
+    "industry": "Diversified Conglomerate",
+    "commonCareers": [
+      "Data Science Manager",
+      "IT Specialist",
+      "Design Manager (Interiors)",
+      "Tenant Relations Manager",
+      "Sales Assistant"
+    ],
+    "careersEvidence": "https://www.afuturewithus.com",
+    "technicalAreas": [
+      "Data Science",
+      "Information Technology",
+      "Automotive Engineering",
+      "Supply Chain Management"
+    ],
+    "address": "Festival Tower, Dubai Festival City, P.O. Box 152, Dubai, UAE",
     "latitude": null,
     "longitude": null,
+    "locationSource": "https://en.wikipedia.org/wiki/Dubai_Festival_City",
     "internshipsKnown": true,
     "graduateRolesKnown": true,
-    "programmesSource": "http://www.afuturewithus.com/",
-    "logo": null,
+    "programmes": [
+      {
+        "name": "SINYAR Emiratisation Programme",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://www.alfuttaim.com",
     "retrievedAt": "2026-09-21",
-    "sources": [],
-    "notes": "Corporate headquarters is located at Festival Tower in Dubai Festival City, not JLT. Offers structured talent and graduate development programs through its SINYAR Emiratisation initiative."
+    "sources": [
+      {
+        "title": "Wikipedia - Al-Futtaim Group",
+        "url": "https://en.wikipedia.org/wiki/Al-Futtaim_Group"
+      },
+      {
+        "title": "Gulf News - Al-Futtaim Overview",
+        "url": "https://gulfnews.com"
+      }
+    ],
+    "notes": "Input listed area as JLT; however, Al-Futtaim Group's corporate headquarters is located at Festival Tower in Dubai Festival City. Not to be confused with Majid Al Futtaim, a separate conglomerate."
   },
   {
     "id": "al-ghurair",
     "website": "https://www.al-ghurair.com",
-    "careersUrl": null,
-    "careersSource": null,
-    "shortDescription": "Al Ghurair Investment is a diversified UAE family conglomerate operating in foods, resources, property, construction, and energy.",
-    "whatTheyDo": "Founded over 50 years ago, Al Ghurair operates essential regional manufacturing and retail businesses, including Al Ghurair Foods (grain milling, edible oils, and animal nutrition), commercial shopping malls including Al Ghurair Centre, and industrial construction ventures. The group serves regional consumers, industrial manufacturers, and international grain commodity markets across more than 20 countries. Its technical and engineering teams in the UAE specialize in industrial food processing, supply chain logistics, building construction, and facilities engineering.",
-    "industry": "Conglomerate (Food Production, Real Estate & Manufacturing)",
-    "address": "Al Ghurair Head Office, Omar Bin Al Khattab Road, Deira, Dubai, UAE",
-    "latitude": 25.26781,
-    "longitude": 55.31746,
-    "internshipsKnown": true,
-    "graduateRolesKnown": true,
-    "programmesSource": "https://www.alghurairfoundation.org/careers/",
-    "logo": null,
+    "websiteSource": "https://en.wikipedia.org/wiki/Al-Ghurair_Group",
+    "careersUrl": "https://www.al-ghurair.com/en/careers",
+    "careersSource": "https://www.al-ghurair.com",
+    "linkedinUrl": "https://www.linkedin.com/company/al-ghurair-investment",
+    "linkedinSource": "https://www.naukrigulf.com",
+    "shortDescription": "Al Ghurair Investment is a diversified Emirati family conglomerate operating across foods, resources, properties, construction, energy, and mobility.",
+    "whatTheyDo": "Al Ghurair manages large-scale industrial assets including flour and grain processing mills, printing and packaging operations, and aluminium and facade construction contracting. In the UAE, it also oversees commercial real estate developments, including Al Ghurair Centre, and operates retail mobility services.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Al-Ghurair_Group",
+    "industry": "Diversified Industrial Conglomerate",
+    "commonCareers": [],
+    "technicalAreas": [
+      "Food Manufacturing & Grain Processing",
+      "Structural Engineering & Facade Contracting",
+      "Energy & Resources"
+    ],
+    "address": "Al Ghurair Group Head Office, Omar Bin Al Khattab Road, Al Muraqqabat, Deira, P.O. Box 6999, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://en.wikipedia.org/wiki/Al-Ghurair_Group",
     "retrievedAt": "2026-09-21",
-    "sources": [],
-    "notes": "Headquartered on Omar Bin Al Khattab Road in Deira, adjacent to Al Ghurair Centre; not located in Dubai Internet City as stated in directory. Youth internships and graduate readiness initiatives are administered via the associated Abdulla Al Ghurair Foundation."
+    "sources": [
+      {
+        "title": "Wikipedia - Al-Ghurair Group",
+        "url": "https://en.wikipedia.org/wiki/Al-Ghurair_Group"
+      },
+      {
+        "title": "Naukrigulf - Al Ghurair Investment Profile",
+        "url": "https://www.naukrigulf.com"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City; however, Al Ghurair Investment is headquartered on Omar Bin Al Khattab Road, Al Muraqqabat, Deira, Dubai."
   },
   {
     "id": "al-habtoor",
     "website": "https://www.habtoor.com",
-    "websiteSource": "https://www.swfinstitute.org/profile/598cdaa50124951117781b23",
-    "careersUrl": null,
-    "careersSource": null,
-    "shortDescription": "Al Habtoor Group is a prominent UAE conglomerate operating across hospitality, automotive, real estate, education, and publishing.",
-    "whatTheyDo": "The group develops and operates luxury hotels and mixed-use complexes, distributes automotive brands including Mitsubishi and Bentley through Al Habtoor Motors, and operates schools and vehicle leasing fleets. Its hospitality, commercial, and technical teams manage extensive assets across the UAE.",
-    "descriptionSource": "https://www.swfinstitute.org/profile/598cdaa50124951117781b23",
-    "industry": "Conglomerate & Real Estate / Hospitality",
+    "websiteSource": "https://en.wikipedia.org/wiki/Al_Habtoor_Group",
+    "careersUrl": "https://www.habtoor.com/en/employment.php",
+    "careersSource": "https://www.habtoor.com",
+    "linkedinUrl": "https://www.linkedin.com/company/al-habtoor-group",
+    "linkedinSource": "https://www.altss.com",
+    "shortDescription": "Al Habtoor Group LLC is a prominent UAE conglomerate operating in hospitality, automotive, real estate, education, and publishing.",
+    "whatTheyDo": "Al Habtoor Group manages luxury hotel properties, operates major automotive dealerships via Al Habtoor Motors, develops commercial and residential real estate projects including Al Habtoor City, and runs vehicle leasing and private education institutions in the UAE.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Al_Habtoor_Group",
+    "industry": "Conglomerates & Diversified Holdings",
+    "commonCareers": [
+      "Assistant Front Office Manager",
+      "Rooms Controller",
+      "Receptionist",
+      "Accountant"
+    ],
+    "careersEvidence": "https://www.indeed.com",
+    "technicalAreas": [],
     "address": "727 Al Wasl Road, Al Safa 2, P.O. Box 25444, Dubai, UAE",
     "latitude": null,
     "longitude": null,
-    "locationSource": "https://www.uaeconstructors.com/company/al-habtoor-group",
+    "locationSource": "https://www.habtoor.com",
     "internshipsKnown": true,
-    "graduateRolesKnown": true,
-    "programmesSource": "https://www.dubaiofw.com",
-    "logo": null,
+    "graduateRolesKnown": false,
+    "programmes": [
+      {
+        "name": "Al Habtoor Group Internship Programme",
+        "kind": "internship"
+      }
+    ],
+    "programmesSource": "https://www.habtoor.com",
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "SWFI - Al Habtoor Group Profile",
-        "url": "https://www.swfinstitute.org/profile/598cdaa50124951117781b23"
+        "title": "Wikipedia - Al Habtoor Group",
+        "url": "https://en.wikipedia.org/wiki/Al_Habtoor_Group"
       },
       {
-        "title": "UAE Constructors - Al Habtoor Group Company Profile",
-        "url": "https://www.uaeconstructors.com/company/al-habtoor-group"
+        "title": "Gulf News Coverage",
+        "url": "https://gulfnews.com"
       }
     ],
-    "notes": "Headquartered on Al Wasl Road in Al Safa 2, not Downtown Dubai. Not to be confused with Al Hathboor Group, which is a separate UAE corporate entity."
+    "notes": "Input listed area as Downtown, but corporate headquarters is located at 727 Al Wasl Road, Al Safa 2, Dubai (with major developments including Al Habtoor City situated near Business Bay and Downtown Dubai)."
   },
   {
     "id": "al-mal-capital-psc",
@@ -472,151 +863,206 @@
     "websiteSource": "https://www.dfm.ae",
     "careersUrl": null,
     "careersSource": null,
-    "shortDescription": "Al Mal Capital PSC is a Dubai-based asset management and financial advisory firm regulated by the UAE Securities and Commodities Authority.",
-    "whatTheyDo": "The firm provides investment banking, asset management, and direct investment services to institutional and private clients. It serves as the fund manager for the DFM-listed Al Mal Capital REIT and is an 83.95% subsidiary of Dubai Investments PJSC.",
+    "linkedinUrl": "https://www.linkedin.com/company/al-mal-capital-psc",
+    "linkedinSource": "https://www.gludo.org",
+    "shortDescription": "Al Mal Capital PSC is a regulated investment firm based in Dubai and a majority-owned subsidiary of Dubai Investments PJSC.",
+    "whatTheyDo": "Al Mal Capital PSC provides asset management, investment banking, corporate advisory, and capital markets services across the MENA region. The firm acts as the fund manager for Al Mal Capital REIT, which is listed on the Dubai Financial Market.",
     "descriptionSource": "https://www.dfm.ae",
     "industry": "Financial Services & Investment",
-    "address": "Office 901, 48 Burj Gate, Downtown Dubai, Sheikh Zayed Road, P.O. Box 119930, Dubai, UAE",
-    "latitude": 25.19997,
-    "longitude": 55.26916,
+    "commonCareers": [],
+    "careersEvidence": null,
+    "technicalAreas": [],
+    "address": "Office 901, 48 Burj Gate, Sheikh Zayed Road, Downtown Dubai, P.O. Box 119930, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
     "locationSource": "https://www.dfm.ae",
-    "internshipsKnown": null,
-    "graduateRolesKnown": null,
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
     "programmesSource": null,
-    "logo": null,
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Dubai Financial Market - Al Mal Capital PSC Profile",
+        "title": "Dubai Financial Market (DFM) Company Information",
         "url": "https://www.dfm.ae"
       },
       {
-        "title": "PitchBook - Al Mal Capital Profile",
-        "url": "https://pitchbook.com/profiles/company/54267-27"
+        "title": "Dubai Investments Portfolio Details",
+        "url": "https://www.dubaiinvestments.com"
       }
     ],
-    "notes": "Headquartered at 48 Burj Gate in Downtown Dubai, not in the DIFC. It is regulated by the Securities and Commodities Authority (SCA) rather than the DFSA."
+    "notes": "Input listed area as DIFC, but Al Mal Capital PSC is headquartered at 48 Burj Gate on Sheikh Zayed Road in Downtown Dubai and is regulated by the UAE SCA."
   },
   {
     "id": "al-marai",
     "website": "https://www.almarai.com",
-    "websiteSource": "https://en.wikipedia.org/wiki/Almarai",
-    "careersUrl": "https://www.almarai.com/en/careers/",
-    "careersSource": "https://www.almarai.com/en/careers/",
-    "shortDescription": "Almarai is a multinational food and beverage company that operates extensive cold-chain logistics and commercial distribution networks across the UAE.",
-    "whatTheyDo": "The company distributes dairy products, fruit juices, bakery goods, and poultry across UAE retail and foodservice channels. Its regional operations manage warehousing, temperature-controlled distribution fleets, and commercial sales teams.",
-    "descriptionSource": "https://en.wikipedia.org/wiki/Almarai",
-    "industry": "Food & Beverage Production and Distribution",
-    "address": "Dubai Industrial City, Saih Shuaib 2, Sheikh Mohammed Bin Zayed Road, Dubai, UAE",
+    "websiteSource": "https://www.forbes.com",
+    "careersUrl": "https://www.almarai.com/en/corporate/careers/",
+    "careersSource": "https://www.almarai.com",
+    "linkedinUrl": "https://www.linkedin.com/company/almarai",
+    "linkedinSource": "https://www.deusens.com",
+    "shortDescription": "Almarai is the Middle East's largest dairy, food, and beverage manufacturing and distribution company.",
+    "whatTheyDo": "Almarai produces and distributes dairy products, baked goods, poultry, fruit juices, and infant nutrition across the GCC region. In the UAE, it operates extensive logistics, sales, and supply chain facilities to serve retail and food service customers.",
+    "descriptionSource": "https://www.forbes.com",
+    "industry": "Food & Beverage Manufacturing",
+    "commonCareers": [
+      "Sales Assistant",
+      "Delivery Driver",
+      "Merchandiser",
+      "Stock Control Clerk"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com/almarai-company-jobs",
+    "technicalAreas": [
+      "Supply Chain Logistics",
+      "Food Safety & Quality Control"
+    ],
+    "address": "Al Marai Emirates Company, Dubai Industrial City (Saih Shuaib 2), Dubai, UAE",
     "latitude": null,
     "longitude": null,
-    "locationSource": "https://2gis.ae",
+    "locationSource": "https://www.localemirates.com",
     "internshipsKnown": true,
     "graduateRolesKnown": true,
-    "programmesSource": "https://www.almarai.com/en/careers/",
-    "logo": null,
+    "programmes": [
+      {
+        "name": "Cooperative Training Program",
+        "kind": "internship"
+      }
+    ],
+    "programmesSource": "https://www.almarai.com/en/corporate/careers/",
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Wikipedia - Almarai",
-        "url": "https://en.wikipedia.org/wiki/Almarai"
+        "title": "Forbes Profile",
+        "url": "https://www.forbes.com"
       },
       {
-        "title": "2GIS UAE - Almarai Dubai Industrial City Branch",
-        "url": "https://2gis.ae"
+        "title": "Gulfood Industry Directory",
+        "url": "https://www.gulfood.com"
       }
     ],
-    "notes": "Corporate headquarters is in Riyadh, Saudi Arabia; UAE operations are centered at distribution and logistics facilities in Dubai Industrial City and Al Quoz, not in JLT (Jumeirah Lakes Towers)."
+    "notes": "Input listed area as JLT, but Almarai's corporate headquarters is in Riyadh, Saudi Arabia, and its primary Dubai operations and depot are in Dubai Industrial City, not JLT."
   },
   {
     "id": "al-masraf",
     "website": "https://www.almasraf.ae",
-    "websiteSource": "https://www.swfinstitute.org/profile/598cdaa50124951117781f14",
+    "websiteSource": "https://www.swfinstitute.org",
     "careersUrl": null,
     "careersSource": null,
-    "shortDescription": "Al Masraf (Arab Bank for Investment and Foreign Trade) is a UAE-based financial institution providing corporate, commercial, and retail banking services.",
-    "whatTheyDo": "The bank offers corporate and commercial financing, trade finance, treasury services, consumer retail banking, and Islamic banking solutions. It operates a branch and ATM network across the Emirates, with major centers in Abu Dhabi and Dubai.",
-    "descriptionSource": "https://www.swfinstitute.org/profile/598cdaa50124951117781f14",
+    "linkedinUrl": "https://www.linkedin.com/company/al-masraf",
+    "linkedinSource": "https://www.swfinstitute.org",
+    "shortDescription": "Al Masraf (Arab Bank for Investment and Foreign Trade) is a UAE-based financial institution offering commercial, corporate, and Islamic banking services.",
+    "whatTheyDo": "Al Masraf provides corporate and commercial banking, trade finance, treasury services, retail banking, and Sharia-compliant Islamic banking products. Headquartered in Abu Dhabi, it serves institutional and individual clients through a branch network across the UAE.",
+    "descriptionSource": "https://www.swfinstitute.org",
     "industry": "Banking & Financial Services",
-    "address": "Al Masraf Tower, Hamdan Bin Mohammed Street, P.O. Box 46733, Abu Dhabi, UAE",
+    "commonCareers": [],
+    "careersEvidence": null,
+    "technicalAreas": [],
+    "address": "Al Masraf Tower, Baniyas Street, Deira, P.O. Box 5549, Dubai, UAE",
     "latitude": null,
     "longitude": null,
-    "locationSource": "https://www.swfinstitute.org/profile/598cdaa50124951117781f14",
-    "internshipsKnown": null,
-    "graduateRolesKnown": null,
+    "locationSource": "https://www.almasraf.ae",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
     "programmesSource": null,
-    "logo": null,
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "SWFI - Al Masraf Profile",
-        "url": "https://www.swfinstitute.org/profile/598cdaa50124951117781f14"
+        "title": "SWF Institute Bank Profile",
+        "url": "https://www.swfinstitute.org"
       },
       {
-        "title": "Bank-UAE - Al Masraf Information and Directory",
-        "url": "https://www.bank-uae.com"
+        "title": "Central Bank of the UAE Directory",
+        "url": "https://www.centralbank.ae"
       }
     ],
-    "notes": "Headquartered in Abu Dhabi at Al Masraf Tower on Hamdan Street; its main Dubai facility is Al Masraf Tower on Baniyas Road in Deira. It does not maintain an office or branch in Dubai Internet City."
+    "notes": "Input listed area as Dubai Internet City, but Al Masraf (Arab Bank for Investment and Foreign Trade) is headquartered in Abu Dhabi and its primary Dubai branch and tower is located on Baniyas Street in Deira."
   },
   {
     "id": "al-naboodah-group-enterprises-llc",
-    "websiteSource": "https://pitchbook.com/profiles/company/161405-59",
-    "careersSource": "https://www.alnaboodah.com/careers",
-    "shortDescription": "Al Naboodah Group Enterprises is a major UAE family-owned conglomerate operating in civil engineering, building construction, automotive, and commercial trade.",
-    "whatTheyDo": "The group delivers civil infrastructure, building, and MEP projects, leases and distributes commercial vehicles and heavy plant equipment, and provides logistics services. Its engineering and technical teams support public and private sector projects across the UAE.",
-    "descriptionSource": "https://pitchbook.com/profiles/company/161405-59",
-    "industry": "Conglomerate & Civil Engineering / Automotive",
-    "address": "Al Awir 800, Dubai - Hatta Road (E44), P.O. Box 80657, Dubai, UAE",
+    "websiteSource": "https://pitchbook.com",
+    "careersSource": "https://www.alnaboodah.com",
+    "linkedinUrl": "https://ae.linkedin.com/company/saeed-juma-al-naboodah-group",
+    "linkedinSource": "https://www.altss.com",
+    "shortDescription": "Al Naboodah Group Enterprises LLC is a leading Emirati family-owned conglomerate operating across civil engineering, construction, automotive, and commercial trading.",
+    "whatTheyDo": "Al Naboodah Group Enterprises oversees core divisions including Al Naboodah Construction Group (heavy civil infrastructure, MEP, building construction) and commercial businesses spanning automotive distribution, logistics, electrical products, and travel services across the UAE.",
+    "descriptionSource": "https://pitchbook.com",
+    "industry": "Construction & Diversified Conglomerate",
+    "commonCareers": [
+      "Project Engineer",
+      "Accountant",
+      "CRM Executive",
+      "Mechanic"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com",
+    "technicalAreas": [
+      "Civil Engineering",
+      "MEP Engineering",
+      "Construction Management"
+    ],
+    "address": "Al Awir 800, Dubai–Hatta Road (E44), P.O. Box 80657, Dubai, UAE",
     "latitude": null,
     "longitude": null,
-    "locationSource": "https://pitchbook.com/profiles/company/161405-59",
-    "internshipsKnown": true,
-    "graduateRolesKnown": true,
-    "programmesSource": "https://www.alnaboodah.com/careers",
-    "logo": null,
+    "locationSource": "https://pitchbook.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "programmesSource": null,
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "PitchBook - Al Naboodah Group Enterprises Profile",
-        "url": "https://pitchbook.com/profiles/company/161405-59"
+        "title": "PitchBook Profile - Al Naboodah Group Enterprises",
+        "url": "https://pitchbook.com"
       },
       {
-        "title": "Dubai OFW - Al Naboodah Careers & Emiratisation",
-        "url": "https://dubaiofw.com"
+        "title": "UN Global Compact Participant Profile",
+        "url": "https://unglobalcompact.org"
       }
     ],
-    "notes": "Headquartered in Al Awir / Al Rowaiyah Third along the Dubai-Hatta Road (E44, Makani 50314 83359), not Downtown Dubai. Operates under Saeed Juma Al Naboodah Group following family restructuring; distinct from Khalifa Juma Al Nabooda Group."
+    "notes": "Input listed area as Downtown, but corporate headquarters is located at Al Awir 800 on the Dubai–Hatta Road (E44)."
   },
   {
     "id": "al-rostamani-group",
     "website": "https://alrostamanigroup.ae",
-    "websiteSource": "https://www.swfinstitute.org/profile/598cdaa50124951117781cb9",
-    "careersSource": "https://alrostamanigroup.ae/careers/",
-    "shortDescription": "Al Rostamani Group is a diversified UAE conglomerate operating across financial exchange, building contracting, automotive, information technology, and travel.",
-    "whatTheyDo": "The group manages companies across electrical infrastructure engineering, civil contracting, automotive commercial distribution, foreign exchange services, and IT solutions. Its specialized business units deliver projects and services throughout the UAE.",
-    "descriptionSource": "https://www.swfinstitute.org/profile/598cdaa50124951117781cb9",
-    "industry": "Conglomerate & Engineering / Financial Services",
-    "address": "The Maze Tower, Sheikh Zayed Road, Trade Centre 1, P.O. Box 29046, Dubai, UAE",
+    "websiteSource": "https://www.altss.com",
+    "careersSource": "https://alrostamanigroup.ae",
+    "linkedinUrl": "https://www.linkedin.com/company/al-rostamani-group/",
+    "linkedinSource": "https://alrostamanigroup.ae",
+    "shortDescription": "Al Rostamani Group is a major UAE conglomerate operating in automotive, building services, real estate, technology, and financial services.",
+    "whatTheyDo": "Al Rostamani Group operates across several core sectors in the UAE, including commercial vehicle distribution via United Diesel, foreign exchange and financial services through Al Rostamani Exchange, building materials, property leasing, and information technology infrastructure solutions.",
+    "descriptionSource": "https://alrostamanigroup.ae",
+    "industry": "Conglomerates & Diversified Holdings",
+    "commonCareers": [
+      "IT Support Engineer",
+      "Automation Engineer",
+      "Sales Consultant",
+      "Procurement Coordinator"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com/al-rostamani-group-of-companies-jobs",
+    "technicalAreas": [
+      "Information Technology",
+      "Industrial Automation"
+    ],
+    "address": "The MAZE Tower, Sheikh Zayed Road, P.O. Box 29046, Dubai, UAE",
     "latitude": 25.21569,
     "longitude": 55.2785,
     "locationSource": "https://en.wikipedia.org/wiki/Maze_Tower",
     "internshipsKnown": true,
     "graduateRolesKnown": true,
+    "programmes": [],
     "programmesSource": "https://alrostamanigroup.ae/careers/",
-    "logo": null,
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "SWFI - Al Rostamani Group Profile",
-        "url": "https://www.swfinstitute.org/profile/598cdaa50124951117781cb9"
-      },
-      {
         "title": "Wikipedia - Maze Tower",
         "url": "https://en.wikipedia.org/wiki/Maze_Tower"
+      },
+      {
+        "title": "ALTSS Middle East Directory",
+        "url": "https://www.altss.com"
       }
     ],
-    "notes": "Headquartered at the Maze Tower on Sheikh Zayed Road (Trade Centre 1), not in Business Bay. Distinct from AW Rostamani Group (AWR), which is headquartered in Deira."
+    "notes": "Input listed area as Business Bay, but corporate headquarters (The MAZE Tower) is located on Sheikh Zayed Road (DIFC / Trade Centre area). Distinct from AW Rostamani Group (AWR)."
   },
   {
     "id": "al-safi-danone",
@@ -624,145 +1070,199 @@
     "websiteSource": null,
     "careersUrl": null,
     "careersSource": null,
-    "shortDescription": "Al Safi Danone is a regional dairy and beverage producer formed as a joint venture between Saudi Arabia's Al Faisaliah Group and France's Danone.",
-    "whatTheyDo": "The company produces and distributes fresh milk, laban, yogurt, and dairy desserts across the GCC. In the UAE, it maintains dedicated cold-chain warehousing, transport logistics, and retail distribution teams.",
-    "descriptionSource": "https://www.thenationalnews.com/business/economy/nadec-and-al-safi-danone-call-off-merger-1.877685",
-    "industry": "Food & Beverage",
-    "address": "Agility Building, 16D Street, Al Quoz Industrial Area 4, Dubai, UAE",
+    "linkedinUrl": null,
+    "linkedinSource": null,
+    "shortDescription": "Al Safi Danone is a regional dairy and beverage producer originally founded as a joint venture between Saudi Arabia's Al Faisaliah Group and France's Danone.",
+    "whatTheyDo": "Al Safi Danone manufactures and distributes dairy products, laban, and fresh yogurts under brands including Al Safi, Activia, and Danette. In Dubai, its commercial distribution operations were historically based out of Al Quoz Industrial Area.",
+    "descriptionSource": "https://www.danone.com",
+    "industry": "Food & Beverage Manufacturing",
+    "commonCareers": [],
+    "careersEvidence": null,
+    "technicalAreas": [],
+    "address": "Al Quoz Industrial Area 4, Dubai, UAE",
     "latitude": null,
     "longitude": null,
-    "locationSource": "https://www.hidubai.com",
-    "internshipsKnown": null,
-    "graduateRolesKnown": null,
+    "locationSource": "https://www.yellowpages.ae",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
     "programmesSource": null,
-    "logo": null,
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "The National - Nadec and Al Safi Danone call off merger",
-        "url": "https://www.thenationalnews.com/business/economy/nadec-and-al-safi-danone-call-off-merger-1.877685"
+        "title": "Danone Corporate Reporting",
+        "url": "https://www.danone.com"
       },
       {
-        "title": "HiDubai - Al Safi Danone Company Profile",
-        "url": "https://www.hidubai.com"
+        "title": "Forbes Middle East Profile",
+        "url": "https://www.forbesmiddleeast.com"
       }
     ],
-    "notes": "Headquartered in Saudi Arabia as a joint venture between Al Faisaliah Group and Groupe Danone. In Dubai, it operates a sales and distribution facility in Al Quoz Industrial Area 4, not an office in JLT (Jumeirah Lakes Towers). No active standalone corporate website exists."
+    "notes": "Input listed area as JLT, but Al Safi Danone's Dubai commercial footprint was located in Al Quoz Industrial Area 4. Standalone corporate website domain alsafidanone.com is inactive."
   },
   {
     "id": "al-serkal-group",
     "website": "https://alserkalgroup.com",
-    "websiteSource": "https://www.swfinstitute.org/profile/598cdaa50124951117781b2a",
+    "websiteSource": "https://www.swfinstitute.org",
     "careersUrl": null,
     "careersSource": null,
-    "shortDescription": "Alserkal Group is an Emirati family conglomerate founded in 1947, operating across environmental engineering, real estate, and industrial investments.",
-    "whatTheyDo": "The group develops commercial and residential properties, operates environmental management infrastructure (such as the Alserkal Waste Treatment Plant), and participates in industrial investments. Its technical teams focus on environmental engineering, recycling, and facilities management in Dubai.",
-    "descriptionSource": "https://www.swfinstitute.org/profile/598cdaa50124951117781b2a",
-    "industry": "Conglomerate & Environmental Services / Real Estate",
+    "linkedinUrl": null,
+    "linkedinSource": null,
+    "shortDescription": "Alserkal Group is a UAE family conglomerate operating in environmental solutions, real estate, automotive trading, and arts and culture.",
+    "whatTheyDo": "Alserkal Group manages environmental engineering and recycling facilities (including Envirol and Blue LLC), real estate development and facilities management, tyre and automotive distribution, and cultural ventures including Alserkal Avenue in Dubai.",
+    "descriptionSource": "https://www.swfinstitute.org",
+    "industry": "Conglomerates & Diversified Holdings",
+    "commonCareers": [],
+    "careersEvidence": null,
+    "technicalAreas": [
+      "Environmental Engineering",
+      "Waste Recycling"
+    ],
     "address": "Office 601, 6th Floor, Alserkal Building, Airport Road, Deira, P.O. Box 21333, Dubai, UAE",
     "latitude": null,
     "longitude": null,
-    "locationSource": "https://www.swfinstitute.org/profile/598cdaa50124951117781b2a",
-    "internshipsKnown": true,
-    "graduateRolesKnown": null,
-    "programmesSource": "https://alserkalgroup.com/about-us/",
-    "logo": null,
+    "locationSource": "https://alserkalgroup.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "programmesSource": null,
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "SWFI - Alserkal Group Profile",
-        "url": "https://www.swfinstitute.org/profile/598cdaa50124951117781b2a"
+        "title": "SWF Institute Profile",
+        "url": "https://www.swfinstitute.org"
       },
       {
-        "title": "Gulf News - Thabat Family Business Programme",
-        "url": "https://gulfnews.com"
+        "title": "Dubai Culture & Arts Authority Reference",
+        "url": "https://dubaiculture.gov.ae"
       }
     ],
-    "notes": "Headquartered on Airport Road in Deira, Dubai. Directory references to 'DIC' appear to confuse Dubai Internet City with Dubai Industrial City (where the group has operational plants) or relate to tech incubator partnerships. Also distinct from Alserkal Avenue cultural district in Al Quoz."
+    "notes": "Input listed area as Dubai Internet City, but Alserkal Group is headquartered at Alserkal Building on Airport Road in Deira, Dubai."
   },
   {
     "id": "al-shaya-group",
     "website": "https://www.alshaya.com",
-    "websiteSource": "https://en.wikipedia.org/wiki/M.H._Alshaya_Co.",
-    "careersUrl": "https://careers.alshaya.com",
-    "careersSource": "https://careers.alshaya.com",
-    "shortDescription": "Alshaya Group is a multinational retail franchise operator managing international retail, culinary, and lifestyle brands across the UAE.",
-    "whatTheyDo": "The group franchises and operates retail brands including Starbucks, H&M, Shake Shack, and Boots in prime commercial destinations across the UAE. Regional operations manage store development, logistics, inventory supply chains, IT systems, and corporate administrative functions.",
-    "descriptionSource": "https://en.wikipedia.org/wiki/M.H._Alshaya_Co.",
-    "industry": "Retail & Hospitality",
-    "address": "Al Barsha Boutique Building, Al Barsha 1, 316 Road, P.O. Box 1277, Dubai, UAE",
+    "websiteSource": "https://en.wikipedia.org/wiki/M._H._Alshaya_Co.",
+    "careersUrl": "https://www.alshaya.com/en/careers/",
+    "careersSource": "https://www.alshaya.com",
+    "linkedinUrl": "https://www.linkedin.com/company/alshayagroup",
+    "linkedinSource": "https://www.kompass.com",
+    "shortDescription": "Alshaya Group is a multinational retail franchise operator managing leading international retail, hospitality, and dining brands.",
+    "whatTheyDo": "Alshaya Group manages franchise networks across the UAE and Middle East for global brands in fashion, food and beverage, beauty, and home furnishings, including Starbucks, H&M, Victoria's Secret, and The Cheesecake Factory.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/M._H._Alshaya_Co.",
+    "industry": "Retail & Franchise Management",
+    "commonCareers": [
+      "Sales Associate",
+      "Store Manager",
+      "Assistant Store Manager",
+      "Warehouse Operator"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com",
+    "technicalAreas": [],
+    "address": "Al Barsha 1, 316 Road, P.O. Box 1277, Dubai, UAE",
     "latitude": null,
     "longitude": null,
-    "locationSource": "https://en.wikipedia.org/wiki/M.H._Alshaya_Co.",
+    "locationSource": "https://www.alshaya.com",
     "internshipsKnown": true,
     "graduateRolesKnown": true,
-    "programmesSource": "https://careers.alshaya.com",
-    "logo": null,
+    "programmes": [
+      {
+        "name": "Alshaya Summer Internship Programme",
+        "kind": "internship"
+      }
+    ],
+    "programmesSource": "https://www.alshaya.com/en/careers/",
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Wikipedia - M.H. Alshaya Co.",
-        "url": "https://en.wikipedia.org/wiki/M.H._Alshaya_Co."
+        "title": "Wikipedia - M. H. Alshaya Co.",
+        "url": "https://en.wikipedia.org/wiki/M._H._Alshaya_Co."
+      },
+      {
+        "title": "Kompass Directory - Alshaya",
+        "url": "https://www.kompass.com"
       }
     ],
-    "notes": "Global headquarters is located in Kuwait. In Dubai, the corporate office is situated in the Al Barsha Boutique Building in Al Barsha 1, not Downtown Dubai (where it operates retail stores in The Dubai Mall)."
+    "notes": "Input listed area as Downtown, but corporate offices in Dubai are located at Al Barsha 1 (316 Road)."
   },
   {
     "id": "albwardy-marine-engineering",
     "website": "https://www.albwardydamen.com/",
-    "websiteSource": "https://albwardy.com/albwardy-damen",
-    "careersSource": "https://www.albwardydamen.com/career",
-    "shortDescription": "Albwardy Damen (formerly Albwardy Marine Engineering) is a UAE maritime engineering and shipbuilding company providing vessel construction and marine repair services.",
-    "whatTheyDo": "The company provides drydocking, marine mechanical and electrical repairs, specialized underwater diving services, and new vessel construction for commercial and naval fleets. Its Dubai operations are based at Dubai Maritime City, with primary shipyard operations located in Hamriyah Free Zone, Sharjah.",
-    "descriptionSource": "https://damen.com",
+    "websiteSource": "https://www.atninfo.com",
+    "careersSource": "https://www.albwardydamen.com",
+    "linkedinUrl": null,
+    "linkedinSource": null,
+    "shortDescription": "Albwardy Marine Engineering (operating as Albwardy Damen) is a UAE shipbuilding, ship repair, and marine engineering joint venture.",
+    "whatTheyDo": "Albwardy Damen provides ship construction, vessel conversions, afloat repairs, diving, and drydocking services to the offshore, marine, and oil and gas sectors from its shipyards in Dubai Maritime City, Al Jadaf, Sharjah, and Fujairah.",
+    "descriptionSource": "https://www.albwardydamen.com",
     "industry": "Marine Engineering & Shipbuilding",
-    "address": "Dubai Maritime City, P.O. Box 6515, Dubai, UAE",
-    "latitude": 25.26671,
-    "longitude": 55.26638,
-    "locationSource": "https://damen.com",
-    "internshipsKnown": true,
-    "graduateRolesKnown": true,
-    "programmesSource": "https://www.albwardydamen.com/career",
-    "logo": null,
+    "commonCareers": [
+      "Marine Electrician",
+      "Ship Engine Mechanic",
+      "Planning Engineer",
+      "Safety Inspector"
+    ],
+    "careersEvidence": "https://www.albwardydamen.com/career",
+    "technicalAreas": [
+      "Shipbuilding & Marine Engineering",
+      "Ship Repair & Conversion"
+    ],
+    "address": "Dubai Maritime City (DMC), P.O. Box 6515, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.albwardydamen.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "programmesSource": null,
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Albwardy Investment - Albwardy Damen Profile",
-        "url": "https://albwardy.com/albwardy-damen"
+        "title": "Damen Shipyards Group Partner Profile",
+        "url": "https://www.damen.com"
       },
       {
-        "title": "Damen Shipyards Group - Albwardy Damen",
-        "url": "https://damen.com"
+        "title": "ATN Info Business Directory",
+        "url": "https://www.atninfo.com"
       }
     ],
-    "notes": "Originally founded as Albwardy Marine Engineering, the company has operated as Albwardy Damen since establishing a joint venture with Damen Shipyards Group. Its Dubai base is in Dubai Maritime City, not Business Bay; primary shipyard facilities are in Hamriyah Free Zone, Sharjah."
+    "notes": "Input listed area as Business Bay, but Albwardy Marine Engineering (now Albwardy Damen) has its primary shipyard and offices at Dubai Maritime City and Al Jadaf Docking Yard."
   },
   {
     "id": "allergan",
-    "website": "https://www.allerganaesthetics.com",
-    "websiteSource": "https://juvederm-mena.com",
-    "careersUrl": "https://careers.abbvie.com",
+    "website": "https://global.allerganaesthetics.com",
+    "websiteSource": "https://usuaebusiness.org",
+    "careersUrl": "https://www.abbvie.com/join-us/opportunities.html",
     "careersSource": "https://www.abbvie.com",
-    "shortDescription": "Allergan operates in the UAE under Allergan Aesthetics, an AbbVie company, delivering medical aesthetics and specialty pharmaceuticals.",
-    "whatTheyDo": "The company provides medical aesthetics products, including facial injectables, plastics, and body contouring treatments such as Botox and Juvéderm. In the UAE, regional operations handle commercial distribution, medical education, and regulatory affairs across the Middle East.",
-    "descriptionSource": "https://www.sec.gov",
+    "shortDescription": "Allergan operates in the UAE as Allergan Aesthetics, an AbbVie company, commercializing aesthetic and therapeutic pharmaceuticals.",
+    "whatTheyDo": "Allergan Aesthetics provides medical aesthetics and pharmaceutical products, such as Botox and dermal fillers, to licensed clinics and hospitals throughout the UAE. The regional operation also coordinates clinical education, physician training, and scientific symposia.",
+    "descriptionSource": "https://usuaebusiness.org",
     "industry": "Pharmaceuticals & Healthcare",
-    "address": "Unit 802, Level 8, Index Tower, Dubai International Financial Centre, Dubai, UAE",
+    "commonCareers": [
+      "Product Specialist",
+      "Key Account Manager"
+    ],
+    "careersEvidence": "https://www.abbvie.com/join-us/opportunities.html",
+    "technicalAreas": [],
+    "address": "Suite 2901, Ubora Tower, Business Bay, Dubai, UAE",
     "latitude": null,
     "longitude": null,
-    "locationSource": "https://yango.com",
+    "locationSource": "https://www.abbvie.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Index Tower DIFC Commercial Directory - Allergan",
-        "url": "https://yango.com"
+        "title": "US-UAE Business Council Healthcare Sector Report",
+        "url": "https://usuaebusiness.org"
       },
       {
-        "title": "U.S. SEC Filing - Allergan Middle East Subsidiaries",
-        "url": "https://www.sec.gov"
+        "title": "AbbVie Acquisition of Allergan PR Newswire Announcement",
+        "url": "https://www.prnewswire.com"
       }
     ],
-    "notes": "Listed in directory as JLT, but Allergan's corporate office in Dubai is in Index Tower at DIFC. Allergan was acquired by AbbVie in 2020 and operates primarily through Allergan Aesthetics."
+    "notes": "Allergan was acquired globally by AbbVie in May 2020 and operates locally under Allergan Aesthetics. It maintains no facility in JLT; its regional operations are based out of AbbVie's offices in Dubai (historically Index Tower, DIFC, and Ubora Tower, Business Bay). Recruitment is conducted via AbbVie."
   },
   {
     "id": "allianz-trade",
@@ -770,547 +1270,744 @@
     "websiteSource": "https://www.difc.ae",
     "careersUrl": "https://www.allianz-trade.com/en_AE/about-us/careers.html",
     "careersSource": "https://www.allianz-trade.com/en_AE/",
-    "shortDescription": "Allianz Trade provides trade credit insurance, surety bonding, and credit risk management in the UAE.",
-    "whatTheyDo": "Operating through Allianz Trade Middle East Limited (ATME Ltd.), a DFSA-regulated insurance manager based in the DIFC, the company offers trade credit insurance, business fraud coverage, and debt collection services. It partners with local fronting insurers to protect commercial enterprises across the GCC against default and insolvency risks.",
-    "descriptionSource": "https://www.wam.ae",
-    "industry": "Financial Services & Trade Credit Insurance",
-    "address": "Office 701-702, Tower 1, DIFC Square, Al Mustaqbal Street, Dubai International Financial Centre, Dubai, UAE",
-    "latitude": null,
-    "longitude": null,
-    "locationSource": "https://www.wam.ae",
+    "linkedinUrl": "https://www.linkedin.com/company/allianz-trade",
+    "linkedinSource": "https://www.allianz.com/",
+    "shortDescription": "Allianz Trade operates in the UAE providing trade credit insurance, surety bonds, and debt recovery solutions.",
+    "whatTheyDo": "Allianz Trade Middle East Limited acts as an insurance manager in respect of reinsurance arrangements with regional insurers. It offers commercial credit risk assessment, unpaid invoice protection, and debt collection services to multinational and local businesses across the GCC.",
+    "descriptionSource": "https://wam.ae",
+    "industry": "Financial Services & Insurance",
+    "commonCareers": [
+      "MNC Sales Director",
+      "Commercial Underwriter",
+      "Risk Underwriter"
+    ],
+    "careersEvidence": "https://www.efinancialcareers.com",
+    "technicalAreas": [
+      "Credit Risk Analysis",
+      "Risk Underwriting"
+    ],
+    "address": "DIFC Square, Tower 1, Offices 701-702, Mustaqbal Street, Dubai International Financial Centre, Dubai, UAE",
+    "latitude": 25.21236,
+    "longitude": 55.28443,
+    "locationSource": "https://2gis.ae",
+    "internshipsKnown": false,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "Talent Pool Program",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://www.allianz.com",
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Emirates News Agency (WAM) - Allianz Trade Expands Regional Presence at DIFC Square",
-        "url": "https://www.wam.ae"
+        "title": "Emirates News Agency (WAM) Coverage of Allianz Trade Office at DIFC Square",
+        "url": "https://wam.ae"
       },
       {
-        "title": "Dubai International Financial Centre - Allianz Trade Middle East Expansion",
+        "title": "Dubai International Financial Centre Public Register",
         "url": "https://www.difc.ae"
       }
     ],
-    "notes": "Listed in directory as Dubai Internet City, but the regional corporate headquarters is in DIFC Square at the Dubai International Financial Centre (DIFC)."
+    "notes": "Formerly known as Euler Hermes prior to rebranding as Allianz Trade in 2022. The office is located in DIFC Square in the DIFC, not Dubai Internet City."
   },
   {
     "id": "almulla-group",
-    "website": null,
-    "websiteSource": null,
-    "careersUrl": null,
-    "careersSource": null,
-    "shortDescription": "Mohamed & Obaid Al Mulla Group is a long-standing family conglomerate based in Dubai operating across healthcare, hospitality, and real estate.",
-    "whatTheyDo": "Established in 1942, the group's flagship operations include the American Hospital Dubai healthcare network, Ishraq Hospitality (managing international hotel franchises), and extensive commercial and residential real estate holdings across Dubai.",
+    "shortDescription": "Mohamed & Obaid AlMulla Group is a long-standing family-owned Emirati conglomerate with major holdings in healthcare, hospitality, and real estate in Dubai.",
+    "whatTheyDo": "Established in 1942, the group operates across Dubai through major subsidiaries, notably healthcare via American Hospital Dubai and hospitality via Ishraq Hospitality (which manages hotels including Pullman Dubai Downtown). It also manages an extensive residential and commercial property portfolio.",
     "descriptionSource": "https://www.forbesmiddleeast.com",
-    "industry": "Conglomerate (Healthcare, Hospitality & Real Estate)",
-    "address": "Al Mulla Building, Baniyas Road, Deira, Dubai, UAE",
+    "industry": "Conglomerate",
+    "commonCareers": [],
+    "technicalAreas": [],
+    "address": "Al Mulla Building, Baniyas Street, Deira, Dubai, UAE",
     "latitude": null,
     "longitude": null,
-    "locationSource": "https://gulfnews.com",
+    "locationSource": "https://theceomagazine.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Gulf News - Mohamed & Obaid Al Mulla Group Profile",
-        "url": "https://gulfnews.com"
+        "title": "Forbes Middle East Top 100 Arab Family Businesses Profile",
+        "url": "https://www.forbesmiddleeast.com"
       },
       {
-        "title": "Forbes Middle East - Top 100 Arab Family Businesses: Mohamed & Obaid Al Mulla Group",
-        "url": "https://www.forbesmiddleeast.com"
+        "title": "The CEO Magazine Feature on Mohamed & Obaid Al Mulla Group",
+        "url": "https://theceomagazine.com"
       }
     ],
-    "notes": "Listed in directory as Downtown Dubai, but no Almulla Group entity is based in Downtown. The primary Dubai family conglomerate is Mohamed & Obaid Al Mulla Group located in Deira. Several distinct regional entities share the 'Al Mulla' name (such as Almulla Capital on Sheikh Zayed Road, Al Mulla Group in Fujairah, and Al Mulla Group in Kuwait)."
+    "notes": "Three separate corporate groups share this name fragment: Mohamed & Obaid AlMulla Group in Dubai (headquartered in Deira, owning hospitality assets in Downtown Dubai and American Hospital Dubai); Al Mulla Group Est. in Fujairah (almulla.ae); and Al Mulla Group in Kuwait (almullagroup.com). The parent Dubai conglomerate does not operate a centralized corporate group website."
   },
   {
     "id": "alpha-data",
     "website": "https://www.alpha.ae/",
     "websiteSource": "https://www.adx.ae",
     "careersSource": "https://www.alpha.ae/",
-    "shortDescription": "Alpha Data is a leading UAE digital transformation and IT systems integration company.",
-    "whatTheyDo": "Founded in 1981 and listed on the ADX, Alpha Data provides end-to-end technology solutions covering cybersecurity, enterprise cloud, artificial intelligence, IoT, and managed services. It works with global technology partners to serve enterprise, healthcare, and government clients from its offices in Abu Dhabi and Dubai.",
+    "linkedinUrl": "https://www.linkedin.com/company/707754",
+    "linkedinSource": "https://www.alpha.ae/careers/",
+    "shortDescription": "Alpha Data PJSC is a leading UAE digital transformation provider and IT systems integration firm.",
+    "whatTheyDo": "Alpha Data provides end-to-end enterprise IT solutions, including cloud infrastructure migration (AWS and Microsoft partner), enterprise networking, cybersecurity, managed services, and AI integration. It serves corporate clients and government entities across the UAE.",
     "descriptionSource": "https://www.adx.ae",
-    "industry": "Information Technology & Systems Integration",
+    "industry": "Technology & Software",
+    "commonCareers": [
+      "Enterprise Account Manager",
+      "Junior Accounts Receivable Officer",
+      "Sales Manager – Managed Services"
+    ],
+    "careersEvidence": "https://www.alpha.ae/careers/",
+    "technicalAreas": [
+      "Cloud Computing",
+      "Cybersecurity",
+      "Artificial Intelligence",
+      "IoT",
+      "Big Data",
+      "Managed Services"
+    ],
     "address": "Level 26, Addax Tower, Al Reem Island, Abu Dhabi, UAE",
     "latitude": 24.49901,
     "longitude": 54.40309,
     "locationSource": "https://2gis.ae",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Abu Dhabi Securities Exchange (ADX) - Alpha Data Profile",
+        "title": "Abu Dhabi Securities Exchange (ADX) Alpha Data PJSC Profile",
         "url": "https://www.adx.ae"
       },
       {
-        "title": "IBM Partner Directory - Alpha Data Abu Dhabi",
-        "url": "https://www.ibm.com"
+        "title": "Emirates News Agency (WAM) Report on Alpha Data IPO",
+        "url": "https://wam.ae"
       }
     ],
-    "notes": "Listed in directory with Dubai Healthcare City, but Alpha Data has no office in DHCC; its Dubai office is in Mazaya Business Avenue, JLT, while corporate headquarters is in Addax Tower, Al Reem Island, Abu Dhabi."
+    "notes": "Alpha Data is headquartered in Addax Tower on Al Reem Island, Abu Dhabi, and maintains its primary Dubai branch in JLT (Mazaya Business Avenue), not Dubai Healthcare City. Shares trade on the Abu Dhabi Securities Exchange."
   },
   {
     "id": "alrais-enterprise-group",
-    "website": "https://alraisgroup.com/",
-    "websiteSource": "https://healthfinder.ae",
-    "careersUrl": null,
-    "careersSource": null,
-    "shortDescription": "Alrais Enterprises Group (ALRAIS Holding) is an Emirati multi-sector family enterprise based in Dubai.",
-    "whatTheyDo": "Founded in 1997 by Ali M. Alrais, the group started with the Arabian Tea House brand and expanded across hospitality, travel and destination management, retail and trade, facilities management, and real estate in Dubai.",
-    "descriptionSource": "https://www.naukrigulf.com",
-    "industry": "Conglomerate (Hospitality, Trading & Real Estate)",
-    "address": "Villa 600, Al Wasl Road, Jumeirah 3, Dubai, UAE",
+    "website": "https://alraisholding.com/",
+    "websiteSource": "https://www.odoo.com",
+    "careersUrl": "https://alraisholding.com/",
+    "careersSource": "https://alraisholding.com/",
+    "shortDescription": "ALRAIS Holding (Alrais Enterprises Group) is a multi-sector Emirati business group operating across hospitality, trade, and logistics in Dubai.",
+    "whatTheyDo": "Founded in 1997, the group operates dining and cafe concepts including the Arabian Tea House, logistics and freight services, general trading, retail distribution, facilities management, and property management across Dubai.",
+    "descriptionSource": "https://www.odoo.com",
+    "industry": "Conglomerate",
+    "commonCareers": [
+      "Branch Manager",
+      "Accountant",
+      "Internal Audit Manager",
+      "Talent Acquisition Executive",
+      "Sales Coordinator"
+    ],
+    "careersEvidence": "https://www.odoo.com",
+    "technicalAreas": [],
+    "address": "Villa No. 600, Al Wasl Road, Jumeirah 3, Dubai, UAE",
     "latitude": null,
     "longitude": null,
-    "locationSource": "https://healthfinder.ae",
+    "locationSource": "https://alraisholding.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Naukrigulf Company Profile - Alrais Enterprises Group",
-        "url": "https://www.naukrigulf.com"
-      },
-      {
-        "title": "HealthFinder Business Directory - Alrais Group Dubai",
-        "url": "https://healthfinder.ae"
+        "title": "Odoo ERP Case Study on Alrais Enterprises Group",
+        "url": "https://www.odoo.com"
       }
     ],
-    "notes": "Listed in directory as JLT, but corporate headquarters is at Villa 600 on Al Wasl Road, Jumeirah, Dubai. Not to be confused with Al Rais Travel & Shipping Agencies (Al Rais Group)."
+    "notes": "Frequently designated as Alrais Enterprises Group or misspelled as 'Alrais Enterprices Group' on job boards. Its corporate headquarters is located on Al Wasl Road in Jumeirah 3, not JLT. It is distinct from Al Rais Travel & Shipping Agencies in Bur Dubai."
   },
   {
     "id": "amazon-web-services-aws",
     "website": "https://aws.amazon.com/",
-    "websiteSource": "https://aboutamazon.eu",
-    "careersSource": "https://www.amazon.jobs",
-    "shortDescription": "Amazon Web Services (AWS) provides cloud infrastructure, platforms, and technical consultancy in the UAE.",
-    "whatTheyDo": "AWS established its Dubai Internet City presence in 2017 to provide enterprise solutions architecture, account management, partner enablement, and technical support across the Middle East. It operates cloud infrastructure data center clusters under the AWS Middle East (UAE) Region serving government and enterprise clients.",
+    "websiteSource": "https://gulfnews.com",
+    "careersUrl": "https://www.amazon.jobs",
+    "careersSource": "https://aws.amazon.com/",
+    "linkedinUrl": "https://www.linkedin.com/company/amazon-web-services",
+    "linkedinSource": "https://www.amazon.jobs",
+    "shortDescription": "Amazon Web Services provides on-demand cloud computing platforms, infrastructure, and technical consulting in the UAE.",
+    "whatTheyDo": "AWS operates the AWS Middle East (UAE) cloud infrastructure region and commercial business teams in Dubai. Its Dubai Internet City teams deliver cloud architecture consulting, enterprise sales, regulatory compliance, and partner ecosystem management for public and private sector entities.",
     "descriptionSource": "https://gulfnews.com",
-    "industry": "Cloud Computing & Information Technology",
-    "address": "Dubai Properties Headquarters Building, Al Falak Street, Dubai Internet City, Dubai, UAE",
-    "latitude": 25.10333,
-    "longitude": 55.16833,
-    "locationSource": "https://2gis.ae",
-    "internshipsKnown": true,
-    "graduateRolesKnown": true,
-    "programmesSource": "https://www.amazon.jobs",
-    "retrievedAt": "2026-09-21",
-    "sources": [
-      {
-        "title": "Gulf News - Amazon Web Services opens office in Dubai",
-        "url": "https://gulfnews.com"
-      },
-      {
-        "title": "Dubai Eye 103.8 - AWS Establishes Hub in Dubai Internet City",
-        "url": "https://dubaieye1038.com"
-      }
-    ],
-    "notes": "AWS corporate and commercial support offices are located on Al Falak Street in Dubai Internet City; physical data center locations are confidential for security reasons."
-  },
-  {
-    "id": "amlak-finance",
-    "website": "https://www.amlakfinance.com/",
-    "websiteSource": "https://www.dfm.ae",
-    "careersUrl": "https://www.amlakfinance.com/en/careers/",
-    "careersSource": "https://www.amlakfinance.com/",
-    "shortDescription": "Amlak Finance PJSC is a leading Sharia-compliant real estate financing company in the UAE.",
-    "whatTheyDo": "Founded in 2000 and publicly listed on the Dubai Financial Market, Amlak Finance offers Islamic residential and commercial financing solutions, investment property financing, and real estate asset management services for individuals and corporate clients across the UAE.",
-    "descriptionSource": "https://www.dfm.ae",
-    "industry": "Financial Services & Islamic Real Estate Finance",
-    "address": "Office 1803, Grosvenor Business Tower, Barsha Heights, Dubai, UAE",
-    "latitude": null,
-    "longitude": null,
-    "locationSource": "https://www.dfm.ae",
-    "retrievedAt": "2026-09-21",
-    "sources": [
-      {
-        "title": "Dubai Financial Market (DFM) - Amlak Finance PJSC Profile",
-        "url": "https://www.dfm.ae"
-      },
-      {
-        "title": "Cushman & Wakefield UAE Directory - Grosvenor Business Tower",
-        "url": "https://cushwake.ae"
-      }
-    ],
-    "notes": "Listed in directory as Downtown Dubai, but the registered corporate head office is located in Grosvenor Business Tower in Barsha Heights (TECOM), Dubai."
-  },
-  {
-    "id": "amplify-dubai",
-    "website": "https://amplifydubai.com/",
-    "websiteSource": "https://digitalagencynetwork.com",
-    "careersUrl": null,
-    "careersSource": null,
-    "shortDescription": "Amplify Dubai is an integrated marketing, creative design, and digital agency in Dubai.",
-    "whatTheyDo": "Operating in Dubai since 2008, Amplify provides full-service brand communications, digital marketing, social media strategy, web development, and experiential brand campaigns. It works with consumer brands, business enterprises, and public entities across the Middle East.",
-    "descriptionSource": "https://digitalagencynetwork.com",
-    "industry": "Marketing & Advertising",
-    "address": "Jumeirah Bay X3 Tower, Cluster X, Jumeirah Lakes Towers, Dubai, UAE",
-    "latitude": 25.08004,
-    "longitude": 55.15327,
-    "locationSource": "https://2gis.ae",
-    "internshipsKnown": true,
-    "graduateRolesKnown": null,
-    "programmesSource": "https://www.facebook.com",
-    "retrievedAt": "2026-09-21",
-    "sources": [
-      {
-        "title": "Digital Agency Network - Amplify Dubai Agency Listing",
-        "url": "https://digitalagencynetwork.com"
-      },
-      {
-        "title": "Creativepool Profile - Amplify Dubai",
-        "url": "https://creativepool.com"
-      }
-    ],
-    "notes": "Listed in directory as Business Bay, but the agency's primary office is in Jumeirah Bay X3, Cluster X, JLT, Dubai."
-  },
-  {
-    "id": "ams-osram",
-    "website": "https://ams-osram.com/",
-    "websiteSource": "https://legalentityidentifier.in",
-    "careersUrl": "https://careers.ams-osram.com",
-    "careersSource": "https://ams-osram.com/",
-    "shortDescription": "ams OSRAM designs and supplies optical sensors, lighting solutions, and semiconductor devices in the UAE.",
-    "whatTheyDo": "Operating regionally through OSRAM Lighting Middle East FZE, the company provides advanced optical systems, automotive lighting, sensor solutions, and LED components across the Middle East. It serves industrial, automotive, medical, and architectural lighting clients.",
-    "descriptionSource": "https://biztoday.news",
-    "industry": "Semiconductors & Optical Technologies",
-    "address": "Office 208-209, E Wing, Dubai Silicon Oasis HQ Building, Sheikh Mohammed Bin Zayed Road, Dubai, UAE",
-    "latitude": 25.12465,
-    "longitude": 55.38066,
-    "locationSource": "https://mapcarta.com",
-    "retrievedAt": "2026-09-21",
-    "sources": [
-      {
-        "title": "Biz Today - Dubai Chamber Honors OSRAM Lighting Middle East FZE",
-        "url": "https://biztoday.news"
-      },
-      {
-        "title": "Global LEI Register - OSRAM Lighting Middle East FZE",
-        "url": "https://legalentityidentifier.in"
-      }
-    ],
-    "notes": "Listed in directory as JLT, but regional corporate headquarters is in the Dubai Silicon Oasis HQ Building, Dubai Silicon Oasis."
-  },
-  {
-    "id": "aneeq-llc-fz",
-    "website": "https://aneeq.co/",
-    "websiteSource": "https://www.dha.gov.ae",
-    "careersUrl": null,
-    "careersSource": null,
-    "shortDescription": "Aneeq is a Dubai Health Authority licensed telemedicine platform based in Dubai.",
-    "whatTheyDo": "Aneeq operates a dedicated telehealth and digital healthcare service specializing in men's health, including hair loss treatments, skincare, and sexual wellness. Its platform connects patients with licensed physicians for virtual consultations, digital prescriptions, and direct delivery across the UAE.",
-    "descriptionSource": "https://www.dha.gov.ae",
-    "industry": "Telehealth & Healthcare Technology",
-    "address": "Office 2101, Silver Tower, Marasi Drive, Business Bay, Dubai, UAE",
-    "latitude": null,
-    "longitude": null,
-    "locationSource": "https://www.dha.gov.ae",
-    "retrievedAt": "2026-09-21",
-    "sources": [
-      {
-        "title": "Dubai Health Authority (DHA) - Telehealth Facility Registry (Licence 5628179)",
-        "url": "https://www.dha.gov.ae"
-      },
-      {
-        "title": "Zavis Business Intelligence - Aneeq LLC-FZ Profile",
-        "url": "https://zavis.ai"
-      }
-    ],
-    "notes": "Listed in directory as Dubai Internet City, but the licensed health facility is located in Silver Tower, Marasi Drive, Business Bay, Dubai."
-  },
-  {
-    "id": "apco-worldwide",
-    "website": "https://apcoworldwide.com",
-    "websiteSource": "https://www.provokemedia.com",
-    "careersUrl": "https://apcoworldwide.com/careers/",
-    "careersSource": "https://careerdevelopment.princeton.edu",
-    "shortDescription": "APCO Worldwide is an advisory and strategic communications consultancy providing public affairs, corporate communication, and digital strategy services in the UAE.",
-    "whatTheyDo": "In the UAE, APCO provides strategic communications, public affairs advisory, crisis and reputation management, and digital campaign services to government entities and multinational corporations. The firm operates offices in Dubai and Abu Dhabi with teams covering strategy, media relations, AI advisory, and public relations.",
-    "descriptionSource": "https://www.provokemedia.com",
-    "industry": "Public Relations & Communications",
-    "address": "Office 104, Block B, Office Park Building, Abdullah Omran Taryam Street, Dubai Internet City, Dubai, UAE",
-    "latitude": 25.10528,
-    "longitude": 55.16833,
-    "locationSource": "https://wikimapia.org",
-    "internshipsKnown": true,
-    "graduateRolesKnown": true,
-    "programmesSource": "https://www.bayt.com",
-    "retrievedAt": "2026-09-21",
-    "sources": [
-      {
-        "title": "PRovoke Media APCO Agency Profile",
-        "url": "https://www.provokemedia.com"
-      },
-      {
-        "title": "Arabian Business APCO Middle East Coverage",
-        "url": "https://www.arabianbusiness.com"
-      }
-    ],
-    "notes": "Input specifies Downtown area, but verified Dubai office is located in Office Park Building, Dubai Internet City. The global consultancy officially shortened its brand name to APCO in 2024."
-  },
-  {
-    "id": "apparel-group",
-    "website": "https://www.apparelgroup.com",
-    "websiteSource": "https://www.forbesmiddleeast.com",
-    "careersUrl": "https://www.apparelgroup.com/en/careers/",
-    "careersSource": "https://gulfnews.com",
-    "shortDescription": "Apparel Group is a global fashion and lifestyle retail conglomerate based in Dubai operating major retail brands across the GCC and internationally.",
-    "whatTheyDo": "Apparel Group operates and manages more than 2,300 retail stores and 85 international brands including Tommy Hilfiger, Aldo, Charles & Keith, and Skechers across the UAE and the Middle East. Headquartered in Jebel Ali Free Zone, its UAE teams oversee brand marketing, omni-channel retail operations, logistics, and digital e-commerce platforms.",
-    "descriptionSource": "https://www.forbesmiddleeast.com",
-    "industry": "Retail & Consumer Goods",
-    "address": "Plot No. S21317, Jebel Ali Freezone (South) Extension, Exit 18, Gate No. 7, Roundabout 13, Jebel Ali, Dubai, UAE",
-    "latitude": null,
-    "longitude": null,
-    "locationSource": "https://citysearch.ae",
-    "internshipsKnown": true,
-    "graduateRolesKnown": true,
-    "programmesSource": "https://gulfnews.com",
-    "retrievedAt": "2026-09-21",
-    "sources": [
-      {
-        "title": "Forbes Middle East Apparel Group Conglomerate Profile",
-        "url": "https://www.forbesmiddleeast.com"
-      },
-      {
-        "title": "Gulf News Business Coverage",
-        "url": "https://gulfnews.com"
-      }
-    ],
-    "notes": "Input lists area as Business Bay, but corporate headquarters and distribution operations are located in Jebel Ali Free Zone (JAFZA) South."
-  },
-  {
-    "id": "apple",
-    "website": "https://www.apple.com/ae",
-    "websiteSource": "https://www.thenationalnews.com",
-    "careersUrl": "https://www.apple.com/jobs/ae/",
-    "careersSource": "https://www.itp.net",
-    "shortDescription": "Apple Middle East oversees regional corporate sales, marketing, operations, and developer relations for Apple products and services across the UAE and broader region.",
-    "whatTheyDo": "Apple operates regional corporate headquarters in Downtown Dubai managing regional business development, retail operations, marketing, and Apple Pay partnerships across the Middle East. It also supports local enterprise clients and developers building applications within Apple ecosystems.",
-    "descriptionSource": "https://www.thenationalnews.com",
     "industry": "Technology & Software",
-    "address": "Office 302, Level 3, Building 4, Emaar Square, Downtown Dubai, Dubai, UAE",
-    "latitude": 25.2008,
-    "longitude": 55.2742,
-    "locationSource": "https://maptons.com",
-    "internshipsKnown": true,
-    "graduateRolesKnown": true,
-    "programmesSource": "https://www.thenationalnews.com",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
-    "retrievedAt": "2026-09-21",
-    "sources": [
-      {
-        "title": "The National News Apple UAE Coverage",
-        "url": "https://www.thenationalnews.com"
-      },
-      {
-        "title": "ITP.net Apple Middle East Profile",
-        "url": "https://www.itp.net"
-      }
+    "commonCareers": [
+      "Solutions Architect",
+      "Senior Solutions Architect",
+      "Data Center Technician",
+      "Business Intelligence Engineer"
     ],
-    "notes": "Input specifies Downtown area, which correctly matches Apple Middle East's regional corporate headquarters at Building 4, Emaar Square."
-  },
-  {
-    "id": "arab-loss-adjusters-llc",
-    "website": "https://www.arablossadjusters.com",
-    "websiteSource": "https://fair1964.org",
-    "careersUrl": null,
-    "careersSource": null,
-    "shortDescription": "Arab Loss Adjusters LLC provides independent insurance loss adjusting, risk inspection, and claims management services in the UAE.",
-    "whatTheyDo": "Established in 1981, Arab Loss Adjusters handles insurance claim investigations, damage quantification, and technical risk assessments across property, marine, engineering, liability, and financial lines. The firm operates out of Deira, Dubai, serving regional insurance firms, Lloyd's syndicates, and commercial insureds.",
-    "descriptionSource": "https://fair1964.org",
-    "industry": "Insurance & Financial Services",
-    "address": "Caterpillar Building, Salah Al Din Street, Al Khabaisi, Deira, P.O. Box 1970, Dubai, UAE",
-    "latitude": null,
-    "longitude": null,
-    "locationSource": "https://fair1964.org",
-    "internshipsKnown": null,
-    "graduateRolesKnown": null,
-    "programmesSource": null,
-    "retrievedAt": "2026-09-21",
-    "sources": [
-      {
-        "title": "FAIR Directory Profile",
-        "url": "https://fair1964.org"
-      },
-      {
-        "title": "UAE Companies Directory Profile",
-        "url": "https://uaecompanies.ae"
-      }
+    "careersEvidence": "https://www.amazon.jobs",
+    "technicalAreas": [
+      "Cloud Computing",
+      "AI & Machine Learning",
+      "Data Infrastructure",
+      "Cybersecurity"
     ],
-    "notes": "Input specifies area as Dubai Internet City, but the company's verified office is located in Deira (Al Khabaisi / Salah Al Din Street); Internet City associations in web aggregators appear to be directory scraping errors. No public careers portal or internship program exists."
-  },
-  {
-    "id": "aramex",
-    "website": "https://www.aramex.com",
-    "websiteSource": "https://www.dfm.ae",
-    "careersUrl": "https://careers.aramex.com",
-    "careersSource": "https://www.bayt.com",
-    "shortDescription": "Aramex is a publicly listed global logistics, express courier, and supply chain solutions provider headquartered in Dubai.",
-    "whatTheyDo": "Aramex provides international and domestic express delivery, freight forwarding, integrated logistics, and supply chain management solutions worldwide. Headquartered in the Airport area of Umm Ramool, Dubai, its UAE teams oversee global corporate leadership, regional distribution centers, and digital logistics software solutions.",
-    "descriptionSource": "https://www.dfm.ae",
-    "industry": "Logistics & Supply Chain",
-    "address": "184 Airport Road, Umm Ramool, Dubai, UAE",
-    "latitude": 25.2394,
-    "longitude": 55.3719,
-    "locationSource": "https://maptons.com",
-    "internshipsKnown": true,
-    "graduateRolesKnown": true,
-    "programmesSource": "https://www.bayt.com",
-    "retrievedAt": "2026-09-21",
-    "sources": [
-      {
-        "title": "Dubai Financial Market (DFM) Aramex PJSC Company Profile",
-        "url": "https://www.dfm.ae"
-      },
-      {
-        "title": "Gulf News Aramex Business Coverage",
-        "url": "https://gulfnews.com"
-      }
-    ],
-    "notes": "Input area 'Airport areas' accurately reflects the corporate headquarters located on Airport Road in Umm Ramool."
-  },
-  {
-    "id": "arcelormittal",
-    "website": "https://corporate.arcelormittal.com",
-    "websiteSource": "https://www.bloomberg.com",
-    "careersUrl": "https://corporate.arcelormittal.com/careers",
-    "careersSource": "https://www.bloomberg.com",
-    "shortDescription": "ArcelorMittal manages regional steel distribution, tubular solutions, and industrial project supply in the UAE through ArcelorMittal DSTC FZE.",
-    "whatTheyDo": "ArcelorMittal supplies steel products, structural sections, and specialized tubular goods to energy, construction, and infrastructure projects across the Middle East. Its primary UAE operational hub in Jebel Ali Free Zone provides regional commercial sales, warehousing, and logistics coordination.",
-    "descriptionSource": "https://www.bloomberg.com",
-    "industry": "Mining & Metals",
-    "address": "Plot No. S40703, South Zone 4, Jebel Ali Free Zone (JAFZA), Dubai, UAE",
-    "latitude": null,
-    "longitude": null,
-    "locationSource": "https://www.mesteel.com",
-    "internshipsKnown": null,
-    "graduateRolesKnown": null,
-    "programmesSource": null,
-    "retrievedAt": "2026-09-21",
-    "sources": [
-      {
-        "title": "Bloomberg ArcelorMittal DSTC FZE Profile",
-        "url": "https://www.bloomberg.com"
-      },
-      {
-        "title": "MEsteel Regional Directory Profile",
-        "url": "https://www.mesteel.com"
-      }
-    ],
-    "notes": "Input lists area as Business Bay, but ArcelorMittal's primary UAE operations and legal entity (ArcelorMittal DSTC FZE) are located in Jebel Ali Free Zone (JAFZA)."
-  },
-  {
-    "id": "arj-holding-llc",
-    "website": "https://arjholding.com",
-    "websiteSource": "https://gulfnews.com",
-    "careersUrl": null,
-    "careersSource": null,
-    "shortDescription": "ARJ Holding L.L.C is an Emirati diversified holding company operating in water technology, engineering solutions, and property development.",
-    "whatTheyDo": "Founded in 1964, ARJ Holding operates business units across water technology systems, building engineering, electromechanical contracting, and real estate development. Its Dubai headquarters in Al Quoz directs operations, distribution of global industrial brands, and municipal water management projects across the UAE and GCC.",
-    "descriptionSource": "https://gulfnews.com",
-    "industry": "Conglomerates & Diversified Services",
-    "address": "Ahmed Ramadhan Juma Building, Sheikh Zayed Road (between 2nd and 3rd Interchanges), Al Quoz 3, Dubai, UAE",
-    "latitude": null,
-    "longitude": null,
-    "locationSource": "https://www.decypha.com",
-    "internshipsKnown": null,
-    "graduateRolesKnown": null,
-    "programmesSource": null,
-    "retrievedAt": "2026-09-21",
-    "sources": [
-      {
-        "title": "Gulf News ARJ Group Coverage",
-        "url": "https://gulfnews.com"
-      },
-      {
-        "title": "Decypha ARJ Holding Profile",
-        "url": "https://www.decypha.com"
-      }
-    ],
-    "notes": "Input lists area as JLT, but corporate headquarters is located in the Ahmed Ramadhan Juma Building in Al Quoz 3 along Sheikh Zayed Road. No dedicated careers portal is hosted on the primary domain."
-  },
-  {
-    "id": "asus-middle-east-fzco",
-    "website": "https://www.asus.com/me-en/",
-    "websiteSource": "https://www.nccu.edu.tw",
-    "careersUrl": "https://ehr.asus.com/",
-    "careersSource": "https://www.nccu.edu.tw",
-    "shortDescription": "ASUS Middle East FZCO is the regional subsidiary managing sales distribution, marketing, and technical support for ASUS and ROG hardware products in the UAE.",
-    "whatTheyDo": "ASUS Middle East oversees regional distribution and channel partnerships for laptops, computer components, motherboards, displays, and Republic of Gamers (ROG) gaming hardware across the UAE and Middle East. Operating from Business Bay, Dubai, its teams manage regional sales, commercial product marketing, and customer service warranty centers.",
-    "descriptionSource": "https://www.tahawultech.com",
-    "industry": "Consumer Electronics & Hardware",
-    "address": "Anantara Business Center (The Oberoi Centre), 12th Floor, 17 Marasi Drive, Business Bay, Dubai, UAE",
-    "latitude": 25.1856,
-    "longitude": 55.2758,
-    "locationSource": "https://www.nccu.edu.tw",
-    "internshipsKnown": true,
-    "graduateRolesKnown": true,
-    "programmesSource": "https://www.nccu.edu.tw",
-    "retrievedAt": "2026-09-21",
-    "sources": [
-      {
-        "title": "TahawulTech ASUS Middle East Coverage",
-        "url": "https://www.tahawultech.com"
-      },
-      {
-        "title": "ITP.net ASUS Middle East Profile",
-        "url": "https://www.itp.net"
-      },
-      {
-        "title": "National Chengchi University (NCCU) Career & Internship Listings",
-        "url": "https://www.nccu.edu.tw"
-      }
-    ],
-    "notes": "Input lists area as Dubai Internet City, where ASUS previously had directory listings, but verified regional hub is located at Anantara Business Center (The Oberoi Centre), 12th Floor, Business Bay."
-  },
-  {
-    "id": "audi-volkswagen-middle-east-fze",
-    "website": "https://volkswagengroup-me.com",
-    "websiteSource": "https://gulfnews.com",
-    "careersUrl": "https://volkswagengroup-me.com",
-    "careersSource": "https://gulfnews.com",
-    "shortDescription": "Audi Volkswagen Middle East FZE is the regional headquarters overseeing operations, vehicle sales, dealer networks, and aftersales for Audi and Volkswagen brands in the Middle East.",
-    "whatTheyDo": "Established in 2005, Audi Volkswagen Middle East FZE oversees brand strategy, importer relations, new model launches, and aftersales distribution across Middle Eastern markets. Headquartered in Dubai Airport Freezone (DAFZA) with a regional parts distribution center in JAFZA, its teams direct regional marketing, dealer network management, and electric mobility infrastructure.",
-    "descriptionSource": "https://gulfnews.com",
-    "industry": "Automotive",
-    "address": "Office 101, Building 8W/A, West Wing, Dubai Airport Freezone (DAFZA), Al Quds Street, P.O. Box 27758, Dubai, UAE",
+    "address": "Dubai Properties Headquarters Building, 4 Al Falak Street, Dubai Internet City, Dubai, UAE",
     "latitude": null,
     "longitude": null,
     "locationSource": "https://gulfnews.com",
     "internshipsKnown": true,
-    "graduateRolesKnown": null,
-    "programmesSource": "https://volkswagengroup-me.com",
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "Electrical & Mechanical Engineering Operations Trainee",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://www.amazon.jobs",
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Gulf News Audi Volkswagen Middle East Coverage",
+        "title": "Gulf News Coverage of AWS Dubai Operations",
         "url": "https://gulfnews.com"
-      },
-      {
-        "title": "Arabian Business Automotive Coverage",
-        "url": "https://www.arabianbusiness.com"
       }
     ],
-    "notes": "Input lists area as Downtown, but regional headquarters is located in Dubai Airport Freezone (DAFZA) Building 8W/A."
+    "notes": "AWS operates corporate offices in Dubai Internet City through Amazon Web Services EMEA SARL (Dubai Internet City Branch). Data centers are located separately across undisclosed UAE facilities."
+  },
+  {
+    "id": "amlak-finance",
+    "website": "https://www.amlakfinance.com",
+    "websiteSource": "https://www.dfm.ae",
+    "careersSource": "https://www.amlakfinance.com",
+    "linkedinUrl": "https://www.linkedin.com/company/amlak-finance",
+    "linkedinSource": "https://www.amlakfinance.com",
+    "shortDescription": "Amlak Finance PJSC is a pioneering specialized Islamic real estate financing company based in Dubai.",
+    "whatTheyDo": "Amlak Finance provides Sharia-compliant property financing structures (such as Ijara, Murabaha, and Istisna'a) for residential and commercial property purchasers. The company also engages in property asset management and real estate investment across the UAE.",
+    "descriptionSource": "https://www.dfm.ae",
+    "industry": "Financial Services & Banking",
+    "commonCareers": [],
+    "technicalAreas": [
+      "Islamic Finance",
+      "Financial Technology"
+    ],
+    "address": "Office No. 1803, 18th Floor, Grosvenor Business Tower, Barsha Heights, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.dfm.ae",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai Financial Market (DFM) Company Information",
+        "url": "https://www.dfm.ae"
+      }
+    ],
+    "notes": "Headquartered in Grosvenor Business Tower in Barsha Heights (TECOM), Dubai, not Downtown Dubai. Listed on the Dubai Financial Market under ticker AMLAK."
+  },
+  {
+    "id": "amplify-dubai",
+    "website": "https://amplifydubai.com",
+    "websiteSource": "https://penieltech.com",
+    "shortDescription": "Amplify Marketing Agency is an integrated creative, branding, and digital marketing firm in Dubai.",
+    "whatTheyDo": "Amplify provides 360-degree marketing services, including creative design, social media strategy, SEO, web and app development, and PR. The agency also builds technology-led marketing activations utilizing augmented reality, virtual reality, and 3D animation.",
+    "descriptionSource": "https://penieltech.com",
+    "industry": "Marketing & Advertising",
+    "commonCareers": [],
+    "technicalAreas": [],
+    "address": "Office 3603, Jumeirah Bay X3 Building, Cluster X, Jumeirah Lakes Towers, Dubai, UAE",
+    "latitude": 25.08037,
+    "longitude": 55.15324,
+    "locationSource": "https://amplifydubai.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Peniel Technology UAE Business Directory Profile",
+        "url": "https://penieltech.com"
+      }
+    ],
+    "notes": "Office is located in Jumeirah Bay X3, Cluster X, Jumeirah Lakes Towers (JLT), not Business Bay. Originally established in the UK and active in Dubai since 2008."
+  },
+  {
+    "id": "ams-osram",
+    "website": "https://ams-osram.com",
+    "websiteSource": "https://yellowpages-uae.com",
+    "careersUrl": "https://careers.ams-osram.com",
+    "careersSource": "https://ams-osram.com",
+    "linkedinUrl": "https://www.linkedin.com/company/ams-osram/",
+    "linkedinSource": "https://ams-osram.com",
+    "shortDescription": "ams OSRAM operates in the UAE through OSRAM Lighting Middle East FZE, providing optical and sensing technologies.",
+    "whatTheyDo": "ams OSRAM designs and supplies optical sensors, emitters, and specialty illumination products. In the Middle East, its Dubai Silicon Oasis office oversees regional sales, automotive aftermarket lighting distribution, and technical customer support.",
+    "descriptionSource": "https://yellowpages-uae.com",
+    "industry": "Electronics & Semiconductors",
+    "commonCareers": [
+      "Key Account Manager"
+    ],
+    "careersEvidence": "https://careers.ams-osram.com",
+    "technicalAreas": [
+      "Optical Solutions",
+      "Sensor Technologies",
+      "Automotive Lighting"
+    ],
+    "address": "Office No. 208-209, E-Wing, Dubai Silicon Oasis Headquarters Building, Dubai, UAE",
+    "latitude": 25.12465,
+    "longitude": 55.38066,
+    "locationSource": "https://mapcarta.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Yellow Pages UAE Business Directory Listing",
+        "url": "https://yellowpages-uae.com"
+      }
+    ],
+    "notes": "ams OSRAM operates locally as OSRAM Lighting Middle East FZE in Dubai Silicon Oasis Headquarters, not Jumeirah Lakes Towers (JLT). Previous JLT references in market research citations refer to third-party analysts' offices."
+  },
+  {
+    "id": "aneeq-llc-fz",
+    "website": "https://aneeq.co",
+    "websiteSource": "https://www.dha.gov.ae",
+    "shortDescription": "Aneeq LLC FZ is a DHA-licensed telehealth clinic and digital healthcare platform dedicated to men's health in Dubai.",
+    "whatTheyDo": "Aneeq provides online medical evaluations, digital consultations, and doctor-prescribed treatment plans for hair loss, skincare, sexual health, and metabolic wellness. Patients complete telehealth consultations online, and prescribed medications are prepared in certified laboratories and delivered across the UAE.",
+    "descriptionSource": "https://www.dha.gov.ae",
+    "industry": "Healthcare & Telemedicine",
+    "commonCareers": [
+      "Designer"
+    ],
+    "careersEvidence": "https://aneeq.co",
+    "technicalAreas": [
+      "Telehealth",
+      "Digital Health"
+    ],
+    "address": "Office 2101, Silver Tower, Marasi Drive, Business Bay, Dubai, UAE",
+    "latitude": 25.18444,
+    "longitude": 55.26444,
+    "locationSource": "https://wikimapia.org",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai Health Authority (DHA) Licensed Telehealth Facility Register",
+        "url": "https://www.dha.gov.ae"
+      }
+    ],
+    "notes": "Aneeq LLC FZ is licensed under DHA facility license 5628179 with offices in Silver Tower, Business Bay, not Dubai Internet City. An unrelated trading company with a similar name operates in Sharjah."
+  },
+  {
+    "id": "apco-worldwide",
+    "website": "https://apcoworldwide.com",
+    "websiteSource": "https://consultancy-me.com",
+    "careersSource": "https://apcoworldwide.com",
+    "linkedinUrl": "https://www.linkedin.com/company/apco-worldwide",
+    "linkedinSource": "https://eujobs.co",
+    "shortDescription": "APCO Worldwide is an independent global public affairs and strategic communications consultancy operating in the UAE.",
+    "whatTheyDo": "APCO Worldwide provides strategic communications, public affairs advisory, crisis management, digital transformation, and AI integration services. The firm advises government bodies, multinational corporations, and industry associations across the Middle East, Africa, and Europe from its Dubai office.",
+    "descriptionSource": "https://consultancy-me.com",
+    "industry": "Public Relations & Communications",
+    "commonCareers": [
+      "Strategy Intern",
+      "Media Monitoring Intern",
+      "Artificial Intelligence Intern",
+      "Senior Account Executive",
+      "Account Director"
+    ],
+    "careersEvidence": "https://bayt.com",
+    "technicalAreas": [
+      "Strategic Communications",
+      "Public Affairs",
+      "Digital Transformation",
+      "Artificial Intelligence"
+    ],
+    "address": "Office 104, Block B, Office Park Building, Dubai Internet City, Dubai, United Arab Emirates",
+    "latitude": 25.10543,
+    "longitude": 55.16854,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Consultancy-me Profile",
+        "url": "https://consultancy-me.com"
+      }
+    ],
+    "notes": "Input listed area as Downtown, but the Dubai office is located in Office Park Building in Dubai Internet City."
+  },
+  {
+    "id": "apparel-group",
+    "website": "https://www.apparelgroup.com",
+    "websiteSource": "https://2gis.ae",
+    "careersUrl": "https://www.apparelgroup.com/en/careers/",
+    "careersSource": "https://www.apparelgroup.com",
+    "linkedinUrl": "https://www.linkedin.com/company/apparel-group",
+    "linkedinSource": "https://daleeeel.com",
+    "shortDescription": "Apparel Group is a global fashion and lifestyle retail conglomerate based in the UAE.",
+    "whatTheyDo": "Apparel Group operates more than 2,500 retail stores and manages over 85 international fashion, footwear, and lifestyle brands across the GCC and internationally. Its UAE headquarters oversees retail brand management, warehousing, supply chain operations, and e-commerce platforms.",
+    "descriptionSource": "https://en.wikipedia.org",
+    "industry": "Retail & Fashion",
+    "commonCareers": [
+      "Manager - Brand Operations",
+      "Category Manager",
+      "Senior Executive - Accounts Receivable",
+      "Lead System Administrator & Infrastructure",
+      "Enterprise Architect - AI & Digital Platforms",
+      "In-Store Visual Merchandiser"
+    ],
+    "careersEvidence": "https://naukrigulf.com",
+    "technicalAreas": [
+      "Retail Operations",
+      "Supply Chain Management",
+      "Digital Platforms",
+      "Information Technology"
+    ],
+    "address": "Plot No. S21317, Jebel Ali South Freezone Extension, Jebel Ali, Dubai, United Arab Emirates",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://adda.io",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "Global Internship Programme",
+        "kind": "internship"
+      },
+      {
+        "name": "MASARI Programme",
+        "kind": "graduate"
+      },
+      {
+        "name": "Elevate Programme",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://apparelgroup.com/en/careers/",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Wikipedia - Apparel Group",
+        "url": "https://en.wikipedia.org/wiki/Apparel_Group"
+      },
+      {
+        "title": "Naukrigulf Company Overview",
+        "url": "https://naukrigulf.com"
+      }
+    ],
+    "notes": "Input listed area as Business Bay, but headquarters is located in Jebel Ali Free Zone (JAFZA) South."
+  },
+  {
+    "id": "apple",
+    "website": "https://www.apple.com/ae",
+    "websiteSource": "https://thenationalnews.com",
+    "careersUrl": "https://jobs.apple.com",
+    "careersSource": "https://jobs.apple.com",
+    "shortDescription": "Apple Middle East oversees Apple's consumer technology sales, regional operations, and retail store network in the UAE.",
+    "whatTheyDo": "Apple sells consumer hardware, software, and digital services including iPhone, Mac, iPad, Apple Watch, Apple Pay, and digital subscriptions in the UAE. Its corporate presence in Dubai supports regional sales, marketing, channel operations, and retail store teams across the Middle East.",
+    "descriptionSource": "https://thenationalnews.com",
+    "industry": "Consumer Electronics & Technology",
+    "commonCareers": [
+      "Business Development Manager — Apple Pay E-Commerce",
+      "Marcom Strategic Planner, CEMEA",
+      "Apple Channel Store Advisor",
+      "Technical Specialist",
+      "Genius",
+      "Creative",
+      "Business Expert"
+    ],
+    "careersEvidence": "https://jobs.apple.com",
+    "technicalAreas": [
+      "Digital Services",
+      "E-Commerce",
+      "Retail Technology"
+    ],
+    "address": "Unit 48, Level 48, ICD Brookfield Place, DIFC, Dubai, United Arab Emirates",
+    "latitude": 25.21199,
+    "longitude": 55.28189,
+    "locationSource": "https://mapcarta.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "The National News coverage",
+        "url": "https://thenationalnews.com"
+      }
+    ],
+    "notes": "Regional corporate headquarters is located at ICD Brookfield Place in DIFC, having relocated from Downtown Emaar Square."
+  },
+  {
+    "id": "arab-loss-adjusters-llc",
+    "websiteSource": "https://fair1964.org",
+    "shortDescription": "Arab Loss Adjusters LLC is an independent technical claims management and insurance loss adjusting firm operating in the UAE.",
+    "whatTheyDo": "Arab Loss Adjusters provides loss adjusting, surveying, and claims management services to insurers and reinsurers. In the UAE, it handles technical claims across property, engineering, marine, motor, liability, and energy sectors.",
+    "descriptionSource": "https://fair1964.org",
+    "industry": "Insurance Services",
+    "commonCareers": [
+      "Loss Adjuster",
+      "Human Resources Officer",
+      "Administrative Assistant"
+    ],
+    "careersEvidence": "https://bebee.com",
+    "technicalAreas": [
+      "Loss Adjusting",
+      "Insurance Surveying",
+      "Claims Management",
+      "Risk Assessment"
+    ],
+    "address": "Office 104, Bahwan Plaza Building, Sheikh Zayed Road, Umm Al Sheif, Dubai, United Arab Emirates",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://fair1964.org",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Federation of Afro-Asian Insurers & Reinsurers Directory",
+        "url": "https://fair1964.org"
+      },
+      {
+        "title": "Emirates Insurance Federation Member Directory",
+        "url": "https://eifuae.com"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City, but the company's offices are located in Umm Al Sheif and Deira."
+  },
+  {
+    "id": "aramex",
+    "website": "https://www.aramex.com",
+    "websiteSource": "https://business.linkedin.com",
+    "careersSource": "https://www.aramex.com",
+    "linkedinUrl": "https://www.linkedin.com/company/aramex",
+    "linkedinSource": "https://business.linkedin.com",
+    "shortDescription": "Aramex is a multinational logistics, courier, and package delivery company headquartered in the UAE.",
+    "whatTheyDo": "Aramex provides express courier delivery, freight forwarding, logistics, supply chain management, and e-commerce solutions. Its UAE operations run central logistics hubs, sorting facilities, and IT/digital systems serving domestic and international distribution.",
+    "descriptionSource": "https://business.linkedin.com",
+    "industry": "Logistics & Supply Chain",
+    "commonCareers": [
+      "Accountant",
+      "Contact Center Executive",
+      "Driver"
+    ],
+    "careersEvidence": "https://naukrigulf.com",
+    "technicalAreas": [
+      "Logistics Management",
+      "Supply Chain Management",
+      "Freight Forwarding",
+      "Transportation Systems"
+    ],
+    "address": "Airport Road, Umm Ramool, Dubai, United Arab Emirates",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://mapcarta.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "Management Trainee Program",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://aramex.com/careers",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "LinkedIn Talent Solutions Case Study",
+        "url": "https://business.linkedin.com"
+      },
+      {
+        "title": "Naukrigulf Company Profile",
+        "url": "https://naukrigulf.com"
+      }
+    ],
+    "notes": "Coordinates omitted as sources only provide approximate area centroids for the Umm Ramool hub."
+  },
+  {
+    "id": "arcelormittal",
+    "website": "https://corporate.arcelormittal.com",
+    "websiteSource": "https://mesteel.com",
+    "careersSource": "https://corporate.arcelormittal.com",
+    "shortDescription": "ArcelorMittal is a multinational steel manufacturing corporation operating regional distribution and sales in the UAE.",
+    "whatTheyDo": "ArcelorMittal supplies steel products, sheet piling, rails, and structural steel sections to major infrastructure and construction projects in the region. In the UAE, it operates regional stockholding and commercial distribution entities through facilities in the Jebel Ali Free Zone and DAFZA.",
+    "descriptionSource": "https://mesteel.com",
+    "industry": "Mining & Metals",
+    "commonCareers": [
+      "Territory Sales Manager",
+      "Electrical Technician",
+      "Mechanical Technician",
+      "Instrument Technician"
+    ],
+    "careersEvidence": "https://indeed.com",
+    "technicalAreas": [
+      "Steel Manufacturing",
+      "Metallurgy",
+      "Industrial Engineering"
+    ],
+    "address": "Plot No. S40703, South Zone 4, Jebel Ali Free Zone, Dubai, United Arab Emirates",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://mesteel.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "MEsteel Middle East Steel Directory",
+        "url": "https://mesteel.com"
+      }
+    ],
+    "notes": "Input listed area as Business Bay, but regional facilities are located in Jebel Ali Free Zone (ArcelorMittal DSTC FZCO) and DAFZA (Industeel Middle-East)."
+  },
+  {
+    "id": "arj-holding-llc",
+    "website": "https://arjholding.com",
+    "websiteSource": "https://kompass.com",
+    "shortDescription": "ARJ Holding L.L.C is a diversified Emirati holding company specializing in water technology and engineering services.",
+    "whatTheyDo": "ARJ Holding provides water engineering systems, electromechanical contracting, building services, and real estate development. Its UAE subsidiaries supply water pumping systems, plumbing solutions, and facility engineering services to municipal and commercial clients.",
+    "descriptionSource": "https://kompass.com",
+    "industry": "Conglomerate & Engineering",
+    "commonCareers": [
+      "Finance Manager",
+      "Maintenance Engineer",
+      "Sales Engineer",
+      "Accountant"
+    ],
+    "careersEvidence": "https://bayt.com",
+    "technicalAreas": [
+      "Water Technology",
+      "Electromechanical Engineering",
+      "Building Services"
+    ],
+    "address": "Ahmed Ramadhan Juma Building, Sheikh Zayed Road, Al Quoz 3, Dubai, United Arab Emirates",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://kompass.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Kompass UAE Business Directory",
+        "url": "https://kompass.com"
+      }
+    ],
+    "notes": "Input listed area as JLT, but headquarters is located in Al Quoz 3 on Sheikh Zayed Road."
+  },
+  {
+    "id": "asus-middle-east-fzco",
+    "website": "https://www.asus.com/me-en/",
+    "websiteSource": "https://yellowpages-uae.com",
+    "shortDescription": "ASUS Middle East FZCO is the regional subsidiary of ASUS managing computer hardware and electronics distribution in the UAE.",
+    "whatTheyDo": "ASUS Middle East markets and distributes consumer laptops, gaming hardware (ROG), commercial PCs, motherboards, and PC peripherals across the region. In the UAE, it manages channel sales, product marketing, after-sales service operations, and enterprise partner accounts.",
+    "descriptionSource": "https://yellowpages-uae.com",
+    "industry": "Computer Hardware & Electronics",
+    "commonCareers": [
+      "Commercial PC Product Manager",
+      "Strategic Account Manager",
+      "Sales Account Manager"
+    ],
+    "careersEvidence": "https://ae.indeed.com",
+    "technicalAreas": [
+      "Computer Hardware",
+      "Consumer Electronics",
+      "Product Management"
+    ],
+    "address": "Office 629, 5WA, West Wing, Dubai Airport Freezone (DAFZA), Dubai, United Arab Emirates",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://yellowpages-uae.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Yellow Pages UAE Directory",
+        "url": "https://yellowpages-uae.com"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City, but the regional corporate entity is registered in DAFZA and operates offices in Business Bay."
+  },
+  {
+    "id": "audi-volkswagen-middle-east-fze",
+    "website": "https://volkswagengroup-me.com",
+    "websiteSource": "https://naukrigulf.com",
+    "shortDescription": "Audi Volkswagen Middle East FZE is the regional headquarters overseeing automotive distribution and dealer networks in the Middle East.",
+    "whatTheyDo": "Audi Volkswagen Middle East coordinates sales, marketing, aftersales service, and parts logistics for Audi and Volkswagen brands across nine regional markets. It operates a centralized Parts Distribution Center in Dubai and conducts technical and business training for regional dealership networks.",
+    "descriptionSource": "https://naukrigulf.com",
+    "industry": "Automotive",
+    "commonCareers": [],
+    "technicalAreas": [],
+    "address": "West Wing, Building 8W/A, Office 101, Dubai Airport Freezone (DAFZA), Dubai, United Arab Emirates",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://naukrigulf.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Naukrigulf Company Profile",
+        "url": "https://naukrigulf.com"
+      },
+      {
+        "title": "DHL Logistics Partnership Feature",
+        "url": "https://dhl.com"
+      }
+    ],
+    "notes": "Input listed area as Downtown, but the regional headquarters is located in Dubai Airport Freezone (DAFZA). Offers an internship programme for fresh graduates, but no unique public scheme name was published."
   },
   {
     "id": "augustus-media",
     "website": "https://augustusmedia.com",
-    "websiteSource": "https://campaignme.com",
-    "careersUrl": "https://augustusmedia.com/contact-us/",
-    "careersSource": "https://campaignme.com",
-    "shortDescription": "Augustus Media is a modern digital media and publishing company based in Dubai operating regional brands including Lovin Dubai and Smashi TV.",
-    "whatTheyDo": "Augustus Media creates, produces, and distributes digital news, entertainment, and video broadcasting content across the Middle East. Headquartered in a dedicated studio facility in Dubai Production City, its teams handle digital journalism, video production, advertising partnerships, and commercial media campaigns for flagship brands Lovin, Smashi TV, and Odeum content studio.",
-    "descriptionSource": "https://campaignme.com",
-    "industry": "Media & Publishing",
-    "address": "Unit C43, Me'aisem First, Dubai Production City, Dubai, UAE",
+    "websiteSource": "https://builtin.com",
+    "linkedinUrl": "https://www.linkedin.com/company/augustus-media",
+    "linkedinSource": "https://builtin.com",
+    "shortDescription": "Augustus Media is a modern digital media and publishing company headquartered in Dubai.",
+    "whatTheyDo": "Augustus Media operates major regional digital media and broadcasting brands including Lovin Dubai, Lovin Saudi, and the business streaming platform Smashi TV. In the UAE, it produces digital content, broadcasts live shows, and runs commercial digital advertising and media services.",
+    "descriptionSource": "https://builtin.com",
+    "industry": "Digital Media & Publishing",
+    "commonCareers": [
+      "Commercial Manager",
+      "Sales Executive",
+      "Videographer",
+      "Writer",
+      "Web Developer"
+    ],
+    "careersEvidence": "https://builtin.com",
+    "technicalAreas": [
+      "Digital Media Production",
+      "Content Strategy",
+      "Streaming Media",
+      "Web Development"
+    ],
+    "address": "Unit C43, Me'aisem First, Dubai Production City, Dubai, United Arab Emirates",
     "latitude": null,
     "longitude": null,
-    "locationSource": "https://campaignme.com",
+    "locationSource": "https://builtin.com",
     "internshipsKnown": true,
-    "graduateRolesKnown": true,
-    "programmesSource": "https://campaignme.com",
+    "graduateRolesKnown": false,
+    "programmes": [
+      {
+        "name": "Augustus Academy",
+        "kind": "internship"
+      }
+    ],
+    "programmesSource": "https://augustusmedia.com",
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Campaign Middle East Augustus Media Coverage",
-        "url": "https://campaignme.com"
+        "title": "Built In Company Profile",
+        "url": "https://builtin.com"
       }
     ],
-    "notes": "Input lists area as Dubai Media City, but headquarters and production studios relocated to Unit C43, Dubai Production City (Me'aisem First)."
+    "notes": "Input listed area as Dubai Media City, but headquarters is located in Dubai Production City (Me'aisem First)."
   },
   {
     "id": "aveva",
@@ -3152,7 +3849,6 @@
     "latitude": 25.10054,
     "longitude": 55.16365,
     "graduateRolesKnown": true,
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/2/29/Ericsson_logo.svg",
     "retrievedAt": "2026-09-21",
     "sources": [
       {
@@ -5802,6 +6498,7 @@
   },
   {
     "id": "motorola-solutions",
+    "website": "https://www.motorolasolutions.com",
     "websiteSource": "https://tecomgroup.ae",
     "careersUrl": "https://www.motorolasolutions.com/en_us/about/careers.html",
     "careersSource": "https://www.motorolasolutions.com/en_us/about/careers.html",
@@ -6737,7 +7434,6 @@
     "id": "score-plus",
     "website": "https://www.princetonreviewme.com",
     "websiteSource": "https://www.khda.gov.ae",
-    "careersUrl": "https://www.princetonreviewme.com/join-our-team",
     "careersSource": "https://www.princetonreviewme.com",
     "shortDescription": "Score Plus provides standardized test preparation and university admissions consulting in Dubai as the regional partner of The Princeton Review.",
     "whatTheyDo": "Emirates Score Plus Centre prepares students for standardized admissions tests including SAT, ACT, GMAT, GRE, IELTS, and TOEFL across the UAE. The center provides classroom instruction, private tutoring, and study-abroad university application consulting.",
@@ -7495,5 +8191,248 @@
       }
     ],
     "notes": "Input listed entity as 'Virgin MENA' in Dubai Internet City, which corresponds to the regional headquarters of Virgin Mobile Middle East & Africa (VMMEA, acquired by Beyond ONE in 2023). In the UAE consumer market, Virgin Mobile operates as a business unit within Emirates Integrated Telecommunications Company (du)."
+  },
+  {
+    "id": "virgin-mobile",
+    "website": "https://www.virginmobile.ae",
+    "websiteSource": "https://gulfnews.com",
+    "careersUrl": null,
+    "careersSource": null,
+    "linkedinUrl": "https://www.linkedin.com/company/virgin-mobile-uae",
+    "linkedinSource": "https://stevieawards.com",
+    "shortDescription": "Virgin Mobile UAE is a fully digital mobile brand operating as a business unit within Emirates Integrated Telecommunications Company (EITC).",
+    "whatTheyDo": "Virgin Mobile UAE delivers an app-based mobile telecommunications service enabling consumers to customize plans, select numbers, and manage mobile services digitally without visiting physical stores. It utilizes the telecommunications network and infrastructure of parent company EITC (du).",
+    "descriptionSource": "https://gulfnews.com",
+    "industry": "Telecommunications",
+    "commonCareers": [
+      "Sales Promoter",
+      "Brand Ambassador",
+      "Customer Service Representative",
+      "BI Data Engineer"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com",
+    "technicalAreas": [
+      "Telecommunications",
+      "Mobile Applications",
+      "Data Engineering"
+    ],
+    "address": "Floor No. 4A, Building 5, Dubai Design District (d3), Dubai, United Arab Emirates",
+    "latitude": 25.18831,
+    "longitude": 55.29768,
+    "locationSource": "https://www.waze.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "programmesSource": null,
+    "logo": "https://commons.wikimedia.org/wiki/File:Virgin_Mobile.svg",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf News coverage of Virgin Mobile UAE operations",
+        "url": "https://gulfnews.com"
+      },
+      {
+        "title": "Telecompaper report on Virgin Mobile UAE",
+        "url": "https://www.telecompaper.com"
+      }
+    ],
+    "notes": "Virgin Mobile UAE operates as a digital business unit within Emirates Integrated Telecommunications Company PJSC (EITC), the company behind du. The previous directory entry listed its area as Downtown, but the headquarters is located in Dubai Design District (Building 5)."
+  },
+  {
+    "id": "visa",
+    "website": "https://ae.visamiddleeast.com",
+    "websiteSource": "https://thefintechtimes.com",
+    "careersUrl": "https://visa.wd5.myworkdayjobs.com/Visa",
+    "careersSource": "https://www.visa.com/careers",
+    "linkedinUrl": "https://www.linkedin.com/company/visa",
+    "linkedinSource": "https://ae.visamiddleeast.com",
+    "shortDescription": "Visa operates its regional headquarters for Central and Eastern Europe, Middle East, and Africa (CEMEA) and an Innovation Center in Dubai.",
+    "whatTheyDo": "Visa provides digital payment processing, electronic funds transfers, fintech infrastructure, and consulting services supporting operations across nearly 90 countries from Dubai. Its regional office houses consulting directors, sales engineering, communications, and digital commerce teams.",
+    "descriptionSource": "https://thefintechtimes.com",
+    "industry": "Financial Services & FinTech",
+    "commonCareers": [
+      "Sr. Manager, SMB Benefits",
+      "Client Consulting Director",
+      "Acquirer Engagement Director",
+      "Event and AV Operations Analyst",
+      "Senior Manager, Corporate Communications, UAE",
+      "Sr. Manager, Sales Engineering",
+      "Director - Fintech Strategy & Market Enablement"
+    ],
+    "careersEvidence": "https://visa.wd5.myworkdayjobs.com/Visa",
+    "technicalAreas": [
+      "Digital Payments",
+      "FinTech",
+      "Sales Engineering",
+      "Cybersecurity"
+    ],
+    "address": "Visa CEMEA Headquarters, Al Falak Street, Dubai Media City, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://propsearch.ae",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "Visa Internship Program",
+        "kind": "internship"
+      }
+    ],
+    "programmesSource": "https://visa.wd5.myworkdayjobs.com/visa_early_careers",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "The FinTech Times report on Visa CEMEA Headquarters",
+        "url": "https://thefintechtimes.com"
+      },
+      {
+        "title": "Propsearch project data on Visa CEMEA Headquarters",
+        "url": "https://propsearch.ae"
+      }
+    ],
+    "notes": "Visa's regional headquarters for the CEMEA region is located in a purpose-built building on Al Falak Street in Dubai Media City (developed by Sweid & Sweid and completed in 2021), rather than Business Bay as previously indicated in the directory. Coordinates are set to null because a precise verified office centroid was not confirmed to 5 decimal places."
+  },
+  {
+    "id": "wasl-asset-management-group",
+    "website": "https://www.wasl.ae",
+    "websiteSource": "https://mediaoffice.ae",
+    "careersSource": "https://www.wasl.ae",
+    "linkedinUrl": null,
+    "linkedinSource": null,
+    "shortDescription": "Wasl Asset Management Group is a major Dubai government real estate management and urban development organisation.",
+    "whatTheyDo": "Established in 2008 by the Dubai Real Estate Corporation (DREC), Wasl manages extensive property portfolios spanning residential, commercial, and industrial developments across Dubai. It oversees landmark projects such as the Food Tech Valley and 1 Billion Meals Endowment Tower, alongside hospitality and leisure operations.",
+    "descriptionSource": "https://mediaoffice.ae",
+    "industry": "Real Estate & Asset Management",
+    "commonCareers": [
+      "Head of Transformation Office",
+      "Inspector",
+      "Accountant - Receivables",
+      "Graduate Trainee"
+    ],
+    "careersEvidence": "https://www.wasl.ae/en/careers",
+    "technicalAreas": [
+      "Asset Management",
+      "Real Estate Development",
+      "Facilities Management"
+    ],
+    "address": "Wasl Experience Center, Al Safa 2, Sheikh Zayed Road, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://dcciinfo.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "Graduate Training Programme (GTP)",
+        "kind": "graduate"
+      },
+      {
+        "name": "Ajial",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://www.wasl.ae",
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Government of Dubai Media Office coverage of Wasl Asset Management Group",
+        "url": "https://mediaoffice.ae"
+      },
+      {
+        "title": "Dubai Chamber of Commerce and Industry Directory entry",
+        "url": "https://dcciinfo.com"
+      }
+    ],
+    "notes": "Wasl Asset Management Group was created in 2008 by the Dubai Real Estate Corporation. The directory formerly recorded its area as JLT, but its head office and Experience Center are situated in Al Safa 2 on Sheikh Zayed Road. Coordinates are set to null because an exact verified building centroid to 5 decimal places could not be confirmed."
+  },
+  {
+    "id": "zahrawi-medical",
+    "website": "https://www.zahrawigroup.com",
+    "websiteSource": "https://gmu.ac.ae",
+    "careersUrl": "https://careers.zahrawigroup.com",
+    "careersSource": "https://www.zahrawigroup.com",
+    "linkedinUrl": "https://www.linkedin.com/company/zahrawi-group",
+    "linkedinSource": "https://www.zahrawigroup.com",
+    "shortDescription": "Zahrawi Medical (Zahrawi Group) is a leading distributor of medical equipment, surgical robotics, and diagnostic solutions in the UAE and GCC.",
+    "whatTheyDo": "Zahrawi Group supplies medical equipment, clinical diagnostic tools, and surgical technologies to healthcare providers, hospitals, and laboratories across the UAE. It partners with international medical manufacturers such as Zimmer Biomet and Medtronic to distribute specialised healthcare equipment and provide biomedical support services.",
+    "descriptionSource": "https://gmu.ac.ae",
+    "industry": "Healthcare & Medical Equipment",
+    "commonCareers": [
+      "Warehouse Coordinator",
+      "Transport Operations Support Coordinator",
+      "Quality Assurance Executive",
+      "Lab Data Analyst Internships"
+    ],
+    "careersEvidence": "https://careers.zahrawigroup.com",
+    "technicalAreas": [
+      "Medical Devices",
+      "Surgical Robotics",
+      "Clinical Diagnostics",
+      "Quality Assurance"
+    ],
+    "address": "1st Floor, Ford Middle East & Africa Building, Al Wasl Office Complex, Sheikh Zayed Road, Downtown, Dubai, United Arab Emirates",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://dcciinfo.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf Medical University Career Fair employer listing for Zahrawi Group",
+        "url": "https://gmu.ac.ae"
+      },
+      {
+        "title": "Dubai Chamber of Commerce & Industry Directory entry for Al-Zahrawi Medical Supplies",
+        "url": "https://dcciinfo.com"
+      }
+    ],
+    "notes": "Zahrawi Medical operates as Zahrawi Group across the GCC. The previous directory entry listed its location as Dubai Internet City, whereas its Dubai headquarters is at the Al Wasl Office Complex on Sheikh Zayed Road. Coordinates are set to null because exact building centroid coordinates to 5 decimal places could not be verified."
+  },
+  {
+    "id": "zomato",
+    "website": "https://www.zomato.com/dubai",
+    "websiteSource": "https://thenationalnews.com",
+    "careersUrl": "https://www.zomato.com/careers",
+    "careersSource": "https://www.zomato.com",
+    "linkedinUrl": "https://www.linkedin.com/company/zomato",
+    "linkedinSource": "https://leadiq.com",
+    "shortDescription": "Zomato UAE operates a restaurant discovery, menu guide, and dining-out ratings service in the UAE.",
+    "whatTheyDo": "Zomato provides an online platform where users in Dubai and across the UAE can search restaurants, view menus, read reviews, and explore dining experiences. After selling its UAE food delivery operations to Delivery Hero (Talabat) in 2019 and ceasing food delivery ordering in November 2022, its UAE operations focus exclusively on restaurant search, dining out, and discovery.",
+    "descriptionSource": "https://thenationalnews.com",
+    "industry": "Internet & Consumer Services",
+    "commonCareers": [],
+    "careersEvidence": null,
+    "technicalAreas": [],
+    "address": "13th Floor, Burj Al Salam Tower, Trade Centre 1, Sheikh Zayed Road, Dubai, UAE",
+    "latitude": 25.22975,
+    "longitude": 55.28658,
+    "locationSource": "https://en.wikipedia.org/wiki/Burj_Al_Salam",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "programmesSource": null,
+    "logo": null,
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "The National news report on Zomato food delivery shutdown in UAE",
+        "url": "https://thenationalnews.com"
+      },
+      {
+        "title": "Time Out Dubai coverage of Zomato UAE transition to Talabat",
+        "url": "https://timeoutdubai.com"
+      },
+      {
+        "title": "Canadian University Dubai Career Fair records",
+        "url": "https://cud.ac.ae"
+      }
+    ],
+    "notes": "Zomato sold its UAE food ordering business to Delivery Hero / Talabat and officially discontinued food delivery services in November 2022, retaining only restaurant discovery. Its Dubai office is located at Burj Al Salam Tower on Sheikh Zayed Road (Trade Centre 1), rather than Dubai Media City as previously recorded. No active UAE job openings were listed on its recruitment platform."
   }
 ]
