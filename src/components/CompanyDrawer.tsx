@@ -1,16 +1,12 @@
-import React, { useState, useEffect, useRef, useId, useMemo } from 'react';
-import L from 'leaflet';
-import { TILE_CONFIGS, previewStyleForTheme } from '../utils/mapTiles';
-import 'leaflet/dist/leaflet.css';
+import React, { useState, useId, useMemo } from 'react';
 import type { Company } from '../types/company';
 import { useApp } from '../context/AppContext';
-import { useTheme } from '../context/ThemeContext';
 import { track } from '../lib/analytics';
 import { TabBar, tabPanelId } from './ui/TabBar';
 import { Modal } from './ui/Modal';
 import { formatBusCommute, formatDistance } from '../utils/distance';
 import { isCareerRelevant } from '../utils/relevance';
-import { directionsUrl, ESTIMATE_NOTE } from '../utils/directions';
+import { directionsUrl, directionsEmbedUrl } from '../utils/directions';
 import { CompanyLogo } from './ui/CompanyLogo';
 import { ProvenanceBadge } from './ui/ProvenanceBadge';
 import { LinkedInMark } from './ui/LinkedInMark';
@@ -34,7 +30,6 @@ interface CompanyDrawerProps {
 
 export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }) => {
   const { toggleSaveCompany, isCompanySaved, companies, setSelectedCompany, userInterests, userLocation } = useApp();
-  const { theme } = useTheme();
   const tabsId = useId();
   const [activeTab, setActiveTab] = useState<'overview' | 'careers' | 'location' | 'similar'>('overview');
   const [commuteMode, setCommuteMode] = useState<'transit' | 'driving'>('transit');
@@ -85,111 +80,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
   ]);
 
 
-  const routeMapContainerRef = useRef<HTMLDivElement>(null);
-  const routeMapInstanceRef = useRef<L.Map | null>(null);
 
-  useEffect(() => {
-    if (activeTab !== 'location' || !routeMapContainerRef.current) return;
-
-    if (routeMapInstanceRef.current) {
-      routeMapInstanceRef.current.remove();
-      routeMapInstanceRef.current = null;
-    }
-
-    const originCoords: [number, number] = [userLocation.latitude, userLocation.longitude];
-    const destCoords: [number, number] = [company.location.latitude, company.location.longitude];
-
-    const map = L.map(routeMapContainerRef.current, {
-      zoomControl: true,
-      attributionControl: true,
-    });
-    map.attributionControl.setPrefix('');
-
-    const tiles = TILE_CONFIGS[previewStyleForTheme(theme)];
-    L.tileLayer(tiles.url, {
-      maxZoom: tiles.maxZoom,
-      attribution: tiles.attribution,
-    }).addTo(map);
-
-    // 1. Home Pin (Origin)
-    const homeHtml = `
-      <div style="position: relative; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;">
-        <div style="position: absolute; inset: -4px; border-radius: 9999px; border: 2px solid #2563eb; opacity: 0.75; animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;"></div>
-        <div style="width: 28px; height: 28px; border-radius: 9999px; background: #2563eb; color: #fff; box-shadow: 0 4px 12px rgba(37,99,235,0.4); display: flex; align-items: center; justify-content: center; border: 2px solid #ffffff;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-        </div>
-      </div>
-    `;
-    const homeIcon = L.divIcon({
-      html: homeHtml,
-      className: 'custom-home-pin',
-      iconSize: [32, 32],
-      iconAnchor: [16, 16],
-    });
-    const homeMarker = L.marker(originCoords, {
-      icon: homeIcon,
-      alt: `Start: ${userLocation.name}`,
-      title: userLocation.name,
-    }).addTo(map);
-    homeMarker.bindTooltip(`<strong>Home Address</strong><br/>${userLocation.name}`, {
-      direction: 'top',
-      className: 'map-tooltip',
-    });
-
-    // 2. Company Destination Pin
-    const destHtml = `
-      <div style="position: relative; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;">
-        <div style="width: 28px; height: 28px; border-radius: 9999px; background: #059669; color: #fff; box-shadow: 0 4px 12px rgba(5,150,105,0.4); display: flex; align-items: center; justify-content: center; border: 2px solid #ffffff;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/></svg>
-        </div>
-      </div>
-    `;
-    const destIcon = L.divIcon({
-      html: destHtml,
-      className: 'custom-dest-pin',
-      iconSize: [32, 32],
-      iconAnchor: [16, 16],
-    });
-    const destMarker = L.marker(destCoords, {
-      icon: destIcon,
-      alt: `Destination: ${company.name}`,
-      title: company.name,
-    }).addTo(map);
-    destMarker.bindTooltip(`<strong>${company.name}</strong><br/>${company.location.area}`, {
-      direction: 'top',
-      className: 'map-tooltip',
-    });
-
-    /*
-      A dashed straight line, not a route. The previous polylines were
-      interpolated curves invented by transitRouting.ts, drawn to look like
-      roads they had never been checked against. The real route is one tap away
-      in Google Maps.
-    */
-    L.polyline([originCoords, destCoords], {
-      color: commuteMode === 'transit' ? '#2563eb' : '#059669',
-      weight: 2.5,
-      opacity: 0.6,
-      dashArray: '6, 6',
-    }).addTo(map);
-
-    const bounds = L.latLngBounds([originCoords, destCoords]);
-    map.fitBounds(bounds, { padding: [40, 40] });
-
-    routeMapInstanceRef.current = map;
-
-    const t1 = setTimeout(() => map.invalidateSize(), 150);
-    const t2 = setTimeout(() => map.invalidateSize(), 400);
-
-    return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-      if (routeMapInstanceRef.current) {
-        routeMapInstanceRef.current.remove();
-        routeMapInstanceRef.current = null;
-      }
-    };
-  }, [activeTab, commuteMode, userLocation.latitude, userLocation.longitude, company.id, theme]);
 
   const tabs: Array<{ id: 'overview' | 'careers' | 'location' | 'similar'; label: string }> = [
     { id: 'overview', label: 'Overview' },
@@ -474,51 +365,63 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
             </div>
 
             {/*
-              Only shown once a programme is actually confirmed. With a careers
-              page found for 13 of 225 companies, these read "Not confirmed" on
-              nearly every record and said nothing.
+              Shows the actual scheme names when research found them, and falls
+              back to a plain confirmation otherwise. Hidden entirely when
+              nothing is known, rather than printing "Not confirmed" on every
+              record.
             */}
-            {(company.internshipsKnown !== null || company.graduateRolesKnown !== null) && (
-              <div className="grid grid-cols-2 gap-3">
-                {company.internshipsKnown !== null && (
-                  <div className="border border-line rounded-lg p-3 bg-surface">
-                    <span className="text-[10px] text-ink-3 font-semibold uppercase tracking-wider block">
-                      Student Internships
-                    </span>
-                    <div className="flex items-center gap-1.5 mt-1">
-                      {company.internshipsKnown ? (
-                        <>
-                          <CheckCircle2
-                            className="w-4 h-4 text-emerald-600 dark:text-emerald-400"
-                            aria-hidden="true"
-                          />
-                          <span className="text-xs font-semibold text-ink">Confirmed</span>
-                        </>
-                      ) : (
-                        <span className="text-xs text-ink-2">None listed</span>
-                      )}
-                    </div>
-                  </div>
-                )}
+            {(company.programmes.length > 0 ||
+              company.internshipsKnown !== null ||
+              company.graduateRolesKnown !== null) && (
+              <div className="space-y-2">
+                <h3 className="text-xs font-bold text-ink uppercase tracking-wider">
+                  Student &amp; graduate programmes
+                </h3>
 
-                {company.graduateRolesKnown !== null && (
-                  <div className="border border-line rounded-lg p-3 bg-surface">
-                    <span className="text-[10px] text-ink-3 font-semibold uppercase tracking-wider block">
-                      Graduate Roles
-                    </span>
-                    <div className="flex items-center gap-1.5 mt-1">
-                      {company.graduateRolesKnown ? (
-                        <>
-                          <CheckCircle2
-                            className="w-4 h-4 text-emerald-600 dark:text-emerald-400"
-                            aria-hidden="true"
-                          />
-                          <span className="text-xs font-semibold text-ink">Confirmed</span>
-                        </>
-                      ) : (
-                        <span className="text-xs text-ink-2">None listed</span>
-                      )}
-                    </div>
+                {company.programmes.length > 0 ? (
+                  <ul className="space-y-1.5">
+                    {company.programmes.map(programme => (
+                      <li
+                        key={programme.name}
+                        className="flex items-start gap-2 border border-line rounded-lg p-2.5 bg-surface"
+                      >
+                        <CheckCircle2
+                          className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5"
+                          aria-hidden="true"
+                        />
+                        <span className="min-w-0">
+                          <span className="block text-xs font-semibold text-ink">
+                            {programme.name}
+                          </span>
+                          <span className="block text-[11px] text-ink-3 capitalize">
+                            {programme.kind === 'graduate' ? 'Graduate scheme' : 'Internship'}
+                          </span>
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <div className="grid grid-cols-2 gap-3">
+                    {company.internshipsKnown !== null && (
+                      <div className="border border-line rounded-lg p-3 bg-surface">
+                        <span className="text-[10px] text-ink-3 font-semibold uppercase tracking-wider block">
+                          Internships
+                        </span>
+                        <span className="text-xs font-semibold text-ink mt-1 block">
+                          {company.internshipsKnown ? 'Offered' : 'None listed'}
+                        </span>
+                      </div>
+                    )}
+                    {company.graduateRolesKnown !== null && (
+                      <div className="border border-line rounded-lg p-3 bg-surface">
+                        <span className="text-[10px] text-ink-3 font-semibold uppercase tracking-wider block">
+                          Graduate roles
+                        </span>
+                        <span className="text-xs font-semibold text-ink mt-1 block">
+                          {company.graduateRolesKnown ? 'Offered' : 'None listed'}
+                        </span>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
@@ -573,14 +476,16 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
             
             {/* Address & Free Zone Card */}
             <div className="border border-line rounded-lg p-4 bg-white dark:bg-slate-800 space-y-3">
-              <div>
-                <span className="text-[10px] font-semibold text-ink-3 uppercase tracking-wider">
-                  Address
-                </span>
-                <p className="text-xs sm:text-sm font-medium text-ink mt-0.5">
-                  {company.location.address}
-                </p>
-              </div>
+              {company.location.address && (
+                <div>
+                  <span className="text-[10px] font-semibold text-ink-3 uppercase tracking-wider">
+                    Address
+                  </span>
+                  <p className="text-xs sm:text-sm font-medium text-ink mt-0.5">
+                    {company.location.address}
+                  </p>
+                </div>
+              )}
 
               <div className="grid grid-cols-2 gap-3 pt-3 border-t border-slate-100 dark:border-slate-700 text-xs">
                 <div>
@@ -623,30 +528,18 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
                 </button>
               </div>
 
-              {/* Clean Map Embed - no borders, no cards */}
-              <div className="rounded-lg overflow-hidden">
-                <div
-                  ref={routeMapContainerRef}
-                  className="w-full h-44 z-0"
-                  style={{ background: 'var(--bg-muted)' }}
-                />
-              </div>
 
-              {/* Honest summary: real distance, clearly-labelled estimate */}
-              <div className="p-3 rounded-lg border border-line bg-surface">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-base font-bold text-ink">
-                    ~{commuteMode === 'transit'
-                      ? company.commute.busMinutes
-                      : company.commute.drivingMinutes}{' '}
-                    min
-                  </span>
-                  <span className="text-xs text-ink-2 font-medium">
-                    ({company.commute.distanceKm.toFixed(1)} km direct)
-                  </span>
-                </div>
-                <span className="text-[11px] text-ink-3 block mt-1 leading-relaxed">
-                  {ESTIMATE_NOTE}
+              {/*
+                Distance is exact; the travel time is not, and Google's embed
+                below gives the real one. Showing our straight-line estimate
+                here just contradicted it, so only the distance stays.
+              */}
+              <div className="flex items-baseline gap-2 px-0.5">
+                <span className="text-sm font-semibold text-ink">
+                  {company.commute.distanceKm.toFixed(1)} km
+                </span>
+                <span className="text-xs text-ink-3">
+                  direct from {userLocation.name}
                 </span>
               </div>
 
@@ -665,11 +558,22 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
                 <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
               </a>
 
-              <p className="text-[11px] text-ink-3 leading-relaxed">
-                Opens Google Maps, which has RTA&rsquo;s live schedules. We don&rsquo;t publish
-                bus numbers or interchanges here, because Dubai&rsquo;s open data does not include
-                bus stop locations to verify them against.
-              </p>
+              {/*
+                The real route, from a planner that has RTA's schedules. We do
+                not draw it ourselves: Dubai's open data publishes bus route
+                names and stop order but no bus stop coordinates, so an in-app
+                route could not be verified.
+              */}
+              <div className="rounded-lg overflow-hidden border border-line">
+                <iframe
+                  key={`${company.id}-${commuteMode}`}
+                  title={`Route from ${userLocation.name} to ${company.name}`}
+                  src={directionsEmbedUrl(userLocation, company.location, commuteMode)}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-64 border-0 block"
+                />
+              </div>
             </div>
           </div>
         )}

@@ -328,6 +328,7 @@ def build(seed, audit, verified):
             "bannerImage": v.get("bannerImage"),
             "technicalAreas": tech_list,
             "commonCareers": careers_list,
+            "programmes": v.get("programmes") or [],
             "internshipsKnown": interns,
             "graduateRolesKnown": grads,
             # The 9 seeded profiles had real-looking LinkedIn URLs for people

@@ -37,3 +37,26 @@ export function directionsUrl(origin: Point, destination: Point, mode: TravelMod
  */
 export const ESTIMATE_NOTE =
   'Estimated from straight-line distance, not a live schedule.';
+
+/**
+ * The same journey as an embeddable map.
+ *
+ * Google's official Embed API requires a billed API key, which a static site
+ * cannot hold safely. The long-standing `output=embed` form needs no key and
+ * renders the real route, so it is used here; `directionsUrl` above remains for
+ * anyone who wants full turn-by-turn.
+ */
+export function directionsEmbedUrl(
+  origin: Point,
+  destination: Point,
+  mode: TravelMode
+): string {
+  const params = new URLSearchParams({
+    saddr: coord(origin),
+    daddr: coord(destination),
+    // r = public transport, d = driving
+    dirflg: mode === 'transit' ? 'r' : 'd',
+    output: 'embed',
+  });
+  return `https://www.google.com/maps?${params.toString()}`;
+}

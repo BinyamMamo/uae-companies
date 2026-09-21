@@ -26,6 +26,11 @@ access in this run — do not attempt to run commands or write files.
    Architects"; a trading company is not a software house. If you did not see
    real openings, return `"commonCareers": []`. The same applies to
    `technicalAreas`: leave it empty unless the company describes that work.
+4c. **Name the programmes.** If the company runs a named internship or graduate
+   scheme, put its actual name in `programmes` (e.g. "Emirati Graduate
+   Programme", "Summer Internship"). Only names you saw published. If you can
+   tell a scheme exists but it has no public name, leave `programmes` empty and
+   set the boolean instead.
 5. **`sources` must be third-party** — news, government registries, directories,
    university career pages. The company's own website is not a source for
    claims about itself; it goes in `website`, not `sources`.
@@ -61,6 +66,10 @@ company, using the same `id`. Use this shape, omitting keys you cannot fill:
     "locationSource": "https://...",
     "internshipsKnown": true,
     "graduateRolesKnown": true,
+    "programmes": [
+      { "name": "Microsoft Internship Programme", "kind": "internship" },
+      { "name": "Microsoft Aspire Graduate Programme", "kind": "graduate" }
+    ],
     "programmesSource": "https://...",
     "logo": "https://upload.wikimedia.org/...",
     "retrievedAt": "2026-09-20",

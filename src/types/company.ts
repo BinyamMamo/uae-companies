@@ -77,6 +77,8 @@ export interface Company {
   /** Null means "we don't know", which is different from false. */
   internshipsKnown: boolean | null;
   graduateRolesKnown: boolean | null;
+  /** Named programmes found on the company's careers page, e.g. "Emirati Graduate Programme". */
+  programmes: { name: string; kind: 'internship' | 'graduate' }[];
   employees: EmployeeProfile[];
   linkedinUrl: string | null;
   commute: CompanyCommute;

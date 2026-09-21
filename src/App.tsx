@@ -50,14 +50,12 @@ const AppContent: React.FC = () => {
           */}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 text-xs">
             <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-2">
-              <span className="font-semibold text-ink">UAE Student Discovery Platform</span>
+              <span className="font-semibold text-ink">Where to work in the UAE</span>
               <span className="hidden sm:inline" aria-hidden="true">·</span>
               <span>{companies.length} companies</span>
-              <span className="hidden sm:inline" aria-hidden="true">·</span>
-              <span>Ref: DIAC / KSK Homes</span>
             </div>
             <div className="text-ink-3 text-balance sm:text-right">
-              Designed for UAE Computer Engineering &amp; Technical University Students
+              Designed for University of Dubai students
             </div>
           </div>
         </footer>
