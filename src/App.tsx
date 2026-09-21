@@ -107,9 +107,6 @@ const AppContent: React.FC = () => {
                 >
                   Open source
                 </a>
-                <span aria-hidden="true">·</span>
-                {/* The claim the whole project rests on, so it is stated here. */}
-                <span>Company details are sourced, not generated</span>
               </span>
             </div>
             <div className="flex items-center sm:justify-end">
