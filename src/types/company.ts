@@ -94,6 +94,7 @@ export interface Company {
     location: Provenance;
     description: Provenance;
     programmes: Provenance;
+    linkedinUrl: Provenance;
   };
 }
 

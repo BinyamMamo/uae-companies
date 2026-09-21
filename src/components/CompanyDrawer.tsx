@@ -97,12 +97,24 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
 
 
 
+  const hasCareers = Boolean(
+    company.careersUrl ||
+      company.commonCareers.length ||
+      company.programmes.length ||
+      company.internshipsKnown !== null ||
+      company.graduateRolesKnown !== null
+  );
+
   const tabs: Array<{ id: 'overview' | 'careers' | 'location' | 'similar'; label: string }> = [
     { id: 'overview', label: 'Overview' },
-    { id: 'careers', label: 'Careers' },
+    ...(hasCareers ? [{ id: 'careers' as const, label: 'Careers' }] : []),
     { id: 'location', label: 'Location' },
     ...(similarCompanies.length > 0 ? [{ id: 'similar' as const, label: 'Similar' }] : []),
   ];
+
+  // Jumping to a similar company keeps the drawer mounted, so the tab that was
+  // open may not exist for the new record. Fall back rather than show nothing.
+  const currentTab = tabs.some(t => t.id === activeTab) ? activeTab : 'overview';
 
   return (
     <Modal
@@ -180,7 +192,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
       <TabBar
           baseId={tabsId}
         tabs={tabs}
-        active={activeTab}
+        active={currentTab}
         onChange={id => {
           setActiveTab(id);
           track('company_tab_viewed', { company_id: company.id, tab: id });
@@ -191,13 +203,13 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
       {/* Scrollable Tab Content Body */}
       <div className="flex-1 overflow-y-auto p-5 space-y-6 text-ink"
         role="tabpanel"
-        id={tabPanelId(tabsId, activeTab)}
-        aria-labelledby={`${tabsId}-tab-${activeTab}`}
+        id={tabPanelId(tabsId, currentTab)}
+        aria-labelledby={`${tabsId}-tab-${currentTab}`}
         tabIndex={0}
       >
         
         {/* TAB 1: OVERVIEW */}
-        {activeTab === 'overview' && (
+        {currentTab === 'overview' && (
           <div className="space-y-6">
 
             {/* 193 of 225 records have no verified profile text yet. Say so
@@ -368,19 +380,19 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
         )}
 
         {/* TAB 2: CAREERS */}
-        {activeTab === 'careers' && (
+        {currentTab === 'careers' && (
           <div className="space-y-5">
             
-            {/* Direct Careers Link */}
+            {/* Direct Careers Link — a card that only says we found nothing is
+                not worth the space it takes. */}
+            {company.careersUrl && (
             <div className="bg-slate-50 dark:bg-slate-800 border border-line rounded-lg p-4 flex items-center justify-between">
               <div>
                 <h4 className="text-xs font-semibold text-ink">
                   Official Careers Portal
                 </h4>
                 <p className="text-xs text-ink-2 mt-0.5">
-                  {company.careersUrl
-                    ? 'Open roles are listed on the company’s own careers page.'
-                    : 'We have not confirmed a careers page for this company.'}
+                  Open roles are listed on the company’s own careers page.
                 </p>
               </div>
               {company.careersUrl && (
@@ -396,6 +408,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
                 </a>
               )}
             </div>
+            )}
 
             {/*
               Shows the actual scheme names when research found them, and falls
@@ -507,7 +520,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
         )}
 
         {/* TAB 4: LOCATION */}
-        {activeTab === 'location' && (
+        {currentTab === 'location' && (
           <div className="space-y-4">
             
             {/* Address & Free Zone Card */}
@@ -626,7 +639,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
         )}
 
         {/* TAB 5: SIMILAR COMPANIES */}
-        {activeTab === 'similar' && (
+        {currentTab === 'similar' && (
           <div className="space-y-3">
             <h3 className="text-xs font-bold text-ink uppercase tracking-wider">
               Similar Companies in UAE

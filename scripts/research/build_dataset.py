@@ -151,6 +151,25 @@ def resolves(entry, kind):
     return bool(status and status < 400)
 
 
+# Logos scraped from each company's own website (see pick_logos.py), then
+# checked by eye against a rendered contact sheet of every one.
+LOGOS_PATH = ROOT / "scripts/research/logos.json"
+SITE_LOGOS = (
+    json.loads(LOGOS_PATH.read_text(encoding="utf-8")) if LOGOS_PATH.exists() else {}
+)
+
+# Which seeded LinkedIn URLs actually resolve to a page (see linkedin.mjs).
+LINKEDIN_PATH = ROOT / "scripts/research/linkedin_checked.json"
+LINKEDIN_LIVE = {
+    cid
+    for cid, verdict in (
+        json.loads(LINKEDIN_PATH.read_text(encoding="utf-8")).get("checked", {})
+        if LINKEDIN_PATH.exists()
+        else {}
+    ).items()
+    if verdict == "exists"
+}
+
 CORRECTIONS = json.loads(
     (ROOT / "scripts/research/corrections.json").read_text(encoding="utf-8")
 )
@@ -363,7 +382,23 @@ def build(seed, audit, verified):
             if url and not is_own(url) and not any(x["url"].rstrip("/") == url for x in sources):
                 sources.append({"title": s["title"], "url": s["url"], "thirdParty": True})
 
-        logo = v.get("logo") or c.get("logo")
+        # A logo taken from the company's own site beats anything else: the URL
+        # was already confirmed to belong to them, and the site is the authority
+        # on its own mark. The seeded avatar.vercel.sh placeholders are dropped.
+        researched_li = v.get("linkedinUrl")
+        if researched_li:
+            linkedin = researched_li
+            linkedin_prov = prov(
+                v.get("linkedinSource") or researched_li,
+                "verified" if v.get("linkedinSource") else "reported",
+            )
+        elif c["id"] in LINKEDIN_LIVE and c.get("linkedinUrl"):
+            linkedin = c["linkedinUrl"]
+            linkedin_prov = prov(linkedin, "reported")
+        else:
+            linkedin, linkedin_prov = None, prov(None, "unverified")
+
+        logo = SITE_LOGOS.get(c["id"]) or v.get("logo") or c.get("logo")
         if logo and PLACEHOLDER_LOGO in logo:
             logo = None
 
@@ -415,12 +450,13 @@ def build(seed, audit, verified):
             # who could not be confirmed to exist. Publishing those is the
             # worst thing in the dataset, so they go.
             "employees": v.get("employees", []),
-            # 208 of the 225 seeded LinkedIn URLs were the company name turned
-            # into a slug, and none of them came from the research — the same
-            # guess that produced website + "/careers". Eight were already
-            # confirmed 404s and the rest cannot be checked from behind
-            # LinkedIn's auth wall, so only a researched one is published.
-            "linkedinUrl": v.get("linkedinUrl"),
+            # The seeded LinkedIn URLs were all name slugs, so each one was
+            # loaded in a browser: 208 are real pages and 14 are 404s. A
+            # researched URL wins (University of Dubai's real page is a /school/
+            # URL no slug rule would produce); otherwise a seeded one is kept
+            # only if it resolved, and published as "reported" rather than
+            # "verified" since the auth wall hides the page from readers too.
+            "linkedinUrl": linkedin,
             "commute": c["commute"],
             "relevanceScore": c.get("relevanceScore", 0),
             "studentMatchReason": reason,
@@ -432,6 +468,7 @@ def build(seed, audit, verified):
                 "location": loc_prov,
                 "description": desc_prov,
                 "programmes": prog_prov,
+                "linkedinUrl": linkedin_prov,
             },
         })
     return out

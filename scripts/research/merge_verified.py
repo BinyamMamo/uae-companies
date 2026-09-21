@@ -165,6 +165,20 @@ def main():
                 rejects["careersUrl looks constructed"].append(rid)
                 r.pop("careersUrl", None)
 
+        # linkedinUrl: only a researched one, and only if it names a real page.
+        # The seeded values were all linkedin.com/company/<name-slug> guesses,
+        # and University of Dubai shows why that shape fails - its real page is
+        # a /school/ URL. LinkedIn answers bots with an auth wall, so "exists"
+        # here means "not a 404", which is all either side can check.
+        li = r.get("linkedinUrl") or ""
+        if li:
+            if "linkedin.com/" not in li.lower():
+                rejects["linkedinUrl is not a LinkedIn URL"].append(rid)
+                r.pop("linkedinUrl", None)
+            elif not r.get("linkedinSource"):
+                rejects["linkedinUrl dropped (no source cited)"].append(rid)
+                r.pop("linkedinUrl", None)
+
         # logo
         if r.get("logo"):
             ok, _ = checked.get(r["logo"], (False, "unchecked"))
@@ -228,7 +242,7 @@ def main():
         k = sum(1 for r in clean if r.get(key))
         return f"{k:>3}/{len(clean)}"
     print("\nSurviving fields:")
-    for key in ("website", "careersUrl", "shortDescription", "address", "latitude", "logo", "sources", "commonCareers"):
+    for key in ("website", "careersUrl", "linkedinUrl", "shortDescription", "address", "latitude", "logo", "sources", "commonCareers"):
         print(f"  {key:<18} {kept(key)}")
 
     out = VERIFIED_DIR / "_merged.json"

@@ -1,0 +1,460 @@
+[
+  {
+    "id": "tanfeeth",
+    "website": "https://www.tanfeeth.ae",
+    "websiteSource": "https://en.wikipedia.org/wiki/Tanfeeth",
+    "careersUrl": "https://www.emiratesnbd.com/en/careers/",
+    "careersSource": "https://www.emiratesnbd.com",
+    "shortDescription": "Tanfeeth is a business process outsourcing and shared services company in Dubai, operating as a fully owned subsidiary of Emirates NBD Group.",
+    "whatTheyDo": "Established in 2011, Tanfeeth manages back-office banking operations, customer contact centers, collections, and human resources processing across the UAE. It serves primarily as the shared services backbone for Emirates NBD and Emirates Islamic banks. Its teams handle customer care, fraud monitoring, and financial transaction processing.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/Tanfeeth",
+    "industry": "Business Process Outsourcing & Financial Services",
+    "commonCareers": [
+      "Customer Service Representative",
+      "Call Center Agent",
+      "Fraud Monitoring Associate",
+      "Data Entry Operator",
+      "Sales Executive"
+    ],
+    "careersEvidence": "https://www.bayt.com/en/company/tanfeeth-42525/",
+    "technicalAreas": [
+      "Business Process Outsourcing",
+      "Banking Operations",
+      "Customer Relationship Management"
+    ],
+    "address": "Building Q, Meydan Business Park, Nad Al Sheba 1, Dubai, UAE",
+    "latitude": 25.16056,
+    "longitude": 55.32444,
+    "locationSource": "https://wikimapia.org/24647366/Building-Q-Meydan",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "Ruwad Graduate Program",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://www.emiratesnbd.com/en/careers/our-programmes",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Emirates News Agency (WAM) Coverage",
+        "url": "https://www.wam.ae/en/details/1395302638848"
+      },
+      {
+        "title": "Gulf News Report on Tanfeeth",
+        "url": "https://gulfnews.com/business/banking/tanfeeth-takes-efficiency-to-a-new-level-1.1166746"
+      }
+    ],
+    "notes": "Input listed area as JLT, but headquarters is located at Building Q, Meydan Business Park, Nad Al Sheba 1. Formerly known as Tanfeeth LLC, the company was rebranded as Emirates NBD Global Services LLC, with recruitment integrated into Emirates NBD Group Careers."
+  },
+  {
+    "id": "tensor",
+    "website": "https://tensor.ae",
+    "websiteSource": "https://el7far.com",
+    "shortDescription": "Tensor is an engineering and infrastructure contractor in Dubai specializing in mission-critical data center facilities.",
+    "whatTheyDo": "The company provides data center infrastructure solutions spanning MEP engineering, EPC execution, project management, and data center technical audits. In Dubai Silicon Oasis, it has delivered infrastructure for Gulf Data Hub, including work on the GDH-DSO-B5 and GDH-DSO-B3 data centers. Its technical teams execute electrical, mechanical, and SCADA infrastructure integrations.",
+    "descriptionSource": "https://tensor.ae",
+    "industry": "Engineering & Data Center Infrastructure",
+    "commonCareers": [
+      "EPC Project Manager",
+      "HSE Manager",
+      "Senior MEP Design Engineer",
+      "Receptionist"
+    ],
+    "careersEvidence": "https://tensor.ae",
+    "technicalAreas": [
+      "Data Center Infrastructure",
+      "MEP Engineering",
+      "EPC Execution",
+      "SCADA Integration"
+    ],
+    "address": "Dubai Silicon Oasis, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://tensor.ae",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf Data Hub Project Data",
+        "url": "https://tensor.ae"
+      },
+      {
+        "title": "El7far Recruitment Listing in DSO",
+        "url": "https://el7far.com"
+      }
+    ],
+    "notes": "Input listed name as 'Tensor Systems', which confused it with an unrelated Zimbabwean infrastructure firm; the UAE entity operating in Dubai Silicon Oasis is Tensor (tensor.ae), a data center EPC specialist. Specific office building coordinates are not publicly listed."
+  },
+  {
+    "id": "the-iml-group",
+    "website": "https://www.imlme.com",
+    "websiteSource": "https://www.naukrigulf.com/the-iml-group-jobs-in-uae-45009",
+    "shortDescription": "The IML Group is a field and experiential marketing agency headquartered in Dubai.",
+    "whatTheyDo": "Founded in 1992, The IML Group provides brand activations, in-store promotions, merchandising, mystery shopping, and retail staffing across the Middle East and Africa. In the UAE, it manages promotional campaigns and outsourced brand ambassador teams for multinational consumer brands. Its Dubai office oversees regional marketing campaigns and field personnel deployment.",
+    "descriptionSource": "https://www.naukrigulf.com/the-iml-group-jobs-in-uae-45009",
+    "industry": "Marketing, Advertising & Retail Staffing",
+    "commonCareers": [
+      "Sales Promoter",
+      "Brand Ambassador",
+      "Sales Associate",
+      "Field Marketing Supervisor"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com/the-iml-group-jobs-in-uae-45009",
+    "technicalAreas": [
+      "Field Marketing",
+      "Experiential Marketing",
+      "Merchandising",
+      "Retail Brand Activations"
+    ],
+    "address": "Office 105, Hilal Salim Bin Tarraf Building, Sheikh Zayed Road, Al Wasl, Dubai, UAE",
+    "latitude": 25.19194,
+    "longitude": 55.25944,
+    "locationSource": "https://wikimapia.org/2736233/Hilal-Salim-bin-Tarraf-Building",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Naukrigulf Company Profile",
+        "url": "https://www.naukrigulf.com/the-iml-group-jobs-in-uae-45009"
+      },
+      {
+        "title": "Bayt Company Directory",
+        "url": "https://www.bayt.com/en/company/the-iml-group-20227/"
+      }
+    ],
+    "notes": "Input listed area as Downtown, but the head office is located in the Hilal Salim Bin Tarraf Building (commonly known as the Lufthansa Building) in Al Wasl on Sheikh Zayed Road, directly opposite the Business Bay Metro Station."
+  },
+  {
+    "id": "time-hotels",
+    "website": "https://www.timehotels.com",
+    "websiteSource": "https://en.wikipedia.org/wiki/TIME_Hotels",
+    "careersUrl": "https://www.timehotels.com",
+    "careersSource": "https://www.timehotels.com",
+    "linkedinUrl": "https://www.linkedin.com/company/time-hotels",
+    "linkedinSource": "https://www.naukrigulf.com/time-hotels-jobs-in-uae-33633",
+    "shortDescription": "TIME Hotels is a UAE-based hospitality management company that operates hotels and serviced apartments.",
+    "whatTheyDo": "Established in 2012, TIME Hotels manages a portfolio of hotels, extended-stay residences, and hotel apartments across the UAE and GCC. In Dubai, its properties include TIME Oak Hotel & Suites in Al Barsha and TIME Grand Plaza Hotel in Al Qusais. Its headquarters houses central management, corporate revenue, marketing, and hospitality operations teams.",
+    "descriptionSource": "https://en.wikipedia.org/wiki/TIME_Hotels",
+    "industry": "Hospitality & Tourism",
+    "commonCareers": [
+      "Housekeeping Attendant",
+      "Admin Coordinator",
+      "Waitress",
+      "Front Desk Agent"
+    ],
+    "careersEvidence": "https://www.catererglobal.com/jobs/time-hotels/in-dubai/",
+    "technicalAreas": [
+      "Hotel Management",
+      "Hospitality Operations",
+      "Guest Services",
+      "Food and Beverage"
+    ],
+    "address": "Office 2203, 22nd Floor, Control Tower, Motor City, Dubai, UAE",
+    "latitude": 25.0493,
+    "longitude": 55.2312,
+    "locationSource": "https://maptons.com/control-tower-dubai",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Wikipedia Entry for TIME Hotels",
+        "url": "https://en.wikipedia.org/wiki/TIME_Hotels"
+      },
+      {
+        "title": "Naukrigulf Company Profile",
+        "url": "https://www.naukrigulf.com/time-hotels-jobs-in-uae-33633"
+      }
+    ],
+    "notes": "Input listed area as Business Bay, but corporate headquarters is at Office 2203, Control Tower in Motor City, Dubai. The company does not operate any hotel or corporate office in Business Bay."
+  },
+  {
+    "id": "transguard-group",
+    "website": "https://www.transguardgroup.com",
+    "websiteSource": "https://www.emirates.com",
+    "careersUrl": "https://careers.transguardgroup.com/",
+    "careersSource": "https://www.transguardgroup.com/careers",
+    "linkedinUrl": "https://www.linkedin.com/company/transguard-group",
+    "linkedinSource": "https://www.transguardgroup.com",
+    "shortDescription": "Transguard Group is a major UAE business support and security services provider, operating as an associate of the Emirates Group.",
+    "whatTheyDo": "Established in 2001, Transguard provides cash services, manned security, facilities management, aviation ground handling, and manpower solutions across the UAE. It supports large-scale infrastructure including Dubai International Airport and commercial properties. Its teams manage cash transit, surveillance systems, technical facilities maintenance, and airport ramp logistics.",
+    "descriptionSource": "https://www.emirates.com",
+    "industry": "Security, Facilities Management & Aviation Services",
+    "commonCareers": [
+      "Security Officer",
+      "CCTV Operator",
+      "Heavy Bus Driver",
+      "Baggage Handler",
+      "ELV Technician"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com/transguard-group-jobs-in-uae-17634",
+    "technicalAreas": [
+      "Aviation Ground Handling",
+      "Manned Security & Surveillance",
+      "Cash Management",
+      "Facilities Maintenance"
+    ],
+    "address": "Emirates Group Security Building, Dubai Airport Freezone (DAFZA), Dubai, UAE",
+    "latitude": 25.2624,
+    "longitude": 55.3631,
+    "locationSource": "https://wikimapia.org/street/15694200/en/Emirates-group-Security-Transguard-Head-Quarters-Dubai",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "Emirati Talent Internship Programme",
+        "kind": "internship"
+      }
+    ],
+    "programmesSource": "https://www.transguardgroup.com",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Emirates Group Corporate Affiliate Listing",
+        "url": "https://www.emirates.com"
+      },
+      {
+        "title": "The Law Society International Directory",
+        "url": "https://www.lawsociety.org.uk"
+      }
+    ],
+    "notes": "Input listed area as JLT, but corporate headquarters is located at the Emirates Group Security Building in Dubai Airport Freezone (DAFZA)."
+  },
+  {
+    "id": "union-coop",
+    "website": "https://www.unioncoop.ae",
+    "websiteSource": "https://www.dfm.ae",
+    "careersUrl": "https://corporate.unioncoop.ae/careers/",
+    "careersSource": "https://www.unioncoop.ae",
+    "linkedinUrl": "https://www.linkedin.com/company/unioncoop",
+    "linkedinSource": "https://stockanalysis.com/quote/dfm/UNIONCOOP/company/",
+    "shortDescription": "Union Coop is the largest consumer cooperative and retail hypermarket chain in the UAE.",
+    "whatTheyDo": "Founded in 1982 and listed on the Dubai Financial Market, Union Coop operates commercial shopping malls, hypermarkets, and community supermarkets across Dubai. It manages retail grocery operations, fresh food production, private-label goods, and supply chain logistics. Its corporate teams oversee merchandising, inventory distribution, retail operations, and commercial leasing.",
+    "descriptionSource": "https://www.dfm.ae",
+    "industry": "Retail & Consumer Goods",
+    "commonCareers": [
+      "Cashier",
+      "Sales Merchandiser",
+      "Butcher",
+      "Refrigeration/HVAC Technician",
+      "Store Helper"
+    ],
+    "careersEvidence": "https://ae.indeed.com/cmp/Union-Coop/jobs",
+    "technicalAreas": [
+      "Retail Operations",
+      "Supermarket Management",
+      "Supply Chain & Logistics",
+      "Merchandising"
+    ],
+    "address": "Al Warqa City Mall, Al Warqa 3, Tripoli Street, Dubai, UAE",
+    "latitude": 25.2066,
+    "longitude": 55.42599,
+    "locationSource": "https://maptons.com/al-warqa-city-mall",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "Tomorrow's Directors Program",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://corporate.unioncoop.ae",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai Financial Market (DFM) Company Listing",
+        "url": "https://www.dfm.ae"
+      },
+      {
+        "title": "GS1 UAE Member Registry",
+        "url": "https://www.gs1ae.org"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City, but Union Coop headquarters is located at Al Warqa City Mall, Al Warqa 3, Tripoli Street, Dubai."
+  },
+  {
+    "id": "united-engineering",
+    "website": "https://unec.co",
+    "websiteSource": "https://www.naukrigulf.com/unec-jobs-in-uae-33678",
+    "careersUrl": "https://unec.co/careers/",
+    "careersSource": "https://unec.co",
+    "linkedinUrl": "https://www.linkedin.com/company/united-engineering-construction/",
+    "linkedinSource": "https://www.kompass.com",
+    "shortDescription": "United Engineering Construction (UNEC) is a prominent UAE general contracting and civil engineering company.",
+    "whatTheyDo": "Established in 1976, UNEC delivers turnkey general contracting, civil construction, and project management for commercial, residential, and infrastructure projects across the UAE. In Dubai, it has executed developments including The Address Residence Fountain Views near Burj Khalifa in Downtown Dubai and Silicon Central in Dubai Silicon Oasis. Its operations cover structural engineering, MEP coordination, and site supervision.",
+    "descriptionSource": "https://www.naukrigulf.com/unec-jobs-in-uae-33678",
+    "industry": "Construction & Civil Engineering",
+    "commonCareers": [
+      "Civil Engineer",
+      "Site Engineer",
+      "Project Manager",
+      "Foreman",
+      "Steel Fixer"
+    ],
+    "careersEvidence": "https://unec.co/careers/",
+    "technicalAreas": [
+      "General Contracting",
+      "Civil Engineering",
+      "Structural Construction",
+      "Infrastructure Development"
+    ],
+    "address": "Karm Square, Arjan, Al Barsha South, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://unec.co",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Naukrigulf UNEC Profile",
+        "url": "https://www.naukrigulf.com/unec-jobs-in-uae-33678"
+      },
+      {
+        "title": "Kompass UAE Business Directory",
+        "url": "https://www.kompass.com"
+      }
+    ],
+    "notes": "Input listed name as 'United Engineering' in 'Downtown'. In the UAE, two prominent entities share this name fragment: United Engineering Construction (UNEC, headquartered at Karm Square in Arjan / Al Barsha South) and United Engineering & Contracting Co (UECC, located in Prism Tower, Business Bay). UNEC is the major contractor that constructed key Downtown Dubai projects including The Address Residence Fountain Views."
+  },
+  {
+    "id": "university-of-dubai",
+    "website": "https://ud.ac.ae",
+    "websiteSource": "https://www.topuniversities.com/universities/university-dubai",
+    "careersUrl": "https://career.ud.ac.ae",
+    "careersSource": "https://ud.ac.ae",
+    "linkedinUrl": "https://www.linkedin.com/school/university-of-dubai/",
+    "linkedinSource": "https://technologychecker.io",
+    "shortDescription": "The University of Dubai is an accredited higher education institution established by the Dubai Chamber of Commerce and Industry.",
+    "whatTheyDo": "Founded in 1997, the university offers undergraduate and graduate degree programs in business administration, law, and electrical engineering and information technology. Located on a dedicated campus in Dubai International Academic City, it conducts academic teaching, applied research, and executive education. It operates an Internship and Career Development Center (ICDC) to facilitate career placements.",
+    "descriptionSource": "https://www.topuniversities.com/universities/university-dubai",
+    "industry": "Higher Education & Research",
+    "commonCareers": [
+      "Professor in Marketing/Digital Marketing",
+      "Lab Engineer",
+      "Admissions Counselor"
+    ],
+    "careersEvidence": "https://career.ud.ac.ae",
+    "technicalAreas": [
+      "Higher Education",
+      "Academic Research",
+      "Business Administration",
+      "Engineering & Information Technology"
+    ],
+    "address": "Academic City, Emirates Road, Exit 49, Dubai, UAE",
+    "latitude": 25.10608,
+    "longitude": 55.41439,
+    "locationSource": "https://www.wikidata.org/wiki/Q7895350",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "QS Top Universities Profile",
+        "url": "https://www.topuniversities.com/universities/university-dubai"
+      },
+      {
+        "title": "Wikidata Entry for University of Dubai",
+        "url": "https://www.wikidata.org/wiki/Q7895350"
+      }
+    ],
+    "notes": null
+  },
+  {
+    "id": "vfs-global",
+    "website": "https://www.vfsglobal.com",
+    "websiteSource": "https://www.bayt.com/en/company/vfs-global-1111666/",
+    "careersUrl": "https://www.vfsglobal.com/en/individuals/careers.html",
+    "careersSource": "https://www.vfsglobal.com",
+    "linkedinUrl": "https://www.linkedin.com/company/vfs-global-services",
+    "linkedinSource": "https://www.vfsglobal.com",
+    "shortDescription": "VFS Global is an international outsourcing and technology services specialist for governments and diplomatic missions, co-headquartered in Dubai.",
+    "whatTheyDo": "Founded in 2001, VFS Global manages administrative and non-judgmental visa, passport, and consular tasks for client governments worldwide. In Dubai, its corporate headquarters oversees regional operations, compliance, and technological rollouts. It also operates large-scale public visa application centers in the UAE, including its primary center at Wafi Mall.",
+    "descriptionSource": "https://www.bayt.com/en/company/vfs-global-1111666/",
+    "industry": "Outsourcing, Technology & Consular Services",
+    "commonCareers": [
+      "Customer Service Officer",
+      "Verification Officer",
+      "Operations Manager"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com/vfs-global-jobs-in-dubai",
+    "technicalAreas": [
+      "Visa Outsourcing",
+      "Biometric Technology",
+      "Identity Management",
+      "Consular Services"
+    ],
+    "address": "Unit 3205-3209, Jumeirah Business Centre 1, Cluster G, Jumeirah Lakes Towers, Dubai, UAE",
+    "latitude": 25.06931,
+    "longitude": 55.14163,
+    "locationSource": "https://maptons.com/jumeirah-business-centre-1-jbc-1-dubai",
+    "internshipsKnown": true,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Bayt Company Profile",
+        "url": "https://www.bayt.com/en/company/vfs-global-1111666/"
+      },
+      {
+        "title": "Naukrigulf Company Overview",
+        "url": "https://www.naukrigulf.com/vfs-global-jobs-in-dubai"
+      }
+    ],
+    "notes": "Corporate headquarters in the UAE is located at JBC 1 in Cluster G, JLT, Dubai. The primary public-facing Visa Application Centre is situated at Wafi Mall, Umm Hurair 2."
+  },
+  {
+    "id": "virgin-mena",
+    "website": "http://www.virginmobilemea.com",
+    "websiteSource": "https://www.bayt.com/en/company/virgin-mobile-middle-east-africa-vmmea-30790/",
+    "careersUrl": "https://virginmobilemea.com/careers/",
+    "careersSource": "https://virginmobilemea.com",
+    "shortDescription": "Virgin Mobile Middle East & Africa (VMMEA) is a mobile virtual network operator headquartered in Dubai Internet City.",
+    "whatTheyDo": "Headquartered in Dubai Internet City and acquired by Beyond ONE in 2023, VMMEA manages mobile virtual network operations across the Middle East and Africa. In the UAE, Virgin Mobile operates as a digital mobile brand in partnership with Emirates Integrated Telecommunications Company (EITC / du). Its regional teams manage digital mobile platforms, customer lifecycle marketing, and telecom operations.",
+    "descriptionSource": "https://www.bayt.com/en/company/virgin-mobile-middle-east-africa-vmmea-30790/",
+    "industry": "Telecommunications & Digital Services",
+    "commonCareers": [
+      "Sales Executive",
+      "Sales Promoter",
+      "Customer Service Representative",
+      "Data Engineer",
+      "Sourcing Manager"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com/virgin-mobile-jobs-in-dubai",
+    "technicalAreas": [
+      "Mobile Virtual Network Operations (MVNO)",
+      "Telecommunications",
+      "Digital Customer Experience",
+      "Cellular Network Services"
+    ],
+    "address": "Dubai Internet City, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://www.bayt.com/en/company/virgin-mobile-middle-east-africa-vmmea-30790/",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Bayt VMMEA Company Profile",
+        "url": "https://www.bayt.com/en/company/virgin-mobile-middle-east-africa-vmmea-30790/"
+      },
+      {
+        "title": "Telecom Magazine Coverage on VMMEA",
+        "url": "https://telcomagazine.com"
+      }
+    ],
+    "notes": "Input listed entity as 'Virgin MENA' in Dubai Internet City, which corresponds to the regional headquarters of Virgin Mobile Middle East & Africa (VMMEA, acquired by Beyond ONE in 2023). In the UAE consumer market, Virgin Mobile operates as a business unit within Emirates Integrated Telecommunications Company (du)."
+  }
+]

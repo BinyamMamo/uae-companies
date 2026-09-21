@@ -1,0 +1,373 @@
+[
+  {
+    "id": "schindler",
+    "website": "https://www.schindler.ae",
+    "websiteSource": "https://www.swissbcuae.com",
+    "careersUrl": "https://www.schindler.ae/en/careers.html",
+    "careersSource": "https://www.schindler.ae",
+    "shortDescription": "Schindler provides vertical mobility solutions, including the installation and servicing of elevators and escalators across the UAE.",
+    "whatTheyDo": "Schindler designs, manufactures, installs, and maintains elevators, escalators, and moving walkways for commercial, residential, and infrastructure projects throughout the UAE. Its regional operations handle new installations, modernization, maintenance, and technical engineering support.",
+    "descriptionSource": "https://gulfnews.com",
+    "industry": "Industrial Engineering & Machinery",
+    "commonCareers": [
+      "Service Technician",
+      "Elevator Technician"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com",
+    "technicalAreas": [
+      "Elevators & Escalators",
+      "Mechanical Engineering",
+      "Mobility Systems"
+    ],
+    "address": "2nd Floor, Ruby 2 Building, Umm Al Sheif, Sheikh Zayed Road, Dubai, UAE",
+    "latitude": 25.12503,
+    "longitude": 55.20276,
+    "locationSource": "https://propsearch.ae/dubai/ruby-2-building",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "Schindler Career Development Program",
+        "kind": "graduate"
+      },
+      {
+        "name": "Practice School",
+        "kind": "internship"
+      }
+    ],
+    "programmesSource": "https://www.bits-pilani.ac.in",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf News Report on Schindler Expo 2020 Partnership and UAE Recruitment",
+        "url": "https://gulfnews.com"
+      },
+      {
+        "title": "BITS Pilani Dubai Campus Practice School Placement Partners",
+        "url": "https://www.bits-pilani.ac.in"
+      }
+    ],
+    "notes": "Input listed area as Downtown; Schindler's UAE and regional headquarters is located in the Ruby 2 Building in Umm Al Sheif along Sheikh Zayed Road."
+  },
+  {
+    "id": "score-plus",
+    "website": "https://www.princetonreviewme.com",
+    "websiteSource": "https://www.khda.gov.ae",
+    "careersUrl": "https://www.princetonreviewme.com/join-our-team",
+    "careersSource": "https://www.princetonreviewme.com",
+    "shortDescription": "Score Plus provides standardized test preparation and university admissions consulting in Dubai as the regional partner of The Princeton Review.",
+    "whatTheyDo": "Emirates Score Plus Centre prepares students for standardized admissions tests including SAT, ACT, GMAT, GRE, IELTS, and TOEFL across the UAE. The center provides classroom instruction, private tutoring, and study-abroad university application consulting.",
+    "descriptionSource": "https://www.khda.gov.ae",
+    "industry": "Education & Training",
+    "commonCareers": [
+      "Teacher",
+      "Campus Representative",
+      "Proctor",
+      "Study Abroad Counselor"
+    ],
+    "careersEvidence": "https://www.princetonreviewme.com/join-our-team",
+    "technicalAreas": [],
+    "address": "Office 506, Sultan Business Center, Oud Metha Road, Bur Dubai, Dubai, UAE",
+    "latitude": 25.23363,
+    "longitude": 55.30911,
+    "locationSource": "https://sultanrealestate.ae",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Knowledge and Human Development Authority (KHDA) Training Institute Directory",
+        "url": "https://www.khda.gov.ae"
+      }
+    ],
+    "notes": "Input listed area as Business Bay; however, official KHDA education registry and company records confirm Emirates Score Plus Centre L.L.C is located at Sultan Business Center in Oud Metha."
+  },
+  {
+    "id": "seddiqi-holding",
+    "website": "https://seddiqiholding.com",
+    "websiteSource": "https://www.swissbcuae.com/directory/seddiqi-holding/",
+    "careersUrl": "https://seddiqiholding.com/join-our-team",
+    "careersSource": "https://seddiqiholding.com",
+    "shortDescription": "Seddiqi Holding is a prominent luxury retail and investment conglomerate in Dubai and the parent company of Ahmed Seddiqi & Sons.",
+    "whatTheyDo": "Seddiqi Holding manages a diversified portfolio centered on luxury watch and jewelry retail, representing over 100 high-end brands across the UAE. The group operates the Swiss Watch Services horology workshop, real estate assets through Seddiqi Properties, and organises Dubai Watch Week.",
+    "descriptionSource": "https://www.forbesmiddleeast.com",
+    "industry": "Luxury Goods & Retail",
+    "commonCareers": [
+      "Sales Consultant",
+      "Watchmaker",
+      "Brand Manager",
+      "Stock and Operation Administrator"
+    ],
+    "careersEvidence": "https://www.bayt.com",
+    "technicalAreas": [
+      "Horology"
+    ],
+    "address": "Seddiqi Holding Headquarters, Al Thanya Street, Umm Al Sheif, Sheikh Zayed Road, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://seddiqiholding.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Swiss Business Council UAE Directory - Seddiqi Holding",
+        "url": "https://www.swissbcuae.com/directory/seddiqi-holding/"
+      },
+      {
+        "title": "Forbes Middle East Profile on Seddiqi Holding",
+        "url": "https://www.forbesmiddleeast.com"
+      }
+    ],
+    "notes": "Input listed area as JLT; Seddiqi Holding's primary corporate headquarters is located on Al Thanya Street in Umm Al Sheif."
+  },
+  {
+    "id": "serco-middle-east",
+    "website": "https://www.serco.com/me",
+    "websiteSource": "https://gulfnews.com",
+    "careersUrl": "https://careers.serco.com/middle-east/",
+    "careersSource": "https://serco.com",
+    "shortDescription": "Serco Middle East delivers public services management, advisory, and operations across transport, defence, healthcare, and citizen services in the UAE.",
+    "whatTheyDo": "Serco Middle East provides integrated facilities management, transport infrastructure maintenance, airport support services, and emergency rescue operations in the UAE. It also offers sustainability and engineering advisory via Climatize and its +impact consulting division.",
+    "descriptionSource": "https://gulfnews.com",
+    "industry": "Public Sector & Professional Services",
+    "commonCareers": [
+      "Assistant Technician",
+      "HVAC Technician",
+      "Watch Manager - Fire & Rescue Services",
+      "Senior Firefighter"
+    ],
+    "careersEvidence": "https://careers.serco.com",
+    "technicalAreas": [
+      "Facilities Management",
+      "Transport & Aviation Operations",
+      "Sustainability Engineering"
+    ],
+    "address": "Level 20, Rolex Tower, Sheikh Zayed Road, Dubai, UAE",
+    "latitude": 25.20975,
+    "longitude": 55.27543,
+    "locationSource": "https://en.wikipedia.org/wiki/Rolex_Tower",
+    "internshipsKnown": true,
+    "graduateRolesKnown": true,
+    "programmes": [
+      {
+        "name": "Serco Middle East Graduate Programme",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://www.serco.com/me",
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf News Report on Serco Middle East Operations and Advisory Business",
+        "url": "https://gulfnews.com"
+      }
+    ],
+    "notes": "Input listed area as Dubai Internet City; Serco Middle East regional headquarters is located at Level 20, Rolex Tower on Sheikh Zayed Road."
+  },
+  {
+    "id": "sharaf-dg",
+    "website": "https://uae.sharafdg.com",
+    "websiteSource": "https://gulfnews.com",
+    "careersUrl": "https://sharafdg.app.param.ai/jobs",
+    "careersSource": "https://uae.sharafdg.com",
+    "shortDescription": "Sharaf DG is a major consumer electronics and home appliances retailer with nationwide physical stores and an e-commerce platform in the UAE.",
+    "whatTheyDo": "Sharaf DG retails personal computing, telecommunications, home entertainment, and domestic appliances through a chain of retail superstores and an online marketplace in the UAE. It also provides device repair, installation services, and commercial B2B technology supply.",
+    "descriptionSource": "https://gulfnews.com",
+    "industry": "Consumer Electronics & Retail",
+    "commonCareers": [
+      "Sales Executive",
+      "Customer Care Executive",
+      "Cashier",
+      "Inventory Executive",
+      "Project Engineer"
+    ],
+    "careersEvidence": "https://sharafdg.app.param.ai/jobs",
+    "technicalAreas": [
+      "Consumer Electronics",
+      "E-Commerce"
+    ],
+    "address": "Al Hilal Building, Sheikh Rashid Road, Al Garhoud, Dubai, UAE",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://uae.sharafdg.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Gulf News Retail Coverage of Sharaf DG Store Expansions and E-Waste Initiatives",
+        "url": "https://gulfnews.com"
+      }
+    ],
+    "notes": "Input listed area as Downtown (where Sharaf DG operates retail outlets including in Dubai Mall); the official corporate head office is at Al Hilal Building in Al Garhoud."
+  },
+  {
+    "id": "sharjah-union-coop",
+    "notFound": true,
+    "notes": "No entity named 'Sharjah Union Coop' exists in the UAE. This appears to be an invented conflation of two distinct consumer cooperatives: Sharjah Cooperative Society (Sharjah Coop, founded 1977 in Sharjah) and Union Coop (founded 1982 in Dubai)."
+  },
+  {
+    "id": "sobha-realty",
+    "website": "https://sobharealty.com",
+    "websiteSource": "https://www.forbesmiddleeast.com",
+    "careersUrl": "https://sobharealty.com/careers",
+    "careersSource": "https://sobharealty.com",
+    "shortDescription": "Sobha Realty is a multinational luxury property developer based in Dubai known for backward-integrated residential communities.",
+    "whatTheyDo": "Sobha Realty develops luxury master-planned communities, waterfront apartments, and residential towers in Dubai, including Sobha Hartland and Sobha Verde. It utilizes a backward-integrated business model with in-house design, construction, precast concrete, and woodworking operations.",
+    "descriptionSource": "https://www.forbesmiddleeast.com",
+    "industry": "Real Estate & Construction",
+    "commonCareers": [
+      "Customer Service Representative",
+      "Sales Manager",
+      "Manager – IT (Digital Products & CX)"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com/jobs-at-sobha-realty",
+    "technicalAreas": [
+      "Civil Engineering",
+      "Architecture & Interior Design"
+    ],
+    "address": "Sobha Sapphire, Al Khail Road, Business Bay, Dubai, UAE",
+    "latitude": 25.17789,
+    "longitude": 55.27477,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": true,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Forbes Middle East Profile on Sobha Realty",
+        "url": "https://www.forbesmiddleeast.com"
+      },
+      {
+        "title": "Gulf News Real Estate Feature on Sobha Realty Developments",
+        "url": "https://gulfnews.com"
+      }
+    ],
+    "notes": "Input listed area as JLT (where Sobha is developing the Sobha Verde tower and holds naming rights to Sobha Realty Metro Station); its corporate head office is located at Sobha Sapphire in Business Bay."
+  },
+  {
+    "id": "socialeyez",
+    "website": "https://social-eyez.com",
+    "websiteSource": "https://campaignme.com",
+    "careersUrl": "https://social-eyez.com/careers",
+    "careersSource": "https://social-eyez.com",
+    "shortDescription": "SocialEyez is a digital and social-first creative communications agency based in Dubai.",
+    "whatTheyDo": "SocialEyez creates digital strategies, social media campaigns, multimedia content, and brand design for government and enterprise clients in the UAE. Its in-house teams handle copywriting, creative direction, video production, motion graphics, and community management.",
+    "descriptionSource": "https://campaignme.com",
+    "industry": "Marketing & Advertising",
+    "commonCareers": [
+      "Account Manager – Social",
+      "Social Media Executive",
+      "Arabic Copywriter",
+      "Graphic Designer",
+      "Motion Graphic Designer"
+    ],
+    "careersEvidence": "https://www.founditgulf.com",
+    "technicalAreas": [
+      "Digital Marketing",
+      "Social Media Strategy",
+      "Motion Graphics"
+    ],
+    "address": "Office 419, Le Solarium Building, Dubai Silicon Oasis, Dubai, UAE",
+    "latitude": 25.12235,
+    "longitude": 55.39750,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Campaign Middle East Coverage of SocialEyez",
+        "url": "https://campaignme.com"
+      },
+      {
+        "title": "Communicate Online Feature on SocialEyez Client Campaigns",
+        "url": "https://communicateonline.me"
+      }
+    ],
+    "notes": "Input listed area as Dubai Media City; while SocialEyez operates within the Dubai media ecosystem, its registered head office is at Le Solarium Building in Dubai Silicon Oasis."
+  },
+  {
+    "id": "sunset-hospitality",
+    "website": "https://www.sunsethospitality.com",
+    "websiteSource": "https://www.arabianbusiness.com",
+    "careersUrl": "https://www.sunsethospitality.com/careers",
+    "careersSource": "https://www.sunsethospitality.com",
+    "shortDescription": "Sunset Hospitality Group is a lifestyle hospitality investment and management group headquartered in Dubai.",
+    "whatTheyDo": "Sunset Hospitality Group develops, owns, and operates lifestyle dining venues, beach clubs, nightlife destinations, and hotels across the UAE and internationally. Its brand portfolio includes concepts such as SUSHISAMBA, AURA Skypool, DRIFT Beach, and METT Hotels & Resorts.",
+    "descriptionSource": "https://www.arabianbusiness.com",
+    "industry": "Hospitality & Leisure",
+    "commonCareers": [
+      "Bar Supervisor",
+      "Head Waitress",
+      "Head Hostess"
+    ],
+    "careersEvidence": "https://www.naukrigulf.com/companies/sunset-hospitality-1657800",
+    "technicalAreas": [],
+    "address": "Office 2306, Marina Plaza, Al Marsa Street, Dubai Marina, Dubai, UAE",
+    "latitude": 25.07540,
+    "longitude": 55.13983,
+    "locationSource": "https://maptons.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Arabian Business Coverage on Sunset Hospitality Group Global Venues",
+        "url": "https://www.arabianbusiness.com"
+      },
+      {
+        "title": "Hotelier Middle East Report on Sunset Hospitality Expansion",
+        "url": "https://www.hoteliermiddleeast.com"
+      }
+    ],
+    "notes": "Input listed area as Downtown; Sunset Hospitality Group's head office is located at Marina Plaza in Dubai Marina."
+  },
+  {
+    "id": "takaful-emarat",
+    "website": "https://www.takafulemarat.com",
+    "websiteSource": "https://www.dfm.ae",
+    "careersUrl": null,
+    "careersSource": null,
+    "shortDescription": "Takaful Emarat Insurance PJSC is a Shariah-compliant life and health takaful insurance provider headquartered in Dubai and listed on DFM.",
+    "whatTheyDo": "Takaful Emarat provides Shariah-compliant life and health insurance coverage to individuals and corporate entities across the UAE. The company offers group medical insurance, individual protection plans, savings solutions, and credit life coverage.",
+    "descriptionSource": "https://www.dfm.ae",
+    "industry": "Insurance & Financial Services",
+    "commonCareers": [
+      "Accountant",
+      "Customer Service Agent",
+      "Business Development Executive"
+    ],
+    "careersEvidence": "https://www.bayt.com",
+    "technicalAreas": [
+      "Takaful Insurance",
+      "Actuarial Science & Underwriting"
+    ],
+    "address": "1st Floor, HassaniCor Building, Sheikh Zayed Road, Al Barsha 1, Dubai, UAE",
+    "latitude": 25.11541,
+    "longitude": 55.19293,
+    "locationSource": "https://propsearch.ae",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
+    "retrievedAt": "2026-09-21",
+    "sources": [
+      {
+        "title": "Dubai Financial Market (DFM) Company Listing for Takaful Emarat (PJSC)",
+        "url": "https://www.dfm.ae"
+      },
+      {
+        "title": "Policybazaar UAE Provider Profile for Takaful Emarat",
+        "url": "https://www.policybazaar.ae"
+      }
+    ],
+    "notes": "Input listed area as Business Bay (confounding Takaful Emarat with Abu Dhabi National Takaful Company, which has an office in Empire Heights, Business Bay); Takaful Emarat's headquarters is at HassaniCor Building in Al Barsha 1."
+  }
+]

@@ -127,14 +127,17 @@ def main():
             if tuple(c.get(key) or ()) in TEMPLATED_ROLE_SETS:
                 errors.append(f"{cid}: {key} is a templated set")
 
-        # 208/225 linkedinUrl values were the name slugged into a URL, and
-        # eight of those were already 404s. LinkedIn sits behind an auth wall,
-        # so a guess here can never be checked by a reader either.
+        # Every linkedinUrl started life as the company name slugged into a
+        # URL, so none may ship unchecked: either the research cited one, or it
+        # was loaded in a browser and found to be a real page ("reported").
+        # The 14 that answered with LinkedIn's 404 are gone.
         li = c.get("linkedinUrl")
-        if li and li.rstrip("/").rsplit("/", 1)[-1] == name_slug(c.get("name")):
+        if li:
             prov_li = (c.get("provenance") or {}).get("linkedinUrl") or {}
-            if prov_li.get("confidence") != "verified":
-                errors.append(f"{cid}: linkedinUrl is the name slugged, with no source")
+            if prov_li.get("confidence") not in ("verified", "reported"):
+                errors.append(f"{cid}: linkedinUrl published with no check behind it")
+            if "linkedin.com/" not in li.lower():
+                errors.append(f"{cid}: linkedinUrl is not a LinkedIn URL")
 
         logo = c.get("logo")
         if logo and PLACEHOLDER_LOGO.search(logo):
