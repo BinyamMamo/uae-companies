@@ -10,7 +10,7 @@ import { TabBar, tabPanelId } from './ui/TabBar';
 import { Modal } from './ui/Modal';
 import { formatBusCommute, formatDistance } from '../utils/distance';
 import { isCareerRelevant } from '../utils/relevance';
-import { calculateTransitRoute } from '../utils/transitRouting';
+import { directionsUrl, ESTIMATE_NOTE } from '../utils/directions';
 import { CompanyLogo } from './ui/CompanyLogo';
 import { ProvenanceBadge } from './ui/ProvenanceBadge';
 import { LinkedInMark } from './ui/LinkedInMark';
@@ -25,9 +25,6 @@ import {
   ShieldCheck,
   ArrowRight,
   Bus,
-  MapPinHouse,
-  Footprints,
-  Train
 } from 'lucide-react';
 
 interface CompanyDrawerProps {
@@ -87,22 +84,6 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
     company.shortDescription,
   ]);
 
-  const transitPlan = useMemo(
-    () =>
-      calculateTransitRoute(userLocation, {
-        latitude: company.location.latitude,
-        longitude: company.location.longitude,
-        name: company.name,
-        area: company.location.area,
-      }),
-    [
-      userLocation,
-      company.location.latitude,
-      company.location.longitude,
-      company.name,
-      company.location.area,
-    ]
-  );
 
   const routeMapContainerRef = useRef<HTMLDivElement>(null);
   const routeMapInstanceRef = useRef<L.Map | null>(null);
@@ -179,31 +160,18 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
       className: 'map-tooltip',
     });
 
-    // 3. Render Route Polylines based on mode
-    if (commuteMode === 'transit') {
-      transitPlan.legs.forEach(leg => {
-        if (leg.type === 'walk') {
-          L.polyline(leg.coordinates, {
-            color: '#64748b',
-            weight: 3,
-            dashArray: '4, 5',
-            opacity: 0.85,
-          }).addTo(map);
-        } else {
-          L.polyline(leg.coordinates, {
-            color: leg.color,
-            weight: 4,
-            opacity: 0.95,
-          }).addTo(map);
-        }
-      });
-    } else {
-      L.polyline(transitPlan.drivingPolyline, {
-        color: '#059669',
-        weight: 4,
-        opacity: 0.95,
-      }).addTo(map);
-    }
+    /*
+      A dashed straight line, not a route. The previous polylines were
+      interpolated curves invented by transitRouting.ts, drawn to look like
+      roads they had never been checked against. The real route is one tap away
+      in Google Maps.
+    */
+    L.polyline([originCoords, destCoords], {
+      color: commuteMode === 'transit' ? '#2563eb' : '#059669',
+      weight: 2.5,
+      opacity: 0.6,
+      dashArray: '6, 6',
+    }).addTo(map);
 
     const bounds = L.latLngBounds([originCoords, destCoords]);
     map.fitBounds(bounds, { padding: [40, 40] });
@@ -664,270 +632,45 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
                 />
               </div>
 
-              {/* Route Summary Bar */}
-              <div className="p-3 rounded-lg border border-line bg-white dark:bg-slate-800/80">
+              {/* Honest summary: real distance, clearly-labelled estimate */}
+              <div className="p-3 rounded-lg border border-line bg-surface">
                 <div className="flex items-baseline gap-2">
                   <span className="text-base font-bold text-ink">
-                    {commuteMode === 'transit' ? `~${transitPlan.totalMinutes} min` : `~${transitPlan.drivingMinutes} min`}
+                    ~{commuteMode === 'transit'
+                      ? company.commute.busMinutes
+                      : company.commute.drivingMinutes}{' '}
+                    min
                   </span>
                   <span className="text-xs text-ink-2 font-medium">
-                    ({transitPlan.totalDistanceKm.toFixed(1)} km)
+                    ({company.commute.distanceKm.toFixed(1)} km direct)
                   </span>
                 </div>
-                <span className="text-xs text-ink-2 block mt-0.5">
-                  {commuteMode === 'transit' ? transitPlan.transitSummary : 'Via Dubai Arterial Highway Network'}
+                <span className="text-[11px] text-ink-3 block mt-1 leading-relaxed">
+                  {ESTIMATE_NOTE}
                 </span>
               </div>
 
-              {/* Downward Route Sequence (Google Maps Style) */}
-              {commuteMode === 'transit' && (
-                <div className="pt-2 space-y-3">
-                  <div className="flex items-center justify-between pb-2 border-b border-line">
-                    <span className="text-xs font-bold text-ink uppercase tracking-wider">
-                      Transit Route Itinerary
-                    </span>
-                    <span className="text-xs font-semibold text-brand-600 dark:text-brand-400">
-                      {transitPlan.primaryBusLine}
-                    </span>
-                  </div>
+              <a
+                href={directionsUrl(userLocation, company.location, commuteMode)}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  track('route_viewed', { company_id: company.id, mode: commuteMode })
+                }
+                className="w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 text-xs font-semibold rounded-md bg-brand-600 hover:bg-brand-700 text-white transition-colors"
+              >
+                <span>
+                  {commuteMode === 'transit' ? 'Get transit directions' : 'Get driving directions'}
+                </span>
+                <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+              </a>
 
-                  {/* Vertical Timeline Track */}
-                  <div className="space-y-0 pt-1">
-                    
-                    {/* Origin: Home Address */}
-                    <div className="flex gap-3">
-                      <div className="flex flex-col items-center">
-                        <div className="w-5 h-5 rounded-full bg-brand-50 dark:bg-brand-950/50 border-2 border-brand-600 dark:border-brand-400 flex items-center justify-center shrink-0 z-10">
-                          <MapPinHouse className="w-3 h-3 text-brand-600 dark:text-brand-400" />
-                        </div>
-                        <div className="w-0.5 flex-1 min-h-[28px] border-l-2 border-dashed border-slate-300 dark:border-slate-600 ml-px" />
-                      </div>
-                      <div className="pb-3 flex-1">
-                        <span className="text-xs font-bold text-ink block">
-                          Home Address
-                        </span>
-                        <span className="text-[11px] text-ink-2 block mt-0.5">
-                          {userLocation.name}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Sequential Legs */}
-                    {transitPlan.legs.map((leg) => {
-                      if (leg.type === 'walk') {
-                        return (
-                          <div key={leg.id} className="flex gap-3">
-                            <div className="flex flex-col items-center">
-                              <div className="w-5 h-5 rounded-full bg-surface-2 border border-slate-300 dark:border-slate-600 flex items-center justify-center shrink-0 z-10">
-                                <Footprints className="w-3 h-3 text-ink-2" />
-                              </div>
-                              <div className="w-0.5 flex-1 min-h-[28px] border-l-2 border-dashed border-slate-300 dark:border-slate-600 ml-px" />
-                            </div>
-                            <div className="pb-3 flex-1">
-                              <div className="flex items-baseline justify-between gap-2">
-                                <span className="text-xs font-semibold text-ink-2">
-                                  Walk to {leg.to}
-                                </span>
-                                <span className="text-[11px] font-medium text-ink-2 shrink-0">
-                                  ~{leg.durationMin} min ({Math.round(leg.distanceKm * 1000)} m)
-                                </span>
-                              </div>
-                              {leg.notes && (
-                                <p className="text-[11px] text-ink-3 mt-0.5">
-                                  {leg.notes}
-                                </p>
-                              )}
-                            </div>
-                          </div>
-                        );
-                      }
-
-                      // Bus or Metro Leg
-                      return (
-                        <div key={leg.id} className="flex gap-3">
-                          <div className="flex flex-col items-center">
-                            <div
-                              className="w-5 h-5 rounded-full flex items-center justify-center text-white shrink-0 shadow-2xs z-10"
-                              style={{ backgroundColor: leg.color }}
-                            >
-                              {leg.type === 'metro' ? (
-                                <Train className="w-3 h-3 text-white" />
-                              ) : (
-                                <Bus className="w-3 h-3 text-white" />
-                              )}
-                            </div>
-                            <div
-                              className="w-1 flex-1 min-h-[52px] rounded-full my-0.5"
-                              style={{ backgroundColor: leg.color }}
-                            />
-                            <div
-                              className="w-3 h-3 rounded-full border-2 border-white dark:border-slate-900 shrink-0 z-10"
-                              style={{ backgroundColor: leg.color }}
-                            />
-                            <div className="w-0.5 flex-1 min-h-[24px] border-l-2 border-dashed border-slate-300 dark:border-slate-600 ml-px" />
-                          </div>
-                          <div className="pb-4 flex-1 space-y-2">
-                            {/* Boarding Info Card */}
-                            <div className="p-3 rounded-lg border border-line bg-white dark:bg-slate-800 space-y-1.5 shadow-2xs">
-                              <div className="flex items-center justify-between gap-2">
-                                <div className="flex items-center gap-1.5 flex-wrap">
-                                  <span
-                                    className="px-2 py-0.5 rounded-sm text-[11px] font-bold text-white tracking-wide"
-                                    style={{ backgroundColor: leg.color }}
-                                  >
-                                    {leg.lineBadge}
-                                  </span>
-                                  <span className="text-xs font-semibold text-ink">
-                                    Board at {leg.from}
-                                  </span>
-                                </div>
-                                <span className="text-xs font-bold text-ink shrink-0">
-                                  ~{leg.durationMin} min
-                                </span>
-                              </div>
-
-                              {leg.corridor && (
-                                <div className="text-[11px] text-ink-2">
-                                  via {leg.corridor}
-                                </div>
-                              )}
-
-                              <div className="flex items-center justify-between text-[11px] text-ink-2 pt-1.5 border-t border-slate-100 dark:border-slate-700/60">
-                                <span>Ride to: <strong className="text-ink font-semibold">{leg.to}</strong></span>
-                                {leg.frequencyMin && (
-                                  <span className="font-medium text-ink-2">Every {leg.frequencyMin} min</span>
-                                )}
-                              </div>
-                            </div>
-
-                            {/* Alighting Callout */}
-                            <div className="text-xs font-medium text-ink-2 pl-0.5">
-                              Alight at <span className="font-bold text-ink">{leg.to}</span>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
-
-                    {/* Final Destination Arrival */}
-                    <div className="flex gap-3">
-                      <div className="flex flex-col items-center">
-                        <div className="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-2xs z-10 ring-2 ring-emerald-400/30">
-                          <MapPin className="w-3 h-3 text-white" />
-                        </div>
-                      </div>
-                      <div className="pt-0.5 flex-1">
-                        <span className="text-xs font-bold text-ink block">
-                          Arrive at {company.name}
-                        </span>
-                        <span className="text-[11px] text-ink-2 block mt-0.5">
-                          {company.location.address}
-                        </span>
-                      </div>
-                    </div>
-
-                  </div>
-
-                  {/* Transit Advisory Note */}
-                  <div className="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 text-xs space-y-1">
-                    <span className="font-semibold text-ink block">
-                      Transit Advisory
-                    </span>
-                    <p className="text-[11px] text-ink-2 leading-relaxed">
-                      {transitPlan.advisoryNote}
-                    </p>
-                  </div>
-                </div>
-              )}
-
-              {/* Driving Downward Sequence */}
-              {commuteMode === 'driving' && (
-                <div className="pt-2 space-y-3">
-                  <div className="pb-2 border-b border-line">
-                    <span className="text-xs font-bold text-ink uppercase tracking-wider">
-                      Driving Route Itinerary
-                    </span>
-                  </div>
-
-                  {/* Vertical Timeline Track */}
-                  <div className="space-y-0 pt-1">
-                    
-                    {/* Origin: Home Address */}
-                    <div className="flex gap-3">
-                      <div className="flex flex-col items-center">
-                        <div className="w-5 h-5 rounded-full bg-brand-50 dark:bg-brand-950/50 border-2 border-brand-600 dark:border-brand-400 flex items-center justify-center shrink-0 z-10">
-                          <MapPinHouse className="w-3 h-3 text-brand-600 dark:text-brand-400" />
-                        </div>
-                        <div className="w-1 flex-1 min-h-[32px] bg-emerald-500 rounded-full my-0.5" />
-                      </div>
-                      <div className="pb-3 flex-1">
-                        <span className="text-xs font-bold text-ink block">
-                          Home Address
-                        </span>
-                        <span className="text-[11px] text-ink-2 block mt-0.5">
-                          {userLocation.name}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Highway Corridor Leg */}
-                    <div className="flex gap-3">
-                      <div className="flex flex-col items-center">
-                        <div className="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-2xs z-10">
-                          <Car className="w-3 h-3 text-white" />
-                        </div>
-                        <div className="w-1 flex-1 min-h-[48px] bg-emerald-500 rounded-full my-0.5" />
-                      </div>
-                      <div className="pb-4 flex-1">
-                        <div className="p-3 rounded-lg bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200/70 dark:border-emerald-900/40 text-xs space-y-1.5">
-                          <div className="flex items-center justify-between">
-                            <span className="font-bold text-emerald-900 dark:text-emerald-200">
-                              Dubai Arterial Highway Network
-                            </span>
-                            <span className="text-xs font-bold text-emerald-700 dark:text-emerald-300">
-                              ~{transitPlan.drivingMinutes} min
-                            </span>
-                          </div>
-                          <p className="text-emerald-800/80 dark:text-emerald-300/80 text-[11px] leading-relaxed">
-                            Direct expressway travel ({transitPlan.totalDistanceKm.toFixed(1)} km). Off-peak driving time is approximately {transitPlan.drivingMinutes} min. Please allow an additional 10 to 15 min during peak evening hours (5:30 to 7:00 PM).
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Final Destination Arrival */}
-                    <div className="flex gap-3">
-                      <div className="flex flex-col items-center">
-                        <div className="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-2xs z-10 ring-2 ring-emerald-400/30">
-                          <MapPin className="w-3 h-3 text-white" />
-                        </div>
-                      </div>
-                      <div className="pt-0.5 flex-1">
-                        <span className="text-xs font-bold text-ink block">
-                          Arrive at {company.name}
-                        </span>
-                        <span className="text-[11px] text-ink-2 block mt-0.5">
-                          {company.location.address}
-                        </span>
-                      </div>
-                    </div>
-
-                  </div>
-
-                  {/* Driving Commute Advisory */}
-                  <div className="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 text-xs space-y-1">
-                    <span className="font-semibold text-ink block">
-                      Traffic Advisory
-                    </span>
-                    <p className="text-[11px] text-ink-2 leading-relaxed">
-                      Major arterial expressways (E66 Dubai-Al Ain Rd, E311 Sheikh Mohammed Bin Zayed Rd, and E11 Sheikh Zayed Rd) experience peak traffic between 5:30 PM and 7:00 PM on weekdays.
-                    </p>
-                  </div>
-                </div>
-              )}
-
+              <p className="text-[11px] text-ink-3 leading-relaxed">
+                Opens Google Maps, which has RTA&rsquo;s live schedules. We don&rsquo;t publish
+                bus numbers or interchanges here, because Dubai&rsquo;s open data does not include
+                bus stop locations to verify them against.
+              </p>
             </div>
-
           </div>
         )}
 

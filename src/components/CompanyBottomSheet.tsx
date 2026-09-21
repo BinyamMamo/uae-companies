@@ -2,6 +2,7 @@ import React, { useState, useId } from 'react';
 import type { Company } from '../types/company';
 import { useApp } from '../context/AppContext';
 import { track } from '../lib/analytics';
+import { directionsUrl, ESTIMATE_NOTE } from '../utils/directions';
 import { TabBar, tabPanelId } from './ui/TabBar';
 import { Modal } from './ui/Modal';
 import { formatBusCommute, formatDistance } from '../utils/distance';
@@ -238,19 +239,35 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
                 <div className="font-medium text-ink mt-0.5">{company.location.address}</div>
               </div>
 
-              <div className="border border-line p-3 rounded-sm bg-slate-50 dark:bg-slate-800 space-y-2">
-                <div className="text-slate-700 dark:text-slate-200 font-semibold">Transit from {userLocation.name}</div>
+              <div className="border border-line p-3 rounded-md bg-surface-2 space-y-2">
+                <div className="text-ink font-semibold">From {userLocation.name}</div>
                 <div className="grid grid-cols-2 gap-2 text-center">
-                  <div className="bg-surface p-2 rounded-sm border border-line">
-                    <Clock className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400 mx-auto" />
-                    <div className="font-bold text-ink mt-0.5">{formatBusCommute(company.commute.busMinutes)}</div>
+                  <div className="bg-surface p-2 rounded-md border border-line">
+                    <Clock className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400 mx-auto" aria-hidden="true" />
+                    <div className="font-bold text-ink mt-0.5">
+                      {formatBusCommute(company.commute.busMinutes)}
+                    </div>
                   </div>
-                  <div className="bg-surface p-2 rounded-sm border border-line">
-                    <Car className="w-3.5 h-3.5 text-ink-2 mx-auto" />
-                    <div className="font-bold text-ink mt-0.5">~{company.commute.drivingMinutes} min drive</div>
+                  <div className="bg-surface p-2 rounded-md border border-line">
+                    <Car className="w-3.5 h-3.5 text-ink-2 mx-auto" aria-hidden="true" />
+                    <div className="font-bold text-ink mt-0.5">
+                      ~{company.commute.drivingMinutes} min drive
+                    </div>
                   </div>
                 </div>
+                <p className="text-[10px] text-ink-3 leading-relaxed">{ESTIMATE_NOTE}</p>
               </div>
+
+              <a
+                href={directionsUrl(userLocation, company.location, 'transit')}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => track('route_viewed', { company_id: company.id, mode: 'transit' })}
+                className="w-full inline-flex items-center justify-center gap-2 py-2.5 text-xs font-semibold rounded-md bg-brand-600 hover:bg-brand-700 text-white transition-colors"
+              >
+                <span>Get directions</span>
+                <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+              </a>
             </div>
           )}
         </div>
