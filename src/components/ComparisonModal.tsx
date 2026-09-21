@@ -1,7 +1,7 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import { useApp } from '../context/AppContext';
 import { formatDistance } from '../utils/distance';
-import { X, Plus, Search } from 'lucide-react';
+import { X, Plus, Search, ArrowUpRight, BuildingComplexPlus } from 'lucide-react';
 import { Modal } from './ui/Modal';
 import { CompanyLogo } from './ui/CompanyLogo';
 
@@ -59,13 +59,26 @@ export const ComparisonModal: React.FC = () => {
   const MAX = 4;
   const canAdd = compared.length < MAX;
 
+  const [addOpen, setAddOpen] = useState(false);
+  const addInputRef = useRef<HTMLInputElement>(null);
+
   const suggestions = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return [];
-    return companies
-      .filter(c => !compareCompanyIds.includes(c.id) && c.name.toLowerCase().includes(q))
-      .slice(0, 6);
+    const pool = companies.filter(c => !compareCompanyIds.includes(c.id));
+    // With no query, offer the nearest few rather than nothing: the button has
+    // to produce a list, otherwise pressing it looks broken.
+    if (!q) {
+      return [...pool]
+        .sort((a, b) => a.commute.distanceKm - b.commute.distanceKm)
+        .slice(0, 6);
+    }
+    return pool.filter(c => c.name.toLowerCase().includes(q)).slice(0, 6);
   }, [companies, compareCompanyIds, query]);
+
+  const openAdd = () => {
+    setAddOpen(true);
+    addInputRef.current?.focus();
+  };
 
   const programme = (known: boolean | null) =>
     known === true ? 'Confirmed' : known === false ? 'None listed' : 'Not confirmed';
@@ -80,17 +93,8 @@ export const ComparisonModal: React.FC = () => {
     >
       <div className="bg-surface rounded-xl max-w-5xl w-full max-h-[90dvh] flex flex-col shadow-popup border border-line overflow-hidden text-ink">
         <header className="flex items-center justify-between gap-4 px-6 py-4 border-b border-line shrink-0">
-          <h2 className="text-sm font-semibold text-ink">
-            Compare
-            <span className="text-ink-3 font-normal"> · {compared.length} selected</span>
-          </h2>
+          <h2 className="text-sm font-semibold text-ink">Compare</h2>
           <div className="flex items-center gap-1">
-            <button
-              onClick={clearCompare}
-              className="px-2 py-1 text-xs font-medium text-ink-3 hover:text-ink transition-colors"
-            >
-              Clear
-            </button>
             <button
               onClick={() => setIsCompareModalOpen(false)}
               className="p-1.5 rounded-md text-ink-3 hover:text-ink hover:bg-surface-2 transition-colors"
@@ -112,26 +116,46 @@ export const ComparisonModal: React.FC = () => {
                 Add a company to the comparison
               </label>
               <input
+                ref={addInputRef}
                 id="compare-add"
                 type="search"
                 value={query}
-                onChange={e => setQuery(e.target.value)}
+                onChange={e => {
+                  setQuery(e.target.value);
+                  setAddOpen(true);
+                }}
+                onFocus={() => setAddOpen(true)}
+                onBlur={() => window.setTimeout(() => setAddOpen(false), 150)}
                 placeholder={
                   compared.length === 0
                     ? 'Search for a company to compare'
                     : `Add another (up to ${MAX})`
                 }
-                className="w-full pl-6 pr-2 py-2 bg-transparent border-0 border-b border-line rounded-none text-xs text-ink placeholder:text-ink-3 focus:outline-hidden focus:border-brand-500 transition-colors"
+                className="w-full pl-6 pr-28 py-2 bg-transparent border-0 border-b border-line rounded-none text-xs text-ink placeholder:text-ink-3 focus:outline-hidden focus:border-brand-500 transition-colors"
               />
-              {suggestions.length > 0 && (
+
+              {/* Sits in the field so the way to add one is always on screen. */}
+              <button
+                type="button"
+                onMouseDown={e => e.preventDefault()}
+                onClick={openAdd}
+                className="absolute right-0 top-1/2 -translate-y-1/2 inline-flex items-center gap-1.5 px-1.5 py-1 text-xs font-medium rounded-md text-ink-3 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+              >
+                <BuildingComplexPlus className="w-3.5 h-3.5" aria-hidden="true" />
+                <span>Add company</span>
+              </button>
+
+              {addOpen && suggestions.length > 0 && (
                 <ul className="absolute left-0 right-0 top-full mt-1 z-10 bg-surface border border-line rounded-lg shadow-popup overflow-hidden max-h-56 overflow-y-auto">
                   {suggestions.map(c => (
                     <li key={c.id}>
                       <button
                         type="button"
+                        onMouseDown={e => e.preventDefault()}
                         onClick={() => {
                           toggleCompareCompany(c.id);
                           setQuery('');
+                          addInputRef.current?.focus();
                         }}
                         className="w-full flex items-center gap-2 px-3 py-2 text-left hover:bg-surface-2 transition-colors"
                       >
@@ -153,8 +177,17 @@ export const ComparisonModal: React.FC = () => {
           <div className="px-6 py-14 text-center">
             <p className="text-sm font-medium text-ink">Nothing to compare yet</p>
             <p className="text-xs text-ink-2 mt-1.5 max-w-xs mx-auto leading-relaxed">
-              Search above, or use the scales icon on any company card to add it here.
+              Pick a few companies to put side by side, or use the scales icon on
+              any company card.
             </p>
+            <button
+              type="button"
+              onClick={openAdd}
+              className="mt-4 inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold rounded-lg bg-brand-600 hover:bg-brand-700 text-white transition-colors"
+            >
+              <BuildingComplexPlus className="w-4 h-4" aria-hidden="true" />
+              <span>Add company</span>
+            </button>
           </div>
         ) : (
         <div className="overflow-auto px-6">
@@ -261,9 +294,10 @@ export const ComparisonModal: React.FC = () => {
                       // Leaves the comparison open behind the drawer, so you
                       // can read one company and come straight back.
                       onClick={() => setSelectedCompany(c)}
-                      className="text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline underline-offset-2"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline underline-offset-2"
                     >
-                      View details →
+                      <span>View details</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
                     </button>
                   </Cell>
                 ))}
@@ -271,6 +305,28 @@ export const ComparisonModal: React.FC = () => {
             </tbody>
           </table>
         </div>
+        )}
+
+        {/*
+          Status and the destructive action live at the bottom, out of the way
+          of the table, and the add field is repeated here so another column is
+          one click from wherever you have scrolled to.
+        */}
+        {compared.length > 0 && (
+          <footer className="flex items-center gap-3 px-6 py-3 border-t border-line shrink-0 bg-surface-2">
+            <span className="text-xs text-ink-2">
+              <span className="font-semibold text-ink tabular-nums">{compared.length}</span>
+              {' of '}
+              <span className="tabular-nums">{MAX}</span> selected
+            </span>
+
+            <button
+              onClick={clearCompare}
+              className="ml-auto px-2.5 py-1.5 text-xs font-medium rounded-md text-ink-3 hover:text-red-600 dark:hover:text-red-400 hover:bg-surface transition-colors"
+            >
+              Clear all
+            </button>
+          </footer>
         )}
       </div>
     </Modal>

@@ -1,19 +1,24 @@
-import React, { useState, useId } from 'react';
+import React, { useState, useId, useRef } from 'react';
 import type { Company } from '../types/company';
 import { useApp } from '../context/AppContext';
+import { useSheetDrag } from '../hooks/useSheetDrag';
+import { SaveToListMenu } from './SaveToListMenu';
+import { CompanyCareersTab } from './CompanyCareersTab';
+import { useSimilarCompanies } from '../hooks/useSimilarCompanies';
 import { track } from '../lib/analytics';
-import { directionsUrl } from '../utils/directions';
+import { directionsUrl, directionsEmbedUrl } from '../utils/directions';
+import { Globe } from 'lucide-react';
 import { TabBar, tabPanelId } from './ui/TabBar';
 import { Modal } from './ui/Modal';
 import { formatDistance } from '../utils/distance';
 import { isCareerRelevant } from '../utils/relevance';
 import { CompanyLogo } from './ui/CompanyLogo';
+import { formatDistance as fmtKm } from '../utils/distance';
 import {
   X,
   Bookmark,
   ExternalLink,
   MapPin,
-  Users
 } from 'lucide-react';
 
 interface CompanyBottomSheetProps {
@@ -22,20 +27,40 @@ interface CompanyBottomSheetProps {
 }
 
 export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company, onClose }) => {
-  const { toggleSaveCompany, isCompanySaved, userInterests, userLocation } = useApp();
+  const { isCompanySaved, setSelectedCompany, userInterests, userLocation } = useApp();
   const tabsId = useId();
-  const [activeTab, setActiveTab] = useState<'overview' | 'careers' | 'employees' | 'location'>('overview');
+  const { sheetRef, sheetStyle, handleProps } = useSheetDrag(onClose);
+
+  const [activeTab, setActiveTab] = useState<
+    'overview' | 'careers' | 'location' | 'similar'
+  >('overview');
+  const [isRouteMapLoaded, setIsRouteMapLoaded] = useState(false);
+  const similarCompanies = useSimilarCompanies(company);
+
+  const hasCareers = Boolean(
+    company.careersUrl ||
+      company.commonCareers.length ||
+      company.programmes.length ||
+      company.internshipsKnown !== null ||
+      company.graduateRolesKnown !== null
+  );
 
   const isSaved = isCompanySaved(company.id);
+  const saveButtonRef = useRef<HTMLButtonElement>(null);
+  const [isSaveMenuOpen, setIsSaveMenuOpen] = useState(false);
 
-  const tabs: Array<{ id: 'overview' | 'careers' | 'employees' | 'location'; label: string }> = [
+  const tabs: Array<{ id: 'overview' | 'careers' | 'location' | 'similar'; label: string }> = [
     { id: 'overview', label: 'Overview' },
-    { id: 'careers', label: 'Careers' },
-    ...(company.employees.length > 0
-      ? [{ id: 'employees' as const, label: 'Employees' }]
-      : []),
+    ...(hasCareers ? [{ id: 'careers' as const, label: 'Careers' }] : []),
     { id: 'location', label: 'Location' },
+    ...(similarCompanies.length > 0
+      ? [{ id: 'similar' as const, label: 'Similar' }]
+      : []),
   ];
+
+  // Same reason as the drawer: the sheet stays mounted when you jump to a
+  // similar company, so the open tab may not exist for the new record.
+  const currentTab = tabs.some(t => t.id === activeTab) ? activeTab : 'overview';
 
   return (
     <Modal
@@ -45,9 +70,17 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
       className="fixed inset-0 z-10011 flex flex-col justify-end md:hidden pointer-events-none"
       backdropClassName="fixed inset-0 z-10010 bg-slate-900/50 dark:bg-black/60 backdrop-blur-xs md:hidden animate-fade-in"
     >
-      <div className="bg-surface rounded-t-2xl max-h-[88dvh] flex flex-col shadow-drawer border-t border-line overflow-hidden pointer-events-auto animate-slide-up">
-        {/* Drag handle */}
-        <div className="pt-2.5 pb-1 flex justify-center shrink-0">
+      <div
+        ref={sheetRef}
+        className="bg-surface rounded-t-2xl h-[82dvh] flex flex-col shadow-drawer border-t border-line overflow-hidden pointer-events-auto animate-slide-up"
+        style={sheetStyle}
+      >
+        {/* Drag handle — the whole strip is the target, not just the bar. */}
+        <div
+          {...handleProps}
+          aria-label="Close details"
+          className="pt-2.5 pb-2 flex justify-center shrink-0 cursor-grab active:cursor-grabbing touch-none"
+        >
           <div className="w-10 h-1 bg-slate-300 dark:bg-slate-700 rounded-full" />
         </div>
 
@@ -68,11 +101,27 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
 
             <div className="flex items-center gap-1">
               <button
-                onClick={() => toggleSaveCompany(company.id)}
-                className={`p-2 rounded border transition-colors ${ isSaved ? 'bg-brand-600 text-white border-brand-600' : 'bg-white dark:bg-slate-800 text-ink-2 border-slate-200 dark:border-slate-700' }`}
+                ref={saveButtonRef}
+                onClick={() => setIsSaveMenuOpen(open => !open)}
+                aria-haspopup="dialog"
+                aria-expanded={isSaveMenuOpen}
+                aria-label={isSaved ? 'Edit lists' : 'Save to a list'}
+                className={`p-2 rounded-md transition-colors ${
+                  isSaved
+                    ? 'text-brand-600 dark:text-brand-400'
+                    : 'text-ink-2 hover:text-ink'
+                }`}
               >
-                <Bookmark className={`w-4 h-4 ${isSaved ? 'fill-white' : ''}`} />
+                <Bookmark className={`w-5 h-5 ${isSaved ? 'fill-current' : ''}`} />
               </button>
+              {isSaveMenuOpen && (
+                <SaveToListMenu
+                  companyId={company.id}
+                  companyName={company.name}
+                  anchorRef={saveButtonRef}
+                  onClose={() => setIsSaveMenuOpen(false)}
+                />
+              )}
               <button
                 onClick={onClose}
                 className="p-2 rounded-sm text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
@@ -82,13 +131,30 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
             </div>
           </div>
 
-          <div className="flex items-center gap-2 text-xs text-ink-2 mt-2 pt-2 border-t border-line">
-            <span className="flex items-center gap-1 font-medium text-ink">
-              <MapPin className="w-3.5 h-3.5 text-slate-400" />
-              {company.location.area}
+          <div className="flex items-center gap-2 min-w-0 text-xs text-ink-2 mt-2 pt-2 border-t border-line">
+            <span className="flex items-center gap-1 min-w-0 font-medium text-ink shrink-0">
+              <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+              <span className="truncate">{company.location.area}</span>
             </span>
             <span className="text-slate-300 dark:text-slate-700">·</span>
             <span className="font-semibold text-ink">{formatDistance(company.commute.distanceKm)}</span>
+            {company.website && (
+              <>
+                <span className="text-slate-300 dark:text-slate-700">·</span>
+                <a
+                  href={company.website}
+                  onClick={() => track('website_link_clicked', { company_id: company.id })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 min-w-0 text-brand-600 dark:text-brand-400 font-medium hover:underline"
+                >
+                  <Globe className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+                  <span className="truncate">
+                    {company.website.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}
+                  </span>
+                </a>
+              </>
+            )}
           </div>
         </div>
 
@@ -96,7 +162,7 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
         <TabBar
           baseId={tabsId}
           tabs={tabs}
-          active={activeTab}
+          active={currentTab}
           onChange={id => {
             setActiveTab(id);
             track('company_tab_viewed', { company_id: company.id, tab: id });
@@ -107,11 +173,11 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
         {/* Tab Body */}
         <div className="flex-1 min-h-0 p-4 overflow-y-auto space-y-4 text-ink text-xs"
         role="tabpanel"
-        id={tabPanelId(tabsId, activeTab)}
-        aria-labelledby={`${tabsId}-tab-${activeTab}`}
+        id={tabPanelId(tabsId, currentTab)}
+        aria-labelledby={`${tabsId}-tab-${currentTab}`}
         tabIndex={0}
       >
-          {activeTab === 'overview' && (
+          {currentTab === 'overview' && (
             <div className="space-y-4">
               {company.shortDescription ? (
                 <div>
@@ -166,80 +232,33 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
             </div>
           )}
 
-          {activeTab === 'careers' && (
-            <div className="space-y-3">
-              {company.careersUrl ? (
-                <a
-                  href={company.careersUrl}
-                  onClick={() => track('careers_link_clicked', { company_id: company.id })}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-md flex items-center justify-center gap-1.5 transition-colors"
+          {currentTab === 'careers' && <CompanyCareersTab company={company} />}
+
+          {currentTab === 'similar' && (
+            <div className="space-y-2.5">
+              {similarCompanies.map(sim => (
+                <button
+                  key={sim.id}
+                  type="button"
+                  onClick={() => {
+                    setActiveTab('overview');
+                    setSelectedCompany(sim);
+                  }}
+                  className="w-full p-3 border border-line rounded-lg bg-surface text-left flex items-center gap-3 active:bg-surface-2 transition-colors"
                 >
-                  <span>Open careers page</span>
-                  <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
-                </a>
-              ) : (
-                <p className="text-xs text-ink-3 border border-line rounded-md p-3 leading-relaxed">
-                  No careers page confirmed for this company yet.
-                </p>
-              )}
-              {(company.internshipsKnown !== null || company.graduateRolesKnown !== null) && (
-                <div className="grid grid-cols-2 gap-2 mt-2">
-                  {company.internshipsKnown !== null && (
-                    <div className="border border-line p-2.5 rounded-md bg-surface">
-                      <span className="text-[10px] text-ink-3 uppercase font-semibold">
-                        Internships
-                      </span>
-                      <div className="font-semibold text-ink mt-0.5">
-                        {company.internshipsKnown ? 'Confirmed' : 'None listed'}
-                      </div>
-                    </div>
-                  )}
-                  {company.graduateRolesKnown !== null && (
-                    <div className="border border-line p-2.5 rounded-md bg-surface">
-                      <span className="text-[10px] text-ink-3 uppercase font-semibold">
-                        Graduates
-                      </span>
-                      <div className="font-semibold text-ink mt-0.5">
-                        {company.graduateRolesKnown ? 'Confirmed' : 'None listed'}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              )}
+                  <CompanyLogo name={sim.name} src={sim.logo} size="sm" />
+                  <span className="min-w-0 flex-1">
+                    <span className="block font-semibold text-ink truncate">{sim.name}</span>
+                    <span className="block text-ink-2 truncate">
+                      {sim.location.area} · {fmtKm(sim.commute.distanceKm)}
+                    </span>
+                  </span>
+                </button>
+              ))}
             </div>
           )}
 
-          {activeTab === 'employees' && (
-            <div className="space-y-3">
-              {company.employees && company.employees.length > 0 ? (
-                company.employees.map((emp, idx) => (
-                  <div key={idx} className="p-2.5 border border-line rounded-sm bg-white dark:bg-slate-800 flex items-center justify-between">
-                    <div>
-                      <div className="font-semibold text-ink">{emp.name}</div>
-                      <div className="text-ink-2">{emp.title}</div>
-                    </div>
-                    <a
-                      href={emp.linkedinUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-brand-600 dark:text-brand-400 font-semibold"
-                    >
-                      LinkedIn
-                    </a>
-                  </div>
-                ))
-              ) : (
-                <div className="text-center py-6 text-ink-2">
-                  <Users className="w-6 h-6 mx-auto mb-1 text-slate-300 dark:text-slate-600" />
-                  <p>Employee profiles are not available for this company yet.</p>
-                </div>
-              )}
-            </div>
-          )}
-
-          {activeTab === 'location' && (
+          {currentTab === 'location' && (
             <div className="space-y-3">
               <div className="border border-line p-3 rounded-sm bg-white dark:bg-slate-800">
                 <div className="text-ink-2 text-[10px] uppercase font-semibold">Address</div>
@@ -254,6 +273,29 @@ export const CompanyBottomSheet: React.FC<CompanyBottomSheetProps> = ({ company,
                   </div>
                   <div className="text-[10px] text-ink-3 mt-0.5">direct distance</div>
                 </div>
+              </div>
+
+              {/* The same embedded route the desktop drawer shows — it was
+                  missing here, so the mobile Location tab had no map at all. */}
+              <div className="relative rounded-lg overflow-hidden border border-line h-56">
+                {!isRouteMapLoaded && (
+                  <div
+                    className="absolute inset-0 bg-surface-2 animate-pulse flex items-center justify-center"
+                    aria-hidden="true"
+                  >
+                    <span className="text-[11px] text-ink-3">Loading route…</span>
+                  </div>
+                )}
+                <iframe
+                  title={`Route from ${userLocation.name} to ${company.name}`}
+                  src={directionsEmbedUrl(userLocation, company.location, 'transit')}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  onLoad={() => setIsRouteMapLoaded(true)}
+                  className={`w-full h-full border-0 block transition-opacity duration-200 ${
+                    isRouteMapLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
+                />
               </div>
 
               <a

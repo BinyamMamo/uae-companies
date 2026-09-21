@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal } from './ui/Modal';
+import { ResponsiveSheet } from './ui/ResponsiveSheet';
 import { SavedListsPanel } from './SavedListsPanel';
 import { useApp } from '../context/AppContext';
 import { useIsDesktop } from '../hooks/useMediaQuery';
@@ -23,21 +23,19 @@ export const SavedModal: React.FC<SavedModalProps> = ({ open, onClose }) => {
 
   return (
     <>
-      <Modal
+      {/*
+        No separate title bar: the panel's own header row carries the close
+        button, so the sheet does not stack two headers on top of each other.
+      */}
+      <ResponsiveSheet
         open={open}
         onClose={onClose}
         label="Saved companies"
-        className="fixed inset-0 z-10000 flex items-center justify-center p-3 sm:p-6"
-        backdropClassName="fixed inset-0 z-9999 bg-slate-900/40 dark:bg-black/60 backdrop-blur-xs animate-fade-in"
+        maxWidthClassName="sm:max-w-5xl"
+        heightClassName="h-[85dvh]"
       >
-        <div className="bg-surface rounded-xl w-full max-w-5xl h-[85dvh] flex flex-col shadow-popup border border-line overflow-hidden text-ink">
-          {/*
-            No separate title bar: the panel's own header row carries the close
-            button, so the modal does not stack two headers on top of each other.
-          */}
-          <SavedListsPanel variant="modal" onClose={onClose} />
-        </div>
-      </Modal>
+        <SavedListsPanel variant="modal" onClose={onClose} />
+      </ResponsiveSheet>
 
       {/* Opened from inside the modal, so it stacks above it */}
       {open && selectedCompany && isDesktop && (

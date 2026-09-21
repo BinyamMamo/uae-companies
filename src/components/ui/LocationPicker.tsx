@@ -11,6 +11,12 @@ interface LocationPickerProps {
   direction?: 'down' | 'up';
   onClose: () => void;
   className?: string;
+  /**
+   * Drop the popover chrome (fixed width, border, shadow, own dialog role) for
+   * when this is already inside a dialog — the mobile bottom sheet supplies all
+   * of that, and nesting them looks like a card inside a card.
+   */
+  bare?: boolean;
 }
 
 /**
@@ -25,6 +31,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
   direction = 'down',
   onClose,
   className = '',
+  bare = false,
 }) => {
   const { userLocation, setUserLocation, resetUserLocation } = useApp();
   const { toast } = useToast();
@@ -104,11 +111,13 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
 
   return (
     <div
-      className={`w-72 bg-surface border border-line rounded-xl shadow-popup overflow-hidden ${
-        direction === 'up' ? 'origin-bottom' : 'origin-top'
-      } ${className}`}
-      role="dialog"
-      aria-label="Set your home location"
+      className={`${
+        bare
+          ? 'w-full bg-surface'
+          : 'w-72 bg-surface border border-line rounded-xl shadow-popup overflow-hidden'
+      } ${direction === 'up' ? 'origin-bottom' : 'origin-top'} ${className}`}
+      role={bare ? undefined : 'dialog'}
+      aria-label={bare ? undefined : 'Set your home location'}
     >
       <div className="relative border-b border-line">
         <Search

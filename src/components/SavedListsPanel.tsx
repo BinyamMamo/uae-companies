@@ -127,15 +127,16 @@ export const SavedListsPanel: React.FC<SavedListsPanelProps> = ({ variant = 'pag
         >
           <div className="flex items-center justify-between gap-2 px-4 h-14 border-b border-line shrink-0">
             <h2 className="text-xs font-bold text-ink uppercase tracking-wider">Lists</h2>
-            <button
-              type="button"
-              onClick={() => setIsCreating(v => !v)}
-              className="p-1.5 rounded-md text-ink-3 hover:text-ink hover:bg-surface-2 transition-colors"
-              aria-label="Create a new list"
-              title="New list"
-            >
-              <Plus className="w-4 h-4" aria-hidden="true" />
-            </button>
+            {onClose && (
+              <button
+                type="button"
+                onClick={onClose}
+                className="p-1.5 rounded-md text-ink-3 hover:text-ink hover:bg-surface-2 transition-colors"
+                aria-label="Close saved companies"
+              >
+                <X className="w-4 h-4" aria-hidden="true" />
+              </button>
+            )}
           </div>
 
           <div className="p-2 space-y-2 flex-1 md:overflow-y-auto">
@@ -328,16 +329,15 @@ export const SavedListsPanel: React.FC<SavedListsPanelProps> = ({ variant = 'pag
                 </button>
               )}
 
-              {onClose && (
-                <button
-                  type="button"
-                  onClick={onClose}
-                  className="p-1.5 rounded-md text-ink-3 hover:text-ink hover:bg-surface-2 transition-colors"
-                  aria-label="Close saved companies"
-                >
-                  <X className="w-4 h-4" aria-hidden="true" />
-                </button>
-              )}
+              <button
+                type="button"
+                onClick={() => setIsCreating(v => !v)}
+                className="p-1.5 rounded-md text-ink-3 hover:text-ink hover:bg-surface-2 transition-colors"
+                aria-label="Create a new list"
+                title="New list"
+              >
+                <Plus className="w-4 h-4" aria-hidden="true" />
+              </button>
             </div>
           </div>
 

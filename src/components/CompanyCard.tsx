@@ -62,11 +62,6 @@ const CompanyCardComponent: React.FC<CompanyCardProps> = ({ company, isSelected 
                     {company.name}
                   </button>
                 </h3>
-                {company.location.isFreeZone && (
-                  <span className="text-[10px] uppercase font-medium tracking-wider px-1.5 py-0.5 rounded bg-surface-2 text-ink-2 border border-line">
-                    Free Zone
-                  </span>
-                )}
               </div>
 
               <p className="text-xs text-ink-3 mt-1 truncate">
@@ -129,7 +124,7 @@ const CompanyCardComponent: React.FC<CompanyCardProps> = ({ company, isSelected 
             </div>
           </div>
 
-          <CommuteMeta company={company} className="mt-2" />
+          <CommuteMeta company={company} showFreeZone className="mt-2" />
 
           {company.shortDescription ? (
             <p className="text-xs sm:text-[13px] text-ink-2 mt-2 line-clamp-2 leading-relaxed">
@@ -169,9 +164,7 @@ const CompanyCardComponent: React.FC<CompanyCardProps> = ({ company, isSelected 
             )}
           </div>
 
-          <div className="mt-2.5 flex items-center gap-3">
-            <ProvenanceBadge company={company} />
-          </div>
+          <ProvenanceBadge company={company} caveatOnly className="mt-2.5" />
         </div>
       </div>
     </article>

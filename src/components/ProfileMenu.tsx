@@ -73,6 +73,10 @@ export const ProfileMenu: React.FC<ProfileMenuProps> = ({ onOpenInterests }) => 
   const item =
     'w-full flex items-center gap-3 px-4 py-2.5 text-xs text-ink-2 hover:bg-surface-2 hover:text-ink transition-colors text-left';
 
+  // Only when sign-in is actually available and we know the answer — a spinner
+  // or an unconfigured build must not sprout a dot.
+  const signedOut = configured && !user && !loading && !error;
+
   return (
     <div className="relative" ref={wrapperRef}>
       <button
@@ -81,9 +85,30 @@ export const ProfileMenu: React.FC<ProfileMenuProps> = ({ onOpenInterests }) => 
         onClick={() => setOpen(o => !o)}
         aria-haspopup="menu"
         aria-expanded={open}
-        aria-label={user ? `Account menu for ${user.name}` : 'Account menu'}
-        className="p-0.5 rounded-full border border-line hover:border-line-strong transition-colors"
+        aria-label={
+          user
+            ? `Account menu for ${user.name}`
+            : signedOut
+              ? 'Account menu — not signed in'
+              : 'Account menu'
+        }
+        title={
+          signedOut
+            ? 'Not signed in — saved lists stay on this device'
+            : undefined
+        }
+        className="relative w-8 h-8 flex items-center justify-center rounded-full border border-line hover:border-line-strong transition-colors"
       >
+        {/*
+          A small dot, not a warning. Signing in is optional — everything works
+          signed out — so this says "there is something here" without nagging.
+        */}
+        {signedOut && (
+          <span
+            className="absolute -top-px -right-px w-2 h-2 rounded-full bg-brand-500 ring-2 ring-app"
+            aria-hidden="true"
+          />
+        )}
         {user?.photoURL ? (
           <img
             src={user.photoURL}
@@ -91,10 +116,10 @@ export const ProfileMenu: React.FC<ProfileMenuProps> = ({ onOpenInterests }) => 
             width={28}
             height={28}
             referrerPolicy="no-referrer"
-            className="w-7 h-7 rounded-full object-cover"
+            className="w-6.5 h-6.5 rounded-full object-cover"
           />
         ) : (
-          <span className="w-7 h-7 rounded-full bg-surface-2 text-ink-2 flex items-center justify-center">
+          <span className="w-6.5 h-6.5 rounded-full bg-surface-2 text-ink-2 flex items-center justify-center">
             {loading ? (
               <Loader2 className="w-3.5 h-3.5 animate-spin" aria-hidden="true" />
             ) : (

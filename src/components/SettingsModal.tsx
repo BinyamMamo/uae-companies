@@ -14,7 +14,7 @@ import {
   MapPinHouse,
   Search,
 } from 'lucide-react';
-import { Modal } from './ui/Modal';
+import { ResponsiveSheet } from './ui/ResponsiveSheet';
 import { useToast } from './ui/Toast';
 import { useConfirm } from '../hooks/useConfirm';
 import { DUBAI_LOCATIONS, type DubaiLocationPreset } from '../utils/dubaiLocations';
@@ -239,14 +239,12 @@ export const SettingsModal: React.FC = () => {
   };
 
   return (
-    <Modal
+    <ResponsiveSheet
       open={isSettingsModalOpen}
       onClose={() => setIsSettingsModalOpen(false)}
       labelledBy="settings-title"
-      className="fixed inset-0 z-10000 flex items-center justify-center p-3 sm:p-4"
-      backdropClassName="fixed inset-0 z-9999 bg-slate-900/40 dark:bg-black/60 backdrop-blur-xs animate-fade-in"
     >
-      <div className="bg-surface rounded-xl max-w-lg w-full max-h-[90dvh] flex flex-col shadow-popup border border-line overflow-hidden text-ink transition-colors">
+      <>
         {/* Header */}
         <div className="px-5 py-3.5 border-b border-line flex items-center justify-between shrink-0 bg-slate-50/50 dark:bg-slate-900">
           <h2 id="settings-title" className="text-sm sm:text-base font-bold text-ink">
@@ -431,8 +429,8 @@ export const SettingsModal: React.FC = () => {
 
         </div>
 
-      </div>
+      </>
 
-    </Modal>
+    </ResponsiveSheet>
   );
 };

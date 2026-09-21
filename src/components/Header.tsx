@@ -1,16 +1,17 @@
 import React from 'react';
+import type { LucideIcon } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { useTheme } from '../context/ThemeContext';
 import { ProfileMenu } from './ProfileMenu';
 import { Logo } from './ui/Logo';
-import { SlidersHorizontal, Sun, Moon, Settings, Bookmark } from 'lucide-react';
+import { Sun, Moon, Bookmark, LayoutList, BuildingComplex, MapPinned } from 'lucide-react';
 
 type TabId = 'list' | 'featured' | 'map';
 
-const NAV_ITEMS: Array<{ id: TabId; label: string }> = [
-  { id: 'list', label: 'List' },
-  { id: 'featured', label: 'Featured' },
-  { id: 'map', label: 'Map' },
+const NAV_ITEMS: Array<{ id: TabId; label: string; Icon: LucideIcon }> = [
+  { id: 'list', label: 'List', Icon: LayoutList },
+  { id: 'featured', label: 'Featured', Icon: BuildingComplex },
+  { id: 'map', label: 'Map', Icon: MapPinned },
 ];
 
 interface HeaderProps {
@@ -23,12 +24,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSaved, onOpenInterests }) 
     activeTab,
     setActiveTab,
     savedCompanyIds,
-    setIsMobileFilterOpen,
-    setIsSettingsModalOpen,
   } = useApp();
   const { theme, toggleTheme } = useTheme();
 
-  const renderTab = (item: { id: TabId; label: string }) => {
+  const renderTab = (item: { id: TabId; label: string; Icon: LucideIcon }) => {
     const isActive = activeTab === item.id;
     return (
       <button
@@ -59,24 +58,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSaved, onOpenInterests }) 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 grid grid-cols-[auto_1fr_auto] md:grid-cols-[1fr_auto_1fr] items-center gap-2">
         {/* Left: filters (mobile, list view only) + wordmark */}
         <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-          {activeTab === 'list' && (
-            <button
-              onClick={() => setIsMobileFilterOpen(true)}
-              className="md:hidden flex items-center gap-1.5 px-2 py-1.5 text-xs font-medium text-ink-2 bg-surface-2 hover:bg-surface-3 rounded-md border border-line transition-colors shrink-0"
-              aria-label="Open filters"
-            >
-              <SlidersHorizontal className="w-3.5 h-3.5" />
-              <span className="hidden xs:inline">Filters</span>
-            </button>
-          )}
-
           <button
             onClick={() => setActiveTab('list')}
             className="flex items-center gap-2.5 text-left hover:opacity-90 transition-opacity min-w-0"
             aria-label="UAE Companies — go to list"
           >
             <Logo className="w-7 h-7 sm:w-8 sm:h-8 shrink-0 text-brand-600 dark:text-brand-400" />
-            <span className="hidden sm:block text-base font-bold tracking-tight text-ink truncate">
+            <span className="text-sm sm:text-base font-bold tracking-tight text-ink truncate">
               UAE <span className="text-brand-600 dark:text-brand-400">Companies</span>
             </span>
           </button>
@@ -91,10 +79,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSaved, onOpenInterests }) 
         </nav>
 
         {/* Right: actions */}
-        <div className="flex items-center justify-end gap-1 sm:gap-1.5">
+        <div className="flex items-center justify-end gap-1">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-md text-ink-2 hover:text-ink hover:bg-surface-2 transition-colors"
+            className="w-8 h-8 flex items-center justify-center rounded-md text-ink-2 hover:text-ink hover:bg-surface-2 transition-colors"
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
           >
             {theme === 'dark' ? (
@@ -104,18 +92,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSaved, onOpenInterests }) 
             )}
           </button>
 
-          <button
-            onClick={() => setIsSettingsModalOpen(true)}
-            className="p-2 rounded-md text-ink-2 hover:text-ink hover:bg-surface-2 transition-colors"
-            aria-label="Settings"
-          >
-            <Settings className="w-4 h-4" aria-hidden="true" />
-          </button>
-
           {/* Saved replaces the old nav tab; the badge carries the count. */}
           <button
             onClick={onOpenSaved}
-            className="relative p-2 rounded-md text-ink-2 hover:text-ink hover:bg-surface-2 transition-colors"
+            className="relative w-8 h-8 flex items-center justify-center rounded-md text-ink-2 hover:text-ink hover:bg-surface-2 transition-colors"
             aria-label={
               savedCompanyIds.length > 0
                 ? `Saved companies (${savedCompanyIds.length})`
@@ -134,13 +114,47 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSaved, onOpenInterests }) 
         </div>
       </div>
 
-      {/* Mobile nav: its own scrollable row, so nothing can collide with the wordmark */}
-      <nav
-        className="md:hidden flex items-center gap-1 px-4 overflow-x-auto border-t border-line"
-        aria-label="Main"
-      >
-        {NAV_ITEMS.map(renderTab)}
-      </nav>
     </header>
+  );
+};
+
+/**
+ * Mobile navigation, as a bottom bar. Thumbs reach the bottom of a phone; a row
+ * under the header does not. It is fixed, so it survives the list scrolling,
+ * and it pads for the home indicator on iOS.
+ */
+export const MobileNavBar: React.FC = () => {
+  const { activeTab, setActiveTab } = useApp();
+
+  return (
+    <nav
+      className="md:hidden fixed bottom-0 inset-x-0 z-1200 bg-app border-t border-line pb-[env(safe-area-inset-bottom)]"
+      aria-label="Main"
+    >
+      <div className="flex items-stretch">
+        {NAV_ITEMS.map(({ id, label, Icon }) => {
+          const isActive = activeTab === id;
+          return (
+            <button
+              key={id}
+              onClick={() => setActiveTab(id)}
+              aria-current={isActive ? 'page' : undefined}
+              className={`flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-[11px] font-medium transition-colors ${
+                isActive
+                  ? 'text-brand-600 dark:text-brand-400'
+                  : 'text-ink-2 hover:text-ink'
+              }`}
+            >
+              <Icon
+                className="w-5 h-5"
+                strokeWidth={isActive ? 2.4 : 1.9}
+                aria-hidden="true"
+              />
+              <span>{label}</span>
+            </button>
+          );
+        })}
+      </div>
+    </nav>
   );
 };

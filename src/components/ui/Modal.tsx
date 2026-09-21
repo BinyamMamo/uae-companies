@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useId, useRef } from 'react';
+import { createPortal } from 'react-dom';
 
 const FOCUSABLE = [
   'a[href]',
@@ -131,7 +132,11 @@ export const Modal: React.FC<ModalProps> = ({
 
   if (!open) return null;
 
-  return (
+  // Rendered into <body>, never in place. An ancestor with a transform, a
+  // filter, or containment (the cards carry `content-visibility: auto`) makes
+  // `position: fixed` resolve against that ancestor instead of the viewport,
+  // which let the bottom sheet grow past its own max-height and clip.
+  return createPortal(
     <>
       <div
         className={backdropClassName}
@@ -151,6 +156,7 @@ export const Modal: React.FC<ModalProps> = ({
       >
         {children}
       </div>
-    </>
+    </>,
+    document.body
   );
 };

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Plus, RotateCcw } from 'lucide-react';
 import { useApp } from '../context/AppContext';
-import { Modal } from './ui/Modal';
+import { ResponsiveSheet } from './ui/ResponsiveSheet';
 import { X } from 'lucide-react';
 
 const SUGGESTED_DOMAINS = [
@@ -45,14 +45,12 @@ export const InterestsModal: React.FC<InterestsModalProps> = ({ open, onClose })
   };
 
   return (
-    <Modal
+    <ResponsiveSheet
       open={open}
       onClose={onClose}
       labelledBy="interests-title"
-      className="fixed inset-0 z-10000 flex items-center justify-center p-3 sm:p-4"
-      backdropClassName="fixed inset-0 z-9999 bg-slate-900/40 dark:bg-black/60 backdrop-blur-xs animate-fade-in"
     >
-      <div className="bg-surface rounded-xl max-w-lg w-full max-h-[90dvh] flex flex-col shadow-popup border border-line overflow-hidden text-ink">
+      <>
         <header className="flex items-center justify-between gap-4 px-5 h-14 border-b border-line shrink-0">
           <h2 id="interests-title" className="text-sm font-semibold text-ink">
             Your interests
@@ -155,7 +153,7 @@ export const InterestsModal: React.FC<InterestsModalProps> = ({ open, onClose })
         {/* Redesigned Divider */}
         <div className="border-t border-slate-200/80 dark:border-slate-800" />
         </div>
-      </div>
-    </Modal>
+      </>
+    </ResponsiveSheet>
   );
 };

@@ -6,7 +6,7 @@ import { CompanyCard } from '../components/CompanyCard';
 import { CompanyDrawer } from '../components/CompanyDrawer';
 import { CompanyBottomSheet } from '../components/CompanyBottomSheet';
 import { Dropdown } from '../components/Dropdown';
-import { SearchX, Search, X, Scale } from 'lucide-react';
+import { SearchX, Search, X, Scale, SlidersHorizontal } from 'lucide-react';
 import { track } from '../lib/analytics';
 import { CompanyCardSkeleton } from '../components/ui/CompanyCardSkeleton';
 import { DataError } from '../components/ui/DataError';
@@ -21,12 +21,23 @@ export const ListView: React.FC = () => {
     setFilters,
     clearFilters,
     isMobileFilterOpen,
+    setIsMobileFilterOpen,
     compareCompanyIds,
     setIsCompareModalOpen,
     companiesStatus,
     reloadCompanies
   } = useApp();
   const isDesktop = useIsDesktop();
+
+  // Drives the filter icon's active state in the search field.
+  const activeFilterCount =
+    filters.companyTypes.length +
+    (filters.location ? 1 : 0) +
+    (filters.area ? 1 : 0) +
+    (filters.distanceMax !== null ? 1 : 0) +
+    (filters.isFreeZoneOnly !== null ? 1 : 0) +
+    (filters.hasCareersUrl ? 1 : 0) +
+    (filters.verifiedOnly ? 1 : 0);
 
   const sortOptions = [
     { value: 'nearest', label: 'Nearest' },
@@ -51,9 +62,15 @@ export const ListView: React.FC = () => {
         {/* Center: Scrollable Company List */}
         <main className="flex-1 min-w-0">
           
-          {/* In-Page Search Bar - Bottom border only, no shadow */}
-          <div className="relative mb-4">
-            <Search className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 text-ink-3 pointer-events-none" aria-hidden="true" />
+          {/*
+            Sticky on phones: the list is 225 rows, and having to scroll back to
+            the top to change the query or open the filters was the main cost of
+            moving the filter control in here. `top-14` clears the header.
+          */}
+          {/* Phones only: on a desktop this lives at the top of the filter card,
+              next to the controls it belongs with. */}
+          <div className="md:hidden relative mb-4 sticky top-14 z-1100 bg-app py-1.5">
+            <Search className="absolute left-1 top-1/2 -translate-y-1/2 w-4 h-4 text-ink-2 pointer-events-none z-10" aria-hidden="true" />
             <label htmlFor="company-search" className="sr-only">
               Search companies
             </label>
@@ -63,17 +80,38 @@ export const ListView: React.FC = () => {
               value={filters.search}
               onChange={e => setFilters(prev => ({ ...prev, search: e.target.value }))}
               placeholder="Search by name, industry, role, or tech stack"
-              className="w-full pl-6 pr-7 py-2 bg-transparent border-0 border-b border-line rounded-none text-sm text-ink placeholder:text-ink-3 focus:outline-hidden focus:border-brand-500 focus:ring-0 transition-colors"
+              className="w-full pl-9 pr-16 py-2.5 bg-transparent border-0 border-b border-line rounded-none text-sm text-ink placeholder:text-ink-3 focus:outline-hidden focus:border-brand-500 focus:ring-0 transition-colors"
             />
-            {filters.search && (
+
+            {/* Trailing controls sit inside the field: clear, then filters. */}
+            <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-0.5 z-10">
+              {filters.search && (
+                <button
+                  onClick={() => setFilters(prev => ({ ...prev, search: '' }))}
+                  className="text-ink-3 hover:text-ink p-1"
+                  aria-label="Clear search"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
+              {/* Phones have no room for the sidebar, so filters live here. */}
               <button
-                onClick={() => setFilters(prev => ({ ...prev, search: '' }))}
-                className="absolute right-1 top-1/2 -translate-y-1/2 text-ink-3 hover:text-ink p-0.5"
-                aria-label="Clear search"
+                type="button"
+                onClick={() => setIsMobileFilterOpen(true)}
+                className={`md:hidden p-1 transition-colors ${
+                  activeFilterCount > 0
+                    ? 'text-brand-600 dark:text-brand-400'
+                    : 'text-ink-3 hover:text-ink'
+                }`}
+                aria-label={
+                  activeFilterCount > 0
+                    ? `Filters (${activeFilterCount} active)`
+                    : 'Filters'
+                }
               >
-                <X className="w-3.5 h-3.5" />
+                <SlidersHorizontal className="w-4 h-4" />
               </button>
-            )}
+            </div>
           </div>
           
           {/* List Toolbar / Count & Sort - No bottom border */}
@@ -89,14 +127,15 @@ export const ListView: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-2.5">
-              {/* Compare Button */}
+              {/* Compare Button — phones get the icon in the search field plus
+                  the floating bar below, so this one is desktop-only. */}
               <button
                 type="button"
                 onClick={() => {
                   track('compare_opened', { company_count: compareCompanyIds.length });
                   setIsCompareModalOpen(true);
                 }}
-                className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-line bg-surface text-ink-2 hover:border-brand-500/70 hover:text-brand-600 dark:hover:text-brand-400 transition-colors shadow-2xs"
+                className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-line bg-surface text-ink-2 hover:border-brand-500/70 hover:text-brand-600 dark:hover:text-brand-400 transition-colors shadow-2xs"
                 title="Compare companies side-by-side"
               >
                 <Scale className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400" />

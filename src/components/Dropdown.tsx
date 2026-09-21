@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useLayoutEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { ChevronDown, Check } from 'lucide-react';
 
 export interface DropdownOption<T extends string | number = string> {
@@ -29,13 +30,46 @@ export function Dropdown<T extends string | number = string>({
 }: DropdownProps<T>) {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const [menuPos, setMenuPos] = useState<{ top: number; left: number; width: number } | null>(null);
+
+  // The menu is rendered into <body>, because these live inside the filter
+  // sheet, which is an `overflow-y-auto` box — an absolutely positioned menu
+  // was simply clipped by it. Being in the body means positioning by hand.
+  const placeMenu = useCallback(() => {
+    const btn = buttonRef.current;
+    if (!btn) return;
+    const r = btn.getBoundingClientRect();
+    const menuH = menuRef.current?.offsetHeight ?? 240;
+    const below = window.innerHeight - r.bottom;
+    // Flip above when there is no room below, the way a native select does.
+    const top = below < menuH + 8 && r.top > below ? r.top - menuH - 4 : r.bottom + 4;
+    setMenuPos({ top, left: r.left, width: r.width });
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!isOpen) return;
+    placeMenu();
+    // Any scroll under the menu moves the anchor, including the sheet's own.
+    window.addEventListener('scroll', placeMenu, true);
+    window.addEventListener('resize', placeMenu);
+    return () => {
+      window.removeEventListener('scroll', placeMenu, true);
+      window.removeEventListener('resize', placeMenu);
+    };
+  }, [isOpen, placeMenu]);
 
   const selectedOption = options.find(opt => opt.value === value);
 
   // Close on outside click
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+      const t = e.target as Node;
+      if (
+        containerRef.current && !containerRef.current.contains(t) &&
+        !(menuRef.current && menuRef.current.contains(t))
+      ) {
         setIsOpen(false);
       }
     };
@@ -68,6 +102,7 @@ export function Dropdown<T extends string | number = string>({
     <div ref={containerRef} className={`relative inline-block ${className}`}>
       {/* Trigger Button */}
       <button
+        ref={buttonRef}
         type="button"
         onClick={() => setIsOpen(prev => !prev)}
         className={`flex items-center justify-between gap-2 rounded-lg border text-left font-medium transition-colors ${ isSmall ? 'text-xs px-2.5 py-1.5' : 'text-sm px-3 py-2' } ${ isOpen ? 'border-brand-500 ring-1 ring-brand-500 bg-surface text-slate-900 dark:text-white' : 'border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:border-slate-300 dark:hover:border-slate-700' } ${buttonClassName}`}
@@ -80,10 +115,18 @@ export function Dropdown<T extends string | number = string>({
         />
       </button>
 
-      {/* Menu Popover */}
-      {isOpen && (
+      {/* Menu Popover — portalled so no scroll container can clip it */}
+      {isOpen && createPortal(
         <div
-          className={`absolute left-0 mt-1 min-w-full w-full max-h-60 overflow-y-auto rounded-lg border border-line bg-surface shadow-popup py-1 z-50 text-ink animate-fade-in ${menuClassName}`}
+          ref={menuRef}
+          style={{
+            position: 'fixed',
+            top: menuPos?.top ?? -9999,
+            left: menuPos?.left ?? -9999,
+            width: menuPos?.width,
+            visibility: menuPos ? 'visible' : 'hidden',
+          }}
+          className={`max-h-60 overflow-y-auto rounded-lg border border-line bg-surface shadow-popup py-1 z-10030 text-ink animate-fade-in ${menuClassName}`}
           role="listbox"
         >
           {options.map(opt => {
@@ -102,7 +145,8 @@ export function Dropdown<T extends string | number = string>({
               </button>
             );
           })}
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );

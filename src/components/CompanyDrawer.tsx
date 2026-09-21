@@ -1,6 +1,9 @@
-import React, { useState, useId, useMemo } from 'react';
+import React, { useState, useId, useRef } from 'react';
 import type { Company } from '../types/company';
 import { useApp } from '../context/AppContext';
+import { useSimilarCompanies } from '../hooks/useSimilarCompanies';
+import { SaveToListMenu } from './SaveToListMenu';
+import { CompanyCareersTab } from './CompanyCareersTab';
 import { track } from '../lib/analytics';
 import { TabBar, tabPanelId } from './ui/TabBar';
 import { Modal } from './ui/Modal';
@@ -17,9 +20,7 @@ import {
   ExternalLink,
   MapPin,
   Car,
-  CheckCircle2,
   ShieldCheck,
-  ArrowRight,
   Bus,
 } from 'lucide-react';
 
@@ -29,7 +30,7 @@ interface CompanyDrawerProps {
 }
 
 export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }) => {
-  const { toggleSaveCompany, isCompanySaved, companies, setSelectedCompany, userInterests, userLocation } = useApp();
+  const { isCompanySaved, setSelectedCompany, userInterests, userLocation } = useApp();
   const tabsId = useId();
   const [activeTab, setActiveTab] = useState<'overview' | 'careers' | 'location' | 'similar'>('overview');
   const [commuteMode, setCommuteMode] = useState<'transit' | 'driving'>('transit');
@@ -43,6 +44,8 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
     setLoadedRouteMap(loaded ? routeMapKey : null);
 
   const isSaved = isCompanySaved(company.id);
+  const saveButtonRef = useRef<HTMLButtonElement>(null);
+  const [isSaveMenuOpen, setIsSaveMenuOpen] = useState(false);
 
   const hasProfile = Boolean(
     company.shortDescription ||
@@ -62,37 +65,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
     real answer, so the tab stays hidden for them and appears as the research
     pipeline fills records in.
   */
-  const similarCompanies = useMemo(() => {
-    if (!company.shortDescription) return [];
-
-    // The two buckets the generator applied to most records carry no signal.
-    const BROAD = new Set(['Tech / Software', 'Engineering']);
-    const mySpecific = new Set(company.categories.filter(c => !BROAD.has(c)));
-
-    return companies
-      .filter(c => c.id !== company.id && c.shortDescription)
-      .map(c => {
-        const shared = c.categories.filter(cat => !BROAD.has(cat) && mySpecific.has(cat));
-        let score = shared.length * 3;
-        if (c.location.area === company.location.area) score += 2;
-        if (c.industry && c.industry === company.industry) score += 4;
-        return { company: c, score };
-      })
-      .filter(entry => entry.score >= 3)
-      .sort(
-        (a, b) =>
-          b.score - a.score || a.company.commute.distanceKm - b.company.commute.distanceKm
-      )
-      .slice(0, 3)
-      .map(entry => entry.company);
-  }, [
-    companies,
-    company.id,
-    company.categories,
-    company.industry,
-    company.location.area,
-    company.shortDescription,
-  ]);
+  const similarCompanies = useSimilarCompanies(company);
 
 
 
@@ -161,13 +134,28 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
             <span>{formatDistance(company.commute.distanceKm)}</span>
           </div>
 
-          <button
-            onClick={() => toggleSaveCompany(company.id)}
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border transition-colors shrink-0 ${ isSaved ? 'bg-brand-600 text-white border-brand-600 shadow-2xs' : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-line hover:bg-slate-50 dark:hover:bg-slate-750' }`}
-          >
-            <Bookmark className={`w-3.5 h-3.5 ${isSaved ? 'fill-white' : ''}`} />
-            <span>{isSaved ? 'Saved' : 'Save'}</span>
-          </button>
+          {/* Opens the list picker, like the cards do — saving from here used
+              to drop the company into "All Saved" with no say in the matter. */}
+          <div className="relative shrink-0">
+            <button
+              ref={saveButtonRef}
+              onClick={() => setIsSaveMenuOpen(open => !open)}
+              aria-haspopup="dialog"
+              aria-expanded={isSaveMenuOpen}
+              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border transition-colors ${ isSaved ? 'bg-brand-600 text-white border-brand-600 shadow-2xs' : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-line hover:bg-slate-50 dark:hover:bg-slate-750' }`}
+            >
+              <Bookmark className={`w-3.5 h-3.5 ${isSaved ? 'fill-white' : ''}`} />
+              <span>{isSaved ? 'Saved' : 'Save'}</span>
+            </button>
+            {isSaveMenuOpen && (
+              <SaveToListMenu
+                companyId={company.id}
+                companyName={company.name}
+                anchorRef={saveButtonRef}
+                onClose={() => setIsSaveMenuOpen(false)}
+              />
+            )}
+          </div>
         </div>
 
       </div>
@@ -270,14 +258,9 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
 
             {company.commonCareers.length > 0 && (
             <div>
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="text-xs font-bold text-ink uppercase tracking-wider">
-                  Common Careers
-                </h3>
-                <span className="text-[11px] text-brand-600 dark:text-brand-400 font-medium">
-                  Highlighted roles match your interests
-                </span>
-              </div>
+              <h3 className="text-xs font-bold text-ink uppercase tracking-wider mb-2">
+                Common Careers
+              </h3>
               <div className="flex flex-wrap gap-1.5">
                 {company.commonCareers.map(role => {
                   const relevant = isCareerRelevant(role, userInterests);
@@ -380,144 +363,7 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
         )}
 
         {/* TAB 2: CAREERS */}
-        {currentTab === 'careers' && (
-          <div className="space-y-5">
-            
-            {/* Direct Careers Link — a card that only says we found nothing is
-                not worth the space it takes. */}
-            {company.careersUrl && (
-            <div className="bg-slate-50 dark:bg-slate-800 border border-line rounded-lg p-4 flex items-center justify-between">
-              <div>
-                <h4 className="text-xs font-semibold text-ink">
-                  Official Careers Portal
-                </h4>
-                <p className="text-xs text-ink-2 mt-0.5">
-                  Open roles are listed on the company’s own careers page.
-                </p>
-              </div>
-              {company.careersUrl && (
-                <a
-                  href={company.careersUrl}
-                  onClick={() => track('careers_link_clicked', { company_id: company.id })}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold rounded-md shadow-2xs transition-colors shrink-0"
-                >
-                  <span>Careers</span>
-                  <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
-                </a>
-              )}
-            </div>
-            )}
-
-            {/*
-              Shows the actual scheme names when research found them, and falls
-              back to a plain confirmation otherwise. Hidden entirely when
-              nothing is known, rather than printing "Not confirmed" on every
-              record.
-            */}
-            {(company.programmes.length > 0 ||
-              company.internshipsKnown !== null ||
-              company.graduateRolesKnown !== null) && (
-              <div className="space-y-2">
-                <h3 className="text-xs font-bold text-ink uppercase tracking-wider">
-                  Student &amp; graduate programmes
-                </h3>
-
-                {company.programmes.length > 0 ? (
-                  <ul className="space-y-1.5">
-                    {company.programmes.map(programme => (
-                      <li
-                        key={programme.name}
-                        className="flex items-start gap-2 border border-line rounded-lg p-2.5 bg-surface"
-                      >
-                        <CheckCircle2
-                          className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5"
-                          aria-hidden="true"
-                        />
-                        <span className="min-w-0">
-                          <span className="block text-xs font-semibold text-ink">
-                            {programme.name}
-                          </span>
-                          <span className="block text-[11px] text-ink-3 capitalize">
-                            {programme.kind === 'graduate' ? 'Graduate scheme' : 'Internship'}
-                          </span>
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <div className="grid grid-cols-2 gap-3">
-                    {company.internshipsKnown !== null && (
-                      <div className="border border-line rounded-lg p-3 bg-surface">
-                        <span className="text-[10px] text-ink-3 font-semibold uppercase tracking-wider block">
-                          Internships
-                        </span>
-                        <span className="text-xs font-semibold text-ink mt-1 block">
-                          {company.internshipsKnown ? 'Offered' : 'None listed'}
-                        </span>
-                      </div>
-                    )}
-                    {company.graduateRolesKnown !== null && (
-                      <div className="border border-line rounded-lg p-3 bg-surface">
-                        <span className="text-[10px] text-ink-3 font-semibold uppercase tracking-wider block">
-                          Graduate roles
-                        </span>
-                        <span className="text-xs font-semibold text-ink mt-1 block">
-                          {company.graduateRolesKnown ? 'Offered' : 'None listed'}
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            )}
-
-            {/* Technical Career Roles List — only for records where the roles
-                were actually verified; most companies have none. */}
-            {company.commonCareers.length > 0 && (
-            <div>
-              <h3 className="text-xs font-bold text-ink uppercase tracking-wider mb-2.5">
-                Technical Career Paths
-              </h3>
-              <div className="space-y-2">
-                {company.commonCareers.map((role) => {
-                  const relevant = isCareerRelevant(role, userInterests);
-                  return (
-                    <div
-                      key={role}
-                      className={`p-3 rounded-lg border flex items-center justify-between transition-colors ${ relevant ? 'bg-accent-soft border-accent-soft-border' : 'bg-surface border-line' }`}
-                    >
-                      <div>
-                        <span className="text-xs font-semibold text-ink block">
-                          {role}
-                        </span>
-                        <span className="text-[11px] text-ink-2">
-                          {relevant ? 'Matches your interests' : 'Related role'}
-                        </span>
-                      </div>
-                      {company.careersUrl && (
-                        <a
-                          href={`${company.careersUrl}?q=${encodeURIComponent(role)}`}
-                          onClick={() => track('careers_link_clicked', { company_id: company.id, role })}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-xs text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 font-medium flex items-center gap-1 shrink-0"
-                          aria-label={`Search ${role} roles at ${company.name}`}
-                        >
-                          <span>Search</span>
-                          <ArrowRight className="w-3 h-3" aria-hidden="true" />
-                        </a>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-            )}
-
-          </div>
-        )}
+        {currentTab === 'careers' && <CompanyCareersTab company={company} />}
 
         {/* TAB 4: LOCATION */}
         {currentTab === 'location' && (
@@ -592,21 +438,6 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
                 </span>
               </div>
 
-              <a
-                href={directionsUrl(userLocation, company.location, commuteMode)}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() =>
-                  track('route_viewed', { company_id: company.id, mode: commuteMode })
-                }
-                className="w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 text-xs font-semibold rounded-md bg-brand-600 hover:bg-brand-700 text-white transition-colors"
-              >
-                <span>
-                  {commuteMode === 'transit' ? 'Get transit directions' : 'Get driving directions'}
-                </span>
-                <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
-              </a>
-
               {/*
                 The real route, from a planner that has RTA's schedules. We do
                 not draw it ourselves: Dubai's open data publishes bus route
@@ -634,6 +465,23 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
                   }`}
                 />
               </div>
+
+              {/* Sits under the map: you look at the route first, then open it. */}
+              <a
+                href={directionsUrl(userLocation, company.location, commuteMode)}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  track('route_viewed', { company_id: company.id, mode: commuteMode })
+                }
+                className="w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 text-xs font-semibold rounded-md bg-brand-600 hover:bg-brand-700 text-white transition-colors"
+              >
+                <span>
+                  {commuteMode === 'transit' ? 'Get transit directions' : 'Get driving directions'}
+                </span>
+                <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+              </a>
+
             </div>
           </div>
         )}
@@ -647,7 +495,12 @@ export const CompanyDrawer: React.FC<CompanyDrawerProps> = ({ company, onClose }
             {similarCompanies.map(sim => (
               <div
                 key={sim.id}
-                onClick={() => setSelectedCompany(sim)}
+                onClick={() => {
+                  // The drawer stays mounted, so without this the new company
+                  // opens on whatever tab was last read.
+                  setActiveTab('overview');
+                  setSelectedCompany(sim);
+                }}
                 className="p-3.5 border border-line rounded-lg bg-white dark:bg-slate-800 hover:border-brand-500 hover:shadow-subtle cursor-pointer transition flex items-center justify-between"
               >
                 <div className="flex items-center gap-3">

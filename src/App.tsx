@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { AppProvider, useApp } from './context/AppContext';
-import { Header } from './components/Header';
+import { Header, MobileNavBar } from './components/Header';
+import { CompareBar } from './components/CompareBar';
 import { ListView } from './pages/ListView';
 import { FeaturedView } from './pages/FeaturedView';
 import { MapView } from './pages/MapView';
@@ -28,7 +29,8 @@ const AppContent: React.FC = () => {
   }, [sharedListArrived, setSharedListArrived]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-app text-ink font-sans selection:bg-brand-100 selection:text-brand-900 transition-colors duration-150">
+    // pb on mobile clears the fixed bottom nav bar.
+    <div className="min-h-screen flex flex-col bg-app text-ink font-sans selection:bg-brand-100 selection:text-brand-900 transition-colors duration-150 pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:pb-0">
       
       {/* Centered Minimal Header */}
       <Header
@@ -54,6 +56,9 @@ const AppContent: React.FC = () => {
 
       {/* Google One Tap prompt (signed-out users only, after first interaction) */}
       <GoogleOneTap />
+
+      <CompareBar />
+      <MobileNavBar />
 
       {/* Subtle Minimal Footer (omitted on Map view for maximum canvas height) */}
       {activeTab !== 'map' && (

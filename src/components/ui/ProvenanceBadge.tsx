@@ -5,6 +5,12 @@ import type { Company } from '../../types/company';
 interface ProvenanceBadgeProps {
   company: Company;
   className?: string;
+  /**
+   * Show only the caveat. On a card, "Verified" and "Company-reported" are
+   * reassurance the reader did not ask for and they crowd 225 rows; the one
+   * state worth interrupting for is the record nobody has checked.
+   */
+  caveatOnly?: boolean;
 }
 
 /**
@@ -15,13 +21,18 @@ interface ProvenanceBadgeProps {
  * template, so the interface was asserting things nobody had confirmed. This
  * badge makes the difference visible instead.
  */
-export const ProvenanceBadge: React.FC<ProvenanceBadgeProps> = ({ company, className = '' }) => {
+export const ProvenanceBadge: React.FC<ProvenanceBadgeProps> = ({
+  company,
+  className = '',
+  caveatOnly = false,
+}) => {
   const { website, description } = company.provenance;
   const verified = website.confidence === 'verified' && description.confidence === 'verified';
   const unverified =
     website.confidence === 'unverified' && description.confidence === 'unverified';
 
   if (verified) {
+    if (caveatOnly) return null;
     return (
       <span
         className={`inline-flex items-center gap-1 text-[11px] font-medium text-emerald-700 dark:text-emerald-400 ${className}`}
@@ -44,6 +55,8 @@ export const ProvenanceBadge: React.FC<ProvenanceBadgeProps> = ({ company, class
       </span>
     );
   }
+
+  if (caveatOnly) return null;
 
   return (
     <span

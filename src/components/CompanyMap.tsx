@@ -6,6 +6,7 @@ import { useApp } from '../context/AppContext';
 import { useTheme } from '../context/ThemeContext';
 import { useToast } from './ui/Toast';
 import { LocationPicker } from './ui/LocationPicker';
+import { ResponsiveSheet } from './ui/ResponsiveSheet';
 import { formatDistance } from '../utils/distance';
 import { TILE_CONFIGS, MAP_STYLE_IDS, defaultStyleForTheme, type MapStyleId } from '../utils/mapTiles';
 import {
@@ -69,6 +70,7 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
   const userPickedStyleRef = useRef(false);
   const [isPickerOpen, setIsPickerOpen] = useState(false);
   const [isTilesOpen, setIsTilesOpen] = useState(false);
+  const [isMobilePickerOpen, setIsMobilePickerOpen] = useState(false);
   const tilesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -470,13 +472,40 @@ export const CompanyMap: React.FC<CompanyMapProps> = ({ companies, onSelectCompa
           onClick={() => setIsPickerOpen(open => !open)}
           aria-expanded={isPickerOpen}
           aria-haspopup="dialog"
-          className="flex items-center gap-1.5 px-2.5 py-2 text-xs font-medium rounded-lg bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-line shadow-lg text-ink-2 hover:text-ink transition-colors"
+          className="hidden md:flex items-center gap-1.5 px-2.5 py-2 text-xs font-medium rounded-lg bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-line shadow-lg text-ink-2 hover:text-ink transition-colors"
           title="Set the location commutes are measured from"
         >
           <MapPinHouse className="w-4 h-4" aria-hidden="true" />
           <span>Set location</span>
         </button>
       </div>
+
+      {/*
+        Phones: the same control as an icon, stacked above the map-style button,
+        opening as a bottom sheet rather than a dropup — a 288px popover does not
+        fit over a phone-width map.
+      */}
+      <button
+        onClick={() => setIsMobilePickerOpen(true)}
+        aria-haspopup="dialog"
+        aria-expanded={isMobilePickerOpen}
+        aria-label="Set the location commutes are measured from"
+        title="Set location"
+        className="md:hidden absolute bottom-[8.625rem] right-2.5 z-1000 w-[30px] h-[30px] flex items-center justify-center rounded-md bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-line shadow-lg text-ink-2 hover:text-ink transition-colors"
+      >
+        <MapPinHouse className="w-4 h-4" aria-hidden="true" />
+      </button>
+
+      <ResponsiveSheet
+        open={isMobilePickerOpen}
+        onClose={() => setIsMobilePickerOpen(false)}
+        label="Set your location"
+        heightClassName="max-h-[80dvh]"
+      >
+        <div className="p-3 overflow-y-auto">
+          <LocationPicker bare onClose={() => setIsMobilePickerOpen(false)} />
+        </div>
+      </ResponsiveSheet>
 
       {/* Bottom left: which location the commute figures are measured from */}
       <div className="absolute bottom-6 left-6 z-1000 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-line rounded-lg px-3 py-2 text-ink shadow-xl flex items-center gap-2 transition-colors">

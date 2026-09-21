@@ -2,302 +2,420 @@
   {
     "id": "apco-worldwide",
     "website": "https://apcoworldwide.com",
-    "websiteSource": "https://www.provokemedia.com",
+    "websiteSource": "https://consultancy-me.com",
     "careersUrl": "https://apcoworldwide.com/careers/",
-    "careersSource": "https://careerdevelopment.princeton.edu",
-    "shortDescription": "APCO Worldwide is an advisory and strategic communications consultancy providing public affairs, corporate communication, and digital strategy services in the UAE.",
-    "whatTheyDo": "In the UAE, APCO provides strategic communications, public affairs advisory, crisis and reputation management, and digital campaign services to government entities and multinational corporations. The firm operates offices in Dubai and Abu Dhabi with teams covering strategy, media relations, AI advisory, and public relations.",
-    "descriptionSource": "https://www.provokemedia.com",
+    "careersSource": "https://apcoworldwide.com",
+    "linkedinUrl": "https://www.linkedin.com/company/apco-worldwide",
+    "linkedinSource": "https://eujobs.co",
+    "shortDescription": "APCO Worldwide is an independent global public affairs and strategic communications consultancy operating in the UAE.",
+    "whatTheyDo": "APCO Worldwide provides strategic communications, public affairs advisory, crisis management, digital transformation, and AI integration services. The firm advises government bodies, multinational corporations, and industry associations across the Middle East, Africa, and Europe from its Dubai office.",
+    "descriptionSource": "https://consultancy-me.com",
     "industry": "Public Relations & Communications",
-    "address": "Office 104, Block B, Office Park Building, Abdullah Omran Taryam Street, Dubai Internet City, Dubai, UAE",
-    "latitude": 25.10528,
-    "longitude": 55.16833,
-    "locationSource": "https://wikimapia.org",
+    "commonCareers": [
+      "Strategy Intern",
+      "Media Monitoring Intern",
+      "Artificial Intelligence Intern",
+      "Senior Account Executive",
+      "Account Director"
+    ],
+    "careersEvidence": "https://bayt.com",
+    "technicalAreas": [
+      "Strategic Communications",
+      "Public Affairs",
+      "Digital Transformation",
+      "Artificial Intelligence"
+    ],
+    "address": "Office 104, Block B, Office Park Building, Dubai Internet City, Dubai, United Arab Emirates",
+    "latitude": 25.10543,
+    "longitude": 55.16854,
+    "locationSource": "https://maptons.com",
     "internshipsKnown": true,
-    "graduateRolesKnown": true,
-    "programmesSource": "https://www.bayt.com",
+    "graduateRolesKnown": false,
+    "programmes": [],
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "PRovoke Media APCO Agency Profile",
-        "url": "https://www.provokemedia.com"
-      },
-      {
-        "title": "Arabian Business APCO Middle East Coverage",
-        "url": "https://www.arabianbusiness.com"
+        "title": "Consultancy-me Profile",
+        "url": "https://consultancy-me.com"
       }
     ],
-    "notes": "Input specifies Downtown area, but verified Dubai office is located in Office Park Building, Dubai Internet City. The global consultancy officially shortened its brand name to APCO in 2024."
+    "notes": "Input listed area as Downtown, but the Dubai office is located in Office Park Building in Dubai Internet City."
   },
   {
     "id": "apparel-group",
     "website": "https://www.apparelgroup.com",
-    "websiteSource": "https://www.forbesmiddleeast.com",
+    "websiteSource": "https://2gis.ae",
     "careersUrl": "https://www.apparelgroup.com/en/careers/",
-    "careersSource": "https://gulfnews.com",
-    "shortDescription": "Apparel Group is a global fashion and lifestyle retail conglomerate based in Dubai operating major retail brands across the GCC and internationally.",
-    "whatTheyDo": "Apparel Group operates and manages more than 2,300 retail stores and 85 international brands including Tommy Hilfiger, Aldo, Charles & Keith, and Skechers across the UAE and the Middle East. Headquartered in Jebel Ali Free Zone, its UAE teams oversee brand marketing, omni-channel retail operations, logistics, and digital e-commerce platforms.",
-    "descriptionSource": "https://www.forbesmiddleeast.com",
-    "industry": "Retail & Consumer Goods",
-    "address": "Plot No. S21317, Jebel Ali Freezone (South) Extension, Exit 18, Gate No. 7, Roundabout 13, Jebel Ali, Dubai, UAE",
+    "careersSource": "https://www.apparelgroup.com",
+    "linkedinUrl": "https://www.linkedin.com/company/apparel-group",
+    "linkedinSource": "https://daleeeel.com",
+    "shortDescription": "Apparel Group is a global fashion and lifestyle retail conglomerate based in the UAE.",
+    "whatTheyDo": "Apparel Group operates more than 2,500 retail stores and manages over 85 international fashion, footwear, and lifestyle brands across the GCC and internationally. Its UAE headquarters oversees retail brand management, warehousing, supply chain operations, and e-commerce platforms.",
+    "descriptionSource": "https://en.wikipedia.org",
+    "industry": "Retail & Fashion",
+    "commonCareers": [
+      "Manager - Brand Operations",
+      "Category Manager",
+      "Senior Executive - Accounts Receivable",
+      "Lead System Administrator & Infrastructure",
+      "Enterprise Architect - AI & Digital Platforms",
+      "In-Store Visual Merchandiser"
+    ],
+    "careersEvidence": "https://naukrigulf.com",
+    "technicalAreas": [
+      "Retail Operations",
+      "Supply Chain Management",
+      "Digital Platforms",
+      "Information Technology"
+    ],
+    "address": "Plot No. S21317, Jebel Ali South Freezone Extension, Jebel Ali, Dubai, United Arab Emirates",
     "latitude": null,
     "longitude": null,
-    "locationSource": "https://citysearch.ae",
+    "locationSource": "https://adda.io",
     "internshipsKnown": true,
     "graduateRolesKnown": true,
-    "programmesSource": "https://gulfnews.com",
+    "programmes": [
+      {
+        "name": "Global Internship Programme",
+        "kind": "internship"
+      },
+      {
+        "name": "MASARI Programme",
+        "kind": "graduate"
+      },
+      {
+        "name": "Elevate Programme",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://apparelgroup.com/en/careers/",
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Forbes Middle East Apparel Group Conglomerate Profile",
-        "url": "https://www.forbesmiddleeast.com"
+        "title": "Wikipedia - Apparel Group",
+        "url": "https://en.wikipedia.org/wiki/Apparel_Group"
       },
       {
-        "title": "Gulf News Business Coverage",
-        "url": "https://gulfnews.com"
+        "title": "Naukrigulf Company Overview",
+        "url": "https://naukrigulf.com"
       }
     ],
-    "notes": "Input lists area as Business Bay, but corporate headquarters and distribution operations are located in Jebel Ali Free Zone (JAFZA) South."
+    "notes": "Input listed area as Business Bay, but headquarters is located in Jebel Ali Free Zone (JAFZA) South."
   },
   {
     "id": "apple",
     "website": "https://www.apple.com/ae",
-    "websiteSource": "https://www.thenationalnews.com",
-    "careersUrl": "https://www.apple.com/jobs/ae/",
-    "careersSource": "https://www.itp.net",
-    "shortDescription": "Apple Middle East oversees regional corporate sales, marketing, operations, and developer relations for Apple products and services across the UAE and broader region.",
-    "whatTheyDo": "Apple operates regional corporate headquarters in Downtown Dubai managing regional business development, retail operations, marketing, and Apple Pay partnerships across the Middle East. It also supports local enterprise clients and developers building applications within Apple ecosystems.",
-    "descriptionSource": "https://www.thenationalnews.com",
-    "industry": "Technology & Software",
-    "address": "Office 302, Level 3, Building 4, Emaar Square, Downtown Dubai, Dubai, UAE",
-    "latitude": 25.20080,
-    "longitude": 55.27420,
-    "locationSource": "https://maptons.com",
-    "internshipsKnown": true,
-    "graduateRolesKnown": true,
-    "programmesSource": "https://www.thenationalnews.com",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
+    "websiteSource": "https://thenationalnews.com",
+    "careersUrl": "https://jobs.apple.com",
+    "careersSource": "https://jobs.apple.com",
+    "shortDescription": "Apple Middle East oversees Apple's consumer technology sales, regional operations, and retail store network in the UAE.",
+    "whatTheyDo": "Apple sells consumer hardware, software, and digital services including iPhone, Mac, iPad, Apple Watch, Apple Pay, and digital subscriptions in the UAE. Its corporate presence in Dubai supports regional sales, marketing, channel operations, and retail store teams across the Middle East.",
+    "descriptionSource": "https://thenationalnews.com",
+    "industry": "Consumer Electronics & Technology",
+    "commonCareers": [
+      "Business Development Manager — Apple Pay E-Commerce",
+      "Marcom Strategic Planner, CEMEA",
+      "Apple Channel Store Advisor",
+      "Technical Specialist",
+      "Genius",
+      "Creative",
+      "Business Expert"
+    ],
+    "careersEvidence": "https://jobs.apple.com",
+    "technicalAreas": [
+      "Digital Services",
+      "E-Commerce",
+      "Retail Technology"
+    ],
+    "address": "Unit 48, Level 48, ICD Brookfield Place, DIFC, Dubai, United Arab Emirates",
+    "latitude": 25.21199,
+    "longitude": 55.28189,
+    "locationSource": "https://mapcarta.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "The National News Apple UAE Coverage",
-        "url": "https://www.thenationalnews.com"
-      },
-      {
-        "title": "ITP.net Apple Middle East Profile",
-        "url": "https://www.itp.net"
+        "title": "The National News coverage",
+        "url": "https://thenationalnews.com"
       }
     ],
-    "notes": "Input specifies Downtown area, which correctly matches Apple Middle East's regional corporate headquarters at Building 4, Emaar Square."
+    "notes": "Regional corporate headquarters is located at ICD Brookfield Place in DIFC, having relocated from Downtown Emaar Square."
   },
   {
     "id": "arab-loss-adjusters-llc",
-    "website": "https://www.arablossadjusters.com",
+    "website": "http://www.arablossadjusters.com",
     "websiteSource": "https://fair1964.org",
-    "careersUrl": null,
-    "careersSource": null,
-    "shortDescription": "Arab Loss Adjusters LLC provides independent insurance loss adjusting, risk inspection, and claims management services in the UAE.",
-    "whatTheyDo": "Established in 1981, Arab Loss Adjusters handles insurance claim investigations, damage quantification, and technical risk assessments across property, marine, engineering, liability, and financial lines. The firm operates out of Deira, Dubai, serving regional insurance firms, Lloyd's syndicates, and commercial insureds.",
+    "shortDescription": "Arab Loss Adjusters LLC is an independent technical claims management and insurance loss adjusting firm operating in the UAE.",
+    "whatTheyDo": "Arab Loss Adjusters provides loss adjusting, surveying, and claims management services to insurers and reinsurers. In the UAE, it handles technical claims across property, engineering, marine, motor, liability, and energy sectors.",
     "descriptionSource": "https://fair1964.org",
-    "industry": "Insurance & Financial Services",
-    "address": "Caterpillar Building, Salah Al Din Street, Al Khabaisi, Deira, P.O. Box 1970, Dubai, UAE",
+    "industry": "Insurance Services",
+    "commonCareers": [
+      "Loss Adjuster",
+      "Human Resources Officer",
+      "Administrative Assistant"
+    ],
+    "careersEvidence": "https://bebee.com",
+    "technicalAreas": [
+      "Loss Adjusting",
+      "Insurance Surveying",
+      "Claims Management",
+      "Risk Assessment"
+    ],
+    "address": "Office 104, Bahwan Plaza Building, Sheikh Zayed Road, Umm Al Sheif, Dubai, United Arab Emirates",
     "latitude": null,
     "longitude": null,
     "locationSource": "https://fair1964.org",
-    "internshipsKnown": null,
-    "graduateRolesKnown": null,
-    "programmesSource": null,
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "FAIR Directory Profile",
+        "title": "Federation of Afro-Asian Insurers & Reinsurers Directory",
         "url": "https://fair1964.org"
       },
       {
-        "title": "UAE Companies Directory Profile",
-        "url": "https://uaecompanies.ae"
+        "title": "Emirates Insurance Federation Member Directory",
+        "url": "https://eifuae.com"
       }
     ],
-    "notes": "Input specifies area as Dubai Internet City, but the company's verified office is located in Deira (Al Khabaisi / Salah Al Din Street); Internet City associations in web aggregators appear to be directory scraping errors. No public careers portal or internship program exists."
+    "notes": "Input listed area as Dubai Internet City, but the company's offices are located in Umm Al Sheif and Deira."
   },
   {
     "id": "aramex",
     "website": "https://www.aramex.com",
-    "websiteSource": "https://www.dfm.ae",
-    "careersUrl": "https://careers.aramex.com",
-    "careersSource": "https://www.bayt.com",
-    "shortDescription": "Aramex is a publicly listed global logistics, express courier, and supply chain solutions provider headquartered in Dubai.",
-    "whatTheyDo": "Aramex provides international and domestic express delivery, freight forwarding, integrated logistics, and supply chain management solutions worldwide. Headquartered in the Airport area of Umm Ramool, Dubai, its UAE teams oversee global corporate leadership, regional distribution centers, and digital logistics software solutions.",
-    "descriptionSource": "https://www.dfm.ae",
+    "websiteSource": "https://business.linkedin.com",
+    "careersUrl": "https://www.aramex.com/careers",
+    "careersSource": "https://www.aramex.com",
+    "linkedinUrl": "https://www.linkedin.com/company/aramex",
+    "linkedinSource": "https://business.linkedin.com",
+    "shortDescription": "Aramex is a multinational logistics, courier, and package delivery company headquartered in the UAE.",
+    "whatTheyDo": "Aramex provides express courier delivery, freight forwarding, logistics, supply chain management, and e-commerce solutions. Its UAE operations run central logistics hubs, sorting facilities, and IT/digital systems serving domestic and international distribution.",
+    "descriptionSource": "https://business.linkedin.com",
     "industry": "Logistics & Supply Chain",
-    "address": "184 Airport Road, Umm Ramool, Dubai, UAE",
-    "latitude": 25.23940,
-    "longitude": 55.37190,
-    "locationSource": "https://maptons.com",
+    "commonCareers": [
+      "Accountant",
+      "Contact Center Executive",
+      "Driver"
+    ],
+    "careersEvidence": "https://naukrigulf.com",
+    "technicalAreas": [
+      "Logistics Management",
+      "Supply Chain Management",
+      "Freight Forwarding",
+      "Transportation Systems"
+    ],
+    "address": "Airport Road, Umm Ramool, Dubai, United Arab Emirates",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://mapcarta.com",
     "internshipsKnown": true,
     "graduateRolesKnown": true,
-    "programmesSource": "https://www.bayt.com",
+    "programmes": [
+      {
+        "name": "Management Trainee Program",
+        "kind": "graduate"
+      }
+    ],
+    "programmesSource": "https://aramex.com/careers",
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Dubai Financial Market (DFM) Aramex PJSC Company Profile",
-        "url": "https://www.dfm.ae"
+        "title": "LinkedIn Talent Solutions Case Study",
+        "url": "https://business.linkedin.com"
       },
       {
-        "title": "Gulf News Aramex Business Coverage",
-        "url": "https://gulfnews.com"
+        "title": "Naukrigulf Company Profile",
+        "url": "https://naukrigulf.com"
       }
     ],
-    "notes": "Input area 'Airport areas' accurately reflects the corporate headquarters located on Airport Road in Umm Ramool."
+    "notes": "Coordinates omitted as sources only provide approximate area centroids for the Umm Ramool hub."
   },
   {
     "id": "arcelormittal",
     "website": "https://corporate.arcelormittal.com",
-    "websiteSource": "https://www.bloomberg.com",
+    "websiteSource": "https://mesteel.com",
     "careersUrl": "https://corporate.arcelormittal.com/careers",
-    "careersSource": "https://www.bloomberg.com",
-    "shortDescription": "ArcelorMittal manages regional steel distribution, tubular solutions, and industrial project supply in the UAE through ArcelorMittal DSTC FZE.",
-    "whatTheyDo": "ArcelorMittal supplies steel products, structural sections, and specialized tubular goods to energy, construction, and infrastructure projects across the Middle East. Its primary UAE operational hub in Jebel Ali Free Zone provides regional commercial sales, warehousing, and logistics coordination.",
-    "descriptionSource": "https://www.bloomberg.com",
+    "careersSource": "https://corporate.arcelormittal.com",
+    "shortDescription": "ArcelorMittal is a multinational steel manufacturing corporation operating regional distribution and sales in the UAE.",
+    "whatTheyDo": "ArcelorMittal supplies steel products, sheet piling, rails, and structural steel sections to major infrastructure and construction projects in the region. In the UAE, it operates regional stockholding and commercial distribution entities through facilities in the Jebel Ali Free Zone and DAFZA.",
+    "descriptionSource": "https://mesteel.com",
     "industry": "Mining & Metals",
-    "address": "Plot No. S40703, South Zone 4, Jebel Ali Free Zone (JAFZA), Dubai, UAE",
+    "commonCareers": [
+      "Territory Sales Manager",
+      "Electrical Technician",
+      "Mechanical Technician",
+      "Instrument Technician"
+    ],
+    "careersEvidence": "https://indeed.com",
+    "technicalAreas": [
+      "Steel Manufacturing",
+      "Metallurgy",
+      "Industrial Engineering"
+    ],
+    "address": "Plot No. S40703, South Zone 4, Jebel Ali Free Zone, Dubai, United Arab Emirates",
     "latitude": null,
     "longitude": null,
-    "locationSource": "https://www.mesteel.com",
-    "internshipsKnown": null,
-    "graduateRolesKnown": null,
-    "programmesSource": null,
+    "locationSource": "https://mesteel.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Bloomberg ArcelorMittal DSTC FZE Profile",
-        "url": "https://www.bloomberg.com"
-      },
-      {
-        "title": "MEsteel Regional Directory Profile",
-        "url": "https://www.mesteel.com"
+        "title": "MEsteel Middle East Steel Directory",
+        "url": "https://mesteel.com"
       }
     ],
-    "notes": "Input lists area as Business Bay, but ArcelorMittal's primary UAE operations and legal entity (ArcelorMittal DSTC FZE) are located in Jebel Ali Free Zone (JAFZA)."
+    "notes": "Input listed area as Business Bay, but regional facilities are located in Jebel Ali Free Zone (ArcelorMittal DSTC FZCO) and DAFZA (Industeel Middle-East)."
   },
   {
     "id": "arj-holding-llc",
     "website": "https://arjholding.com",
-    "websiteSource": "https://gulfnews.com",
-    "careersUrl": null,
-    "careersSource": null,
-    "shortDescription": "ARJ Holding L.L.C is an Emirati diversified holding company operating in water technology, engineering solutions, and property development.",
-    "whatTheyDo": "Founded in 1964, ARJ Holding operates business units across water technology systems, building engineering, electromechanical contracting, and real estate development. Its Dubai headquarters in Al Quoz directs operations, distribution of global industrial brands, and municipal water management projects across the UAE and GCC.",
-    "descriptionSource": "https://gulfnews.com",
-    "industry": "Conglomerates & Diversified Services",
-    "address": "Ahmed Ramadhan Juma Building, Sheikh Zayed Road (between 2nd and 3rd Interchanges), Al Quoz 3, Dubai, UAE",
+    "websiteSource": "https://kompass.com",
+    "shortDescription": "ARJ Holding L.L.C is a diversified Emirati holding company specializing in water technology and engineering services.",
+    "whatTheyDo": "ARJ Holding provides water engineering systems, electromechanical contracting, building services, and real estate development. Its UAE subsidiaries supply water pumping systems, plumbing solutions, and facility engineering services to municipal and commercial clients.",
+    "descriptionSource": "https://kompass.com",
+    "industry": "Conglomerate & Engineering",
+    "commonCareers": [
+      "Finance Manager",
+      "Maintenance Engineer",
+      "Sales Engineer",
+      "Accountant"
+    ],
+    "careersEvidence": "https://bayt.com",
+    "technicalAreas": [
+      "Water Technology",
+      "Electromechanical Engineering",
+      "Building Services"
+    ],
+    "address": "Ahmed Ramadhan Juma Building, Sheikh Zayed Road, Al Quoz 3, Dubai, United Arab Emirates",
     "latitude": null,
     "longitude": null,
-    "locationSource": "https://www.decypha.com",
-    "internshipsKnown": null,
-    "graduateRolesKnown": null,
-    "programmesSource": null,
+    "locationSource": "https://kompass.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Gulf News ARJ Group Coverage",
-        "url": "https://gulfnews.com"
-      },
-      {
-        "title": "Decypha ARJ Holding Profile",
-        "url": "https://www.decypha.com"
+        "title": "Kompass UAE Business Directory",
+        "url": "https://kompass.com"
       }
     ],
-    "notes": "Input lists area as JLT, but corporate headquarters is located in the Ahmed Ramadhan Juma Building in Al Quoz 3 along Sheikh Zayed Road. No dedicated careers portal is hosted on the primary domain."
+    "notes": "Input listed area as JLT, but headquarters is located in Al Quoz 3 on Sheikh Zayed Road."
   },
   {
     "id": "asus-middle-east-fzco",
     "website": "https://www.asus.com/me-en/",
-    "websiteSource": "https://www.nccu.edu.tw",
-    "careersUrl": "https://ehr.asus.com/",
-    "careersSource": "https://www.nccu.edu.tw",
-    "shortDescription": "ASUS Middle East FZCO is the regional subsidiary managing sales distribution, marketing, and technical support for ASUS and ROG hardware products in the UAE.",
-    "whatTheyDo": "ASUS Middle East oversees regional distribution and channel partnerships for laptops, computer components, motherboards, displays, and Republic of Gamers (ROG) gaming hardware across the UAE and Middle East. Operating from Business Bay, Dubai, its teams manage regional sales, commercial product marketing, and customer service warranty centers.",
-    "descriptionSource": "https://www.tahawultech.com",
-    "industry": "Consumer Electronics & Hardware",
-    "address": "Anantara Business Center (The Oberoi Centre), 12th Floor, 17 Marasi Drive, Business Bay, Dubai, UAE",
-    "latitude": 25.18560,
-    "longitude": 55.27580,
-    "locationSource": "https://www.nccu.edu.tw",
-    "internshipsKnown": true,
-    "graduateRolesKnown": true,
-    "programmesSource": "https://www.nccu.edu.tw",
+    "websiteSource": "https://yellowpages-uae.com",
+    "shortDescription": "ASUS Middle East FZCO is the regional subsidiary of ASUS managing computer hardware and electronics distribution in the UAE.",
+    "whatTheyDo": "ASUS Middle East markets and distributes consumer laptops, gaming hardware (ROG), commercial PCs, motherboards, and PC peripherals across the region. In the UAE, it manages channel sales, product marketing, after-sales service operations, and enterprise partner accounts.",
+    "descriptionSource": "https://yellowpages-uae.com",
+    "industry": "Computer Hardware & Electronics",
+    "commonCareers": [
+      "Commercial PC Product Manager",
+      "Strategic Account Manager",
+      "Sales Account Manager"
+    ],
+    "careersEvidence": "https://ae.indeed.com",
+    "technicalAreas": [
+      "Computer Hardware",
+      "Consumer Electronics",
+      "Product Management"
+    ],
+    "address": "Office 629, 5WA, West Wing, Dubai Airport Freezone (DAFZA), Dubai, United Arab Emirates",
+    "latitude": null,
+    "longitude": null,
+    "locationSource": "https://yellowpages-uae.com",
+    "internshipsKnown": false,
+    "graduateRolesKnown": false,
+    "programmes": [],
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "TahawulTech ASUS Middle East Coverage",
-        "url": "https://www.tahawultech.com"
-      },
-      {
-        "title": "ITP.net ASUS Middle East Profile",
-        "url": "https://www.itp.net"
-      },
-      {
-        "title": "National Chengchi University (NCCU) Career & Internship Listings",
-        "url": "https://www.nccu.edu.tw"
+        "title": "Yellow Pages UAE Directory",
+        "url": "https://yellowpages-uae.com"
       }
     ],
-    "notes": "Input lists area as Dubai Internet City, where ASUS previously had directory listings, but verified regional hub is located at Anantara Business Center (The Oberoi Centre), 12th Floor, Business Bay."
+    "notes": "Input listed area as Dubai Internet City, but the regional corporate entity is registered in DAFZA and operates offices in Business Bay."
   },
   {
     "id": "audi-volkswagen-middle-east-fze",
     "website": "https://volkswagengroup-me.com",
-    "websiteSource": "https://gulfnews.com",
-    "careersUrl": "https://volkswagengroup-me.com",
-    "careersSource": "https://gulfnews.com",
-    "shortDescription": "Audi Volkswagen Middle East FZE is the regional headquarters overseeing operations, vehicle sales, dealer networks, and aftersales for Audi and Volkswagen brands in the Middle East.",
-    "whatTheyDo": "Established in 2005, Audi Volkswagen Middle East FZE oversees brand strategy, importer relations, new model launches, and aftersales distribution across Middle Eastern markets. Headquartered in Dubai Airport Freezone (DAFZA) with a regional parts distribution center in JAFZA, its teams direct regional marketing, dealer network management, and electric mobility infrastructure.",
-    "descriptionSource": "https://gulfnews.com",
+    "websiteSource": "https://naukrigulf.com",
+    "shortDescription": "Audi Volkswagen Middle East FZE is the regional headquarters overseeing automotive distribution and dealer networks in the Middle East.",
+    "whatTheyDo": "Audi Volkswagen Middle East coordinates sales, marketing, aftersales service, and parts logistics for Audi and Volkswagen brands across nine regional markets. It operates a centralized Parts Distribution Center in Dubai and conducts technical and business training for regional dealership networks.",
+    "descriptionSource": "https://naukrigulf.com",
     "industry": "Automotive",
-    "address": "Office 101, Building 8W/A, West Wing, Dubai Airport Freezone (DAFZA), Al Quds Street, P.O. Box 27758, Dubai, UAE",
+    "commonCareers": [],
+    "technicalAreas": [],
+    "address": "West Wing, Building 8W/A, Office 101, Dubai Airport Freezone (DAFZA), Dubai, United Arab Emirates",
     "latitude": null,
     "longitude": null,
-    "locationSource": "https://gulfnews.com",
+    "locationSource": "https://naukrigulf.com",
     "internshipsKnown": true,
-    "graduateRolesKnown": null,
-    "programmesSource": "https://volkswagengroup-me.com",
+    "graduateRolesKnown": true,
+    "programmes": [],
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Gulf News Audi Volkswagen Middle East Coverage",
-        "url": "https://gulfnews.com"
+        "title": "Naukrigulf Company Profile",
+        "url": "https://naukrigulf.com"
       },
       {
-        "title": "Arabian Business Automotive Coverage",
-        "url": "https://www.arabianbusiness.com"
+        "title": "DHL Logistics Partnership Feature",
+        "url": "https://dhl.com"
       }
     ],
-    "notes": "Input lists area as Downtown, but regional headquarters is located in Dubai Airport Freezone (DAFZA) Building 8W/A."
+    "notes": "Input listed area as Downtown, but the regional headquarters is located in Dubai Airport Freezone (DAFZA). Offers an internship programme for fresh graduates, but no unique public scheme name was published."
   },
   {
     "id": "augustus-media",
     "website": "https://augustusmedia.com",
-    "websiteSource": "https://campaignme.com",
-    "careersUrl": "https://augustusmedia.com/contact-us/",
-    "careersSource": "https://campaignme.com",
-    "shortDescription": "Augustus Media is a modern digital media and publishing company based in Dubai operating regional brands including Lovin Dubai and Smashi TV.",
-    "whatTheyDo": "Augustus Media creates, produces, and distributes digital news, entertainment, and video broadcasting content across the Middle East. Headquartered in a dedicated studio facility in Dubai Production City, its teams handle digital journalism, video production, advertising partnerships, and commercial media campaigns for flagship brands Lovin, Smashi TV, and Odeum content studio.",
-    "descriptionSource": "https://campaignme.com",
-    "industry": "Media & Publishing",
-    "address": "Unit C43, Me'aisem First, Dubai Production City, Dubai, UAE",
+    "websiteSource": "https://builtin.com",
+    "linkedinUrl": "https://www.linkedin.com/company/augustus-media",
+    "linkedinSource": "https://builtin.com",
+    "shortDescription": "Augustus Media is a modern digital media and publishing company headquartered in Dubai.",
+    "whatTheyDo": "Augustus Media operates major regional digital media and broadcasting brands including Lovin Dubai, Lovin Saudi, and the business streaming platform Smashi TV. In the UAE, it produces digital content, broadcasts live shows, and runs commercial digital advertising and media services.",
+    "descriptionSource": "https://builtin.com",
+    "industry": "Digital Media & Publishing",
+    "commonCareers": [
+      "Commercial Manager",
+      "Sales Executive",
+      "Videographer",
+      "Writer",
+      "Web Developer"
+    ],
+    "careersEvidence": "https://builtin.com",
+    "technicalAreas": [
+      "Digital Media Production",
+      "Content Strategy",
+      "Streaming Media",
+      "Web Development"
+    ],
+    "address": "Unit C43, Me'aisem First, Dubai Production City, Dubai, United Arab Emirates",
     "latitude": null,
     "longitude": null,
-    "locationSource": "https://campaignme.com",
+    "locationSource": "https://builtin.com",
     "internshipsKnown": true,
-    "graduateRolesKnown": true,
-    "programmesSource": "https://campaignme.com",
+    "graduateRolesKnown": false,
+    "programmes": [
+      {
+        "name": "Augustus Academy",
+        "kind": "internship"
+      }
+    ],
+    "programmesSource": "https://augustusmedia.com",
     "retrievedAt": "2026-09-21",
     "sources": [
       {
-        "title": "Campaign Middle East Augustus Media Coverage",
-        "url": "https://campaignme.com"
+        "title": "Built In Company Profile",
+        "url": "https://builtin.com"
       }
     ],
-    "notes": "Input lists area as Dubai Media City, but headquarters and production studios relocated to Unit C43, Dubai Production City (Me'aisem First)."
+    "notes": "Input listed area as Dubai Media City, but headquarters is located in Dubai Production City (Me'aisem First)."
   }
 ]
